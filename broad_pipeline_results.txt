@@ -1,0 +1,49 @@
+============================================================
+Broad-Market Demand Zone Research Results
+============================================================
+
+Run Time: 2026-07-23
+
+Dataset:
+  Signals: 27,638
+  Tickers: 149
+  Date Range: 2019-07-30 to 2026-06-24
+  Sub-$10 Signals: 1,528
+  Hit-Target Rate: 13.06%
+
+Broad-Market Classification (held-out test set):
+  Precision: 0.3750
+  Recall: 0.0048
+  F1 Score: 0.0094
+  ROC-AUC: 0.6890
+  Validation-Selected Threshold: 0.75
+
+Walk-Forward Classification (5 folds):
+  Precision: 0.6267
+  Recall: 0.0465
+  F1 Score: 0.0854
+  ROC-AUC: 0.7620
+
+Forward 20-Day Return Ranking (held-out test set):
+  MAE: 0.0956
+  R-squared: 0.0000
+  Spearman Rank Correlation: 0.0886
+
+Sub-$10 Classification (held-out test subset):
+  Precision: 0.5000
+  Recall: 0.0161
+  F1 Score: 0.0312
+  ROC-AUC: 0.4904
+
+Trading Backtest (broad-market held-out test set):
+  Trades Taken: 8
+  Total Return: 6.98%
+  Max Drawdown: -4.12%
+  Profit Factor: 1.80
+
+Interpretation:
+  Broad-market classification ranks hit-target outcomes above chance, but the
+  low recall reflects the 0.75 validation-selected threshold. The broad model
+  does not currently generalize to the sub-$10 test subset, and the forward
+  return ranker is weak. Do not tune the threshold or treat the 8-trade
+  backtest as evidence of a deployable strategy.

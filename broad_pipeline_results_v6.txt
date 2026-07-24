@@ -1,0 +1,142 @@
+============================================================
+BROAD PIPELINE RESULTS V6
+============================================================
+
+FEATURE ENGINEERING OVERHAUL (PROFESSIONAL TRADER KNOWLEDGE)
+- Phase 1: Demand Zone Quality (freshness, base quality, departure strength, nearby obstacles, trend alignment)
+- Phase 2: Market Context (SPY regime, sector context)
+- Phase 3: Institutional Activity (volume patterns, price patterns)
+- Phase 4: Multi-Timeframe Confirmation
+- Phase 5: Zone Location
+- Phase 6: Market Structure
+- Phase 7: Quality Score (engineered features)
+
+Total Features: 86 (up from ~50 in v5)
+
+============================================================
+DATASET STATISTICS
+============================================================
+
+Total Signals: 365 (down from previous)
+Target Distribution: {0: 261, 1: 104} (28.5% positive)
+Chronological Split:
+  Train: 255 samples (2024-08-07 to 2025-12-18)
+  Val: 55 samples (2025-12-22 to 2026-03-06)
+  Test: 55 samples (2026-03-06 to 2026-06-23)
+
+============================================================
+MODEL COMPARISON (VALIDATION SET)
+============================================================
+
+               precision    recall        f1       auc
+model
+Random Forest   0.285714  0.571429  0.380952  0.729167
+XGBoost         0.000000  0.000000  0.000000  0.681548
+LightGBM        0.000000  0.000000  0.000000  0.616071
+
+Best Model: Random Forest (AUC: 0.7292)
+
+============================================================
+FINAL TEST SET EVALUATION
+============================================================
+
+Classification Metrics:
+  Precision: 0.0833
+  Recall: 0.0909
+  F1 Score: 0.0870
+  ROC-AUC: 0.4421
+
+Classification Report:
+              precision    recall  f1-score   support
+           0       0.77      0.75      0.76        44
+           1       0.08      0.09      0.09        11
+    accuracy                           0.62        55
+   macro avg       0.43      0.42      0.42        55
+weighted avg       0.63      0.62      0.62        55
+
+Forward Return Ranking (held-out test set):
+  MAE: 0.2027
+  R²: 0.0513
+  Spearman Rank Correlation: 0.4229
+
+Sub-$10 Held-out Test Evaluation:
+  Precision: 0.0000
+  Recall: 0.0000
+  F1 Score: 0.0000
+  ROC-AUC: 0.5368
+
+============================================================
+TOP 10 OUT-OF-SAMPLE FEATURES
+============================================================
+
+1. base_range_pct (0.028099)
+2. zone_width_pct (0.027273)
+3. spy_return_50d (0.025207)
+4. ma_50_slope_20 (0.021281)
+5. iwm_return_20d (0.017769)
+6. vix_percentile_60d (0.010124)
+7. xly_return_20d (0.008264)
+8. departure_volume_ratio (0.004752)
+9. vix_level (0.004545)
+10. rejection_strength (0.004339)
+
+============================================================
+CAPACITY-LIMITED BACKTEST (BROAD-MARKET HELD-OUT TEST SET)
+============================================================
+
+Starting Capital: $10,000
+Risk per Trade: 1%
+Max Positions: 5
+Commission: $1 per side
+Slippage: 15 bps per side
+Trades Taken: 8
+Total Return: -4.77%
+Max Drawdown: -4.33%
+Sharpe Ratio: -5.58
+Profit Factor: 0.39
+Win Rate: 12.50%
+Avg Return: -2.90%
+
+============================================================
+WALK-FORWARD VALIDATION (5 SPLITS)
+============================================================
+
+Fold 1/5: Precision: 0.3333, Recall: 0.2632, F1: 0.2941, AUC: 0.6611
+Fold 2/5: Precision: 0.3500, Recall: 0.9333, F1: 0.5091, AUC: 0.5748
+Fold 3/5: Precision: 0.1538, Recall: 0.1429, F1: 0.1481, AUC: 0.4876
+Fold 4/5: Precision: 0.1905, Recall: 0.3077, F1: 0.2353, AUC: 0.5450
+Fold 5/5: Precision: 0.5000, Recall: 0.0588, F1: 0.1053, AUC: 0.6676
+
+Average Metrics Across Folds:
+  PRECISION: 0.3055
+  RECALL: 0.3412
+  F1: 0.2584
+  AUC: 0.5872
+
+============================================================
+INTERPRETATION
+============================================================
+
+The v6 results with professional trader-inspired features show significantly worse performance compared to v5:
+
+- Test set AUC dropped from 0.4960 (v5) to 0.4421 (v6)
+- Backtest return dropped from +30.17% (v5) to -4.77% (v6)
+- Sharpe ratio dropped from 1.93 (v5) to -5.58 (v6)
+- Win rate dropped from 36.87% (v5) to 12.50% (v6)
+
+Possible reasons for degradation:
+1. **Overfitting**: 86 features may be too many for 365 signals (4:1 feature-to-sample ratio)
+2. **Feature noise**: Many new features may not be predictive for this specific pattern
+3. **Dataset size**: Fewer signals (365 vs previous) reduces statistical power
+4. **Feature redundancy**: Some engineered scores may duplicate existing information
+
+Key observations:
+- Top features are still zone quality metrics (base_range_pct, zone_width_pct)
+- Market context features (spy_return_50d, iwm_return_20d) show importance
+- Many new professional trader features did not make top 10
+
+RECOMMENDATION:
+- Reduce feature set to most predictive features only
+- Increase dataset size or reduce feature complexity
+- Focus on zone quality and market context features that showed importance
+- Consider feature selection to remove noise features
