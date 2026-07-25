@@ -1,0 +1,234 @@
+============================================================
+ML Demand Zone Trading Pipeline
+============================================================
+Loading dataset...
+  Loaded 27638 signals
+
+Preparing features (target: hit_target)...
+  Handling missing values...
+  Features: 60 columns
+  Target distribution: {0: 24029, 1: 3609}
+
+Chronological split (train: 70%, val: 15%, test: 15%)...
+  Train: 19346 samples (2019-07-30 00:00:00 to 2024-10-22 00:00:00)
+  Val: 4146 samples (2024-10-22 00:00:00 to 2025-08-29 00:00:00)
+  Test: 4146 samples (2025-08-29 00:00:00 to 2026-06-24 00:00:00)
+
+============================================================
+Model Comparison
+============================================================
+
+--- Random Forest ---
+
+Training Random Forest...
+  Random Forest trained
+
+Evaluating model...
+  Metrics:
+    PRECISION: 0.2477
+    RECALL: 0.7293
+    F1: 0.3698
+    AUC: 0.6948
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.92      0.60      0.72      3507
+           1       0.25      0.73      0.37       639
+
+    accuracy                           0.62      4146
+   macro avg       0.59      0.66      0.55      4146
+weighted avg       0.82      0.62      0.67      4146
+
+
+--- XGBoost ---
+
+Training XGBoost...
+  XGBoost trained (scale_pos_weight: 7.27)
+
+Evaluating model...
+  Metrics:
+    PRECISION: 0.2408
+    RECALL: 0.4804
+    F1: 0.3208
+    AUC: 0.6762
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.88      0.72      0.80      3507
+           1       0.24      0.48      0.32       639
+
+    accuracy                           0.69      4146
+   macro avg       0.56      0.60      0.56      4146
+weighted avg       0.79      0.69      0.72      4146
+
+
+--- LightGBM ---
+
+Training LightGBM...
+  LightGBM trained (scale_pos_weight: 7.27)
+
+Evaluating model...
+  Metrics:
+    PRECISION: 0.2500
+    RECALL: 0.6056
+    F1: 0.3539
+    AUC: 0.6831
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.90      0.67      0.77      3507
+           1       0.25      0.61      0.35       639
+
+    accuracy                           0.66      4146
+   macro avg       0.58      0.64      0.56      4146
+weighted avg       0.80      0.66      0.70      4146
+
+
+============================================================
+Model Comparison Results
+============================================================
+               precision    recall        f1       auc
+model                                                 
+Random Forest   0.247741  0.729264  0.369841  0.694812
+XGBoost         0.240784  0.480438  0.320794  0.676205
+LightGBM        0.250000  0.605634  0.353909  0.683146
+
+Best model: Random Forest (AUC: 0.6948)
+
+Training Random Forest...
+  Random Forest trained
+
+Optimizing probability threshold (metric: sharpe)...
+  Threshold 0.50: Precision=0.248, Recall=0.729, F1=0.370, Sharpe=1.51, Signals=45.4%
+  Threshold 0.55: Precision=0.252, Recall=0.617, F1=0.358, Sharpe=1.31, Signals=37.7%
+  Threshold 0.60: Precision=0.257, Recall=0.459, F1=0.330, Sharpe=1.34, Signals=27.5%
+  Threshold 0.65: Precision=0.248, Recall=0.244, F1=0.246, Sharpe=0.58, Signals=15.1%
+  Threshold 0.70: Precision=0.190, Recall=0.050, F1=0.079, Sharpe=-2.15, Signals=4.1%
+  Threshold 0.75: Precision=0.185, Recall=0.008, F1=0.015, Sharpe=-2.65, Signals=0.7%
+
+  Best threshold: 0.50 (sharpe: 1.509)
+
+Final Test Set Evaluation:
+
+Evaluating model...
+  Metrics:
+    PRECISION: 0.2330
+    RECALL: 0.7591
+    F1: 0.3565
+    AUC: 0.6873
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.93      0.55      0.69      3515
+           1       0.23      0.76      0.36       631
+
+    accuracy                           0.58      4146
+   macro avg       0.58      0.66      0.52      4146
+weighted avg       0.82      0.58      0.64      4146
+
+
+Forward Return Ranking (held-out test set):
+  mae: 0.0957
+  r2: -0.0003
+  spearman_rank_correlation: 0.0883
+
+Sub-$10 Held-out Test Evaluation:
+
+Evaluating model...
+  Metrics:
+    PRECISION: 0.2387
+    RECALL: 0.9839
+    F1: 0.3843
+    AUC: 0.5205
+
+  Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.75      0.02      0.03       395
+           1       0.24      0.98      0.38       124
+
+    accuracy                           0.25       519
+   macro avg       0.49      0.50      0.21       519
+weighted avg       0.63      0.25      0.11       519
+
+  Calculating permutation importance...
+
+Top 10 Out-of-Sample Features:
+                   feature  importance
+                   atr_pct    0.023666
+            zone_width_pct    0.014438
+distance_from_52w_high_pct    0.008375
+        departure_move_pct    0.003547
+            xly_return_20d    0.002819
+        price_vs_200ma_pct    0.002793
+           volume_trend_20    0.002323
+              zone_touches    0.002256
+            xle_return_20d    0.001964
+            ma_50_slope_20    0.001867
+
+Feature importance plot saved to feature_importance.png
+
+Probability-based filtering (threshold: 0.5)...
+  Filtered Metrics:
+    precision: 0.2330
+    recall: 0.7591
+    f1: 0.3565
+    signals_kept: 0.4959
+
+Portfolio Backtest (Capital: $10,000, Risk: 2.0%, Stop: 5.0%, Cost: 0.10%)...
+  Portfolio Metrics:
+    Final Value: $41,261.82
+    Total Return: 312.62%
+    Number of Trades: 2056
+    Win Rate: 30.11%
+    Avg Return: 0.47%
+    Max Drawdown: -87.66%
+    Sharpe Ratio: 1.04
+    Profit Factor: 1.14
+
+Walk-forward validation (5 splits, threshold: 0.5)...
+
+  Fold 1/5
+    Precision: 0.2710
+    Recall: 0.5764
+    F1: 0.3687
+    AUC: 0.7191
+
+  Fold 2/5
+    Precision: 0.2850
+    Recall: 0.5505
+    F1: 0.3755
+    AUC: 0.7816
+
+  Fold 3/5
+    Precision: 0.2911
+    Recall: 0.7013
+    F1: 0.4114
+    AUC: 0.7916
+
+  Fold 4/5
+    Precision: 0.2539
+    Recall: 0.8055
+    F1: 0.3861
+    AUC: 0.7343
+
+  Fold 5/5
+    Precision: 0.2238
+    Recall: 0.7291
+    F1: 0.3425
+    AUC: 0.7737
+
+  Average Metrics Across Folds:
+    PRECISION: 0.2650
+    RECALL: 0.6726
+    F1: 0.3768
+    AUC: 0.7601
+
+============================================================
+ML Pipeline Complete
+============================================================
+{'precision': 0.23297665369649806, 'recall': 0.7591125198098256, 'f1': 0.3565314477112021, 'auc': 0.6873232895920359, 'threshold': 0.5, 'return_ranking': {'mae': 0.09565798455254501, 'r2': -0.00027104239648267914, 'spearman_rank_correlation': np.float64(0.08834493371005418)}, 'sub_10_test': {'precision': 0.23874755381604695, 'recall': 0.9838709677419355, 'f1': 0.384251968503937, 'auc': 0.520457329522254}, 'trading': {'final_value': 41261.82003957176, 'total_return': 3.126182003957176, 'num_trades': 2056, 'win_rate': np.float64(0.3010700389105058), 'avg_return': np.float64(0.004691015186334296), 'avg_win': np.float64(0.12978992291797956), 'avg_loss': np.float64(-0.049230665085742344), 'max_drawdown': np.float64(-0.876567153112225), 'sharpe_ratio': np.float64(1.0383515593493868), 'profit_factor': np.float64(1.136426835761862)}}

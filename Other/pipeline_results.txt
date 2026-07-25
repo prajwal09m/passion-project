@@ -1,0 +1,28 @@
+============================================================
+Demand Zone ML Trading Pipeline Results
+============================================================
+
+Run Time: 2026-07-24 17:38:32
+
+Dataset Statistics:
+  Total Signals: 0
+  Zones Found: 0
+
+Model Performance:
+  Precision: 0.2304
+  Recall: 0.7273
+  F1 Score: 0.3499
+  ROC-AUC: 0.6849
+
+  Probability Threshold: 0.50
+
+Forward-Return Ranking (held-out test set):
+  MAE: 0.0000
+  R-squared: 0.0000
+  Spearman Rank Correlation: 0.0000
+
+Sub-$10 Classification (held-out test subset):
+  Precision: 0.2441
+  Recall: 0.9774
+  ROC-AUC: 0.5049
+

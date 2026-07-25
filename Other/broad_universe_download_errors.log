@@ -1,0 +1,9 @@
+HTTP Error 404: {"quoteSummary":{"result":null,"error":{"code":"Not Found","description":"Quote not found for symbol: CFLT"}}}
+$CFLT: possibly delisted; no timezone found
+
+1 Failed download:
+['CFLT']: possibly delisted; no timezone found
+$SQ: possibly delisted; no timezone found
+
+1 Failed download:
+['SQ']: possibly delisted; no timezone found

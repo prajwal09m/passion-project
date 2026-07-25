@@ -1,0 +1,11 @@
+Backtest Summary Statistics
+========================================
+
+total_entries: 70
+total_exits: 70
+total_commissions: 140.0
+avg_position_size: 2433.980898503656
+total_cash_reserved: 170378.66289525593
+total_cash_released: 170378.66289525593
+final_cash: 29355.633916076175
+accounting_check: 4162.660417379371

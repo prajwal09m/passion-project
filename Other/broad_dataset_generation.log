@@ -1,0 +1,326 @@
+============================================================
+Generating ML Dataset
+============================================================
+============================================================
+Loading Stock Data
+============================================================
+Found 164 CSV files
+  Loaded AAL: 2010 days
+  Loaded AAPL: 2010 days
+  Loaded ABBV: 2010 days
+  Loaded ABT: 2010 days
+  Loaded ACN: 2010 days
+  Loaded ADP: 2010 days
+  Loaded AEP: 2010 days
+  Loaded AFRM: 1386 days
+  Loaded AMAT: 2010 days
+  Loaded AMC: 753 days
+  Loaded AMD: 2010 days
+  Loaded AMGN: 2010 days
+  Loaded AMZN: 2010 days
+  Loaded ARVN: 753 days
+  Loaded AVGO: 2010 days
+  Loaded BABA: 2010 days
+  Loaded BAC: 2010 days
+  Loaded BA: 2010 days
+  Loaded BBBY: 753 days
+  Loaded BB: 753 days
+  Loaded BEAM: 753 days
+  Loaded BKNG: 2010 days
+  Loaded BLK: 2010 days
+  Loaded BLNK: 753 days
+  Loaded BMEA: 753 days
+  Loaded BRK-B: 2010 days
+  Loaded CAT: 2010 days
+  Loaded CI: 2010 days
+  Loaded COIN: 1324 days
+  Loaded COP: 2010 days
+  Loaded COST: 2010 days
+  Loaded CRM: 2010 days
+  Loaded CROX: 2010 days
+  Loaded CRSP: 753 days
+  Loaded CRWD: 1787 days
+  Loaded CSCO: 2010 days
+  Loaded CSIQ: 753 days
+  Loaded CVS: 2010 days
+  Loaded C: 2010 days
+  Loaded DAL: 2010 days
+  Loaded DDOG: 1718 days
+  Loaded DE: 2010 days
+  Loaded DHR: 2010 days
+  Loaded DIS: 2010 days
+  Loaded DNA: 753 days
+  Loaded DOCU: 2010 days
+  Loaded DUK: 2010 days
+  Loaded EDIT: 753 days
+  Loaded ESTC: 753 days
+  Loaded ETSY: 753 days
+  Loaded FCEL: 753 days
+  Loaded FDX: 2010 days
+  Loaded FSLY: 753 days
+  Loaded F: 2010 days
+  Loaded GE: 2010 days
+  Loaded GH: 753 days
+  Loaded GILD: 2010 days
+  Loaded GIS: 2010 days
+  Loaded GME: 753 days
+  Loaded GM: 2010 days
+  Loaded GOOGL: 2010 days
+  Loaded GS: 2010 days
+  Loaded HD: 2010 days
+  Loaded HLT: 2010 days
+  Loaded HOOD: 1250 days
+  Loaded IBM: 2010 days
+  Loaded ICLR: 753 days
+  Loaded INCY: 753 days
+  Loaded INTU: 2010 days
+  Loaded ISRG: 2010 days
+  Loaded IWM: 2010 days
+  Loaded JD: 2010 days
+  Loaded JKS: 753 days
+  Loaded JNJ: 2010 days
+  Loaded JPM: 2010 days
+  Loaded KDP: 2010 days
+  Loaded KHC: 2010 days
+  Loaded KO: 2010 days
+  Loaded LCID: 1466 days
+  Loaded LIN: 2010 days
+  Loaded LLY: 2010 days
+  Loaded LOW: 2010 days
+  Loaded LULU: 2010 days
+  Loaded MAR: 2010 days
+  Loaded MA: 2010 days
+  Loaded MCD: 2010 days
+  Loaded MDB: 2010 days
+  Loaded MDLZ: 2010 days
+  Loaded MELI: 2010 days
+  Loaded META: 2010 days
+  Loaded MO: 2010 days
+  Loaded MRVI: 753 days
+  Loaded MSFT: 2010 days
+  Loaded NEE: 2010 days
+  Loaded NET: 1722 days
+  Loaded NFLX: 2010 days
+  Loaded NIO: 1974 days
+  Loaded NKE: 2010 days
+  Loaded NOK: 753 days
+  Loaded NOW: 2010 days
+  Loaded NTRA: 753 days
+  Loaded NVDA: 2010 days
+  Loaded OKTA: 2010 days
+  Loaded ORCL: 2010 days
+  Loaded OXY: 2010 days
+  Loaded PACB: 753 days
+  Loaded PANW: 2010 days
+  Loaded PDD: 2007 days
+  Loaded PEP: 2010 days
+  Loaded PG: 2010 days
+  Loaded PINS: 1824 days
+  Loaded PLTR: 1458 days
+  Loaded PLUG: 753 days
+  Loaded PM: 2010 days
+  Loaded PYPL: 2010 days
+  Loaded QCOM: 2010 days
+  Loaded QQQ: 2010 days
+  Loaded QS: 753 days
+  Loaded RIVN: 1177 days
+  Loaded ROKU: 2010 days
+  Loaded RUN: 753 days
+  Loaded SBUX: 2010 days
+  Loaded SCHW: 2010 days
+  Loaded SHOP: 2010 days
+  Loaded SLB: 2010 days
+  Loaded SNAP: 2010 days
+  Loaded SNDL: 753 days
+  Loaded SNOW: 1468 days
+  Loaded SO: 2010 days
+  Loaded SPCE: 753 days
+  Loaded SPGI: 2010 days
+  Loaded SPWR: 753 days
+  Loaded SPY: 2010 days
+  Loaded TEAM: 2010 days
+  Loaded TGT: 2010 days
+  Loaded TME: 1911 days
+  Loaded TMO: 2010 days
+  Loaded TSLA: 2010 days
+  Loaded TTD: 2010 days
+  Loaded TWLO: 2010 days
+  Loaded TXN: 2010 days
+  Loaded UAL: 2010 days
+  Loaded UBER: 1809 days
+  Loaded UNH: 2010 days
+  Loaded UPS: 2010 days
+  Loaded VIX: 2011 days
+  Loaded V: 2010 days
+  Loaded WFC: 2010 days
+  Loaded WMT: 2010 days
+  Loaded XEL: 2010 days
+  Loaded XLB: 2010 days
+  Loaded XLC: 2010 days
+  Loaded XLE: 2010 days
+  Loaded XLF: 2010 days
+  Loaded XLI: 2010 days
+  Loaded XLK: 2010 days
+  Loaded XLP: 2010 days
+  Loaded XLRE: 2010 days
+  Loaded XLU: 2010 days
+  Loaded XLV: 2010 days
+  Loaded XLY: 2010 days
+  Loaded XOM: 2010 days
+  Loaded ZM: 1824 days
+  Loaded Z: 753 days
+
+Successfully loaded 149 stocks
+  Processing AAL...
+    Found 230 demand zones
+  Processing AAPL...
+    Found 233 demand zones
+  Processing ABBV...
+    Found 248 demand zones
+  Processing ABT...
+    Found 254 demand zones
+  Processing ACN...
+    Found 238 demand zones
+  Processing ADP...
+    Found 225 demand zones
+  Processing AEP...
+    Found 236 demand zones
+  Processing AFRM...
+    Found 147 demand zones
+  Processing AMAT...
+    Found 238 demand zones
+  Processing AMC...
+    Found 72 demand zones
+  Processing AMD...
+    Found 242 demand zones
+  Processing AMGN...
+    Found 228 demand zones
+  Processing AMZN...
+    Found 234 demand zones
+  Processing ARVN...
+    Found 74 demand zones
+  Processing AVGO...
+    Found 240 demand zones
+  Processing BABA...
+    Found 239 demand zones
+  Processing BAC...
+    Found 236 demand zones
+  Processing BA...
+    Found 238 demand zones
+  Processing BBBY...
+    Found 67 demand zones
+  Processing BB...
+    Found 79 demand zones
+  Processing BEAM...
+    Found 66 demand zones
+  Processing BKNG...
+    Found 234 demand zones
+  Processing BLK...
+    Found 231 demand zones
+  Processing BLNK...
+    Found 73 demand zones
+  Processing BMEA...
+    Found 69 demand zones
+  Processing BRK-B...
+    Found 229 demand zones
+  Processing CAT...
+    Found 232 demand zones
+  Processing CI...
+    Found 230 demand zones
+  Processing COIN...
+    Found 142 demand zones
+  Processing COP...
+    Found 224 demand zones
+  Processing COST...
+    Found 226 demand zones
+  Processing CRM...
+    Found 227 demand zones
+  Processing CROX...
+    Found 235 demand zones
+  Processing CRSP...
+    Found 66 demand zones
+  Processing CRWD...
+    Found 202 demand zones
+  Processing CSCO...
+    Found 242 demand zones
+  Processing CSIQ...
+    Found 69 demand zones
+  Processing CVS...
+    Found 231 demand zones
+  Processing C...
+    Found 229 demand zones
+  Processing DAL...
+    Found 231 demand zones
+  Processing DDOG...
+    Found 209 demand zones
+  Processing DE...
+    Found 233 demand zones
+  Processing DHR...
+    Found 235 demand zones
+  Processing DIS...
+    Found 236 demand zones
+  Processing DNA...
+    Found 60 demand zones
+  Processing DOCU...
+    Found 243 demand zones
+  Processing DUK...
+    Found 245 demand zones
+  Processing EDIT...
+    Found 78 demand zones
+  Processing ESTC...
+    Found 71 demand zones
+  Processing ETSY...
+    Found 63 demand zones
+  Processing FCEL...
+    Found 79 demand zones
+  Processing FDX...
+    Found 231 demand zones
+  Processing FSLY...
+    Found 71 demand zones
+  Processing F...
+    Found 254 demand zones
+  Processing GE...
+    Found 248 demand zones
+  Processing GH...
+    Found 68 demand zones
+  Processing GILD...
+    Found 242 demand zones
+  Processing GIS...
+    Found 250 demand zones
+  Processing GME...
+    Found 71 demand zones
+  Processing GM...
+    Found 248 demand zones
+  Processing GOOGL...
+    Found 235 demand zones
+  Processing GS...
+    Found 242 demand zones
+  Processing HD...
+    Found 232 demand zones
+  Processing HLT...
+    Found 244 demand zones
+  Processing HOOD...
+    Found 137 demand zones
+  Processing IBM...
+    Found 225 demand zones
+  Processing ICLR...
+    Found 71 demand zones
+  Processing INCY...
+    Found 69 demand zones
+  Processing INTU...
+    Found 237 demand zones
+  Processing ISRG...
+    Found 242 demand zones
+  Processing JD...
+    Found 259 demand zones
+  Processing JKS...
+    Found 68 demand zones
+  Processing JNJ...
+    Found 233 demand zones
+  Processing JPM...
+    Found 244 demand zones
+  Processing KDP...
+    Found 255 demand zones
+  Processing KHC...
+    Found 235 demand zones
+  Processing KO...

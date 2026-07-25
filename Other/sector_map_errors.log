@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "C:\Prajwal MIT\Passion\build_sector_map.py", line 6, in <module>
+    import yfinance as yf
+ModuleNotFoundError: No module named 'yfinance'
