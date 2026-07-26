@@ -1,0 +1,430 @@
+  ▲ Next.js 14.2.5
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 9.1s
+ ○ Compiling / ...
+ ✓ Compiled / in 12.2s (1373 modules)
+ GET / 200 in 12875ms
+ ○ Compiling /insight ...
+ ✓ Compiled /insight in 6.1s (1429 modules)
+ GET /insight 200 in 5796ms
+ ○ Compiling /analysis ...
+ ✓ Compiled /analysis in 756ms (1437 modules)
+ GET /analysis 200 in 981ms
+ ○ Compiling /performance ...
+ ✓ Compiled /performance in 840ms (1449 modules)
+ GET /performance 200 in 1028ms
+ ○ Compiling /backtest ...
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ GET /backtest 200 in 1386ms
+ GET /insight 200 in 100ms
+ GET / 200 in 134ms
+ GET / 200 in 171ms
+ GET / 200 in 85ms
+ GET / 200 in 90ms
+ GET /insight 200 in 124ms
+ GET /analysis 200 in 287ms
+ ⨯ ./src/app/insight/page.tsx
+Error: 
+  [31mx[0m Unexpected token `GlassCard`. Expected jsx identifier
+     ,-[[36;1;4mC:\Prajwal MIT\Passion\demand-zone-webapp\src\app\insight\page.tsx[0m:785:1]
+ [2m785[0m |   positive: boolean;
+ [2m786[0m | }) {
+ [2m787[0m |   return (
+ [2m788[0m |     <GlassCard delay={0.15} className="p-5">
+     : [31;1m     ^^^^^^^^^[0m
+ [2m789[0m |       <SectionHeader
+ [2m790[0m |         icon={<TrendingUp className="h-3.5 w-3.5 text-ai" />}
+ [2m791[0m |         title="Trade Setup"
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/insight/page.tsx
+ ⨯ ./src/app/insight/page.tsx
+Error: 
+  [31mx[0m Unexpected token `GlassCard`. Expected jsx identifier
+     ,-[[36;1;4mC:\Prajwal MIT\Passion\demand-zone-webapp\src\app\insight\page.tsx[0m:785:1]
+ [2m785[0m |   positive: boolean;
+ [2m786[0m | }) {
+ [2m787[0m |   return (
+ [2m788[0m |     <GlassCard delay={0.15} className="p-5">
+     : [31;1m     ^^^^^^^^^[0m
+ [2m789[0m |       <SectionHeader
+ [2m790[0m |         icon={<TrendingUp className="h-3.5 w-3.5 text-ai" />}
+ [2m791[0m |         title="Trade Setup"
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/insight/page.tsx
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Prajwal MIT\Passion\demand-zone-webapp\.next\cache\webpack\client-development\1.pack.gz_' -> 'C:\Prajwal MIT\Passion\demand-zone-webapp\.next\cache\webpack\client-development\1.pack.gz'
+ ⨯ ./src/app/insight/page.tsx
+Error: 
+  [31mx[0m Unexpected token `GlassCard`. Expected jsx identifier
+     ,-[[36;1;4mC:\Prajwal MIT\Passion\demand-zone-webapp\src\app\insight\page.tsx[0m:780:1]
+ [2m780[0m |   positive: boolean;
+ [2m781[0m | }) {
+ [2m782[0m |   return (
+ [2m783[0m |     <GlassCard delay={0.15} className="p-5">
+     : [31;1m     ^^^^^^^^^[0m
+ [2m784[0m |       <SectionHeader
+ [2m785[0m |         icon={<TrendingUp className="h-3.5 w-3.5 text-ai" />}
+ [2m786[0m |         title="Trade Setup"
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/insight/page.tsx
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ GET /insight?ticker=NVDA 200 in 421ms
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ GET /insight?ticker=NVDA 200 in 2484ms
+ ⨯ src\app\analysis\page.tsx (46:26) @ length
+ ⨯ TypeError: Cannot read properties of undefined (reading 'length')
+    at AnalysisPageInner (./src/app/analysis/page.tsx:96:28)
+digest: "869711787"
+[0m [90m 44 |[39m   [36mconst[39m meta [33m=[39m [33mTICKERS[39m[33m.[39mfind((t) [33m=>[39m t[33m.[39msymbol [33m===[39m ticker)[33m![39m[33m;[39m[0m
+[0m [90m 45 |[39m   [36mconst[39m confidence [33m=[39m useMemo(() [33m=>[39m meta[33m.[39mconfidence[33m,[39m [meta])[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m 46 |[39m   [36mconst[39m last [33m=[39m data[data[33m.[39mlength [33m-[39m [35m1[39m][33m![39m[33m;[39m[0m
+[0m [90m    |[39m                          [31m[1m^[22m[39m[0m
+[0m [90m 47 |[39m   [36mconst[39m prev [33m=[39m data[data[33m.[39mlength [33m-[39m [35m2[39m][33m![39m[33m;[39m[0m
+[0m [90m 48 |[39m   [36mconst[39m change [33m=[39m last[33m.[39mclose [33m/[39m prev[33m.[39mclose [33m-[39m [35m1[39m[33m;[39m[0m
+[0m [90m 49 |[39m[0m
+ GET /analysis?ticker=GOOGL 200 in 115ms
+ GET /analysis 200 in 95ms
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ GET /performance 200 in 288ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Prajwal MIT\Passion\demand-zone-webapp\.next\cache\webpack\client-development\1.pack.gz_' -> 'C:\Prajwal MIT\Passion\demand-zone-webapp\.next\cache\webpack\client-development\1.pack.gz'
+ GET /analysis 200 in 138ms
+ GET /performance 200 in 111ms
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ GET /insight 200 in 320ms
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ ✓ Compiled /backtest in 926ms (1699 modules)
+ GET /backtest 200 in 424ms
+ ✓ Compiled in 1234ms (1699 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 648ms (1688 modules)
+ GET /backtest 404 in 837ms
+ GET /backtest 200 in 258ms
+ GET /backtest 200 in 102ms
+ ✓ Compiled in 1014ms (1685 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /backtest 200 in 318ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Prajwal MIT\Passion\demand-zone-webapp\.next\cache\webpack\client-development\1.pack.gz_' -> 'C:\Prajwal MIT\Passion\demand-zone-webapp\.next\cache\webpack\client-development\1.pack.gz'
+ ✓ Compiled in 348ms (926 modules)
+ ✓ Compiled in 655ms (1685 modules)
+ ✓ Compiled in 849ms (1703 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'C:\Prajwal MIT\Passion\demand-zone-webapp\.next\cache\webpack\client-development\0.pack.gz_' -> 'C:\Prajwal MIT\Passion\demand-zone-webapp\.next\cache\webpack\client-development\0.pack.gz'
+ ✓ Compiled in 10.7s (1703 modules)
+ ✓ Compiled in 17.4s (1703 modules)
+ GET / 200 in 187ms
+ GET / 200 in 91ms
+ GET /insight 200 in 75ms
+ ✓ Compiled in 1152ms (1689 modules)

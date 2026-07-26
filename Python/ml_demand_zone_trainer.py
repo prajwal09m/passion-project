@@ -25,7 +25,7 @@ class DemandZoneMLTrainer:
     Uses chronological splits to avoid look-ahead bias
     """
     
-    def __init__(self, dataset_path: str = 'outputs/v10/demand_zone_ml_dataset_v10.csv'):
+    def __init__(self, dataset_path: str = '../outputs/v10/demand_zone_ml_dataset_v10.csv'):
         """
         Initialize trainer with dataset
         

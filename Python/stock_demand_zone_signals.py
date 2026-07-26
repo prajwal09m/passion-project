@@ -872,8 +872,8 @@ def main():
     
     # Save ticker list
     ticker_df = pd.DataFrame({'Ticker': tickers})
-    ticker_df.to_csv('selected_tickers.csv', index=False)
-    print(f"\nTicker list saved to selected_tickers.csv")
+    ticker_df.to_csv('../data (v1)/selected_tickers.csv', index=False)
+    print(f"\nTicker list saved to ../data (v1)/selected_tickers.csv")
     
     # Step 2: Data Download (stocks + SPY + VIX)
     data = download_data(tickers)
@@ -941,8 +941,8 @@ def main():
     dataset = export_dataset(features_df, outcomes_df)
     
     # Save to CSV
-    dataset.to_csv('demand_zone_ml_dataset.csv', index=False)
-    print(f"  Dataset saved to demand_zone_ml_dataset.csv")
+    dataset.to_csv('../outputs/demand_zone_ml_dataset.csv', index=False)
+    print(f"  Dataset saved to ../outputs/demand_zone_ml_dataset.csv")
     print(f"  Shape: {dataset.shape}")
     
     # Print summary statistics

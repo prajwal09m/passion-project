@@ -1,0 +1,267 @@
+  ▲ Next.js 14.2.5
+  - Local:        http://localhost:3008
+
+ ✓ Starting...
+ ✓ Ready in 1854ms
+ ○ Compiling / ...
+ ✓ Compiled / in 6.8s (1373 modules)
+ GET / 200 in 7116ms
+ ○ Compiling /insight ...
+ ✓ Compiled /insight in 5.8s (1429 modules)
+ GET /insight 200 in 5598ms
+ ✓ Compiled /analysis in 326ms (1437 modules)
+ GET /analysis 200 in 437ms
+ ✓ Compiled /performance in 313ms (1449 modules)
+ GET /performance 200 in 410ms
+ ○ Compiling /backtest ...
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ GET /backtest 200 in 944ms
+ GET /insight 200 in 106ms
+ GET / 200 in 65ms
+ GET / 200 in 96ms
+ GET /analysis 200 in 118ms
+ GET /analysis 200 in 97ms
+ GET /analysis 200 in 158ms
+ ⨯ ./src/app/insight/page.tsx
+Error: 
+  [31mx[0m Unexpected token `GlassCard`. Expected jsx identifier
+     ,-[[36;1;4mC:\Prajwal MIT\Passion\demand-zone-webapp\src\app\insight\page.tsx[0m:785:1]
+ [2m785[0m |   positive: boolean;
+ [2m786[0m | }) {
+ [2m787[0m |   return (
+ [2m788[0m |     <GlassCard delay={0.15} className="p-5">
+     : [31;1m     ^^^^^^^^^[0m
+ [2m789[0m |       <SectionHeader
+ [2m790[0m |         icon={<TrendingUp className="h-3.5 w-3.5 text-ai" />}
+ [2m791[0m |         title="Trade Setup"
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/insight/page.tsx
+ ⨯ ./src/app/insight/page.tsx
+Error: 
+  [31mx[0m Unexpected token `GlassCard`. Expected jsx identifier
+     ,-[[36;1;4mC:\Prajwal MIT\Passion\demand-zone-webapp\src\app\insight\page.tsx[0m:785:1]
+ [2m785[0m |   positive: boolean;
+ [2m786[0m | }) {
+ [2m787[0m |   return (
+ [2m788[0m |     <GlassCard delay={0.15} className="p-5">
+     : [31;1m     ^^^^^^^^^[0m
+ [2m789[0m |       <SectionHeader
+ [2m790[0m |         icon={<TrendingUp className="h-3.5 w-3.5 text-ai" />}
+ [2m791[0m |         title="Trade Setup"
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/insight/page.tsx
+ ⨯ ./src/app/insight/page.tsx
+Error: 
+  [31mx[0m Unexpected token `GlassCard`. Expected jsx identifier
+     ,-[[36;1;4mC:\Prajwal MIT\Passion\demand-zone-webapp\src\app\insight\page.tsx[0m:785:1]
+ [2m785[0m |   positive: boolean;
+ [2m786[0m | }) {
+ [2m787[0m |   return (
+ [2m788[0m |     <GlassCard delay={0.15} className="p-5">
+     : [31;1m     ^^^^^^^^^[0m
+ [2m789[0m |       <SectionHeader
+ [2m790[0m |         icon={<TrendingUp className="h-3.5 w-3.5 text-ai" />}
+ [2m791[0m |         title="Trade Setup"
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/insight/page.tsx
+ ⨯ ./src/app/insight/page.tsx
+Error: 
+  [31mx[0m Unexpected token `GlassCard`. Expected jsx identifier
+     ,-[[36;1;4mC:\Prajwal MIT\Passion\demand-zone-webapp\src\app\insight\page.tsx[0m:785:1]
+ [2m785[0m |   positive: boolean;
+ [2m786[0m | }) {
+ [2m787[0m |   return (
+ [2m788[0m |     <GlassCard delay={0.15} className="p-5">
+     : [31;1m     ^^^^^^^^^[0m
+ [2m789[0m |       <SectionHeader
+ [2m790[0m |         icon={<TrendingUp className="h-3.5 w-3.5 text-ai" />}
+ [2m791[0m |         title="Trade Setup"
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/insight/page.tsx
+ ⨯ ./src/app/insight/page.tsx
+Error: 
+  [31mx[0m Unexpected token `GlassCard`. Expected jsx identifier
+     ,-[[36;1;4mC:\Prajwal MIT\Passion\demand-zone-webapp\src\app\insight\page.tsx[0m:780:1]
+ [2m780[0m |   positive: boolean;
+ [2m781[0m | }) {
+ [2m782[0m |   return (
+ [2m783[0m |     <GlassCard delay={0.15} className="p-5">
+     : [31;1m     ^^^^^^^^^[0m
+ [2m784[0m |       <SectionHeader
+ [2m785[0m |         icon={<TrendingUp className="h-3.5 w-3.5 text-ai" />}
+ [2m786[0m |         title="Trade Setup"
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/insight/page.tsx
+ ⨯ ./src/app/insight/page.tsx
+Error: 
+  [31mx[0m Unexpected token `GlassCard`. Expected jsx identifier
+     ,-[[36;1;4mC:\Prajwal MIT\Passion\demand-zone-webapp\src\app\insight\page.tsx[0m:782:1]
+ [2m782[0m |   const expectedPct = ((setup.take_profit / setup.entry - 1) * 100).toFixed(1);
+ [2m783[0m |   const riskPct = ((1 - setup.stop_loss / setup.entry) * 100).toFixed(1);
+ [2m784[0m |   return (
+ [2m785[0m |     <GlassCard delay={0.15} className="p-5">
+     : [31;1m     ^^^^^^^^^[0m
+ [2m786[0m |       <SectionHeader
+ [2m787[0m |         icon={<TrendingUp className="h-3.5 w-3.5 text-ai" />}
+ [2m788[0m |         title="Trade Setup"
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./src/app/insight/page.tsx
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ ⚠ ./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'timeline' is not exported from 'animejs' (imported as 'timeline').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+
+./src/components/EquityCurveChart.tsx
+Attempted import error: 'stagger' is not exported from 'animejs' (imported as 'stagger').
+
+Import trace for requested module:
+./src/components/EquityCurveChart.tsx
+./src/app/backtest/page.tsx
+ ✓ Compiled /backtest in 586ms (744 modules)
+ ✓ Compiled in 1117ms (1417 modules)
+ ✓ Compiled in 805ms (1403 modules)
+ ✓ Compiled in 295ms (744 modules)
+ ✓ Compiled in 290ms (730 modules)
+ ✓ Compiled in 459ms (746 modules)
+ ✓ Compiled in 2.8s (746 modules)
+ ✓ Compiled in 9.7s (746 modules)
+ ✓ Compiled in 928ms (1405 modules)

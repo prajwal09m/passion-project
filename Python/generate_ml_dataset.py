@@ -14,8 +14,8 @@ warnings.filterwarnings('ignore')
 
 # Configuration
 CONFIG = {
-    'data_folder': './data',  # Folder containing stock CSV files
-    'output_file': 'outputs/v10/demand_zone_ml_dataset_v10.csv',
+    'data_folder': '../data (v1)',  # Folder containing stock CSV files
+    'output_file': '../outputs/v10/demand_zone_ml_dataset_v10.csv',
     # Use broad-market history for training.  The trainer separately reports
     # the sub-$10 test subset rather than throwing away higher-priced examples.
     'min_price': None,
@@ -32,7 +32,7 @@ CONFIG = {
         'SPY', 'QQQ', 'IWM', 'VIX', 'XLK', 'XLF', 'XLE', 'XLV', 'XLY',
         'XLP', 'XLI', 'XLB', 'XLU', 'XLRE', 'XLC'
     ],
-    'sector_map_file': './data/ticker_sectors.csv',
+    'sector_map_file': '../data (v1)/ticker_sectors.csv',
 }
 
 

@@ -15,7 +15,7 @@ MARKET = {'SPY','QQQ','IWM','VIX','XLK','XLF','XLE','XLV','XLY','XLP','XLI','XLB
 
 def main():
     tickers = []
-    for path in glob.glob('data/*_data.csv'):
+    for path in glob.glob('../data (v1)/*_data.csv'):
         ticker = re.sub(r'_data\.csv$', '', os.path.basename(path)).upper()
         if ticker not in MARKET:
             tickers.append(ticker)
@@ -28,7 +28,7 @@ def main():
                 rows.append({'ticker': ticker, 'sector': sector, 'sector_etf': etf})
         except Exception:
             pass
-    pd.DataFrame(rows).to_csv('data/ticker_sector_etf.csv', index=False)
+    pd.DataFrame(rows).to_csv('../data (v1)/ticker_sector_etf.csv', index=False)
     print(f'Mapped {len(rows)} of {len(tickers)} tickers.')
 
 if __name__ == '__main__':
