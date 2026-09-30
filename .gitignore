@@ -7,3 +7,9 @@ outputs/v10/*.csv
 # Ignore Python cache
 __pycache__/
 *.pyc
+
+# All of application_files - too large for GitHub
+application_files/
+
+# Locked files
+demand-zone-webapp/
