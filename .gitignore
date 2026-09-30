@@ -26,6 +26,7 @@ v3-v5/
 package.json
 package-lock.json
 README.md
+!/README.md
 demand_zone_ml_dataset_v10.zip
 Demand_Zone_AI_Autonomy_Study.docx
 Demand_Zone_AI_Development_and_Audit_Record.docx
