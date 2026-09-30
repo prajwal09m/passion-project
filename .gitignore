@@ -29,6 +29,7 @@ MARKET_STRUCTURE_ABLATION_PROTOCOL.md
 MARKET_STRUCTURE_STUDY_V1_PROTOCOL.json
 Market_Structure_Experiment_Protocol.docx
 requirements.txt
+research/
 
 # Application files folder (too large for GitHub)
 application_files/
