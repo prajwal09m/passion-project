@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "description": "Rights-conscious public study release; row-level data and fitted models are omitted.",
-  "file_count": 40,
-  "total_bytes": 878124,
+  "description": "Public study release including fitted v1.0.1 model binaries and retained row-level artifacts (event table, OOF predictions); raw OHLCV source data remains omitted.",
+  "file_count": 50,
+  "total_bytes": 117467050,
   "inventory_note": "This inventory intentionally does not hash itself.",
   "files": [
     {
@@ -213,6 +213,66 @@
       "path": "outputs/study_v1/development/development_report.md",
       "bytes": 3556,
       "sha256": "53e92657a2609d5896b542cbf41b87ed1c8c5f8dd271b88f41d7fa56422dc766",
+      "storage": "git"
+    },
+    {
+      "path": "outputs/study_v1/development/event_table.csv",
+      "bytes": 100026639,
+      "sha256": "232de7db65c92bec249be801e593acdaa822ecd0b13eb0cd32b7eeaced85a4d0",
+      "storage": "git"
+    },
+    {
+      "path": "outputs/study_v1/development/oof_predictions.csv",
+      "bytes": 14630488,
+      "sha256": "011530761a19016f430232f631a9c3b0199ac17aff297e491d8d50d4b1508829",
+      "storage": "git"
+    },
+    {
+      "path": "outputs/study_v1/models/LightGBM_A.joblib",
+      "bytes": 480617,
+      "sha256": "f1a47ee24db9905cd9ff9558b4bc08e9d3bf6bdeaa1f39184a1613cb41604716",
+      "storage": "git"
+    },
+    {
+      "path": "outputs/study_v1/models/LightGBM_B.joblib",
+      "bytes": 477390,
+      "sha256": "fe78f97012d31138bdad8fa0113e31b55ece9a73394a44db6a4dfc3a436ed6cd",
+      "storage": "git"
+    },
+    {
+      "path": "outputs/study_v1/models/LightGBM_C.joblib",
+      "bytes": 479535,
+      "sha256": "af5f6143a3f8c216dd5bca8c6cfb5e76343d4fe0ebe702da554b93230a5b40bb",
+      "storage": "git"
+    },
+    {
+      "path": "outputs/study_v1/models/LightGBM_D.joblib",
+      "bytes": 479778,
+      "sha256": "831963117ce578b9f619996aac1c1ee03e71922b032f422f2dfe903ea3338d21",
+      "storage": "git"
+    },
+    {
+      "path": "outputs/study_v1/models/LogisticRegression_A.joblib",
+      "bytes": 1962,
+      "sha256": "470c614d8ce17211f8b58a05a43d69ba72f91a5127053b52316e839fb901397a",
+      "storage": "git"
+    },
+    {
+      "path": "outputs/study_v1/models/LogisticRegression_B.joblib",
+      "bytes": 2814,
+      "sha256": "fe49917b20ce769bc713d6b674d80e5c41c25590fa84b3f8c094a48e9fb3e966",
+      "storage": "git"
+    },
+    {
+      "path": "outputs/study_v1/models/LogisticRegression_C.joblib",
+      "bytes": 4108,
+      "sha256": "cc2826ced69ded12ba04980d74306d8a9ec9a275eed2450ed7653639359b0da4",
+      "storage": "git"
+    },
+    {
+      "path": "outputs/study_v1/models/LogisticRegression_D.joblib",
+      "bytes": 5595,
+      "sha256": "1fd66c37e9f62202e4c5dd9235b6e1803ef795130b515eff76d62a7a59b8508b",
       "storage": "git"
     },
     {

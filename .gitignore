@@ -16,6 +16,11 @@ models/
 node_modules/
 Other/
 outputs/
+
+# Re-include curated study_v1 artifacts in the public bundle (paper models + OOF predictions)
+!study_files/outputs/
+!study_files/outputs/study_v1/
+!study_files/outputs/study_v1/**
 Python/
 v3-v5/
 package.json
