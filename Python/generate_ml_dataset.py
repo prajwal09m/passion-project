@@ -27,7 +27,7 @@ CONFIG = {
     'zone_detection_window': 90,  # Days to look back for zone detection
     'min_zone_touches': 2,  # Minimum touches to qualify as zone
     'zone_touch_threshold': 0.03,  # 3% tolerance for zone touches
-    'max_retests_per_zone': 3,  # first/second/third test; bounds dataset growth
+    'max_retests_per_zone': 5,  # up to 5 retests; richer zone-evolution data
     'market_tickers': [
         'SPY', 'QQQ', 'IWM', 'VIX', 'XLK', 'XLF', 'XLE', 'XLV', 'XLY',
         'XLP', 'XLI', 'XLB', 'XLU', 'XLRE', 'XLC'
@@ -877,6 +877,12 @@ class DemandZoneDatasetGenerator:
             signal['hit_target_10_5'] = hit_target_10_5
             signal['exit_reason'] = exit_reason
         
+        # Add market-relative label: did this trade beat the market?
+        for signal in signals:
+            row_idx = signal['row_idx']
+            spy_ret = float(df.iloc[row_idx].get('spy_return_20d', 0)) if 'spy_return_20d' in df.columns else 0
+            signal['market_relative_hit'] = int(signal['realized_return_pct'] > spy_ret)
+        
         return signals
     
     def create_features(self, df: pd.DataFrame, signals: List[Dict]) -> pd.DataFrame:
@@ -974,6 +980,7 @@ class DemandZoneDatasetGenerator:
                 'departure_atr_multiple': signal['departure_atr_multiple'],
                 'retest_number': signal['retest_number'],
                 'is_first_retest': signal['is_first_retest'],
+                'retest_x_strength': signal['retest_number'] * signal['zone_strength'],
                 **{key: signal[key] for key in ['base_body_ratio','base_average_body_pct','base_average_wick_ratio','base_tightness_score','base_range_percentile','inside_bar_count','compression_score','largest_departure_candle_pct','departure_gap_pct','departure_volume_percentile','consecutive_bullish_departure','departure_close_near_high']},
                 **zone_history,
                 
@@ -1034,8 +1041,21 @@ class DemandZoneDatasetGenerator:
                     'xlc_return_20d'
                 ] if column in row.index},
                 
-                # Trade outcomes (targets) - only keep hit_target to prevent leakage
+                # Trade outcomes (targets)
                 'hit_target': signal['hit_target'],
+                'market_relative_hit': signal['market_relative_hit'],
+                # Continuous outcomes for better targets (Option B classification)
+                'future_return_20d': signal.get('final_return_pct', 0),
+                'max_gain_20d': signal.get('mfe_pct', 0),
+                'max_loss_20d': signal.get('mae_pct', 0),
+                'realized_return_pct': signal.get('realized_return_pct', 0),
+                # Better classification: ratio > 3 AND beats SPY
+                'quality_hit': int(
+                    (signal.get('mfe_pct', 0) / max(abs(signal.get('mae_pct', 0.001)), 0.001) > 3) &
+                    (signal.get('realized_return_pct', 0) > float(
+                        df.iloc[row_idx].get('spy_return_20d', 0) if 'spy_return_20d' in df.columns else 0
+                    ))
+                ),
             }
             
             feature_rows.append(features)
