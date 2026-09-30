@@ -8,52 +8,29 @@ outputs/v10/*.csv
 __pycache__/
 *.pyc
 
-# Large ML libraries and dependencies (too large for GitHub)
-application_files/.freebuff/recovery_tools/pycdc-src/
-application_files/.freebuff/recovery_tools/pycdc-zig/
-application_files/.freebuff/recovery_tools/pylingual/
-application_files/.freebuff/recovery_tools/*.exe
-application_files/.freebuff/recovery_tools/*.pdb
+# All application-related files (moved to application_files folder locally)
+.freebuff/
+backend/
+demand-zone-webapp/
+models/
+node_modules/
+Other/
+outputs/
+Python/
+v3-v5/
+package.json
+package-lock.json
+README.md
+demand_zone_ml_dataset_v10.zip
+Demand_Zone_AI_Development_and_Audit_Record.docx
+DEMAND_ZONE_AI_RESEARCH_DRAFT.md
+MARKET_STRUCTURE_ABLATION_PROTOCOL.md
+MARKET_STRUCTURE_STUDY_V1_PROTOCOL.json
+Market_Structure_Experiment_Protocol.docx
+requirements.txt
 
-# Node modules
-application_files/node_modules/
-application_files/demand-zone-webapp/node_modules/
-demand-zone-webapp/node_modules/
-
-# Scanner cache files (thousands of large JSON/CSV files)
-application_files/scanner/bars_cache/
-application_files/scanner/stooq_cache/
-
-# Large model binaries
-application_files/models/*.cbm
-application_files/models/*.pkl
-application_files/models/*.joblib
-application_files/models/*/
-
-# Large data files
-application_files/data/*.csv
-application_files/data/*.zip
-application_files/data/*.pkl
-application_files/data/*/
-
-# Large output files
-application_files/outputs/*.zip
-application_files/outputs/*/*.zip
-application_files/outputs/*.pkl
-application_files/outputs/study_v1/
-
-# Large dataset files
-application_files/demand_zone_ml_dataset_v10.zip
-
-# Database files
-application_files/.freebuff/*.db
-application_files/.freebuff/*.db-shm
-application_files/.freebuff/*.db-wal
-
-# Cache files
-application_files/.freebuff/*.pkl
-application_files/.freebuff/*.json
-application_files/.freebuff/*.log
+# Application files folder (too large for GitHub)
+application_files/
 
 # Locked files
 demand-zone-webapp/
