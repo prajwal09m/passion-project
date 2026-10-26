@@ -1,0 +1,1 @@
+{"campaign_id": "campaign-2-stage-2-2026-10-04", "cycles": 0, "executions_done": 0, "status": "FAILED", "stop_detail": "cycle KeyError: 'state'", "stop_reason": "REPEATED_CRASHES"}

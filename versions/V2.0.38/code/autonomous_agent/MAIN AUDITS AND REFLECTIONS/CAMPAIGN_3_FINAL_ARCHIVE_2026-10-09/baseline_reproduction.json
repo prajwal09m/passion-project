@@ -1,0 +1,425 @@
+{
+  "blockers": [],
+  "commit": {
+    "branch": "study/demand-zone-ai-autonomy-audit",
+    "dirty": true,
+    "sha": "cf5eafc1418fd95761bbe812032048fbc2ac6ad0"
+  },
+  "configuration": {
+    "estimators": {
+      "LightGBM": {
+        "class_weight": null,
+        "colsample_bytree": 0.8,
+        "deterministic": true,
+        "force_col_wise": true,
+        "learning_rate": 0.03,
+        "max_depth": 6,
+        "min_child_samples": 30,
+        "n_estimators": 300,
+        "n_jobs": 1,
+        "num_leaves": 31,
+        "pipeline": "SimpleImputer(strategy=median, keep_empty_features=True) -> LGBMClassifier; imputer fit on training rows only.",
+        "random_state": 42,
+        "reg_alpha": 0.1,
+        "reg_lambda": 0.5,
+        "subsample": 0.8,
+        "subsample_freq": 1,
+        "verbosity": -1
+      },
+      "LogisticRegression": {
+        "C": 1.0,
+        "class_weight": null,
+        "max_iter": 2000,
+        "penalty": "l2 (estimator default; omitted in code for sklearn 1.8+ compatibility)",
+        "pipeline": "SimpleImputer(strategy=median, keep_empty_features=True) -> StandardScaler -> LogisticRegression; all fitted on training fold only.",
+        "random_state": 42,
+        "solver": "lbfgs"
+      },
+      "selection": "No hyperparameter search, ensemble, feature ranking, threshold selection, or result-driven changes in v1."
+    },
+    "replay_cutoff": null
+  },
+  "dataset_checksums": {
+    "study_files/outputs/study_v1/development/event_table.csv": "232de7db65c92bec249be801e593acdaa822ecd0b13eb0cd32b7eeaced85a4d0",
+    "study_files/outputs/study_v1/development/oof_predictions.csv": "011530761a19016f430232f631a9c3b0199ac17aff297e491d8d50d4b1508829",
+    "study_files/outputs/study_v1/models/LightGBM_A.joblib": "f1a47ee24db9905cd9ff9558b4bc08e9d3bf6bdeaa1f39184a1613cb41604716",
+    "study_files/outputs/study_v1/models/LightGBM_B.joblib": "fe78f97012d31138bdad8fa0113e31b55ece9a73394a44db6a4dfc3a436ed6cd",
+    "study_files/outputs/study_v1/models/LightGBM_C.joblib": "af5f6143a3f8c216dd5bca8c6cfb5e76343d4fe0ebe702da554b93230a5b40bb",
+    "study_files/outputs/study_v1/models/LightGBM_D.joblib": "831963117ce578b9f619996aac1c1ee03e71922b032f422f2dfe903ea3338d21",
+    "study_files/outputs/study_v1/models/LogisticRegression_A.joblib": "470c614d8ce17211f8b58a05a43d69ba72f91a5127053b52316e839fb901397a",
+    "study_files/outputs/study_v1/models/LogisticRegression_B.joblib": "fe49917b20ce769bc713d6b674d80e5c41c25590fa84b3f8c094a48e9fb3e966",
+    "study_files/outputs/study_v1/models/LogisticRegression_C.joblib": "cc2826ced69ded12ba04980d74306d8a9ec9a275eed2450ed7653639359b0da4",
+    "study_files/outputs/study_v1/models/LogisticRegression_D.joblib": "1fd66c37e9f62202e4c5dd9235b6e1803ef795130b515eff76d62a7a59b8508b",
+    "study_files/outputs/v2/_ohlcv/ (153 CSVs)": "153 CSV files; required benchmarks verified",
+    "study_files/outputs/v2/demand_zone_v2_dataset.csv": "149 distinct tickers; sha256 pin matches"
+  },
+  "environment": {
+    "adapter_version": "0.2.0",
+    "catboost": "1.2.10",
+    "executable": "C:\\Users\\kamal\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "joblib": "1.5.3",
+    "lightgbm": "4.7.0",
+    "numpy": "2.3.3",
+    "pandas": "2.3.3",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.1",
+    "scikit-learn": "1.9.0",
+    "xgboost": "3.3.0"
+  },
+  "feature_set": {
+    "arms": {
+      "A": 20,
+      "B": 38,
+      "C": 65,
+      "D": 99
+    },
+    "feature_arms_sha256": "92e9772c91099b1dc319945d285cbb907c1e92f3ebe4dc04c3f90c5c7f77e02e"
+  },
+  "inputs_detail": {
+    "feature_parity": "established only by the AAL parity comparison after v1_0_1_source is restored",
+    "hold1_dataset": "missing: study_files/outputs/hold1/demand_zone_hold1_dataset_v1.csv",
+    "ohlcv_cache": "153 CSV files; required benchmarks verified",
+    "v13_dataset": "missing: study_files/outputs/v13/demand_zone_ml_dataset_v13.csv",
+    "v1_0_1_source": "recovered source not provided; drop zone absent",
+    "v1_run_manifest": "all pinned hashes and artifact hashes verified",
+    "v2_roster_dataset": "149 distinct tickers; sha256 pin matches",
+    "v5_dataset": "missing: study_files/outputs/v5/demand_zone_v5_dataset.csv"
+  },
+  "intervals": {
+    "test": "FINAL HOLDOUT SEALED: zero prospective predictions exist; no test interval has been evaluated.",
+    "training": "expanding windows, train signal dates strictly before each fold start with target-maturity purge (train exit < validation start)",
+    "validation_folds": [
+      {
+        "name": "2023",
+        "train_signal_dates_before": "2023-01-01",
+        "validation_end_exclusive": "2024-01-01",
+        "validation_start_inclusive": "2023-01-01"
+      },
+      {
+        "name": "2024",
+        "train_signal_dates_before": "2024-01-01",
+        "validation_end_exclusive": "2025-01-01",
+        "validation_start_inclusive": "2024-01-01"
+      },
+      {
+        "name": "2025",
+        "train_signal_dates_before": "2025-01-01",
+        "validation_end_exclusive": "2026-01-01",
+        "validation_start_inclusive": "2025-01-01"
+      }
+    ]
+  },
+  "metrics": {
+    "pooled_oof_metrics": {
+      "LightGBM_A": {
+        "average_precision": 0.2610019687674128,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6691551081037287,
+        "events": 41221,
+        "pooled_auc": 0.6718353284089094,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_lift_mean_per_date": 0.13980095681834023,
+        "top5pct_precision_mean_per_date": 0.3009530141843972
+      },
+      "LightGBM_B": {
+        "average_precision": 0.2739046755665059,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6931241548947191,
+        "events": 41221,
+        "pooled_auc": 0.677807533511293,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_lift_mean_per_date": 0.14582932561266648,
+        "top5pct_precision_mean_per_date": 0.30698138297872346
+      },
+      "LightGBM_C": {
+        "average_precision": 0.2768388097036251,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6940358883987371,
+        "events": 41221,
+        "pooled_auc": 0.683495093143497,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_lift_mean_per_date": 0.14833375823677997,
+        "top5pct_precision_mean_per_date": 0.3094858156028369
+      },
+      "LightGBM_D": {
+        "average_precision": 0.2747738326927149,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6943712540951822,
+        "events": 41221,
+        "pooled_auc": 0.6848423246611786,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_lift_mean_per_date": 0.14786833270486505,
+        "top5pct_precision_mean_per_date": 0.30902039007092197
+      },
+      "LogisticRegression_A": {
+        "average_precision": 0.23242369413018424,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.5883176719820951,
+        "events": 41221,
+        "pooled_auc": 0.5900782447043421,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_lift_mean_per_date": 0.1223807440523828,
+        "top5pct_precision_mean_per_date": 0.2835328014184397
+      },
+      "LogisticRegression_B": {
+        "average_precision": 0.26883865794951445,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6815432987170229,
+        "events": 41221,
+        "pooled_auc": 0.6607516540843122,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_lift_mean_per_date": 0.16453499937153174,
+        "top5pct_precision_mean_per_date": 0.32568705673758863
+      },
+      "LogisticRegression_C": {
+        "average_precision": 0.2662558262142193,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6752201800414411,
+        "events": 41221,
+        "pooled_auc": 0.6603215127932149,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_lift_mean_per_date": 0.16400308447791473,
+        "top5pct_precision_mean_per_date": 0.3251551418439716
+      },
+      "LogisticRegression_D": {
+        "average_precision": 0.2654947460502526,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6731666391141898,
+        "events": 41221,
+        "pooled_auc": 0.659610463602037,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_lift_mean_per_date": 0.15566975114458137,
+        "top5pct_precision_mean_per_date": 0.3168218085106383
+      }
+    },
+    "source": "ARCHIVED v1.0.1 values (sanitized manifest) -- NOT REPRODUCED"
+  },
+  "models": [
+    "LightGBM",
+    "LogisticRegression",
+    "selection"
+  ],
+  "original_tree_unchanged": true,
+  "protocol": {
+    "id": "DZAI-MARKET-STRUCTURE-ABLATION-V1",
+    "sha256": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05",
+    "version": "1.0.2"
+  },
+  "random_seed": 42,
+  "recorded_at": "2026-10-02T21:43:18+00:00",
+  "reproduction": {
+    "artifact_hashes_match": false,
+    "drift": [
+      "artifact_sha256",
+      "pooled_oof_metrics"
+    ],
+    "produced_metrics": {
+      "LightGBM_A": {
+        "average_precision": 0.26134032776592764,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6699273825110579,
+        "events": 41221,
+        "pooled_auc": 0.6742884359307444,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.29968971631205676
+      },
+      "LightGBM_B": {
+        "average_precision": 0.27421974429525187,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.696411503244301,
+        "events": 41221,
+        "pooled_auc": 0.679504672578425,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.3060948581560284
+      },
+      "LightGBM_C": {
+        "average_precision": 0.27471522799549347,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6959565735912563,
+        "events": 41221,
+        "pooled_auc": 0.6844558154384123,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.3092863475177305
+      },
+      "LightGBM_D": {
+        "average_precision": 0.275109987681848,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6971891947033128,
+        "events": 41221,
+        "pooled_auc": 0.6871806964784837,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.3288120567375886
+      },
+      "LogisticRegression_A": {
+        "average_precision": 0.23230261447016054,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.5888832056998765,
+        "events": 41221,
+        "pooled_auc": 0.5900854760899688,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.28348847517730497
+      },
+      "LogisticRegression_B": {
+        "average_precision": 0.269190664122337,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6844231731090296,
+        "events": 41221,
+        "pooled_auc": 0.662695117837118,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.31744237588652485
+      },
+      "LogisticRegression_C": {
+        "average_precision": 0.26632663762295355,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6765002111216148,
+        "events": 41221,
+        "pooled_auc": 0.6611945304826808,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.3240913120567376
+      },
+      "LogisticRegression_D": {
+        "average_precision": 0.2655898685155653,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6763670064841231,
+        "events": 41221,
+        "pooled_auc": 0.6614675227737759,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.3230939716312057
+      }
+    }
+  },
+  "result": {
+    "acceptance_recommendation": "STOP_AUTONOMOUS_EXPERIMENTATION",
+    "artifacts": {},
+    "blockers": [],
+    "candidate_path": null,
+    "candidate_version": null,
+    "checks": {},
+    "error": {
+      "drift": [
+        "artifact_sha256",
+        "pooled_oof_metrics"
+      ],
+      "message": "Reproduction drift: produced artifacts/metrics do not match the restored manifest."
+    },
+    "experiment_id": "baseline-reproduction",
+    "holdout_status": "SEALED",
+    "leakage_status": "NOT_RUN",
+    "metrics": {
+      "comparison": {
+        "artifact_hashes_match": false,
+        "drift": [
+          "artifact_sha256",
+          "pooled_oof_metrics"
+        ],
+        "produced_metrics": {
+          "LightGBM_A": {
+            "average_precision": 0.26134032776592764,
+            "daily_auc_eligible_dates": 728,
+            "daily_auc_mean_two_class_dates": 0.6699273825110579,
+            "events": 41221,
+            "pooled_auc": 0.6742884359307444,
+            "positive_rate": 0.16477038402755878,
+            "same_date_base_rate_mean": 0.16115205736605692,
+            "top5pct_precision_mean_per_date": 0.29968971631205676
+          },
+          "LightGBM_B": {
+            "average_precision": 0.27421974429525187,
+            "daily_auc_eligible_dates": 728,
+            "daily_auc_mean_two_class_dates": 0.696411503244301,
+            "events": 41221,
+            "pooled_auc": 0.679504672578425,
+            "positive_rate": 0.16477038402755878,
+            "same_date_base_rate_mean": 0.16115205736605692,
+            "top5pct_precision_mean_per_date": 0.3060948581560284
+          },
+          "LightGBM_C": {
+            "average_precision": 0.27471522799549347,
+            "daily_auc_eligible_dates": 728,
+            "daily_auc_mean_two_class_dates": 0.6959565735912563,
+            "events": 41221,
+            "pooled_auc": 0.6844558154384123,
+            "positive_rate": 0.16477038402755878,
+            "same_date_base_rate_mean": 0.16115205736605692,
+            "top5pct_precision_mean_per_date": 0.3092863475177305
+          },
+          "LightGBM_D": {
+            "average_precision": 0.275109987681848,
+            "daily_auc_eligible_dates": 728,
+            "daily_auc_mean_two_class_dates": 0.6971891947033128,
+            "events": 41221,
+            "pooled_auc": 0.6871806964784837,
+            "positive_rate": 0.16477038402755878,
+            "same_date_base_rate_mean": 0.16115205736605692,
+            "top5pct_precision_mean_per_date": 0.3288120567375886
+          },
+          "LogisticRegression_A": {
+            "average_precision": 0.23230261447016054,
+            "daily_auc_eligible_dates": 728,
+            "daily_auc_mean_two_class_dates": 0.5888832056998765,
+            "events": 41221,
+            "pooled_auc": 0.5900854760899688,
+            "positive_rate": 0.16477038402755878,
+            "same_date_base_rate_mean": 0.16115205736605692,
+            "top5pct_precision_mean_per_date": 0.28348847517730497
+          },
+          "LogisticRegression_B": {
+            "average_precision": 0.269190664122337,
+            "daily_auc_eligible_dates": 728,
+            "daily_auc_mean_two_class_dates": 0.6844231731090296,
+            "events": 41221,
+            "pooled_auc": 0.662695117837118,
+            "positive_rate": 0.16477038402755878,
+            "same_date_base_rate_mean": 0.16115205736605692,
+            "top5pct_precision_mean_per_date": 0.31744237588652485
+          },
+          "LogisticRegression_C": {
+            "average_precision": 0.26632663762295355,
+            "daily_auc_eligible_dates": 728,
+            "daily_auc_mean_two_class_dates": 0.6765002111216148,
+            "events": 41221,
+            "pooled_auc": 0.6611945304826808,
+            "positive_rate": 0.16477038402755878,
+            "same_date_base_rate_mean": 0.16115205736605692,
+            "top5pct_precision_mean_per_date": 0.3240913120567376
+          },
+          "LogisticRegression_D": {
+            "average_precision": 0.2655898685155653,
+            "daily_auc_eligible_dates": 728,
+            "daily_auc_mean_two_class_dates": 0.6763670064841231,
+            "events": 41221,
+            "pooled_auc": 0.6614675227737759,
+            "positive_rate": 0.16477038402755878,
+            "same_date_base_rate_mean": 0.16115205736605692,
+            "top5pct_precision_mean_per_date": 0.3230939716312057
+          }
+        }
+      }
+    },
+    "release_metadata": null,
+    "reproduction_command": null,
+    "robustness_status": "NOT_RUN",
+    "runtime": {},
+    "status": "FAILED"
+  },
+  "runtime": {
+    "reproduction_executed": false
+  },
+  "status": "FAILED"
+}

@@ -1,0 +1,23 @@
+{
+  "budget": 64,
+  "code_root": "C:/Prajwal MIT/Passion/.model_discovery_workspace/dev",
+  "duplicate_rate": 0.0,
+  "evidence_universe_keys": 16,
+  "evidence_universe_unmeasured": 4,
+  "first_cycle_fingerprints": [
+    "c90e9759370c2ed20e89ddbbd7f3475eb7c74ca807e3bd279d91c386d0a57d60"
+  ],
+  "measured_history_keys": 12,
+  "mode": "dedup_amend",
+  "novel_keys_reached": 2,
+  "per_cycle": 3,
+  "stats": {
+    "cycles_run": 3,
+    "emitted": 2,
+    "novel": 2,
+    "redundant_vs_history": 0,
+    "repeat_within_run": 0,
+    "stopped": "no_admissible_candidate",
+    "uncompilable": 0
+  }
+}

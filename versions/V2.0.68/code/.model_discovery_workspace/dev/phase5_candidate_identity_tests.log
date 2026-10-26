@@ -1,0 +1,4 @@
+START=2026-10-18T11:02:47-04:00 timeout=120s command=py -3 -m pytest -q autonomous_agent/test_candidate_search_v2.py && py -3 -m py_compile autonomous_agent/proposal_layer/candidate_search_v2.py
+...............                                                          [100%]
+15 passed in 1.96s
+END=2026-10-18T11:02:49-04:00 EXIT_STATUS=0

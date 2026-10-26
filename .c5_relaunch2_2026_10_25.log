@@ -1,0 +1,2 @@
+[version-manager] rename attempt 1/5 failed (transient lock); retrying in 0.2s
+{"campaign_id": "campaign-5-regime-error-analysis-2026-10-22", "cycles": 30, "executions_done": 28, "multiplicity_outcome": "INCONCLUSIVE", "status": "STOPPED", "stop_reason": "MAX_CYCLES"}

@@ -1,0 +1,10 @@
+# Ignore large generated datasets
+outputs/v7/*.csv
+outputs/v8/*.csv
+outputs/v9/*.csv
+outputs/v10/*.csv
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+node_modules

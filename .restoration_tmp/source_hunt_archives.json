@@ -1,0 +1,17 @@
+{
+  "code_pin": "29885c5f14235e78349b728156e18feba930f3ee533565ea36a05f695692424b",
+  "test_pin": "e3f16447eae3a257dfc013d8dd53e2521414632c06f7b14a3d31f0ba3ddce456",
+  "pyc_pin": "c7d23b68e66d76f1f851887bc755b84b6bb1c8c424c24cccc8bf94de59d8f585",
+  "stats": {
+    "files_hashed": 0,
+    "blobs_hashed": 0,
+    "archive_entries": 2268,
+    "errors": 0
+  },
+  "pin_hits": [],
+  "marker_hit_count": 0,
+  "marker_hits": [],
+  "errors": [],
+  "orphan_packs": [],
+  "phase": "archives"
+}

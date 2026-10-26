@@ -1,6 +1,9 @@
-# Demand Zone AI — Autonomy Study
+# Demand Zone AI — Research and Autonomy Study
 
-A retrospective case study of AI-assisted development of a machine-learning system for short-horizon equity prediction: how a rule-based demand-zone detector evolved through multiple model versions into an ablation study, what its metrics do and do not show, and where the evidence ends.
+This repository preserves the existing short-horizon stock-analysis ML research system and its V1–V10 development history. It also contains an evidence-gated autonomous research supervisor; it does not replace the historical project or treat incomparable generations as a single performance ladder.
+
+**Research history:** [EVOLUTION_HISTORY.md](EVOLUTION_HISTORY.md) · [Research memory](RESEARCH_MEMORY.md) · [Version ledger](VERSION_HISTORY.md)
+**Autonomous supervisor:** [autonomous_agent/README.md](autonomous_agent/README.md)
 
 **Main paper:** [`study_files/Demand_Zone_AI_Autonomy_Study.docx`](study_files/Demand_Zone_AI_Autonomy_Study.docx) · Companion draft: [`study_files/DEMAND_ZONE_AI_RESEARCH_DRAFT.md`](study_files/DEMAND_ZONE_AI_RESEARCH_DRAFT.md)
 
@@ -18,6 +21,8 @@ Everything lives under [`study_files/`](study_files/) — a curated public relea
 | `study_files/outputs/study_v1_archive_audit_closeout.md` | Read-only archive audit: 153 source-CSV hashes, 2 table hashes, 8 model hashes verified |
 | `study_files/research/demand-zone-ai-study/` | `bundle_manifest.json` (SHA-256 inventory of this release) and `run_manifest_sanitized.json` (v1.0.1 run manifest, machine paths removed) |
 | `study_files/models/`, `study_files/outputs/` | Development-history metadata (v2–v7) and reports |
+| `EVOLUTION_HISTORY.md`, `RESEARCH_MEMORY.md`, `VERSION_HISTORY.md` | Agent-readable history, durable research lessons, and honest version status |
+| `autonomous_agent/` | Safe supervisor, evidence-driven hypothesis planner, persistent journal/state, and unit tests |
 
 ## Headline results (archived v1.0.1, retrospective)
 
@@ -77,6 +82,17 @@ pip install -r study_files/requirements.txt
 - The V2/V3/V5 row-level datasets
 - The unsanitized original run manifest (contained machine-specific paths)
 - The original v1.0.1 training source (never recovered; feature parity with the reconstruction failed)
+
+## Starting the autonomous supervisor
+
+The supervisor is intentionally **blocked from running experiments** in the current checkout: there is no source-reproduced champion, the frozen v1.0.2 inputs are missing, and no reviewed experiment adapter exists. It will record its research hypothesis and blockers, then idle; it will not run old training scripts, fetch data, or claim a model improvement. This is an honest prerequisite gate, not a simulated dashboard.
+
+```bash
+python -m autonomous_agent.core status
+python -m autonomous_agent.core run
+# Stop with Ctrl-C or from another shell:
+python -m autonomous_agent.core stop
+```
 
 ## Status and integrity boundary
 

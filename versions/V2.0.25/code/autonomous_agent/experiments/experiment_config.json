@@ -1,0 +1,31 @@
+{
+  "arm_a": "B",
+  "arm_b": "B",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 10,
+  "estimator_a": "LogisticRegression",
+  "estimator_b": "LightGBM",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "min_folds": 3,
+    "note": "Complexity-premium gates: the candidate estimator must beat LogisticRegression by at least 0.005 pooled OOF AUC to justify the added complexity.",
+    "primary_metric_min_delta": 0.005
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_compositional",
+  "hypothesis_id": "rq-model_complexity",
+  "hypothesis_text": "[model_complexity] The complexer estimator must clear a predeclared complexity premium over LogisticRegression to justify its extra complexity, otherwise the simpler model stands. (arm=B, n_boot=500, premium=standard) \u2014 does it satisfy the predeclared non-degradation criteria on the frozen development folds?",
+  "n_boot": 500,
+  "recipe_id": "proposal_layer",
+  "recipe_version": "1.0.0",
+  "schema_version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

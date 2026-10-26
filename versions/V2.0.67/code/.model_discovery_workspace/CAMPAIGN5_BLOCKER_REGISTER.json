@@ -1,0 +1,382 @@
+{
+  "schema": "campaign5-blocker-register-v1",
+  "version": "1.0",
+  "prepared_date": "2026-10-18",
+  "overall_status": "ENGINEERING_SUITE_VERIFIED_HUMAN_DECISIONS_PENDING",
+  "scope": {
+    "preparation_only": true,
+    "real_market_evaluation_authorized": false,
+    "campaign_integration_authorized": false,
+    "campaign_execution_authorized": false,
+    "holdout_access_authorized": false,
+    "evaluation_data_accessed_in_this_phase": false,
+    "protected_data_policy": "No evaluation or OOF rows/predictions, sealed holdout, or prospective evaluation contents were read. Governance/manifests were used as metadata only.",
+    "header_only_fixture_access_disclosure": "The completed isolated dev suite includes the documented scaffolder test that reads only the staged development event-table header; no rows were consumed. Owner/data-steward ruling on whether this was within the permitted boundary remains unresolved.",
+    "permitted_development_roots": [
+      ".model_discovery_workspace/",
+      ".model_discovery_workspace/dev/"
+    ]
+  },
+  "evidence_classes": [
+    "VERIFIED_FACT",
+    "PROPOSAL",
+    "ASSUMPTION",
+    "UNRESOLVED"
+  ],
+  "statuses": [
+    "OPEN",
+    "IN_PROGRESS",
+    "BLOCKED",
+    "VERIFIED_CLOSED"
+  ],
+  "blockers": [
+    {
+      "id": "B1",
+      "title": "Protocol version and scope",
+      "status": "BLOCKED",
+      "requirement": "Choose exactly one Campaign 5 protocol version and immutable digest; compare every proposed change against frozen Campaign 4 rules and obtain approvals for scientific/policy changes. No protocol is selected here.",
+      "evidence": [
+        {
+          "class": "VERIFIED_FACT",
+          "source": "stat_validation_h10/C4_NEXT_STAGE_READINESS_REPORT.md",
+          "detail": "No Campaign 5 configuration or gate record; Campaign 4 checker READY is scoped to C4 only."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": ".model_discovery_workspace/dev/autonomous_agent/proposal_layer/protocol_amendment_v2.json",
+          "detail": "Candidate search v2 is proposal-only, activation disallowed, owner approval and independent statistical review pending."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": ".model_discovery_workspace/PHASE5_REAL_MARKET_EVALUATION_PREDECLARATION.md",
+          "detail": "Existing draft explicitly records manifest v1.0.1 versus protocol v1.0.2 conflict and does not select either."
+        }
+      ],
+      "why_it_matters": "Version ambiguity makes estimand, candidate universe, splits, metrics, multiplicity, and authorization scope non-reproducible.",
+      "resolution_artifact": "Owner-selected C5 protocol name/version/SHA-256, itemized C4-to-C5 diff/disposition, and versioned amendment for any scientific/policy change.",
+      "responsible_role": "Project owner (decision); independent statistical reviewer (scientific review); implementer (record only).",
+      "closure_evidence": [
+        "Authentic owner decision naming exact digest",
+        "Independent review naming same digest",
+        "Accepted/rejected/deferred disposition for each diff",
+        "Verification production entrypoints remain unchanged until separately authorized"
+      ],
+      "dependencies": [
+        "B2",
+        "B4",
+        "B5"
+      ],
+      "downstream_consequences": "Blocks final protocol, predeclaration, generator activation, campaign config, integration, and launch.",
+      "change_comparison": [
+        {
+          "change": "C4 frozen configuration/protocol",
+          "status": "VERIFIED_FACT",
+          "disposition": "Historical baseline only; no automatic inheritance to C5."
+        },
+        {
+          "change": "Candidate search v2 model/feature universe",
+          "status": "PROPOSAL",
+          "disposition": "Development-only proposal; activation requires owner and independent review."
+        },
+        {
+          "change": "Quota floor, replication cap, evidence-key semantics",
+          "status": "PROPOSAL",
+          "disposition": "Optional Phase 3 amendment; not activated; explicit owner/reviewer decision required."
+        },
+        {
+          "change": "Target/split/metric/multiplicity/measurement changes",
+          "status": "UNRESOLVED",
+          "disposition": "No value selected; each change requires line-item review and approval."
+        },
+        {
+          "change": "C5 integration and launch gates",
+          "status": "UNRESOLVED",
+          "disposition": "No C5 gate/config record found; C4 permission does not transfer."
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "title": "Independent statistical review",
+      "status": "BLOCKED",
+      "requirement": "Obtain written review by a non-implementing, appropriately independent statistician of exact C5 protocol and analysis plan, with explicit decisions on assumptions, temporal dependence, groups, multiplicity, uncertainty, selection, and stopping.",
+      "evidence": [
+        {
+          "class": "VERIFIED_FACT",
+          "source": "stat_validation_h10/D2_AI_INDEPENDENT_STATISTICAL_REVIEW.md",
+          "detail": "Reviewer was implementing AI; document explicitly discloses personnel non-independence."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": "stat_validation_h10/H10_OWNER_AUTHORIZATION_RECORD_2026_10_11.md",
+          "detail": "No independent review request sent at that record date; D2 remained deferred there."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": "stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md",
+          "detail": "Later AI-substitution decision is C4-specific and cannot substitute for C5 independent review."
+        }
+      ],
+      "why_it_matters": "An implementation/review conflict does not satisfy an independent-review requirement; temporal/group and selection assumptions need adversarial assessment.",
+      "resolution_artifact": "Reviewer-authored assessment against exact C5 protocol digest, covering CAMPAIGN5_INDEPENDENT_REVIEW_CHECKLIST.md.",
+      "responsible_role": "Project owner obtains reviewer; reviewer authors assessment; implementer does not approve own work.",
+      "closure_evidence": [
+        "Reviewer identity/affiliation and independence/conflict disclosure",
+        "Written assessment with exact digest",
+        "Blocking comments and disposition",
+        "Owner's subsequent explicit decision"
+      ],
+      "dependencies": [
+        "B1",
+        "B3",
+        "B5"
+      ],
+      "downstream_consequences": "Blocks C5 protocol acceptance, final predeclaration, evaluation, and integration."
+    },
+    {
+      "id": "B3",
+      "title": "Evaluation and holdout boundary",
+      "status": "BLOCKED",
+      "requirement": "Establish eligible development allowlist and exact train/validation/final-evaluation boundary from governance metadata only; identify temporal/group/purge rules, prior exposure, leakage controls, and protected boundary without reading its contents.",
+      "evidence": [
+        {
+          "class": "VERIFIED_FACT",
+          "source": ".readiness.json",
+          "detail": "Historical checker reported SEALED, uses 0, prospective directory absent; this is C4 readiness evidence, not a C5 boundary attestation."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": ".model_discovery_workspace/dev/FIXTURE_PROVENANCE.json",
+          "detail": "Development fixture layout says no prospective directory copied; does not prove source dataset disjointness."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": ".model_discovery_workspace/PHASE5_REAL_MARKET_EVALUATION_PREDECLARATION.md",
+          "detail": "Explicitly says the exact protected boundary and development/holdout disjointness remain unverified."
+        }
+      ],
+      "why_it_matters": "Cannot establish eligibility, leakage prevention, or disjointness of training, validation, retrospective OOF, and protected final data without an authoritative boundary.",
+      "resolution_artifact": "Owner/data-steward-authored boundary specification citing existing design/governance records, allowed identifiers, temporal maturity/purge and grouping rules, prior exposure, and protected boundary identifier.",
+      "responsible_role": "Project owner/data steward (attestation); independent reviewer (leakage/dependence review).",
+      "closure_evidence": [
+        "Written source-backed owner/data-steward attestation",
+        "Reviewer acceptance",
+        "Allowlist/denylist tests",
+        "Non-content evidence protected data excluded from execution environment"
+      ],
+      "dependencies": [
+        "B2",
+        "B4",
+        "B5"
+      ],
+      "downstream_consequences": "Blocks predeclaration approval, data-use authorization, all evaluation, and meaningful C5 readiness. If unresolved under no-access policy, remain blocked."
+    },
+    {
+      "id": "B4",
+      "title": "Written owner authorization",
+      "status": "OPEN",
+      "requirement": "Owner separately decides and records all items in CAMPAIGN5_OWNER_DECISION_PACKET.md. No silence/default approval and no transfer of C4 decisions to C5.",
+      "evidence": [
+        {
+          "class": "VERIFIED_FACT",
+          "source": "stat_validation_h10/H10_OWNER_AUTHORIZATION_RECORD_2026_10_11.md",
+          "detail": "H-10/C4-specific scope; excludes D2 adoption/closure and automatic launch authorization."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/C4_MEASUREMENT_WIRING_FINDING_OWNER_DECISION_RECORD_2026_10_16.md",
+          "detail": "Explicitly authorizes no new campaign; holdout remains sealed."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": ".model_discovery_workspace/PHASE5_REAL_MARKET_EVALUATION_PREDECLARATION.md",
+          "detail": "Owner authorization NOT GRANTED for proposed market comparison."
+        }
+      ],
+      "why_it_matters": "Prepared paperwork and passing tests are not authorization; no C5 scope/data-use/integration decision exists.",
+      "resolution_artifact": "Authentic owner decision record answering every separate packet item and naming exact artifact digests and allowed/prohibited operations.",
+      "responsible_role": "Project owner; implementer may transcribe faithfully with provenance, not create approval or signature.",
+      "closure_evidence": [
+        "Written decision for each item",
+        "Provenance/date/scope and exact hashes",
+        "Separate later integration authorization if desired"
+      ],
+      "dependencies": [
+        "B1",
+        "B2",
+        "B3",
+        "B5"
+      ],
+      "downstream_consequences": "Blocks evaluation, generator activation, integration, and campaign execution."
+    },
+    {
+      "id": "B5",
+      "title": "Real-market predeclaration",
+      "status": "IN_PROGRESS",
+      "requirement": "Complete one immutable, independently reviewed predeclaration before any real-market access, fitting, scoring, or metric computation; specify dataset IDs, target, contrast, splits/purge, baseline, metrics, uncertainty, multiplicity, selection, stopping, outputs, and holdout restrictions.",
+      "evidence": [
+        {
+          "class": "VERIFIED_FACT",
+          "source": ".model_discovery_workspace/PHASE5_REAL_MARKET_EVALUATION_PREDECLARATION.md",
+          "detail": "Existing draft has unresolved protocol version, contrast, boundary, bootstrap implementation, ECE convention, and retrospective exposure issues; explicitly not authorized."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": "This preparation phase",
+          "detail": "No market comparison or evaluation was run."
+        }
+      ],
+      "why_it_matters": "An incomplete/post-hoc plan permits protocol selection, multiplicity, leakage, and optimistic interpretation.",
+      "resolution_artifact": "Updated draft retaining every unknown as unresolved pending owner/reviewer decisions; final frozen predeclaration with hash after B1-B4.",
+      "responsible_role": "Owner selects scope; independent reviewer assesses methods; implementer records and pins.",
+      "closure_evidence": [
+        "Final exact dataset/protocol digests",
+        "Reviewer sign-off against same digest",
+        "Owner approval naming same digest",
+        "Complete one-use/stopping/output and boundary controls"
+      ],
+      "dependencies": [
+        "B1",
+        "B2",
+        "B3",
+        "B4"
+      ],
+      "downstream_consequences": "Blocks any real-market evaluation; the draft itself grants no permission."
+    },
+    {
+      "id": "B7",
+      "title": "Legacy standalone study/build/train execution-path scope",
+      "status": "BLOCKED",
+      "requirement": "Owner classifies identified standalone legacy scripts as prohibited for C5, covered by documented enforceable separation, or explicitly in scope for narrowly authorized fail-closed changes. No repository-wide coverage claim until each in-scope path is controlled and tested.",
+      "evidence": [
+        {
+          "class": "VERIFIED_FACT",
+          "source": "autonomous_agent/campaign5_authorization.py and guarded boundaries",
+          "detail": "New fail-closed signed record validator wired at supervisor, continuous-loop and adapter boundaries. No C5 trust keys or authorization record are present."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": "autonomous_agent/test_campaign5_authorization.py",
+          "detail": "Fresh targeted authorization/adjacent suite: 79 passed + 4 subtests in 11.15s, exit 0; denial is verified at guarded autonomous execution paths."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": ".model_discovery_workspace/CAMPAIGN5_EXECUTION_PATH_AUDIT.md",
+          "detail": "Standalone historical study training/build scripts can be invoked without the new autonomous adapter preflight; repository-wide coverage is not complete."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": ".model_discovery_workspace/CAMPAIGN5_POST_FIX_FULL_SUITE_STABLE_RUN.log",
+          "detail": "Current post-change isolated suite: 520 passed + 26 subtests, 0 failures/skips in 756.82s, exit 0. This closes the engineering full-suite verification item only; legacy direct scripts remain outside the preflight pending owner scope."
+        }
+      ],
+      "why_it_matters": "A guarded autonomous adapter does not protect direct training/evaluation scripts. Owner scope and appropriate controls are required before claiming all in-scope paths are protected.",
+      "resolution_artifact": "Owner-authored scope decision for legacy scripts; if changes are authorized, updated execution-path audit and path-level inert adversarial tests.",
+      "responsible_role": "Project owner scopes direct script/data operations; engineering maintainer implements/tests controls; independent reviewer decides no execution permission.",
+      "closure_evidence": [
+        "Every in-scope execution path invokes the same preflight before opening/reading/training/scoring",
+        "Synthetic tests prove denied execution never begins for direct, retry, resume, recovery and subprocess paths",
+        "Full required suite completes with command, elapsed time and exit code",
+        "Separate authentic owner and independent-review records exist only when humans provide them"
+      ],
+      "dependencies": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+      ],
+      "downstream_consequences": "Legacy-script scope remains open; no repository-wide execution-protection claim or Campaign 5 launch readiness is established."
+    },
+    {
+      "id": "B6",
+      "title": "Current full-suite verification",
+      "status": "VERIFIED_CLOSED",
+      "requirement": "Complete the current isolated development suite after the evaluator validation change; retain the full summary and exit status without changing selection or assertions.",
+      "evidence": [
+        {
+          "class": "VERIFIED_FACT",
+          "source": ".model_discovery_workspace/CAMPAIGN5_POST_FIX_FULL_SUITE_STABLE_RUN.log",
+          "detail": "Post-change persistent run from the isolated dev root: timeout 1800s py -3 -m pytest -vv --durations=10; 520 passed, 26 subtests passed, 0 failed, 0 skipped in 756.82s; exit 0."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": ".model_discovery_workspace/CAMPAIGN5_COORDINATED_FULL_SUITE.log",
+          "detail": "Historical pre-final-edit run: 518 passed + 26 subtests in 293.88s, exit 0. Superseded as current verification by the 520-test post-change run."
+        },
+        {
+          "class": "VERIFIED_FACT",
+          "source": ".model_discovery_workspace/CAMPAIGN5_POST_FIX_FULL_SUITE.log, .model_discovery_workspace/CAMPAIGN5_POST_FIX_FULL_SUITE_FINAL_TIMEOUT.log, and .model_discovery_workspace/CAMPAIGN5_POST_FIX_E2E_CLASS_TIMEOUT.log",
+          "detail": "Earlier host-limited attempts were interrupted during slow Windows subprocess E2E tests; two full-run pytest summaries contained 6 and 4 failures including subprocess return code 3221225794 (0xC000013A) or empty expected stderr, and an E2E class attempt timed out at 540s. A later persistent full run completed successfully and supersedes these transient runner interruptions; logs retained for audit."
+        }
+      ],
+      "why_it_matters": "A complete current run is needed to establish regressions were not introduced by the evaluator validation change.",
+      "resolution_artifact": "CAMPAIGN5_POST_FIX_FULL_SUITE_STABLE_RUN.log",
+      "responsible_role": "Development/test maintainer.",
+      "closure_evidence": [
+        "All 520 collected tests selected and completed with pytest summary",
+        "Exit code 0; elapsed time and all 26 subtests recorded",
+        "No tests/assertions skipped, weakened, removed, or parallelized"
+      ],
+      "dependencies": [],
+      "downstream_consequences": "Engineering suite verification is complete; human protocol, review, data-boundary, predeclaration, exact authorization, and legacy-scope blockers remain open and no campaign readiness or permission is implied."
+    }
+  ],
+  "next_actions": [
+    {
+      "role": "Project owner (B1, B2 appointment)",
+      "action": "Select or explicitly defer one exact protocol artifact/digest, then appoint a qualified independent statistical reviewer; use the owner packet without treating any option as approval."
+    },
+    {
+      "role": "Project owner/data steward (B3)",
+      "action": "Establish permitted inputs/operations, exclusions, temporal/group/purge and exposure rules, future fixture restrictions, and explicitly rule on the staged-fixture header-only read using authoritative metadata only; otherwise keep B3 blocked."
+    },
+    {
+      "role": "Independent reviewer (B2)",
+      "action": "Author an independent assessment against the exact protocol/predeclaration digests, including temporal/group dependence, exchangeability/sign symmetry where applicable, p-value validity, multiplicity, assumptions, findings, limitations, and conflicts; AI preparation is not review."
+    },
+    {
+      "role": "Owner + independent reviewer (B5)",
+      "action": "Resolve every predeclaration element and freeze an immutable declaration aligned to the chosen protocol and approved boundary; both approvals must name the same digest."
+    },
+    {
+      "role": "Project owner (B7)",
+      "action": "Classify every identified legacy study/build/train path as prohibited, protected by enforceable operational separation, or explicitly in scope for narrowly authorized remediation. Engineering must not edit those paths before this decision."
+    },
+    {
+      "role": "Project owner (B4)",
+      "action": "Only after protocol, independent review, data boundary, predeclaration, and legacy-path scope are resolved, record authentic authorization for one exact operation with protocol/predeclaration/data/scope digests, outputs, exclusions, expiry, and revocation. This does not authorize production integration or launch."
+    }
+  ],
+  "launch_authorized": false,
+  "engineering_preflight_verified": false,
+  "protocol_source_contents_verified": false,
+  "protocol_source_verification_note": "The v1.0.2 protocol files were SHA-256 checked and parsed directly during final preparation; the file-content reader returned [BLOCKED]. No authoritative v1.0.1 source bytes were found. Hash identity does not establish source authority or approval.",
+  "current_preparation_check": {
+    "protocol_v1_0_2_sha256_recomputed": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05",
+    "protocol_copies_byte_identical": true,
+    "fixture_provenance_hash_matches": true,
+    "synthetic_candidate_search_tests": "18 passed in 17.38s, exit 0 (final-pass rerun)",
+    "production_candidate_search_reference_scan": "No matches in autonomous_agent and study_files/backend production-source roots; tests and .model_discovery_workspace excluded",
+    "review_checklist_duplicate_sections_removed": true
+  },
+  "engineering_suite_verification_complete": true,
+  "current_suite_result": "POST_CHANGE_COMPLETE_PASS",
+  "current_suite_test_count": 520,
+  "current_suite_subtests_passed": 26,
+  "execution_path_coverage_complete": false,
+  "latest_full_suite": {
+    "status": "PASS",
+    "timeout_seconds": 1800,
+    "command": "timeout 1800s py -3 -m pytest -vv --durations=10",
+    "collected": 520,
+    "passed": 520,
+    "subtests_passed": 26,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 756.82,
+    "exit_code": 0,
+    "log": ".model_discovery_workspace/CAMPAIGN5_POST_FIX_FULL_SUITE_STABLE_RUN.log",
+    "completion_summary": "520 passed, 26 subtests passed in 756.82s"
+  }
+}

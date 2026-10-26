@@ -1,0 +1,160 @@
+{
+  "backtest": {
+    "artifact_sha256": {
+      "event_table.csv": "260dec6723b6e24bbbcc4ca388c24f1b74e7ab63b24a7d69709f983f934494fc",
+      "oof_predictions.csv": "406965c253d8031343e2b92962b234c97dad1e8aeccb8b3b52c188f394614b80"
+    },
+    "scope": "Retrospective development artifacts only; see baseline record."
+  },
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "baseline_kind": "reconstructed_baseline",
+  "champion_origin": "bootstrap from established baseline BASELINE_RECONSTRUCTED_2026_10",
+  "code_revision": "cea2440425e1f2f56a95b576481ae2ef603fe1f6a9816078e0a998781e0cef2a",
+  "created_at": "2026-10-03T22:23:28+00:00",
+  "dataset_id": "demand_zone_v2_dataset (restored v1.0.1 roster source)",
+  "dataset_sha256": "669ca1f5b21339b8cc26f6eb5cbeb22003ebafcd86b0d7e945f0db3d6517d71b",
+  "feature_set": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "historical_v1_0_1_sha256": "29885c5f14235e78349b728156e18feba930f3ee533565ea36a05f695692424b",
+  "holdout_policy": {
+    "policy": "Do not access for research tuning; no approved final evaluation run.",
+    "status": "SEALED",
+    "uses": 0
+  },
+  "immutable_provenance": {
+    "baseline_record_sha256": "2381c46b620a53ce03c1d5b6327efaa4b3d318ae42fe041d30a290c7094958c9",
+    "baseline_registry": "autonomous_agent/state/baseline_registry.json",
+    "statement": "This baseline is a reconstruction and is NOT a reproduction of V1.0.1."
+  },
+  "known_limitations": [
+    "This baseline is a reconstruction and is NOT a reproduction of V1.0.1.",
+    "The implementation differs from historical V1.0.1 with 49 known feature-column differences (rsi14, atr_pct, zone_width_pct, 14 zone-base and 32 order-block features); see autonomous_agent/state/baseline_reproduction.json drift record.",
+    "Outputs are retrospective development artifacts; the final holdout remains sealed and no prospective claim exists."
+  ],
+  "leakage_status": "PASS",
+  "lineage": {
+    "historical_v1_0_1_sha256": "29885c5f14235e78349b728156e18feba930f3ee533565ea36a05f695692424b",
+    "note": "The reconstructed implementation differs from historical V1.0.1: 49 known feature-column differences (rsi14, atr_pct, zone_width_pct, 14 zone-base and 32 order-block features).",
+    "parent": "V1.0.1",
+    "relation": "reconstruction",
+    "v1_0_1_evidence": "autonomous_agent/state/baseline_reproduction.json (unchanged)",
+    "v1_0_1_record_status": "FAILED",
+    "v1_0_1_status": "FAILED"
+  },
+  "metrics": {
+    "pooled_oof_metrics": {
+      "LightGBM_A": {
+        "average_precision": 0.26134032776592764,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6699273825110579,
+        "events": 41221,
+        "pooled_auc": 0.6742884359307444,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.29968971631205676
+      },
+      "LightGBM_B": {
+        "average_precision": 0.27421974429525187,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.696411503244301,
+        "events": 41221,
+        "pooled_auc": 0.679504672578425,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.3060948581560284
+      },
+      "LightGBM_C": {
+        "average_precision": 0.27471522799549347,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6959565735912563,
+        "events": 41221,
+        "pooled_auc": 0.6844558154384123,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.3092863475177305
+      },
+      "LightGBM_D": {
+        "average_precision": 0.275109987681848,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6971891947033128,
+        "events": 41221,
+        "pooled_auc": 0.6871806964784837,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.3288120567375886
+      },
+      "LogisticRegression_A": {
+        "average_precision": 0.23230261447016054,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.5888832056998765,
+        "events": 41221,
+        "pooled_auc": 0.5900854760899688,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.28348847517730497
+      },
+      "LogisticRegression_B": {
+        "average_precision": 0.269190664122337,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6844231731090296,
+        "events": 41221,
+        "pooled_auc": 0.662695117837118,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.31744237588652485
+      },
+      "LogisticRegression_C": {
+        "average_precision": 0.26632663762295355,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6765002111216148,
+        "events": 41221,
+        "pooled_auc": 0.6611945304826808,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.3240913120567376
+      },
+      "LogisticRegression_D": {
+        "average_precision": 0.2655898685155653,
+        "daily_auc_eligible_dates": 728,
+        "daily_auc_mean_two_class_dates": 0.6763670064841231,
+        "events": 41221,
+        "pooled_auc": 0.6614675227737759,
+        "positive_rate": 0.16477038402755878,
+        "same_date_base_rate_mean": 0.16115205736605692,
+        "top5pct_precision_mean_per_date": 0.3230939716312057
+      }
+    },
+    "scope": "Retrospective development OOF metrics of BASELINE_RECONSTRUCTED_2026_10"
+  },
+  "model": [
+    "LightGBM_A.joblib",
+    "LightGBM_B.joblib",
+    "LightGBM_C.joblib",
+    "LightGBM_D.joblib",
+    "LogisticRegression_A.joblib",
+    "LogisticRegression_B.joblib",
+    "LogisticRegression_C.joblib",
+    "LogisticRegression_D.joblib"
+  ],
+  "pipeline_fingerprint": "d103e4c94a5f8fb7287c1617b956b45a939c86f8372a77f02f81555ee4aeccf1",
+  "reconstructed_source_sha256": "cea2440425e1f2f56a95b576481ae2ef603fe1f6a9816078e0a998781e0cef2a",
+  "reproduction_command": "py -3 -m autonomous_agent.experiment_adapter establish-baseline --baseline-id BASELINE_RECONSTRUCTED_2026_10",
+  "research_test_period": "NONE: final holdout SEALED; no test interval has been evaluated.",
+  "self_reproduction": {
+    "artifact_files_compared": 12,
+    "byte_identical": true,
+    "runs": 2,
+    "verified_at": "2026-10-03T22:22:55+00:00"
+  },
+  "target_definition": "Frozen v1 label definition per MARKET_STRUCTURE_STUDY_V1_PROTOCOL.json with target-maturity purge; retrospective development only.",
+  "training_period": "Expanding historical windows strictly before each fold start (see baseline record; no future data).",
+  "v1_0_1_status": "FAILED",
+  "validation_period": "Chronological folds 2023/2024/2025 per the frozen protocol.",
+  "validation_scope": "Self-reproduction of BASELINE_RECONSTRUCTED_2026_10 only (two byte-identical clean runs). This baseline is a reconstruction and is NOT a reproduction of V1.0.1.",
+  "validation_status": "SELF_REPRODUCED",
+  "version": "V2.0.0"
+}

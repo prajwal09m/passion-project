@@ -1,0 +1,52 @@
+{
+  "_NOTE": "TEMPLATE -- every value is false. The HUMAN OWNER fills this in and saves it as launch_gates.json after each decision. An entry here is the owner's recorded evidence, not machine proof.",
+  "_required_fields_per_gate": [
+    "decided",
+    "decided_by",
+    "date",
+    "evidence_path"
+  ],
+  "review_received": {
+    "decided": false,
+    "decided_by": "",
+    "date": "",
+    "evidence_path": ""
+  },
+  "d2_decided": {
+    "decided": false,
+    "decided_by": "",
+    "date": "",
+    "evidence_path": "",
+    "decision": ""
+  },
+  "c3_ratified": {
+    "decided": false,
+    "decided_by": "",
+    "date": "",
+    "evidence_path": ""
+  },
+  "implementation_authorized": {
+    "decided": false,
+    "decided_by": "",
+    "date": "",
+    "evidence_path": ""
+  },
+  "implementation_complete": {
+    "decided": false,
+    "decided_by": "",
+    "date": "",
+    "evidence_path": ""
+  },
+  "freeze_approved": {
+    "decided": false,
+    "decided_by": "",
+    "date": "",
+    "evidence_path": ""
+  },
+  "launch_authorized": {
+    "decided": false,
+    "decided_by": "",
+    "date": "",
+    "evidence_path": ""
+  }
+}

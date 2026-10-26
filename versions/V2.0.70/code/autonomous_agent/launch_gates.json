@@ -1,0 +1,82 @@
+{
+  "_NOTE": "Human gate record for campaign launch authorization. Every entry must have decided=true, decided_by, date, and evidence_path.",
+  "review_received": {
+    "decided": true,
+    "decided_by": "owner (substitute AI review route, disclosed COI)",
+    "date": "2026-10-14",
+    "evidence_path": "stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md"
+  },
+  "d2_decided": {
+    "decided": true,
+    "decided_by": "owner",
+    "date": "2026-10-14",
+    "decision": "adopted (substitute AI review with disclosed conflict of interest)",
+    "evidence_path": "stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md"
+  },
+  "c3_ratified": {
+    "decided": true,
+    "decided_by": "owner",
+    "date": "2026-10-14",
+    "evidence_path": "stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md"
+  },
+  "implementation_authorized": {
+    "decided": true,
+    "decided_by": "owner",
+    "date": "2026-10-12",
+    "evidence_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/OWNER_AUTHORIZATION_TO_PROCEED_2026_10_12.md"
+  },
+  "implementation_complete": {
+    "decided": true,
+    "decided_by": "owner",
+    "date": "2026-10-14",
+    "evidence_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/C4_FREEZE_RECORD_2026_10_14.md"
+  },
+  "freeze_approved": {
+    "decided": true,
+    "decided_by": "owner",
+    "date": "2026-10-14",
+    "evidence_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/C4_FREEZE_RECORD_2026_10_14.md"
+  },
+  "launch_authorized": {
+    "decided": true,
+    "decided_by": "owner",
+    "date": "2026-10-15",
+    "evidence_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/C4_LAUNCH_RECORD_2026_10_15.md"
+  },
+  "c5_protocol_scope_b1": {
+    "decided": true,
+    "decided_by": "PMED",
+    "date": "2026-10-22",
+    "evidence_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/B1_OWNER_SIGNATURE_PACKET_2026_10_22.md"
+  },
+  "c5_statistical_review_b2": {
+    "decided": true,
+    "decided_by": "PMED",
+    "date": "2026-10-22",
+    "evidence_path": "stat_validation_h10/C5_OWNER_DECISION_AI_REVIEW_ACCEPTANCE_2026_10_22.md"
+  },
+  "c5_evaluation_holdout_boundary_b3": {
+    "decided": true,
+    "decided_by": "PMED",
+    "date": "2026-10-22",
+    "evidence_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/B3_EVALUATION_HOLDOUT_BOUNDARY_ATTESTATION_2026_10_22.md"
+  },
+  "c5_real_market_predeclaration_b5": {
+    "decided": true,
+    "decided_by": "PMED",
+    "date": "2026-10-22",
+    "evidence_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/B5_REAL_MARKET_PREDECLARATION_RESOLUTION_2026_10_22.md"
+  },
+  "c5_legacy_execution_paths_b7": {
+    "decided": true,
+    "decided_by": "PMED",
+    "date": "2026-10-22",
+    "evidence_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/B7_LEGACY_EXECUTION_PATHS_CLASSIFICATION_2026_10_22.md"
+  },
+  "c5_owner_authorization_b4": {
+    "decided": true,
+    "decided_by": "PMED",
+    "date": "2026-10-22",
+    "evidence_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/B4_OWNER_DECISION_PACKET_2026_10_22.md"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "raw_configs": 360,
+  "genuinely_distinct_configs_after_semantic_dedup": 264,
+  "redundancy_removed": 96,
+  "selected_diverse_configs_validation_summary": {
+    "n": 18,
+    "roc_auc": {
+      "mean": 0.7122318328373016,
+      "median": 0.7322126116071428,
+      "min": 0.5506417410714286,
+      "max": 0.7971540178571429
+    },
+    "average_precision": {
+      "mean": 0.7444427015269479,
+      "median": 0.7571534485616105,
+      "min": 0.639969492920536,
+      "max": 0.8278432765245407
+    },
+    "brier": {
+      "mean": 0.21866576366752735,
+      "median": 0.21467168104109957,
+      "min": 0.1838816813142343,
+      "max": 0.2826719608101789
+    },
+    "fit_seconds_sum": 10.963665899995249
+  },
+  "fixed_logistic_feature_ablation_final_test": {
+    "pairwise_interactions_vs_original": {
+      "reference_candidate_id": "53c433f95666795a97dedd3c27cebfc36f3bc140979fbdeaaf41ac36606f19b1",
+      "candidate_id": "a37ae7cf7b5485fc91475942a849ef340a69c3e0c11cbcb13b48a8fe0e9d5591",
+      "test_auc_reference": 0.8637374860956618,
+      "test_auc_candidate": 0.8731924360400445,
+      "test_auc_delta": 0.009454949944382673,
+      "block_bootstrap_95ci_delta": [
+        -0.018611111111111134,
+        0.043720412141464826
+      ],
+      "bootstrap_valid_replicates": 2000,
+      "bootstrap_requested_replicates": 2000,
+      "n_test_rows": 120,
+      "block_length_rows": 10,
+      "n_blocks": 12
+    },
+    "nonlinear_marginals_vs_original": {
+      "reference_candidate_id": "53c433f95666795a97dedd3c27cebfc36f3bc140979fbdeaaf41ac36606f19b1",
+      "candidate_id": "02e11f118112a2d015dd8add5777e602bf99166240e2b53cda22ecc965647309",
+      "test_auc_reference": 0.8637374860956618,
+      "test_auc_candidate": 0.8448275862068966,
+      "test_auc_delta": -0.018909899888765236,
+      "block_bootstrap_95ci_delta": [
+        -0.04037872458925085,
+        0.0025006946373992145
+      ],
+      "bootstrap_valid_replicates": 2000,
+      "bootstrap_requested_replicates": 2000,
+      "n_test_rows": 120,
+      "block_length_rows": 10,
+      "n_blocks": 12
+    },
+    "polynomial2_vs_identity": {
+      "reference_candidate_id": "53c433f95666795a97dedd3c27cebfc36f3bc140979fbdeaaf41ac36606f19b1",
+      "candidate_id": "45f13dc00a600060bf9e0174eb9e6a17e6b7bd1e3fac4535b309216656605b99",
+      "test_auc_reference": 0.8637374860956618,
+      "test_auc_candidate": 0.8659621802002225,
+      "test_auc_delta": 0.0022246941045607205,
+      "block_bootstrap_95ci_delta": [
+        -0.02784739626844901,
+        0.037109375
+      ],
+      "bootstrap_valid_replicates": 2000,
+      "bootstrap_requested_replicates": 2000,
+      "n_test_rows": 120,
+      "block_length_rows": 10,
+      "n_blocks": 12
+    },
+    "standardize_vs_identity_logistic": {
+      "reference_candidate_id": "53c433f95666795a97dedd3c27cebfc36f3bc140979fbdeaaf41ac36606f19b1",
+      "candidate_id": "425f13806757786fa09c23bd5247413441291ed525e94166cde9c5151fb8edde",
+      "test_auc_reference": 0.8637374860956618,
+      "test_auc_candidate": 0.8634593993325917,
+      "test_auc_delta": -0.0002780867630700623,
+      "block_bootstrap_95ci_delta": [
+        -0.0014208581983519153,
+        0.0
+      ],
+      "bootstrap_valid_replicates": 2000,
+      "bootstrap_requested_replicates": 2000,
+      "n_test_rows": 120,
+      "block_length_rows": 10,
+      "n_blocks": 12
+    }
+  },
+  "validation_selected_config": {
+    "candidate_id": "002f74c7c8f985b840cd0c7053729d72ecbc8061f5578b2153fffd1c25e5c954",
+    "family": "random_forest",
+    "operator": "pairwise_interactions",
+    "transform": "polynomial2",
+    "feature_ids": [
+      "trend",
+      "volatility",
+      "interaction"
+    ],
+    "validation_metrics": {
+      "roc_auc": 0.7971540178571429,
+      "average_precision": 0.8278432765245407,
+      "brier": 0.18735851337058632
+    },
+    "final_test_metrics_once": {
+      "roc_auc": 0.8453837597330367,
+      "average_precision": 0.8738875224426884,
+      "brier": 0.16853585302215884
+    },
+    "warning": "Selected on the 20% validation block; reported once on the synthetic final-test block. Synthetic only; no promotion."
+  },
+  "fit_runtime_seconds_validation_18_plus_final_test_panel": 17.827128700038884,
+  "wall_runtime_seconds": 89.76502669998445
+}

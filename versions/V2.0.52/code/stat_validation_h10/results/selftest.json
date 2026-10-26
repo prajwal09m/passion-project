@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "checks": {
+    "auc_quadratic_vs_sklearn": {
+      "ok": true,
+      "detail": "0.675763675112479 vs 0.675763675112479"
+    },
+    "fast_vs_slow_bootstrap": {
+      "ok": true,
+      "detail": "max|diff| = 2.220e-16"
+    },
+    "sequential_draw_sizes": {
+      "ok": true,
+      "detail": "rows = 288 vs 288"
+    },
+    "signflip_linear_vs_brute": {
+      "ok": true,
+      "detail": "max|diff| = 1.527e-16"
+    },
+    "signflip_identity": {
+      "ok": true,
+      "detail": "-0.013734312100 vs -0.013734312100"
+    },
+    "holm_fixture": {
+      "ok": true,
+      "detail": "rejects = [True, True, False, False]"
+    },
+    "fast_vs_slow_bootstrap_varying_sizes": {
+      "ok": true,
+      "detail": "max|diff| = 2.220e-16"
+    },
+    "draw_bincount_vs_addat": {
+      "ok": true,
+      "detail": "K equal = True"
+    },
+    "frozen_backend_base_delta": {
+      "ok": true,
+      "detail": "-0.019938461538 vs -0.019938461538"
+    },
+    "frozen_backend_ci": {
+      "ok": true,
+      "detail": "[-0.05911301528485413, 0.020551710395805944] vs [-0.05911301528485413, 0.020551710395805944]"
+    },
+    "frozen_backend_n_valid": {
+      "ok": true,
+      "detail": "200 vs 200"
+    }
+  },
+  "duration_s": 5.34,
+  "meta": {
+    "written_utc": "2026-10-10T23:11:49+00:00",
+    "simh10_sha256": "4b7ebd5f3ffc5413247cdcedb099d493a71e3cfc01346a68c8440de9d59b51f3",
+    "runner": "run_sim.py"
+  }
+}

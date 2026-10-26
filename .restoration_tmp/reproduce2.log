@@ -1,0 +1,114 @@
+{
+  "acceptance_recommendation": "STOP_AUTONOMOUS_EXPERIMENTATION",
+  "artifacts": {},
+  "blockers": [],
+  "candidate_path": null,
+  "candidate_version": null,
+  "checks": {},
+  "error": {
+    "drift": [
+      "artifact_sha256",
+      "pooled_oof_metrics"
+    ],
+    "message": "Reproduction drift: produced artifacts/metrics do not match the restored manifest."
+  },
+  "experiment_id": "baseline-reproduction",
+  "holdout_status": "SEALED",
+  "leakage_status": "NOT_RUN",
+  "metrics": {
+    "comparison": {
+      "artifact_hashes_match": false,
+      "drift": [
+        "artifact_sha256",
+        "pooled_oof_metrics"
+      ],
+      "produced_metrics": {
+        "LightGBM_A": {
+          "average_precision": 0.26134032776592764,
+          "daily_auc_eligible_dates": 728,
+          "daily_auc_mean_two_class_dates": 0.6699273825110579,
+          "events": 41221,
+          "pooled_auc": 0.6742884359307444,
+          "positive_rate": 0.16477038402755878,
+          "same_date_base_rate_mean": 0.16115205736605692,
+          "top5pct_precision_mean_per_date": 0.29968971631205676
+        },
+        "LightGBM_B": {
+          "average_precision": 0.27421974429525187,
+          "daily_auc_eligible_dates": 728,
+          "daily_auc_mean_two_class_dates": 0.696411503244301,
+          "events": 41221,
+          "pooled_auc": 0.679504672578425,
+          "positive_rate": 0.16477038402755878,
+          "same_date_base_rate_mean": 0.16115205736605692,
+          "top5pct_precision_mean_per_date": 0.3060948581560284
+        },
+        "LightGBM_C": {
+          "average_precision": 0.27471522799549347,
+          "daily_auc_eligible_dates": 728,
+          "daily_auc_mean_two_class_dates": 0.6959565735912563,
+          "events": 41221,
+          "pooled_auc": 0.6844558154384123,
+          "positive_rate": 0.16477038402755878,
+          "same_date_base_rate_mean": 0.16115205736605692,
+          "top5pct_precision_mean_per_date": 0.3092863475177305
+        },
+        "LightGBM_D": {
+          "average_precision": 0.275109987681848,
+          "daily_auc_eligible_dates": 728,
+          "daily_auc_mean_two_class_dates": 0.6971891947033128,
+          "events": 41221,
+          "pooled_auc": 0.6871806964784837,
+          "positive_rate": 0.16477038402755878,
+          "same_date_base_rate_mean": 0.16115205736605692,
+          "top5pct_precision_mean_per_date": 0.3288120567375886
+        },
+        "LogisticRegression_A": {
+          "average_precision": 0.23230261447016054,
+          "daily_auc_eligible_dates": 728,
+          "daily_auc_mean_two_class_dates": 0.5888832056998765,
+          "events": 41221,
+          "pooled_auc": 0.5900854760899688,
+          "positive_rate": 0.16477038402755878,
+          "same_date_base_rate_mean": 0.16115205736605692,
+          "top5pct_precision_mean_per_date": 0.28348847517730497
+        },
+        "LogisticRegression_B": {
+          "average_precision": 0.269190664122337,
+          "daily_auc_eligible_dates": 728,
+          "daily_auc_mean_two_class_dates": 0.6844231731090296,
+          "events": 41221,
+          "pooled_auc": 0.662695117837118,
+          "positive_rate": 0.16477038402755878,
+          "same_date_base_rate_mean": 0.16115205736605692,
+          "top5pct_precision_mean_per_date": 0.31744237588652485
+        },
+        "LogisticRegression_C": {
+          "average_precision": 0.26632663762295355,
+          "daily_auc_eligible_dates": 728,
+          "daily_auc_mean_two_class_dates": 0.6765002111216148,
+          "events": 41221,
+          "pooled_auc": 0.6611945304826808,
+          "positive_rate": 0.16477038402755878,
+          "same_date_base_rate_mean": 0.16115205736605692,
+          "top5pct_precision_mean_per_date": 0.3240913120567376
+        },
+        "LogisticRegression_D": {
+          "average_precision": 0.2655898685155653,
+          "daily_auc_eligible_dates": 728,
+          "daily_auc_mean_two_class_dates": 0.6763670064841231,
+          "events": 41221,
+          "pooled_auc": 0.6614675227737759,
+          "positive_rate": 0.16477038402755878,
+          "same_date_base_rate_mean": 0.16115205736605692,
+          "top5pct_precision_mean_per_date": 0.3230939716312057
+        }
+      }
+    }
+  },
+  "release_metadata": null,
+  "reproduction_command": null,
+  "robustness_status": "NOT_RUN",
+  "runtime": {},
+  "status": "FAILED"
+}

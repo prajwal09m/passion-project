@@ -1,0 +1,17 @@
+
+=================================== ERRORS ====================================
+__________ ERROR collecting autonomous_agent/test_v110_wiring_e2e.py __________
+ImportError while importing test module 'C:\Prajwal MIT\Passion\.model_discovery_workspace\dev\autonomous_agent\test_v110_wiring_e2e.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py:88: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+autonomous_agent\test_v110_wiring_e2e.py:42: in <module>
+    import family_records as fr                                    # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   ModuleNotFoundError: No module named 'family_records'
+=========================== short test summary info ===========================
+ERROR autonomous_agent/test_v110_wiring_e2e.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 0.89s

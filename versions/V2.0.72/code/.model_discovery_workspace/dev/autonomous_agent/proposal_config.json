@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "allow_generated_proposals": true,
+  "notes": "Proposal-layer feature flag (Phase 2). DEFAULT OFF. This flag is deliberately separate from autonomy_config.json (Campaign 1), which is untouched by this phase. When false, run_proposal_cycle refuses before writing anything. Enabling requires an explicit human edit of this file plus the supervisor-side wiring review; nothing enables it automatically. There is no LLM in this system; proposal generation is deterministic composition over the reviewed primitive library."
+}

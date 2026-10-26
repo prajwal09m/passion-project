@@ -1,0 +1,17 @@
+Process 32444: C:\Users\kamal\AppData\Local\Programs\Python\Python313\python.exe stat_validation_h10/freeze_2026_10_22/launch_campaign5.py --max-cycles 120
+Python v3.13.1 (C:\Users\kamal\AppData\Local\Programs\Python\Python313\python.exe)
+
+Thread 9072 (active): "MainThread"
+    <lambda> (autonomous_agent\core.py:94)
+    sha256_file (autonomous_agent\core.py:94)
+    original_fingerprint (autonomous_agent\experiment_adapter.py:754)
+    assert_original_unchanged (autonomous_agent\experiment_adapter.py:758)
+    run_experiment (autonomous_agent\experiment_adapter.py:1637)
+    execute (autonomous_agent\continuous_loop.py:103)
+    _invoke_executor (autonomous_agent\continuous_loop.py:634)
+    phase_execute_one (autonomous_agent\continuous_loop.py:622)
+    cycle_once (autonomous_agent\continuous_loop.py:976)
+    run (autonomous_agent\continuous_loop.py:1045)
+    main (autonomous_agent\continuous_loop.py:1124)
+    main (launch_campaign5.py:82)
+    <module> (launch_campaign5.py:86)

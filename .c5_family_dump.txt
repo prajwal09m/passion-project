@@ -1,0 +1,221 @@
+C5 proposals: 23
+
+== prop-07e23c266d91-1 created=2026-10-23T15:34:09+00:00 class=confirmatory parent=V2.0.62
+   prims=[('complexity_reduction_check', {'arm': 'C', 'n_boot': 2000})]
+   hypo=[model_complexity] Test whether a simpler model class retains within-margin performance under the matched protocol. (arm
+   2026-10-23T15:34:09+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T15:34:14+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-24T22:07:35+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-24T22:07:35+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-24T22:46:44+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+   2026-10-24T22:47:32+00:00 ADJUDICATED->PROMOTED (PROMOTED)
+
+== prop-0c99e67888f0-1 created=2026-10-23T14:54:59+00:00 class=confirmatory parent=V2.0.62
+   prims=[('year_stability_falsifier', {'arm_pair': 'B->C', 'estimator': 'LightGBM', 'n_boot': 2000})]
+   hypo=[validation] Challenge the pooled gain: does it hold in EVERY predeclared year, or does at least one year refute it? (ar
+   2026-10-23T14:54:59+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T14:55:05+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-24T14:23:50+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-24T14:23:50+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-24T15:10:54+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+   2026-10-24T15:11:54+00:00 ADJUDICATED->PROMOTED (PROMOTED)
+
+== prop-116e3d10c4fc-1 created=2026-10-23T13:15:10+00:00 class=confirmatory parent=V2.0.61
+   prims=[('minimum_effect_falsifier', {'arm_pair': 'A->B', 'estimator': 'LogisticRegression', 'min_effect': 'meaningful', 'n_boot': 2000})]
+   hypo=[validation] Challenge a marginal gain: it must clear a predeclared practically meaningful minimum effect, not merely a 
+   2026-10-23T13:15:10+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T13:15:21+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-23T17:34:30+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-23T17:34:30+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-23T20:40:22+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+   2026-10-23T20:41:33+00:00 ADJUDICATED->PROMOTED (PROMOTED)
+
+== prop-13dc5e68cb29-1 created=2026-10-23T14:54:48+00:00 class=falsification parent=V2.0.62
+   prims=[('minimum_effect_falsifier', {'arm_pair': 'C->D', 'estimator': 'LogisticRegression', 'min_effect': 'strong', 'n_boot': 500})]
+   hypo=[validation] Falsifier: Challenge a marginal gain: it must clear a predeclared practically meaningful minimum effect, no
+   2026-10-23T14:54:48+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T14:54:54+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-24T01:51:52+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-24T01:51:52+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-24T13:40:39+00:00 EXECUTED->FAILED_EXECUTION (EXECUTION_INTERRUPTED)
+
+== prop-2edcbd729839-1 created=2026-10-23T14:54:54+00:00 class=confirmatory parent=V2.0.62
+   prims=[('minimum_effect_falsifier', {'arm_pair': 'A->B', 'estimator': 'LogisticRegression', 'min_effect': 'meaningful', 'n_boot': 500})]
+   hypo=[validation] Challenge a marginal gain: it must clear a predeclared practically meaningful minimum effect, not merely a 
+   2026-10-23T14:54:54+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T14:54:59+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-24T13:40:48+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-24T13:40:48+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-24T14:22:33+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+   2026-10-24T14:23:32+00:00 ADJUDICATED->PROMOTED (PROMOTED)
+
+== prop-35870cd102f0-1 created=2026-10-23T12:36:50+00:00 class=confirmatory parent=V2.0.61
+   prims=[('year_stability_falsifier', {'arm_pair': 'C->D', 'estimator': 'LogisticRegression', 'n_boot': 2000})]
+   hypo=[validation] Challenge the pooled gain: does it hold in EVERY predeclared year, or does at least one year refute it? (ar
+   2026-10-23T12:36:50+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T12:36:55+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-23T12:36:59+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-23T12:36:59+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-23T13:14:43+00:00 EXECUTED->ADJUDICATED (GATES_FAILED)
+
+== prop-5ab9dc056346-1 created=2026-10-23T14:14:30+00:00 class=confirmatory parent=V2.0.61
+   prims=[('minimum_effect_falsifier', {'arm_pair': 'B->C', 'estimator': 'LogisticRegression', 'min_effect': 'strong', 'n_boot': 2000})]
+   hypo=[validation] Challenge a marginal gain: it must clear a predeclared practically meaningful minimum effect, not merely a 
+   2026-10-23T14:14:30+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T14:14:35+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-24T00:48:05+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-24T00:48:05+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-24T01:51:10+00:00 EXECUTED->ADJUDICATED (GATES_FAILED)
+
+== prop-6086c8810240-1 created=2026-10-23T16:13:44+00:00 class=confirmatory parent=V2.0.63
+   prims=[('complexity_premium_check', {'arm': 'A', 'n_boot': 2000, 'premium': 'standard'})]
+   hypo=[model_complexity] The complexer estimator must clear a predeclared complexity premium over LogisticRegression to justif
+   2026-10-23T16:13:44+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T16:13:51+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-24T23:21:41+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-24T23:21:41+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-25T00:02:16+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+   2026-10-25T00:03:09+00:00 ADJUDICATED->PROMOTED (PROMOTED)
+
+== prop-61bde3e56e1c-1 created=2026-10-23T16:13:51+00:00 class=exploration parent=V2.0.63
+   prims=[('point_in_time_data_audit', {'arm': 'D', 'n_boot': 2000})]
+   hypo=[data_quality] Verify source vintage, universe membership, timestamps and label maturity before modeling. (arm=D, n_boot
+   2026-10-23T16:13:51+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T16:13:59+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-25T00:03:27+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-25T00:03:27+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-25T13:13:33+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+   2026-10-25T13:15:01+00:00 ADJUDICATED->PROMOTED (PROMOTED)
+
+== prop-6b7ab2715e31-1 created=2026-10-23T00:52:50+00:00 class=falsification parent=V2.0.61
+   prims=[('year_stability_falsifier', {'arm_pair': 'A->B', 'estimator': 'LightGBM', 'n_boot': 2000})]
+   hypo=[validation] Falsifier: Challenge the pooled gain: does it hold in EVERY predeclared year, or does at least one year ref
+   2026-10-23T00:52:50+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T00:52:59+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-23T14:14:40+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-23T14:14:40+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-23T14:53:38+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+   2026-10-23T14:54:40+00:00 ADJUDICATED->PROMOTED (PROMOTED)
+
+== prop-74747427d999-1 created=2026-10-23T00:52:42+00:00 class=falsification parent=V2.0.61
+   prims=[('minimum_effect_falsifier', {'arm_pair': 'C->D', 'estimator': 'LogisticRegression', 'min_effect': 'meaningful', 'n_boot': 1000})]
+   hypo=[validation] Falsifier: Challenge a marginal gain: it must clear a predeclared practically meaningful minimum effect, no
+   2026-10-23T00:52:42+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T00:52:50+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-23T13:15:45+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-23T13:15:45+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-23T14:14:12+00:00 EXECUTED->ADJUDICATED (GATES_FAILED)
+
+== prop-7cb0fe665792-1 created=2026-10-23T13:15:21+00:00 class=replication parent=V2.0.61
+   prims=[('seed_set_replication', {'arm_pair': 'C->D', 'estimator': 'LogisticRegression', 'n_boot': 500})]
+   hypo=[validation] Replication: does Re-run the identical comparison on the independent predeclared seed set 7, 17, 29 so the 
+   2026-10-23T13:15:21+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T13:15:33+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-23T20:41:46+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-23T20:41:46+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-23T21:21:14+00:00 EXECUTED->ADJUDICATED (GATES_FAILED)
+
+== prop-7d562d135823-1 created=2026-10-23T14:14:25+00:00 class=replication parent=V2.0.61
+   prims=[('seed_set_replication', {'arm_pair': 'B->C', 'estimator': 'LightGBM', 'n_boot': 2000})]
+   hypo=[validation] Replication: does Re-run the identical comparison on the independent predeclared seed set 7, 17, 29 so the 
+   2026-10-23T14:14:25+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T14:14:30+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-23T22:56:24+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-23T22:56:24+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-24T00:46:31+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+   2026-10-24T00:47:37+00:00 ADJUDICATED->PROMOTED (PROMOTED)
+
+== prop-8f345ecc8c8d-1 created=2026-10-23T13:14:57+00:00 class=confirmatory parent=V2.0.61
+   prims=[('minimum_effect_falsifier', {'arm_pair': 'B->C', 'estimator': 'LightGBM', 'min_effect': 'strong', 'n_boot': 2000})]
+   hypo=[validation] Challenge a marginal gain: it must clear a predeclared practically meaningful minimum effect, not merely a 
+   2026-10-23T13:14:57+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T13:15:10+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-23T16:14:06+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-23T16:14:06+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-23T17:33:16+00:00 EXECUTED->ADJUDICATED (GATES_FAILED)
+
+== prop-95e469ad9166-1 created=2026-10-23T14:14:19+00:00 class=confirmatory parent=V2.0.61
+   prims=[('year_stability_falsifier', {'arm_pair': 'C->D', 'estimator': 'LightGBM', 'n_boot': 2000})]
+   hypo=[validation] Challenge the pooled gain: does it hold in EVERY predeclared year, or does at least one year refute it? (ar
+   2026-10-23T14:14:19+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T14:14:25+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-23T21:21:33+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-23T21:21:33+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-23T22:52:09+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+   2026-10-23T22:55:38+00:00 ADJUDICATED->PROMOTED (PROMOTED)
+
+== prop-982e7191cc85-1 created=2026-10-23T15:34:02+00:00 class=falsification parent=V2.0.62
+   prims=[('complexity_premium_check', {'arm': 'B', 'n_boot': 2000, 'premium': 'standard'})]
+   hypo=[model_complexity] Falsifier: The complexer estimator must clear a predeclared complexity premium over LogisticRegressio
+   2026-10-23T15:34:02+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T15:34:08+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-24T16:02:06+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-24T16:02:06+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-24T20:29:37+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+
+== prop-a6d06dde5c5f-1 created=2026-10-23T12:36:40+00:00 class=falsification parent=V2.0.61
+   prims=[('minimum_effect_falsifier', {'arm_pair': 'C->D', 'estimator': 'LogisticRegression', 'min_effect': 'meaningful', 'n_boot': 2000})]
+   hypo=[validation] Falsifier: Challenge a marginal gain: it must clear a predeclared practically meaningful minimum effect, no
+   2026-10-23T12:36:40+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T12:36:44+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-23T14:55:11+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-23T14:55:11+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-23T15:33:47+00:00 EXECUTED->ADJUDICATED (GATES_FAILED)
+
+== prop-a9141196f92c-1 created=2026-10-23T00:52:34+00:00 class=falsification parent=V2.0.61
+   prims=[('purge_sensitivity_probe', {'arm_pair': 'C->D', 'n_boot': 2000})]
+   hypo=[validation] Falsifier: Re-run with stricter target-maturity purge widths and test whether arm ranking survives. (arm_pa
+   2026-10-23T00:52:34+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T00:52:42+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-23T00:53:07+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-23T00:53:07+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-23T12:25:28+00:00 EXECUTED->ADJUDICATED (GATES_FAILED)
+
+== prop-a987db219da2-1 created=2026-10-23T17:33:56+00:00 class=confirmatory parent=V2.0.63
+   prims=[('complexity_premium_check', {'arm': 'C', 'n_boot': 2000, 'premium': 'high'})]
+   hypo=[model_complexity] The complexer estimator must clear a predeclared complexity premium over LogisticRegression to justif
+   2026-10-23T17:33:56+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T17:34:13+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-25T14:06:20+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-25T14:06:20+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-25T14:30:03+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+   2026-10-25T14:32:21+00:00 ADJUDICATED->PROMOTED (PROMOTED)
+
+== prop-b7ef60f83088-1 created=2026-10-23T17:33:38+00:00 class=exploration parent=V2.0.63
+   prims=[('point_in_time_data_audit', {'arm': 'C', 'n_boot': 2000})]
+   hypo=[data_quality] Verify source vintage, universe membership, timestamps and label maturity before modeling. (arm=C, n_boot
+   2026-10-23T17:33:38+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T17:33:55+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-25T13:15:18+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-25T13:15:18+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-25T14:05:51+00:00 EXECUTED->FAILED_EXECUTION (EXECUTION_INTERRUPTED)
+
+== prop-c8d6c7bb5c0e-1 created=2026-10-23T15:33:55+00:00 class=exploration parent=V2.0.62
+   prims=[('point_in_time_data_audit', {'arm': 'D', 'n_boot': 1000})]
+   hypo=[data_quality] Verify source vintage, universe membership, timestamps and label maturity before modeling. (arm=D, n_boot
+   2026-10-23T15:33:56+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T15:34:02+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-24T15:12:15+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-24T15:12:15+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-24T16:00:11+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+   2026-10-24T16:01:41+00:00 ADJUDICATED->PROMOTED (PROMOTED)
+
+== prop-cc56a290140c-1 created=2026-10-23T12:36:44+00:00 class=replication parent=V2.0.61
+   prims=[('seed_set_replication', {'arm_pair': 'C->D', 'estimator': 'LightGBM', 'n_boot': 500})]
+   hypo=[validation] Replication: does Re-run the identical comparison on the independent predeclared seed set 7, 17, 29 so the 
+   2026-10-23T12:36:45+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T12:36:50+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-23T15:34:20+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-23T15:34:20+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-23T16:12:25+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+   2026-10-23T16:13:27+00:00 ADJUDICATED->PROMOTED (PROMOTED)
+
+== prop-ced01e852418-1 created=2026-10-23T16:13:37+00:00 class=falsification parent=V2.0.63
+   prims=[('complexity_premium_check', {'arm': 'B', 'n_boot': 2000, 'premium': 'high'})]
+   hypo=[model_complexity] Falsifier: The complexer estimator must clear a predeclared complexity premium over LogisticRegressio
+   2026-10-23T16:13:37+00:00 PROPOSED->VALIDATING (None)
+   2026-10-23T16:13:44+00:00 VALIDATING->ACCEPTED_FOR_EXECUTION (POLICY_AUTO_APPROVAL)
+   2026-10-24T22:47:46+00:00 ACCEPTED_FOR_EXECUTION->COMPILED (COMPILED)
+   2026-10-24T22:47:47+00:00 COMPILED->EXECUTED (EXECUTION_STARTED)
+   2026-10-24T23:20:37+00:00 EXECUTED->ADJUDICATED (GATES_PASSED)
+   2026-10-24T23:21:24+00:00 ADJUDICATED->PROMOTED (PROMOTED)

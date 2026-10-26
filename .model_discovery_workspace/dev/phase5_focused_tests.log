@@ -1,0 +1,4 @@
+START=2026-10-18T10:53:54-04:00 timeout=120s command=py -3 -m pytest -q autonomous_agent/test_candidate_search_v2.py autonomous_agent/test_outcome_ranking_grouped.py autonomous_agent/test_phase3_research_memory.py
+..................................                                       [100%]
+34 passed in 2.33s
+END=2026-10-18T10:53:58-04:00 EXIT_STATUS=0

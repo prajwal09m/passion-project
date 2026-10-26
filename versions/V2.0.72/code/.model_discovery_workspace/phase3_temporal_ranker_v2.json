@@ -1,0 +1,143 @@
+{
+  "chronological_period_counts": {
+    "2026-10": 69
+  },
+  "directions": 7,
+  "groups": 12,
+  "leakage": {
+    "direct_future_input_refused": true,
+    "future_flip_prefix_rows": 33,
+    "future_flip_prefix_unchanged": true
+  },
+  "measured_at_range": [
+    "2026-10-05T02:05:48+00:00",
+    "2026-10-16T22:09:20+00:00"
+  ],
+  "n_adjudicated": 69,
+  "n_scored": 68,
+  "pass_rate": 0.8115942028985508,
+  "ranker_revision": "group_weighted-v2; one beta trial per (direction, measurement key)",
+  "splits": [
+    {
+      "groups": 12,
+      "label": "all_as_of_rows",
+      "methods": {
+        "base_rate": {
+          "auc": 0.6004464285714286,
+          "brier": 0.165401
+        },
+        "group_mean": {
+          "auc": 0.84375,
+          "brier": 0.125071
+        },
+        "last_group": {
+          "auc": 0.7894345238095238,
+          "brier": 0.140911
+        },
+        "outcome_aware": {
+          "auc": 0.9233630952380952,
+          "brier": 0.103891
+        },
+        "random_probability": {
+          "auc": 0.5535714285714286,
+          "brier": 0.291606
+        }
+      },
+      "n": 68,
+      "n_pass": 56,
+      "unique_unseen_groups": 11
+    },
+    {
+      "groups": 12,
+      "label": "first_measurement_per_group",
+      "methods": {
+        "base_rate": {
+          "auc": 0.588,
+          "brier": 0.173098
+        },
+        "group_mean": {
+          "auc": 0.588,
+          "brier": 0.173098
+        },
+        "last_group": {
+          "auc": 0.588,
+          "brier": 0.173098
+        },
+        "outcome_aware": {
+          "auc": 0.752,
+          "brier": 0.172682
+        },
+        "random_probability": {
+          "auc": 0.5,
+          "brier": 0.25
+        }
+      },
+      "n": 30,
+      "n_pass": 25,
+      "outcome_aware_minus_base_cluster_bootstrap_95ci": [
+        -0.060828106773324835,
+        0.06046932713756008
+      ],
+      "unique_unseen_groups": 12
+    },
+    {
+      "groups": 11,
+      "label": "first_occurrence_rows_with_prior",
+      "methods": {
+        "base_rate": {
+          "auc": 0.1111111111111111,
+          "brier": 0.234723
+        },
+        "group_mean": {
+          "auc": 0.1111111111111111,
+          "brier": 0.234723
+        },
+        "last_group": {
+          "auc": 0.1111111111111111,
+          "brier": 0.234723
+        },
+        "outcome_aware": {
+          "auc": 0.6111111111111112,
+          "brier": 0.254946
+        },
+        "random_probability": {
+          "auc": 0.5,
+          "brier": 0.32052
+        }
+      },
+      "n": 11,
+      "n_pass": 9,
+      "unique_unseen_groups": 11
+    },
+    {
+      "groups": 11,
+      "label": "repeat_group_rows",
+      "methods": {
+        "base_rate": {
+          "auc": 0.6702127659574468,
+          "brier": 0.152022
+        },
+        "group_mean": {
+          "auc": 0.9212765957446809,
+          "brier": 0.10391
+        },
+        "last_group": {
+          "auc": 0.8074468085106383,
+          "brier": 0.122807
+        },
+        "outcome_aware": {
+          "auc": 0.9638297872340426,
+          "brier": 0.07474
+        },
+        "random_probability": {
+          "auc": 0.5787234042553191,
+          "brier": 0.286026
+        }
+      },
+      "n": 57,
+      "n_pass": 47,
+      "unique_unseen_groups": 0
+    }
+  ],
+  "uncertainty_note": "Small single-month history; outcome-aware first-seen group performance uses paired cluster bootstrap by (direction,measurement key). Other row-wise summaries are descriptive; no ranker is promoted."
+}

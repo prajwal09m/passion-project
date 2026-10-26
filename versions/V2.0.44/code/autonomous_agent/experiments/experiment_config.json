@@ -1,0 +1,33 @@
+{
+  "arm_a": "A",
+  "arm_b": "A",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 10,
+  "estimator_a": "LogisticRegression",
+  "estimator_b": "LightGBM",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "min_folds": 3,
+    "note": "Complexity-reduction check is a RELATED REANALYSIS of model_class_comparison, never independent confirmation; the count-once rule applies.",
+    "primary_metric_min_delta": 0.0
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_compositional",
+  "harness_version": "1.1.0",
+  "hypothesis_id": "rq-model_complexity",
+  "hypothesis_text": "[model_complexity] Falsifier: Test whether a simpler model class retains within-margin performance under the matched protocol. (arm=A, n_boot=2000) \u2014 predeclared refutation: metric below zero under the frozen purged protocol.",
+  "n_boot": 2000,
+  "primitive_id": "complexity_reduction_check",
+  "recipe_id": "proposal_layer",
+  "recipe_version": "1.1.0",
+  "schema_version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "arm_a": "A",
+  "arm_b": "A",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 10,
+  "estimator_a": "LogisticRegression",
+  "estimator_b": "LightGBM",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "min_folds": 3,
+    "note": "Regime-split analysis: both regime cells must independently hold their point + CI requirement (IUT); an under-sized cell is INCONCLUSIVE.",
+    "primary_metric_min_delta": 0.0
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_compositional",
+  "harness_version": "1.1.0",
+  "hypothesis_id": "rq-error_analysis",
+  "hypothesis_text": "[error_analysis] Falsifier: Slice out-of-fold errors by predeclared volatility/time regimes. (arm=A, n_boot=2000) \u2014 predeclared refutation: metric below zero under the frozen purged protocol.",
+  "n_boot": 2000,
+  "primitive_id": "regime_split_analysis",
+  "recipe_id": "proposal_layer",
+  "recipe_version": "1.1.0",
+  "schema_version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

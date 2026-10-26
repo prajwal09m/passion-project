@@ -1,0 +1,900 @@
+"""Persistent research loop — Stage 5 infrastructure (BUILT, NOT STARTED).
+
+Implements repeated execution under FIXED, predeclared constraints:
+
+    GENERATE -> VALIDATE -> BIAS-GOVERN -> APPROVE -> COMPILE -> EXECUTE
+    -> EVALUATE -> PROMOTE/REJECT -> UPDATE RESEARCH MEMORY -> UPDATE LEDGER
+    -> SELECT NEXT PROPOSAL -> REPEAT
+
+"Continuous" means repeated execution under fixed constraints. It NEVER
+means permission to modify itself:
+
+* every lifecycle change goes through the append-only proposal ledger
+  (invalid transitions raise, provenance is mandatory);
+* budgets are derived from the ledger every cycle (never incremented in
+  memory, never auto-expanded; negative capacity is a safety stop);
+* the campaign configuration is hash-verified every cycle
+  (mismatch => STOP);
+* duplicate/already-asked memory is global and permanent across restarts;
+* the only execution path is ``ExperimentAdapter.run_experiment`` behind
+  the compiled ExperimentSpec boundary (executor injection exists for
+  disposable test fixtures only);
+* the holdout directory is never opened; its mere existence in the
+  workspace is a safety stop;
+* a STOP file, stale-lock recovery, heartbeat, and repeated-crash guard
+  are built in.
+
+This module is a LIBRARY + CLI. Importing it does nothing and starts no
+process. The CLI refuses to run without an explicit ``--max-cycles``:
+there is no implicit infinite mode.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import sys
+import time
+from pathlib import Path
+from typing import Any, Callable, Mapping
+
+from autonomous_agent.proposal_layer import compiler, generator, schema
+from autonomous_agent.proposal_layer import cycle as proposal_cycle
+from autonomous_agent.proposal_layer import evidence_view
+from autonomous_agent.proposal_layer.bias_governor import BiasGovernor
+from autonomous_agent.proposal_layer.ledger import (LedgerCorrupt, LedgerError,
+                                                    ProposalLedger)
+
+LOOP_STATE_NAME = "loop_state.json"
+LOOP_LOCK_NAME = "loop.lock"
+LOOP_JOURNAL_NAME = "loop_events.jsonl"
+STOP_FILE_NAME = "STOP"
+CAMPAIGN_CONFIG_REL = "autonomous_agent/state/campaign_config.json"
+CAMPAIGN_SHA_REL = "autonomous_agent/state/campaign_config.sha256"
+MAX_CONSECUTIVE_FAILURES = 3
+PORTFOLIO_MINIMUM_CLASSES = ("falsification", "confirmatory")
+
+
+class LoopStop(Exception):
+    """Hard stop with a machine-readable reason (never swallowed)."""
+
+    def __init__(self, reason: str, detail: str = "") -> None:
+        super().__init__(f"[{reason}] {detail}")
+        self.reason = reason
+        self.detail = detail
+
+
+def _sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _now() -> str:
+    from autonomous_agent.core import utc_now
+    return utc_now()
+
+
+def default_executor(root: Path | str) -> Callable[[Any], dict[str, Any]]:
+    """The reviewed real executor: the existing isolated adapter only.
+
+    Nothing else in this module may execute experiments; tests inject
+    disposable mock executors instead.
+    """
+    from autonomous_agent.experiment_adapter import ExperimentAdapter
+    from autonomous_agent.core import Supervisor
+
+    adapter = ExperimentAdapter(root=Path(root))
+
+    def execute(spec) -> dict[str, Any]:
+        result = adapter.run_experiment(spec)
+        outcome = result.to_supervisor_outcome()
+        try:
+            # Same acceptance-evidence contract the Campaign 1 supervisor
+            # enforced; also forces REJECTED whenever a mandatory gate did
+            # not PASS or the holdout was touched.
+            Supervisor._validate_outcome({}, outcome)
+        except Exception as error:  # noqa: BLE001 - fail closed on bad evidence
+            outcome["status"] = "REJECTED"
+            outcome["rejection_reason"] = (
+                f"outcome evidence contract refused the result: {error}")
+        return outcome
+
+    return execute
+
+
+class ResearchLoop:
+    def __init__(self, root: Path | str, *, max_cycles: int,
+                 executor: Callable[[Any], dict[str, Any]] | None = None,
+                 clock: Callable[[], str] | None = None,
+                 idle_seconds: float = 0.0) -> None:
+        if int(max_cycles) <= 0:
+            raise ValueError("max_cycles must be a positive, explicit bound")
+        self.root = Path(root).resolve()
+        self.state_root = self.root / "autonomous_agent" / "state"
+        self.state_path = self.state_root / LOOP_STATE_NAME
+        self.lock_path = self.state_root / LOOP_LOCK_NAME
+        self.journal_path = self.state_root / LOOP_JOURNAL_NAME
+        self.stop_file = self.state_root / STOP_FILE_NAME
+        self.max_cycles = int(max_cycles)
+        self.idle_seconds = max(0.0, float(idle_seconds))
+        self.clock = clock or _now
+        self.executor = executor            # None => real, built on demand
+        self.stop_requested = False
+        self._lock_fd: int | None = None
+        self._lock_identity: tuple[int, int] | None = None
+        self._state: dict[str, Any] = {}
+
+    # -- durable state -------------------------------------------------------
+    def load_state(self) -> dict[str, Any]:
+        try:
+            data = json.loads(self.state_path.read_text(encoding="utf-8"))
+            if isinstance(data, dict) and data.get("schema_version") == 1:
+                return data
+        except (OSError, json.JSONDecodeError, FileNotFoundError):
+            pass
+        config = self.load_campaign()
+        return {
+            "schema_version": 1,
+            "campaign_id": config.get("campaign_id"),
+            "campaign_config_sha256": self.campaign_sha(),
+            "status": "INITIALIZED",
+            "cycle": 0,
+            "seed_base": int(config.get("seed_base", 0)),
+            "max_cycles": self.max_cycles,
+            "executions_done": 0,
+            "executing": None,
+            "consecutive_failures": 0,
+            "last_stop_reason": None,
+            "last_error": None,
+            "started_at": self.clock(),
+            "heartbeat_at": self.clock(),
+        }
+
+    def save_state(self) -> None:
+        self._state["heartbeat_at"] = self.clock()
+        self._state["updated_at"] = self.clock()
+        from autonomous_agent.core import write_json_atomic
+        write_json_atomic(self.state_path, self._state)
+
+    def journal(self, event: str, **fields: Any) -> None:
+        from autonomous_agent.core import append_jsonl
+        append_jsonl(self.journal_path,
+                     {"event": event, "at": self.clock(), **fields})
+
+    # -- campaign configuration (immutable) ----------------------------------
+    def load_campaign(self) -> dict[str, Any]:
+        path = self.root / CAMPAIGN_CONFIG_REL
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as error:
+            raise LoopStop("CAMPAIGN_CONFIG_UNREADABLE", str(error)) from error
+        if not isinstance(data, dict) or not isinstance(data.get("campaign_id"), str):
+            raise LoopStop("CAMPAIGN_CONFIG_INVALID",
+                           "campaign_id missing or malformed")
+        return data
+
+    def campaign_sha(self) -> str:
+        path = self.root / CAMPAIGN_CONFIG_REL
+        sidecar = self.root / CAMPAIGN_SHA_REL
+        if not path.is_file() or not sidecar.is_file():
+            raise LoopStop("CAMPAIGN_CONFIG_MISSING",
+                           "campaign config or its sha256 sidecar is missing")
+        expected = sidecar.read_text(encoding="utf-8").strip()
+        actual = _sha256_file(path)
+        if actual != expected:
+            raise LoopStop("CAMPAIGN_CONFIG_HASH_MISMATCH",
+                           f"expected {expected[:16]}.. got {actual[:16]}..")
+        return actual
+
+    # -- lock / stop ---------------------------------------------------------
+    def acquire_lock(self) -> bool:
+        self.state_root.mkdir(parents=True, exist_ok=True)
+        try:
+            self._lock_fd = os.open(str(self.lock_path),
+                                    os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+        except FileExistsError:
+            # Recover only a lock whose recorded owner is provably gone.
+            try:
+                raw = self.lock_path.read_text(encoding="utf-8").strip()
+                owner_pid = int(raw.split("pid=", 1)[1].split()[0])
+                os.kill(owner_pid, 0)
+            except ProcessLookupError:
+                try:
+                    self.lock_path.unlink()
+                except FileNotFoundError:
+                    pass
+                return self.acquire_lock()
+            except OSError as error:
+                # Windows: nonexistent PID surfaces as generic OSError.
+                if getattr(error, "errno", None) == getattr(os, "ESRCH", 3) \
+                        or getattr(error, "winerror", None) in (87, 1168):
+                    try:
+                        self.lock_path.unlink()
+                    except FileNotFoundError:
+                        pass
+                    return self.acquire_lock()
+                return False
+            except (ValueError, IndexError):
+                return False
+            return False
+        os.write(self._lock_fd,
+                 f"pid={os.getpid()} started={self.clock()}\n".encode("utf-8"))
+        os.fsync(self._lock_fd)
+        stat = os.fstat(self._lock_fd)
+        self._lock_identity = (stat.st_dev, stat.st_ino)
+        return True
+
+    def release_lock(self) -> None:
+        if self._lock_fd is None:
+            return
+        try:
+            os.close(self._lock_fd)
+        finally:
+            self._lock_fd = None
+            try:
+                current = self.lock_path.stat()
+                if self._lock_identity == (current.st_dev, current.st_ino):
+                    self.lock_path.unlink()
+            except FileNotFoundError:
+                pass
+            self._lock_identity = None
+
+    def request_stop(self, *_: Any) -> None:
+        self.stop_requested = True
+
+    # -- safety prechecks ----------------------------------------------------
+    def _policy(self) -> dict[str, Any]:
+        return proposal_cycle._load_policy(self.root)
+
+    def _ledger(self) -> ProposalLedger:
+        return ProposalLedger(self.root / proposal_cycle.LEDGER_RELATIVE_PATH,
+                              clock=self.clock)
+
+    def safety_precheck(self, policy: Mapping[str, Any]) -> None:
+        """Hard-stop conditions checked at the top of every cycle."""
+        from autonomous_agent.proposal_layer import proposals_enabled
+        if not proposals_enabled(self.root):
+            raise LoopStop("FLAG_OFF", "allow_generated_proposals is false")
+        self.campaign_sha()
+        # Holdout hard stop: the champion must still declare the holdout
+        # SEALED with zero uses (actual access is stopped below from the
+        # execution outcome, and the adapter rejects touched holdouts).
+        try:
+            raw = json.loads((self.root / "CHAMPION.json").read_text(
+                encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as error:
+            raise LoopStop("CHAMPION_UNREADABLE", str(error)) from error
+        holdout = raw.get("holdout_policy") or {}
+        if holdout.get("status") != "SEALED" \
+                or int(holdout.get("uses", 0) or 0) != 0:
+            raise LoopStop("HOLDOUT_STATE",
+                           f"holdout policy {holdout!r} is not SEALED/uses=0")
+        ledger = self._ledger()
+        ledger.read_rows(strict=True)          # raises LedgerCorrupt => caller stops
+        view = self._view(ledger, policy)
+        cap = generator.capacity(view, policy)
+        if int(cap["remaining_total"]) < 0:
+            raise LoopStop("BUDGET_INCONSISTENCY",
+                           f"negative remaining_total {cap['remaining_total']}")
+        # capacity/quota fields must never contradict the validator's accounting
+        state = cap["state"]
+        if int(state["total"]) < 0 or any(int(v) < 0 for v in
+                                          state["by_direction"].values()):
+            raise LoopStop("BUDGET_INCONSISTENCY", "negative quota counter")
+        if any(int(v) < 0 for v in cap["remaining_by_direction"].values()):
+            # over-cap directions from other scopes are fine; only a
+            # NEGATIVE remaining for the ACTIVE scope indicates corruption
+            # (scoped counts can never exceed their caps by construction)
+            raise LoopStop("BUDGET_INCONSISTENCY",
+                           f"negative remaining capacity {cap['remaining_by_direction']}")
+
+    def _view(self, ledger: ProposalLedger, policy: Mapping[str, Any]):
+        return evidence_view.build(self.root, clock=self.clock,
+                                   ledger_rows=ledger.read_rows(strict=True))
+
+    # -- exhaustion detection ------------------------------------------------
+    def exhaustion_report(self) -> dict[str, Any]:
+        policy = self._policy()
+        ledger = self._ledger()
+        view = self._view(ledger, policy)
+        sched = generator.scheduler_report(view, policy)
+        campaign_id = policy.get("campaign_id")
+        mine = [m for m in ledger.all_proposals()
+                if campaign_id is None
+                or (m.get("proposal") or {}).get("campaign_id") == campaign_id]
+        executed_states = {schema.STATUS_EXECUTED, schema.STATUS_ADJUDICATED,
+                           schema.STATUS_PROMOTED,
+                           schema.STATUS_FAILED_EXECUTION}
+        executions_done = sum(1 for m in mine if m.get("status") in executed_states)
+        approved = [m for m in mine
+                    if m.get("status") == schema.STATUS_ACCEPTED_FOR_EXECUTION]
+        compiled = [m for m in mine
+                    if m.get("status") == schema.STATUS_COMPILED]
+        done = {"falsification": 0, "confirmatory": 0,
+                "replication": 0, "exploration": 0}
+        # Count executed portfolio classes from adjudication transitions.
+        for row in ledger.read_rows(strict=True):
+            if row.get("row_type") != "transition" \
+                    or row.get("to") != schema.STATUS_ADJUDICATED:
+                continue
+            detail = row.get("detail") or {}
+            if detail.get("result") == "ACCEPTED" or detail.get("result") == "REJECTED":
+                payload = next((m.get("proposal") or {} for m in mine
+                                if m.get("proposal_id") == row.get("proposal_id")),
+                               {})
+                cls = str(payload.get("proposal_class"))
+                if cls in done:
+                    done[cls] += 1
+        campaign = self.load_campaign()
+        maximum = int((campaign.get("execution") or {})
+                      .get("max_total_executions", 4))
+        minimums = campaign.get("portfolio") or {}
+        return {
+            "campaign_id": campaign_id,
+            "scheduler_exhausted": bool(sched.get("exhausted")),
+            "candidates_remaining": int(sched.get("candidates_remaining", 0)),
+            "excluded_exhausted_directions": sched.get(
+                "excluded_exhausted_directions", []),
+            "excluded_exhausted_classes": sched.get("excluded_exhausted_classes", []),
+            "remaining_total": int(cap_remaining(view, policy)),
+            "executions_done": executions_done,
+            "execution_budget": maximum,
+            "approved_waiting": [m["proposal_id"] for m in mine
+                                 if m.get("status")
+                                 == schema.STATUS_ACCEPTED_FOR_EXECUTION],
+            "compiled_waiting": [m["proposal_id"] for m in mine
+                                 if m.get("status") == schema.STATUS_COMPILED],
+            "executed_by_class": {k: v for k, v in done.items() if v},
+            "portfolio_minimums": {
+                cls: int((minimums.get(cls + "_minimum") or {}).get("count", 1))
+                for cls in PORTFOLIO_MINIMUM_CLASSES},
+            "portfolio_complete": all(
+                done[cls] >= int((minimums.get(cls + "_minimum") or {})
+                                 .get("count", 1))
+                for cls in PORTFOLIO_MINIMUM_CLASSES),
+        }
+
+    # -- phase: generate / validate / approve --------------------------------
+    def phase_generate_and_approve(self) -> dict[str, Any]:
+        from autonomous_agent.proposal_layer import proposals_enabled
+        if not proposals_enabled(self.root):
+            raise LoopStop("FLAG_OFF", "allow_generated_proposals is false")
+        policy = self._policy()
+        ledger = self._ledger()
+        view = self._view(ledger, policy)
+        governor = BiasGovernor(policy)
+        campaign = self.load_campaign()
+        approver = str((campaign.get("approval") or {})
+                       .get("approver", "policy:auto"))
+        seed = int(self._state.get("seed_base", 0)) + int(self._state["cycle"])
+        payloads = generator.generate_proposals(view, policy, seed=seed)
+        summary = {"seed": seed, "created": [], "approved": [],
+                   "refused": [], "failed_validation": [],
+                   "refused_at_approval": [], "failed_at_approval": []}
+        for payload in payloads:
+            proposal_id = ledger.create_proposal(payload)
+            summary["created"].append(proposal_id)
+            ledger.transition(proposal_id, schema.STATUS_VALIDATING)
+            merged = ledger.all_proposals()
+            report = proposal_cycle.generator_validate(
+                payload, root=self.root, view=view, history=merged,
+                policy=policy, governor=governor, proposal_id=proposal_id)
+            if not report.passed:
+                target = report.status_target or schema.STATUS_FAILED_VALIDATION
+                ledger.transition(proposal_id, target,
+                                  reason_code=report.reason_code,
+                                  detail=report.to_dict())
+                bucket = ("refused" if target == schema.STATUS_REFUSED
+                          else "failed_validation")
+                summary[bucket].append({"proposal_id": proposal_id,
+                                        "reason_code": report.reason_code})
+                continue
+            # Autonomous approval under the frozen campaign policy; always
+            # revalidated against current ledger state with full provenance.
+            target, approval_report = proposal_cycle._revalidate_and_approve(
+                ledger, payload=payload, proposal_id=proposal_id,
+                root=self.root, view=view, policy=policy, governor=governor,
+                approver=approver, auto_approve=True)
+            if target == schema.STATUS_ACCEPTED_FOR_EXECUTION:
+                summary["approved"].append(proposal_id)
+            else:
+                bucket = ("refused_at_approval"
+                          if target == schema.STATUS_REFUSED
+                          else "failed_at_approval")
+                summary[bucket].append({"proposal_id": proposal_id,
+                                        "reason_code":
+                                            approval_report.reason_code})
+        self.journal("phase_generate", **{k: (len(v) if isinstance(v, list)
+                                              else v)
+                                          for k, v in summary.items()})
+        return summary
+
+    # -- phase: select / compile / execute / adjudicate ----------------------
+    def _select_next(self, approved: list[dict[str, Any]],
+                     executed_by_class: Mapping[str, int],
+                     maximums: Mapping[str, int]) -> dict[str, Any] | None:
+        """Predeclared rule: portfolio minimums first, then approval order."""
+        if not approved:
+            return None
+        for cls in PORTFOLIO_MINIMUM_CLASSES:
+            if int(executed_by_class.get(cls, 0)) < int(maximums.get(cls, 1)):
+                for item in approved:
+                    payload = item.get("proposal") or {}
+                    if str(payload.get("proposal_class")) == cls:
+                        return item
+        return approved[0]
+
+    def phase_execute_one(self) -> dict[str, Any]:
+        campaign = self.load_campaign()
+        policy = self._policy()
+        ledger = self._ledger()
+        view = self._view(ledger, policy)
+        maximum = int((campaign.get("execution") or {})
+                      .get("max_total_executions", 4))
+        report = self.exhaustion_report()
+        self._state["executions_done"] = int(report["executions_done"])
+        if int(report["executions_done"]) >= maximum:
+            raise LoopStop("EXECUTION_BUDGET",
+                           f"{report['executions_done']}/{maximum} executed")
+        campaign_id = policy.get("campaign_id")
+        merged = [m for m in ledger.all_proposals()
+                  if campaign_id is None
+                  or (m.get("proposal") or {}).get("campaign_id") == campaign_id]
+        approved = [m for m in merged
+                    if m.get("status") == schema.STATUS_ACCEPTED_FOR_EXECUTION]
+        compiled = [m for m in merged
+                    if m.get("status") == schema.STATUS_COMPILED]
+        minimums = campaign.get("portfolio") or {}
+        maximums = {cls: int((minimums.get(cls + "_minimum") or {}).get("count", 1))
+                    for cls in PORTFOLIO_MINIMUM_CLASSES}
+        if not compiled:
+            target = self._select_next(approved, report["executed_by_class"],
+                                       maximums)
+            if target is None:
+                # Nothing admissible: complete portfolio => clean stop;
+                # unmet minimums + exhausted scheduler => honest exhaustion.
+                if report["portfolio_complete"]:
+                    raise LoopStop("PORTFOLIO_COMPLETE",
+                                   "minimums met and no admissible proposal")
+                if report["scheduler_exhausted"] and not approved:
+                    raise LoopStop("PROPOSAL_EXHAUSTED",
+                                   f"no admissible proposal; minimums "
+                                   f"unmet: {report['executed_by_class']}")
+                return {"action": "nothing_admissible"}
+            payload = target["proposal"]
+            proposal_id = target["proposal_id"]
+            try:
+                spec, spec_sha = compiler.compile_proposal(
+                    payload, root=self.root,
+                    status=schema.STATUS_ACCEPTED_FOR_EXECUTION)
+            except (compiler.CompileError, compiler.BoundaryViolation) as error:
+                code = getattr(error, "code", schema.RC_SPEC_CONTRACT)
+                ledger.transition(proposal_id, schema.STATUS_FAILED_COMPILATION,
+                                  reason_code=code,
+                                  detail={"error": str(error),
+                                          "campaign_id": campaign_id})
+                return {"action": "failed_compilation",
+                        "proposal_id": proposal_id, "reason_code": code}
+            ledger.transition(proposal_id, schema.STATUS_COMPILED,
+                              reason_code="COMPILED",
+                              detail={"spec_sha256": spec_sha,
+                                      "experiment_id": spec.experiment_id,
+                                      "campaign_id": campaign_id,
+                                      "proposal_fingerprint":
+                                          payload.get("proposal_fingerprint")})
+            compiled = [m for m in merged
+                        if m.get("proposal_id") == proposal_id]
+            compiled[0]["status"] = schema.STATUS_COMPILED
+            target = compiled[0]
+        payload = target["proposal"]
+        proposal_id = target["proposal_id"]
+        spec, spec_sha = compiler.compile_proposal(
+            payload, root=self.root, status=schema.STATUS_ACCEPTED_FOR_EXECUTION)
+        # Execution marker BEFORE invoking the executor: a crash here is
+        # recovered, never re-run blindly.
+        ledger.transition(proposal_id, schema.STATUS_EXECUTED,
+                          reason_code="EXECUTION_STARTED",
+                          detail={"phase": "started",
+                                  "experiment_id": spec.experiment_id,
+                                  "spec_sha256": spec_sha,
+                                  "campaign_id": campaign_id,
+                                  "proposal_fingerprint":
+                                      payload.get("proposal_fingerprint")})
+        self._state["executing"] = {"proposal_id": proposal_id,
+                                    "experiment_id": spec.experiment_id,
+                                    "spec_sha256": spec_sha,
+                                    "started_at": self.clock()}
+        self.save_state()
+        outcome = self._invoke_executor(spec, spec.experiment_id)
+        self._state["executing"] = None
+        self.save_state()
+        return self._adjudicate(ledger, proposal_id, spec, spec_sha, payload,
+                                outcome)
+
+    def _invoke_executor(self, spec, experiment_id: str) -> dict[str, Any]:
+        executor = self.executor
+        if executor is None:
+            executor = default_executor(self.root)
+            self.executor = executor
+        try:
+            outcome = executor(spec)
+        except Exception as error:  # noqa: BLE001 - failures are evidence
+            self.journal("execution_error", experiment_id=experiment_id,
+                         error=f"{type(error).__name__}: {error}")
+            return {"status": "FAILED",
+                    "checks": {}, "results": {}, "candidate_path": None,
+                    "error": {"message": f"{type(error).__name__}: {error}"}}
+        if not isinstance(outcome, dict):
+            return {"status": "FAILED", "checks": {}, "results": {},
+                    "candidate_path": None,
+                    "error": {"message": "executor returned a non-mapping"}}
+        return outcome
+
+    def _adjudicate(self, ledger: ProposalLedger, proposal_id: str, spec,
+                    spec_sha: str, payload: Mapping[str, Any],
+                    outcome: Mapping[str, Any]) -> dict[str, Any]:
+        campaign_id = payload.get("campaign_id")
+        status = str(outcome.get("status") or "FAILED")
+        base_detail = {
+            "experiment_id": spec.experiment_id,
+            "spec_sha256": spec_sha,
+            "campaign_id": campaign_id,
+            "proposal_fingerprint": payload.get("proposal_fingerprint"),
+            "parent_version": payload.get("parent_version"),
+            "baseline_id": payload.get("baseline_id"),
+            "checks": dict(outcome.get("checks") or {}),
+            "holdout_touched": bool(outcome.get("holdout_touched")),
+            "result_json": (f"autonomous_agent/candidates/"
+                            f"{spec.experiment_id}/result.json"),
+        }
+        if status == "FAILED":
+            detail = {**base_detail,
+                      "error": dict(outcome.get("error") or {})}
+            ledger.transition(proposal_id, schema.STATUS_FAILED_EXECUTION,
+                              reason_code="EXECUTION_FAILED", detail=detail)
+            self._record_memory(payload, "FAILED", outcome)
+            return {"action": "failed_execution", "proposal_id": proposal_id}
+        results = dict(outcome.get("results") or {})
+        primary = results.get("primary_metric") or {}
+        scientific = {**base_detail,
+                      "result": "ACCEPTED" if status == "ACCEPTED" else "REJECTED",
+                      "primary_delta": primary.get("delta"),
+                      "decision_criteria_passed":
+                          results.get("decision_criteria_passed"),
+                      "rejection_reason": outcome.get("rejection_reason"),
+                      "blockers": list(outcome.get("blockers") or []),
+                      "leakage_status": outcome.get("leakage_status"),
+                      "robustness_status": outcome.get("robustness_status"),
+                      "artifact_sha256": outcome.get("artifact_sha256"),
+                      "reproduction_command": outcome.get("reproduction_command")}
+        experiment = {"id": spec.experiment_id,
+                      "direction": str(payload.get("direction")),
+                      "hypothesis": str(payload.get("hypothesis")),
+                      "status": status,
+                      "baseline_id": payload.get("baseline_id"),
+                      "rationale": str((payload.get("rationale") or {})
+                                       .get("open_question", ""))}
+        if status == "ACCEPTED":
+            ledger.transition(proposal_id, schema.STATUS_ADJUDICATED,
+                              reason_code="GATES_PASSED",
+                              detail={**scientific, "result": "ACCEPTED"})
+            promoted_version = self._promote(experiment, outcome)
+            ledger.transition(proposal_id, schema.STATUS_PROMOTED,
+                              reason_code="PROMOTED",
+                              detail={"version": promoted_version,
+                                      "experiment_id": spec.experiment_id,
+                                      "artifact_sha256":
+                                          outcome.get("artifact_sha256"),
+                                      "campaign_id": campaign_id,
+                                      "parent_version":
+                                          payload.get("parent_version")})
+            self._record_memory(payload, "ACCEPTED", outcome,
+                                promoted_version=promoted_version)
+            return {"action": "promoted", "proposal_id": proposal_id,
+                    "version": promoted_version}
+        ledger.transition(proposal_id, schema.STATUS_ADJUDICATED,
+                          reason_code="GATES_FAILED",
+                          detail={**scientific, "result": "REJECTED"})
+        self._record_memory(payload, "REJECTED", outcome)
+        if outcome.get("holdout_touched"):
+            raise LoopStop("HOLDOUT_TOUCHED",
+                           f"experiment {spec.experiment_id} touched the "
+                           "holdout; rejection recorded, campaign halted")
+        return {"action": "rejected", "proposal_id": proposal_id}
+
+    def _promote(self, experiment: Mapping[str, Any],
+                 outcome: Mapping[str, Any]) -> str:
+        from autonomous_agent.core import VersionManager, parse_champion
+        champion, errors = parse_champion(self.root / "CHAMPION.json")
+        if champion is None:
+            raise LoopStop("PROMOTION_BLOCKED",
+                           "no valid CHAMPION.json: " + "; ".join(errors))
+        if champion.get("experiment_id") == experiment.get("id"):
+            # Crash-recovery: this experiment already advanced the champion.
+            return str(champion.get("version"))
+        try:
+            destination = VersionManager(self.root).promote(
+                dict(champion), dict(experiment), dict(outcome))
+        except Exception as error:  # noqa: BLE001 - promotion is evidence too
+            raise LoopStop("PROMOTION_FAILED",
+                           f"{type(error).__name__}: {error}") from error
+        return destination.name
+
+    def _record_memory(self, payload: Mapping[str, Any], status: str,
+                       outcome: Mapping[str, Any],
+                       promoted_version: str | None = None) -> None:
+        """Append-only research memory + agent-state bookkeeping."""
+        from autonomous_agent.core import (append_discovery,
+                                           append_human_memory,
+                                           build_research_record, utc_now)
+        experiment_id = f"prop-{str(payload.get('proposal_fingerprint', ''))[:12]}"
+        results = dict(outcome.get("results") or {})
+        experiment = {
+            "id": experiment_id,
+            "direction": str(payload.get("direction")),
+            "hypothesis": str(payload.get("hypothesis")),
+            "status": status,
+            "baseline_id": payload.get("baseline_id"),
+            "rationale": str((payload.get("rationale") or {})
+                             .get("open_question", "")),
+            "failure": (outcome.get("rejection_reason")
+                        if status != "ACCEPTED" else None),
+            "rejection_reason": outcome.get("rejection_reason"),
+            "results": results,
+        }
+        record = {
+            "experiment_id": experiment_id,
+            "created_at": utc_now(),
+            "direction": experiment["direction"],
+            "question": experiment["hypothesis"],
+            "status": status,
+            "blockers": list(outcome.get("blockers") or []),
+            "lesson": (outcome.get("rejection_reason")
+                       or ("Promoted as " + promoted_version
+                           if promoted_version else
+                           "Candidate result recorded; review evaluation artifacts.")),
+            "scientific_claim": False,
+            "campaign_id": payload.get("campaign_id"),
+            "proposal_fingerprint": payload.get("proposal_fingerprint"),
+            "accepted_version": promoted_version,
+        }
+        record.update(build_research_record(experiment, None, outcome,
+                                            self.state_root / "research_memory.json"))
+        append_discovery(self.state_root / "research_memory.json", record)
+        append_human_memory(self.root / "RESEARCH_MEMORY.md", record)
+        self._update_agent_state(experiment, promoted_version)
+
+    def _update_agent_state(self, experiment: Mapping[str, Any],
+                            promoted_version: str | None) -> None:
+        path = self.state_root / "agent_state.json"
+        try:
+            state = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            return
+        if not isinstance(state, dict):
+            return
+        experiments = state.setdefault("experiments", [])
+        if any(item.get("id") == experiment.get("id") for item in experiments):
+            return
+        experiments.append({
+            "id": experiment.get("id"),
+            "direction": experiment.get("direction"),
+            "status": experiment.get("status"),
+            "created_at": self.clock(),
+            "finished_at": self.clock(),
+            "accepted_version": promoted_version,
+            "campaign_id": None,
+        })
+        stats = state.setdefault("direction_stats", {})
+        direction = str(experiment.get("direction"))
+        entry = stats.setdefault(direction, {"attempts": 0, "accepted": 0,
+                                              "rejected": 0})
+        entry["attempts"] = int(entry.get("attempts", 0)) + 1
+        key = "accepted" if experiment.get("status") == "ACCEPTED" else "rejected"
+        entry[key] = int(entry.get(key, 0)) + 1
+        from autonomous_agent.core import write_json_atomic
+        write_json_atomic(path, state)
+
+    def _recover_interrupted(self, ledger: ProposalLedger) -> None:
+        """Crash between start-marker and adjudication: never re-run blind."""
+        for merged in ledger.all_proposals():
+            if merged.get("status") != schema.STATUS_EXECUTED:
+                continue
+            transitions = merged.get("transitions") or []
+            last = transitions[-1] if transitions else {}
+            detail = last.get("detail") or {}
+            if detail.get("phase") != "started":
+                continue
+            experiment_id = str(detail.get("experiment_id") or "")
+            result_path = (self.root / "autonomous_agent" / "candidates"
+                           / experiment_id / "result.json")
+            if result_path.is_file():
+                # The adapter finished but the ledger did not get the tail:
+                # adjudicate from the durable result, without re-running.
+                try:
+                    result = json.loads(result_path.read_text(encoding="utf-8"))
+                except (OSError, json.JSONDecodeError):
+                    result = None
+                if isinstance(result, dict):
+                    from autonomous_agent.experiment_adapter import ExperimentResult
+                    outcome = ExperimentResult.from_dict(result).to_supervisor_outcome()
+                    payload = merged.get("proposal") or {}
+                    spec = compiler.preview_spec(payload, root=self.root)
+                    self._adjudicate(ledger, merged["proposal_id"], spec,
+                                     str(detail.get("spec_sha256") or ""),
+                                     payload, outcome)
+                    continue
+            ledger.transition(merged["proposal_id"],
+                              schema.STATUS_FAILED_EXECUTION,
+                              reason_code="EXECUTION_INTERRUPTED",
+                              detail={"experiment_id": experiment_id,
+                                      "error": "process interrupted before a "
+                                               "durable result existed; the "
+                                               "attempt is recorded, never "
+                                               "silently retried"})
+
+    # -- one cycle -----------------------------------------------------------
+    def cycle_once(self) -> dict[str, Any]:
+        if self.stop_file.exists():
+            raise LoopStop("STOP_FILE", "explicit STOP file present")
+        if self.stop_requested:
+            raise LoopStop("STOP_REQUESTED", "in-process stop requested")
+        policy = self._policy()
+        self.safety_precheck(policy)
+        # Crash recovery runs BEFORE anything else: an interrupted execution
+        # is adjudicated from its durable result and never re-run.
+        self._recover_interrupted(self._ledger())
+        # Execution budget is checked BEFORE generating anything: never
+        # create proposals that no execution budget could ever consume.
+        budget = self.exhaustion_report()
+        campaign = self.load_campaign()
+        maximum = int((campaign.get("execution") or {})
+                      .get("max_total_executions", 4))
+        if int(budget["executions_done"]) >= maximum:
+            raise LoopStop("EXECUTION_BUDGET",
+                           f"{budget['executions_done']}/{maximum} executed")
+        if budget["portfolio_complete"] and not budget["approved_waiting"] \
+                and not budget["compiled_waiting"] \
+                and int(budget["remaining_total"]) <= 0:
+            raise LoopStop("PORTFOLIO_COMPLETE",
+                           "minimums met and proposal budget exhausted")
+        self._state["cycle"] = int(self._state["cycle"]) + 1
+        generation = self.phase_generate_and_approve()
+        execution = self.phase_execute_one()
+        # Refresh the durable execution counter from the ledger AFTER the
+        # execution so budget accounting survives restarts exactly.
+        self._state["executions_done"] = int(
+            self.exhaustion_report()["executions_done"])
+        result = {"cycle": int(self._state["cycle"]),
+                  "generation": generation, "execution": execution}
+        self.journal("cycle", **{k: (len(v) if isinstance(v, list) else v)
+                                 for k, v in generation.items()},
+                     action=execution.get("action"))
+        return result
+
+    # -- driver --------------------------------------------------------------
+    def run(self) -> dict[str, Any]:
+        if not self.acquire_lock():
+            raise LoopStop("LOCKED", "another loop holds the lock")
+        summary: dict[str, Any] = {"campaign_id": None, "cycles": 0,
+                                   "stop_reason": None, "status": None}
+        startup_stop: LoopStop | None = None
+        try:
+            try:
+                self._state = self.load_state()
+                summary["campaign_id"] = self._state.get("campaign_id")
+                self._state["status"] = "RUNNING"
+                self.save_state()
+                self.journal("loop_started", pid=os.getpid(),
+                             max_cycles=self.max_cycles,
+                             campaign_config_sha256=self._state.get(
+                                 "campaign_config_sha256"))
+            except LoopStop as stop:
+                # A hard stop raised during startup (e.g. campaign config
+                # tamper, missing sidecar, flag off) must stop the loop
+                # cleanly instead of escaping run().
+                startup_stop = stop
+                if not self._state:
+                    self._state = {"schema_version": 1, "cycle": 0,
+                                   "executions_done": 0,
+                                   "consecutive_failures": 0}
+                summary["campaign_id"] = self._state.get("campaign_id")
+                self._state["status"] = "STOPPED"
+                self._state["last_stop_reason"] = stop.reason
+                self._state["last_error"] = stop.detail or None
+                summary["stop_reason"] = stop.reason
+                summary["stop_detail"] = stop.detail
+                self.journal("loop_stop_at_startup", reason=stop.reason,
+                             detail=stop.detail)
+            while startup_stop is None \
+                    and int(self._state["cycle"]) < self.max_cycles:
+                try:
+                    self.cycle_once()
+                    self._state["consecutive_failures"] = 0
+                    self.save_state()
+                except LoopStop as stop:
+                    self._state["status"] = "STOPPED"
+                    self._state["last_stop_reason"] = stop.reason
+                    self._state["last_error"] = stop.detail or None
+                    summary["stop_reason"] = stop.reason
+                    summary["stop_detail"] = stop.detail
+                    break
+                except (LedgerError, LedgerCorrupt) as fatal:
+                    # Invalid lifecycle / corrupted state: hard stop.
+                    self._state["status"] = "FAILED"
+                    self._state["last_stop_reason"] = "INVALID_LEDGER_STATE"
+                    self._state["last_error"] = str(fatal)
+                    summary["stop_reason"] = "INVALID_LEDGER_STATE"
+                    summary["stop_detail"] = str(fatal)
+                    break
+                except Exception as error:  # noqa: BLE001 - crash guard
+                    failures = int(self._state.get("consecutive_failures", 0)) + 1
+                    self._state["consecutive_failures"] = failures
+                    self._state["last_error"] = (
+                        f"cycle {type(error).__name__}: {error}")
+                    self.save_state()
+                    self.journal("cycle_error", error=self._state["last_error"])
+                    if failures >= MAX_CONSECUTIVE_FAILURES:
+                        self._state["status"] = "FAILED"
+                        self._state["last_stop_reason"] = "REPEATED_CRASHES"
+                        summary["stop_reason"] = "REPEATED_CRASHES"
+                        summary["stop_detail"] = self._state["last_error"]
+                        break
+                summary["cycles"] = int(self._state["cycle"])
+                if self.idle_seconds and \
+                        int(self._state["cycle"]) < self.max_cycles:
+                    deadline = time.monotonic() + self.idle_seconds
+                    while time.monotonic() < deadline \
+                            and not self.stop_file.exists():
+                        time.sleep(min(0.2, deadline - time.monotonic()))
+            else:
+                self._state["last_stop_reason"] = (
+                    self._state.get("last_stop_reason") or "MAX_CYCLES")
+                summary["stop_reason"] = summary.get("stop_reason") or "MAX_CYCLES"
+            if self._state.get("status") == "RUNNING":
+                self._state["status"] = "STOPPED"
+                summary.setdefault("stop_reason",
+                                   self._state.get("last_stop_reason")
+                                   or "MAX_CYCLES")
+            self.save_state()
+            self.journal("loop_stopped", cycles=int(self._state["cycle"]),
+                         reason=summary.get("stop_reason"),
+                         status=self._state.get("status"))
+        finally:
+            self.release_lock()
+        summary["status"] = self._state.get("status")
+        summary["executions_done"] = self._state.get("executions_done")
+        return summary
+
+
+def cap_remaining(view, policy) -> int:
+    return int(generator.capacity(view, policy)["remaining_total"])
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        prog="autonomous_agent.continuous_loop",
+        description="Persistent research loop (bounded; never implicit-"
+                    "infinite). Execution requires explicit authorization "
+                    "and an explicit --max-cycles.")
+    parser.add_argument("--root", default=".")
+    parser.add_argument("--max-cycles", type=int, required=True,
+                        help="explicit positive cycle bound (required: there "
+                             "is no implicit infinite mode)")
+    parser.add_argument("--idle-seconds", type=float, default=0.0)
+    args = parser.parse_args(argv)
+    if int(args.max_cycles) <= 0:
+        parser.error("--max-cycles must be a positive integer")
+    loop = ResearchLoop(args.root, max_cycles=args.max_cycles,
+                        idle_seconds=args.idle_seconds)
+    try:
+        summary = loop.run()
+    except LoopStop as stop:
+        print(stop, file=sys.stderr)
+        return 3
+    print(json.dumps(summary, sort_keys=True))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

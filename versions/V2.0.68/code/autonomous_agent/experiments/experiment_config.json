@@ -1,0 +1,31 @@
+{
+  "arm_a": "B",
+  "arm_b": "C",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 10,
+  "estimator_a": "LightGBM",
+  "estimator_b": "LightGBM",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "min_folds": 3,
+    "note": "Framed as a falsifier; harness already reports per-year deltas.",
+    "primary_metric_min_delta": 0.0
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_compositional",
+  "hypothesis_id": "rq-validation",
+  "hypothesis_text": "[validation] Challenge the pooled gain: does it hold in EVERY predeclared year, or does at least one year refute it? (arm_pair=B->C, estimator=LightGBM, n_boot=2000) \u2014 does it satisfy the predeclared non-degradation criteria on the frozen development folds?",
+  "n_boot": 2000,
+  "recipe_id": "proposal_layer",
+  "recipe_version": "1.0.0",
+  "schema_version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

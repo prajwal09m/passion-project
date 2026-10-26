@@ -1,0 +1,5 @@
+{
+  "schema_version": 1,
+  "allow_autonomous_specs": true,
+  "notes": "Reviewed autonomy switch for the deterministic recipe spec provider (autonomous_agent/spec_recipes.py). Default false: candidate experiment specs are refused unless this flag is explicitly enabled after a human review of the recipe library and a dry-run report. There is no LLM in this system; generation is deterministic recipe-based only. Enabling requires editing this file and restarting the supervisor; nothing enables it automatically."
+}

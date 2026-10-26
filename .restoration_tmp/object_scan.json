@@ -1,0 +1,1604 @@
+{
+  "pins_checked": 169,
+  "objects_hashed": 54495,
+  "bytes_hashed": 3999235034,
+  "pin_hits": [
+    {
+      "origin": "object-db",
+      "object": "022c7ea57d216deb1787dd111f7013b8af7cc2ca",
+      "sha256": "a8f0eb7a15d14dd3750205a8c27d1fa2fba0d3a584df816f7bc9486400bda03a",
+      "pin": "ohlcv:COIN",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "0230dc1549b533faa9f1276eea46ef77bc2e78e4",
+      "sha256": "e456530bee5ad9c382ef8a04adb2e89dca00105b7bff8c73e9e210e66c9130a5",
+      "pin": "ohlcv:BMEA",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "02b08d9ff7d89a51c894491cbf75159d671b14ed",
+      "sha256": "712afdf18696ad08a6c87aa95fad2a6dfdde66097083eea1dc68b6fc575dd6cb",
+      "pin": "ohlcv:ARVN",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "03b07f40cb6b20e47395cb7d86ba3d1f3f2bc6b4",
+      "sha256": "8118e42fdf50251cf6249ad39b0baa7e8af7f309bfd316c5b38562d8b5a75507",
+      "pin": "ohlcv:HOOD",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "04e91d7fb1f6f18e3e5bcc8dc462a131b0b5dc74",
+      "sha256": "e1cf9c19a60046591bec62834803974d333922b0a823951577d1797f66118a53",
+      "pin": "ohlcv:Z",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "069671cf44bc23418cdc52b745edee5b4effcf2a",
+      "sha256": "4c888748038d009baf2c2f68e8cb858b7acc8d241df62f7d94af711b0dae4b30",
+      "pin": "ohlcv:MCD",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "07023212f8a1e3326835114c552d5fcc573a84c9",
+      "sha256": "be65c9bbdb209fa2e287aa8554b50c2806276f67fabd155b52966b0197b12990",
+      "pin": "ohlcv:GH",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "07eb581c9b0d85f71ddb2f534df81dac0ad44b33",
+      "sha256": "4efe4d46b1116ac6fb194c56deddab0d5c6a75140e138a991e60f2bc5acda37b",
+      "pin": "ohlcv:RUN",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "0b0cbcd1cfadb683156a25414078d2b970814777",
+      "sha256": "fe49917b20ce769bc713d6b674d80e5c41c25590fa84b3f8c094a48e9fb3e966",
+      "pin": "model:LogisticRegression_B.joblib",
+      "line_ending_variant": "raw"
+    },
+    {
+      "origin": "object-db",
+      "object": "0c4a237b4c860fde856acb66b49ca37ca4dee504",
+      "sha256": "3d77d514df7c7dbed8ede62fb9c3d3eef262b1153a225d574d9b61b1b9f19560",
+      "pin": "ohlcv:CVS",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "0d0e2b1444f3ec247d5510377c530d06ed52ed3d",
+      "sha256": "77ad87091786e99097835399277da6d6022c61e1dd94fda84ba591de970aa9ef",
+      "pin": "ohlcv:TXN",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "0d8df3f849755a6160a7ab7fda2617f448acdece",
+      "sha256": "b5bd800fd01fe85aeebd286c169b949f94a4c93b233ebcc45ec16253468795c9",
+      "pin": "ohlcv:NVDA",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "1058ff591de75d2db0c02239e7af10038dc6e38d",
+      "sha256": "3ea9b045337e83ae06b807d9c4f977c565a0374fdfd0334a9ac1529279e7c280",
+      "pin": "ohlcv:LIN",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "117114f218c4b13cfcb5e9b5c47bf084624369b6",
+      "sha256": "f410bf247ff284c9aae242e2f2fb3604560e23b520a41125a94bc646928ab682",
+      "pin": "ohlcv:AFRM",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "156c2a73d217ad2e64a7fea82d985a6b0c8da2ff",
+      "sha256": "ea82436d84aac28ede99283cb8f7240223124cbd4f1b79caf2cd9a05bd99825e",
+      "pin": "ohlcv:META",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "156ee5ab771f4abc669c258cb698ee5ed6da4484",
+      "sha256": "b40af33e25792b2264ed82b9445d5ff4a01d3a4a3879c03a9f72cbf7ab95c1c5",
+      "pin": "ohlcv:SNDL",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "1aecb17ba0ec002bbb2fe2400ee4dfbfb3f36738",
+      "sha256": "1b5b2fcc6a005993841b4b7ca2a9a74682a00626b3c1da393cedbd7c4dbf2419",
+      "pin": "ohlcv:DDOG",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "1b339201636ec1858cd1081b09cdde15d979f069",
+      "sha256": "97cce61eb980e42d6a6f6247f7a11faabe90c45f6f4ec537d0dbd9524151d21d",
+      "pin": "ohlcv:MO",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "1b4cf2b32d0489a790d2d5fcd1aebb8600d5fa59",
+      "sha256": "11f8dc9259ca08e9569b248e8ecd524d21950612dacce5b90cf5edcb571dc40d",
+      "pin": "ohlcv:GIS",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "1b6bb10be9ad14b3613386a6b9a18da552192403",
+      "sha256": "e841f428ba9f9a0f51730c13d07a6cdc2db08a0d8038f5646ae78c943c44eec3",
+      "pin": "ohlcv:TSLA",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "1d322ef69a9e4790ba8ba106137e4ff75758b3b0",
+      "sha256": "3c424c3b3e78fd72977eb670674969ec940f6ae6bda46f806e075cd96f1c2a32",
+      "pin": "ohlcv:LOW",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "1d34aa4d93512752b03d23bcd5b02dbf47f1bd6c",
+      "sha256": "dcdb3c1f2d10a73665c0f028f6c0b515d5eac807e4e24b63280fd9cac95c96c6",
+      "pin": "ohlcv:NIO",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "1e45d623739527f94b0b1409a24415a6f009bb61",
+      "sha256": "f9d5b484210fb3b051a822682b7184d88b4c2bff686ecbf96d2cfbf858f1a768",
+      "pin": "ohlcv:PYPL",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "1ec80b8f17e8724a4b8253f62f3016476b63aa03",
+      "sha256": "b46f7b3fdf0c13ff7b349f4e5a41d8a86e82a7891987ccfe65d29bb0fc6d295b",
+      "pin": "ohlcv:NOW",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "1fe385b0df78db6ba52deab9a4142654818c5b8d",
+      "sha256": "fd036fe58f5101c52f31656975c1ce56d8d81484782db0219404aca96d2c4849",
+      "pin": "ohlcv:ESTC",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "20c117afe0eb0e15a3985f039d4150ab0afa89e1",
+      "sha256": "768f7dce14f70b66bb27cb64c0474eb393a45d1a94a80a23b2b8d9fd743abe62",
+      "pin": "ohlcv:MDB",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "232cd22ef2c37ae6e8d46c4854bd9ae4729d6523",
+      "sha256": "67169063b8421db910150ad315ec0a183835ff6eab735fe54bc5361ef512a890",
+      "pin": "ohlcv:DUK",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "239c1bb0b16baf70269c37c5e290a7f258991f67",
+      "sha256": "895429b1259e3afdad357c5e96fc129a1a0f06ea8f79f83f39ff0944fe7cc224",
+      "pin": "ohlcv:SCHW",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "248b414107140145729d94891155aab4db214934",
+      "sha256": "c99a847531dfca272f99e0ed5958813435ec17cb5f48c1f5dec9c108ab737adc",
+      "pin": "ohlcv:AEP",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "24b6e69a92b93d438594c4c3e2a9c2c10a29893e",
+      "sha256": "8e43f21531d2c8718af36185feea2b51b98700c2a3a154c635bf20498a418b4d",
+      "pin": "ohlcv:QQQ",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "276ebc1df9500d0fb1ce1cfedb97e9c70e66508b",
+      "sha256": "393226cc0c08e8f0b8bc6948baacea7bb44eba85d912f256a25141bf10a76363",
+      "pin": "ohlcv:SO",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "2a7a5bd79807508867cd5cd3063fd82569167c4f",
+      "sha256": "c42a3a559d8feb2fb177b7f6af60be16c7bb01b3e23d0973d39fdc550c1835af",
+      "pin": "ohlcv:GE",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "2a90a5d08aa9c49119d200a0389920936a669307",
+      "sha256": "3d7d4ac07a93271c525e22e1a10ad908d86f22b1e4e8780025fa13be61fb8e53",
+      "pin": "ohlcv:ROKU",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "2dff74330761c0777043c45294e0e9143439ba03",
+      "sha256": "49d731ec666c8b42873fec9bfb828f29952e68badf831c4f9cb3dc1bbe5bc25c",
+      "pin": "ohlcv:BLK",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "2e20c3b7096a5cf4103d7028787da55731b36aa2",
+      "sha256": "e4ec36fd5a49a62b5333dd57d057ad429b6cb769d67fb652da1a606fe55ade20",
+      "pin": "ohlcv:KO",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "2e3c231a22c1c373f84df867c6fa48b083a70fe9",
+      "sha256": "918ace6f0836e019a4bc6aae80ab5c0a9d266e147c5c87273ab364614ec5de0d",
+      "pin": "ohlcv:ZM",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "3099d0e85562a4d6f19677538574aab8a9a9b37d",
+      "sha256": "49a69d9ac1cf24398bcd6fbaad504073b5ee273857a3f0109f1f455b42436e4f",
+      "pin": "ohlcv:BLNK",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "30b5124a296b7b2cdc57741635d90ae78eeb6227",
+      "sha256": "f487d1604e5e6dd952ae0101a33ad60583ee6ef9bd97db2630c572491b2cd1be",
+      "pin": "ohlcv:CSIQ",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "3337937c98e4cdc6531b03aae32795aeb441f3c4",
+      "sha256": "7b68303ce6e978e04234e2a8f284b223c9a1e1751690043c3098e4eb61ea8f30",
+      "pin": "ohlcv:AMZN",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "33af19d242c2726eb7c4e8dafe3f61c72da45795",
+      "sha256": "90e17e5d9465ab02309d598920535170946c466ebe877a323fa975ccd9cab5a9",
+      "pin": "ohlcv:IBM",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "36ee51056aba604408bb19a53a6aa5e1871f5654",
+      "sha256": "3546d293a4ff72347c6614d7ea7aaa0fa31535b4b91c8681ff80fc11d39bd5ca",
+      "pin": "ohlcv:UBER",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "3bb4f0dc35a76afc4ba9001e73431ec667cce12d",
+      "sha256": "28c84b9c11379f8ba4ece47169e1f6952975b3663f72661576b4605cdf257cad",
+      "pin": "ohlcv:SPGI",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "3c5976260370b8ae0408b7a1fb5d4c59172fc5c8",
+      "sha256": "d97631347f2d44ac38001d22879f59716dfb5e827755d3eedbe9f4e72f98ce6d",
+      "pin": "ohlcv:TEAM",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "3c772f3b65b71c20053c990ac3c0e299af4953db",
+      "sha256": "dccef47385aba4abce675be4fbf55720558f595444bcb671ff79bf26e6bc5adf",
+      "pin": "ohlcv:ORCL",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "3d381d0eeb9de444d2a8e6cdd36340a8e72df30d",
+      "sha256": "d232a6c0fea13df438e1622d8d2be346f4cb7986e49e7951d609ee929bc6edce",
+      "pin": "ohlcv:INCY",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "3dfc279a3621e4e8e68c896cdbf26a4659f0bcec",
+      "sha256": "af5f6143a3f8c216dd5bca8c6cfb5e76343d4fe0ebe702da554b93230a5b40bb",
+      "pin": "model:LightGBM_C.joblib",
+      "line_ending_variant": "raw"
+    },
+    {
+      "origin": "object-db",
+      "object": "3f9b7d9737dd4a1c675558528b52e89565adce6d",
+      "sha256": "f9755bc04af6e8235404e9dafd865d2bd36122fc2d96d2410f514e884f865c50",
+      "pin": "ohlcv:JKS",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "40e7dbbf80abde66c44efe0b1d1cdeac1cf45a09",
+      "sha256": "c5e529c4688cd52a819068f8fc28a6d73a198b9470b7b4e031556a817f86394f",
+      "pin": "ohlcv:HD",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "41b42a2b3b708210300a86ceb88b0302c9b79217",
+      "sha256": "8b3ad5ecf76b1593654cf1d7d1b2e5870962550eabc3afbd35503416e7a0e1a9",
+      "pin": "ohlcv:COST",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "434cc4b9aa448880eae4f10d6f25a127f42b578e",
+      "sha256": "59851df83f458faa306abfc386690bccf5bd41c0e33c5ac3f45dc27cb962458e",
+      "pin": "ohlcv:AAPL",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "447ec48c759435007e39fd746cde2c85ac75277e",
+      "sha256": "b6eac2dc7247c617041260ccbc8d641c557039da5f858b62da16f4be0f6fd4dd",
+      "pin": "ohlcv:AMD",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "46ed356905bca0453ea531ede2098f5475f3feba",
+      "sha256": "1b997e5b2e521e12f49865f391a0ecc11c1e771ff2f07611b0b538a6c3c263d2",
+      "pin": "ohlcv:PG",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "489bc66f1c3cd91be52911c258c9ee07e739e89a",
+      "sha256": "eff8e1328c0eb400daac0b163c69e03f0e33cdedccf1d76a5e8a1d6bc1fba035",
+      "pin": "ohlcv:RIVN",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "49dcb9af111bf7eccd37629f529f12a8fcbca994",
+      "sha256": "96dca5e00ac66c8abae9fa65563b6300a92871a506e97a8968050adc337cb354",
+      "pin": "ohlcv:BKNG",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "4c626d229c1d66dcad454a2fcf5df15e5e1d1d49",
+      "sha256": "def61f0e6b16e75760c36d03d816a6752714d4d07b62a11e189fc61908cfe6db",
+      "pin": "ohlcv:ADP",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "4d6552831a82348fb2286f85925d17ec6723de83",
+      "sha256": "d6b6264678b6ab8fdd3562e6352f903a2c2fe216725e540e050843929eb924e9",
+      "pin": "ohlcv:GS",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "4dd0f28f98d6b30930bf71607e36d0e783ecef36",
+      "sha256": "6d278b661adeb346b121408ff2707032b27fb51cf61af836da9d9d26458eb061",
+      "pin": "ohlcv:QCOM",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "4f673ad000804afe7a61775702bc6a9c26608f5b",
+      "sha256": "831963117ce578b9f619996aac1c1ee03e71922b032f422f2dfe903ea3338d21",
+      "pin": "model:LightGBM_D.joblib",
+      "line_ending_variant": "raw"
+    },
+    {
+      "origin": "object-db",
+      "object": "522b056a4ac1df03d13e367a31a35f1e48806f16",
+      "sha256": "99fe192cacd2385f30dc564ebaea404bdae654a042292964e452f21e0bac568f",
+      "pin": "ohlcv:MAR",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "523986fdbc5fc99befae48d348e31e51ce467f9c",
+      "sha256": "1bf05f70e9c124189b8d3028e876d2ef27794d0d2905a10825af7680ce28eff0",
+      "pin": "ohlcv:AVGO",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "55b2ecea7ba2aaeca8239b241e52cb6b881cf6fe",
+      "sha256": "fa03ce75001eb888c1dceef6be26c66ac9e1afe79b3e656cc5552a6c9031b2dc",
+      "pin": "ohlcv:JNJ",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "57ad06b991d6da62387fd1d3779346050e634cbc",
+      "sha256": "1e8f8c15d5477075bdb6425ec4aa6b513f02b9732294bb755d2340ae9d7b1d39",
+      "pin": "ohlcv:NEE",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "5a0410e18b7c1a5fdb7bf3806de9116848a3c577",
+      "sha256": "03a56da8eeaea15e4561d48b323a3f589475b4a3d09e077325d66da89d2e1b38",
+      "pin": "ohlcv:QS",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "5a2f3e744448eae0bbf22086fce1bf8da1f4c00e",
+      "sha256": "7395c39e0969be0c3c2904a1940430d682290b899006063ab3bb8a2f61186ede",
+      "pin": "ohlcv:WMT",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "5bd53650858b4240fcd6e4c3695c73634f9bb90f",
+      "sha256": "e58c8c1f6fbcc0d2810aaa8f4e5447d7837ca1bba47f16aafff8e72139238654",
+      "pin": "ohlcv:DE",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "5e5ebbff10ca9fd7f420ca4af0b4f316e79b2a68",
+      "sha256": "ccbd1d06eb65910f30a58b1dbed59d563ca190f1c3a4fd9a46c71226b60e8bcb",
+      "pin": "ohlcv:UNH",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "5f990cd74d2a3c8ded63f4174e71a24f50fb05c2",
+      "sha256": "f1a47ee24db9905cd9ff9558b4bc08e9d3bf6bdeaa1f39184a1613cb41604716",
+      "pin": "model:LightGBM_A.joblib",
+      "line_ending_variant": "raw"
+    },
+    {
+      "origin": "object-db",
+      "object": "610ae0e8dd47800d027fa26f47ac480ec7dc17be",
+      "sha256": "80eb541608511282fd7ddf722e941e1eef3801c3aeb55e1418def561b8f3fd9a",
+      "pin": "ohlcv:AAL",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "62aba02c7cea122d0e2616b797e2f0d2548d07b8",
+      "sha256": "d52712db6aa30dbcae9cecdee33c1374ba0eea65baa9a749b821b4cb4aeade58",
+      "pin": "ohlcv:AMAT",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "6540acbf3bc54b6dfc2c0d5ac9e9fe0ceb7e3298",
+      "sha256": "d56cf1f3ba02789304e36ca8b44e69750133c73184c6671624e6c18ed5d912b6",
+      "pin": "ohlcv:KHC",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "6601a851b8c32e815ff5f8d973fc5b33a9215945",
+      "sha256": "011530761a19016f430232f631a9c3b0199ac17aff297e491d8d50d4b1508829",
+      "pin": "artifact:oof_predictions.csv",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "6628ec4c74a52f689b2bebe84fa42c4a0db71114",
+      "sha256": "b9d1409ea06f243636aa61c6cb4ad259172f18f9194fab5978740082e7ae852b",
+      "pin": "ohlcv:AMC",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "679eee56995846a9c18d4a2882cc3a24fc627dae",
+      "sha256": "c4e869c497bd3c969a7fcb39e0af8bf5166e150ed131a33e3a96f51e87c61069",
+      "pin": "ohlcv:FSLY",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "69c73e2ea26f708218940730bd2f1637924d8d73",
+      "sha256": "2a731a22dbd23376ac0f544dbd57b068645795de1a89ceb7599d424da88facce",
+      "pin": "ohlcv:TMO",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "6b7de90b549a622720fa5ea5bb9b9b02cfdfeea5",
+      "sha256": "90e943f09e23f16938eecdf83cb557303929712c33405f432e052a06044436ad",
+      "pin": "ohlcv:BEAM",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "6cb0bdb17b6d8806a5c5cf7053581153b1b87eae",
+      "sha256": "2d252cc037c314560ab3e063b51272a5336a8fd431b9da9e413514dd88563958",
+      "pin": "ohlcv:CRWD",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "70071d4897e4aee9f8c7b61dfcd08c0e8b34a56e",
+      "sha256": "60e751918c0be49f5d353161e6045f9dd180517c2b7e95063abbf170b4a53c47",
+      "pin": "ohlcv:MA",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "736e9c6a94304d4f28e3cb72db41a13e71675569",
+      "sha256": "094c59086436409d4326823edf2424be2d18d4e2b18f8f452270d7deb7e79fda",
+      "pin": "ohlcv:MELI",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "73ec7ac90d4af5a44015a3a4355e37fcd80a879c",
+      "sha256": "1fd66c37e9f62202e4c5dd9235b6e1803ef795130b515eff76d62a7a59b8508b",
+      "pin": "model:LogisticRegression_D.joblib",
+      "line_ending_variant": "raw"
+    },
+    {
+      "origin": "object-db",
+      "object": "74422850e260818f809aab662b1628e7f7d3db11",
+      "sha256": "521d6f2a7d685634ef8f6f025fab4fdb85dfdb386dab2933ed0129d929c246e0",
+      "pin": "ohlcv:EDIT",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "763b762e8e1370099f042de9ce46106ad5f32ad6",
+      "sha256": "09761b2001c0fe674472f77bb784e593e82ca31f09e195d62a26dac563d1e7fc",
+      "pin": "ohlcv:JPM",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "7688e9e51ad41d844039d890afbb64484bcbd713",
+      "sha256": "33fd99a89453854687529a3e854dc8a1025ac209b1a3e99d43374b9f3bdd73ef",
+      "pin": "ohlcv:BABA",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "76f28db3ce24385663996d71d6297f7a4f460984",
+      "sha256": "931ed83f47280f6b87990c51778e6d28fe06e72010a7f8770d450987be2b1fc7",
+      "pin": "ohlcv:UAL",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "7792c62a9db1c8f75f9655d9a93d82f5291715cb",
+      "sha256": "4a98dea3e81bb66fa1956b134c117a682410520c3eaf46ce50a829cef6dbbb4d",
+      "pin": "ohlcv:GM",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "7a954f288dc19b24271f548b8210b293958d5056",
+      "sha256": "268a91eedb262cb9d0db646c4c511ff870db37019f18c2702e438d90f27d5f08",
+      "pin": "ohlcv:ABT",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "7adb615d2dc9a95edcbfe6d51853e46b47f8e031",
+      "sha256": "a6db944667f6a840fe4c2788ef3f5cdab14d2a46bb271744ef231b01e20af56c",
+      "pin": "ohlcv:LULU",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "7b603c087fe4309b06f8b62481083999ca398e72",
+      "sha256": "8a9291862943e34cf7a443e836dd1ae619d6027d36508642cf00e1324dc366e9",
+      "pin": "ohlcv:PANW",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "801e5ddea5fe8b828be73debc9b0c118ea42de68",
+      "sha256": "1206d10c035b032adab7ac5c9b70df144e03e9c1153a02ddafb768d19e777852",
+      "pin": "ohlcv:ETSY",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "806b0b11dc8f801a9875fc704381143d993e1666",
+      "sha256": "743e7aeb0b728b41686d5bb89bde4ef4261a056df035b234d1115b34a86a8349",
+      "pin": "ohlcv:TME",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "8549480acaaeb6ceec016a531c778776eeb550fd",
+      "sha256": "38d1f58f1b1002a8ac4723b87a76095ab13604b38833cb4052398da43f6b2dfc",
+      "pin": "ohlcv:SBUX",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "8680a1af2f13a5bccf87970fa990f11b00c08a20",
+      "sha256": "3a32650beb0d5f72879efba0ebb6c4890aec96a55c7419109a17908abeb49018",
+      "pin": "ohlcv:KDP",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "90046130d268d7ce9958eda571c2bf8d66c583f8",
+      "sha256": "cbf319439f351097ab483a7881a0f3b655f5877c66d34ca4907fe8c2ee72b38d",
+      "pin": "ohlcv:MSFT",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "90c846f31bfb9d9a38925f9483b9347e385df3af",
+      "sha256": "f894ee28415554d04e388367ad48934c07353f905dfcad24ffd85f79f9187faf",
+      "pin": "ohlcv:SNAP",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "9544ab0fed83d317d37d555a7ce5179ae918ccd8",
+      "sha256": "a876bcb139f67097ea194cb37c9e6884f0ea2391d85dc6acb88d24fafbe44581",
+      "pin": "ohlcv:TWLO",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "95a5dcbde35a8ee2fd5265f7f317f80a6754bf8d",
+      "sha256": "5fc1b573b1b6ae1cf38a7132c6c686d51dd3cfbc61ea463178b9d4324a1c07e1",
+      "pin": "ohlcv:DNA",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "95c886c8a661820a0c66f3cf966e3e6ffbc4c795",
+      "sha256": "42b1e78ea414cdbd56eec5eb272e235f895fd8bc2e760062d7143fb4a2e24787",
+      "pin": "ohlcv:BA",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "978315b29b0750b2c64ddb00ec2e50fafc7c20a4",
+      "sha256": "53b1f3a420d349a061fad30937c7086590ceb37d51f855d8e38de759a8f7c20d",
+      "pin": "ohlcv:UPS",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "98754b3a1b6f161c996bbb10053c3e47b8c34baf",
+      "sha256": "d007f1e2771fca6d297afd80b4350602e87b6799a091b3313422124960be5f2d",
+      "pin": "ohlcv:FCEL",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "987fe49e8379df68f59c6f234ecebdfcd2b1c569",
+      "sha256": "3cc5537181f9902f3d7743cc03cd9f3aaa18d0794cf0652bf64db755d0f74f0f",
+      "pin": "ohlcv:SHOP",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "98e9d5f4f8ae9fb24e8ceded5aac6248fc7f67ea",
+      "sha256": "07bf6fb34d8af92601b87e04be13885f38cdfce8dddb7f8aca735dd725e578a3",
+      "pin": "ohlcv:IWM",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "990fe0dc918b6e5bb712c24a54768f9c1d0e4d41",
+      "sha256": "b9708d837c678ecbe4e3c173b2c996f592785bcc30ea041ca075de10d4786cfc",
+      "pin": "ohlcv:MDLZ",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "9b5bdccdf22712e6f9b54a7f95515232f6a82d8e",
+      "sha256": "4ca38d757a70a766d2d901338724f3b039e26be4b949fe0a2b8b0c412a2764be",
+      "pin": "ohlcv:DAL",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "9ba72a737abd43d7d0e5ab5efd0852304fa04b75",
+      "sha256": "4ec7a7c11dfc4d78aabcdf4dd115995b1c0dfc14dd3287ea773f3e06e9665d27",
+      "pin": "ohlcv:NKE",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "9be4ddffb1e9d1bd1b32735f42b7026fdc3cb425",
+      "sha256": "25a1bbde0b23d03e25d4f2926679d90ad3b39095262a77e5f6634a738238be4f",
+      "pin": "ohlcv:PINS",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "9dd790c22252ebd052b9bb92b9e388740df7d569",
+      "sha256": "4d01d4f8b80c0fa927eb181e5586f8fb4d437a0e94ac50bb346fca46dc2cbab7",
+      "pin": "ohlcv:ICLR",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "9e55c394dd96029b2a434fd88477e311b694ee8f",
+      "sha256": "fe78f97012d31138bdad8fa0113e31b55ece9a73394a44db6a4dfc3a436ed6cd",
+      "pin": "model:LightGBM_B.joblib",
+      "line_ending_variant": "raw"
+    },
+    {
+      "origin": "object-db",
+      "object": "a0c6e5a0460f37588506b55e6040d8048516e6b5",
+      "sha256": "c261aa9e9a686e72a685f0810dda34800dcf40d4ed0f3d1fd17867cad1766be1",
+      "pin": "ohlcv:BBBY",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "a24e5de007757af3c7755aa423595ac689709d15",
+      "sha256": "6c1f4e5da703cb767d84f7061832551a9e3520b8cd1e16cd8ad98bcd92bee139",
+      "pin": "ohlcv:F",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "a41ce8edb98e897391775ae693a052214a1ad5e7",
+      "sha256": "cd54183743c915c4694ded0e2467d6c3928260cad92afba3b52288ff9d1379b7",
+      "pin": "ohlcv:BAC",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "a45f4af9c6cdd7ce6545bae988f2dab2a9c9cdd2",
+      "sha256": "04b35ebb48ba89c7950e924c62f2e96e1624981601301ffbe461c4d8e8c5db99",
+      "pin": "ohlcv:NFLX",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "a537a2d508647cf60c31250a0503519d943df77b",
+      "sha256": "7b57b8263268393e203e0551a528a5cffcece408e53d2841fe5202c75a05065b",
+      "pin": "ohlcv:CSCO",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "a56ca6aa9797e5a498ccd63d2960ddf8fcb24320",
+      "sha256": "3f2fb6a6c8471f9ec9ba93803fe020f1b6aaa87f765c711c3c5fcc86c3848d94",
+      "pin": "ohlcv:WFC",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "a59815d69349eff5b4dbd58851e95b4259b0b706",
+      "sha256": "cfd58466c9e0605d6c4b54eff056ccae464dd55b4b8fa15b97fb554adea60974",
+      "pin": "ohlcv:CRM",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "a72d34c602463eb085394fa066c098616264ad93",
+      "sha256": "1a9e522da60bde913c472aa9487d590166933cc35d2a73e01df71feaff78b81a",
+      "pin": "ohlcv:ABBV",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "a792d5616a20f38d9066be336cfd8ed7a35c3e5f",
+      "sha256": "7acd91efd818c3333928b90a69936361d0e0b6073ed58197e0c2755c887e7a64",
+      "pin": "ohlcv:PLUG",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "a98cb5f0504c96f2d3a4bfb3aa5ed8e163931dd0",
+      "sha256": "9f2b991abbe9f3a04e4e01474181f1420f62e5608b5d849c94347ba200bccd10",
+      "pin": "ohlcv:ISRG",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "b07fb68ede6604d552dcf6f32038ffabe6ed5d97",
+      "sha256": "92c65e103734a7e3514516286188280729b3a360534f75f50085c09716d780f7",
+      "pin": "ohlcv:XVIX",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "b2bdf491e84f00a00dce8f0eef6b0b7f4c5877a3",
+      "sha256": "0fe65cc761bfeb251b0d355cc7bc365eb2ffa653032fdfa272aa05b382096e41",
+      "pin": "ohlcv:FDX",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "b4543be1b21007a3ef4ec643eabddf3fc4df31f3",
+      "sha256": "9e9fe24c0567cb22bbc2080ab488775a2c1c7a826eb7e2208189d9138e943499",
+      "pin": "ohlcv:SPY",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "b6bca6bc8027a6b429d5438a827455a62ffc8c7a",
+      "sha256": "4b1e72072c9768a6b638e198fc37811a0c9a92f6babaefd6612a2f1d0b5d6053",
+      "pin": "ohlcv:TTD",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "b820036f6eb606577a26da4f2317368e2bab58ee",
+      "sha256": "232de7db65c92bec249be801e593acdaa822ecd0b13eb0cd32b7eeaced85a4d0",
+      "pin": "artifact:event_table.csv",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "b98d6de00c66c373c46786b3b48bd55578a431e4",
+      "sha256": "39af1088561190037f5acabc2c515e26035445b0c548b290f6e36d4921f36f40",
+      "pin": "ohlcv:C",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "baad8e6d58a462ac9d7f5960187ebcb548d63a87",
+      "sha256": "ea917837f07c28f948f183020e7bb38fc92584bc0d31b542a914e393fb4fb571",
+      "pin": "ohlcv:PM",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "bd44e9be08b76ccd58f0952914870794d353315e",
+      "sha256": "acfe3a385ea24bc8f1e67795e92c74de787569c4942233199afbc511a4a7de55",
+      "pin": "ohlcv:MRVI",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "bf5ac35c924f1f275f81c6b8e7d1f91eae81deed",
+      "sha256": "f6ed07ff482b1dfb852b4a5a3c43fd9bfe6064841aca03fd2216148e2939305d",
+      "pin": "ohlcv:BB",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "c26669ac1c2ef830a241e6797cbe09593743b664",
+      "sha256": "8bbac21bc4d90ea9600fa0152acd6475418b76d3a250b9abbefb70c6eb044dc5",
+      "pin": "ohlcv:NTRA",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "c4a8e8cd83dc3d9ae59c27a5fefa5fee19ec7288",
+      "sha256": "6a6ec6206b8e7ab0625a2e2f4bf82b3d9f2c584f0d6ff919801cacc8f91c9010",
+      "pin": "ohlcv:TGT",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "c4e785213113d24dfb0f6858bc9ee28849df29e5",
+      "sha256": "18363b6f6f99b89c1a21680ca9f7d0edbace904e6d8428c8443aeaa6157b0bc9",
+      "pin": "ohlcv:V",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "c60481c4c5becda18609294a8e41a29967519b72",
+      "sha256": "586583f710c9ce56965206fc37f0d8006c7f6e91a6308dacdbce99295a301ca9",
+      "pin": "ohlcv:OXY",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "c67cfb93d9362c694eec157f5b150c213fc7b3ef",
+      "sha256": "470c614d8ce17211f8b58a05a43d69ba72f91a5127053b52316e839fb901397a",
+      "pin": "model:LogisticRegression_A.joblib",
+      "line_ending_variant": "raw"
+    },
+    {
+      "origin": "object-db",
+      "object": "c6ba38f1e3e223e936f0c97009f0761205d257dd",
+      "sha256": "e1cba4ede3525c1cbc64b600b333d2a00ec2de2c4389db8822989e6ef2ce3749",
+      "pin": "ohlcv:JD",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "c93a1083ea4d119a8c5103a023a7dd5d564317f6",
+      "sha256": "7d3f89e25ed3889b890ee17a8d721adc31c64cbddb3cf4ff911ca985e6fddf32",
+      "pin": "ohlcv:GOOGL",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "cb59082607bed253371463ff1c655e5667223061",
+      "sha256": "9141ebf4cbdf93ee1c99448681de1e95e545d10090650f379dcaeacedd40e151",
+      "pin": "ohlcv:DHR",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "cc8379c204b9bd6c2a1c80ef114049c0f6ada755",
+      "sha256": "23ed9ca333c17b83c4e2a95b55f5ca7d0e5805d66a9031cda78530a7d24efac9",
+      "pin": "ohlcv:XOM",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "cf3f2f9774f19de60d6258ca6f8a37eba993dd79",
+      "sha256": "778c3682de931a396cec7803dd492122d75140bf20b5917a8fe5104b862038c7",
+      "pin": "ohlcv:XEL",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "d17066cd57207ff8cc73098435916fc5ce0d74f2",
+      "sha256": "6a489fecfb67ce07098af670606675417faf2168dd27274980d5ac25928b23ac",
+      "pin": "ohlcv:CRSP",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "d1f5f27699299eaab21f09f67c4f03add2a0dac0",
+      "sha256": "288b53cffac0c349b130a3b376894b1ff43cb5a0e720a652f2786efcec671fbf",
+      "pin": "ohlcv:DOCU",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "d20a9f8b2b33c9aa3ad7949591e9a829f916e3d9",
+      "sha256": "0b216974b047258b84945ba1a24428013294efb159dd4566907665f789850b03",
+      "pin": "ohlcv:SLB",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "d40900f525688c9d92a6397616cc9d95c6298497",
+      "sha256": "1ec502b3a7404d63cc6007a8e76f893f01b930aab1f5c999b97cc6056b65b6a2",
+      "pin": "ohlcv:PEP",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "d43162a436f1cd2c65310568b06f23c41aee98a0",
+      "sha256": "cb17fcfa118d7b2c9461f8a7567e56ebe66449d5167b0bf14f8c924106043908",
+      "pin": "ohlcv:GME",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "d62e550390736d19d3934ea7f344a1f02a0c20fa",
+      "sha256": "3a6b803f8d7a07c7c79fef671c9f850c70388d4be680b2418f395ae89496187b",
+      "pin": "ohlcv:CROX",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "d73e96f25221c1a9fc4b10f7e85ebe58d0553084",
+      "sha256": "ab2c5fdabf4d73c3f9a2a76e16e68252e23b688eb9bdfef13c06c24e6940bfd9",
+      "pin": "ohlcv:INTU",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "d879fca2bad126a925454b59ed674fe208442d60",
+      "sha256": "9e3509b7add75a07da994251958af15f8d8dfa5f2b865fd7ef6994bd344aab1d",
+      "pin": "ohlcv:LLY",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "d8907cda8eed6f94957b1a3e3e9c32b8c9540b2b",
+      "sha256": "6eaf1455c994385d708bf79d953d9e82dc39f4858f27d156791d30af2fec0709",
+      "pin": "ohlcv:PDD",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "d8ffcd202499ed798b6af9041ff379d6889a10f8",
+      "sha256": "5c7f56a5579a464cbec6d90cddee895efe5ba279b08c863e717ce7d7075d75fe",
+      "pin": "ohlcv:NOK",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "dc6176dc1d2447fac2d17375a6b4969e8b2a0dea",
+      "sha256": "12321fd3d1bb2caac2a5f4681978c1093e15cbc90c675923179a10cebefb7164",
+      "pin": "ohlcv:COP",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "dd6ce6eca373ccf9e4c5085199ea284ffff72c5a",
+      "sha256": "d72232e0d98b33817d871d580d3c79acebc4873cc1503ec264578dff1d7651ad",
+      "pin": "ohlcv:PLTR",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "de29fa8233bb7162900da57a86eb1433a543221c",
+      "sha256": "b700882959594a9d31c4897e9e7486f30c7f77a15df5b0dd1b46634ee1e2cebe",
+      "pin": "ohlcv:OKTA",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "e1ff650729003195cd6033f77b211a6a0f6df72f",
+      "sha256": "99aad5d2a620e1f4f6fa8b0ac0e607f3ba3e82bc5026bd6838af768af4afdda5",
+      "pin": "ohlcv:BRK-B",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "e5627073da225caa94789eb2bdc23e2a9c073af7",
+      "sha256": "faba7af9ea587ce22c9fdac82fe5ca9323d3549b25b408d4622115a2f3ba2e21",
+      "pin": "ohlcv:HLT",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "e738f295111f79000f9f2e325b6023c945008572",
+      "sha256": "e95138e640a7e9a50df23cc4d4dc066ed2dc0d85000656b90c93e5ecf0a5bcbf",
+      "pin": "ohlcv:SNOW",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "e7a9f207a672dcbf3a27dce83adecdc3cfe36c2d",
+      "sha256": "cab2fc9fe1db6aec615ed81d7ef778ec3efa813bebc91c6dce9801ec41c04d39",
+      "pin": "ohlcv:AMGN",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "e95fab4348914a99572c76389dd1f13d575d1ede",
+      "sha256": "c770b2b29b3125a8a9530de23dee453ac3db789e0b8d9f3acb214179860c4a36",
+      "pin": "ohlcv:ACN",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "ebd796353eb1e1c86eefb7e92d2ca651003060a1",
+      "sha256": "e4a06bb2560c6ec5b0736168e7667c005d514d9196a3cad6c4bb4d16b8f61cb7",
+      "pin": "ohlcv:GILD",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "edf8e91ed71c63d18d1c1ab8e92649a3bfdb2816",
+      "sha256": "57dd82e74d2fd9de7246a8798ec88654cbd4a0e81eb8d985e60af235eca722d9",
+      "pin": "ohlcv:CI",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "f096a75f09831450fb7a46787d1c65151aa284f8",
+      "sha256": "cc644d58aff5dcb96066a111f8565570e4d668c42c74c5295c040067759fb5ef",
+      "pin": "ohlcv:CAT",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "f10adadf0fe8e77a6f12ae228c86580e097ec4a9",
+      "sha256": "b35b9285856ba9dc4837817979a25ba3c0134774a7e31ed834e8deff2df6150a",
+      "pin": "ohlcv:DIS",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "f20a88855d60fd9c4f85d40596ebcaa943c3e146",
+      "sha256": "2d2e839f7274d1c7827bf3f91db0728750bc1c9bdd65307dcbda8edd28640993",
+      "pin": "ohlcv:NET",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "f3cde37e7a24a9209bd2c5acc1afa54fff88c679",
+      "sha256": "8925a059707339c6a836ee89e4b12dca546197fd78b76b3273fa3e48b0301b58",
+      "pin": "ohlcv:LCID",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "f79159b86108445916f7aaa9cdb28f27abc865c2",
+      "sha256": "324f07a0a9af154677d4505d72ba5483c779a282b4aca2c3538a48f97a1716c6",
+      "pin": "ohlcv:PACB",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "f9f866fc6437662618944170d11ddb4d934925b2",
+      "sha256": "d29f08164a5ec958f9bc01d42a22acd5ac2c80ffd66cb84111fe8a21fc0054f3",
+      "pin": "ohlcv:SPCE",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "faf5b9be55be680a50688f6163f511b1488e6d1c",
+      "sha256": "40085f9fd74a683d0584ba125da3919e2a72db750346524f010ee17cf4268680",
+      "pin": "ohlcv:SPWR",
+      "line_ending_variant": "lf->crlf"
+    },
+    {
+      "origin": "object-db",
+      "object": "ffe3c49aeb89cd762f53b77b7688f2f4d7034a38",
+      "sha256": "cc2826ced69ded12ba04980d74306d8a9ec9a275eed2450ed7653639359b0da4",
+      "pin": "model:LogisticRegression_C.joblib",
+      "line_ending_variant": "raw"
+    }
+  ],
+  "near_miss_kinds": {
+    "ohlcv_csv": 20,
+    "run_manifest_json": 5,
+    "ticker_dataset_csv": 14,
+    "protocol_or_manifest_json": 3
+  },
+  "near_misses": [
+    {
+      "origin": "object-db",
+      "object": "00156b15beecbe7f56dc04ed4c8d2c3331d1d265",
+      "sha256": "512a92a695acc7f00750849bba451175fc54b478af6d61c6d81cc0679ed7f582",
+      "bytes": 136421,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "00314251010d2515ec7d19c1b733ae158916d415",
+      "sha256": "4c8ecae4b807459f104739d076de8e1c584e604330166a9a5efbb359752e1789",
+      "bytes": 137290,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "003a9b58166d61d3b9eda5cedec572e877f1a5c6",
+      "sha256": "594ee936a2cae61617b2583ab0e18ccfe7ed6d3b35737b96f5d4f426e4504d3a",
+      "bytes": 141293,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "003dc982cba0371ec6474e70ef7097e14def4b2e",
+      "sha256": "006d1c78c7eb46a76fbf4212ab7fb1aa729ca52adb71c8513fa5b458ebb22277",
+      "bytes": 133575,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "006ed6ebb17ec6318500762995b73688e536f09f",
+      "sha256": "bd2f5f281c8207536ac16f8d2e565f01643aa2ff9fdc7c344d1003956aa1e444",
+      "bytes": 176467,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "00c29149a0cc995489fd4b56d1a8c2650f3a459b",
+      "sha256": "a995fd73384c914a7bd8bd39f869b2bed52e5238d1a2ef39aa14220ad8124a4d",
+      "bytes": 133814,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "00d3d58a33b7a9e90efeef5e96eb86d7235b47eb",
+      "sha256": "4e5a898e20cb51c71f72817cb0a75a220bb2c9c4c587e12b626010fad9f9e050",
+      "bytes": 131913,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "0106ebb5d3556839538080da0240aaa60a0f2600",
+      "sha256": "fd5af08920a608c91ee03d248f38a567f29b15cd79f32a34db4c4d61d0cff11c",
+      "bytes": 173602,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "012eba752b247679e521a96a6ecc0d516cc7f5df",
+      "sha256": "a7ab0f9743ffe2e7496ae09ddc9341ae84b5fdd2c9dc9d3ef199e720054c858c",
+      "bytes": 182381,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "015a4d658880ea5d5f6e155cd356feda87b8aa79",
+      "sha256": "5dcd8f5e1e022175ed589e9caee7bfbd2c3bcf07464bea0a992e70e9dadf9f13",
+      "bytes": 138489,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "018687a82a38d6e8032bca299dbfa4d6ea4df578",
+      "sha256": "cc8801207b70eae54f3edd6aa87bfb684ce9ea0360d9acdc8632629570dc2387",
+      "bytes": 132120,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "019c9fba00d63ea3abc03234063e5bd6c1334bc3",
+      "sha256": "e65d460f5188ef0368d4758d5fa4b06614c7f8435bbc65a789b61a0c68afb1ce",
+      "bytes": 133853,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "01e1083ca9f09bd08dcef29889e4f01c5121b7d0",
+      "sha256": "6af41720e5a7dd7a5a3565946304583400276518fdda269b81de1fa74afb4863",
+      "bytes": 137490,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "01e8e1ddb9af9f6ed9a83aa2c47259967ed95cbb",
+      "sha256": "574c4d76eab9fce162fdf41d2c88872a73983c156fa4e52008a7be1073a855cb",
+      "bytes": 137997,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "01f5068a888ac3daf6809c8813a1afb807d54da6",
+      "sha256": "9a4407589ce96e4626ba49ef4bd051069ee6092ca95d47b5940ba5dd07558825",
+      "bytes": 137184,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "0207547453bb700d84f49f7e3886e928eece0e3c",
+      "sha256": "5497a4c85de83309e8da4501e0b64a12025457c8794970315a7b953e1b54d03a",
+      "bytes": 132498,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "0277bda29f8956d4c7150c8542f27ecc484a6372",
+      "sha256": "4b3ff3dd716904d086118f8c0c47a5213fdf3bb0e846e2b36a34915c8f8f7458",
+      "bytes": 120192,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "028cd2eb0c75d4c04885f95c66c31763782cbf5c",
+      "sha256": "2269eb53fc2ae99243f8dfe15804ca25051f830ca65ed624ddeeef00e8d0a261",
+      "bytes": 179617,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "0293bf0a960d04c700cf46793755b381922ed271",
+      "sha256": "587b322fc167af2fe3ab95cfb361431c2b741661efd3972fdc8e8e2927d68e37",
+      "bytes": 137073,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "02dc1bb1164c30324afa06479469c59f914abe33",
+      "sha256": "749499d765466e0bb826b3d288e5b9c339562bc796387af2d146770395c102d9",
+      "bytes": 131912,
+      "kind": "ohlcv_csv",
+      "header": "date,open,high,low,close,volume"
+    },
+    {
+      "origin": "object-db",
+      "object": "138d33b73a8d2eaad57a3ba8bcb77bb255ae9902",
+      "sha256": "16952a83f96e8d69aca5b5a4a11bf45ccc7f820b595cb4ed5785584ae9ed92a2",
+      "bytes": 92110,
+      "kind": "run_manifest_json",
+      "variants": {
+        "lf->crlf": "9ecbe71f0e7919dc02f09f0c5012f77c460488fb21731c18157e24e58766a79b",
+        "crlf->lf": "16952a83f96e8d69aca5b5a4a11bf45ccc7f820b595cb4ed5785584ae9ed92a2"
+      },
+      "preview": "{\n  \"protocol_id\": \"DZAI-MARKET-STRUCTURE-ABLATION-V1\",\n  \"protocol_version\": \"1.0.1\",\n  \"protocol_sha256\": \"486f46f85c4874405716a7c9424dc7060b5f65b27426e92670f0585247dfec07\",\n  \"code_sha256\": \"29885c5f14235e78349b728156e18feba930f3ee533565ea36a05f695692424b\",\n  \"test_suite_sha256\": \"e3f16447eae3a257dfc013d8dd53e2521414632c06f7b14a3d31f0ba3ddce456\",\n  \"roster_source_sha256\": \"669ca1f5b21339b8cc26f6eb5cbeb22003ebafcd86b0d7e945f0db3d6517d71b\",\n  \"artifact_sha256\": {\n    \"event_table.csv\": \"232de7db65c92bec249be801e593acdaa822ecd0b13eb0cd32b7eeaced85a4d0\",\n    \"oof_predictions.csv\": \"011530761a19"
+    },
+    {
+      "origin": "object-db",
+      "object": "187a4d5355932e8b81b49752f36cb0a4de37fe38",
+      "sha256": "97fa54472139370fc3a067f48641a16f619df63f3033347c8a411563d34bf0b9",
+      "bytes": 105135,
+      "kind": "run_manifest_json",
+      "variants": {
+        "lf->crlf": "d392f6d98c6a337f47ce7bb46d50ba82e8d1545be547c6a6374812cd23df4094",
+        "crlf->lf": "97fa54472139370fc3a067f48641a16f619df63f3033347c8a411563d34bf0b9"
+      },
+      "preview": "{\n  \"protocol_id\": \"DZAI-MARKET-STRUCTURE-ABLATION-V1\",\n  \"protocol_version\": \"1.0.1\",\n  \"protocol_sha256\": \"abf1420498e3726b8271cba68802ae61988213ee3f5be500aa62c93849fdeb86\",\n  \"model_settings\": {\n    \"LogisticRegression\": {\n      \"penalty\": \"l2 (estimator default; omitted in code for sklearn 1.8+ compatibility)\",\n      \"C\": 1.0,\n      \"solver\": \"lbfgs\",\n      \"max_iter\": 2000,\n      \"random_state\": 42,\n      \"class_weight\": null,\n      \"pipeline\": \"SimpleImputer(strategy=median, keep_empty_features=True) -> StandardScaler -> LogisticRegression; all fitted on training fold only.\"\n    },\n    \""
+    },
+    {
+      "origin": "object-db",
+      "object": "243b4989137b89e92af56dbd1968ded58fce7996",
+      "sha256": "7d2f9b248968ae975ffa4fb1de2220b9a330036e319fe4004d0b6d9f391165a4",
+      "bytes": 56433,
+      "kind": "ticker_dataset_csv",
+      "header": "ticker,date,signal price,zone price,zone touches,signal volume,avg daily volume,candle,hammer,bullish engulfing",
+      "variants": {
+        "lf->crlf": "f4b314c53132206276af4100da1f49d9bf58e9a41cc33a06d658844cd557a2f7",
+        "crlf->lf": "7d2f9b248968ae975ffa4fb1de2220b9a330036e319fe4004d0b6d9f391165a4"
+      },
+      "preview": "Ticker,Date,Signal Price,Zone Price,Zone Touches,Signal Volume,Avg Daily Volume,Candle,Hammer,Bullish Engulfing\nSNDL,2023-11-29,1.42,1.43,56,3093600,3035304,red,False,False\nAMC,2023-11-30,6.65,6.52,4,20347100,23138032,red,False,False\nSNDL,2023-11-30,1.43,1.43,56,1528200,3035304,red,False,False\nAMC,2023-12-01,6.86,6.52,5,24079300,23138032,green,False,False\nSNDL,2023-12-01,1.5,1.43,56,2050100,3035304,green,False,False\nSPWR,2023-12-04,1.11,1.05,21,32300,1227850,red,False,False\nSPWR,2023-12-05,1.12,1.05,22,57400,1227850,red,False,False\nSPWR,2023-12-06,1.16,1.05,23,24200,1227850,green,False,False\nA"
+    },
+    {
+      "origin": "object-db",
+      "object": "29508ff4ed727e80d4824272f876fdcd6f9538d8",
+      "sha256": "450c933fd574b9878322d6eaa1285ba66be8d5d005a249ebbcf455e381d8a96d",
+      "bytes": 10327,
+      "kind": "ticker_dataset_csv",
+      "header": "\"\"\"analyze the supplied 1-minute premarket-gap charts, one ticker/date at a time.",
+      "variants": {
+        "lf->crlf": "12bf94320df5ccc233adb01b59ad7016895c373fb133bd7fb2d9896ee3354935",
+        "crlf->lf": "450c933fd574b9878322d6eaa1285ba66be8d5d005a249ebbcf455e381d8a96d"
+      },
+      "preview": "\"\"\"Analyze the supplied 1-minute premarket-gap charts, one ticker/date at a time.\n\nThe source files are scanner/cache_1m/*.json.  Only regular-session bars from\n09:30 through 15:59 ET are used for the strategy; premarket is used only for\nmetadata and the gap qualification already present in the supplied dataset.\n\nOperational definitions for subjective chart language are deliberately kept\nin this file:\n- Up orientation: the first five regular bars close above the 09:30 open and\n  establish a higher high. Fib anchors are open -> first-five high.\n- Down orientation: otherwise, Fib anchors are pre"
+    },
+    {
+      "origin": "object-db",
+      "object": "2e807624ed8b01f8df2a87fc794696741c47d157",
+      "sha256": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05",
+      "bytes": 15778,
+      "kind": "protocol_or_manifest_json",
+      "variants": {
+        "lf->crlf": "358c3780775dee765db5e136db67e6f324fc43e5a8a516c3b55af0bcc8955b20",
+        "crlf->lf": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05"
+      },
+      "preview": "{\n  \"protocol_id\": \"DZAI-MARKET-STRUCTURE-ABLATION-V1\",\n  \"protocol_version\": \"1.0.2\",\n  \"decision_lock_date\": \"2026-09-28\",\n  \"status\": \"frozen_v1.0.2\",\n  \"objective\": \"Compare fixed Logistic Regression and LightGBM on identical point-in-time candidate demand-zone retest events, labels, chronological folds, and nested feature arms; estimate incremental contributions of context, demand-zone structure, and order-block structure.\",\n  \"estimand_scope\": \"Predictive ranking conditional on one candidate demand-zone retest event per ticker-session in the recovered fixed 149-symbol roster. Not a causa"
+    },
+    {
+      "origin": "object-db",
+      "object": "310e61c821e5f7afdaab012ec47a4e4b78175c85",
+      "sha256": "72d1858d73353abd677a41a784ae75431f22e908f0d6491103581a501e726eef",
+      "bytes": 114617558,
+      "kind": "ticker_dataset_csv",
+      "header": "daily_return,return_5d,return_20d,dist_ema20,dist_ema50,dist_ema200,ema_alignment,ema20_slope_5d,rsi14,macd_pct,macd_signal_pct,macd_hist_pct,roc14,relative_volume20,volume_trend20,accumulation_days10,volume_flow_5d_norm,volume_consistency20,close_strength,bullish_candle,atr_pct,realized_vol_5d,real",
+      "variants": {
+        "lf->crlf": "24b1bb7aee1867ae46f28c205e0b3dacc8fa4483c49b74ed10d41515ac698e01",
+        "crlf->lf": "72d1858d73353abd677a41a784ae75431f22e908f0d6491103581a501e726eef"
+      },
+      "preview": "daily_return,return_5d,return_20d,dist_ema20,dist_ema50,dist_ema200,ema_alignment,ema20_slope_5d,rsi14,macd_pct,macd_signal_pct,macd_hist_pct,roc14,relative_volume20,volume_trend20,accumulation_days10,volume_flow_5d_norm,volume_consistency20,close_strength,bullish_candle,atr_pct,realized_vol_5d,realized_vol_10d,realized_vol_20d,spy_return_5d,spy_return_20d,relative_strength_spy_20d,spy_dist_sma200,spy_above_sma200,qqq_return_5d,qqq_return_20d,relative_strength_qqq_20d,iwm_return_5d,iwm_return_20d,relative_strength_iwm_20d,vix_level,vix_change_1d,vix_percentile_60d,zone_distance_pct,zone_width_"
+    },
+    {
+      "origin": "object-db",
+      "object": "43e8acd4f0926c4d29fec6b6042795c3be1e598a",
+      "sha256": "a1955403794ff7f9a29e009d4ba05e725be2b8aee3f9c259523f1c9846e395ae",
+      "bytes": 90132,
+      "kind": "run_manifest_json",
+      "variants": {
+        "lf->crlf": "15fe34b1901f9955a06cbb547339b951300bbe02075b8703869df85c00b048de",
+        "crlf->lf": "a1955403794ff7f9a29e009d4ba05e725be2b8aee3f9c259523f1c9846e395ae"
+      },
+      "preview": "{\n  \"protocol_id\": \"DZAI-MARKET-STRUCTURE-ABLATION-V1\",\n  \"protocol_version\": \"1.0.2\",\n  \"protocol_sha256\": \"6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05\",\n  \"model_settings\": {\n    \"LogisticRegression\": {\n      \"penalty\": \"l2 (estimator default; omitted in code for sklearn 1.8+ compatibility)\",\n      \"C\": 1.0,\n      \"solver\": \"lbfgs\",\n      \"max_iter\": 2000,\n      \"random_state\": 42,\n      \"class_weight\": null,\n      \"pipeline\": \"SimpleImputer(strategy=median, keep_empty_features=True) -> StandardScaler -> LogisticRegression; all fitted on training fold only.\"\n    },\n    \""
+    },
+    {
+      "origin": "object-db",
+      "object": "5719d47a24423d0d45d7bc5b873db99398f5748c",
+      "sha256": "9d59a14454034d705d7db5051f23721d04f92b0e176fc44c5d5d2a22491a5d53",
+      "bytes": 81582,
+      "kind": "ticker_dataset_csv",
+      "header": "ticker\tdate\treason",
+      "variants": {
+        "lf->crlf": "bceb4ad7f1ec22e721168f759304ffa24e610bfa1c7afe177ecdbde5e39eab2a",
+        "crlf->lf": "9d59a14454034d705d7db5051f23721d04f92b0e176fc44c5d5d2a22491a5d53"
+      },
+      "preview": "TICKER\tDATE\tREASON\n# --- outside Yahoo 1-minute retention window (1m bars not served before 2026-08-24) ---\nAZI\t2025-12-22\t1m data unavailable from source (older than 2026-08-24; per spec no other timeframe substituted)\nHXHX\t2025-12-22\t1m data unavailable from source (older than 2026-08-24; per spec no other timeframe substituted)\nHIHO\t2025-12-23\t1m data unavailable from source (older than 2026-08-24; per spec no other timeframe substituted)\nOPTX\t2025-12-23\t1m data unavailable from source (older than 2026-08-24; per spec no other timeframe substituted)\nVIVK\t2025-12-23\t1m data unavailable from "
+    },
+    {
+      "origin": "object-db",
+      "object": "63804113c356d23f375c9626978b700a87dc826d",
+      "sha256": "6b1fde0f603d98fc44a85891b714b88559de17415ed45af4edf4f52897638819",
+      "bytes": 2197,
+      "kind": "ticker_dataset_csv",
+      "header": "{\"signals\":[{\"ticker\":\"snow\",\"model_score\":0.0466,\"final_score\":0.5012,\"current_price\":270.11,\"zone_low\":246.98,\"zone_high\":273.7,\"zone_strength\":2.6667,\"zone_touches\":16,\"risk_level\":\"speculative\",\"reasons\":[\"price already in demand zone \u00e2\u0080\u0094 enter now\",\"strong demand zone with 16 touches\",\"bullish ",
+      "variants": {
+        "lf->crlf": "6b1fde0f603d98fc44a85891b714b88559de17415ed45af4edf4f52897638819",
+        "crlf->lf": "6b1fde0f603d98fc44a85891b714b88559de17415ed45af4edf4f52897638819"
+      },
+      "preview": "{\"signals\":[{\"ticker\":\"SNOW\",\"model_score\":0.0466,\"final_score\":0.5012,\"current_price\":270.11,\"zone_low\":246.98,\"zone_high\":273.7,\"zone_strength\":2.6667,\"zone_touches\":16,\"risk_level\":\"Speculative\",\"reasons\":[\"Price already in demand zone \u00e2\u0080\u0094 enter now\",\"Strong demand zone with 16 touches\",\"Bullish EMA alignment\",\"RSI in constructive zone\"],\"buy_price\":270.11,\"sell_price\":283.62,\"stop_loss\":239.57,\"holding_days_est\":6,\"days_to_entry\":0},{\"ticker\":\"CAT\",\"model_score\":0.0342,\"final_score\":0.495,\"current_price\":841.1,\"zone_low\":813.82,\"zone_high\":892.47,\"zone_strength\":2.5,\"zone_touches\":15,\"risk"
+    },
+    {
+      "origin": "object-db",
+      "object": "87d6cbd31529315e06106a69590c0d16348262f6",
+      "sha256": "4b7d1f411b4b4da5373039eefd6434a91084048cc0470330cfca56c803c41c5e",
+      "bytes": 16384,
+      "kind": "ticker_dataset_csv",
+      "header": "sqlite format 3\u0000\u0010\u0000\u0001\u0001\u0000@  \u0000\u0000\u0000\u0003\u0000\u0000\u0000\u0004\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0002\u0000\u0000\u0000\u0004\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0000.v\u008b\r\u000f\u00f8\u0000\u0003\u000e\u000f\u0000\u000ev\u000f\u00c7\u000e\u000f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+      "variants": {
+        "lf->crlf": "b5c74ffb23bb8ec28dd1223628d2fe82a7f124749033664a9f961bb2f2867730",
+        "crlf->lf": "4b7d1f411b4b4da5373039eefd6434a91084048cc0470330cfca56c803c41c5e"
+      },
+      "preview": "SQLite format 3\u0000\u0010\u0000\u0001\u0001\u0000@  \u0000\u0000\u0000\u0003\u0000\u0000\u0000\u0004\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0002\u0000\u0000\u0000\u0004\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0003\u0000.v\u008b\r\u000f\u00f8\u0000\u0003\u000e\u000f\u0000\u000ev\u000f\u00c7\u000e\u000f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+    },
+    {
+      "origin": "object-db",
+      "object": "9670c3f347b27d7e1c5817bd08c6dd6fcf161ddb",
+      "sha256": "673bcd5f3bd22cabd4219b5db4e898b9d25b304f63040c168b61e0e156ab7acd",
+      "bytes": 115499372,
+      "kind": "ticker_dataset_csv",
+      "header": "ticker,date,entry_price,is_sub_10,daily_return,5d_return,20d_return,ema_20,ema_50,ema_200,dist_ema_20_pct,dist_ema_50_pct,dist_ema_200_pct,ema_alignment,trend_slope_20,ema_50_slope_20,ema_200_slope_20,price_vs_200ma_pct,distance_from_52w_high_pct,trend_quality,rsi_14,macd,macd_signal,macd_hist,roc_1",
+      "variants": {
+        "lf->crlf": "e75d5aea71f2de029354689508f192ce6133f61555bc046d7de066d7021171a6",
+        "crlf->lf": "673bcd5f3bd22cabd4219b5db4e898b9d25b304f63040c168b61e0e156ab7acd"
+      },
+      "preview": "ticker,date,entry_price,is_sub_10,daily_return,5d_return,20d_return,ema_20,ema_50,ema_200,dist_ema_20_pct,dist_ema_50_pct,dist_ema_200_pct,ema_alignment,trend_slope_20,ema_50_slope_20,ema_200_slope_20,price_vs_200ma_pct,distance_from_52w_high_pct,trend_quality,rsi_14,macd,macd_signal,macd_hist,roc_14,rel_volume,volume_trend_20,accumulation_days_10,ofi_20,liquidity_depth_score,atr_14,atr_pct,zone_price,zone_touches,zone_strength,distance_to_zone_pct,zone_age_days,zone_freshness,previous_zone_tests,zone_width_pct,departure_strength,base_candles,base_volume_ratio,departure_move_pct,departure_volu"
+    },
+    {
+      "origin": "object-db",
+      "object": "9f38b92071e61f93e436e3ae448c3bc9ebf931bd",
+      "sha256": "e808051a30dc7f6efaa0ca3ca27853227ff967a3254c4dcbf5e2952256bd3447",
+      "bytes": 364,
+      "kind": "ticker_dataset_csv",
+      "header": "ticker,date,signal price,zone price,yahoo finance url",
+      "variants": {
+        "lf->crlf": "5744ec04f665e043d1db5a8ff9fff855aa9eb1e1e960cfeadd98e8dcf18a8092",
+        "crlf->lf": "e808051a30dc7f6efaa0ca3ca27853227ff967a3254c4dcbf5e2952256bd3447"
+      },
+      "preview": "Ticker,Date,Signal Price,Zone Price,Yahoo Finance URL\nTME,2024-09-03,9.95,10.08,https://finance.yahoo.com/chart/TME\nCSIQ,2025-02-11,9.69,9.56,https://finance.yahoo.com/chart/CSIQ\nAMC,2023-11-30,6.65,6.52,https://finance.yahoo.com/chart/AMC\nMRVI,2024-07-03,6.99,6.73,https://finance.yahoo.com/chart/MRVI\nRUN,2024-04-25,9.71,9.34,https://finance.yahoo.com/chart/RUN\n"
+    },
+    {
+      "origin": "object-db",
+      "object": "ac06e52781e6a30dd305f67d85a7eabfc1a16b85",
+      "sha256": "f36531f42f87aa3ff00773d08b459fbf1c17f79d3c1d8e6ede79932a7de1a8ce",
+      "bytes": 285548561,
+      "kind": "ticker_dataset_csv",
+      "header": "ticker,date,entry_price,is_sub_10,daily_return,5d_return,20d_return,ema_20,ema_50,ema_200,dist_ema_20_pct,dist_ema_50_pct,dist_ema_200_pct,ema_alignment,trend_slope_20,ema_50_slope_20,ema_200_slope_20,price_vs_200ma_pct,distance_from_52w_high_pct,trend_quality,rsi_14,macd,macd_signal,macd_hist,roc_1",
+      "variants": {
+        "lf->crlf": "669ca1f5b21339b8cc26f6eb5cbeb22003ebafcd86b0d7e945f0db3d6517d71b",
+        "crlf->lf": "f36531f42f87aa3ff00773d08b459fbf1c17f79d3c1d8e6ede79932a7de1a8ce"
+      },
+      "preview": "ticker,date,entry_price,is_sub_10,daily_return,5d_return,20d_return,ema_20,ema_50,ema_200,dist_ema_20_pct,dist_ema_50_pct,dist_ema_200_pct,ema_alignment,trend_slope_20,ema_50_slope_20,ema_200_slope_20,price_vs_200ma_pct,distance_from_52w_high_pct,trend_quality,rsi_14,macd,macd_signal,macd_hist,roc_14,rel_volume,volume_trend_20,accumulation_days_10,ofi_20,liquidity_depth_score,atr_14,atr_pct,zone_price,zone_touches,zone_strength,distance_to_zone_pct,zone_age_days,zone_freshness,previous_zone_tests,zone_width_pct,departure_strength,base_candles,base_volume_ratio,departure_move_pct,departure_volu"
+    },
+    {
+      "origin": "object-db",
+      "object": "b33420ff701619475970b7aeb95ac298bcc4946a",
+      "sha256": "d521081e2b9c8f3097e711ebfb85c326b922f0c7d385cba3b8ed2919a8a9c2ed",
+      "bytes": 14671708,
+      "kind": "ticker_dataset_csv",
+      "header": "ticker,date,event_id,label,hold1_ret,entry_date,exit_date,fold,fold_validation_key,logisticregression_a,lightgbm_a,logisticregression_b,lightgbm_b,logisticregression_c,lightgbm_c,logisticregression_d,lightgbm_d",
+      "variants": {
+        "lf->crlf": "8db67e4254f94bb8bd2585abc440d80d1edd3e198183f6b8169ee841bc17b350",
+        "crlf->lf": "d521081e2b9c8f3097e711ebfb85c326b922f0c7d385cba3b8ed2919a8a9c2ed"
+      },
+      "preview": "ticker,date,event_id,label,hold1_ret,entry_date,exit_date,fold,fold_validation_key,LogisticRegression_A,LightGBM_A,LogisticRegression_B,LightGBM_B,LogisticRegression_C,LightGBM_C,LogisticRegression_D,LightGBM_D\nAAL,2023-01-03,72cd4b7aed57b76f800b629a238186202491e221737b6fb6d6be860cb58e96e7,1.0,0.04976674653256685,2023-01-04,2023-01-05,2023,e76b6d007931b01f8b616437aad5202ae3dc2bafb9e64463f461de58080f50a2,0.1840551407439145,0.14283242549114342,0.1305304816670017,0.21201332249164423,0.12161696204809387,0.27282149844114006,0.1262130943411999,0.2538216994052759\nAAPL,2023-01-03,2ca8f0b00c3c6e612ffc4"
+    },
+    {
+      "origin": "object-db",
+      "object": "bb1cbec546684de8ed53e607a2b4eda265bd34cf",
+      "sha256": "5302337b66dc556d68928fdc4c3553ee06d9246fdf80f38bf54e111283a0fbd5",
+      "bytes": 286599605,
+      "kind": "ticker_dataset_csv",
+      "header": "ticker,date,entry_price,is_sub_10,daily_return,5d_return,20d_return,ema_20,ema_50,ema_200,dist_ema_20_pct,dist_ema_50_pct,dist_ema_200_pct,ema_alignment,trend_slope_20,ema_50_slope_20,ema_200_slope_20,price_vs_200ma_pct,distance_from_52w_high_pct,trend_quality,rsi_14,macd,macd_signal,macd_hist,roc_1",
+      "variants": {
+        "lf->crlf": "3c7ed41385b026682f5a607b93848a9ab7bee15132c864046e28eec5f84c2348",
+        "crlf->lf": "5302337b66dc556d68928fdc4c3553ee06d9246fdf80f38bf54e111283a0fbd5"
+      },
+      "preview": "ticker,date,entry_price,is_sub_10,daily_return,5d_return,20d_return,ema_20,ema_50,ema_200,dist_ema_20_pct,dist_ema_50_pct,dist_ema_200_pct,ema_alignment,trend_slope_20,ema_50_slope_20,ema_200_slope_20,price_vs_200ma_pct,distance_from_52w_high_pct,trend_quality,rsi_14,macd,macd_signal,macd_hist,roc_14,rel_volume,volume_trend_20,accumulation_days_10,ofi_20,liquidity_depth_score,atr_14,atr_pct,zone_price,zone_touches,zone_strength,distance_to_zone_pct,zone_age_days,zone_freshness,previous_zone_tests,zone_width_pct,departure_strength,base_candles,base_volume_ratio,departure_move_pct,departure_volu"
+    },
+    {
+      "origin": "object-db",
+      "object": "c0ae6d5a76af8ec3eafc734583fb4ea6f0dd8f70",
+      "sha256": "a9713331b2fdd3d3d63ef7c7c76b76fd559fef85227c9b1a9185417277d4d496",
+      "bytes": 301149319,
+      "kind": "ticker_dataset_csv",
+      "header": "ticker,date,entry_price,is_sub_10,daily_return,5d_return,20d_return,ema_20,ema_50,ema_200,dist_ema_20_pct,dist_ema_50_pct,dist_ema_200_pct,ema_alignment,trend_slope_20,ema_50_slope_20,ema_200_slope_20,price_vs_200ma_pct,distance_from_52w_high_pct,trend_quality,rsi_14,macd,macd_signal,macd_hist,roc_1",
+      "variants": {
+        "lf->crlf": "99e4f92458da7e3f23762593fb1e651e382bc179b171bddf8ae2f71ddf7aac0e",
+        "crlf->lf": "a9713331b2fdd3d3d63ef7c7c76b76fd559fef85227c9b1a9185417277d4d496"
+      },
+      "preview": "ticker,date,entry_price,is_sub_10,daily_return,5d_return,20d_return,ema_20,ema_50,ema_200,dist_ema_20_pct,dist_ema_50_pct,dist_ema_200_pct,ema_alignment,trend_slope_20,ema_50_slope_20,ema_200_slope_20,price_vs_200ma_pct,distance_from_52w_high_pct,trend_quality,rsi_14,macd,macd_signal,macd_hist,roc_14,rel_volume,volume_trend_20,accumulation_days_10,ofi_20,liquidity_depth_score,atr_14,atr_pct,zone_price,zone_touches,zone_strength,distance_to_zone_pct,zone_age_days,zone_freshness,previous_zone_tests,zone_width_pct,departure_strength,base_candles,base_volume_ratio,departure_move_pct,departure_volu"
+    },
+    {
+      "origin": "object-db",
+      "object": "d27b3eb563a6b1f77db2ee722f10203e3712c470",
+      "sha256": "183b73648ddcf9522ad8e8d3d855e83772f71568a4af1841d61bae84bda4206b",
+      "bytes": 91822,
+      "kind": "run_manifest_json",
+      "variants": {
+        "lf->crlf": "dab3ee5f6b07078f44d1c6bb2a76163e02619c301bc83b67bb49e9f2dab469c9",
+        "crlf->lf": "183b73648ddcf9522ad8e8d3d855e83772f71568a4af1841d61bae84bda4206b"
+      },
+      "preview": "{\n  \"protocol_id\": \"DZAI-MARKET-STRUCTURE-ABLATION-V1\",\n  \"protocol_version\": \"1.0.1\",\n  \"protocol_sha256\": \"486f46f85c4874405716a7c9424dc7060b5f65b27426e92670f0585247dfec07\",\n  \"code_sha256\": \"29885c5f14235e78349b728156e18feba930f3ee533565ea36a05f695692424b\",\n  \"test_suite_sha256\": \"e3f16447eae3a257dfc013d8dd53e2521414632c06f7b14a3d31f0ba3ddce456\",\n  \"roster_source_sha256\": \"669ca1f5b21339b8cc26f6eb5cbeb22003ebafcd86b0d7e945f0db3d6517d71b\",\n  \"artifact_sha256\": {\n    \"event_table.csv\": \"232de7db65c92bec249be801e593acdaa822ecd0b13eb0cd32b7eeaced85a4d0\",\n    \"oof_predictions.csv\": \"011530761a19"
+    },
+    {
+      "origin": "object-db",
+      "object": "dd52800245a3a5923ff53133248874b19c58a97f",
+      "sha256": "7cb77b9523fe0621efea86052adb430c9a0344ffe41f38ee42732f687caab89a",
+      "bytes": 15642,
+      "kind": "protocol_or_manifest_json",
+      "variants": {
+        "lf->crlf": "3f7081d13485f149507f3d475b84b8eb712b571533dda9e4b4e14e7356750fc0",
+        "crlf->lf": "7cb77b9523fe0621efea86052adb430c9a0344ffe41f38ee42732f687caab89a"
+      },
+      "preview": "from __future__ import annotations\n\n\"\"\"Temporary Python 3.13 runner for the preserved, unreviewed study bytecode.\n\nThis is not source recovery. --preflight writes nothing. --run writes only to\none fresh, explicitly labeled retrospective output directory. It intentionally\nskips the final prospective-intended model fit.\n\"\"\"\n\nimport argparse\nimport hashlib\nimport importlib.machinery\nimport importlib.util\nimport inspect\nimport json\nimport marshal\nimport sys\nimport types\nfrom datetime import datetime, timezone\nfrom pathlib import Path\nfrom typing import Any\n\nROOT = Path(__file__).resolve().parents["
+    },
+    {
+      "origin": "object-db",
+      "object": "e064f0cc387deeeae2b9196883bf80686d52357f",
+      "sha256": "f8875dae854f5f6b291dbeed3c72946c6810f125f42895f7e7405a2ebbfcec22",
+      "bytes": 92150,
+      "kind": "run_manifest_json",
+      "variants": {
+        "lf->crlf": "452ffff3458564067cb34a52f0c8f7ee9c7528045219da02a42ffa84f3eeced2",
+        "crlf->lf": "f8875dae854f5f6b291dbeed3c72946c6810f125f42895f7e7405a2ebbfcec22"
+      },
+      "preview": "{\n  \"protocol_id\": \"DZAI-MARKET-STRUCTURE-ABLATION-V1\",\n  \"protocol_version\": \"1.0.1\",\n  \"protocol_sha256\": \"486f46f85c4874405716a7c9424dc7060b5f65b27426e92670f0585247dfec07\",\n  \"code_sha256\": \"29885c5f14235e78349b728156e18feba930f3ee533565ea36a05f695692424b\",\n  \"test_suite_sha256\": \"e3f16447eae3a257dfc013d8dd53e2521414632c06f7b14a3d31f0ba3ddce456\",\n  \"roster_source_sha256\": \"669ca1f5b21339b8cc26f6eb5cbeb22003ebafcd86b0d7e945f0db3d6517d71b\",\n  \"artifact_sha256\": {\n    \"event_table.csv\": \"232de7db65c92bec249be801e593acdaa822ecd0b13eb0cd32b7eeaced85a4d0\",\n    \"oof_predictions.csv\": \"011530761a19"
+    },
+    {
+      "origin": "orphan-pack:tmp_pack_Ds7zuW",
+      "object": "-",
+      "sha256": "7cb77b9523fe0621efea86052adb430c9a0344ffe41f38ee42732f687caab89a",
+      "bytes": 15642,
+      "kind": "protocol_or_manifest_json",
+      "variants": {
+        "lf->crlf": "3f7081d13485f149507f3d475b84b8eb712b571533dda9e4b4e14e7356750fc0",
+        "crlf->lf": "7cb77b9523fe0621efea86052adb430c9a0344ffe41f38ee42732f687caab89a"
+      },
+      "preview": "from __future__ import annotations\n\n\"\"\"Temporary Python 3.13 runner for the preserved, unreviewed study bytecode.\n\nThis is not source recovery. --preflight writes nothing. --run writes only to\none fresh, explicitly labeled retrospective output directory. It intentionally\nskips the final prospective-intended model fit.\n\"\"\"\n\nimport argparse\nimport hashlib\nimport importlib.machinery\nimport importlib.util\nimport inspect\nimport json\nimport marshal\nimport sys\nimport types\nfrom datetime import datetime, timezone\nfrom pathlib import Path\nfrom typing import Any\n\nROOT = Path(__file__).resolve().parents["
+    },
+    {
+      "origin": "orphan-pack:tmp_pack_Ds7zuW",
+      "object": "-",
+      "sha256": "450c933fd574b9878322d6eaa1285ba66be8d5d005a249ebbcf455e381d8a96d",
+      "bytes": 10327,
+      "kind": "ticker_dataset_csv",
+      "header": "\"\"\"analyze the supplied 1-minute premarket-gap charts, one ticker/date at a time.",
+      "variants": {
+        "lf->crlf": "12bf94320df5ccc233adb01b59ad7016895c373fb133bd7fb2d9896ee3354935",
+        "crlf->lf": "450c933fd574b9878322d6eaa1285ba66be8d5d005a249ebbcf455e381d8a96d"
+      },
+      "preview": "\"\"\"Analyze the supplied 1-minute premarket-gap charts, one ticker/date at a time.\n\nThe source files are scanner/cache_1m/*.json.  Only regular-session bars from\n09:30 through 15:59 ET are used for the strategy; premarket is used only for\nmetadata and the gap qualification already present in the supplied dataset.\n\nOperational definitions for subjective chart language are deliberately kept\nin this file:\n- Up orientation: the first five regular bars close above the 09:30 open and\n  establish a higher high. Fib anchors are open -> first-five high.\n- Down orientation: otherwise, Fib anchors are pre"
+    },
+    {
+      "origin": "orphan-pack:tmp_pack_Ds7zuW",
+      "object": "-",
+      "sha256": "673bcd5f3bd22cabd4219b5db4e898b9d25b304f63040c168b61e0e156ab7acd",
+      "bytes": 115499372,
+      "kind": "ticker_dataset_csv",
+      "header": "ticker,date,entry_price,is_sub_10,daily_return,5d_return,20d_return,ema_20,ema_50,ema_200,dist_ema_20_pct,dist_ema_50_pct,dist_ema_200_pct,ema_alignment,trend_slope_20,ema_50_slope_20,ema_200_slope_20,price_vs_200ma_pct,distance_from_52w_high_pct,trend_quality,rsi_14,macd,macd_signal,macd_hist,roc_1",
+      "variants": {
+        "lf->crlf": "e75d5aea71f2de029354689508f192ce6133f61555bc046d7de066d7021171a6",
+        "crlf->lf": "673bcd5f3bd22cabd4219b5db4e898b9d25b304f63040c168b61e0e156ab7acd"
+      },
+      "preview": "ticker,date,entry_price,is_sub_10,daily_return,5d_return,20d_return,ema_20,ema_50,ema_200,dist_ema_20_pct,dist_ema_50_pct,dist_ema_200_pct,ema_alignment,trend_slope_20,ema_50_slope_20,ema_200_slope_20,price_vs_200ma_pct,distance_from_52w_high_pct,trend_quality,rsi_14,macd,macd_signal,macd_hist,roc_14,rel_volume,volume_trend_20,accumulation_days_10,ofi_20,liquidity_depth_score,atr_14,atr_pct,zone_price,zone_touches,zone_strength,distance_to_zone_pct,zone_age_days,zone_freshness,previous_zone_tests,zone_width_pct,departure_strength,base_candles,base_volume_ratio,departure_move_pct,departure_volu"
+    }
+  ],
+  "orphan_packs": [
+    {
+      "pack": "tmp_pack_Ds7zuW",
+      "declared_objects": 3930,
+      "parsed_objects": 288,
+      "deltas": 53,
+      "deltas_resolved": 53,
+      "truncated": "parse stopped at byte 87162880: index out of range"
+    }
+  ]
+}

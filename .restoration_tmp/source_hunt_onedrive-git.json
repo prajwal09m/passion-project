@@ -1,0 +1,135 @@
+{
+  "code_pin": "29885c5f14235e78349b728156e18feba930f3ee533565ea36a05f695692424b",
+  "test_pin": "e3f16447eae3a257dfc013d8dd53e2521414632c06f7b14a3d31f0ba3ddce456",
+  "pyc_pin": "c7d23b68e66d76f1f851887bc755b84b6bb1c8c424c24cccc8bf94de59d8f585",
+  "stats": {
+    "files_hashed": 0,
+    "blobs_hashed": 574,
+    "archive_entries": 0,
+    "errors": 0
+  },
+  "pin_hits": [],
+  "marker_hit_count": 9,
+  "marker_hits": [
+    {
+      "origin": "git-objects:onedrive-checkout",
+      "name": "0542c89965bc4abc806c7a22e0b57b86bcec5200",
+      "bytes": 35959,
+      "git_oid": "0542c89965bc4abc806c7a22e0b57b86bcec5200",
+      "sha256": "fc9abd7af1f04e7d19c5daa0d8076f71cddf4d40ab503cbe508ef1c70f2344e3",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "fc9abd7af1f04e7d19c5daa0d8076f71cddf4d40ab503cbe508ef1c70f2344e3",
+        "lf->crlf": "0df0ee739bf30976fbcafb696859e9c4daf5a72ad40ae050de906cfa8febb890",
+        "crlf->lf": "fc9abd7af1f04e7d19c5daa0d8076f71cddf4d40ab503cbe508ef1c70f2344e3"
+      }
+    },
+    {
+      "origin": "git-objects:onedrive-checkout",
+      "name": "2e807624ed8b01f8df2a87fc794696741c47d157",
+      "bytes": 15778,
+      "git_oid": "2e807624ed8b01f8df2a87fc794696741c47d157",
+      "sha256": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05",
+        "lf->crlf": "358c3780775dee765db5e136db67e6f324fc43e5a8a516c3b55af0bcc8955b20",
+        "crlf->lf": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05"
+      }
+    },
+    {
+      "origin": "git-objects:onedrive-checkout",
+      "name": "573df9a5592515eb8dd63676d36b9ad200fbcb29",
+      "bytes": 4541,
+      "git_oid": "573df9a5592515eb8dd63676d36b9ad200fbcb29",
+      "sha256": "b03fac2e5b440bf5134f507758e010b82634f2a37d68318fc495c522cf679f1f",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "b03fac2e5b440bf5134f507758e010b82634f2a37d68318fc495c522cf679f1f",
+        "lf->crlf": "d433c6fe3a8b6bedf5c93f2605c88f95bca82c38fd182e3a1f711a698a7f3827",
+        "crlf->lf": "b03fac2e5b440bf5134f507758e010b82634f2a37d68318fc495c522cf679f1f"
+      }
+    },
+    {
+      "origin": "git-objects:onedrive-checkout",
+      "name": "7eddc1370a9ca37fffce58415b553f2818679873",
+      "bytes": 20926,
+      "git_oid": "7eddc1370a9ca37fffce58415b553f2818679873",
+      "sha256": "c20e0889ec488b7bacc17c753bafb6c98acf1f804df38735df8c166259343107",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "c20e0889ec488b7bacc17c753bafb6c98acf1f804df38735df8c166259343107",
+        "lf->crlf": "d4b85f64cba3e077fb4e377c0d120d440e67312758bcb2242241febe1173e06e",
+        "crlf->lf": "c20e0889ec488b7bacc17c753bafb6c98acf1f804df38735df8c166259343107"
+      }
+    },
+    {
+      "origin": "git-objects:onedrive-checkout",
+      "name": "8f13aaa5f131c6e5cf116d3852beec1ac8e6413a",
+      "bytes": 7931,
+      "git_oid": "8f13aaa5f131c6e5cf116d3852beec1ac8e6413a",
+      "sha256": "14927db5920c260a07beaf19936cee696d58f456742d17e5a9a9f359087793ee",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "14927db5920c260a07beaf19936cee696d58f456742d17e5a9a9f359087793ee",
+        "lf->crlf": "e1365616858d76a7d6548d1560c2631be8bafc4397b15baf10cf64f633e53ade",
+        "crlf->lf": "14927db5920c260a07beaf19936cee696d58f456742d17e5a9a9f359087793ee"
+      }
+    },
+    {
+      "origin": "git-objects:onedrive-checkout",
+      "name": "a6eae8c536241fe739912d23ab18ca74efea4a82",
+      "bytes": 10080,
+      "git_oid": "a6eae8c536241fe739912d23ab18ca74efea4a82",
+      "sha256": "e284d574ebf208bb01216c05ecc99f3ab63f65d3eccfdd133bb516f9e8c59098",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "e284d574ebf208bb01216c05ecc99f3ab63f65d3eccfdd133bb516f9e8c59098",
+        "lf->crlf": "638ef83a1a8f5d69b13572bf14b07f2f223eaf6f2447fcd39cd420458f347746",
+        "crlf->lf": "e284d574ebf208bb01216c05ecc99f3ab63f65d3eccfdd133bb516f9e8c59098"
+      }
+    },
+    {
+      "origin": "git-objects:onedrive-checkout",
+      "name": "b9b51b4e3ddd5f8181f075b4e16ac19ebba50b59",
+      "bytes": 30319,
+      "git_oid": "b9b51b4e3ddd5f8181f075b4e16ac19ebba50b59",
+      "sha256": "ff3a0ba2aac433589af1818c68ce93d1352a9a20c62d8d749330ff85f1ff51a1",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "ff3a0ba2aac433589af1818c68ce93d1352a9a20c62d8d749330ff85f1ff51a1",
+        "lf->crlf": "7c7860fb24b890a3ddaadfe3de96b88465a7c536b1e455307b4b73227f716d14",
+        "crlf->lf": "ff3a0ba2aac433589af1818c68ce93d1352a9a20c62d8d749330ff85f1ff51a1"
+      }
+    },
+    {
+      "origin": "git-objects:onedrive-checkout",
+      "name": "d567b51aef198cfbea4b740730bb237d5f1032fd",
+      "bytes": 20096,
+      "git_oid": "d567b51aef198cfbea4b740730bb237d5f1032fd",
+      "sha256": "b36180e326f94ef6e3c919f2c211e3d37fdd12b0ee1610b27fe75086ae85abb5",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "b36180e326f94ef6e3c919f2c211e3d37fdd12b0ee1610b27fe75086ae85abb5",
+        "lf->crlf": "fb4dbf8c0db91db92e62bbd12f396b0ac00e970d97054e2a9a3b7641b81eb737",
+        "crlf->lf": "b36180e326f94ef6e3c919f2c211e3d37fdd12b0ee1610b27fe75086ae85abb5"
+      }
+    },
+    {
+      "origin": "git-objects:onedrive-checkout",
+      "name": "e8fe949ced727e608593350e9cbe1e7d18733479",
+      "bytes": 90614,
+      "git_oid": "e8fe949ced727e608593350e9cbe1e7d18733479",
+      "sha256": "cea2440425e1f2f56a95b576481ae2ef603fe1f6a9816078e0a998781e0cef2a",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "cea2440425e1f2f56a95b576481ae2ef603fe1f6a9816078e0a998781e0cef2a",
+        "lf->crlf": "2b1cce3587f6d9423b0a5fba0b2de5e8cc3195a9e4b5e0c25c89403084d783ee",
+        "crlf->lf": "cea2440425e1f2f56a95b576481ae2ef603fe1f6a9816078e0a998781e0cef2a"
+      }
+    }
+  ],
+  "errors": [],
+  "orphan_packs": [],
+  "phase": "onedrive-git"
+}

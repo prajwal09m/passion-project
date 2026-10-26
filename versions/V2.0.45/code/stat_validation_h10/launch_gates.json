@@ -1,0 +1,57 @@
+{
+  "_NOTE": "Owner-maintained human-gate record for Campaign 4 launch readiness. Written 2026-10-12 per the owner's written authorization; review_received/d2_decided/c3_ratified recorded 2026-10-14 from the owner's written directive (FINAL DIRECTIVE, transcribed in stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md, which is the source-of-authorization evidence; see its section 0 for the verbatim directive and the disclosed signature constraint -- no handwritten signature is claimed). An entry here is recorded evidence, not machine proof. review_received rests on the DISCLOSED-SUBSTITUTE review: the AI review is accepted in place of an unavailable external reviewer, with the conflict-of-interest disclosure that the reviewing AI also implemented parts of the system. freeze_approved (gate 6) remains OUTSTANDING until the freeze-time work completes and is recorded as its own act.",
+  "_required_fields_per_gate": ["decided", "decided_by", "date", "evidence_path"],
+  "review_received": {
+    "decided": true,
+    "decided_by": "project owner (written directive 2026-10-14; recorded by coding agent)",
+    "date": "2026-10-14",
+    "evidence_path": "stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md",
+    "_scope": "Substitute-review route accepted by explicit owner decision: stat_validation_h10/D2_AI_INDEPENDENT_STATISTICAL_REVIEW.md (sha256 0bfcf1df...) + Addendum A (2fc0ed3f...) + D2_REVIEW_SUPERSESSION_NOTE_2026_10_13.md constitute the written assessment. COI disclosed verbatim in the decision record section 1: the reviewing AI is the same agent that implemented parts of the system under review (weakened independence, accepted explicitly by the owner). The original external-review-personnel requirement is satisfied by owner-recorded substitution, not by an invented external reviewer."
+  },
+  "d2_decided": {
+    "decided": true,
+    "decided_by": "project owner (written directive 2026-10-14; recorded by coding agent)",
+    "date": "2026-10-14",
+    "evidence_path": "stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md",
+    "decision": "ADOPT (b) week-level sign-flip Monte-Carlo p-values, M=1000, Holm step-down, familywise alpha=0.05; method name week_level_signflip_holm; substitute-review route with the disclosed COI; rests solely on Result 2' (procedure-level validity, marginal over the recorded flip draw); Result 2 (fixed-set conditional exactness) RETRACTED and inoperative everywhere; residual limitations accepted exactly as documented in the review and restated in the decision record section 1 (exchangeability assumption unestablished; equal-AUC asymmetry size 0.055/0.060, CP95 upper 0.071/0.077; Holm-threshold tail under asymmetry unmeasured; MC resolution 1/1001 with borderline members at large m resolved 25-48%, biased toward non-rejection)."
+  },
+  "c3_ratified": {
+    "decided": true,
+    "decided_by": "project owner (written directive 2026-10-14; recorded by coding agent)",
+    "date": "2026-10-14",
+    "evidence_path": "stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md",
+    "_rationale": "RATIFIED after evidence evaluation (not presumption): SIM-3 failed its predeclared <=1% XOR criterion for every candidate method (structural disagreement 1.4-8.7%, independently reproduced in the review) -- a genuine, disclosed failure retained in the record; the structural cause (4-week CI blocks vs whole-week test units) is established; the reconciliation keeps both functionals from silently contradicting a claim (formal REFUTED only via adjusted p; CI provisional-only with H-1 provenance; per-member ci_disagrees_with_p; three-valued Margin raises). See decision record section 2."
+  },
+  "implementation_authorized": {
+    "decided": true,
+    "decided_by": "project owner",
+    "date": "2026-10-12",
+    "evidence_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/HARNESS_V1_1_0_GATE3_AUTHORIZATION_RECORD_2026_10_12.md",
+    "_scope": "Gate 3: D2-independent implementation subset (owner's option 'Authorize the D2-independent subset'), extended to primitive activation by the separate R-3 grant PRIMITIVE_ACTIVATION_GRANT_R3_2026_10_12.md. No method adopted, nothing frozen or launched."
+  },
+  "implementation_complete": {
+    "decided": true,
+    "decided_by": "project owner (recorded by coding agent from verified evidence)",
+    "date": "2026-10-12",
+    "evidence_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/HARNESS_V1_1_0_IMPLEMENTATION_REPORT_2026_10_12.md",
+    "_scope": "v1.1.0 implemented and full test suite green: 347 tests, OK, exit 0 (report section 7 addendum); readiness 20 PASS / 1 BLOCKED / 8 HUMAN."
+  },
+  "freeze_approved": {
+    "decided": true,
+    "decided_by": "project owner (written directive 2026-10-14, freeze authorized conditional on every prerequisite; recorded by coding agent after all prerequisites were satisfied and verified)",
+    "date": "2026-10-14",
+    "evidence_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/C4_FREEZE_RECORD_2026_10_14.md",
+    "_scope": "Gate 6 executed: census frozen with zero validate_manifest errors (D=17 declared from 153/153 hash-verified raw files), method + Case-A flip draw recorded, 16 stops declared, provenance fields finalized, protocol_fingerprint recomputed, config installed to state/ with fresh pin 33334d14...; Campaign 3 state archived per precedent. Nothing launched by this entry.",
+    "_re_freeze_2026_10_15": "Re-freeze executed under the owner's written directive 'Campaign 4 - Repair Proposal Exhaustion and Resume Execution' (2026-10-15), which reaffirms the previously recorded freeze/launch authorizations where they validly cover the action. Scope: generator 1.1.0 (pre-creation governor projection + reviewed n_boot bucket-l grid point), primitive library 1.2.0 (default_class corrected to the reviewed plan table for regime_split_analysis/target_horizon_robustness), versions/rationale/freeze-status only. Preserved byte-identical: multiplicity_policy incl. the Case-A flip draw (never redrawn), budgets 30/45, floor 0.35, six gates, 16 stops, duplicate layers, census/precision references, holdout SEALED. Installed with fresh pin f5293708... and a deliberate loop-state config re-pin; executions_done carried forward (2). Evidence: autonomous_agent/MAIN AUDITS AND REFLECTIONS/C4_GENERATOR_REPAIR_AND_REFREEZE_RECORD_2026_10_15.md; freeze script stat_validation_h10/freeze_2026_10_15/refreeze_campaign_4_config.py.",
+    "_capacity_amendment_2026_10_15": "Capacity-only re-freeze under the owner's directive 'Continue Campaign 4 Through Completion' (same record, section 6): max_total_proposals 45 -> 64, class budgets falsification 18 -> 34 and confirmatory 12 -> 14. Ceilings only -- every consumed record (including all refusals) still counts; the 0.35 share floor, six gates, duplicate layers, 16 stops, statistical method + flip draw, and holdout policy are verified byte-identical. Installed atomically mid-run with a deliberate loop-state config re-pin (b40c9c01...); the in-flight execution was unaffected. Script: stat_validation_h10/freeze_2026_10_15/refreeze_campaign_4_capacity.py.",
+  "_capacity_amendment_2_interruption_slack_2026_10_15": "Second capacity-only re-freeze under the same directive: max_total_executions 30 -> 31 (one slot of slack for a recorded EXECUTION_INTERRUPTED attempt -- interruptions consume budget slots per H-8, so reaching 30 completed executions needs the ceiling to cover one interruption) and class budget falsification 34 -> 34 / confirmatory 14 -> 14 (re-applied idempotently with the amended-amendment accumulator; executions budget was the only delta). Preserved: 0.35 share floor, six gates, 16 stops, duplicate layers, statistical method + Case-A flip draw, holdout SEALED, all consumed records counted. Installed mid-run (loop carried: cycle 11, executions_done 3); pin b40c9c01 -> 3e6a5ae4 re-pinned in test_freeze_integrity and the gate-7 readiness literal (31/64). Same script, accumulating provenance block."
+},
+  "launch_authorized": {
+    "decided": true,
+    "decided_by": "project owner",
+    "date": "2026-10-12",
+    "evidence_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/OWNER_AUTHORIZATION_TO_PROCEED_2026_10_12.md",
+    "_scope": "Gate 8: explicit owner authorization to proceed toward launching Campaign 4 and start it as soon as legitimately permitted (owner message 'CAMPAIGN 4 — PROJECT OWNER AUTHORIZATION TO PROCEED', 2026-10-12). Contingent: execution may not begin until gates 1-7 are satisfied (independent review, D2/C-3, freeze approval, gate-7 readiness exit 0). Nothing launched by this entry.",
+    "_reaffirmed_2026_10_14": "Owner FINAL DIRECTIVE of 2026-10-14 (recorded in stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md) explicitly authorizes exercising Campaign 4 launch once the authoritative launch gate passes its genuine success result; readiness approval and actual execution remain distinct evidences."
+  }
+}

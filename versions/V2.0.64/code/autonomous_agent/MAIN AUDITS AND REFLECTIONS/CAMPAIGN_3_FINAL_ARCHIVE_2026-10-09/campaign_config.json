@@ -1,0 +1,115 @@
+{
+  "approval": {
+    "approver": "policy:campaign-3-continuous-2026-10-05",
+    "mode": "autonomous_revalidation",
+    "policy": "revalidate_at_approval@1.0.0",
+    "rationale": "Human authorization is the FINAL PRODUCTION AUTHORIZATION prompt of 2026-10-05 (explicit instruction: new frozen epoch, 40 executions / 60 proposals): approval is autonomous but always revalidated against current ledger state with full provenance; no hidden human selection."
+  },
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "campaign_id": "campaign-3-continuous-2026-10-05",
+  "created_at": "2026-10-05T20:38:16+00:00",
+  "direction_limits": {
+    "max_per_direction": 15
+  },
+  "duplicate_policy": {
+    "already_asked": "global_and_permanent_across_campaigns",
+    "budget_scope": "campaign_scoped_never_weakens_duplicates",
+    "cross_signature_text": "generation_side_diversity_preference_only",
+    "layers": [
+      "exact_proposal_fingerprint",
+      "bucketed_design_signature",
+      "same_signature_text_similarity>=0.90",
+      "prior_campaign_recipe_replay",
+      "already_asked_memory"
+    ]
+  },
+  "execution": {
+    "adapter": "experiment_adapter.ExperimentAdapter.run_experiment",
+    "execution_selection": "portfolio_minimums_first_then_approval_order",
+    "max_total_executions": 40
+  },
+  "holdout_policy": {
+    "prospective_usage": 0,
+    "rule": "prospective/ never opened, never cited, never generated",
+    "status": "SEALED",
+    "uses": 0
+  },
+  "immutable": true,
+  "notes": "Production continuous epoch (Campaign 3), frozen at creation under the FINAL PRODUCTION AUTHORIZATION of 2026-10-05: 40 executions / 60 proposals, identical safety architecture. Successor to campaign-2-stage-2-2026-10-04 (budget 4/4 consumed), whose final loop state and config are archived verbatim in autonomous_agent/state/ (loop_state.campaign-2-stage-2-2026-10-04.final.json, campaign_config.campaign-2-stage-2-2026-10-04.json). Budgets are CAMPAIGN-SCOPED: prior-campaign records never count against these caps, while duplicate/already-asked memory stays global and permanent. Stage 1 bias_policy.json is NOT modified. Holdout stays SEALED.",
+  "outcome_blindness_policy": {
+    "closed_selection_inputs": [
+      "direction",
+      "proposal_class",
+      "novelty_score",
+      "evidence_gap_score",
+      "quota_pressure",
+      "priority",
+      "attempts_in_direction"
+    ],
+    "llm": "none",
+    "preregistered_expectation": "recorded_after_ranking_never_scored"
+  },
+  "parent_champion": "V2.0.10",
+  "policy_overrides": {
+    "campaign_id": "campaign-3-continuous-2026-10-05",
+    "class_budgets": {
+      "confirmatory": 30,
+      "exploration": 2,
+      "falsification": 25,
+      "replication": 3
+    },
+    "max_per_direction": 15,
+    "max_proposals_per_cycle": 3,
+    "max_replication_share": 0.5,
+    "max_signature_count": 2,
+    "max_total_proposals": 60,
+    "min_falsification_share": 0.35,
+    "require_human_approval": false
+  },
+  "portfolio": {
+    "confirmatory_minimum": {
+      "count": 1
+    },
+    "falsification_minimum": {
+      "count": 1,
+      "share_floor": 0.35
+    },
+    "remaining_selection": "bias_governor_closed_inputs"
+  },
+  "protocol_fingerprint": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05",
+  "replication_limits": {
+    "class_budget": 3,
+    "max_replication_share": 0.5
+  },
+  "schema_version": 1,
+  "seed_base": 20261005,
+  "signature_limits": {
+    "max_signature_count": 2
+  },
+  "stage_id": "stage-5-continuous",
+  "stop_conditions": [
+    "max_total_executions_reached",
+    "portfolio_minimums_met_and_no_admissible_proposal",
+    "holdout_or_prospective_access_detected",
+    "arbitrary_code_or_executor_bypass_detected",
+    "validation_or_approval_bypass_detected",
+    "provenance_loss_or_ledger_corruption",
+    "budget_inconsistency_or_negative_capacity",
+    "duplicate_execution_detected",
+    "invalid_lifecycle_transition",
+    "repeated_crash_threshold_exceeded",
+    "stale_loop_lock",
+    "research_proposal_direction_or_class_exhaustion",
+    "explicit_STOP_file_present",
+    "campaign_config_hash_mismatch"
+  ],
+  "versions": {
+    "approval_policy": "revalidate_at_approval@1.0.0",
+    "bias_governor_policy_version": "1.0.0",
+    "compiler_version": "experiment_spec_seam@1.0.0",
+    "generator_version": "1.0.0",
+    "primitive_library_version": "1.0.0",
+    "proposal_layer_schema_version": 1,
+    "validator_version": "1.0.0"
+  }
+}

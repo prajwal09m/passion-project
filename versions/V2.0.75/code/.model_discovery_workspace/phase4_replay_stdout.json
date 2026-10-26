@@ -1,0 +1,81 @@
+{
+  "linked_result_missing_ids": [
+    "exp-proposal-c834d3a14888",
+    "result:exp-proposal-c834d3a14888",
+    "exp-proposal-597467df5f3f",
+    "result:exp-proposal-597467df5f3f",
+    "exp-proposal-60bfc7749c39",
+    "result:exp-proposal-60bfc7749c39",
+    "result:exp-proposal-006cd3433838",
+    "exp-proposal-9d0cf6b63cea",
+    "result:exp-proposal-9d0cf6b63cea"
+  ],
+  "results": {
+    "adjudicated_attempts": 69,
+    "all_attempt_outcome_counts": {
+      "failed": 5,
+      "refused": 43,
+      "rejected": 16,
+      "success": 53
+    },
+    "chronological_second_half_unseen_groups": {
+      "brier": {
+        "base_rate": 0.10664852214835427,
+        "outcome_aware": 0.1200545675689698
+      },
+      "effective_group_count": 16,
+      "label": "fixed_chronological_second_half_unseen_groups",
+      "mean_posterior_sd": 0.24020530877150595,
+      "n_attempts_in_scored_groups": 27,
+      "n_groups": 16,
+      "outcome_aware_minus_base_brier": 0.013406045420615529,
+      "paired_group_bootstrap_95ci_delta": [
+        -0.042409129700632625,
+        0.07458871226454611
+      ],
+      "positive_equivalent": 15.5,
+      "roc_auc": {
+        "base_rate": null,
+        "outcome_aware": null
+      },
+      "unseen_group_count": 16
+    },
+    "first_seen_group_predictions": {
+      "brier": {
+        "base_rate": 0.17356687759545186,
+        "outcome_aware": 0.16166007461807919
+      },
+      "effective_group_count": 30,
+      "label": "all_first_seen_groups_with_prior",
+      "mean_posterior_sd": 0.2560203810152022,
+      "n_attempts_in_scored_groups": 66,
+      "n_groups": 30,
+      "outcome_aware_minus_base_brier": -0.011906802977372661,
+      "paired_group_bootstrap_95ci_delta": [
+        -0.05889727899142615,
+        0.036455600305103614
+      ],
+      "positive_equivalent": 23.773809523809526,
+      "roc_auc": {
+        "base_rate": 0.5666666666666667,
+        "outcome_aware": 0.7523809523809524
+      },
+      "unseen_group_count": 30
+    },
+    "notes": [
+      "The ledger has only a single October 2026 campaign month: there is no independent calendar regime validation.",
+      "Group identity is the executed measurement config; unlinked executions receive unique IDs and are reported.",
+      "The replay score predicts adjudication success probability, not market ROC-AUC.",
+      "Failed/inconclusive/refused attempts remain attributed and counted, but are not coerced into binary outcomes."
+    ],
+    "observations": 117,
+    "repeated_attempts_collapsed": 38,
+    "split_definition": "unique adjudicated measurement groups sorted by first known outcome time; skip initial group until prior exists; second half fixed before metric calculation; only earlier adjudications used for each prediction",
+    "unique_adjudicated_groups": 31
+  },
+  "schema": "phase4-grouped-chronological-outcome-replay-v1",
+  "source_candidates_root": "autonomous_agent\\candidates",
+  "source_ledger": "autonomous_agent\\state\\proposal_ledger.jsonl",
+  "source_ledger_rows": 646,
+  "source_ledger_sha256": "d97da2680245be8a690ab097d1e25b1ac99b7668b74ce064cf8068f6a51f9ba8"
+}

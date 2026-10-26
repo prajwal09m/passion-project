@@ -1,0 +1,33 @@
+{
+  "arm_a": "C",
+  "arm_b": "C",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 10,
+  "estimator_a": "LogisticRegression",
+  "estimator_b": "LightGBM",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "min_folds": 3,
+    "note": "Horizon robustness: every horizon rung rebuilds its labels and re-verifies the maturity purge; all rungs must independently hold (IUT).",
+    "primary_metric_min_delta": 0.0
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_compositional",
+  "harness_version": "1.1.0",
+  "hypothesis_id": "rq-target_design",
+  "hypothesis_text": "[target_design] Falsifier: Pre-registered horizon comparison on development folds only. (arm=C, n_boot=2000) \u2014 predeclared refutation: metric below zero under the frozen purged protocol.",
+  "n_boot": 2000,
+  "primitive_id": "target_horizon_robustness",
+  "recipe_id": "proposal_layer",
+  "recipe_version": "1.1.0",
+  "schema_version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

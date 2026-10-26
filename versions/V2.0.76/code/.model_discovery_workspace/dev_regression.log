@@ -1,0 +1,51 @@
+F....................................................................... [ 53%]
+............................F..................................          [100%]
+================================== FAILURES ===================================
+___________ ProposalLayerTestCase.test_campaign1_evidence_unchanged ___________
+
+self = <autonomous_agent.test_proposal_layer.ProposalLayerTestCase testMethod=test_campaign1_evidence_unchanged>
+
+    def test_campaign1_evidence_unchanged(self):
+        for relative, expected in CAMPAIGN1_FROZEN_HASHES.items():
+            path = REPO_ROOT / relative
+>           self.assertTrue(path.is_file(), f"missing: {relative}")
+E           AssertionError: False is not true : missing: autonomous_agent/MAIN AUDITS AND REFLECTIONS/AUTONOMOUS_CAMPAIGN_AUDIT_2026_10_04.md
+
+test_proposal_layer.py:894: AssertionError
+_________________ Stage4Case.test_14_provenance_and_blindness _________________
+
+self = <autonomous_agent.test_stage4_capabilities.Stage4Case testMethod=test_14_provenance_and_blindness>
+
+    def test_14_provenance_and_blindness(self):
+        payload = self.make_payload("minimum_effect_falsifier")
+        for key in schema.REQUIRED_PAYLOAD_KEYS:
+            self.assertIn(key, payload)
+        self.assertEqual(payload["generator_type"],
+                         schema.GENERATOR_TYPE_DETERMINISTIC)
+        self.assertTrue(payload["evidence_citations"])
+        for citation in payload["evidence_citations"]:
+            self.assertEqual(len(citation["sha256"]), 64)
+        self.assertIn("basis", payload["preregistered_expectation"])
+        # Candidate ranking for the new primitives carries only the closed
+        # input set: no predicted/expected outcome fields exist in a candidate.
+        policy = base_policy()
+        governor = bias_governor.BiasGovernor(policy)
+        candidates = generator._build_candidates(self.view, policy, governor)
+        fresh = [c for c in candidates
+                 if c["primitive_id"] in NEW_PRIMITIVES]
+        self.assertTrue(fresh, "new primitives must enter the candidate pool")
+        for candidate in fresh:
+>           self.assertEqual(set(candidate),
+                             {"direction", "proposal_class", "primitive",
+                              "primitive_id", "params", "design_signature",
+                              "novelty_score", "evidence_gap_score",
+                              "quota_pressure", "priority",
+                              "attempts_in_direction", "prior_counts"})
+E           AssertionError: Items in the first set but not the second:
+E           'evidence_key'
+
+test_stage4_capabilities.py:360: AssertionError
+=========================== short test summary info ===========================
+FAILED test_proposal_layer.py::ProposalLayerTestCase::test_campaign1_evidence_unchanged
+FAILED test_stage4_capabilities.py::Stage4Case::test_14_provenance_and_blindness
+2 failed, 133 passed in 14.41s

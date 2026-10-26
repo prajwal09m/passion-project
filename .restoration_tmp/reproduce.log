@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Prajwal MIT\Passion\autonomous_agent\experiment_adapter.py", line 1424, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "C:\Prajwal MIT\Passion\autonomous_agent\experiment_adapter.py", line 1418, in main
+    result = adapter.run_reproduction(force=args.force)
+  File "C:\Prajwal MIT\Passion\autonomous_agent\experiment_adapter.py", line 1040, in run_reproduction
+    self.assert_original_unchanged(original_hash)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Prajwal MIT\Passion\autonomous_agent\experiment_adapter.py", line 720, in assert_original_unchanged
+    raise Anomaly("Original working tree changed during the experiment; "
+                  "the repository is not in a known-safe state.")
+Anomaly: Original working tree changed during the experiment; the repository is not in a known-safe state.

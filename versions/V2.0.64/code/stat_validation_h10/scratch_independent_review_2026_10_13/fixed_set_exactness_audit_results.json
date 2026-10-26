@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "what": "adversarial audit of D2 review Result 2 (fixed-set sign-flip exactness)",
+    "date": "2026-10-13",
+    "scratch": true
+  },
+  "A_counterexample": {
+    "null": "x ~ N(0, I4): invariant under the FULL product group (report's null holds)",
+    "statistic": "T(x) = mean over 4 weeks (linear week form, Result-3 family)",
+    "fixed_set_F": [
+      0,
+      7,
+      11
+    ],
+    "M_flip_vectors": 2,
+    "set_mapping_F_times_s1": [
+      0,
+      7,
+      12
+    ],
+    "equals_F": false,
+    "closed_form_size_at_alpha_1_over_3": 0.36614,
+    "mc_size_N2m": 0.366089,
+    "mc_se": 0.000341,
+    "mc_95ci": [
+      0.365421,
+      0.366757
+    ],
+    "exceeds_1_over_3": true,
+    "near_duplicate_rows_size": 0.416667,
+    "verdict": "conditional-on-set super-uniformity FALSE even in-family, null exact"
+  },
+  "B_non_exchangeability": {
+    "corr_matrix": [
+      [
+        1.0,
+        -0.5,
+        -0.5
+      ],
+      [
+        -0.5,
+        1.0,
+        0.0
+      ],
+      [
+        -0.5,
+        0.0,
+        1.0
+      ]
+    ],
+    "all_marginals_identical": true,
+    "corr_matrix_after_swapping_coords_0_1": [
+      [
+        1.0,
+        -0.5,
+        0.0
+      ],
+      [
+        -0.5,
+        1.0,
+        -0.5
+      ],
+      [
+        0.0,
+        -0.5,
+        1.0
+      ]
+    ],
+    "jointly_exchangeable": false,
+    "shifted_set_F_times_s1": [
+      0,
+      7,
+      12
+    ],
+    "shift_maps_set_onto_itself": false,
+    "note": "identical marginals + null invariance do NOT give joint exchangeability; the 'shift' maps F to a different set"
+  },
+  "C_exhaustive_enumeration": {
+    "null": "x uniform on {+-1}^4 (product-group invariant, ties present)",
+    "statistic": "T = mean over weeks",
+    "sets_checked": 32768,
+    "closed_sets_subgroups": 67,
+    "closed_set_sizes_observed": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "violations_among_closed_sets": 0,
+    "threshold_violation_events_in_non_closed_sets": 6549,
+    "worst_violation": {
+      "F_size": 6,
+      "alpha": 0.166666666667,
+      "empirical_cdf": 0.3125,
+      "excess": 0.145833,
+      "F": [
+        0,
+        7,
+        11,
+        13,
+        14,
+        15
+      ],
+      "kind": "non-closed set"
+    },
+    "explicit_size3_example_F": [
+      0,
+      7,
+      11
+    ],
+    "size3_example_p_dist": {
+      "0.333333": 6,
+      "0.666667": 4,
+      "1.0": 6
+    },
+    "size3_example_cdf_at_1_3": 0.375,
+    "size3_example_exceeds": true,
+    "interpretation": "every fixed-set violation found is non-closed; subgroup sets pass (Theorem A); production M=1000 -> |F| = 1001 odd -> F can never be a subgroup of a 2-group"
+  },
+  "D_fresh_draw_verification": {
+    "case_i_W4_M2_alpha_1_3": {
+      "N": 400000,
+      "size": 0.301675,
+      "se": 0.000726,
+      "exact_with_ties": 0.3027344,
+      "no_ties_target": 0.333333,
+      "note": "fresh iid uniform rows per trial: valid MARGINALLY over the draw; exact size below 1/3 (orbit ties make ties conservative)"
+    },
+    "case_ii_W6_M1000_alpha_0_05": {
+      "N": 4000,
+      "M": 1000,
+      "size": 0.044,
+      "se": 0.003243,
+      "theory_rank_bound": 0.04995,
+      "note": "same formula as production p=(1+count)/(M+1); super-uniform"
+    },
+    "contrast": "same p-formula: conditional on the BAD pinned set of part A -> 0.366; fresh draw -> ~0.333. Validity is a property of the draw, not of an arbitrary realized set."
+  }
+}

@@ -1,0 +1,11 @@
+candidate manifest: autonomous_agent\MAIN AUDITS AND REFLECTIONS\C4_CENSUS_MANIFEST_CANDIDATE_2026_10_13.json
+features: 100 | tier1 floats pending declaration: 68
+exact-equality columns: 29
+documented Tier-2: 3
+completeness errors: 68
+  - daily_return: Tier-1 tolerance is not frozen (abs/rel undeclared); a draft placeholder cannot back an audit PASS
+  - return_5d: Tier-1 tolerance is not frozen (abs/rel undeclared); a draft placeholder cannot back an audit PASS
+  - return_20d: Tier-1 tolerance is not frozen (abs/rel undeclared); a draft placeholder cannot back an audit PASS
+  - dist_ema20: Tier-1 tolerance is not frozen (abs/rel undeclared); a draft placeholder cannot back an audit PASS
+  - dist_ema50: Tier-1 tolerance is not frozen (abs/rel undeclared); a draft placeholder cannot back an audit PASS
+NOTE: errors are the expected fail-closed signal naming the freeze-time declarations still required; the manifest is complete as a candidate, not as an audit PASS.

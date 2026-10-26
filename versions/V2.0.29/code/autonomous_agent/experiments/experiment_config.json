@@ -1,0 +1,31 @@
+{
+  "arm_a": "C",
+  "arm_b": "D",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 10,
+  "estimator_a": "LightGBM",
+  "estimator_b": "LightGBM",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "min_folds": 3,
+    "note": "Non-degradation gates: delta >= 0, CI lower >= -0.01.",
+    "primary_metric_min_delta": 0.0
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_compositional",
+  "hypothesis_id": "rq-feature_engineering",
+  "hypothesis_text": "[feature_engineering] Compare two nested feature arms on identical purged folds. (arm_pair=C->D, estimator=LightGBM, n_boot=1000) \u2014 does it satisfy the predeclared non-degradation criteria on the frozen development folds?",
+  "n_boot": 1000,
+  "recipe_id": "proposal_layer",
+  "recipe_version": "1.0.0",
+  "schema_version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

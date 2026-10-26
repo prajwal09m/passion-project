@@ -1,0 +1,58 @@
+{
+ "events": {
+  "sha": "81e9a4e9790623a40eadaa8995729e7ac3811ec03d4107e94d3ede3242382632",
+  "lines": 155
+ },
+ "adapter_events": {
+  "sha": "5ffa640bf49bb98842514c2dd77581515dec48c2ef6c01fa3123840387b94145",
+  "lines": 48
+ },
+ "research_memory": {
+  "sha": "7baa7fd2fe73f1cbb9df94cb28cc388c38df1f2c7fcf85b13d6ed0a4bb86bcb0"
+ },
+ "RESEARCH_MEMORY_md": {
+  "sha": "b0ef8f2fdbfb4593400acec155cd183957323231492713c29859f741911fb8a9",
+  "lines": 2048
+ },
+ "CHANGELOG": {
+  "sha": "465dd881a07e1317cdeb7d4471d7f0082a7b3e3f0fcd1fe77363a45d092e1151",
+  "lines": 326
+ },
+ "VERSION_HISTORY": {
+  "sha": "1262ef23d66db232c4647dcbb5344d655ca2df0f4175194c30197f2387bb06db",
+  "lines": 35
+ },
+ "registry": {
+  "sha": "24f43f4e6ba2f0ab38cccf25b4a2cbd252a31f7526378c9fb7afdcbd3834dd29",
+  "attempt_entries": 12
+ },
+ "ledger": {
+  "sha": "90f819d7b4ac88a30bdf31543759abb1c61ec7370e74d1db19c215f537624227",
+  "lines": 85
+ },
+ "CHAMPION": {
+  "sha": "297d547587511050c22b7b3cfc6ef741e3ca2e62fc51290d2842046a2871a707",
+  "version": "V2.0.10"
+ },
+ "campaign_config": {
+  "sha256": "684a0858a972dd7756c25f8fd5f0f09594a2b5b661ace1cd53572dfa61cb1378"
+ },
+ "loop_state": {
+  "campaign_config_sha256": "684a0858a972dd7756c25f8fd5f0f09594a2b5b661ace1cd53572dfa61cb1378",
+  "campaign_id": "campaign-2-stage-2-2026-10-04",
+  "consecutive_failures": 0,
+  "cycle": 4,
+  "executing": null,
+  "executions_done": 4,
+  "heartbeat_at": "2026-10-05T10:14:52+00:00",
+  "last_error": "4/4 executed",
+  "last_stop_reason": "EXECUTION_BUDGET",
+  "max_cycles": 8,
+  "schema_version": 1,
+  "seed_base": 20261004,
+  "started_at": "2026-10-05T01:10:05+00:00",
+  "status": "STOPPED",
+  "updated_at": "2026-10-05T10:14:52+00:00"
+ },
+ "post_run_utc": "2026-10-05T10:33:32.099601+00:00"
+}

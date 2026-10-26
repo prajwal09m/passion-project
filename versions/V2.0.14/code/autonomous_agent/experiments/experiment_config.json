@@ -1,0 +1,31 @@
+{
+  "arm_a": "A",
+  "arm_b": "B",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 10,
+  "estimator_a": "LogisticRegression",
+  "estimator_b": "LogisticRegression",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "min_folds": 3,
+    "note": "Reproduction gates: identical design and gates, independent predeclared seed set.",
+    "primary_metric_min_delta": 0.0
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_compositional",
+  "hypothesis_id": "rq-validation",
+  "hypothesis_text": "[validation] Replication: does Re-run the identical comparison on the independent predeclared seed set 7, 17, 29 so the non-degradation claim must reproduce on different random draws. (arm_pair=A->B, estimator=LogisticRegression, n_boot=500) reproduce deterministically under an independently parameterized re-run?",
+  "n_boot": 500,
+  "recipe_id": "proposal_layer",
+  "recipe_version": "1.0.0",
+  "schema_version": 1,
+  "seeds": [
+    7,
+    17,
+    29
+  ]
+}

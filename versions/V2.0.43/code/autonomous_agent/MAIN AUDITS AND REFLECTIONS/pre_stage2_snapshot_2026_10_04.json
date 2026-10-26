@@ -1,0 +1,39 @@
+{
+ "events": {
+  "sha": "81e9a4e9790623a40eadaa8995729e7ac3811ec03d4107e94d3ede3242382632",
+  "lines": 155
+ },
+ "adapter_events": {
+  "sha": "d9510e13b1345c1dfd8c5e767105eec99c335c47bf50fa0ce2d84194b1c7b02a",
+  "lines": 39
+ },
+ "research_memory": {
+  "sha": "d3d672b56f9364a9e4fc78cb43e49910362c3955bf6031cea3ac5120f94bf527"
+ },
+ "RESEARCH_MEMORY_md": {
+  "sha": "89153807d091eaf7d4871db74a976a90078eec6ef9a0775c80b84ef153dc3b97",
+  "lines": 2009
+ },
+ "CHANGELOG": {
+  "sha": "9f5ef06ceb8942ef23ba0cc4f0e13c23012690ba2423edb36eb2bb2231076589",
+  "lines": 270
+ },
+ "VERSION_HISTORY": {
+  "sha": "09ee49653ae16980a1e318c9f4c72ef01fb63df6f3fa80fd7feb6785cd50bab2",
+  "lines": 31
+ },
+ "registry": {
+  "sha": "10a941d63797ad7e8513f09575e28ea5ac91901594a6a1b0d2f4de4b3b9e8e92",
+  "entries": 2
+ },
+ "ledger": {
+  "sha": "4ceb1f85f95a2e346b17f7fe95630febafaaae1ecef53f509574791395cfc760",
+  "lines": 47
+ },
+ "CHAMPION": {
+  "sha": "e1624709f2111ec1731f925acb07bed6265068899f675cc9663af099eb1cb5a1"
+ },
+ "campaign_config": {
+  "sha256": "684a0858a972dd7756c25f8fd5f0f09594a2b5b661ace1cd53572dfa61cb1378"
+ }
+}

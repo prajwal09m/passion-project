@@ -1,0 +1,140 @@
+{"cycle": 1, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 2, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 3, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 4, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 5, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 6, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 7, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 8, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 9, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 10, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 11, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 12, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 13, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 14, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 15, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 16, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 17, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 18, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 19, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 20, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 21, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 22, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 23, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 24, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 25, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 26, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 27, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 28, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 29, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 30, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 31, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 32, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 33, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 34, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 35, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 36, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 37, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 38, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 39, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 40, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 41, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 42, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 43, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 44, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 45, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 46, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 47, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 48, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 49, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 50, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 51, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 52, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 53, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 54, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 55, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 56, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 57, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 58, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 59, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 60, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 61, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 62, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 63, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 64, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 65, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 66, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 67, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 68, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 69, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 70, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 71, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 72, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 73, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 74, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 75, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 76, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 77, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 78, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 79, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 80, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 81, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 82, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 83, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 84, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 85, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 86, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 87, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 88, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 89, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 90, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 91, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 92, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 93, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 94, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 95, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 96, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 97, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 98, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 99, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 100, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 101, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 102, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 103, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 104, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 105, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 106, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 107, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 108, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 109, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 110, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 111, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 112, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 113, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 114, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 115, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 116, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 117, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 118, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 119, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 120, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 121, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 122, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 123, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 124, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 125, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 126, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 127, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 128, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 129, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 130, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 131, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 132, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 133, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 134, "ready": true, "status": "RUNNING", "hypothesis": "Are errors concentrated by time, ticker, volatility regime, or prediction confidence?", "blockers": []}
+{"cycle": 135, "ready": true, "status": "RUNNING", "hypothesis": "Can the model be simplified without sacrificing stable out-of-sample performance?", "blockers": []}
+{"cycle": 136, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+{"cycle": 137, "ready": true, "status": "RUNNING", "hypothesis": "Would stronger purging and independent time-block inference change the ranking of feature arms?", "blockers": []}
+{"cycle": 138, "ready": true, "status": "RUNNING", "hypothesis": "Does the target horizon encode an objective that remains useful after realistic costs and maturity rules?", "blockers": []}
+{"cycle": 139, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 140, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}

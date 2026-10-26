@@ -1,0 +1,34 @@
+[
+  {
+    "cycle": 0,
+    "key": [
+      "C",
+      "D",
+      "LogisticRegression",
+      "LogisticRegression",
+      "(7, 17, 29)",
+      "(2023, 2024, 2025)",
+      "BASELINE_RECONSTRUCTED_2026_10"
+    ],
+    "class": "replication",
+    "direction": "validation",
+    "seed_set": "replication",
+    "status": "NEW_EVIDENCE"
+  },
+  {
+    "cycle": 1,
+    "key": [
+      "B",
+      "C",
+      "LogisticRegression",
+      "LogisticRegression",
+      "(7, 17, 29)",
+      "(2023, 2024, 2025)",
+      "BASELINE_RECONSTRUCTED_2026_10"
+    ],
+    "class": "replication",
+    "direction": "validation",
+    "seed_set": "replication",
+    "status": "NEW_EVIDENCE"
+  }
+]

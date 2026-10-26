@@ -1,0 +1,57 @@
+{
+  "config_draft": "C:\\Prajwal MIT\\Passion\\autonomous_agent\\MAIN AUDITS AND REFLECTIONS\\CAMPAIGN_4_CONFIG_DRAFT_2026_10_09.json",
+  "max_per_direction": 12,
+  "n_boot_in_draft": null,
+  "grid": {
+    "n_boot_grid": [
+      100,
+      2000
+    ]
+  },
+  "families": [
+    {
+      "family": "regime_split_analysis",
+      "m_bound": 24,
+      "B_min_required": 479,
+      "B1000_ok": true,
+      "config_n_boot": null,
+      "config_n_boot_ok": null
+    },
+    {
+      "family": "target_horizon_robustness",
+      "m_bound": 36,
+      "B_min_required": 719,
+      "B1000_ok": true,
+      "config_n_boot": null,
+      "config_n_boot_ok": null
+    },
+    {
+      "family": "purge_sensitivity_probe",
+      "m_bound": 36,
+      "B_min_required": 719,
+      "B1000_ok": true,
+      "config_n_boot": null,
+      "config_n_boot_ok": null
+    },
+    {
+      "family": "complexity_reduction_check",
+      "m_bound": 12,
+      "B_min_required": 239,
+      "B1000_ok": true,
+      "config_n_boot": null,
+      "config_n_boot_ok": null
+    }
+  ],
+  "unbound_contingency": {
+    "m": 90,
+    "B_min_required": 1799,
+    "B1000_ok": false,
+    "note": "requires family cap in config or n_boot >= 1799"
+  },
+  "verdict_B1000": "FEASIBLE for all capped families",
+  "meta": {
+    "written_utc": "2026-10-10T20:28:30+00:00",
+    "simh10_sha256": "9464780ca36ea3a74da3f5ea76aa96418267f7a17a13b04f86ef6a69dce58eeb",
+    "runner": "run_sim.py"
+  }
+}

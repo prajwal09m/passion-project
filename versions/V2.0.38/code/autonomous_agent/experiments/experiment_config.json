@@ -1,0 +1,33 @@
+{
+  "arm_a": "B",
+  "arm_b": "C",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 5,
+  "estimator_a": "LightGBM",
+  "estimator_b": "LightGBM",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "max_brier_degradation": 0.005,
+    "max_ece_degradation": 0.02,
+    "min_folds": 3,
+    "note": "Calibration gates: Brier <= +0.005, ECE <= +0.02 absolute.",
+    "primary_metric_min_delta": 0.0
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_compositional",
+  "hypothesis_id": "rq-calibration",
+  "hypothesis_text": "[calibration] Falsifier: Measure Brier/ECE stability across chronological folds and years. (arm_pair=B->C, calibration_bins=5, estimator=LightGBM, n_boot=2000) \u2014 predeclared refutation: metric below zero under the frozen purged protocol.",
+  "n_boot": 2000,
+  "recipe_id": "proposal_layer",
+  "recipe_version": "1.0.0",
+  "schema_version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

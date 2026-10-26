@@ -1,0 +1,16 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.1, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\kamal\AppData\Local\Programs\Python\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Prajwal MIT\Passion\.model_discovery_workspace\dev
+plugins: anyio-4.14.2, cov-7.1.0
+collecting ... collected 1 item
+
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_horizon_family_refits_and_flags PASSED [100%]
+
+============================= slowest 5 durations =============================
+139.32s call     autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_horizon_family_refits_and_flags
+0.01s setup    autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_horizon_family_refits_and_flags
+0.01s teardown autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_horizon_family_refits_and_flags
+======================== 1 passed in 141.40s (0:02:21) ========================
+START=2026-10-18T14:11:56-04:00
+EXIT_STATUS=0

@@ -1,0 +1,90 @@
+{
+  "hashes_before": {
+    "H10_D2_EXTERNAL_REVIEW_PACKET.md": "9ad9178570388d78c43d9416c74ff23b73ff6bfa9447f4810c106072d6c601f6",
+    "H10_SIMULATION_EVIDENCE_REPORT.md": "85c6ac4f21be0755671726fe1ceb0db37d645206e7183692b9ff545a8255a884",
+    "simh10.py": "4b7ebd5f3ffc5413247cdcedb099d493a71e3cfc01346a68c8440de9d59b51f3",
+    "run_sim.py": "96aa497cebb30ae38a381e361540dc68566f098b108eb26056777dcfecb3dcc1",
+    "run_sharded_sim2.sh": "f34de5e8e7fe69ef6e51db24b8448d0aba00165ba2116c620dd8946d8c56ad7c",
+    "results/selftest.json": "fb7fce987be73be5a3de08519de709665d1bc6a345ecdb8e2f097465ad5076da",
+    "results/sim1_summary.json": "d203e04bcb5e3af331f6fea7b4e02192bd0c1a79d811f53c81ab208c6209bbc0",
+    "results/sim2_summary.json": "e2b267e49a6df52731f77e1041a60b474ff524032cac76cb3b4123d313c07bbb",
+    "results/sim3.json": "02b84d7d26fdae3403d91661623565a33a341aabdfd7778eba6dfea6ef59f848",
+    "results/sim4.json": "e00f4b1e1fabc3cf1aa32cc7b8d038087ab24e1eb0ae8f8af3501e4564422c15",
+    "results/sim5.json": "4bf8d364aba232d9b6c1eab70a7552b8ac86487c0c6f052c912926ee5a156bc2"
+  },
+  "audit": {
+    "sim1_pb_mean_six_cells": 0.0498,
+    "sim1_pb_cell_i": 0.049,
+    "sim1_pb_cell_iii50": 0.06,
+    "sim1_claim": 0.0498,
+    "sim2_rho03_m4_b1000_pb_k": 113,
+    "sim2_claim_worst_cell_k": 113,
+    "sim2_rho00_m24_b1000_pb_k": 97,
+    "sim2_rho00_m24_fwer": 0.0485,
+    "sim3_cell_i_pb_disagree": 24,
+    "sim3_claim_cell_i_pb": 24,
+    "rounding_113_over_2000": 0.0565,
+    "pre_review_rounding_claim_check": {
+      "113/2000 <= 0.057": true,
+      "131/2000 <= 0.066": true
+    }
+  },
+  "mc_resolution": {
+    "m=1": {
+      "first_holm_threshold": 0.05,
+      "max_rejecting_count": 49,
+      "p_true_half_t": 0.9999949573691505,
+      "p_true_at_t": 0.47974105708732423,
+      "p_true_2t": 2.7867103024608097e-09,
+      "attainable": true
+    },
+    "m=12": {
+      "first_holm_threshold": 0.004166666666666667,
+      "max_rejecting_count": 3,
+      "p_true_half_t": 0.8419612500175311,
+      "p_true_at_t": 0.40114948969308817,
+      "p_true_2t": 0.033258928373792504,
+      "attainable": true
+    },
+    "m=24": {
+      "first_holm_threshold": 0.0020833333333333333,
+      "max_rejecting_count": 1,
+      "p_true_half_t": 0.7204269652911456,
+      "p_true_at_t": 0.383626588333826,
+      "p_true_2t": 0.07967693914543883,
+      "attainable": true
+    },
+    "m=36": {
+      "first_holm_threshold": 0.001388888888888889,
+      "max_rejecting_count": 0,
+      "p_true_half_t": 0.4992313403845696,
+      "p_true_at_t": 0.24911160027412685,
+      "p_true_2t": 0.061936664160013685,
+      "attainable": true
+    },
+    "m=50": {
+      "first_holm_threshold": 0.001,
+      "max_rejecting_count": 0,
+      "p_true_half_t": 0.6064548228400615,
+      "p_true_at_t": 0.36769542477096406,
+      "p_true_2t": 0.13506452244668363,
+      "attainable": true
+    }
+  },
+  "hetero_theta_b_calibrated": 0.9668006896972656,
+  "hetero_calibration_note": "theta_B binary-searched on 400-frame pilots per step so that E[AUC_B - AUC_A] = 0 under the shared-factor DGP (pi=0.18).",
+  "hashes_after": {
+    "H10_D2_EXTERNAL_REVIEW_PACKET.md": "9ad9178570388d78c43d9416c74ff23b73ff6bfa9447f4810c106072d6c601f6",
+    "H10_SIMULATION_EVIDENCE_REPORT.md": "85c6ac4f21be0755671726fe1ceb0db37d645206e7183692b9ff545a8255a884",
+    "simh10.py": "4b7ebd5f3ffc5413247cdcedb099d493a71e3cfc01346a68c8440de9d59b51f3",
+    "run_sim.py": "96aa497cebb30ae38a381e361540dc68566f098b108eb26056777dcfecb3dcc1",
+    "run_sharded_sim2.sh": "f34de5e8e7fe69ef6e51db24b8448d0aba00165ba2116c620dd8946d8c56ad7c",
+    "results/selftest.json": "fb7fce987be73be5a3de08519de709665d1bc6a345ecdb8e2f097465ad5076da",
+    "results/sim1_summary.json": "d203e04bcb5e3af331f6fea7b4e02192bd0c1a79d811f53c81ab208c6209bbc0",
+    "results/sim2_summary.json": "e2b267e49a6df52731f77e1041a60b474ff524032cac76cb3b4123d313c07bbb",
+    "results/sim3.json": "02b84d7d26fdae3403d91661623565a33a341aabdfd7778eba6dfea6ef59f848",
+    "results/sim4.json": "e00f4b1e1fabc3cf1aa32cc7b8d038087ab24e1eb0ae8f8af3501e4564422c15",
+    "results/sim5.json": "4bf8d364aba232d9b6c1eab70a7552b8ac86487c0c6f052c912926ee5a156bc2"
+  },
+  "evidence_unchanged": true
+}

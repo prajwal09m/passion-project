@@ -1,0 +1,95 @@
+{
+  "by_primitive": {
+    "calibration_stability_check": {
+      "distinct_effective_configs": 3,
+      "distinct_outcomes": 3,
+      "distinct_param_settings": 8,
+      "experiments": 8
+    },
+    "complexity_premium_check": {
+      "distinct_effective_configs": 6,
+      "distinct_outcomes": 4,
+      "distinct_param_settings": 17,
+      "experiments": 17
+    },
+    "complexity_reduction_check": {
+      "distinct_effective_configs": 2,
+      "distinct_outcomes": 3,
+      "distinct_param_settings": 4,
+      "experiments": 4
+    },
+    "feature_arm_comparison": {
+      "distinct_effective_configs": 6,
+      "distinct_outcomes": 5,
+      "distinct_param_settings": 10,
+      "experiments": 10
+    },
+    "minimum_effect_falsifier": {
+      "distinct_effective_configs": 8,
+      "distinct_outcomes": 6,
+      "distinct_param_settings": 12,
+      "experiments": 12
+    },
+    "model_class_comparison": {
+      "distinct_effective_configs": 3,
+      "distinct_outcomes": 3,
+      "distinct_param_settings": 7,
+      "experiments": 7
+    },
+    "regime_split_analysis": {
+      "distinct_effective_configs": 1,
+      "distinct_outcomes": 4,
+      "distinct_param_settings": 4,
+      "experiments": 4
+    },
+    "seed_set_replication": {
+      "distinct_effective_configs": 3,
+      "distinct_outcomes": 2,
+      "distinct_param_settings": 3,
+      "experiments": 3
+    },
+    "target_horizon_robustness": {
+      "distinct_effective_configs": 1,
+      "distinct_outcomes": 4,
+      "distinct_param_settings": 4,
+      "experiments": 4
+    }
+  },
+  "effective_configs_seen": 26,
+  "mean_abs_auc_pair_per_outcome_group": null,
+  "param_settings_per_effective_config": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    3,
+    3,
+    4,
+    4,
+    4,
+    8
+  ],
+  "summary": {
+    "adjudicated_with_evidence": 69,
+    "distinct_measured_outcomes": 12,
+    "groups_with_more_than_one_proposal": 11,
+    "largest_group_size": 12,
+    "proposals_in_repeated_groups": 68
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "N": 1000,
+  "B": 1000,
+  "M": 1000,
+  "cells": {
+    "i_balanced_symmetric": {
+      "plan_cell": "i",
+      "true_delta_auc": 0.0,
+      "reject@0.05": {
+        "p_a": {
+          "alpha": 0.05,
+          "k_reject": 64,
+          "n_trials": 1000,
+          "rate": 0.064,
+          "cp95_lo": 0.049633089291849,
+          "cp95_hi": 0.08099507436705103,
+          "p_liberal_one_sided": 0.02842839728399469
+        },
+        "p_b": {
+          "alpha": 0.05,
+          "k_reject": 49,
+          "n_trials": 1000,
+          "rate": 0.049,
+          "cp95_lo": 0.03646705917204783,
+          "cp95_hi": 0.06426605314016964,
+          "p_liberal_one_sided": 0.5779861611339254
+        },
+        "p_c": {
+          "alpha": 0.05,
+          "k_reject": 61,
+          "n_trials": 1000,
+          "rate": 0.061,
+          "cp95_lo": 0.04697787554108023,
+          "cp95_hi": 0.07767077404912358,
+          "p_liberal_one_sided": 0.06706251863330775
+        }
+      }
+    },
+    "ii_skewed_sizes_rates": {
+      "plan_cell": "ii",
+      "true_delta_auc": 0.0,
+      "reject@0.05": {
+        "p_a": {
+          "alpha": 0.05,
+          "k_reject": 62,
+          "n_trials": 1000,
+          "rate": 0.062,
+          "cp95_lo": 0.04786184811336122,
+          "cp95_hi": 0.0787799496610325,
+          "p_liberal_one_sided": 0.05110955904188489
+        },
+        "p_b": {
+          "alpha": 0.05,
+          "k_reject": 43,
+          "n_trials": 1000,
+          "rate": 0.043,
+          "cp95_lo": 0.03129117045609261,
+          "cp95_hi": 0.05748625796197233,
+          "p_liberal_one_sided": 0.8628672954505384
+        },
+        "p_c": {
+          "alpha": 0.05,
+          "k_reject": 58,
+          "n_trials": 1000,
+          "rate": 0.058,
+          "cp95_lo": 0.0443328602528207,
+          "cp95_hi": 0.0743364953823516,
+          "p_liberal_one_sided": 0.13891894630905208
+        }
+      }
+    },
+    "iii_rho0": {
+      "plan_cell": "iii",
+      "true_delta_auc": 0.0,
+      "reject@0.05": {
+        "p_a": {
+          "alpha": 0.05,
+          "k_reject": 68,
+          "n_trials": 1000,
+          "rate": 0.068,
+          "cp95_lo": 0.05318809976040196,
+          "cp95_hi": 0.08541305019143103,
+          "p_liberal_one_sided": 0.00740771619919201
+        },
+        "p_b": {
+          "alpha": 0.05,
+          "k_reject": 50,
+          "n_trials": 1000,
+          "rate": 0.05,
+          "cp95_lo": 0.0373353976046618,
+          "cp95_hi": 0.06539048791549364,
+          "p_liberal_one_sided": 0.5202589429126758
+        },
+        "p_c": {
+          "alpha": 0.05,
+          "k_reject": 66,
+          "n_trials": 1000,
+          "rate": 0.066,
+          "cp95_lo": 0.05140856601891848,
+          "cp95_hi": 0.08320605046140273,
+          "p_liberal_one_sided": 0.014930406206287402
+        }
+      }
+    },
+    "iii_rho50": {
+      "plan_cell": "iii",
+      "true_delta_auc": 0.0,
+      "reject@0.05": {
+        "p_a": {
+          "alpha": 0.05,
+          "k_reject": 71,
+          "n_trials": 1000,
+          "rate": 0.071,
+          "cp95_lo": 0.05586464824989751,
+          "cp95_hi": 0.08871644088678735,
+          "p_liberal_one_sided": 0.0023303005476086147
+        },
+        "p_b": {
+          "alpha": 0.05,
+          "k_reject": 60,
+          "n_trials": 1000,
+          "rate": 0.06,
+          "cp95_lo": 0.046095035422484304,
+          "cp95_hi": 0.07656049040393476,
+          "p_liberal_one_sided": 0.0867321783848614
+        },
+        "p_c": {
+          "alpha": 0.05,
+          "k_reject": 71,
+          "n_trials": 1000,
+          "rate": 0.071,
+          "cp95_lo": 0.05586464824989751,
+          "cp95_hi": 0.08871644088678735,
+          "p_liberal_one_sided": 0.0023303005476086147
+        }
+      }
+    },
+    "iii_rho90": {
+      "plan_cell": "iii",
+      "true_delta_auc": 0.0,
+      "reject@0.05": {
+        "p_a": {
+          "alpha": 0.05,
+          "k_reject": 64,
+          "n_trials": 1000,
+          "rate": 0.064,
+          "cp95_lo": 0.049633089291849,
+          "cp95_hi": 0.08099507436705103,
+          "p_liberal_one_sided": 0.02842839728399469
+        },
+        "p_b": {
+          "alpha": 0.05,
+          "k_reject": 54,
+          "n_trials": 1000,
+          "rate": 0.054,
+          "cp95_lo": 0.040823351125630736,
+          "cp95_hi": 0.06987400557706737,
+          "p_liberal_one_sided": 0.3001674287854705
+        },
+        "p_c": {
+          "alpha": 0.05,
+          "k_reject": 66,
+          "n_trials": 1000,
+          "rate": 0.066,
+          "cp95_lo": 0.05140856601891848,
+          "cp95_hi": 0.08320605046140273,
+          "p_liberal_one_sided": 0.014930406206287402
+        }
+      }
+    },
+    "iv_regime_small_n": {
+      "plan_cell": "iv",
+      "true_delta_auc": 0.0,
+      "reject@0.05": {
+        "p_a": {
+          "alpha": 0.05,
+          "k_reject": 52,
+          "n_trials": 1000,
+          "rate": 0.052,
+          "cp95_lo": 0.039076534943980494,
+          "cp95_hi": 0.0676350140505073,
+          "p_liberal_one_sided": 0.4058160732043529
+        },
+        "p_b": {
+          "alpha": 0.05,
+          "k_reject": 43,
+          "n_trials": 1000,
+          "rate": 0.043,
+          "cp95_lo": 0.03129117045609261,
+          "cp95_hi": 0.05748625796197233,
+          "p_liberal_one_sided": 0.8628672954505384
+        },
+        "p_c": {
+          "alpha": 0.05,
+          "k_reject": 57,
+          "n_trials": 1000,
+          "rate": 0.057,
+          "cp95_lo": 0.043453581936958585,
+          "cp95_hi": 0.07322272946066224,
+          "p_liberal_one_sided": 0.1720577393654276
+        }
+      }
+    },
+    "v_power_delta_minus_001": {
+      "plan_cell": "v",
+      "true_delta_auc": -0.01000000000000012,
+      "reject@0.05": {
+        "p_a": {
+          "alpha": 0.05,
+          "k_reject": 453,
+          "n_trials": 1000,
+          "rate": 0.453,
+          "cp95_lo": 0.4218247766291605,
+          "cp95_hi": 0.48445268573053873,
+          "p_liberal_one_sided": 9.747030479117216e-305
+        },
+        "p_b": {
+          "alpha": 0.05,
+          "k_reject": 411,
+          "n_trials": 1000,
+          "rate": 0.411,
+          "cp95_lo": 0.3803055869541202,
+          "cp95_hi": 0.44221994766286604,
+          "p_liberal_one_sided": 5.1493984292315695e-256
+        },
+        "p_c": {
+          "alpha": 0.05,
+          "k_reject": 457,
+          "n_trials": 1000,
+          "rate": 0.457,
+          "cp95_lo": 0.42579062032187653,
+          "cp95_hi": 0.48846322441830353,
+          "p_liberal_one_sided": 1.536793731515963e-309
+        }
+      }
+    }
+  },
+  "verdicts": {
+    "p_a": {
+      "liberal_cells_raw_0.05": [
+        "i_balanced_symmetric@0.05(p=0.028)",
+        "ii_skewed_sizes_rates@0.025(p=0.013)",
+        "ii_skewed_sizes_rates@0.01(p=0.026)",
+        "iii_rho0@0.1(p=0.006)",
+        "iii_rho0@0.05(p=0.0074)",
+        "iii_rho0@0.025(p=0.021)",
+        "iii_rho50@0.05(p=0.0023)",
+        "iii_rho50@0.025(p=0.0084)",
+        "iii_rho50@0.01(p=0.048)",
+        "iii_rho90@0.05(p=0.028)",
+        "iii_rho90@0.025(p=0.048)",
+        "iv_regime_small_n@0.01(p=0.048)"
+      ],
+      "liberal_cells_bonferroni": [],
+      "bonferroni_threshold": 0.0006944444444444445,
+      "n_calibration_cells": 6,
+      "SIM1_pass_no_liberal_cell": true,
+      "note": "raw flags (p<0.05 uncorrected) listed for transparency; plan pass criterion applied conservatively at the Bonferroni-corrected level across calibration cells x alphas x methods"
+    },
+    "p_b": {
+      "liberal_cells_raw_0.05": [
+        "iii_rho90@0.01(p=0.026)"
+      ],
+      "liberal_cells_bonferroni": [],
+      "bonferroni_threshold": 0.0006944444444444445,
+      "n_calibration_cells": 6,
+      "SIM1_pass_no_liberal_cell": true,
+      "note": "raw flags (p<0.05 uncorrected) listed for transparency; plan pass criterion applied conservatively at the Bonferroni-corrected level across calibration cells x alphas x methods"
+    },
+    "p_c": {
+      "liberal_cells_raw_0.05": [
+        "ii_skewed_sizes_rates@0.01(p=0.014)",
+        "iii_rho0@0.1(p=0.017)",
+        "iii_rho0@0.05(p=0.015)",
+        "iii_rho0@0.025(p=0.0051)",
+        "iii_rho0@0.01(p=0.014)",
+        "iii_rho50@0.05(p=0.0023)",
+        "iii_rho50@0.025(p=0.0031)",
+        "iii_rho90@0.05(p=0.015)"
+      ],
+      "liberal_cells_bonferroni": [],
+      "bonferroni_threshold": 0.0006944444444444445,
+      "n_calibration_cells": 6,
+      "SIM1_pass_no_liberal_cell": true,
+      "note": "raw flags (p<0.05 uncorrected) listed for transparency; plan pass criterion applied conservatively at the Bonferroni-corrected level across calibration cells x alphas x methods"
+    }
+  },
+  "meta": {
+    "written_utc": "2026-10-10T21:58:52+00:00",
+    "simh10_sha256": "78e76672b04434359c27386528e5575e35ac7766b858462a37bbee7d62227fb3",
+    "runner": "run_sim.py"
+  }
+}

@@ -1,0 +1,18 @@
+scheduler stats: {"remaining_total": 64, "remaining_by_direction": {"data_quality": 4, "validation": 4, "feature_engineering": 4, "calibration": 4, "error_analysis": 4, "model_complexity": 4, "target_design": 4, "model_architecture": 4}, "remaining_by_class": {"confirmatory": 8, "falsification": 8, "replication": 2, "exploration": 2}, "excluded_recipe_signatures": 8, "excluded_asked_signatures": 0, "excluded_signature_cap": 0, "excluded_governor_inadmissible": 174, "excluded_governor_reasons": ["BIAS_QUOTA"], "excluded_total_budget": false, "candidates_remaining": 148}
+unmeasured evidence keys (arm_a, arm_b, est_a, est_b) and candidate grid cells:
+  ('B', 'C', 'LogisticRegression', 'LogisticRegression') cells: 3
+      {'primitive': 'seed_set_replication', 'params': {'arm_pair': 'B->C', 'estimator': 'LogisticRegression', 'n_boot': 500}, 'why': ['admissible?']}
+      {'primitive': 'seed_set_replication', 'params': {'arm_pair': 'B->C', 'estimator': 'LogisticRegression', 'n_boot': 1000}, 'why': ['admissible?']}
+      {'primitive': 'seed_set_replication', 'params': {'arm_pair': 'B->C', 'estimator': 'LogisticRegression', 'n_boot': 2000}, 'why': ['admissible?']}
+  ('B', 'C', 'LightGBM', 'LightGBM') cells: 3
+      {'primitive': 'seed_set_replication', 'params': {'arm_pair': 'B->C', 'estimator': 'LightGBM', 'n_boot': 500}, 'why': ['admissible?']}
+      {'primitive': 'seed_set_replication', 'params': {'arm_pair': 'B->C', 'estimator': 'LightGBM', 'n_boot': 1000}, 'why': ['admissible?']}
+      {'primitive': 'seed_set_replication', 'params': {'arm_pair': 'B->C', 'estimator': 'LightGBM', 'n_boot': 2000}, 'why': ['admissible?']}
+  ('C', 'D', 'LogisticRegression', 'LogisticRegression') cells: 3
+      {'primitive': 'seed_set_replication', 'params': {'arm_pair': 'C->D', 'estimator': 'LogisticRegression', 'n_boot': 500}, 'why': ['admissible?']}
+      {'primitive': 'seed_set_replication', 'params': {'arm_pair': 'C->D', 'estimator': 'LogisticRegression', 'n_boot': 1000}, 'why': ['admissible?']}
+      {'primitive': 'seed_set_replication', 'params': {'arm_pair': 'C->D', 'estimator': 'LogisticRegression', 'n_boot': 2000}, 'why': ['admissible?']}
+  ('C', 'D', 'LightGBM', 'LightGBM') cells: 3
+      {'primitive': 'seed_set_replication', 'params': {'arm_pair': 'C->D', 'estimator': 'LightGBM', 'n_boot': 500}, 'why': ['admissible?']}
+      {'primitive': 'seed_set_replication', 'params': {'arm_pair': 'C->D', 'estimator': 'LightGBM', 'n_boot': 1000}, 'why': ['admissible?']}
+      {'primitive': 'seed_set_replication', 'params': {'arm_pair': 'C->D', 'estimator': 'LightGBM', 'n_boot': 2000}, 'why': ['admissible?']}

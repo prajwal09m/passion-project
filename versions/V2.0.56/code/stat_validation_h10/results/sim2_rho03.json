@@ -1,0 +1,1021 @@
+{
+  "rho": 0.3,
+  "N_campaigns": 2000,
+  "seed": 2201,
+  "merged_from_shards": 8,
+  "rows": [
+    {
+      "m": 1,
+      "B": 500,
+      "k_fwer": 148,
+      "n_campaigns": 2000,
+      "fwer": 0.074,
+      "cp95": [
+        0.06290868484123782,
+        0.08635857234057762
+      ],
+      "p_liberal_one_sided": 2.3179896387537123e-06,
+      "mean_rejections_per_campaign": 0.074,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 1,
+      "B": 1000,
+      "k_fwer": 143,
+      "n_campaigns": 2000,
+      "fwer": 0.0715,
+      "cp95": [
+        0.06059254115154538,
+        0.08368270926923457
+      ],
+      "p_liberal_one_sided": 1.854181381281098e-05,
+      "mean_rejections_per_campaign": 0.0715,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 1,
+      "B": 2000,
+      "k_fwer": 145,
+      "n_campaigns": 2000,
+      "fwer": 0.0725,
+      "cp95": [
+        0.06151852849263172,
+        0.08475352032387533
+      ],
+      "p_liberal_one_sided": 8.243755797915984e-06,
+      "mean_rejections_per_campaign": 0.0725,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 4,
+      "B": 500,
+      "k_fwer": 177,
+      "n_campaigns": 2000,
+      "fwer": 0.0885,
+      "cp95": [
+        0.07641264910742726,
+        0.10180884798708471
+      ],
+      "p_liberal_one_sided": 4.921936185612444e-13,
+      "mean_rejections_per_campaign": 0.0925,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 4,
+      "B": 1000,
+      "k_fwer": 181,
+      "n_campaigns": 2000,
+      "fwer": 0.0905,
+      "cp95": [
+        0.07828372151323156,
+        0.10393153017708454
+      ],
+      "p_liberal_one_sided": 3.898767589458618e-14,
+      "mean_rejections_per_campaign": 0.095,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 4,
+      "B": 2000,
+      "k_fwer": 185,
+      "n_campaigns": 2000,
+      "fwer": 0.0925,
+      "cp95": [
+        0.08015665079544429,
+        0.10605236890702859
+      ],
+      "p_liberal_one_sided": 2.8078892810220885e-15,
+      "mean_rejections_per_campaign": 0.097,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 12,
+      "B": 500,
+      "k_fwer": 261,
+      "n_campaigns": 2000,
+      "fwer": 0.1305,
+      "cp95": [
+        0.11603681622379763,
+        0.14605564246145872
+      ],
+      "p_liberal_one_sided": 5.461133440037776e-44,
+      "mean_rejections_per_campaign": 0.1385,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 12,
+      "B": 1000,
+      "k_fwer": 270,
+      "n_campaigns": 2000,
+      "fwer": 0.135,
+      "cp95": [
+        0.12031687580999686,
+        0.1507619470133398
+      ],
+      "p_liberal_one_sided": 3.5456356200395034e-48,
+      "mean_rejections_per_campaign": 0.1445,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 12,
+      "B": 2000,
+      "k_fwer": 280,
+      "n_campaigns": 2000,
+      "fwer": 0.14,
+      "cp95": [
+        0.12507900997674623,
+        0.1559846916295164
+      ],
+      "p_liberal_one_sided": 5.265459300853133e-53,
+      "mean_rejections_per_campaign": 0.1505,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 24,
+      "B": 500,
+      "k_fwer": 347,
+      "n_campaigns": 2000,
+      "fwer": 0.1735,
+      "cp95": [
+        0.15714188470342164,
+        0.19082114230209016
+      ],
+      "p_liberal_one_sided": 9.487148353563191e-90,
+      "mean_rejections_per_campaign": 0.1885,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 24,
+      "B": 1000,
+      "k_fwer": 348,
+      "n_campaigns": 2000,
+      "fwer": 0.174,
+      "cp95": [
+        0.157622296556786,
+        0.19133923465921818
+      ],
+      "p_liberal_one_sided": 2.3690583935788646e-90,
+      "mean_rejections_per_campaign": 0.189,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 24,
+      "B": 2000,
+      "k_fwer": 357,
+      "n_campaigns": 2000,
+      "fwer": 0.1785,
+      "cp95": [
+        0.1619482445453295,
+        0.19599983195341672
+      ],
+      "p_liberal_one_sided": 7.659240951133922e-96,
+      "mean_rejections_per_campaign": 0.193,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 36,
+      "B": 500,
+      "k_fwer": 0,
+      "n_campaigns": 2000,
+      "fwer": 0.0,
+      "cp95": [
+        0.0,
+        0.0018427397934059364
+      ],
+      "p_liberal_one_sided": 1.0,
+      "mean_rejections_per_campaign": 0.0,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": false,
+      "method": "p_a"
+    },
+    {
+      "m": 36,
+      "B": 1000,
+      "k_fwer": 333,
+      "n_campaigns": 2000,
+      "fwer": 0.1665,
+      "cp95": [
+        0.15042149411482025,
+        0.18356249220921478
+      ],
+      "p_liberal_one_sided": 1.7904063185264876e-81,
+      "mean_rejections_per_campaign": 0.186,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 36,
+      "B": 2000,
+      "k_fwer": 348,
+      "n_campaigns": 2000,
+      "fwer": 0.174,
+      "cp95": [
+        0.157622296556786,
+        0.19133923465921818
+      ],
+      "p_liberal_one_sided": 2.3690583935788646e-90,
+      "mean_rejections_per_campaign": 0.193,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 50,
+      "B": 500,
+      "k_fwer": 0,
+      "n_campaigns": 2000,
+      "fwer": 0.0,
+      "cp95": [
+        0.0,
+        0.0018427397934059364
+      ],
+      "p_liberal_one_sided": 1.0,
+      "mean_rejections_per_campaign": 0.0,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": false,
+      "method": "p_a"
+    },
+    {
+      "m": 50,
+      "B": 1000,
+      "k_fwer": 452,
+      "n_campaigns": 2000,
+      "fwer": 0.226,
+      "cp95": [
+        0.20783244925135227,
+        0.24497425393931135
+      ],
+      "p_liberal_one_sided": 1.0901735424921705e-160,
+      "mean_rejections_per_campaign": 0.26,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 50,
+      "B": 2000,
+      "k_fwer": 474,
+      "n_campaigns": 2000,
+      "fwer": 0.237,
+      "cp95": [
+        0.2185096501666472,
+        0.25626444406336524
+      ],
+      "p_liberal_one_sided": 2.2746463114989733e-177,
+      "mean_rejections_per_campaign": 0.27,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 90,
+      "B": 500,
+      "k_fwer": 0,
+      "n_campaigns": 2000,
+      "fwer": 0.0,
+      "cp95": [
+        0.0,
+        0.0018427397934059364
+      ],
+      "p_liberal_one_sided": 1.0,
+      "mean_rejections_per_campaign": 0.0,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": false,
+      "method": "p_a"
+    },
+    {
+      "m": 90,
+      "B": 1000,
+      "k_fwer": 0,
+      "n_campaigns": 2000,
+      "fwer": 0.0,
+      "cp95": [
+        0.0,
+        0.0018427397934059364
+      ],
+      "p_liberal_one_sided": 1.0,
+      "mean_rejections_per_campaign": 0.0,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": false,
+      "method": "p_a"
+    },
+    {
+      "m": 90,
+      "B": 2000,
+      "k_fwer": 541,
+      "n_campaigns": 2000,
+      "fwer": 0.2705,
+      "cp95": [
+        0.2511295923487175,
+        0.2905454036750359
+      ],
+      "p_liberal_one_sided": 1.132811340614333e-231,
+      "mean_rejections_per_campaign": 0.311,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_a"
+    },
+    {
+      "m": 1,
+      "B": 500,
+      "k_fwer": 99,
+      "n_campaigns": 2000,
+      "fwer": 0.0495,
+      "cp95": [
+        0.04041037792654776,
+        0.059937316158426415
+      ],
+      "p_liberal_one_sided": 0.5552004086116324,
+      "mean_rejections_per_campaign": 0.0495,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 1,
+      "B": 1000,
+      "k_fwer": 104,
+      "n_campaigns": 2000,
+      "fwer": 0.052,
+      "cp95": [
+        0.04268243979733739,
+        0.0626567679337087
+      ],
+      "p_liberal_one_sided": 0.35478038560021874,
+      "mean_rejections_per_campaign": 0.052,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 1,
+      "B": 2000,
+      "k_fwer": 107,
+      "n_campaigns": 2000,
+      "fwer": 0.0535,
+      "cp95": [
+        0.04404871301914272,
+        0.06428544270902882
+      ],
+      "p_liberal_one_sided": 0.24969511928722327,
+      "mean_rejections_per_campaign": 0.0535,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 4,
+      "B": 500,
+      "k_fwer": 109,
+      "n_campaigns": 2000,
+      "fwer": 0.0545,
+      "cp95": [
+        0.04496077079948499,
+        0.06537003226128174
+      ],
+      "p_liberal_one_sided": 0.19052827323066612,
+      "mean_rejections_per_campaign": 0.0545,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 4,
+      "B": 1000,
+      "k_fwer": 113,
+      "n_campaigns": 2000,
+      "fwer": 0.0565,
+      "cp95": [
+        0.04678767628081573,
+        0.06753645583358898
+      ],
+      "p_liberal_one_sided": 0.10142411450259707,
+      "mean_rejections_per_campaign": 0.0575,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 4,
+      "B": 2000,
+      "k_fwer": 108,
+      "n_campaigns": 2000,
+      "fwer": 0.054,
+      "cp95": [
+        0.04450462313867373,
+        0.06482785476884044
+      ],
+      "p_liberal_one_sided": 0.21891936057795686,
+      "mean_rejections_per_campaign": 0.055,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 12,
+      "B": 500,
+      "k_fwer": 94,
+      "n_campaigns": 2000,
+      "fwer": 0.047,
+      "cp95": [
+        0.038145040664180424,
+        0.05721123196146301
+      ],
+      "p_liberal_one_sided": 0.7448349670377692,
+      "mean_rejections_per_campaign": 0.0475,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 12,
+      "B": 1000,
+      "k_fwer": 88,
+      "n_campaigns": 2000,
+      "fwer": 0.044,
+      "cp95": [
+        0.03543624464675896,
+        0.05393046169765881
+      ],
+      "p_liberal_one_sided": 0.9020692241297147,
+      "mean_rejections_per_campaign": 0.044,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 12,
+      "B": 2000,
+      "k_fwer": 86,
+      "n_campaigns": 2000,
+      "fwer": 0.043,
+      "cp95": [
+        0.034535804359735967,
+        0.052834417829031644
+      ],
+      "p_liberal_one_sided": 0.9342412418281383,
+      "mean_rejections_per_campaign": 0.0435,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 24,
+      "B": 500,
+      "k_fwer": 90,
+      "n_campaigns": 2000,
+      "fwer": 0.045,
+      "cp95": [
+        0.036337957311261826,
+        0.05502525284745086
+      ],
+      "p_liberal_one_sided": 0.8599852762080589,
+      "mean_rejections_per_campaign": 0.046,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 24,
+      "B": 1000,
+      "k_fwer": 92,
+      "n_campaigns": 2000,
+      "fwer": 0.046,
+      "cp95": [
+        0.037240902034369014,
+        0.05611883054343632
+      ],
+      "p_liberal_one_sided": 0.8074571705092142,
+      "mean_rejections_per_campaign": 0.047,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 24,
+      "B": 2000,
+      "k_fwer": 98,
+      "n_campaigns": 2000,
+      "fwer": 0.049,
+      "cp95": [
+        0.03995675692495892,
+        0.05939264512468934
+      ],
+      "p_liberal_one_sided": 0.5956240252852437,
+      "mean_rejections_per_campaign": 0.0505,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 36,
+      "B": 500,
+      "k_fwer": 0,
+      "n_campaigns": 2000,
+      "fwer": 0.0,
+      "cp95": [
+        0.0,
+        0.0018427397934059364
+      ],
+      "p_liberal_one_sided": 1.0,
+      "mean_rejections_per_campaign": 0.0,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": false,
+      "method": "p_b"
+    },
+    {
+      "m": 36,
+      "B": 1000,
+      "k_fwer": 67,
+      "n_campaigns": 2000,
+      "fwer": 0.0335,
+      "cp95": [
+        0.026054421067532103,
+        0.042350446233080964
+      ],
+      "p_liberal_one_sided": 0.9998605377782814,
+      "mean_rejections_per_campaign": 0.0345,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 36,
+      "B": 2000,
+      "k_fwer": 74,
+      "n_campaigns": 2000,
+      "fwer": 0.037,
+      "cp95": [
+        0.029162462412264865,
+        0.046229338801493554
+      ],
+      "p_liberal_one_sided": 0.9976822185330317,
+      "mean_rejections_per_campaign": 0.038,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 50,
+      "B": 500,
+      "k_fwer": 0,
+      "n_campaigns": 2000,
+      "fwer": 0.0,
+      "cp95": [
+        0.0,
+        0.0018427397934059364
+      ],
+      "p_liberal_one_sided": 1.0,
+      "mean_rejections_per_campaign": 0.0,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": false,
+      "method": "p_b"
+    },
+    {
+      "m": 50,
+      "B": 1000,
+      "k_fwer": 91,
+      "n_campaigns": 2000,
+      "fwer": 0.0455,
+      "cp95": [
+        0.03678927809881749,
+        0.055572191006579195
+      ],
+      "p_liberal_one_sided": 0.8350275694882721,
+      "mean_rejections_per_campaign": 0.0465,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 50,
+      "B": 2000,
+      "k_fwer": 99,
+      "n_campaigns": 2000,
+      "fwer": 0.0495,
+      "cp95": [
+        0.04041037792654776,
+        0.059937316158426415
+      ],
+      "p_liberal_one_sided": 0.5552004086116324,
+      "mean_rejections_per_campaign": 0.051,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 90,
+      "B": 500,
+      "k_fwer": 0,
+      "n_campaigns": 2000,
+      "fwer": 0.0,
+      "cp95": [
+        0.0,
+        0.0018427397934059364
+      ],
+      "p_liberal_one_sided": 1.0,
+      "mean_rejections_per_campaign": 0.0,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": false,
+      "method": "p_b"
+    },
+    {
+      "m": 90,
+      "B": 1000,
+      "k_fwer": 0,
+      "n_campaigns": 2000,
+      "fwer": 0.0,
+      "cp95": [
+        0.0,
+        0.0018427397934059364
+      ],
+      "p_liberal_one_sided": 1.0,
+      "mean_rejections_per_campaign": 0.0,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": false,
+      "method": "p_b"
+    },
+    {
+      "m": 90,
+      "B": 2000,
+      "k_fwer": 83,
+      "n_campaigns": 2000,
+      "fwer": 0.0415,
+      "cp95": [
+        0.03318762365085088,
+        0.05118791168352144
+      ],
+      "p_liberal_one_sided": 0.9666126190328733,
+      "mean_rejections_per_campaign": 0.044,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_b"
+    },
+    {
+      "m": 1,
+      "B": 500,
+      "k_fwer": 136,
+      "n_campaigns": 2000,
+      "fwer": 0.068,
+      "cp95": [
+        0.05735671775546186,
+        0.07992978675450117
+      ],
+      "p_liberal_one_sided": 0.0002523214716531418,
+      "mean_rejections_per_campaign": 0.068,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 1,
+      "B": 1000,
+      "k_fwer": 137,
+      "n_campaigns": 2000,
+      "fwer": 0.0685,
+      "cp95": [
+        0.05781847640300092,
+        0.08046641554391683
+      ],
+      "p_liberal_one_sided": 0.00017760552280844972,
+      "mean_rejections_per_campaign": 0.0685,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 1,
+      "B": 2000,
+      "k_fwer": 135,
+      "n_campaigns": 2000,
+      "fwer": 0.0675,
+      "cp95": [
+        0.05689513093346525,
+        0.07939298782934728
+      ],
+      "p_liberal_one_sided": 0.00035584212141975764,
+      "mean_rejections_per_campaign": 0.0675,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 4,
+      "B": 500,
+      "k_fwer": 185,
+      "n_campaigns": 2000,
+      "fwer": 0.0925,
+      "cp95": [
+        0.08015665079544429,
+        0.10605236890702859
+      ],
+      "p_liberal_one_sided": 2.8078892810220885e-15,
+      "mean_rejections_per_campaign": 0.0965,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 4,
+      "B": 1000,
+      "k_fwer": 182,
+      "n_campaigns": 2000,
+      "fwer": 0.091,
+      "cp95": [
+        0.07875178191174413,
+        0.10446191055210695
+      ],
+      "p_liberal_one_sided": 2.0376827974806017e-14,
+      "mean_rejections_per_campaign": 0.0955,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 4,
+      "B": 2000,
+      "k_fwer": 185,
+      "n_campaigns": 2000,
+      "fwer": 0.0925,
+      "cp95": [
+        0.08015665079544429,
+        0.10605236890702859
+      ],
+      "p_liberal_one_sided": 2.8078892810220885e-15,
+      "mean_rejections_per_campaign": 0.097,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 12,
+      "B": 500,
+      "k_fwer": 241,
+      "n_campaigns": 2000,
+      "fwer": 0.1205,
+      "cp95": [
+        0.10654675193036303,
+        0.13557611133206285
+      ],
+      "p_liberal_one_sided": 3.0558422575794297e-35,
+      "mean_rejections_per_campaign": 0.127,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 12,
+      "B": 1000,
+      "k_fwer": 245,
+      "n_campaigns": 2000,
+      "fwer": 0.1225,
+      "cp95": [
+        0.10844232790382735,
+        0.13767444217262628
+      ],
+      "p_liberal_one_sided": 6.292531804890129e-37,
+      "mean_rejections_per_campaign": 0.129,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 12,
+      "B": 2000,
+      "k_fwer": 239,
+      "n_campaigns": 2000,
+      "fwer": 0.1195,
+      "cp95": [
+        0.10559943863702408,
+        0.13452647369183485
+      ],
+      "p_liberal_one_sided": 2.0707300610259614e-34,
+      "mean_rejections_per_campaign": 0.126,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 24,
+      "B": 500,
+      "k_fwer": 296,
+      "n_campaigns": 2000,
+      "fwer": 0.148,
+      "cp95": [
+        0.1327119469336683,
+        0.1643276194350828
+      ],
+      "p_liberal_one_sided": 4.2201980007315735e-61,
+      "mean_rejections_per_campaign": 0.1595,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 24,
+      "B": 1000,
+      "k_fwer": 298,
+      "n_campaigns": 2000,
+      "fwer": 0.149,
+      "cp95": [
+        0.13366718728598265,
+        0.16536936686291617
+      ],
+      "p_liberal_one_sided": 3.820081927729001e-62,
+      "mean_rejections_per_campaign": 0.1605,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 24,
+      "B": 2000,
+      "k_fwer": 300,
+      "n_campaigns": 2000,
+      "fwer": 0.15,
+      "cp95": [
+        0.13462267026074048,
+        0.1664108726519771
+      ],
+      "p_liberal_one_sided": 3.404055048488739e-63,
+      "mean_rejections_per_campaign": 0.1615,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 36,
+      "B": 500,
+      "k_fwer": 330,
+      "n_campaigns": 2000,
+      "fwer": 0.165,
+      "cp95": [
+        0.14898274372866116,
+        0.18200573851368615
+      ],
+      "p_liberal_one_sided": 9.703606557038268e-80,
+      "mean_rejections_per_campaign": 0.1845,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": false,
+      "method": "p_c"
+    },
+    {
+      "m": 36,
+      "B": 1000,
+      "k_fwer": 323,
+      "n_campaigns": 2000,
+      "fwer": 0.1615,
+      "cp95": [
+        0.14562754296090286,
+        0.17837143651021833
+      ],
+      "p_liberal_one_sided": 9.500911181574655e-76,
+      "mean_rejections_per_campaign": 0.1805,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 36,
+      "B": 2000,
+      "k_fwer": 329,
+      "n_campaigns": 2000,
+      "fwer": 0.1645,
+      "cp95": [
+        0.14850326710395717,
+        0.18148671415786655
+      ],
+      "p_liberal_one_sided": 3.64579512506247e-79,
+      "mean_rejections_per_campaign": 0.1835,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 50,
+      "B": 500,
+      "k_fwer": 387,
+      "n_campaigns": 2000,
+      "fwer": 0.1935,
+      "cp95": [
+        0.17639597819127054,
+        0.211507336920514
+      ],
+      "p_liberal_one_sided": 5.394669328667424e-115,
+      "mean_rejections_per_campaign": 0.216,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": false,
+      "method": "p_c"
+    },
+    {
+      "m": 50,
+      "B": 1000,
+      "k_fwer": 374,
+      "n_campaigns": 2000,
+      "fwer": 0.187,
+      "cp95": [
+        0.17013016636242698,
+        0.20479252975528295
+      ],
+      "p_liberal_one_sided": 1.5455437120846302e-106,
+      "mean_rejections_per_campaign": 0.209,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 50,
+      "B": 2000,
+      "k_fwer": 375,
+      "n_campaigns": 2000,
+      "fwer": 0.1875,
+      "cp95": [
+        0.17061187865374242,
+        0.2053093258046041
+      ],
+      "p_liberal_one_sided": 3.523693788615763e-107,
+      "mean_rejections_per_campaign": 0.2095,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    },
+    {
+      "m": 90,
+      "B": 500,
+      "k_fwer": 458,
+      "n_campaigns": 2000,
+      "fwer": 0.229,
+      "cp95": [
+        0.21074265507727602,
+        0.24805515082980448
+      ],
+      "p_liberal_one_sided": 3.522663555869249e-165,
+      "mean_rejections_per_campaign": 0.2555,
+      "floor_p": 0.001996007984031936,
+      "any_rejection_attainable": false,
+      "method": "p_c"
+    },
+    {
+      "m": 90,
+      "B": 1000,
+      "k_fwer": 464,
+      "n_campaigns": 2000,
+      "fwer": 0.232,
+      "cp95": [
+        0.21365418942517445,
+        0.2511347222013832
+      ],
+      "p_liberal_one_sided": 1.0281520132251923e-169,
+      "mean_rejections_per_campaign": 0.2595,
+      "floor_p": 0.000999000999000999,
+      "any_rejection_attainable": false,
+      "method": "p_c"
+    },
+    {
+      "m": 90,
+      "B": 2000,
+      "k_fwer": 457,
+      "n_campaigns": 2000,
+      "fwer": 0.2285,
+      "cp95": [
+        0.21025752801777312,
+        0.24754176055859925
+      ],
+      "p_liberal_one_sided": 1.987871135054207e-164,
+      "mean_rejections_per_campaign": 0.255,
+      "floor_p": 0.0004997501249375312,
+      "any_rejection_attainable": true,
+      "method": "p_c"
+    }
+  ],
+  "meta": {
+    "written_utc": "2026-10-11T21:06:47+00:00",
+    "simh10_sha256": "4b7ebd5f3ffc5413247cdcedb099d493a71e3cfc01346a68c8440de9d59b51f3",
+    "runner": "run_sim.py"
+  }
+}

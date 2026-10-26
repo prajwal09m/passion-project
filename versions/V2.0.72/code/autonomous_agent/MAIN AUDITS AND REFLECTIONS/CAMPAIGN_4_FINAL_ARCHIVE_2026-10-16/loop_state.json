@@ -1,0 +1,17 @@
+{
+  "campaign_config_sha256": "d8bff195eb6e3e1e81c201f78b9961f1d0d9738a611498eaca593f394e238862",
+  "campaign_id": "campaign-4-continuous-2026-10-14",
+  "consecutive_failures": 0,
+  "cycle": 39,
+  "executing": null,
+  "executions_done": 32,
+  "heartbeat_at": "2026-10-16T22:10:04+00:00",
+  "last_error": "32/32 executed",
+  "last_stop_reason": "EXECUTION_BUDGET",
+  "max_cycles": 1,
+  "schema_version": 1,
+  "seed_base": 20261014,
+  "started_at": "2026-10-15T00:11:07+00:00",
+  "status": "STOPPED",
+  "updated_at": "2026-10-16T22:10:04+00:00"
+}

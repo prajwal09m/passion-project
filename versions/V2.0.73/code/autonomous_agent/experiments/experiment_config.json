@@ -1,0 +1,33 @@
+{
+  "arm_a": "D",
+  "arm_b": "D",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 10,
+  "estimator_a": "LogisticRegression",
+  "estimator_b": "LightGBM",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "min_folds": 3,
+    "note": "Point-in-time audit is tri-state (CLEAN / UNVERIFIABLE / CONFIRMED_CONTAMINATION); UNVERIFIABLE never returns PASS, and a disclosed Tier-2 defect is an audit FAIL, never contamination (owner ruling R-4).",
+    "primary_metric_min_delta": 0.0
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_compositional",
+  "harness_version": "1.1.0",
+  "hypothesis_id": "rq-data_quality",
+  "hypothesis_text": "[data_quality] Verify source vintage, universe membership, timestamps and label maturity before modeling. (arm=D, n_boot=2000) \u2014 does it satisfy the predeclared non-degradation criteria on the frozen development folds?",
+  "n_boot": 2000,
+  "primitive_id": "point_in_time_data_audit",
+  "recipe_id": "proposal_layer",
+  "recipe_version": "1.1.0",
+  "schema_version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

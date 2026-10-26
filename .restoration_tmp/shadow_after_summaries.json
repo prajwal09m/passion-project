@@ -1,0 +1,235 @@
+[
+ {
+  "seed": 1,
+  "scheduler": {
+   "remaining_total": 5,
+   "remaining_by_direction": {
+    "validation": -6,
+    "calibration": -1,
+    "data_quality": 4,
+    "feature_engineering": 4,
+    "error_analysis": 4,
+    "model_complexity": 4,
+    "target_design": 4,
+    "model_architecture": 4
+   },
+   "excluded_exhausted_directions": [
+    "calibration",
+    "validation"
+   ],
+   "excluded_exhausted_classes": [
+    "confirmatory"
+   ],
+   "remaining_by_class": {
+    "confirmatory": 0,
+    "falsification": 1,
+    "replication": 2,
+    "exploration": 2
+   },
+   "excluded_recipe_signatures": 6,
+   "excluded_asked_signatures": 0,
+   "excluded_signature_cap": 0,
+   "excluded_total_budget": false,
+   "candidates_remaining": 14,
+   "exhausted": false
+  },
+  "summary": {
+   "created": [
+    "prop-e8cecbc65f31-1"
+   ],
+   "awaiting_approval": [
+    "prop-e8cecbc65f31-1"
+   ],
+   "refused": [],
+   "failed_validation": [],
+   "refused_at_approval": [],
+   "failed_at_approval": [],
+   "compiled": [],
+   "failed_compilation": []
+  }
+ },
+ {
+  "seed": 2,
+  "scheduler": {
+   "remaining_total": 4,
+   "remaining_by_direction": {
+    "validation": -6,
+    "calibration": -1,
+    "feature_engineering": 3,
+    "data_quality": 4,
+    "error_analysis": 4,
+    "model_complexity": 4,
+    "target_design": 4,
+    "model_architecture": 4
+   },
+   "excluded_exhausted_directions": [
+    "calibration",
+    "validation"
+   ],
+   "excluded_exhausted_classes": [
+    "confirmatory",
+    "falsification"
+   ],
+   "remaining_by_class": {
+    "confirmatory": 0,
+    "falsification": 0,
+    "replication": 2,
+    "exploration": 2
+   },
+   "excluded_recipe_signatures": 6,
+   "excluded_asked_signatures": 1,
+   "excluded_signature_cap": 0,
+   "excluded_total_budget": false,
+   "candidates_remaining": 0,
+   "exhausted": true
+  },
+  "summary": {
+   "created": [],
+   "awaiting_approval": [],
+   "refused": [],
+   "failed_validation": [],
+   "refused_at_approval": [],
+   "failed_at_approval": [],
+   "compiled": [],
+   "failed_compilation": []
+  }
+ },
+ {
+  "seed": 3,
+  "scheduler": {
+   "remaining_total": 4,
+   "remaining_by_direction": {
+    "validation": -6,
+    "calibration": -1,
+    "feature_engineering": 3,
+    "data_quality": 4,
+    "error_analysis": 4,
+    "model_complexity": 4,
+    "target_design": 4,
+    "model_architecture": 4
+   },
+   "excluded_exhausted_directions": [
+    "calibration",
+    "validation"
+   ],
+   "excluded_exhausted_classes": [
+    "confirmatory",
+    "falsification"
+   ],
+   "remaining_by_class": {
+    "confirmatory": 0,
+    "falsification": 0,
+    "replication": 2,
+    "exploration": 2
+   },
+   "excluded_recipe_signatures": 6,
+   "excluded_asked_signatures": 1,
+   "excluded_signature_cap": 0,
+   "excluded_total_budget": false,
+   "candidates_remaining": 0,
+   "exhausted": true
+  },
+  "summary": {
+   "created": [],
+   "awaiting_approval": [],
+   "refused": [],
+   "failed_validation": [],
+   "refused_at_approval": [],
+   "failed_at_approval": [],
+   "compiled": [],
+   "failed_compilation": []
+  }
+ },
+ {
+  "seed": 4,
+  "scheduler": {
+   "remaining_total": 4,
+   "remaining_by_direction": {
+    "validation": -6,
+    "calibration": -1,
+    "feature_engineering": 3,
+    "data_quality": 4,
+    "error_analysis": 4,
+    "model_complexity": 4,
+    "target_design": 4,
+    "model_architecture": 4
+   },
+   "excluded_exhausted_directions": [
+    "calibration",
+    "validation"
+   ],
+   "excluded_exhausted_classes": [
+    "confirmatory",
+    "falsification"
+   ],
+   "remaining_by_class": {
+    "confirmatory": 0,
+    "falsification": 0,
+    "replication": 2,
+    "exploration": 2
+   },
+   "excluded_recipe_signatures": 6,
+   "excluded_asked_signatures": 1,
+   "excluded_signature_cap": 0,
+   "excluded_total_budget": false,
+   "candidates_remaining": 0,
+   "exhausted": true
+  },
+  "summary": {
+   "created": [],
+   "awaiting_approval": [],
+   "refused": [],
+   "failed_validation": [],
+   "refused_at_approval": [],
+   "failed_at_approval": [],
+   "compiled": [],
+   "failed_compilation": []
+  }
+ },
+ {
+  "seed": 5,
+  "scheduler": {
+   "remaining_total": 4,
+   "remaining_by_direction": {
+    "validation": -6,
+    "calibration": -1,
+    "feature_engineering": 3,
+    "data_quality": 4,
+    "error_analysis": 4,
+    "model_complexity": 4,
+    "target_design": 4,
+    "model_architecture": 4
+   },
+   "excluded_exhausted_directions": [
+    "calibration",
+    "validation"
+   ],
+   "excluded_exhausted_classes": [
+    "confirmatory",
+    "falsification"
+   ],
+   "remaining_by_class": {
+    "confirmatory": 0,
+    "falsification": 0,
+    "replication": 2,
+    "exploration": 2
+   },
+   "excluded_recipe_signatures": 6,
+   "excluded_asked_signatures": 1,
+   "excluded_signature_cap": 0,
+   "excluded_total_budget": false,
+   "candidates_remaining": 0,
+   "exhausted": true
+  },
+  "summary": {
+   "created": [],
+   "awaiting_approval": [],
+   "refused": [],
+   "failed_validation": [],
+   "refused_at_approval": [],
+   "failed_at_approval": [],
+   "compiled": [],
+   "failed_compilation": []
+  }
+ }
+]

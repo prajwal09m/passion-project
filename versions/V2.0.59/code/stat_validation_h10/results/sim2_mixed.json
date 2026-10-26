@@ -1,0 +1,42 @@
+{
+  "rho": 0.3,
+  "m": 12,
+  "B": 1000,
+  "thetas": "11 x (0.20,0.35) strong H1 + 1 x (0.35,0.35) true H0",
+  "rows": [
+    {
+      "method": "p_a",
+      "B": 1000,
+      "n_campaigns": 2000,
+      "p_any_rejection": 1.0,
+      "p_true_H0_rejected": 0.0695,
+      "mean_fraction_H1_rejected": 0.9895,
+      "true_delta_H1": -0.07833973217591583
+    },
+    {
+      "method": "p_b",
+      "B": 1000,
+      "n_campaigns": 2000,
+      "p_any_rejection": 1.0,
+      "p_true_H0_rejected": 0.0525,
+      "mean_fraction_H1_rejected": 0.9852272727272727,
+      "true_delta_H1": -0.07833973217591583
+    },
+    {
+      "method": "p_c",
+      "B": 1000,
+      "n_campaigns": 2000,
+      "p_any_rejection": 1.0,
+      "p_true_H0_rejected": 0.0675,
+      "mean_fraction_H1_rejected": 0.9883636363636362,
+      "true_delta_H1": -0.07833973217591583
+    }
+  ],
+  "seed": 2999,
+  "merged_from_shards": 8,
+  "meta": {
+    "written_utc": "2026-10-11T21:06:54+00:00",
+    "simh10_sha256": "4b7ebd5f3ffc5413247cdcedb099d493a71e3cfc01346a68c8440de9d59b51f3",
+    "runner": "run_sim.py"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "empty_outcome_keys": 0,
+  "groups": 12
+}
+n=12 passed=12 delta=0.025192 auc_seed42=(0.652706, 0.684951) prims={'model_class_comparison': 3, 'complexity_premium_check': 6, 'complexity_reduction_check': 1, 'regime_split_analysis': 1, 'target_horizon_robustness': 1}
+n=10 passed=10 delta=0.081817 auc_seed42=(0.585978, 0.666564) prims={'model_class_comparison': 2, 'complexity_premium_check': 4, 'complexity_reduction_check': 2, 'target_horizon_robustness': 1, 'regime_split_analysis': 1}
+n= 9 passed= 6 delta=0.001168 auc_seed42=(0.68463, 0.684951) prims={'calibration_stability_check': 4, 'minimum_effect_falsifier': 3, 'feature_arm_comparison': 2}
+n= 8 passed= 8 delta=0.023312 auc_seed42=(0.653333, 0.68463) prims={'complexity_premium_check': 4, 'model_class_comparison': 2, 'regime_split_analysis': 1, 'target_horizon_robustness': 1}
+n= 7 passed= 6 delta=0.005859 auc_seed42=(0.678294, 0.68463) prims={'minimum_effect_falsifier': 3, 'feature_arm_comparison': 2, 'calibration_stability_check': 2}
+n= 6 passed= 6 delta=0.017023 auc_seed42=(0.653606, 0.678294) prims={'complexity_premium_check': 3, 'complexity_reduction_check': 1, 'target_horizon_robustness': 1, 'regime_split_analysis': 1}
+n= 5 passed= 0 delta=-0.000713 auc_seed42=(0.653333, 0.652706) prims={'feature_arm_comparison': 3, 'minimum_effect_falsifier': 2}
+n= 3 passed= 2 delta=0.005879 auc_seed42=(0.666564, 0.678294) prims={'minimum_effect_falsifier': 1, 'calibration_stability_check': 2}
+n= 3 passed= 0 delta=-0.00043 auc_seed42=(0.653606, 0.653333) prims={'minimum_effect_falsifier': 1, 'feature_arm_comparison': 2}
+n= 3 passed= 3 delta=0.070673 auc_seed42=(0.585978, 0.653606) prims={'minimum_effect_falsifier': 2, 'feature_arm_comparison': 1}
+n= 2 passed= 2 delta=0.070673 auc_seed42=(0.590617, 0.66812) prims={'seed_set_replication': 2}
+n= 1 passed= 1 delta=0.005879 auc_seed42=(0.674098, 0.685601) prims={'seed_set_replication': 1}

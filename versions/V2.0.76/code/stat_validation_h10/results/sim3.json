@@ -1,0 +1,382 @@
+{
+  "alpha": 0.05,
+  "criterion": "disagreement <= 1%",
+  "from_sim1": {
+    "i_balanced_symmetric": {
+      "p_a": {
+        "n_trials": 1000,
+        "n_disagree": 35,
+        "rate": 0.035,
+        "ci_gate_rejects": 29,
+        "p_gate_rejects": 64,
+        "pass_le_1pct": false
+      },
+      "p_b": {
+        "n_trials": 1000,
+        "n_disagree": 24,
+        "rate": 0.024,
+        "ci_gate_rejects": 29,
+        "p_gate_rejects": 49,
+        "pass_le_1pct": false
+      },
+      "p_c": {
+        "n_trials": 1000,
+        "n_disagree": 32,
+        "rate": 0.032,
+        "ci_gate_rejects": 29,
+        "p_gate_rejects": 61,
+        "pass_le_1pct": false
+      }
+    },
+    "ii_skewed_sizes_rates": {
+      "p_a": {
+        "n_trials": 1000,
+        "n_disagree": 25,
+        "rate": 0.025,
+        "ci_gate_rejects": 37,
+        "p_gate_rejects": 62,
+        "pass_le_1pct": false
+      },
+      "p_b": {
+        "n_trials": 1000,
+        "n_disagree": 14,
+        "rate": 0.014,
+        "ci_gate_rejects": 37,
+        "p_gate_rejects": 43,
+        "pass_le_1pct": false
+      },
+      "p_c": {
+        "n_trials": 1000,
+        "n_disagree": 21,
+        "rate": 0.021,
+        "ci_gate_rejects": 37,
+        "p_gate_rejects": 58,
+        "pass_le_1pct": false
+      }
+    },
+    "iii_rho0": {
+      "p_a": {
+        "n_trials": 1000,
+        "n_disagree": 32,
+        "rate": 0.032,
+        "ci_gate_rejects": 36,
+        "p_gate_rejects": 68,
+        "pass_le_1pct": false
+      },
+      "p_b": {
+        "n_trials": 1000,
+        "n_disagree": 16,
+        "rate": 0.016,
+        "ci_gate_rejects": 36,
+        "p_gate_rejects": 50,
+        "pass_le_1pct": false
+      },
+      "p_c": {
+        "n_trials": 1000,
+        "n_disagree": 30,
+        "rate": 0.03,
+        "ci_gate_rejects": 36,
+        "p_gate_rejects": 66,
+        "pass_le_1pct": false
+      }
+    },
+    "iii_rho50": {
+      "p_a": {
+        "n_trials": 1000,
+        "n_disagree": 31,
+        "rate": 0.031,
+        "ci_gate_rejects": 40,
+        "p_gate_rejects": 71,
+        "pass_le_1pct": false
+      },
+      "p_b": {
+        "n_trials": 1000,
+        "n_disagree": 28,
+        "rate": 0.028,
+        "ci_gate_rejects": 40,
+        "p_gate_rejects": 60,
+        "pass_le_1pct": false
+      },
+      "p_c": {
+        "n_trials": 1000,
+        "n_disagree": 31,
+        "rate": 0.031,
+        "ci_gate_rejects": 40,
+        "p_gate_rejects": 71,
+        "pass_le_1pct": false
+      }
+    },
+    "iii_rho90": {
+      "p_a": {
+        "n_trials": 1000,
+        "n_disagree": 29,
+        "rate": 0.029,
+        "ci_gate_rejects": 35,
+        "p_gate_rejects": 64,
+        "pass_le_1pct": false
+      },
+      "p_b": {
+        "n_trials": 1000,
+        "n_disagree": 25,
+        "rate": 0.025,
+        "ci_gate_rejects": 35,
+        "p_gate_rejects": 54,
+        "pass_le_1pct": false
+      },
+      "p_c": {
+        "n_trials": 1000,
+        "n_disagree": 33,
+        "rate": 0.033,
+        "ci_gate_rejects": 35,
+        "p_gate_rejects": 66,
+        "pass_le_1pct": false
+      }
+    },
+    "iv_regime_small_n": {
+      "p_a": {
+        "n_trials": 1000,
+        "n_disagree": 21,
+        "rate": 0.021,
+        "ci_gate_rejects": 31,
+        "p_gate_rejects": 52,
+        "pass_le_1pct": false
+      },
+      "p_b": {
+        "n_trials": 1000,
+        "n_disagree": 16,
+        "rate": 0.016,
+        "ci_gate_rejects": 31,
+        "p_gate_rejects": 43,
+        "pass_le_1pct": false
+      },
+      "p_c": {
+        "n_trials": 1000,
+        "n_disagree": 26,
+        "rate": 0.026,
+        "ci_gate_rejects": 31,
+        "p_gate_rejects": 57,
+        "pass_le_1pct": false
+      }
+    },
+    "v_power_delta_minus_001": {
+      "p_a": {
+        "n_trials": 1000,
+        "n_disagree": 101,
+        "rate": 0.101,
+        "ci_gate_rejects": 352,
+        "p_gate_rejects": 453,
+        "pass_le_1pct": true
+      },
+      "p_b": {
+        "n_trials": 1000,
+        "n_disagree": 87,
+        "rate": 0.087,
+        "ci_gate_rejects": 352,
+        "p_gate_rejects": 411,
+        "pass_le_1pct": true
+      },
+      "p_c": {
+        "n_trials": 1000,
+        "n_disagree": 105,
+        "rate": 0.105,
+        "ci_gate_rejects": 352,
+        "p_gate_rejects": 457,
+        "pass_le_1pct": true
+      }
+    }
+  },
+  "from_sim2_m1": {
+    "0.0": {
+      "500": {
+        "p_a": {
+          "n": 2000,
+          "n_disagree": 49,
+          "rate": 0.0245,
+          "pass_le_1pct": false
+        },
+        "p_b": {
+          "n": 2000,
+          "n_disagree": 41,
+          "rate": 0.0205,
+          "pass_le_1pct": false
+        },
+        "p_c": {
+          "n": 2000,
+          "n_disagree": 48,
+          "rate": 0.024,
+          "pass_le_1pct": false
+        }
+      },
+      "1000": {
+        "p_a": {
+          "n": 2000,
+          "n_disagree": 52,
+          "rate": 0.026,
+          "pass_le_1pct": false
+        },
+        "p_b": {
+          "n": 2000,
+          "n_disagree": 42,
+          "rate": 0.021,
+          "pass_le_1pct": false
+        },
+        "p_c": {
+          "n": 2000,
+          "n_disagree": 54,
+          "rate": 0.027,
+          "pass_le_1pct": false
+        }
+      },
+      "2000": {
+        "p_a": {
+          "n": 2000,
+          "n_disagree": 56,
+          "rate": 0.028,
+          "pass_le_1pct": false
+        },
+        "p_b": {
+          "n": 2000,
+          "n_disagree": 41,
+          "rate": 0.0205,
+          "pass_le_1pct": false
+        },
+        "p_c": {
+          "n": 2000,
+          "n_disagree": 49,
+          "rate": 0.0245,
+          "pass_le_1pct": false
+        }
+      }
+    },
+    "0.3": {
+      "500": {
+        "p_a": {
+          "n": 2000,
+          "n_disagree": 56,
+          "rate": 0.028,
+          "pass_le_1pct": false
+        },
+        "p_b": {
+          "n": 2000,
+          "n_disagree": 41,
+          "rate": 0.0205,
+          "pass_le_1pct": false
+        },
+        "p_c": {
+          "n": 2000,
+          "n_disagree": 44,
+          "rate": 0.022,
+          "pass_le_1pct": false
+        }
+      },
+      "1000": {
+        "p_a": {
+          "n": 2000,
+          "n_disagree": 53,
+          "rate": 0.0265,
+          "pass_le_1pct": false
+        },
+        "p_b": {
+          "n": 2000,
+          "n_disagree": 40,
+          "rate": 0.02,
+          "pass_le_1pct": false
+        },
+        "p_c": {
+          "n": 2000,
+          "n_disagree": 47,
+          "rate": 0.0235,
+          "pass_le_1pct": false
+        }
+      },
+      "2000": {
+        "p_a": {
+          "n": 2000,
+          "n_disagree": 57,
+          "rate": 0.0285,
+          "pass_le_1pct": false
+        },
+        "p_b": {
+          "n": 2000,
+          "n_disagree": 39,
+          "rate": 0.0195,
+          "pass_le_1pct": false
+        },
+        "p_c": {
+          "n": 2000,
+          "n_disagree": 47,
+          "rate": 0.0235,
+          "pass_le_1pct": false
+        }
+      }
+    },
+    "0.7": {
+      "500": {
+        "p_a": {
+          "n": 2000,
+          "n_disagree": 47,
+          "rate": 0.0235,
+          "pass_le_1pct": false
+        },
+        "p_b": {
+          "n": 2000,
+          "n_disagree": 44,
+          "rate": 0.022,
+          "pass_le_1pct": false
+        },
+        "p_c": {
+          "n": 2000,
+          "n_disagree": 41,
+          "rate": 0.0205,
+          "pass_le_1pct": false
+        }
+      },
+      "1000": {
+        "p_a": {
+          "n": 2000,
+          "n_disagree": 53,
+          "rate": 0.0265,
+          "pass_le_1pct": false
+        },
+        "p_b": {
+          "n": 2000,
+          "n_disagree": 45,
+          "rate": 0.0225,
+          "pass_le_1pct": false
+        },
+        "p_c": {
+          "n": 2000,
+          "n_disagree": 44,
+          "rate": 0.022,
+          "pass_le_1pct": false
+        }
+      },
+      "2000": {
+        "p_a": {
+          "n": 2000,
+          "n_disagree": 59,
+          "rate": 0.0295,
+          "pass_le_1pct": false
+        },
+        "p_b": {
+          "n": 2000,
+          "n_disagree": 45,
+          "rate": 0.0225,
+          "pass_le_1pct": false
+        },
+        "p_c": {
+          "n": 2000,
+          "n_disagree": 46,
+          "rate": 0.023,
+          "pass_le_1pct": false
+        }
+      }
+    }
+  },
+  "SIM3_pass": false,
+  "meta": {
+    "written_utc": "2026-10-11T21:13:26+00:00",
+    "simh10_sha256": "4b7ebd5f3ffc5413247cdcedb099d493a71e3cfc01346a68c8440de9d59b51f3",
+    "runner": "run_sim.py"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "policy_version": "1.0.0",
+  "directions": [
+    "data_quality",
+    "validation",
+    "feature_engineering",
+    "calibration",
+    "error_analysis",
+    "model_complexity",
+    "target_design",
+    "model_architecture"
+  ],
+  "direction_priorities": {
+    "data_quality": 1.0,
+    "validation": 0.99,
+    "feature_engineering": 0.92,
+    "calibration": 0.82,
+    "error_analysis": 0.78,
+    "model_complexity": 0.72,
+    "target_design": 0.65,
+    "model_architecture": 0.6
+  },
+  "max_total_proposals": 20,
+  "max_per_direction": 4,
+  "max_signature_count": 2,
+  "min_falsification_share": 0.35,
+  "max_replication_share": 0.5,
+  "class_budgets": {
+    "confirmatory": 8,
+    "falsification": 8,
+    "replication": 2,
+    "exploration": 2
+  },
+  "max_proposals_per_cycle": 3,
+  "allow_future_primitives": false,
+  "require_human_approval": true,
+  "near_duplicate_text_threshold": 0.9,
+  "score_weights": {
+    "quota": 0.4,
+    "novelty": 0.3,
+    "evidence_gap": 0.15,
+    "priority": 0.1,
+    "exploration": 0.05
+  },
+  "notes": "Phase 1 F.3 portfolio defaults. min_falsification_share steers acceptance: while the falsification share is below the floor, only falsification-class proposals may be accepted. max_replication_share plus the DUPLICATE/NEAR_DUPLICATE gates cap parameterized re-runs (Campaign 1 limitation #4). direction_priorities mirrors ResearchPlanner.BASE_DIRECTIONS and is asserted against core.py by test_proposal_layer."
+}

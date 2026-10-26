@@ -1,0 +1,294 @@
+{
+  "baseline": {
+    "dedup_emitted_at_original_budget_64": 0,
+    "implementation": "frozen-generator-v1.2.0 / bias-policy-v1.0.0",
+    "interpretation": "For this diagnostic comparison, both methods get an output budget of 18: frozen legacy yields zero distinct eligible evidence under its 16-key historical universe (12 already measured); v2 yields 18 distinct synthetic configs. Different evidence universes mean this is engineering coverage, not predictive uplift.",
+    "legacy_distinct_new_evidence_at_equal_18_output_budget": 0,
+    "legacy_historical_redundant_at_original_budget_64": 18,
+    "legacy_raw_emitted_at_original_budget_64": 18,
+    "legacy_redundancy_rate_at_original_budget_64": 1.0,
+    "measured_evidence_keys": 12,
+    "proposal_budget": 18,
+    "source": [
+      "bench_legacy_v4.json",
+      "bench_dedup_v3.json"
+    ],
+    "universe_evidence_keys": 16,
+    "unmeasured_keys": 4
+  },
+  "benchmark_version": "candidate-search-comparison-v2.1.0",
+  "campaign_activation": false,
+  "candidate_search_v2": {
+    "diversity": {
+      "family_counts": {
+        "hist_gradient_boosting": 7,
+        "logistic_regression": 4,
+        "random_forest": 7
+      },
+      "feature_operator_counts": {
+        "nonlinear_marginals": 6,
+        "original": 6,
+        "pairwise_interactions": 6
+      },
+      "proposals": 18,
+      "proposals_in_repeated_groups": 0,
+      "repeated_evidence_groups": 0,
+      "transform_counts": {
+        "identity": 7,
+        "polynomial2": 7,
+        "standardize": 4
+      },
+      "unique_evidence_keys": 18,
+      "unique_feature_sets": 4
+    },
+    "fit_seconds_sum": 2.630319,
+    "fixture_evaluation": {
+      "candidate_scores": [
+        {
+          "average_precision": 0.7187292596876125,
+          "brier": 0.23259256195114988,
+          "candidate_id": "000d6112434735e0b990e9f414a94a9f9e727854853d472e700b857fc20f6a4b",
+          "fit_seconds": 0.017369999986840412,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.6653968253968254
+        },
+        {
+          "average_precision": 0.7948549567996533,
+          "brier": 0.20954094508498167,
+          "candidate_id": "02fc11e549aeee8263b5e9112162a099ca81e258720479db0d57b243a049b5b5",
+          "fit_seconds": 1.5008191000088118,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7568253968253968
+        },
+        {
+          "average_precision": 0.8171199707969112,
+          "brier": 0.19212179614500824,
+          "candidate_id": "20222af3b01705f7af5d80332c6d9377d75687fafe9e8a72d6aa7c5eab8f3366",
+          "fit_seconds": 0.13141850000829436,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.786031746031746
+        },
+        {
+          "average_precision": 0.8546466095602502,
+          "brier": 0.1989119238245692,
+          "candidate_id": "091360d2449ff2903aebfd75faea8a51206d14674b7d1813da761cd4637b136a",
+          "fit_seconds": 0.05558789998758584,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.8063492063492064
+        },
+        {
+          "average_precision": 0.8834763868645017,
+          "brier": 0.1660743812855045,
+          "candidate_id": "0ae8c8be563fe2806f733b693f3aff51164d9643127dd8a1b14f2544844fef96",
+          "fit_seconds": 0.0034539999905973673,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.8520634920634921
+        },
+        {
+          "average_precision": 0.8515569216621989,
+          "brier": 0.1791741625177407,
+          "candidate_id": "0fb799f6789b9cfcebac68f03dd1b01804b1e4975e65ee79449efe0a395bead0",
+          "fit_seconds": 0.09128480000072159,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.8123809523809524
+        },
+        {
+          "average_precision": 0.705367447637612,
+          "brier": 0.239006151542001,
+          "candidate_id": "057a45de757a064ee216f066a89cbea8628034c90dcbc0c921b0c3497f562a1b",
+          "fit_seconds": 0.047500799992121756,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.6457142857142858
+        },
+        {
+          "average_precision": 0.785796482547854,
+          "brier": 0.2229144091841663,
+          "candidate_id": "1f3092a0a28881621e8c80fcd39cd30aac7cbe5ba8ab30d464d1208c57b8c3ba",
+          "fit_seconds": 0.08162179999635555,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7507936507936508
+        },
+        {
+          "average_precision": 0.8519069052218396,
+          "brier": 0.2027970630334656,
+          "candidate_id": "0cea856cd805ed483878c6f8527f3912df44e9a2c3a3e02591b149ff565d0621",
+          "fit_seconds": 0.07778230000985786,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.8038095238095238
+        },
+        {
+          "average_precision": 0.8646250358771479,
+          "brier": 0.18505688781313046,
+          "candidate_id": "2ae259eb3dede5983fa5c20a1fd1f59defe97b1c3e54ca65ab4c7f4d935a21f6",
+          "fit_seconds": 0.09484500001417473,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.8069841269841269
+        },
+        {
+          "average_precision": 0.727229953809642,
+          "brier": 0.22967717304875263,
+          "candidate_id": "0ec20cb23834766700e8411d6d9ad225420d519c084ce57446bb37ccc5031e46",
+          "fit_seconds": 0.0026339999749325216,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.6730158730158731
+        },
+        {
+          "average_precision": 0.8740517475466896,
+          "brier": 0.16224085253892118,
+          "candidate_id": "a0746ad1b012b8171509bb591c26582938ddb26c007190bd88bc7930abe3e3dd",
+          "fit_seconds": 0.0019647000008262694,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.8615873015873016
+        },
+        {
+          "average_precision": 0.7124124929979425,
+          "brier": 0.23253827103233524,
+          "candidate_id": "021bd02ad0561aa04f215363682d866f584e5da1af7c73fa0283401756572050",
+          "fit_seconds": 0.09315349999815226,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.6679365079365078
+        },
+        {
+          "average_precision": 0.8337876159432737,
+          "brier": 0.21061324311125063,
+          "candidate_id": "0553be9a788ec9268fddee092e3a1109bee023a3a29185f5d23ffbf1c45ee95c",
+          "fit_seconds": 0.12362030000076629,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7866666666666666
+        },
+        {
+          "average_precision": 0.8378510103296867,
+          "brier": 0.19472377131908555,
+          "candidate_id": "0d740e55697acf0e5de5c826e1c3504ee824b97f1751e6cb4ae25c25d0a7dfe6",
+          "fit_seconds": 0.09462039999198169,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7828571428571428
+        },
+        {
+          "average_precision": 0.8059704718856078,
+          "brier": 0.2207647348844815,
+          "candidate_id": "34a3536d0c6c5f5ea01d693fc0b26a0c6b2d51eb69bbf65f7bd4af7e96df2c71",
+          "fit_seconds": 0.05436330000520684,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7682539682539682
+        },
+        {
+          "average_precision": 0.7835653447170428,
+          "brier": 0.2029182994483957,
+          "candidate_id": "09967de5c88ea36b66e71c63c3dd59e8c3ce2226d03c65f3341cbc82067e2f03",
+          "fit_seconds": 0.06383420000202022,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7657142857142857
+        },
+        {
+          "average_precision": 0.8733395250092979,
+          "brier": 0.17199735905456903,
+          "candidate_id": "3e1ae581b90bb1c9eed0c211343ef320b6719618d8acb998d8914f441394868e",
+          "fit_seconds": 0.09444460002123378,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.8285714285714286
+        }
+      ],
+      "interpretation": "Synthetic smoke-test metrics only; not actual market evidence, not an independent holdout, and not comparable to historical AUC.",
+      "mean_average_precision": 0.8097937854941537,
+      "mean_brier": 0.2029813326010838,
+      "mean_roc_auc": 0.7678306878306879,
+      "n_train": 160,
+      "n_validation": 80,
+      "validation_positive_rate": 0.5625
+    },
+    "raw_candidates": 360,
+    "runtime_seconds_including_fits": 4.580574,
+    "selected_candidates": 18,
+    "selection_stats": {
+      "dimension_coverage": {
+        "estimator_family": {
+          "hist_gradient_boosting": 7,
+          "logistic_regression": 4,
+          "random_forest": 7
+        },
+        "feature_operator": {
+          "nonlinear_marginals": 6,
+          "original": 6,
+          "pairwise_interactions": 6
+        },
+        "features": {
+          "[\"fixture_trend\",\"fixture_interaction\"]": 5,
+          "[\"fixture_trend\",\"fixture_volatility\",\"fixture_interaction\"]": 5,
+          "[\"fixture_trend\",\"fixture_volatility\"]": 4,
+          "[\"fixture_volatility\",\"fixture_interaction\"]": 4
+        },
+        "hyperparameters": {
+          "{\"C\":0.1}": 2,
+          "{\"C\":1.0}": 2,
+          "{\"learning_rate\":0.05,\"max_leaf_nodes\":15}": 2,
+          "{\"learning_rate\":0.05,\"max_leaf_nodes\":7}": 1,
+          "{\"learning_rate\":0.1,\"max_leaf_nodes\":15}": 2,
+          "{\"learning_rate\":0.1,\"max_leaf_nodes\":7}": 2,
+          "{\"max_depth\":3,\"n_estimators\":128}": 1,
+          "{\"max_depth\":3,\"n_estimators\":64}": 2,
+          "{\"max_depth\":6,\"n_estimators\":128}": 2,
+          "{\"max_depth\":6,\"n_estimators\":64}": 2
+        },
+        "transform": {
+          "identity": 7,
+          "polynomial2": 7,
+          "standardize": 4
+        }
+      },
+      "duplicate_configs_removed": 96,
+      "duplicate_evidence_in_input_removed": 0,
+      "input_count": 360,
+      "invalid_count": 0,
+      "invalid_reasons": [],
+      "redundant_evidence_removed": 0,
+      "remaining_after_budget": 246,
+      "selected": 18,
+      "unique_evidence_candidates": 264,
+      "unique_evidence_keys_selected": 18,
+      "valid_unique_candidates": 264
+    }
+  },
+  "conclusion": "Engineering diversity improved on its synthetic fixture: v2 selects 18 distinct model/feature/transform evidence keys from 360 raw executable configs (264 canonical identities); the legacy frozen generator selected no novel evidence under its historical 16-key universe. Predictive generalization improvement remains unmeasured.",
+  "dataset_id": "synthetic-fixture-dataset-v1",
+  "fixture_status": "DEVELOPMENT_FIXTURE_ONLY",
+  "protocol_id": "demand-zone-ai-search-proposal-v2.0.2",
+  "same_proposal_budget": 18,
+  "split_id": "synthetic-chronological-split-v1"
+}

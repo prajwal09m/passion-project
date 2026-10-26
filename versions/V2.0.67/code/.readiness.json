@@ -1,0 +1,201 @@
+{
+  "root": "C:\\Prajwal MIT\\Passion",
+  "verdict": "READY (machine checks pass and all human gates recorded)",
+  "exit_code": 0,
+  "counts": {
+    "PASS": 31,
+    "RECORDED": 7
+  },
+  "results": [
+    {
+      "status": "PASS",
+      "code": "integrity.pin",
+      "message": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/HARNESS_V1_1_0_IMPLEMENTATION_PLAN_2026_10_09.md = 094827b0e9a5f1c1\u2026"
+    },
+    {
+      "status": "PASS",
+      "code": "integrity.pin",
+      "message": "stat_validation_h10/H10_DECISION_RECORD_AWAITING_SIGNATURE.md = b9db32335c93ccf5\u2026"
+    },
+    {
+      "status": "PASS",
+      "code": "integrity.pin",
+      "message": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/GOVERNANCE_SUITE_FLAKE_EVIDENCE_2026_10_11.md = 725046614c4dab73\u2026"
+    },
+    {
+      "status": "PASS",
+      "code": "integrity.pin",
+      "message": "autonomous_agent/test_continuous_loop.py = e1de8523232d5421\u2026"
+    },
+    {
+      "status": "PASS",
+      "code": "integrity.pin",
+      "message": "stat_validation_h10/H10_D2_REVIEW_SUBMISSION.zip = ee345dab3a587b51\u2026"
+    },
+    {
+      "status": "PASS",
+      "code": "integrity.config.pin",
+      "message": "pin == file (d8bff195eb6e3e1e\u2026)"
+    },
+    {
+      "status": "PASS",
+      "code": "bundle.integrity",
+      "message": "13 entries, manifest hashes verified"
+    },
+    {
+      "status": "PASS",
+      "code": "holdout.directory_absent",
+      "message": "prospective/ absent at all candidate roots"
+    },
+    {
+      "status": "PASS",
+      "code": "holdout.policy",
+      "message": "SEALED, uses 0, prospective_usage 0"
+    },
+    {
+      "status": "PASS",
+      "code": "live_state.clean",
+      "message": "no loop.lock, supervisor.lock, or STOP"
+    },
+    {
+      "status": "PASS",
+      "code": "c4.campaign_id",
+      "message": "campaign-4-continuous-2026-10-14"
+    },
+    {
+      "status": "PASS",
+      "code": "c4.placeholders",
+      "message": "no TO_BE_/-XX/DRAFT placeholders"
+    },
+    {
+      "status": "PASS",
+      "code": "c4.budget",
+      "message": "32 executions / 64 proposals (capacity re-freeze #3, crash-interruption slack)"
+    },
+    {
+      "status": "PASS",
+      "code": "c4.stops.c3",
+      "message": "all 14 C3 stops carried forward"
+    },
+    {
+      "status": "PASS",
+      "code": "c4.stops.new",
+      "message": "both new stops declared (16 total)"
+    },
+    {
+      "status": "PASS",
+      "code": "c4.fingerprint",
+      "message": "b4ced0e00493f763\u2026"
+    },
+    {
+      "status": "PASS",
+      "code": "c4.immutable",
+      "message": "immutable: true"
+    },
+    {
+      "status": "PASS",
+      "code": "c4.multiplicity.n_boot",
+      "message": "n_boot = 1000"
+    },
+    {
+      "status": "PASS",
+      "code": "c4.multiplicity.n_flips",
+      "message": "n_flips (M) = 1000"
+    },
+    {
+      "status": "PASS",
+      "code": "c4.multiplicity.feasibility",
+      "message": "n_boot+1 >= 20*m, n_flips+1 >= 20*m, and m <= 50 for 4 families"
+    },
+    {
+      "status": "PASS",
+      "code": "c4.multiplicity.c2",
+      "message": "C-2 missing-member rule present (p=1.0, never REFUTED)"
+    },
+    {
+      "status": "PASS",
+      "code": "impl.stop.pit",
+      "message": "point-in-time contamination stop wired"
+    },
+    {
+      "status": "PASS",
+      "code": "impl.stop.lineage",
+      "message": "UNVERIFIABLE-lineage stop wired"
+    },
+    {
+      "status": "PASS",
+      "code": "impl.holm",
+      "message": "Holm step-down implemented"
+    },
+    {
+      "status": "PASS",
+      "code": "impl.firewall",
+      "message": "provisional-to-formal firewall markers"
+    },
+    {
+      "status": "PASS",
+      "code": "impl.pvalue_gate",
+      "message": "H-10 fail-closed p-value gate"
+    },
+    {
+      "status": "PASS",
+      "code": "impl.census",
+      "message": "census manifest validator with the frozen-tolerance rule"
+    },
+    {
+      "status": "PASS",
+      "code": "impl.primitives.dormant",
+      "message": "all five v1.1.0 primitives executable"
+    },
+    {
+      "status": "PASS",
+      "code": "impl.test.stop_correspondence",
+      "message": "a test reads stop_conditions"
+    },
+    {
+      "status": "PASS",
+      "code": "impl.test.holm",
+      "message": "Holm tests present"
+    },
+    {
+      "status": "PASS",
+      "code": "impl.test.multiplicity",
+      "message": "multiplicity/firewall tests present"
+    },
+    {
+      "status": "RECORDED",
+      "code": "gates.review_received",
+      "message": "recorded by project owner (written directive 2026-10-14; recorded by coding agent) on 2026-10-14 -> stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md (independent written assessment exists in the repository; recorded evidence, not machine proof)"
+    },
+    {
+      "status": "RECORDED",
+      "code": "gates.d2_decided",
+      "message": "recorded by project owner (written directive 2026-10-14; recorded by coding agent) on 2026-10-14 -> stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md (D2 recorded as decided (adopt / reject / deferred-with-rationale); recorded evidence, not machine proof)"
+    },
+    {
+      "status": "RECORDED",
+      "code": "gates.c3_ratified",
+      "message": "recorded by project owner (written directive 2026-10-14; recorded by coding agent) on 2026-10-14 -> stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md (C-3 ratified (required only if D2 adopted); recorded evidence, not machine proof)"
+    },
+    {
+      "status": "RECORDED",
+      "code": "gates.implementation_authorized",
+      "message": "recorded by project owner on 2026-10-12 -> autonomous_agent/MAIN AUDITS AND REFLECTIONS/HARNESS_V1_1_0_GATE3_AUTHORIZATION_RECORD_2026_10_12.md (gate 3 separate implementation authorization recorded; recorded evidence, not machine proof)"
+    },
+    {
+      "status": "RECORDED",
+      "code": "gates.implementation_complete",
+      "message": "recorded by project owner (recorded by coding agent from verified evidence) on 2026-10-12 -> autonomous_agent/MAIN AUDITS AND REFLECTIONS/HARNESS_V1_1_0_IMPLEMENTATION_REPORT_2026_10_12.md (v1.1.0 implemented and full test suite green; recorded evidence, not machine proof)"
+    },
+    {
+      "status": "RECORDED",
+      "code": "gates.freeze_approved",
+      "message": "recorded by project owner (written directive 2026-10-14, freeze authorized conditional on every prerequisite; recorded by coding agent after all prerequisites were satisfied and verified) on 2026-10-14 -> autonomous_agent/MAIN AUDITS AND REFLECTIONS/C4_FREEZE_RECORD_2026_10_14.md (gate 6 freeze approval recorded; recorded evidence, not machine proof)"
+    },
+    {
+      "status": "RECORDED",
+      "code": "gates.launch_authorized",
+      "message": "recorded by project owner on 2026-10-12 -> autonomous_agent/MAIN AUDITS AND REFLECTIONS/OWNER_AUTHORIZATION_TO_PROCEED_2026_10_12.md (gate 8 explicit Campaign 4 launch authorization recorded; recorded evidence, not machine proof)"
+    }
+  ]
+}

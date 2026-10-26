@@ -1,0 +1,26 @@
+{
+  "admissible_after_history_dedup": 20,
+  "default_seed_model_atoms_measured": 8,
+  "default_seed_model_atoms_new": 0,
+  "default_seed_model_atoms_total": 8,
+  "distinct_evidence_after_direction_dedup": 32,
+  "harness_invalid_keys": 0,
+  "harness_problem_samples": {},
+  "harness_valid_keys": 32,
+  "measured_canonical_keys": 12,
+  "measured_history_keys": 12,
+  "raw_expanded_keys": 56,
+  "replication_seed_keys": 16,
+  "simulated_cycles": 7,
+  "simulated_emitted": 20,
+  "simulated_replication_emitted": 14,
+  "simulated_stop": "no_admissible_candidate",
+  "simulated_substantive_emitted": 6,
+  "status_counts": {
+    "MEASURED": 8,
+    "NEW_EVIDENCE": 12,
+    "RECOMBINATION_ONLY": 8,
+    "REVERSED_DUPLICATE": 4
+  },
+  "substantive_default_seed_keys": 16
+}

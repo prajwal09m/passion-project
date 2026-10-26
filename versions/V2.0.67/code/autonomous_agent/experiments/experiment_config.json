@@ -1,0 +1,31 @@
+{
+  "arm_a": "A",
+  "arm_b": "B",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 10,
+  "estimator_a": "LogisticRegression",
+  "estimator_b": "LogisticRegression",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "min_folds": 3,
+    "note": "Minimum-effect gates: pooled OOF AUC delta must be at least 0.005 (practically meaningful) on the frozen purged folds.",
+    "primary_metric_min_delta": 0.005
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_compositional",
+  "hypothesis_id": "rq-validation",
+  "hypothesis_text": "[validation] Challenge a marginal gain: it must clear a predeclared practically meaningful minimum effect, not merely a non-negative bar. (arm_pair=A->B, estimator=LogisticRegression, min_effect=meaningful, n_boot=500) \u2014 does it satisfy the predeclared non-degradation criteria on the frozen development folds?",
+  "n_boot": 500,
+  "recipe_id": "proposal_layer",
+  "recipe_version": "1.0.0",
+  "schema_version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

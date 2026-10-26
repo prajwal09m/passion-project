@@ -1,0 +1,34 @@
+{
+  "arm_a": "C",
+  "arm_b": "C",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 10,
+  "error_cluster_axis": "departure_magnitude",
+  "estimator_a": "LogisticRegression",
+  "estimator_b": "LightGBM",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "min_folds": 3,
+    "note": "v1.3.0 error-cluster diagnostic (FROZEN predeclaration 2026-10-25): both predeclared rungs must independently hold point >= 0.0 AND ci_lower >= -0.01 (provisional H-1 margin); undersized or degenerate clusters are INCONCLUSIVE/UNAVAILABLE, never a pass and never a refutation; champion promotion never triggered.",
+    "primary_metric_min_delta": 0.0
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_compositional",
+  "harness_version": "1.3.0",
+  "hypothesis_id": "rq-error_analysis",
+  "hypothesis_text": "[error_analysis] Slice out-of-fold errors by an owner-predeclared error-cluster definition (2 frozen rungs) so the campaign can measure WHERE the champion fails, not only where it wins in pooled AUC. (error_cluster_axis=departure_magnitude) \u2014 does it satisfy the predeclared non-degradation criteria on the frozen development folds?",
+  "n_boot": 2000,
+  "primitive_id": "error_clustering_analysis",
+  "recipe_id": "proposal_layer",
+  "recipe_version": "1.3.0",
+  "schema_version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

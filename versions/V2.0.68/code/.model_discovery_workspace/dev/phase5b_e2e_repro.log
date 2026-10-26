@@ -1,0 +1,28 @@
+START=2026-10-18T10:32:35-04:00 timeout=540s command=py -3 -m pytest -v --durations=10 autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests
+============================= test session starts =============================
+platform win32 -- Python 3.13.1, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\kamal\AppData\Local\Programs\Python\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Prajwal MIT\Passion\.model_discovery_workspace\dev
+plugins: anyio-4.14.2, cov-7.1.0
+collecting ... collected 7 items
+
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_campaign_end_record_from_persisted_records PASSED [ 14%]
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_complexity_family_single_primary_rung PASSED [ 28%]
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_degenerate_cell_recorded_unavailable_and_inconclusive PASSED [ 42%]
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_fail_closed_when_frozen_column_missing PASSED [ 57%]
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_horizon_family_refits_and_flags PASSED [ 71%]
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_purge_family_refits_and_anchors PASSED [ 85%]
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_regime_family_execution_to_persistence PASSED [100%]
+
+============================ slowest 10 durations =============================
+94.47s call     autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_horizon_family_refits_and_flags
+82.98s call     autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_purge_family_refits_and_anchors
+59.62s call     autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_campaign_end_record_from_persisted_records
+46.12s call     autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_regime_family_execution_to_persistence
+39.31s call     autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_complexity_family_single_primary_rung
+39.29s call     autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_degenerate_cell_recorded_unavailable_and_inconclusive
+15.49s call     autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_fail_closed_when_frozen_column_missing
+
+(3 durations < 0.005s hidden.  Use -vv to show these durations.)
+======================== 7 passed in 381.12s (0:06:21) ========================
+END=2026-10-18T10:38:57-04:00 EXIT_STATUS=0

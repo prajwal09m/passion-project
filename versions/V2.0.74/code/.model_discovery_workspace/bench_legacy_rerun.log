@@ -1,0 +1,20 @@
+{
+  "budget": 64,
+  "code_root": "dev",
+  "duplicate_rate": 1.0,
+  "evidence_universe_keys": 16,
+  "evidence_universe_unmeasured": 4,
+  "measured_history_keys": 12,
+  "mode": "legacy",
+  "novel_keys_reached": 0,
+  "per_cycle": 3,
+  "stats": {
+    "cycles_run": 7,
+    "emitted": 18,
+    "novel": 0,
+    "redundant_vs_history": 18,
+    "repeat_within_run": 0,
+    "stopped": "no_admissible_candidate",
+    "uncompilable": 0
+  }
+}

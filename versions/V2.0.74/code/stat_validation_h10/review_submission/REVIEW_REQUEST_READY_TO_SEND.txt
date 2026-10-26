@@ -1,0 +1,146 @@
+H-10 D2 — READY-TO-SEND EXTERNAL STATISTICAL REVIEW REQUEST
+Prepared: 2026-10-11. STATUS: REVIEW NOT YET OBTAINED.
+No reviewer has been contacted, hired, or paid. The steps below are for the
+HUMAN OWNER to execute personally. Nothing here has been sent.
+
+=====================================================================
+PART 1 — THE EXACT MESSAGE (paste verbatim)
+=====================================================================
+
+Subject: Independent statistical review request — permutation-based
+FWER-controlled testing procedure (with simulation code)
+
+Body:
+
+I am seeking an independent expert review of a preregistered statistical
+decision procedure before it is adopted in an automated research harness.
+Attached is a self-contained review packet with the simulation evidence
+report, the simulation code, summary results, a hash manifest, and
+reproducibility instructions. No data-confidentiality obligations apply
+beyond not redistributing the materials; the code is reproducible on your
+side (see the MANIFEST in the attachment).
+
+The procedure under review: week-level arm-label sign-flip p-values
+(one-sided, M = 1,000 flips, +1 correction) combined with Holm step-down at
+alpha = 0.05 across predeclared families, used as the sole formal
+family-wise test in a holdout-free automated experiment harness. A
+simulation battery (SIM-1 through SIM-5) was run under predeclared
+protocols; it falsified two alternative candidates but cannot establish
+real-data validity. The central open question is the week-level
+exchangeability assumption on real data.
+
+Scope — please answer these six questions in a written assessment:
+1. Does the proposed sign-flip test's null (sharp within-week arm-label
+   exchangeability) match the intended scientific claim, given that the
+   claim of interest concerns the aggregate AUC difference rather than the
+   sharp null?
+2. Do shared-training dependence (both arms' OOF predictions from models
+   fitted on overlapping training windows) and week-to-week serial
+   dependence materially undermine marginal calibration? Would you
+   recommend block-level flips (per the bootstrap's 4-week block unit) or a
+   different construction?
+3. Do the simulations (SIM-1...SIM-5, proxy frames of 800-3,600 rows
+   versus the real ~61k-row frame) adequately test the proposed use case?
+   What cell, frame size, or mechanism is missing in a way that blocks
+   adoption?
+4. Is the documented CI-vs-p disagreement reconciliation statistically
+   defensible: formal decisions via Holm-adjusted p-values only, with the
+   percentile-bootstrap CI kept as a disclosed provisional/effect-size
+   functional (the two disagree at 1.4-10.5% near the null boundary)?
+5. Are the Holm family definitions and the missing-member rule
+   (an unavailable member test counts toward family size m and is assigned
+   p = 1.0, rendered as "unavailable", never formally REFUTED) coherent
+   and conservative as claimed?
+6. What additional evidence, if any, is necessary before adoption?
+
+Deliverable: a written assessment answering the six questions, with your
+reasoning, limitations, and qualifications. Please state any conflict of
+interest and the scope boundaries of your review.
+
+This is a methods-and-code audit request, not an analysis job. The packet
+distinguishes observed evidence, synthetic evidence, assumptions, and
+unresolved questions; please do not treat the simulation results as proof
+of real-data validity — that limitation is the reason for this review.
+
+=====================================================================
+PART 2 — SUBMISSION STEPS BY ROUTE (owner executes; agent has done none)
+=====================================================================
+
+Common pre-send checklist for any route:
+  a. Confirm the reviewer is independent of this project's authorship
+     (no involvement in designing the harness or the simulations).
+  b. Confirm in writing (a) the review's scope, (b) confidentiality /
+     non-redistribution terms, (c) the deliverable (written assessment
+     answering the six questions), and (d) fees and turnaround, BEFORE
+     sharing the bundle or paying anything.
+  c. Send the attachment H10_D2_REVIEW_SUBMISSION.zip (~200 KB). Its
+     MANIFEST.txt lists every file with SHA-256 so the reviewer can verify
+     integrity; the large per-trial .npz arrays (~11 MB each) are NOT
+     included and are available on request.
+  d. Record the reviewer's name, affiliation, date engaged, and terms in
+     your own notes — do not modify any H-10 file to record an engagement
+     that has not produced a written assessment yet.
+
+ROUTE A — Kolabtree (fastest to a quote; freelance marketplace)
+  1. Open https://www.kolabtree.com/services/statistical-analysis
+     (page verified live 2026-10-11) and create an account / sign in.
+  2. Post a project with the Subject line above; in the brief paste
+     Part 1 verbatim and state explicitly: "methods-and-code review of a
+     permutation/sign-flip + Holm FWER procedure; audit of exchangeability
+     assumptions and simulation code required."
+  3. When quoting experts, require: demonstrated expertise in
+     permutation/randomization tests and multiple testing; willingness to
+     audit code; a fixed-price scope for the six-question written
+     assessment. Platform examples suggest roughly USD 30/hour minimum,
+     ~USD 400 average project, one analysis-verification example at
+     USD 2,000 / ~3 weeks — treat as estimates, not quotes.
+  4. Attach the bundle through the platform; payment handled by the
+     platform on your authorization.
+
+ROUTE B — University of Georgia Statistical Consulting Center
+  (institutional; accepts external academic/government/nonprofit/commercial)
+  1. Open https://www.stat.uga.edu/consulting-fees (verified live
+     2026-10-11) and submit the Consultation Request linked from that page.
+  2. In the request, ask for a bounded independent METHODS REVIEW (not a
+     data-analysis engagement) of a permutation-based FWER procedure, and
+     attach the bundle; the page offers a free initial one-hour
+     consultation — use it to confirm scope.
+  3. Published external-client rates are listed on the page (effective
+     2020-07-01 — confirm current rates before authorizing work).
+
+ROUTE C — Penn State Statistics Consulting Center
+  (external industry/government clients; estimate on request)
+  1. Open https://scc.stat.psu.edu/ (verified live 2026-10-11) and submit
+     its collaboration/contact request.
+  2. State that you need a one-off independent methods-and-code review
+     answering six questions (Part 1), and request a fee estimate before
+     proceeding.
+
+ROUTE D — An individual statistician known to the owner
+  (equivalent and often fastest; independence and written deliverable are
+  the only hard requirements)
+  1. Send Part 1 verbatim by email and attach the bundle.
+  2. Agree scope, independence, confidentiality, and any fee in writing
+     before engaging.
+
+NOT ACCEPTABLE AS THE REVIEW ITSELF: public Q&A sites (e.g., Cross
+Validated) for narrow questions only; any review by the project author or
+by an agent of this project; verbal-only opinions without a written
+assessment.
+
+=====================================================================
+PART 3 — WHAT HAPPENS AFTER THE REVIEW RETURNS
+=====================================================================
+
+  1. Place the written assessment in the repository (the owner instructs
+     where; e.g., stat_validation_h10/D2_EXTERNAL_REVIEW_ASSESSMENT.md)
+     and report it to the workflow.
+  2. The workflow will summarize its conclusions and limitations, then
+     present ONLY the remaining decisions: D2 (adopt / reject / keep
+     deferred) and, if adopting, C-3 ratification.
+  3. Until a genuine written assessment exists, status remains:
+     REVIEW NOT YET OBTAINED. A favorable review is evidence for the owner
+     to weigh — never automatic authorization. Method (b) is NOT adopted,
+     the H-10 record is NOT signed, v1.1.0 is NOT implemented, C4 is NOT
+     frozen, the sealed holdout is NOT accessed, and Campaign 4 is NOT
+     launched by anything in this bundle.

@@ -1,0 +1,14 @@
+{
+  "brier_base_rate": 0.172921,
+  "brier_outcome_aware": 0.116528,
+  "distinct_directions": 7,
+  "distinct_groups": 12,
+  "leakage_guard_refuses_future": true,
+  "measured_at_range": [
+    "2026-10-05T02:05:48+00:00",
+    "2026-10-16T22:09:20+00:00"
+  ],
+  "n_adjudicated": 69,
+  "n_scored": 68,
+  "pass_rate_all": 0.8116
+}

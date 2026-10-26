@@ -1,0 +1,16 @@
+test_auto_approval_with_missing_evidence_refuses (autonomous_agent.test_gate_enforcement.AutoApprovalGuard.test_auto_approval_with_missing_evidence_refuses) ... ok
+test_auto_approval_with_named_record_passes (autonomous_agent.test_gate_enforcement.AutoApprovalGuard.test_auto_approval_with_named_record_passes) ... ok
+test_auto_approval_without_record_refuses (autonomous_agent.test_gate_enforcement.AutoApprovalGuard.test_auto_approval_without_record_refuses) ... ok
+test_human_approval_on_needs_nothing (autonomous_agent.test_gate_enforcement.AutoApprovalGuard.test_human_approval_on_needs_nothing) ... ok
+test_absent_gate_file_refuses (autonomous_agent.test_gate_enforcement.HumanGateGuard.test_absent_gate_file_refuses) ... ok
+test_all_gates_recorded_passes (autonomous_agent.test_gate_enforcement.HumanGateGuard.test_all_gates_recorded_passes) ... ok
+test_malformed_gate_file_refuses (autonomous_agent.test_gate_enforcement.HumanGateGuard.test_malformed_gate_file_refuses) ... ok
+test_missing_gate_refuses (autonomous_agent.test_gate_enforcement.HumanGateGuard.test_missing_gate_refuses) ... ok
+test_real_gate_record_is_read_only_checked (autonomous_agent.test_gate_enforcement.HumanGateGuard.test_real_gate_record_is_read_only_checked) ... skipped 'real gate record not present'
+test_undecided_gate_refuses (autonomous_agent.test_gate_enforcement.HumanGateGuard.test_undecided_gate_refuses) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.048s
+
+OK (skipped=1)
+EXIT=0

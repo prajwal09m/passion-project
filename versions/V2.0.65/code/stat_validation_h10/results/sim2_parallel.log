@@ -1,0 +1,18 @@
+[wrapper] starting 8 SIM-2 shards 2026-10-11T00:00:44Z
+[wrapper] all shards exited; merging 2026-10-11T21:06:25Z
+==== stage: sim2 (2026-10-11T21:06:27+00:00) ====
+[sim2-merge] assembling 8 shards ...
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\sim2_rho00.json
+  rho=0.0 merged; max FWER (p_a): 0.2595 at m=90,B=2000
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\sim2_rho03.json
+  rho=0.3 merged; max FWER (p_a): 0.2705 at m=90,B=2000
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\sim2_rho07.json
+  rho=0.7 merged; max FWER (p_a): 0.2335 at m=90,B=2000
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\sim2_mixed.json
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\sim2_summary.json
+  mixed[p_a]: P(any rej)=1.000 P(H0 rej)=0.070 E[frac H1 rej]=0.990
+  mixed[p_b]: P(any rej)=1.000 P(H0 rej)=0.052 E[frac H1 rej]=0.985
+  mixed[p_c]: P(any rej)=1.000 P(H0 rej)=0.068 E[frac H1 rej]=0.988
+[sim2-merge] COMPLETE
+==== done in 26s (exit 0) ====
+[wrapper] done rc=0 2026-10-11T21:06:54Z

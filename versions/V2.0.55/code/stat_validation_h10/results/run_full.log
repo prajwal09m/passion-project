@@ -1,0 +1,61 @@
+==== stage: sim1 (2026-10-10T20:44:03+00:00) ====
+[sim1] N=1000 trials/cell, B=M=1000, 7 cells
+  cell i_balanced_symmetric: 250/1000 (192s, 0.769s/trial)
+  cell i_balanced_symmetric: 500/1000 (384s, 0.769s/trial)
+  cell i_balanced_symmetric: 750/1000 (551s, 0.735s/trial)
+  cell i_balanced_symmetric: 1000/1000 (722s, 0.722s/trial)
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\sim1_i_balanced_symmetric.json
+  cell i_balanced_symmetric done (722s) reject@0.05 -> p_a: 0.064 | p_b: 0.049 | p_c: 0.061
+  cell ii_skewed_sizes_rates: 250/1000 (122s, 0.489s/trial)
+  cell ii_skewed_sizes_rates: 500/1000 (245s, 0.490s/trial)
+  cell ii_skewed_sizes_rates: 750/1000 (356s, 0.475s/trial)
+  cell ii_skewed_sizes_rates: 1000/1000 (474s, 0.474s/trial)
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\sim1_ii_skewed_sizes_rates.json
+  cell ii_skewed_sizes_rates done (474s) reject@0.05 -> p_a: 0.062 | p_b: 0.043 | p_c: 0.058
+  cell iii_rho0: 250/1000 (85s, 0.341s/trial)
+  cell iii_rho0: 500/1000 (170s, 0.340s/trial)
+  cell iii_rho0: 750/1000 (256s, 0.342s/trial)
+  cell iii_rho0: 1000/1000 (338s, 0.338s/trial)
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\sim1_iii_rho0.json
+  cell iii_rho0 done (338s) reject@0.05 -> p_a: 0.068 | p_b: 0.050 | p_c: 0.066
+  cell iii_rho50: 250/1000 (83s, 0.333s/trial)
+  cell iii_rho50: 500/1000 (167s, 0.334s/trial)
+  cell iii_rho50: 750/1000 (255s, 0.340s/trial)
+  cell iii_rho50: 1000/1000 (337s, 0.337s/trial)
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\sim1_iii_rho50.json
+  cell iii_rho50 done (337s) reject@0.05 -> p_a: 0.071 | p_b: 0.060 | p_c: 0.071
+  cell iii_rho90: 250/1000 (133s, 0.530s/trial)
+  cell iii_rho90: 500/1000 (357s, 0.714s/trial)
+  cell iii_rho90: 750/1000 (583s, 0.778s/trial)
+  cell iii_rho90: 1000/1000 (806s, 0.806s/trial)
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\sim1_iii_rho90.json
+  cell iii_rho90 done (806s) reject@0.05 -> p_a: 0.064 | p_b: 0.054 | p_c: 0.066
+  cell iv_regime_small_n: 250/1000 (220s, 0.882s/trial)
+  cell iv_regime_small_n: 500/1000 (442s, 0.883s/trial)
+  cell iv_regime_small_n: 750/1000 (666s, 0.888s/trial)
+  cell iv_regime_small_n: 1000/1000 (899s, 0.899s/trial)
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\sim1_iv_regime_small_n.json
+  cell iv_regime_small_n done (899s) reject@0.05 -> p_a: 0.052 | p_b: 0.043 | p_c: 0.057
+  cell v_power_delta_minus_001: 250/1000 (225s, 0.901s/trial)
+  cell v_power_delta_minus_001: 500/1000 (453s, 0.906s/trial)
+  cell v_power_delta_minus_001: 750/1000 (677s, 0.903s/trial)
+  cell v_power_delta_minus_001: 1000/1000 (913s, 0.913s/trial)
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\sim1_v_power_delta_minus_001.json
+  cell v_power_delta_minus_001 done (913s) reject@0.05 -> p_a: 0.453 | p_b: 0.411 | p_c: 0.457
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\sim1_summary.json
+  [SIM-1 p_a] pass(no liberal cell, Bonf)=True raw_flags=['i_balanced_symmetric@0.05(p=0.028)', 'ii_skewed_sizes_rates@0.025(p=0.013)', 'ii_skewed_sizes_rates@0.01(p=0.026)', 'iii_rho0@0.1(p=0.006)', 'iii_rho0@0.05(p=0.0074)', 'iii_rho0@0.025(p=0.021)', 'iii_rho50@0.05(p=0.0023)', 'iii_rho50@0.025(p=0.0084)', 'iii_rho50@0.01(p=0.048)', 'iii_rho90@0.05(p=0.028)', 'iii_rho90@0.025(p=0.048)', 'iv_regime_small_n@0.01(p=0.048)']
+  [SIM-1 p_b] pass(no liberal cell, Bonf)=True raw_flags=['iii_rho90@0.01(p=0.026)']
+  [SIM-1 p_c] pass(no liberal cell, Bonf)=True raw_flags=['ii_skewed_sizes_rates@0.01(p=0.014)', 'iii_rho0@0.1(p=0.017)', 'iii_rho0@0.05(p=0.015)', 'iii_rho0@0.025(p=0.0051)', 'iii_rho0@0.01(p=0.014)', 'iii_rho50@0.05(p=0.0023)', 'iii_rho50@0.025(p=0.0031)', 'iii_rho90@0.05(p=0.015)']
+==== done in 4489s (exit 0) ====
+==== stage: sim2 (2026-10-10T21:58:52+00:00) ====
+[sim2] N=2000 campaigns/config; rhos=(0.0, 0.3, 0.7); m-grid=(1, 4, 12, 24, 36, 50, 90); B-grid=(500, 1000, 2000); members=90 pooled (prefix reuse across m; nested draws across B)
+  rho=0.0: campaign 100/2000 (615s, 6.15s/campaign)
+  rho=0.0: campaign 200/2000 (1273s, 6.36s/campaign)
+  rho=0.0: campaign 300/2000 (1934s, 6.45s/campaign)
+  rho=0.0: campaign 400/2000 (2599s, 6.50s/campaign)
+  rho=0.0: campaign 500/2000 (3269s, 6.54s/campaign)
+  rho=0.0: campaign 600/2000 (3834s, 6.39s/campaign)
+  rho=0.0: campaign 700/2000 (4152s, 5.93s/campaign)
+  rho=0.0: campaign 800/2000 (4469s, 5.59s/campaign)
+  rho=0.0: campaign 900/2000 (4849s, 5.39s/campaign)
+  rho=0.0: campaign 1000/2000 (5764s, 5.76s/campaign)

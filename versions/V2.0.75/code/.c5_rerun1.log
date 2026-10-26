@@ -1,0 +1,1 @@
+{"campaign_id": "campaign-5-regime-error-analysis-2026-10-22", "cycles": 16, "executions_done": 16, "status": "STOPPED", "stop_detail": "PermissionError: [WinError 5] Access is denied: 'C:\\\\Prajwal MIT\\\\Passion\\\\versions\\\\.V2.0.70.2190d16be9b54176a640a7d58866016d.tmp' -> 'C:\\\\Prajwal MIT\\\\Passion\\\\versions\\\\V2.0.70'", "stop_reason": "PROMOTION_FAILED"}

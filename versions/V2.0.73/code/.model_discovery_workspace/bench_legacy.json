@@ -1,0 +1,25 @@
+{
+  "budget": 64,
+  "code_root": "C:/Prajwal MIT/Passion",
+  "duplicate_rate": 1.0,
+  "evidence_universe_keys": 16,
+  "evidence_universe_unmeasured": 4,
+  "first_cycle_fingerprints": [
+    "c9d03b872fd90336af449c9d234a5228b004f367d886006d774517940d1c23d6",
+    "475d6c54eb99e64392beede6537ee6d79f545836fdbeb013eb160e4985115e7a",
+    "5afe6c8d821a41bda012065c514b6a4f2bb8f72ea05db33e6889a12f6133c6b1"
+  ],
+  "measured_history_keys": 12,
+  "mode": "legacy",
+  "novel_keys_reached": 0,
+  "per_cycle": 3,
+  "stats": {
+    "cycles_run": 7,
+    "emitted": 18,
+    "novel": 0,
+    "redundant_vs_history": 18,
+    "repeat_within_run": 0,
+    "stopped": "no_admissible_candidate",
+    "uncompilable": 0
+  }
+}

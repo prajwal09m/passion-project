@@ -1,0 +1,13 @@
+{
+ "autonomous_agent/state/campaign_end_multiplicity.jsonl": "7547704337738e829ce71bddd524b7458cdc62f38ee3642443597eedd5abe9d3",
+ "autonomous_agent/MAIN AUDITS AND REFLECTIONS/CAMPAIGN_4_FINAL_ARCHIVE_2026-10-16/SHA256SUMS.txt": "7b4e75e2caff612568d7463fefc1c48f8435fd616716d794d6ff9b1f54c2bfb3",
+ "autonomous_agent/MAIN AUDITS AND REFLECTIONS/C4_MEASUREMENT_WIRING_FINDING_OWNER_DECISION_RECORD_2026_10_16.md": "7d837caa9123be50ca0407d167b6c69aed29dc90d86f59968c693dcfc0d54130",
+ "stat_validation_h10/launch_gates.json": "dfed21cda460f898f9958d0276db83b110a7a618b0e43591d008ff87af2adeea",
+ "stat_validation_h10/H10_DECISION_RECORD_AWAITING_SIGNATURE.md": "b9db32335c93ccf5a06b764023f21b6595c2fa4a0a4dd7ccbec6f87d2e9f0a42",
+ "autonomous_agent/state/campaign_config.json": "d8bff195eb6e3e1e81c201f78b9961f1d0d9738a611498eaca593f394e238862",
+ "autonomous_agent/state/campaign_config.sha256": "105a64864660e25e105a5aa993f2d76b0d7c0791b11b3374ff78a0939bfc9a2d",
+ "autonomous_agent/state/proposal_ledger.jsonl": "d97da2680245be8a690ab097d1e25b1ac99b7668b74ce064cf8068f6a51f9ba8",
+ "autonomous_agent/state/loop_state.json": "7b51df327a4a53b02eda0b2b177aa1e764d5b8d72e80523de8c4113cdc04b9d9",
+ "autonomous_agent/state/experiment_registry.json": "c17321b46830b3d76c61f5f7164b7f8fb4c7e5b2280bf5c4ed2d4d2b7239358a",
+ "stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md": "6dd405554e7afd7689162d275662b6e11d701e670f0416a7c5e21897f19528e0"
+}

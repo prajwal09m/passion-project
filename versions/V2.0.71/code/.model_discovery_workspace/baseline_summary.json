@@ -1,0 +1,148 @@
+{
+  "adjudicated": 69,
+  "by_class": {
+    "confirmatory": 49,
+    "exploration": 9,
+    "falsification": 59,
+    "replication": 7
+  },
+  "by_direction": {
+    "calibration": 16,
+    "data_quality": 2,
+    "error_analysis": 8,
+    "feature_engineering": 15,
+    "model_architecture": 9,
+    "model_complexity": 27,
+    "target_design": 8,
+    "validation": 39
+  },
+  "criteria_passed": 56,
+  "distinct_design_signatures": 124,
+  "final_status": {
+    "ACCEPTED_FOR_EXECUTION": 6,
+    "ADJUDICATED": 16,
+    "FAILED_EXECUTION": 5,
+    "PROMOTED": 53,
+    "REFUSED": 43,
+    "VALIDATING": 1
+  },
+  "max_repeats_of_one_signature": 1,
+  "passed_delta_values": [
+    0.001168,
+    0.001168,
+    0.001168,
+    0.001168,
+    0.001168,
+    0.001168,
+    0.005859,
+    0.005859,
+    0.005859,
+    0.005859,
+    0.005859,
+    0.005859,
+    0.005879,
+    0.005879,
+    0.005879,
+    0.017023,
+    0.017023,
+    0.017023,
+    0.017023,
+    0.017023,
+    0.017023,
+    0.023312,
+    0.023312,
+    0.023312,
+    0.023312,
+    0.023312,
+    0.023312,
+    0.023312,
+    0.023312,
+    0.025192,
+    0.025192,
+    0.025192,
+    0.025192,
+    0.025192,
+    0.025192,
+    0.025192,
+    0.025192,
+    0.025192,
+    0.025192,
+    0.025192,
+    0.025192,
+    0.070673,
+    0.070673,
+    0.070673,
+    0.070673,
+    0.070673,
+    0.081817,
+    0.081817,
+    0.081817,
+    0.081817,
+    0.081817,
+    0.081817,
+    0.081817,
+    0.081817,
+    0.081817,
+    0.081817
+  ],
+  "per_direction": {
+    "calibration": {
+      "adjudicated": 8,
+      "median_delta": 0.003513,
+      "passed": 8
+    },
+    "error_analysis": {
+      "adjudicated": 4,
+      "median_delta": 0.024252,
+      "passed": 4
+    },
+    "feature_engineering": {
+      "adjudicated": 10,
+      "median_delta": 0.000369,
+      "passed": 5
+    },
+    "model_architecture": {
+      "adjudicated": 7,
+      "median_delta": 0.025192,
+      "passed": 7
+    },
+    "model_complexity": {
+      "adjudicated": 21,
+      "median_delta": 0.025192,
+      "passed": 21
+    },
+    "target_design": {
+      "adjudicated": 4,
+      "median_delta": 0.024252,
+      "passed": 4
+    },
+    "validation": {
+      "adjudicated": 15,
+      "median_delta": 0.005859,
+      "passed": 7
+    }
+  },
+  "primary_delta_max": 0.081817,
+  "primary_delta_median": 0.023312,
+  "primary_delta_min": -0.000713,
+  "primitive_usage": {
+    "calibration_stability_check": 16,
+    "complexity_premium_check": 20,
+    "complexity_reduction_check": 7,
+    "feature_arm_comparison": 15,
+    "minimum_effect_falsifier": 18,
+    "model_class_comparison": 9,
+    "point_in_time_data_audit": 2,
+    "purge_sensitivity_probe": 2,
+    "regime_split_analysis": 8,
+    "seed_set_replication": 7,
+    "target_horizon_robustness": 8,
+    "year_stability_falsifier": 12
+  },
+  "proposals": 124,
+  "refusal_reasons": {
+    "BIAS_QUOTA": 28,
+    "BUDGET_EXHAUSTED": 6,
+    "NEAR_DUPLICATE": 9
+  }
+}

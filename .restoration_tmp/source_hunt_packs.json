@@ -1,0 +1,125 @@
+{
+  "code_pin": "29885c5f14235e78349b728156e18feba930f3ee533565ea36a05f695692424b",
+  "test_pin": "e3f16447eae3a257dfc013d8dd53e2521414632c06f7b14a3d31f0ba3ddce456",
+  "pyc_pin": "c7d23b68e66d76f1f851887bc755b84b6bb1c8c424c24cccc8bf94de59d8f585",
+  "stats": {
+    "files_hashed": 0,
+    "blobs_hashed": 288,
+    "archive_entries": 0,
+    "errors": 0
+  },
+  "pin_hits": [],
+  "marker_hit_count": 8,
+  "marker_hits": [
+    {
+      "origin": "orphan-pack:tmp_pack_Ds7zuW",
+      "name": "-",
+      "bytes": 8556,
+      "sha256": "82141dfa35d9efbab4f0a24de1cd130ccacca9e457a23dc0a493e8fdcbc5c6e0",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "82141dfa35d9efbab4f0a24de1cd130ccacca9e457a23dc0a493e8fdcbc5c6e0",
+        "lf->crlf": "36c87764e6e8929f11a0bbc988d8a829b8f66af17ae5afb4a6637f472cef749f",
+        "crlf->lf": "82141dfa35d9efbab4f0a24de1cd130ccacca9e457a23dc0a493e8fdcbc5c6e0"
+      }
+    },
+    {
+      "origin": "orphan-pack:tmp_pack_Ds7zuW",
+      "name": "-",
+      "bytes": 4135,
+      "sha256": "752fbff0ff11ff99912def8713235c3fb57d9dc0e6b4db0f8bc9e4d2c66b4142",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "752fbff0ff11ff99912def8713235c3fb57d9dc0e6b4db0f8bc9e4d2c66b4142",
+        "lf->crlf": "c392a6c16df0401777cccacc38b86c602043dadcf4ad90f1d544dd43f972f4c1",
+        "crlf->lf": "752fbff0ff11ff99912def8713235c3fb57d9dc0e6b4db0f8bc9e4d2c66b4142"
+      }
+    },
+    {
+      "origin": "orphan-pack:tmp_pack_Ds7zuW",
+      "name": "-",
+      "bytes": 213516,
+      "sha256": "7a330bcef1ce352e8b9c225f01ae173af3df8550f65d18a5dfe087a95dbda49d",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "7a330bcef1ce352e8b9c225f01ae173af3df8550f65d18a5dfe087a95dbda49d",
+        "lf->crlf": "16f40a0bacdffa2750368f320247c18ab37fc08f82091f6a3da52703dd65d58f",
+        "crlf->lf": "7a330bcef1ce352e8b9c225f01ae173af3df8550f65d18a5dfe087a95dbda49d"
+      }
+    },
+    {
+      "origin": "orphan-pack:tmp_pack_Ds7zuW",
+      "name": "-",
+      "bytes": 594962,
+      "sha256": "10c330e39e450531228938af277a414a91a3b88407500997adcc6364bddd1ada",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "10c330e39e450531228938af277a414a91a3b88407500997adcc6364bddd1ada",
+        "lf->crlf": "534b9c28132c9f221c3ef3fd60cfc01f274cf57163a7f38cecaa9275e9e828e7",
+        "crlf->lf": "10c330e39e450531228938af277a414a91a3b88407500997adcc6364bddd1ada"
+      }
+    },
+    {
+      "origin": "orphan-pack:tmp_pack_Ds7zuW",
+      "name": "-",
+      "bytes": 69317,
+      "sha256": "b39ece5be3117e3959d617b3b6aecd347279933bb668a88c0385d9c2e1ba697f",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "b39ece5be3117e3959d617b3b6aecd347279933bb668a88c0385d9c2e1ba697f",
+        "lf->crlf": "0da5d8d7f3d754072f35e72e6ba20d7ecad9918f450a3faab87dfeb3a16913f0",
+        "crlf->lf": "b39ece5be3117e3959d617b3b6aecd347279933bb668a88c0385d9c2e1ba697f"
+      }
+    },
+    {
+      "origin": "orphan-pack:tmp_pack_Ds7zuW",
+      "name": "-",
+      "bytes": 15642,
+      "sha256": "7cb77b9523fe0621efea86052adb430c9a0344ffe41f38ee42732f687caab89a",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "7cb77b9523fe0621efea86052adb430c9a0344ffe41f38ee42732f687caab89a",
+        "lf->crlf": "3f7081d13485f149507f3d475b84b8eb712b571533dda9e4b4e14e7356750fc0",
+        "crlf->lf": "7cb77b9523fe0621efea86052adb430c9a0344ffe41f38ee42732f687caab89a"
+      }
+    },
+    {
+      "origin": "orphan-pack:tmp_pack_Ds7zuW",
+      "name": "-",
+      "bytes": 133508,
+      "sha256": "ee9017b7cf354931d638cb83bdc276c341bad9e90278addcdeec9ba60b4a7ed6",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "ee9017b7cf354931d638cb83bdc276c341bad9e90278addcdeec9ba60b4a7ed6",
+        "lf->crlf": "7b4c501a05c109f54515427ac7aa3096eb3863ce8dbdc5da0990b7bb3386738e",
+        "crlf->lf": "08734efd0a066801aeb29ee0b587799d13ca8f28a75566a3097dd242182d5fe4"
+      }
+    },
+    {
+      "origin": "orphan-pack:tmp_pack_Ds7zuW",
+      "name": "-",
+      "bytes": 33831,
+      "sha256": "8a873293e6537d7e71cca397412cf6ca25959604d5d21ab6512c66b6eb7fd468",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "8a873293e6537d7e71cca397412cf6ca25959604d5d21ab6512c66b6eb7fd468",
+        "lf->crlf": "47cc8658b300047429bb9f1f172d53ad8f01b4d354b303047780683bd27b2989",
+        "crlf->lf": "d3850a23b814d8d66d34f43e18eea6324a4cec172cefe759e46e06a4fce5d209"
+      }
+    }
+  ],
+  "errors": [],
+  "orphan_packs": [
+    {
+      "pack": "tmp_pack_Ds7zuW",
+      "declared_objects": 3930,
+      "parsed_objects": 288,
+      "deltas": 53,
+      "deltas_resolved": 53,
+      "truncated": "parse stopped at byte 87162880: index out of range",
+      "file_bytes": 87162880,
+      "unparsed_bytes": 0
+    }
+  ],
+  "phase": "packs"
+}

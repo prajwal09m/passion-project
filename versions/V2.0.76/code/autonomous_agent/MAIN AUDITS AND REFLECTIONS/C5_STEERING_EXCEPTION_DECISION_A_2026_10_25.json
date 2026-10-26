@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "decision_id": "C5_STEERING_EXCEPTION_A_2026_10_25",
+  "decision": "Option A",
+  "status": "DECIDED_2026_10_25",
+  "authorized_by": "PMED (owner)",
+  "authorization_channel": "owner decision, Option A selected in the live assistant chat of 2026-10-25, in response to C5_FALSIFICATION_SHARE_DEADLOCK_OWNER_DECISION_REQUEST_2026_10_25.md",
+  "authorization_id": "campaign-5-regime-error-analysis-auth-2026-10-22",
+  "campaign_id": "campaign-5-regime-error-analysis-2026-10-22",
+  "primitive_id": "error_clustering_analysis",
+  "proposal_class": "exploration",
+  "direction": "error_analysis",
+  "axes": [
+    "vix_regime",
+    "first_retest",
+    "volume_confirmation",
+    "departure_magnitude",
+    "departure_candle_direction"
+  ],
+  "per_axis_limit": 1,
+  "total_rows_limit": 5,
+  "scope_rule": "the exception admits an exploration-class proposal only when its design signature is one of the 5 predeclared error-cluster axis signatures for the named primitive in the named campaign; the post-creation projected per-signature count must be <= per_axis_limit and the projected total across all 5 exception signatures must be <= total_rows_limit; every other non-falsification candidate remains governed by min_falsification_share steering exactly as frozen",
+  "disclosure": "owner-authorized steering exception (C5_STEERING_EXCEPTION_A_2026_10_25): the post-creation falsification share may dip to at most 7/24 = 0.29167 below the 0.30 floor solely because of these 5 predeclared diagnostic rows; the dip is disclosed in every admission detail and does not alter any frozen artifact",
+  "binding": "no changes to frozen campaign_config.json, no changes to error-cluster framing (A2 identity), no holdout or prospective data access, no champion promotion; after total_rows_limit the exception is exhausted and cannot be re-created",
+  "tamper_evidence": "sha256 of these record bytes must equal the pin stored in C5_STEERING_EXCEPTION_DECISION_A_2026_10_25.sha256 in this same directory; the loader refuses to admit anything when the bytes or the pin mismatch, and pins are also asserted by tests"
+}

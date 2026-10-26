@@ -1,0 +1,9 @@
+{"cycle": 1, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 2, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 3, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 4, "ready": true, "status": "RUNNING", "hypothesis": "Are probability estimates stable across years, tickers, and market regimes?", "blockers": []}
+{"cycle": 5, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 6, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 7, "ready": true, "status": "RUNNING", "hypothesis": "Do market-structure features add information beyond a matched baseline without future-data dependence?", "blockers": []}
+{"cycle": 8, "ready": true, "status": "RUNNING", "hypothesis": "Does a different model class generalize better than the strongest matched component?", "blockers": []}
+{"cycle": 9, "ready": false, "status": "RESEARCH_EXHAUSTED", "hypothesis": null, "blockers": ["Autonomous research capacity exhausted: every direction is permanently unsupported by the closed recipe library or has spent its attempt budget; no further attempts will be proposed."]}

@@ -1,0 +1,10 @@
+{
+  "captured_at_utc": "2026-10-24T22:07:14.819002+00:00",
+  "loop_status": "STOPPED",
+  "cycle": 17,
+  "executions_done": 16,
+  "journal_rows": 223,
+  "campaign_config_sha256": "29c905aaf25012cdd20bf21270821f81f5a8e24b46b4a51163d2c65e2e9124a5",
+  "pin_matches_live_hash": true,
+  "last_stop_reason": "PROMOTION_FAILED"
+}

@@ -1,0 +1,9 @@
+{
+  "experiments": 69,
+  "key_groups_not_matching_outcome": [],
+  "measured_outcome_groups": 12,
+  "measurement_key_groups": 12,
+  "missing_key_fields": {},
+  "outcome_groups_not_matching_key": [],
+  "partitions_identical": true
+}

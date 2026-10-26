@@ -1,0 +1,16 @@
+==== stage: sim2 (2026-10-11T00:00:45+00:00) ====
+[sim2] N=2000 campaigns/config; rhos=(0.0, 0.3, 0.7); m-grid=(1, 4, 12, 24, 36, 50, 90); B-grid=(500, 1000, 2000); members=90 pooled; shards=8 shard_index=6
+  rho=0.0[shard 6]: 100 own campaigns (51027s, 510.27s/campaign)
+  rho=0.0[shard 6]: 200 own campaigns (52052s, 260.26s/campaign)
+  rho=0.0[shard 6]: stride done (52576s, 250 own campaigns)
+  rho=0.3[shard 6]: 100 own campaigns (3584s, 35.84s/campaign)
+  rho=0.3[shard 6]: 200 own campaigns (6377s, 31.89s/campaign)
+  rho=0.3[shard 6]: stride done (8058s, 250 own campaigns)
+  rho=0.7[shard 6]: 100 own campaigns (13894s, 138.94s/campaign)
+  rho=0.7[shard 6]: 200 own campaigns (14681s, 73.41s/campaign)
+  rho=0.7[shard 6]: stride done (15101s, 250 own campaigns)
+  mixed[shard 6]: 100 own campaigns (91s)
+  mixed[shard 6]: 200 own campaigns (170s)
+  mixed[shard 6]: stride done (189s, 250 own campaigns)
+[sim2] shard 6/8 complete
+==== done in 75925s (exit 0) ====

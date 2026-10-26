@@ -1,0 +1,648 @@
+{
+  "code_pin": "29885c5f14235e78349b728156e18feba930f3ee533565ea36a05f695692424b",
+  "test_pin": "e3f16447eae3a257dfc013d8dd53e2521414632c06f7b14a3d31f0ba3ddce456",
+  "pyc_pin": "c7d23b68e66d76f1f851887bc755b84b6bb1c8c424c24cccc8bf94de59d8f585",
+  "stats": {
+    "files_hashed": 188047,
+    "blobs_hashed": 0,
+    "archive_entries": 0,
+    "errors": 0
+  },
+  "pin_hits": [],
+  "marker_hit_count": 45,
+  "marker_hits": [
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\MARKET_STRUCTURE_STUDY_V1_PROTOCOL.json",
+      "bytes": 15898,
+      "path": "C:\\Prajwal MIT\\Passion\\MARKET_STRUCTURE_STUDY_V1_PROTOCOL.json",
+      "mtime": 1790806667,
+      "sha256": "358c3780775dee765db5e136db67e6f324fc43e5a8a516c3b55af0bcc8955b20",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "358c3780775dee765db5e136db67e6f324fc43e5a8a516c3b55af0bcc8955b20",
+        "lf->crlf": "358c3780775dee765db5e136db67e6f324fc43e5a8a516c3b55af0bcc8955b20",
+        "crlf->lf": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\.freebuff\\recovery_tools\\audit_saved_v1_0_1_outputs.py",
+      "bytes": 20467,
+      "path": "C:\\Prajwal MIT\\Passion\\.freebuff\\recovery_tools\\audit_saved_v1_0_1_outputs.py",
+      "mtime": 1790806667,
+      "sha256": "fb4dbf8c0db91db92e62bbd12f396b0ac00e970d97054e2a9a3b7641b81eb737",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "fb4dbf8c0db91db92e62bbd12f396b0ac00e970d97054e2a9a3b7641b81eb737",
+        "lf->crlf": "fb4dbf8c0db91db92e62bbd12f396b0ac00e970d97054e2a9a3b7641b81eb737",
+        "crlf->lf": "b36180e326f94ef6e3c919f2c211e3d37fdd12b0ee1610b27fe75086ae85abb5"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\autonomous_agent\\experiment_adapter.py",
+      "bytes": 72735,
+      "path": "C:\\Prajwal MIT\\Passion\\autonomous_agent\\experiment_adapter.py",
+      "mtime": 1790976803,
+      "sha256": "fb635af3f829fb67c380c8a1df34fb00c86b64946fcd028d249c5ab77aeaeb02",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "fb635af3f829fb67c380c8a1df34fb00c86b64946fcd028d249c5ab77aeaeb02",
+        "lf->crlf": "70330328a5d02f44139f552b3d3ac0a9783caf861fcba425fe05974460e41fe5",
+        "crlf->lf": "fb635af3f829fb67c380c8a1df34fb00c86b64946fcd028d249c5ab77aeaeb02"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\autonomous_agent\\source_hunt.py",
+      "bytes": 17386,
+      "path": "C:\\Prajwal MIT\\Passion\\autonomous_agent\\source_hunt.py",
+      "mtime": 1791055797,
+      "sha256": "e15903681bb6c28dc55226206619fc147def83183bbd516cb8c47e3c99ea0793",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "e15903681bb6c28dc55226206619fc147def83183bbd516cb8c47e3c99ea0793",
+        "lf->crlf": "180ea3d82a437cbef68588d511336be0d14d61214242cebc7792c300a84d8f58",
+        "crlf->lf": "e15903681bb6c28dc55226206619fc147def83183bbd516cb8c47e3c99ea0793"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\autonomous_agent\\test_experiment_adapter.py",
+      "bytes": 20838,
+      "path": "C:\\Prajwal MIT\\Passion\\autonomous_agent\\test_experiment_adapter.py",
+      "mtime": 1790967839,
+      "sha256": "fd90d26ce13eefe33f779f9fe9293a4eace43cc7e77c06d1ab71759edbccdb60",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "fd90d26ce13eefe33f779f9fe9293a4eace43cc7e77c06d1ab71759edbccdb60",
+        "lf->crlf": "0f8874d9bd95127734735e02f92bdba44ea3360bb847f886c5f8572c147c00c0",
+        "crlf->lf": "fd90d26ce13eefe33f779f9fe9293a4eace43cc7e77c06d1ab71759edbccdb60"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\autonomous_agent\\__pycache__\\experiment_adapter.cpython-313.pyc",
+      "bytes": 87992,
+      "path": "C:\\Prajwal MIT\\Passion\\autonomous_agent\\__pycache__\\experiment_adapter.cpython-313.pyc",
+      "mtime": 1790977160,
+      "sha256": "37afe707e4303ca60aa983e81b4b48ff49b7a7e3788cfced1b05d92e948d3140",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "37afe707e4303ca60aa983e81b4b48ff49b7a7e3788cfced1b05d92e948d3140",
+        "lf->crlf": "e6a31243748f5fa794ee01943f645e1ac60202ca9ee9385a0ed7b2249d44b105",
+        "crlf->lf": "8af4a959e0514d4c883619249cfff4611fde5cc93ba5628224623bec8d2ed4d4"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\autonomous_agent\\__pycache__\\test_experiment_adapter.cpython-313.pyc",
+      "bytes": 29979,
+      "path": "C:\\Prajwal MIT\\Passion\\autonomous_agent\\__pycache__\\test_experiment_adapter.cpython-313.pyc",
+      "mtime": 1790968087,
+      "sha256": "3a433d9aca94ebce421e2d49a40b65d398ca555690f549f9a1c4529f40f4af42",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "3a433d9aca94ebce421e2d49a40b65d398ca555690f549f9a1c4529f40f4af42",
+        "lf->crlf": "030e2b8cb82857019cd509d8164b51f67fcffb9b45eaa2b5ef8e2d12de044f92",
+        "crlf->lf": "ed9eb9d2ad8360f95a545558c98a2144732d1bcafcc9634e7ed70d062fb94412"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\backend\\demand_zone_study_v1.py",
+      "bytes": 92152,
+      "path": "C:\\Prajwal MIT\\Passion\\backend\\demand_zone_study_v1.py",
+      "mtime": 1790806669,
+      "sha256": "2b1cce3587f6d9423b0a5fba0b2de5e8cc3195a9e4b5e0c25c89403084d783ee",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "2b1cce3587f6d9423b0a5fba0b2de5e8cc3195a9e4b5e0c25c89403084d783ee",
+        "lf->crlf": "2b1cce3587f6d9423b0a5fba0b2de5e8cc3195a9e4b5e0c25c89403084d783ee",
+        "crlf->lf": "cea2440425e1f2f56a95b576481ae2ef603fe1f6a9816078e0a998781e0cef2a"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\backend\\tests\\test_demand_zone_study_v1.py",
+      "bytes": 21328,
+      "path": "C:\\Prajwal MIT\\Passion\\backend\\tests\\test_demand_zone_study_v1.py",
+      "mtime": 1790806669,
+      "sha256": "d4b85f64cba3e077fb4e377c0d120d440e67312758bcb2242241febe1173e06e",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "d4b85f64cba3e077fb4e377c0d120d440e67312758bcb2242241febe1173e06e",
+        "lf->crlf": "d4b85f64cba3e077fb4e377c0d120d440e67312758bcb2242241febe1173e06e",
+        "crlf->lf": "c20e0889ec488b7bacc17c753bafb6c98acf1f804df38735df8c166259343107"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\research\\demand-zone-ai-study\\create_bundle_manifest.py",
+      "bytes": 4657,
+      "path": "C:\\Prajwal MIT\\Passion\\research\\demand-zone-ai-study\\create_bundle_manifest.py",
+      "mtime": 1790806672,
+      "sha256": "d433c6fe3a8b6bedf5c93f2605c88f95bca82c38fd182e3a1f711a698a7f3827",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "d433c6fe3a8b6bedf5c93f2605c88f95bca82c38fd182e3a1f711a698a7f3827",
+        "lf->crlf": "d433c6fe3a8b6bedf5c93f2605c88f95bca82c38fd182e3a1f711a698a7f3827",
+        "crlf->lf": "b03fac2e5b440bf5134f507758e010b82634f2a37d68318fc495c522cf679f1f"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\study_files\\MARKET_STRUCTURE_STUDY_V1_PROTOCOL.json",
+      "bytes": 15778,
+      "path": "C:\\Prajwal MIT\\Passion\\study_files\\MARKET_STRUCTURE_STUDY_V1_PROTOCOL.json",
+      "mtime": 1790588531,
+      "sha256": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05",
+        "lf->crlf": "358c3780775dee765db5e136db67e6f324fc43e5a8a516c3b55af0bcc8955b20",
+        "crlf->lf": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\study_files\\.freebuff\\recovery_tools\\audit_saved_v1_0_1_outputs.py",
+      "bytes": 20096,
+      "path": "C:\\Prajwal MIT\\Passion\\study_files\\.freebuff\\recovery_tools\\audit_saved_v1_0_1_outputs.py",
+      "mtime": 1790719191,
+      "sha256": "b36180e326f94ef6e3c919f2c211e3d37fdd12b0ee1610b27fe75086ae85abb5",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "b36180e326f94ef6e3c919f2c211e3d37fdd12b0ee1610b27fe75086ae85abb5",
+        "lf->crlf": "fb4dbf8c0db91db92e62bbd12f396b0ac00e970d97054e2a9a3b7641b81eb737",
+        "crlf->lf": "b36180e326f94ef6e3c919f2c211e3d37fdd12b0ee1610b27fe75086ae85abb5"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\study_files\\backend\\demand_zone_study_v1.py",
+      "bytes": 90614,
+      "path": "C:\\Prajwal MIT\\Passion\\study_files\\backend\\demand_zone_study_v1.py",
+      "mtime": 1790640389,
+      "sha256": "cea2440425e1f2f56a95b576481ae2ef603fe1f6a9816078e0a998781e0cef2a",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "cea2440425e1f2f56a95b576481ae2ef603fe1f6a9816078e0a998781e0cef2a",
+        "lf->crlf": "2b1cce3587f6d9423b0a5fba0b2de5e8cc3195a9e4b5e0c25c89403084d783ee",
+        "crlf->lf": "cea2440425e1f2f56a95b576481ae2ef603fe1f6a9816078e0a998781e0cef2a"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\study_files\\backend\\tests\\test_demand_zone_study_v1.py",
+      "bytes": 20926,
+      "path": "C:\\Prajwal MIT\\Passion\\study_files\\backend\\tests\\test_demand_zone_study_v1.py",
+      "mtime": 1790713805,
+      "sha256": "c20e0889ec488b7bacc17c753bafb6c98acf1f804df38735df8c166259343107",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "c20e0889ec488b7bacc17c753bafb6c98acf1f804df38735df8c166259343107",
+        "lf->crlf": "d4b85f64cba3e077fb4e377c0d120d440e67312758bcb2242241febe1173e06e",
+        "crlf->lf": "c20e0889ec488b7bacc17c753bafb6c98acf1f804df38735df8c166259343107"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\study_files\\backend\\tests\\__pycache__\\test_demand_zone_study_v1.cpython-313.pyc",
+      "bytes": 33866,
+      "path": "C:\\Prajwal MIT\\Passion\\study_files\\backend\\tests\\__pycache__\\test_demand_zone_study_v1.cpython-313.pyc",
+      "mtime": 1790952603,
+      "sha256": "5b806d4dbd7a5cc5ae831c072c340448d3fc9254a882820c802f10981301e1d3",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "5b806d4dbd7a5cc5ae831c072c340448d3fc9254a882820c802f10981301e1d3",
+        "lf->crlf": "790563bbc3b94df340a517ebbae252c3ebe039580162cdbef812f50db957cf02",
+        "crlf->lf": "ae5db8b3561efc10343d741e8d56a122ad97e5a5b9c09c997cc2bcc1312e66e8"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\study_files\\backend\\__pycache__\\demand_zone_study_v1.cpython-313.pyc",
+      "bytes": 133543,
+      "path": "C:\\Prajwal MIT\\Passion\\study_files\\backend\\__pycache__\\demand_zone_study_v1.cpython-313.pyc",
+      "mtime": 1790952606,
+      "sha256": "649895a2126be08bf90eadd157f7c48ee6773b66f4d469c780ac32de10d412e8",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "649895a2126be08bf90eadd157f7c48ee6773b66f4d469c780ac32de10d412e8",
+        "lf->crlf": "c45323c097548b10ef29246c8af570185a9a90a61a3c6eb8221a5dd4ddfa53d1",
+        "crlf->lf": "c5137fa7c8ba4263a699fc1223fc1cd19dc3d1bfa35fab51a0d4093e2086562d"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Prajwal MIT\\Passion\\study_files\\research\\demand-zone-ai-study\\create_bundle_manifest.py",
+      "bytes": 4541,
+      "path": "C:\\Prajwal MIT\\Passion\\study_files\\research\\demand-zone-ai-study\\create_bundle_manifest.py",
+      "mtime": 1790802710,
+      "sha256": "b03fac2e5b440bf5134f507758e010b82634f2a37d68318fc495c522cf679f1f",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "b03fac2e5b440bf5134f507758e010b82634f2a37d68318fc495c522cf679f1f",
+        "lf->crlf": "d433c6fe3a8b6bedf5c93f2605c88f95bca82c38fd182e3a1f711a698a7f3827",
+        "crlf->lf": "b03fac2e5b440bf5134f507758e010b82634f2a37d68318fc495c522cf679f1f"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\2699a370\\content.txt",
+      "bytes": 2568328,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\2699a370\\content.txt",
+      "mtime": 1790805456,
+      "sha256": "8d1ab608e77bcca391198c601b426cd387e9f825683ee53301cbf48ee7645d6f",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "8d1ab608e77bcca391198c601b426cd387e9f825683ee53301cbf48ee7645d6f",
+        "lf->crlf": "35c872e7f0e0d0715443b99ea2d434e27d7cb13efeabce75a615d1ad6b3992f5",
+        "crlf->lf": "8d1ab608e77bcca391198c601b426cd387e9f825683ee53301cbf48ee7645d6f"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\698474c3\\content.txt",
+      "bytes": 10568,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\698474c3\\content.txt",
+      "mtime": 1790804436,
+      "sha256": "9c3032bf36d6dca48fe4e2090385e4d3aeea8fbfe18846c851d3bb89e69184bb",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "9c3032bf36d6dca48fe4e2090385e4d3aeea8fbfe18846c851d3bb89e69184bb",
+        "lf->crlf": "297158498ffd2f66886fdf7facbe159ae5ba11ec4dd752fd01c3df68bfbbff13",
+        "crlf->lf": "9c3032bf36d6dca48fe4e2090385e4d3aeea8fbfe18846c851d3bb89e69184bb"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\91b4c793\\content.txt",
+      "bytes": 1588616,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\91b4c793\\content.txt",
+      "mtime": 1790805151,
+      "sha256": "51458dd293d1121425633b9e0891c619ddcb829ec7b42ebdb56c8da519ffe8a5",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "51458dd293d1121425633b9e0891c619ddcb829ec7b42ebdb56c8da519ffe8a5",
+        "lf->crlf": "25800f85277bcea4a5f213fee1ca2d02d213ea4bffddd9ef9c0f8d02a464ef1f",
+        "crlf->lf": "51458dd293d1121425633b9e0891c619ddcb829ec7b42ebdb56c8da519ffe8a5"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\bfd9109a\\content.txt",
+      "bytes": 626023,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\bfd9109a\\content.txt",
+      "mtime": 1790804705,
+      "sha256": "b9166241de3e73bee53fe107e1ac4758e31f7f9c03fdd03abe91e53b121a0c97",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "b9166241de3e73bee53fe107e1ac4758e31f7f9c03fdd03abe91e53b121a0c97",
+        "lf->crlf": "5fafeb68d4a61649d6920bcde9f3dce1bea926a558c0bd975720e97b905e95d0",
+        "crlf->lf": "39a4663a143bf278fe30326e4940ba78b52a71e53ae184d3da2273ed8ddb198f"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\cab99e8b\\content.txt",
+      "bytes": 37441,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\cab99e8b\\content.txt",
+      "mtime": 1790804254,
+      "sha256": "f4f70de2cfa631f16ce2ae18afef9b1f2a38e75372b273e59358d91b547c4760",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "f4f70de2cfa631f16ce2ae18afef9b1f2a38e75372b273e59358d91b547c4760",
+        "lf->crlf": "27e6d050ae36a9e86bb433fabd2267368f31e3bb60cf520fa5ee510bb31612ba",
+        "crlf->lf": "f4f70de2cfa631f16ce2ae18afef9b1f2a38e75372b273e59358d91b547c4760"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-1f70ee-71689a1dc1345b6c\\content.txt",
+      "bytes": 2100,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-1f70ee-71689a1dc1345b6c\\content.txt",
+      "mtime": 1790806897,
+      "sha256": "d70061574ab0256d61385140e237b1e52cbf6af2a9261c0d923cbc8d5036e81c",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "d70061574ab0256d61385140e237b1e52cbf6af2a9261c0d923cbc8d5036e81c",
+        "lf->crlf": "9a86f284d1ffcd71e17294965f7a8f09f5b8e90c0ba09712640a35befebf85d8",
+        "crlf->lf": "d70061574ab0256d61385140e237b1e52cbf6af2a9261c0d923cbc8d5036e81c"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-2f38b8-ed8f2f82497a26c4\\content.txt",
+      "bytes": 4087141,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-2f38b8-ed8f2f82497a26c4\\content.txt",
+      "mtime": 1790805659,
+      "sha256": "c103ecf558f0aa8312d3e295154999c5277ae6393f5df090514200a12bec32ad",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "c103ecf558f0aa8312d3e295154999c5277ae6393f5df090514200a12bec32ad",
+        "lf->crlf": "c8f52a3c81d503e2b9db7d3aad8314824ef9a5f278adfce7dd99911453b212a1",
+        "crlf->lf": "c103ecf558f0aa8312d3e295154999c5277ae6393f5df090514200a12bec32ad"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-34637b-cf645849d239154a\\content.txt",
+      "bytes": 3345513,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-34637b-cf645849d239154a\\content.txt",
+      "mtime": 1790806132,
+      "sha256": "7e1c979ed6c39d038ab2156d9164db34d651ec67da290b6b274b27491a176073",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "7e1c979ed6c39d038ab2156d9164db34d651ec67da290b6b274b27491a176073",
+        "lf->crlf": "7e1c979ed6c39d038ab2156d9164db34d651ec67da290b6b274b27491a176073",
+        "crlf->lf": "e9660a4405960b962ca1ba875eee48926551be0909b94592a7dd93f509ed4a92"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-34b364-9320a5ab03e49f81\\content.txt",
+      "bytes": 25219,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-34b364-9320a5ab03e49f81\\content.txt",
+      "mtime": 1790806874,
+      "sha256": "1a022336c9e7192248b2964ceb5509f824c0480734c67e323727bef66a60efea",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "1a022336c9e7192248b2964ceb5509f824c0480734c67e323727bef66a60efea",
+        "lf->crlf": "f5ea17a0a5097203916adaee44ba28f56cadee637f956fc2cb75e0325a2f7bea",
+        "crlf->lf": "1a022336c9e7192248b2964ceb5509f824c0480734c67e323727bef66a60efea"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-4ec63f-d0a2e21a80ec862d\\content.txt",
+      "bytes": 12533,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-4ec63f-d0a2e21a80ec862d\\content.txt",
+      "mtime": 1790805879,
+      "sha256": "cc9ff9dd321be24e393c9cb874164c79afcdf0eb1691f2acf3ffd3ed225d81fa",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "cc9ff9dd321be24e393c9cb874164c79afcdf0eb1691f2acf3ffd3ed225d81fa",
+        "lf->crlf": "305f8489827255c707b61109aa3bd7304c17e95f6ab96902c23d48a2fd756076",
+        "crlf->lf": "cc9ff9dd321be24e393c9cb874164c79afcdf0eb1691f2acf3ffd3ed225d81fa"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-53403d-583dc75ffcd1e31f\\content.txt",
+      "bytes": 23077,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-53403d-583dc75ffcd1e31f\\content.txt",
+      "mtime": 1790806273,
+      "sha256": "5502593496111858a14d2d8b80ded5d5dc672488dde1e0e4b68a01c7cf8ab1ab",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "5502593496111858a14d2d8b80ded5d5dc672488dde1e0e4b68a01c7cf8ab1ab",
+        "lf->crlf": "2a30524a9485a4ecf3b43a63f4cedb91c51ff94e1e240ccd893cf33f893d9ebc",
+        "crlf->lf": "5502593496111858a14d2d8b80ded5d5dc672488dde1e0e4b68a01c7cf8ab1ab"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-5cade5-007daf1d81c3cbb2\\content.txt",
+      "bytes": 23077,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-5cade5-007daf1d81c3cbb2\\content.txt",
+      "mtime": 1790806575,
+      "sha256": "5502593496111858a14d2d8b80ded5d5dc672488dde1e0e4b68a01c7cf8ab1ab",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "5502593496111858a14d2d8b80ded5d5dc672488dde1e0e4b68a01c7cf8ab1ab",
+        "lf->crlf": "2a30524a9485a4ecf3b43a63f4cedb91c51ff94e1e240ccd893cf33f893d9ebc",
+        "crlf->lf": "5502593496111858a14d2d8b80ded5d5dc672488dde1e0e4b68a01c7cf8ab1ab"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-6253c8-6fee395684ecba6e\\content.txt",
+      "bytes": 12533,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-6253c8-6fee395684ecba6e\\content.txt",
+      "mtime": 1790805836,
+      "sha256": "cc9ff9dd321be24e393c9cb874164c79afcdf0eb1691f2acf3ffd3ed225d81fa",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "cc9ff9dd321be24e393c9cb874164c79afcdf0eb1691f2acf3ffd3ed225d81fa",
+        "lf->crlf": "305f8489827255c707b61109aa3bd7304c17e95f6ab96902c23d48a2fd756076",
+        "crlf->lf": "cc9ff9dd321be24e393c9cb874164c79afcdf0eb1691f2acf3ffd3ed225d81fa"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-6695b7-00ec4cf3641c35a9\\content.txt",
+      "bytes": 4036,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-6695b7-00ec4cf3641c35a9\\content.txt",
+      "mtime": 1790806863,
+      "sha256": "a01f7048ec1eeda811f33a01ee172ba6dae68ad296d29f0db75105cd022fe031",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "a01f7048ec1eeda811f33a01ee172ba6dae68ad296d29f0db75105cd022fe031",
+        "lf->crlf": "4aa8518f6bc5a0d1a4c8f6202f8ba144627780911532bdc7e5e1f96c38b6be6b",
+        "crlf->lf": "a01f7048ec1eeda811f33a01ee172ba6dae68ad296d29f0db75105cd022fe031"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-7a449a-a8776bfb37d54516\\content.txt",
+      "bytes": 46416,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-7a449a-a8776bfb37d54516\\content.txt",
+      "mtime": 1790804960,
+      "sha256": "d1d2b8065f11214319b5acac26e94d1e5217ee6c2038c7a04e353f3e4a439fba",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "d1d2b8065f11214319b5acac26e94d1e5217ee6c2038c7a04e353f3e4a439fba",
+        "lf->crlf": "d1d2b8065f11214319b5acac26e94d1e5217ee6c2038c7a04e353f3e4a439fba",
+        "crlf->lf": "f71dd2ebad3f4503bb7f99d648d220be4ec2c01d690361c498c25c00ba46e1b9"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-7cb48f-bdd019db1e737369\\content.txt",
+      "bytes": 303808,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-7cb48f-bdd019db1e737369\\content.txt",
+      "mtime": 1790806661,
+      "sha256": "0dbf9f2518c6a92c473c82e99bc0746d82b3dfe9afd0d3acf5c39e377cc204dc",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "0dbf9f2518c6a92c473c82e99bc0746d82b3dfe9afd0d3acf5c39e377cc204dc",
+        "lf->crlf": "d6304d8cb6ac749fe33689a3799f22683e669f64c80123ee3043af26fafd0b46",
+        "crlf->lf": "0dbf9f2518c6a92c473c82e99bc0746d82b3dfe9afd0d3acf5c39e377cc204dc"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-8bca02-c8d88258cee08606\\content.txt",
+      "bytes": 303788,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-8bca02-c8d88258cee08606\\content.txt",
+      "mtime": 1790806619,
+      "sha256": "bf07626c494240701985d9fdbe27cdaed06f10b427bb6ff45626e6354563cf5b",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "bf07626c494240701985d9fdbe27cdaed06f10b427bb6ff45626e6354563cf5b",
+        "lf->crlf": "e8517362ede4c7907645162ae54d952601752160b78137488b5971408d8c5a31",
+        "crlf->lf": "bf07626c494240701985d9fdbe27cdaed06f10b427bb6ff45626e6354563cf5b"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-937ca5-8fa87d6f6b2a6053\\content.txt",
+      "bytes": 15386,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-937ca5-8fa87d6f6b2a6053\\content.txt",
+      "mtime": 1790805969,
+      "sha256": "4187f1e802550bff68498c91e4f014b4acd509c86f6d2a09fcc8e61e7098ed2a",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "4187f1e802550bff68498c91e4f014b4acd509c86f6d2a09fcc8e61e7098ed2a",
+        "lf->crlf": "63cf205c6e7ab6ba0136cd476a4483bda617e4b1595a679fe25b4754c2daf490",
+        "crlf->lf": "4187f1e802550bff68498c91e4f014b4acd509c86f6d2a09fcc8e61e7098ed2a"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-a51fb0-ef53a881cc2c0e89\\content.txt",
+      "bytes": 2991,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-a51fb0-ef53a881cc2c0e89\\content.txt",
+      "mtime": 1790805386,
+      "sha256": "d5d5c24a1b560077d02b0896f7f8885cf7e0a8af4cf17be301b1422a3b3c263f",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "d5d5c24a1b560077d02b0896f7f8885cf7e0a8af4cf17be301b1422a3b3c263f",
+        "lf->crlf": "a459b92e948eecd54b6b4679062ca8667eaf6cd6b490e7728f3ad12f635a2d17",
+        "crlf->lf": "d5d5c24a1b560077d02b0896f7f8885cf7e0a8af4cf17be301b1422a3b3c263f"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-af7768-7c1099f7284206f7\\content.txt",
+      "bytes": 25477,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-af7768-7c1099f7284206f7\\content.txt",
+      "mtime": 1790805282,
+      "sha256": "3aba36d02a8804e4bc2d5c4dc834ac89cc1a0038305ebd75370e270d2429dc7e",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "3aba36d02a8804e4bc2d5c4dc834ac89cc1a0038305ebd75370e270d2429dc7e",
+        "lf->crlf": "24621dcfd432b98c8847ebbf0b73f7fe4f7f33d9137a8a6cb85ed0e957553728",
+        "crlf->lf": "3aba36d02a8804e4bc2d5c4dc834ac89cc1a0038305ebd75370e270d2429dc7e"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-b17935-4b8215e44231939d\\content.txt",
+      "bytes": 3837440,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-b17935-4b8215e44231939d\\content.txt",
+      "mtime": 1790805314,
+      "sha256": "acae7e9c024885945261f813c88db7517acb31fbdee32cbfc7997311cac0bf75",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "acae7e9c024885945261f813c88db7517acb31fbdee32cbfc7997311cac0bf75",
+        "lf->crlf": "21b6e1bc3391a026886fd808e45671916775b33c90c05a6e54e0796e86714dae",
+        "crlf->lf": "acae7e9c024885945261f813c88db7517acb31fbdee32cbfc7997311cac0bf75"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-b74909-dfb4cfd005f243f8\\content.txt",
+      "bytes": 23120,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-b74909-dfb4cfd005f243f8\\content.txt",
+      "mtime": 1790805031,
+      "sha256": "63feaa4e3b7658b209d63ca50b07f593c04d4ba93299736d2ea0d94d29fe7245",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "63feaa4e3b7658b209d63ca50b07f593c04d4ba93299736d2ea0d94d29fe7245",
+        "lf->crlf": "c218de9a5716d33fb873ecb35ba1c7cfea90acf304e197d496ae03dab4873979",
+        "crlf->lf": "63feaa4e3b7658b209d63ca50b07f593c04d4ba93299736d2ea0d94d29fe7245"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-dc631b-5abc96f3952720a3\\content.txt",
+      "bytes": 23106,
+      "path": "C:\\Users\\kamal\\AppData\\Local\\Temp\\devin.exe-overflows\\shell-dc631b-5abc96f3952720a3\\content.txt",
+      "mtime": 1790805648,
+      "sha256": "4cc3e3437e791808683781be47b91758674acf7e6a6571770f551831b4453c18",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "4cc3e3437e791808683781be47b91758674acf7e6a6571770f551831b4453c18",
+        "lf->crlf": "f788f6245c02a4de0dc122b43a9b52807293f25c59aa8e6c7f60ae5b8113959c",
+        "crlf->lf": "4cc3e3437e791808683781be47b91758674acf7e6a6571770f551831b4453c18"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\OneDrive\\Documents\\GitHub\\passion-project\\study_files\\MARKET_STRUCTURE_STUDY_V1_PROTOCOL.json",
+      "bytes": 15898,
+      "path": "C:\\Users\\kamal\\OneDrive\\Documents\\GitHub\\passion-project\\study_files\\MARKET_STRUCTURE_STUDY_V1_PROTOCOL.json",
+      "mtime": 1790808889,
+      "sha256": "358c3780775dee765db5e136db67e6f324fc43e5a8a516c3b55af0bcc8955b20",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "358c3780775dee765db5e136db67e6f324fc43e5a8a516c3b55af0bcc8955b20",
+        "lf->crlf": "358c3780775dee765db5e136db67e6f324fc43e5a8a516c3b55af0bcc8955b20",
+        "crlf->lf": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\OneDrive\\Documents\\GitHub\\passion-project\\study_files\\.freebuff\\recovery_tools\\audit_saved_v1_0_1_outputs.py",
+      "bytes": 20467,
+      "path": "C:\\Users\\kamal\\OneDrive\\Documents\\GitHub\\passion-project\\study_files\\.freebuff\\recovery_tools\\audit_saved_v1_0_1_outputs.py",
+      "mtime": 1790808889,
+      "sha256": "fb4dbf8c0db91db92e62bbd12f396b0ac00e970d97054e2a9a3b7641b81eb737",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "fb4dbf8c0db91db92e62bbd12f396b0ac00e970d97054e2a9a3b7641b81eb737",
+        "lf->crlf": "fb4dbf8c0db91db92e62bbd12f396b0ac00e970d97054e2a9a3b7641b81eb737",
+        "crlf->lf": "b36180e326f94ef6e3c919f2c211e3d37fdd12b0ee1610b27fe75086ae85abb5"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\OneDrive\\Documents\\GitHub\\passion-project\\study_files\\backend\\demand_zone_study_v1.py",
+      "bytes": 92152,
+      "path": "C:\\Users\\kamal\\OneDrive\\Documents\\GitHub\\passion-project\\study_files\\backend\\demand_zone_study_v1.py",
+      "mtime": 1790808889,
+      "sha256": "2b1cce3587f6d9423b0a5fba0b2de5e8cc3195a9e4b5e0c25c89403084d783ee",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "2b1cce3587f6d9423b0a5fba0b2de5e8cc3195a9e4b5e0c25c89403084d783ee",
+        "lf->crlf": "2b1cce3587f6d9423b0a5fba0b2de5e8cc3195a9e4b5e0c25c89403084d783ee",
+        "crlf->lf": "cea2440425e1f2f56a95b576481ae2ef603fe1f6a9816078e0a998781e0cef2a"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\OneDrive\\Documents\\GitHub\\passion-project\\study_files\\backend\\tests\\test_demand_zone_study_v1.py",
+      "bytes": 21328,
+      "path": "C:\\Users\\kamal\\OneDrive\\Documents\\GitHub\\passion-project\\study_files\\backend\\tests\\test_demand_zone_study_v1.py",
+      "mtime": 1790808889,
+      "sha256": "d4b85f64cba3e077fb4e377c0d120d440e67312758bcb2242241febe1173e06e",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "d4b85f64cba3e077fb4e377c0d120d440e67312758bcb2242241febe1173e06e",
+        "lf->crlf": "d4b85f64cba3e077fb4e377c0d120d440e67312758bcb2242241febe1173e06e",
+        "crlf->lf": "c20e0889ec488b7bacc17c753bafb6c98acf1f804df38735df8c166259343107"
+      }
+    },
+    {
+      "origin": "filesystem",
+      "name": "C:\\Users\\kamal\\OneDrive\\Documents\\GitHub\\passion-project\\study_files\\research\\demand-zone-ai-study\\create_bundle_manifest.py",
+      "bytes": 4657,
+      "path": "C:\\Users\\kamal\\OneDrive\\Documents\\GitHub\\passion-project\\study_files\\research\\demand-zone-ai-study\\create_bundle_manifest.py",
+      "mtime": 1790808889,
+      "sha256": "d433c6fe3a8b6bedf5c93f2605c88f95bca82c38fd182e3a1f711a698a7f3827",
+      "marker_kind": "text",
+      "line_ending_variants": {
+        "raw": "d433c6fe3a8b6bedf5c93f2605c88f95bca82c38fd182e3a1f711a698a7f3827",
+        "lf->crlf": "d433c6fe3a8b6bedf5c93f2605c88f95bca82c38fd182e3a1f711a698a7f3827",
+        "crlf->lf": "b03fac2e5b440bf5134f507758e010b82634f2a37d68318fc495c522cf679f1f"
+      }
+    }
+  ],
+  "errors": [],
+  "orphan_packs": [],
+  "phase": "fs"
+}

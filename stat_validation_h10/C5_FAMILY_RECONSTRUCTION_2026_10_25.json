@@ -1,0 +1,76 @@
+{
+  "campaign_id": "campaign-5-regime-error-analysis-2026-10-22",
+  "declared_correction": "holm_step_down",
+  "declared_pooling": "campaign_end_over_complete_family",
+  "declared_pooling_exclusions": [
+    "campaign_1_2_3_4_tests",
+    "primitives_not_named_above"
+  ],
+  "campaign_end_record_required": true,
+  "proposals_adjudicated": 23,
+  "proposal_classes": {
+    "confirmatory": 10,
+    "falsification": 7,
+    "exploration": 3,
+    "replication": 3
+  },
+  "primitive_execution_counts": {
+    "complexity_reduction_check": 1,
+    "year_stability_falsifier": 4,
+    "minimum_effect_falsifier": 7,
+    "complexity_premium_check": 4,
+    "point_in_time_data_audit": 3,
+    "seed_set_replication": 3,
+    "purge_sensitivity_probe": 1
+  },
+  "declared_families": {
+    "complexity": {
+      "declared_primitive": "complexity_reduction_check",
+      "declared_member_bound": 12,
+      "declared_members_per_experiment": 1,
+      "experiments_executed": 1,
+      "proposal_ids": [
+        "prop-07e23c266d91-1"
+      ]
+    },
+    "error_analysis": {
+      "declared_primitive": "error_clustering_analysis",
+      "declared_member_bound": 20,
+      "declared_members_per_experiment": 2,
+      "experiments_executed": 0,
+      "proposal_ids": []
+    },
+    "horizon": {
+      "declared_primitive": "target_horizon_robustness",
+      "declared_member_bound": 36,
+      "declared_members_per_experiment": 3,
+      "experiments_executed": 0,
+      "proposal_ids": []
+    },
+    "purge": {
+      "declared_primitive": "purge_sensitivity_probe",
+      "declared_member_bound": 36,
+      "declared_members_per_experiment": 3,
+      "experiments_executed": 1,
+      "proposal_ids": [
+        "prop-a9141196f92c-1"
+      ]
+    },
+    "regime": {
+      "declared_primitive": "regime_split_analysis",
+      "declared_member_bound": 24,
+      "declared_members_per_experiment": 2,
+      "experiments_executed": 0,
+      "proposal_ids": []
+    }
+  },
+  "primitives_not_named_above": {
+    "year_stability_falsifier": 4,
+    "minimum_effect_falsifier": 7,
+    "complexity_premium_check": 4,
+    "point_in_time_data_audit": 3,
+    "seed_set_replication": 3
+  },
+  "multiplicity_record_coverage": "missing_record_pool",
+  "record_row": null
+}

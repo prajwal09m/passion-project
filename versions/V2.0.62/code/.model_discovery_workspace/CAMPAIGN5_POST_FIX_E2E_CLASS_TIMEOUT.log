@@ -1,0 +1,30 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.1, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\kamal\AppData\Local\Programs\Python\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Prajwal MIT\Passion\.model_discovery_workspace\dev
+plugins: anyio-4.14.2, cov-7.1.0
+collecting ... collected 38 items
+
+autonomous_agent/test_v110_wiring_e2e.py::LinearFormEquivalenceTests::test_matches_brute_force_week_swaps PASSED [  2%]
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_campaign_end_record_from_persisted_records PASSED [  5%]
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_complexity_family_single_primary_rung PASSED [  7%]
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_degenerate_cell_recorded_unavailable_and_inconclusive PASSED [ 10%]
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_fail_closed_when_frozen_column_missing PASSED [ 13%]
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_horizon_family_refits_and_flags PASSED [ 15%]
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_purge_family_refits_and_anchors PASSED [ 18%]
+autonomous_agent/test_v110_wiring_e2e.py::ProductionEntryPointE2ETests::test_regime_family_execution_to_persistence PASSED [ 21%]
+autonomous_agent/test_v110_wiring_e2e.py::FamilyRecordNegativeTests::test_bare_refutation_label_is_firewalled PASSED [ 23%]
+autonomous_agent/test_v110_wiring_e2e.py::FamilyRecordNegativeTests::test_broken_identity_raises PASSED [ 26%]
+autonomous_agent/test_v110_wiring_e2e.py::FamilyRecordNegativeTests::test_duplicate_member_ids_raise PASSED [ 28%]
+autonomous_agent/test_v110_wiring_e2e.py::FamilyRecordNegativeTests::test_family_primitive_mismatch_raises PASSED [ 31%]
+autonomous_agent/test_v110_wiring_e2e.py::FamilyRecordNegativeTests::test_incomplete_member_set_raises PASSED [ 34%]
+autonomous_agent/test_v110_wiring_e2e.py::FamilyRecordNegativeTests::test_member_identity_mismatch_fails_closed PASSED [ 36%]
+autonomous_agent/test_v110_wiring_e2e.py::FamilyRecordNegativeTests::test_missing_block_raises PASSED [ 39%]
+autonomous_agent/test_v110_wiring_e2e.py::FamilyRecordNegativeTests::test_non_applicable_block_raises PASSED [ 42%]
+autonomous_agent/test_v110_wiring_e2e.py::FamilyRecordNegativeTests::test_week_index_mismatch_raises PASSED [ 44%]
+autonomous_agent/test_v110_wiring_e2e.py::FamilyRecordNegativeTests::test_wrong_g_length_raises PASSED [ 47%]
+autonomous_agent/test_v110_wiring_e2e.py::HandVerifiedMultiplicityTests::test_engineered_p_values_and_hand_computed_holm PASSED [ 50%]
+autonomous_agent/test_v110_wiring_e2e.py::BoundaryAndDriftTests::test_consumption_facade_is_the_frozen_api_only PASSED [ 52%]
+autonomous_agent/test_v110_wiring_e2e.py::BoundaryAndDriftTests::test_execution_side_constants_match_their_campaign_side_authority PASSED [ 55%]
+autonomous_agent/test_v110_wiring_e2e.py::BoundaryAndDriftTests::test_execution_side_source_free_of_multiplicity_machinery PASSED [ 57%]
+autonomous_agent/test_v110_wiring_e2e.py::ExecutionFailClosedNegativeTests::test_h10b_n_boot_floor_is_refused_before_evaluation_output 

@@ -1,0 +1,37 @@
+2026-10-15T17:56:21 status=RUNNING cycle=11 done=3 executing=True err=no admissible proposal; minimums unmet: {'falsification': 2}
+2026-10-15T18:05:51 status=STOPPED cycle=11 done=4 executing=False err=campaign config digest 3e6a5ae447ad5b7e.. does not match the digest pinned in loop state b40c9c01cdd426c1..; the frozen campaign configuration may not change while loop state exists
+2026-10-15T18:10:07 status=RUNNING cycle=12 done=4 executing=True err=None
+2026-10-15T18:24:50 status=RUNNING cycle=12 done=4 executing=True err=None
+2026-10-15T18:47:20 status=RUNNING cycle=12 done=5 executing=False err=None
+2026-10-15T18:47:50 status=RUNNING cycle=13 done=5 executing=True err=None
+2026-10-15T19:23:20 status=RUNNING cycle=13 done=6 executing=False err=None
+2026-10-15T19:23:50 status=RUNNING cycle=14 done=6 executing=True err=None
+2026-10-15T20:02:20 status=RUNNING cycle=15 done=7 executing=True err=None
+2026-10-15T20:22:50 status=RUNNING cycle=15 done=8 executing=False err=None
+2026-10-15T20:23:20 status=RUNNING cycle=16 done=8 executing=True err=None
+2026-10-15T20:45:50 status=RUNNING cycle=16 done=9 executing=False err=None
+2026-10-15T20:46:20 status=RUNNING cycle=17 done=9 executing=True err=None
+2026-10-15T21:07:50 status=RUNNING cycle=17 done=10 executing=False err=None
+2026-10-15T21:08:20 status=RUNNING cycle=18 done=10 executing=True err=None
+2026-10-15T21:29:50 status=RUNNING cycle=18 done=11 executing=False err=None
+2026-10-15T21:30:20 status=RUNNING cycle=19 done=11 executing=True err=None
+2026-10-15T21:52:50 status=RUNNING cycle=19 done=12 executing=False err=None
+2026-10-15T21:53:20 status=RUNNING cycle=20 done=12 executing=True err=None
+2026-10-15T22:16:50 status=RUNNING cycle=20 done=13 executing=False err=None
+2026-10-15T22:17:20 status=RUNNING cycle=21 done=13 executing=True err=None
+2026-10-15T22:39:20 status=RUNNING cycle=21 done=14 executing=False err=None
+2026-10-15T22:39:50 status=RUNNING cycle=22 done=14 executing=True err=None
+2026-10-15T23:02:50 status=RUNNING cycle=23 done=15 executing=True err=None
+2026-10-15T23:25:20 status=RUNNING cycle=24 done=16 executing=True err=None
+2026-10-15T23:48:20 status=RUNNING cycle=24 done=17 executing=False err=None
+2026-10-15T23:48:50 status=RUNNING cycle=25 done=17 executing=True err=None
+2026-10-16T00:10:50 status=RUNNING cycle=26 done=18 executing=True err=None
+2026-10-16T00:35:21 status=RUNNING cycle=27 done=19 executing=True err=None
+2026-10-16T00:59:21 status=RUNNING cycle=28 done=20 executing=True err=None
+2026-10-16T01:23:21 status=RUNNING cycle=28 done=21 executing=False err=None
+2026-10-16T01:23:51 status=RUNNING cycle=29 done=21 executing=True err=None
+2026-10-16T06:13:38 status=RUNNING cycle=30 done=22 executing=True err=None
+2026-10-16T06:17:42 status=RUNNING cycle=30 done=22 executing=True err=None
+2026-10-16T06:34:12 status=RUNNING cycle=31 done=23 executing=True err=None
+2026-10-16T06:58:12 status=RUNNING cycle=32 done=24 executing=True err=None
+2026-10-16T08:32:42 status=RUNNING cycle=33 done=25 executing=True err=None

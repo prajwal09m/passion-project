@@ -1,0 +1,144 @@
+{
+  "distinct_directions": 7,
+  "distinct_groups": 12,
+  "leakage": {
+    "estimate_refuses_future": true,
+    "future_flip_checked_rows": 33,
+    "future_flip_preds_unchanged_before_cut": true
+  },
+  "measured_at_range": [
+    "2026-10-05T02:05:48+00:00",
+    "2026-10-16T22:09:20+00:00"
+  ],
+  "n_adjudicated": 69,
+  "note": "Small history: a few dozen scored rows, 12 groups, and a pass rate near 0.8. Interval widths are the honest uncertainty; no ranking policy is tuned on this data here.",
+  "pass_rate_all": 0.8116,
+  "splits": [
+    {
+      "groups_scored": 12,
+      "label": "all",
+      "methods": {
+        "base_rate": {
+          "auc": 0.6004464285714286,
+          "brier": 0.165401
+        },
+        "group_mean": {
+          "auc": 0.84375,
+          "brier": 0.125071,
+          "brier_diff_vs_base_ci95": [
+            -0.072656,
+            -0.010671
+          ]
+        },
+        "last_same_group": {
+          "auc": 0.7894345238095238,
+          "brier": 0.140911,
+          "brier_diff_vs_base_ci95": [
+            -0.085997,
+            0.048068
+          ]
+        },
+        "outcome_aware": {
+          "auc": 0.9203869047619048,
+          "brier": 0.116528,
+          "brier_diff_vs_base_ci95": [
+            -0.095361,
+            -0.003618
+          ]
+        }
+      },
+      "n": 68,
+      "n_pass": 56,
+      "outcome_aware_minus_group_mean_brier_ci95": [
+        -0.047251,
+        0.029393
+      ],
+      "pass_rate": 0.8235,
+      "unique_outcome_values": 2
+    },
+    {
+      "groups_scored": 11,
+      "label": "unseen_group",
+      "methods": {
+        "base_rate": {
+          "auc": 0.1111111111111111,
+          "brier": 0.234723
+        },
+        "group_mean": {
+          "auc": 0.1111111111111111,
+          "brier": 0.234723,
+          "brier_diff_vs_base_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "last_same_group": {
+          "auc": 0.1111111111111111,
+          "brier": 0.234723,
+          "brier_diff_vs_base_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "outcome_aware": {
+          "auc": 0.6944444444444444,
+          "brier": 0.254621,
+          "brier_diff_vs_base_ci95": [
+            -0.117162,
+            0.150672
+          ]
+        }
+      },
+      "n": 11,
+      "n_pass": 9,
+      "outcome_aware_minus_group_mean_brier_ci95": [
+        -0.117162,
+        0.150672
+      ],
+      "pass_rate": 0.8182,
+      "unique_outcome_values": 2
+    },
+    {
+      "groups_scored": 11,
+      "label": "repeat_group",
+      "methods": {
+        "base_rate": {
+          "auc": 0.6702127659574468,
+          "brier": 0.152022
+        },
+        "group_mean": {
+          "auc": 0.9212765957446809,
+          "brier": 0.10391,
+          "brier_diff_vs_base_ci95": [
+            -0.087604,
+            -0.010624
+          ]
+        },
+        "last_same_group": {
+          "auc": 0.8074468085106383,
+          "brier": 0.122807,
+          "brier_diff_vs_base_ci95": [
+            -0.105171,
+            0.058587
+          ]
+        },
+        "outcome_aware": {
+          "auc": 0.9446808510638298,
+          "brier": 0.089878,
+          "brier_diff_vs_base_ci95": [
+            -0.108412,
+            -0.016064
+          ]
+        }
+      },
+      "n": 57,
+      "n_pass": 47,
+      "outcome_aware_minus_group_mean_brier_ci95": [
+        -0.050308,
+        0.022999
+      ],
+      "pass_rate": 0.8246,
+      "unique_outcome_values": 2
+    }
+  ]
+}

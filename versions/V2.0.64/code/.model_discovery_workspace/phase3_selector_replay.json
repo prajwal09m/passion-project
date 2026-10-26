@@ -1,0 +1,39 @@
+{
+  "groups_in_ledger": 12,
+  "n_adjudicated": 69,
+  "note": "Pool = groups measured before each cutoff. Repeat rate is structural for exploit/uncertainty because the pool holds only measured groups. dedup_only has no admissible never-measured group, so it stalls. The bottleneck is the candidate universe, not the selection rule.",
+  "policies": {
+    "dedup_only": {
+      "admissible_steps": 0,
+      "distinct_groups_covered": 0,
+      "mean_sd_at_pick": null,
+      "picks": 0,
+      "repeat_picks": 0,
+      "repeat_rate": null
+    },
+    "exploit": {
+      "admissible_steps": 68,
+      "distinct_groups_covered": 8,
+      "mean_sd_at_pick": 0.165933,
+      "picks": 68,
+      "repeat_picks": 68,
+      "repeat_rate": 1.0
+    },
+    "ledger_actual": {
+      "admissible_steps": 68,
+      "distinct_groups_covered": 12,
+      "mean_sd_at_pick": null,
+      "picks": 68,
+      "repeat_picks": 57,
+      "repeat_rate": 0.8382
+    },
+    "uncertainty": {
+      "admissible_steps": 68,
+      "distinct_groups_covered": 4,
+      "mean_sd_at_pick": 0.233104,
+      "picks": 68,
+      "repeat_picks": 68,
+      "repeat_rate": 1.0
+    }
+  }
+}

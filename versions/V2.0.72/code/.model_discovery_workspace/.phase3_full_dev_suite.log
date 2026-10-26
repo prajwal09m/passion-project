@@ -1,0 +1,721 @@
+..................................EEEEEEE..................... [ 14%]
+........................................FFFF.F..FFFFF..FFF.......... [ 29%]
+........................................................................ [ 45%]
+...........F................................................EEE..... [ 61%]
+..........FFF................................................... [ 75%]
+........................................................................ [ 92%]
+..................................                                       [100%]
+=================================== ERRORS ====================================
+_ ERROR at setup of ScaffolderTests.test_classified_families_cover_every_feature _
+
+cls = <class 'autonomous_agent.test_census_manifest.ScaffolderTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+>       cls.manifest = census.scaffold_manifest(TABLE)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_census_manifest.py:198: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+autonomous_agent\proposal_layer\census.py:320: in scaffold_manifest
+    header = _read_header(path)
+             ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('study_files/outputs/study_v1/development/event_table.csv')
+
+    def _read_header(path: Path) -> list[str]:
+        """Header-only read of the development table (no data rows)."""
+>       with open(path, "r", encoding="utf-8", errors="replace", newline="") as stream:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'study_files\\outputs\\study_v1\\development\\event_table.csv'
+
+autonomous_agent\proposal_layer\census.py:304: FileNotFoundError
+_ ERROR at setup of ScaffolderTests.test_documented_tier2_members_are_present_and_unverifiable _
+
+cls = <class 'autonomous_agent.test_census_manifest.ScaffolderTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+>       cls.manifest = census.scaffold_manifest(TABLE)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_census_manifest.py:198: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+autonomous_agent\proposal_layer\census.py:320: in scaffold_manifest
+    header = _read_header(path)
+             ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('study_files/outputs/study_v1/development/event_table.csv')
+
+    def _read_header(path: Path) -> list[str]:
+        """Header-only read of the development table (no data rows)."""
+>       with open(path, "r", encoding="utf-8", errors="replace", newline="") as stream:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'study_files\\outputs\\study_v1\\development\\event_table.csv'
+
+autonomous_agent\proposal_layer\census.py:304: FileNotFoundError
+_ ERROR at setup of ScaffolderTests.test_draft_is_correctly_insufficient_to_back_an_audit_pass _
+
+cls = <class 'autonomous_agent.test_census_manifest.ScaffolderTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+>       cls.manifest = census.scaffold_manifest(TABLE)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_census_manifest.py:198: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+autonomous_agent\proposal_layer\census.py:320: in scaffold_manifest
+    header = _read_header(path)
+             ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('study_files/outputs/study_v1/development/event_table.csv')
+
+    def _read_header(path: Path) -> list[str]:
+        """Header-only read of the development table (no data rows)."""
+>       with open(path, "r", encoding="utf-8", errors="replace", newline="") as stream:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'study_files\\outputs\\study_v1\\development\\event_table.csv'
+
+autonomous_agent\proposal_layer\census.py:304: FileNotFoundError
+_ ERROR at setup of ScaffolderTests.test_header_inventory_is_recorded_honestly _
+
+cls = <class 'autonomous_agent.test_census_manifest.ScaffolderTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+>       cls.manifest = census.scaffold_manifest(TABLE)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_census_manifest.py:198: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+autonomous_agent\proposal_layer\census.py:320: in scaffold_manifest
+    header = _read_header(path)
+             ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('study_files/outputs/study_v1/development/event_table.csv')
+
+    def _read_header(path: Path) -> list[str]:
+        """Header-only read of the development table (no data rows)."""
+>       with open(path, "r", encoding="utf-8", errors="replace", newline="") as stream:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'study_files\\outputs\\study_v1\\development\\event_table.csv'
+
+autonomous_agent\proposal_layer\census.py:304: FileNotFoundError
+_ ERROR at setup of ScaffolderTests.test_inventory_discrepancy_is_surfaced_not_silenced _
+
+cls = <class 'autonomous_agent.test_census_manifest.ScaffolderTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+>       cls.manifest = census.scaffold_manifest(TABLE)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_census_manifest.py:198: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+autonomous_agent\proposal_layer\census.py:320: in scaffold_manifest
+    header = _read_header(path)
+             ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('study_files/outputs/study_v1/development/event_table.csv')
+
+    def _read_header(path: Path) -> list[str]:
+        """Header-only read of the development table (no data rows)."""
+>       with open(path, "r", encoding="utf-8", errors="replace", newline="") as stream:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'study_files\\outputs\\study_v1\\development\\event_table.csv'
+
+autonomous_agent\proposal_layer\census.py:304: FileNotFoundError
+_ ERROR at setup of ScaffolderTests.test_no_non_feature_column_leaks_into_the_census _
+
+cls = <class 'autonomous_agent.test_census_manifest.ScaffolderTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+>       cls.manifest = census.scaffold_manifest(TABLE)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_census_manifest.py:198: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+autonomous_agent\proposal_layer\census.py:320: in scaffold_manifest
+    header = _read_header(path)
+             ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('study_files/outputs/study_v1/development/event_table.csv')
+
+    def _read_header(path: Path) -> list[str]:
+        """Header-only read of the development table (no data rows)."""
+>       with open(path, "r", encoding="utf-8", errors="replace", newline="") as stream:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'study_files\\outputs\\study_v1\\development\\event_table.csv'
+
+autonomous_agent\proposal_layer\census.py:304: FileNotFoundError
+_ ERROR at setup of ScaffolderTests.test_unmitigated_and_relative_strength_columns_are_filed_correctly _
+
+cls = <class 'autonomous_agent.test_census_manifest.ScaffolderTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+>       cls.manifest = census.scaffold_manifest(TABLE)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_census_manifest.py:198: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+autonomous_agent\proposal_layer\census.py:320: in scaffold_manifest
+    header = _read_header(path)
+             ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('study_files/outputs/study_v1/development/event_table.csv')
+
+    def _read_header(path: Path) -> list[str]:
+        """Header-only read of the development table (no data rows)."""
+>       with open(path, "r", encoding="utf-8", errors="replace", newline="") as stream:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'study_files\\outputs\\study_v1\\development\\event_table.csv'
+
+autonomous_agent\proposal_layer\census.py:304: FileNotFoundError
+_ ERROR at setup of HarnessEndToEndTests.test_end_to_end_produces_valid_evaluation_json _
+
+cls = <class 'autonomous_agent.test_recipe_harness.HarnessEndToEndTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls._class_tmp = tempfile.TemporaryDirectory()
+        cls.sample_table = Path(cls._class_tmp.name) / "event_table_sample.csv"
+        # Controlled fixture: a deterministic per-year sample of the REAL
+        # retained development event table (same schema, dtypes and semantics).
+>       study = _load_frozen_study(PROJECT_ROOT)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_recipe_harness.py:151: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Prajwal MIT/Passion/.model_discovery_workspace/dev')
+
+    def _load_frozen_study(root: Path):
+        """Import the frozen study module read-only (never executed as a script)."""
+        study_path = root / "study_files" / "backend" / "demand_zone_study_v1.py"
+        if not study_path.is_file():
+>           raise FileNotFoundError(f"Frozen study module is missing: {study_path}")
+E           FileNotFoundError: Frozen study module is missing: C:\Prajwal MIT\Passion\.model_discovery_workspace\dev\study_files\backend\demand_zone_study_v1.py
+
+autonomous_agent\recipe_harness.py:235: FileNotFoundError
+_ ERROR at setup of HarnessEndToEndTests.test_invalid_config_fails_without_fabricating_evaluation _
+
+cls = <class 'autonomous_agent.test_recipe_harness.HarnessEndToEndTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls._class_tmp = tempfile.TemporaryDirectory()
+        cls.sample_table = Path(cls._class_tmp.name) / "event_table_sample.csv"
+        # Controlled fixture: a deterministic per-year sample of the REAL
+        # retained development event table (same schema, dtypes and semantics).
+>       study = _load_frozen_study(PROJECT_ROOT)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_recipe_harness.py:151: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Prajwal MIT/Passion/.model_discovery_workspace/dev')
+
+    def _load_frozen_study(root: Path):
+        """Import the frozen study module read-only (never executed as a script)."""
+        study_path = root / "study_files" / "backend" / "demand_zone_study_v1.py"
+        if not study_path.is_file():
+>           raise FileNotFoundError(f"Frozen study module is missing: {study_path}")
+E           FileNotFoundError: Frozen study module is missing: C:\Prajwal MIT\Passion\.model_discovery_workspace\dev\study_files\backend\demand_zone_study_v1.py
+
+autonomous_agent\recipe_harness.py:235: FileNotFoundError
+_ ERROR at setup of HarnessEndToEndTests.test_missing_event_table_fails_without_fabricating_evaluation _
+
+cls = <class 'autonomous_agent.test_recipe_harness.HarnessEndToEndTests'>
+
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls._class_tmp = tempfile.TemporaryDirectory()
+        cls.sample_table = Path(cls._class_tmp.name) / "event_table_sample.csv"
+        # Controlled fixture: a deterministic per-year sample of the REAL
+        # retained development event table (same schema, dtypes and semantics).
+>       study = _load_frozen_study(PROJECT_ROOT)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_recipe_harness.py:151: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Prajwal MIT/Passion/.model_discovery_workspace/dev')
+
+    def _load_frozen_study(root: Path):
+        """Import the frozen study module read-only (never executed as a script)."""
+        study_path = root / "study_files" / "backend" / "demand_zone_study_v1.py"
+        if not study_path.is_file():
+>           raise FileNotFoundError(f"Frozen study module is missing: {study_path}")
+E           FileNotFoundError: Frozen study module is missing: C:\Prajwal MIT\Passion\.model_discovery_workspace\dev\study_files\backend\demand_zone_study_v1.py
+
+autonomous_agent\recipe_harness.py:235: FileNotFoundError
+================================== FAILURES ===================================
+_______ ProtectedPinTests.test_campaign_3_state_is_archived_and_stopped _______
+
+self = <autonomous_agent.test_freeze_integrity.ProtectedPinTests testMethod=test_campaign_3_state_is_archived_and_stopped>
+
+    def test_campaign_3_state_is_archived_and_stopped(self) -> None:
+        # Campaign 3's final state lives at the live loop_state.json until
+        # the Campaign 4 freeze installs and archives it (campaign-2
+        # precedent); the invariant is that it is preserved, STOPPED, and
+        # never rewritten. Once Campaign 4 has actually launched, the
+        # live state is Campaign 4's and the archive is authoritative
+        # for Campaign 3.
+        live = STATE / "loop_state.json"
+        archived = STATE / "loop_state.campaign-3-continuous-2026-10-05.final.json"
+        if archived.exists():
+            path = archived
+        else:
+            path = live
+>       self.assertTrue(path.is_file(), "Campaign 3 final state is gone")
+E       AssertionError: False is not true : Campaign 3 final state is gone
+
+autonomous_agent\test_freeze_integrity.py:158: AssertionError
+__ ProtectedPinTests.test_campaign_config_sidecar_still_pins_the_live_config __
+
+self = <autonomous_agent.test_freeze_integrity.ProtectedPinTests testMethod=test_campaign_config_sidecar_still_pins_the_live_config>
+
+    def test_campaign_config_sidecar_still_pins_the_live_config(self) -> None:
+>       pinned = (STATE / "campaign_config.sha256").read_text("utf-8").split()[0]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_freeze_integrity.py:142: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Prajwal MIT/Passion/.model_discovery_workspace/dev/autonomous_agent/state/campaign_config.sha256')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Prajwal MIT\\Passion\\.model_discovery_workspace\\dev\\autonomous_agent\\state\\campaign_config.sha256'
+
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+_____________ ProtectedPinTests.test_ledger_still_folds_strictly ______________
+
+self = <autonomous_agent.test_freeze_integrity.ProtectedPinTests testMethod=test_ledger_still_folds_strictly>
+
+    def test_ledger_still_folds_strictly(self) -> None:
+        from autonomous_agent.proposal_layer.ledger import ProposalLedger
+        rows = ProposalLedger(STATE / "proposal_ledger.jsonl").read_rows(strict=True)
+>       self.assertGreaterEqual(len(rows), 350)
+E       AssertionError: 0 not greater than or equal to 350
+
+autonomous_agent\test_freeze_integrity.py:184: AssertionError
+___ ProtectedPinTests.test_pinned_artifacts_match_their_documented_digests ____
+
+self = <autonomous_agent.test_freeze_integrity.ProtectedPinTests testMethod=test_pinned_artifacts_match_their_documented_digests>
+
+    def test_pinned_artifacts_match_their_documented_digests(self) -> None:
+        for relative, prefix in PINNED.items():
+            path = REPO / relative
+>           self.assertTrue(path.is_file(), f"missing pinned artifact {relative}")
+E           AssertionError: False is not true : missing pinned artifact autonomous_agent/MAIN AUDITS AND REFLECTIONS/HARNESS_V1_1_0_IMPLEMENTATION_PLAN_2026_10_09.md
+
+autonomous_agent\test_freeze_integrity.py:136: AssertionError
+_______ HoldoutSealTests.test_frozen_policy_stays_sealed_with_zero_uses _______
+
+self = <autonomous_agent.test_freeze_integrity.HoldoutSealTests testMethod=test_frozen_policy_stays_sealed_with_zero_uses>
+
+    def test_frozen_policy_stays_sealed_with_zero_uses(self) -> None:
+        policy = json.loads((STATE / "campaign_config.json")
+>                           .read_text("utf-8"))["holdout_policy"]
+                             ^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_freeze_integrity.py:196: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Prajwal MIT/Passion/.model_discovery_workspace/dev/autonomous_agent/state/campaign_config.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Prajwal MIT\\Passion\\.model_discovery_workspace\\dev\\autonomous_agent\\state\\campaign_config.json'
+
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+___ FrozenPolicySurfaceTests.test_frozen_config_policy_fields_are_unchanged ___
+
+self = <autonomous_agent.test_freeze_integrity.FrozenPolicySurfaceTests testMethod=test_frozen_config_policy_fields_are_unchanged>
+
+    def test_frozen_config_policy_fields_are_unchanged(self) -> None:
+>       config = json.loads((STATE / "campaign_config.json").read_text("utf-8"))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_freeze_integrity.py:217: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Prajwal MIT/Passion/.model_discovery_workspace/dev/autonomous_agent/state/campaign_config.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Prajwal MIT\\Passion\\.model_discovery_workspace\\dev\\autonomous_agent\\state\\campaign_config.json'
+
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+_ FrozenPolicySurfaceTests.test_v1_1_0_primitives_active_only_under_the_recorded_r3_grant _
+
+self = <autonomous_agent.test_freeze_integrity.FrozenPolicySurfaceTests testMethod=test_v1_1_0_primitives_active_only_under_the_recorded_r3_grant>
+
+    def test_v1_1_0_primitives_active_only_under_the_recorded_r3_grant(self) -> None:
+        # Owner R-3 grant (2026-10-12) supersedes the pre-grant dormancy pin:
+        # the five primitives are executable, and activation is legitimate
+        # ONLY while the grant record exists. Delete the record and this
+        # pin fails -- activation without recorded authorization is still
+        # refused.
+        grant = (REPO / "autonomous_agent/MAIN AUDITS AND REFLECTIONS/"
+                 "PRIMITIVE_ACTIVATION_GRANT_R3_2026_10_12.md")
+>       self.assertTrue(grant.is_file(),
+                        "R-3 grant record missing: five primitives are "
+                        "executable without recorded authorization")
+E       AssertionError: False is not true : R-3 grant record missing: five primitives are executable without recorded authorization
+
+autonomous_agent\test_freeze_integrity.py:241: AssertionError
+__ StopCorrespondenceTests.test_every_declared_stop_has_enforcement_markers ___
+
+self = <autonomous_agent.test_freeze_integrity.StopCorrespondenceTests testMethod=test_every_declared_stop_has_enforcement_markers>
+
+    def test_every_declared_stop_has_enforcement_markers(self) -> None:
+>       config = json.loads((STATE / "campaign_config.json").read_text("utf-8"))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_freeze_integrity.py:263: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Prajwal MIT/Passion/.model_discovery_workspace/dev/autonomous_agent/state/campaign_config.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Prajwal MIT\\Passion\\.model_discovery_workspace\\dev\\autonomous_agent\\state\\campaign_config.json'
+
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+_ StopCorrespondenceTests.test_map_covers_every_stop_name_the_harness_can_declare _
+
+self = <autonomous_agent.test_freeze_integrity.StopCorrespondenceTests testMethod=test_map_covers_every_stop_name_the_harness_can_declare>
+
+    def test_map_covers_every_stop_name_the_harness_can_declare(self) -> None:
+>       config = json.loads((STATE / "campaign_config.json").read_text("utf-8"))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_freeze_integrity.py:292: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Prajwal MIT/Passion/.model_discovery_workspace/dev/autonomous_agent/state/campaign_config.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Prajwal MIT\\Passion\\.model_discovery_workspace\\dev\\autonomous_agent\\state\\campaign_config.json'
+
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+_ StopCorrespondenceTests.test_new_stops_are_wired_even_though_c3_does_not_declare_them _
+
+self = <autonomous_agent.test_freeze_integrity.StopCorrespondenceTests testMethod=test_new_stops_are_wired_even_though_c3_does_not_declare_them>
+
+    def test_new_stops_are_wired_even_though_c3_does_not_declare_them(self) -> None:
+        self.assertEqual(mult.AUDIT_STOP_CONDITIONS,
+                         {"point_in_time_contamination_detected",
+                          "unverifiable_lineage_detected"})
+        for stop in sorted(mult.AUDIT_STOP_CONDITIONS):
+            self.assertIn(stop, STOP_ENFORCEMENT)
+>       config = json.loads((STATE / "campaign_config.json").read_text("utf-8"))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_freeze_integrity.py:281: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Prajwal MIT/Passion/.model_discovery_workspace/dev/autonomous_agent/state/campaign_config.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Prajwal MIT\\Passion\\.model_discovery_workspace\\dev\\autonomous_agent\\state\\campaign_config.json'
+
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+_ RepairPreservesPriorEvidence.test_both_promoted_executions_remain_recorded_verbatim _
+
+self = <autonomous_agent.test_freeze_integrity.RepairPreservesPriorEvidence testMethod=test_both_promoted_executions_remain_recorded_verbatim>
+
+    def test_both_promoted_executions_remain_recorded_verbatim(self) -> None:
+        rows = [json.loads(line) for line in
+>               (STATE / "proposal_ledger.jsonl").read_text("utf-8").splitlines()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                if line.strip()]
+
+autonomous_agent\test_freeze_integrity.py:340: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Prajwal MIT/Passion/.model_discovery_workspace/dev/autonomous_agent/state/proposal_ledger.jsonl')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Prajwal MIT\\Passion\\.model_discovery_workspace\\dev\\autonomous_agent\\state\\proposal_ledger.jsonl'
+
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+_ RepairPreservesPriorEvidence.test_live_loop_state_still_counts_every_prior_execution _
+
+self = <autonomous_agent.test_freeze_integrity.RepairPreservesPriorEvidence testMethod=test_live_loop_state_still_counts_every_prior_execution>
+
+    def test_live_loop_state_still_counts_every_prior_execution(self) -> None:
+>       state = json.loads((STATE / "loop_state.json").read_text("utf-8"))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_freeze_integrity.py:374: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:546: in read_text
+    return PathBase.read_text(self, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py:632: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Prajwal MIT/Passion/.model_discovery_workspace/dev/autonomous_agent/state/loop_state.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Prajwal MIT\\Passion\\.model_discovery_workspace\\dev\\autonomous_agent\\state\\loop_state.json'
+
+C:\Users\kamal\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py:537: FileNotFoundError
+_ RepairPreservesPriorEvidence.test_prior_results_still_carry_six_pass_gates_and_sealed_holdout _
+
+self = <autonomous_agent.test_freeze_integrity.RepairPreservesPriorEvidence testMethod=test_prior_results_still_carry_six_pass_gates_and_sealed_holdout>
+
+    def test_prior_results_still_carry_six_pass_gates_and_sealed_holdout(self) -> None:
+        for experiment_id in ("exp-proposal-5d52d16b94ca",
+                              "exp-proposal-4fdf6dd35236"):
+            path = (REPO / "autonomous_agent/candidates" / experiment_id
+                    / "result.json")
+>           self.assertTrue(path.is_file(), experiment_id)
+E           AssertionError: False is not true : exp-proposal-5d52d16b94ca
+
+autonomous_agent\test_freeze_integrity.py:365: AssertionError
+___________ ProposalLayerTestCase.test_campaign1_evidence_unchanged ___________
+
+self = <autonomous_agent.test_proposal_layer.ProposalLayerTestCase testMethod=test_campaign1_evidence_unchanged>
+
+    def test_campaign1_evidence_unchanged(self):
+        for relative, expected in CAMPAIGN1_FROZEN_HASHES.items():
+            path = REPO_ROOT / relative
+>           self.assertTrue(path.is_file(), f"missing: {relative}")
+E           AssertionError: False is not true : missing: autonomous_agent/MAIN AUDITS AND REFLECTIONS/AUTONOMOUS_CAMPAIGN_AUDIT_2026_10_04.md
+
+autonomous_agent\test_proposal_layer.py:894: AssertionError
+__________________ A3LinearFormTests.test_delta_hat_identity __________________
+
+self = <autonomous_agent.test_signflip_port.A3LinearFormTests testMethod=test_delta_hat_identity>
+
+    def test_delta_hat_identity(self) -> None:
+>       st, week_id, W = self._reference(77)
+                         ^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_signflip_port.py:183: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+seed = 77
+
+    @staticmethod
+    def _reference(seed):
+        import sys
+        sys.path.insert(0, str(ROOT / "stat_validation_h10"))
+>       import simh10
+E       ModuleNotFoundError: No module named 'simh10'
+
+autonomous_agent\test_signflip_port.py:153: ModuleNotFoundError
+_____ A3LinearFormTests.test_linear_form_equals_brute_force_full_swap_auc _____
+
+self = <autonomous_agent.test_signflip_port.A3LinearFormTests testMethod=test_linear_form_equals_brute_force_full_swap_auc>
+
+    def test_linear_form_equals_brute_force_full_swap_auc(self) -> None:
+        for seed in (77, 991, 424242):
+>           st, week_id, W = self._reference(seed)
+                             ^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_signflip_port.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+seed = 77
+
+    @staticmethod
+    def _reference(seed):
+        import sys
+        sys.path.insert(0, str(ROOT / "stat_validation_h10"))
+>       import simh10
+E       ModuleNotFoundError: No module named 'simh10'
+
+autonomous_agent\test_signflip_port.py:153: ModuleNotFoundError
+______ A3LinearFormTests.test_port_matches_reference_object_bit_for_bit _______
+
+self = <autonomous_agent.test_signflip_port.A3LinearFormTests testMethod=test_port_matches_reference_object_bit_for_bit>
+
+    def test_port_matches_reference_object_bit_for_bit(self) -> None:
+        for seed in (77, 991):
+>           st, _week_id, W = self._reference(seed)
+                              ^^^^^^^^^^^^^^^^^^^^^
+
+autonomous_agent\test_signflip_port.py:173: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+seed = 77
+
+    @staticmethod
+    def _reference(seed):
+        import sys
+        sys.path.insert(0, str(ROOT / "stat_validation_h10"))
+>       import simh10
+E       ModuleNotFoundError: No module named 'simh10'
+
+autonomous_agent\test_signflip_port.py:153: ModuleNotFoundError
+=========================== short test summary info ===========================
+FAILED autonomous_agent/test_freeze_integrity.py::ProtectedPinTests::test_campaign_3_state_is_archived_and_stopped
+FAILED autonomous_agent/test_freeze_integrity.py::ProtectedPinTests::test_campaign_config_sidecar_still_pins_the_live_config
+FAILED autonomous_agent/test_freeze_integrity.py::ProtectedPinTests::test_ledger_still_folds_strictly
+FAILED autonomous_agent/test_freeze_integrity.py::ProtectedPinTests::test_pinned_artifacts_match_their_documented_digests
+FAILED autonomous_agent/test_freeze_integrity.py::HoldoutSealTests::test_frozen_policy_stays_sealed_with_zero_uses
+FAILED autonomous_agent/test_freeze_integrity.py::FrozenPolicySurfaceTests::test_frozen_config_policy_fields_are_unchanged
+FAILED autonomous_agent/test_freeze_integrity.py::FrozenPolicySurfaceTests::test_v1_1_0_primitives_active_only_under_the_recorded_r3_grant
+FAILED autonomous_agent/test_freeze_integrity.py::StopCorrespondenceTests::test_every_declared_stop_has_enforcement_markers
+FAILED autonomous_agent/test_freeze_integrity.py::StopCorrespondenceTests::test_map_covers_every_stop_name_the_harness_can_declare
+FAILED autonomous_agent/test_freeze_integrity.py::StopCorrespondenceTests::test_new_stops_are_wired_even_though_c3_does_not_declare_them
+FAILED autonomous_agent/test_freeze_integrity.py::RepairPreservesPriorEvidence::test_both_promoted_executions_remain_recorded_verbatim
+FAILED autonomous_agent/test_freeze_integrity.py::RepairPreservesPriorEvidence::test_live_loop_state_still_counts_every_prior_execution
+FAILED autonomous_agent/test_freeze_integrity.py::RepairPreservesPriorEvidence::test_prior_results_still_carry_six_pass_gates_and_sealed_holdout
+FAILED autonomous_agent/test_proposal_layer.py::ProposalLayerTestCase::test_campaign1_evidence_unchanged
+FAILED autonomous_agent/test_signflip_port.py::A3LinearFormTests::test_delta_hat_identity
+FAILED autonomous_agent/test_signflip_port.py::A3LinearFormTests::test_linear_form_equals_brute_force_full_swap_auc
+FAILED autonomous_agent/test_signflip_port.py::A3LinearFormTests::test_port_matches_reference_object_bit_for_bit
+ERROR autonomous_agent/test_census_manifest.py::ScaffolderTests::test_classified_families_cover_every_feature
+ERROR autonomous_agent/test_census_manifest.py::ScaffolderTests::test_documented_tier2_members_are_present_and_unverifiable
+ERROR autonomous_agent/test_census_manifest.py::ScaffolderTests::test_draft_is_correctly_insufficient_to_back_an_audit_pass
+ERROR autonomous_agent/test_census_manifest.py::ScaffolderTests::test_header_inventory_is_recorded_honestly
+ERROR autonomous_agent/test_census_manifest.py::ScaffolderTests::test_inventory_discrepancy_is_surfaced_not_silenced
+ERROR autonomous_agent/test_census_manifest.py::ScaffolderTests::test_no_non_feature_column_leaks_into_the_census
+ERROR autonomous_agent/test_census_manifest.py::ScaffolderTests::test_unmitigated_and_relative_strength_columns_are_filed_correctly
+ERROR autonomous_agent/test_recipe_harness.py::HarnessEndToEndTests::test_end_to_end_produces_valid_evaluation_json
+ERROR autonomous_agent/test_recipe_harness.py::HarnessEndToEndTests::test_invalid_config_fails_without_fabricating_evaluation
+ERROR autonomous_agent/test_recipe_harness.py::HarnessEndToEndTests::test_missing_event_table_fails_without_fabricating_evaluation
+17 failed, 413 passed, 10 errors, 26 subtests passed in 124.75s (0:02:04)

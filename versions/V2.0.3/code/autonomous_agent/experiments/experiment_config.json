@@ -1,0 +1,31 @@
+{
+  "arm_a": "B",
+  "arm_b": "B",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 10,
+  "estimator_a": "LogisticRegression",
+  "estimator_b": "LightGBM",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "min_folds": 3,
+    "note": "LightGBM must not underperform LogisticRegression beyond the declared margin on pooled out-of-fold AUC.",
+    "primary_metric_min_delta": 0.0
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_recipe",
+  "hypothesis_id": "hyp-68caccf593ff",
+  "hypothesis_text": "Does a different model class generalize better than the strongest matched component?",
+  "n_boot": 500,
+  "recipe_id": "model_class_matched_comparison",
+  "recipe_version": "1.0.0",
+  "schema_version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

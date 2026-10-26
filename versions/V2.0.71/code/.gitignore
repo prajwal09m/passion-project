@@ -1,0 +1,51 @@
+# Ignore large generated datasets
+outputs/v7/*.csv
+outputs/v8/*.csv
+outputs/v9/*.csv
+outputs/v10/*.csv
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# All application-related files (moved to application_files folder locally)
+.freebuff/
+backend/
+demand-zone-webapp/
+models/
+node_modules/
+Other/
+outputs/
+
+# Re-include curated study_v1 artifacts in the public bundle (paper models + OOF predictions)
+!study_files/outputs/
+!study_files/outputs/study_v1/
+!study_files/outputs/study_v1/**
+Python/
+v3-v5/
+package.json
+package-lock.json
+README.md
+!/README.md
+demand_zone_ml_dataset_v10.zip
+Demand_Zone_AI_Autonomy_Study.docx
+Demand_Zone_AI_Development_and_Audit_Record.docx
+DEMAND_ZONE_AI_RESEARCH_DRAFT.md
+MARKET_STRUCTURE_ABLATION_PROTOCOL.md
+MARKET_STRUCTURE_STUDY_V1_PROTOCOL.json
+Market_Structure_Experiment_Protocol.docx
+requirements.txt
+research/
+
+# Application files folder (too large for GitHub)
+application_files/
+
+# Locked files
+demand-zone-webapp/
+
+# Runtime state and unpromoted experiment workspaces for the autonomous supervisor
+autonomous_agent/state/
+autonomous_agent/candidates/
+
+# Environment variables (contains secrets)
+.env

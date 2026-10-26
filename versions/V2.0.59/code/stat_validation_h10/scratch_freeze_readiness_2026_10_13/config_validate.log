@@ -1,0 +1,15 @@
+[PASS   ] c4.campaign_id: campaign-4-continuous-2026-10-13
+[PASS   ] c4.placeholders: no TO_BE_/-XX/DRAFT placeholders
+[PASS   ] c4.budget: 30 executions / 45 proposals
+[PASS   ] c4.stops.c3: all 14 C3 stops carried forward
+[PASS   ] c4.stops.new: both new stops declared (16 total)
+[PASS   ] c4.fingerprint: 27bb655289a07944…
+[PASS   ] c4.immutable: immutable: true
+[PASS   ] c4.multiplicity.n_boot: n_boot = 1000
+[PASS   ] c4.multiplicity.n_flips: n_flips (M) = 1000
+[PASS   ] c4.multiplicity.feasibility: n_boot+1 >= 20*m, n_flips+1 >= 20*m, and m <= 50 for 4 families
+[PASS   ] c4.multiplicity.c2: C-2 missing-member rule present (p=1.0, never REFUTED)
+stop_count: 16
+missing_from_enforcement_map: []
+counts: {'PASS': 11}
+OK: candidate passes every c4.* machine check; not_frozen remains correctly BLOCKED until gate 6 + copy-to-state

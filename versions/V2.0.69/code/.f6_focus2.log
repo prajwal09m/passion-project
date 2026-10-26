@@ -1,0 +1,22 @@
+test_changed_configuration_with_the_old_fingerprint_refused (autonomous_agent.test_v110_wiring_e2e.ConfigurationIdentityProvenanceTests.test_changed_configuration_with_the_old_fingerprint_refused) ... ok
+test_correct_authoritative_fingerprint_is_accepted (autonomous_agent.test_v110_wiring_e2e.ConfigurationIdentityProvenanceTests.test_correct_authoritative_fingerprint_is_accepted) ... ok
+test_mismatched_specification_fingerprint_refused (autonomous_agent.test_v110_wiring_e2e.ConfigurationIdentityProvenanceTests.test_mismatched_specification_fingerprint_refused) ... ok
+test_missing_or_malformed_authoritative_identity_fails_closed (autonomous_agent.test_v110_wiring_e2e.ConfigurationIdentityProvenanceTests.test_missing_or_malformed_authoritative_identity_fails_closed) ... ok
+test_provenance_argument_is_required_by_the_public_api (autonomous_agent.test_v110_wiring_e2e.ConfigurationIdentityProvenanceTests.test_provenance_argument_is_required_by_the_public_api) ... ok
+test_self_consistent_record_disagreeing_with_authority_refused (autonomous_agent.test_v110_wiring_e2e.ConfigurationIdentityProvenanceTests.test_self_consistent_record_disagreeing_with_authority_refused) ... ok
+test_bare_refutation_label_is_firewalled (autonomous_agent.test_v110_wiring_e2e.FamilyRecordNegativeTests.test_bare_refutation_label_is_firewalled) ... ok
+test_broken_identity_raises (autonomous_agent.test_v110_wiring_e2e.FamilyRecordNegativeTests.test_broken_identity_raises) ... ok
+test_duplicate_member_ids_raise (autonomous_agent.test_v110_wiring_e2e.FamilyRecordNegativeTests.test_duplicate_member_ids_raise) ... ok
+test_family_primitive_mismatch_raises (autonomous_agent.test_v110_wiring_e2e.FamilyRecordNegativeTests.test_family_primitive_mismatch_raises) ... ok
+test_incomplete_member_set_raises (autonomous_agent.test_v110_wiring_e2e.FamilyRecordNegativeTests.test_incomplete_member_set_raises) ... ok
+test_member_identity_mismatch_fails_closed (autonomous_agent.test_v110_wiring_e2e.FamilyRecordNegativeTests.test_member_identity_mismatch_fails_closed) ... ok
+test_missing_block_raises (autonomous_agent.test_v110_wiring_e2e.FamilyRecordNegativeTests.test_missing_block_raises) ... ok
+test_non_applicable_block_raises (autonomous_agent.test_v110_wiring_e2e.FamilyRecordNegativeTests.test_non_applicable_block_raises) ... ok
+test_week_index_mismatch_raises (autonomous_agent.test_v110_wiring_e2e.FamilyRecordNegativeTests.test_week_index_mismatch_raises) ... ok
+test_wrong_g_length_raises (autonomous_agent.test_v110_wiring_e2e.FamilyRecordNegativeTests.test_wrong_g_length_raises) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.021s
+
+OK
+EXIT=0

@@ -1,0 +1,239 @@
+{
+  "_status": "FROZEN_2026_10_25",
+  "record_id": "c5-error-cluster-predeclaration-2026-10-25",
+  "created_at": "2026-10-25T00:00:00+00:00",
+  "protocol_id": "protocol-demand-zone-ai-c5-regime-error",
+  "protocol_version": "1.0",
+  "campaign_target": {
+    "campaign_id": "campaign-5-regime-error-analysis-2026-10-22",
+    "action": "resume_stopped_loop",
+    "stop_state_observed": "PORTFOLIO_COMPLETE at 2026-10-25T14:33:19Z, cycle 24, executions 23/45",
+    "requested_budget": {
+      "max_error_clustering_experiments": 5,
+      "members_per_experiment": 2,
+      "members_total": 10,
+      "family_member_bound": 20,
+      "justification": "5 experiments x 2 members = 10 members, half the declared bound; no filler experiments are proposed to reach the cap."
+    }
+  },
+  "baseline": {
+    "champion": "V2.0.74",
+    "artifact_sha256": "ef3c1e9f49bdc192574a865393b7f34342e0349a1a0a63c7c834bf8741caad2d",
+    "comparison_pair": {
+      "arm_a": "C",
+      "arm_b": "C",
+      "estimator_a": "LogisticRegression",
+      "estimator_b": "LightGBM",
+      "provenance": "the V2.0.74-promoting matched-arm comparison (exp-proposal-a987db219da2, complexity_premium high): pooled OOF delta +0.023312, moving-block CI [0.008653, 0.036973], block_weeks=4, n_boot=2000, seeds [42,43,44], folds [2023,2024,2025]"
+    },
+    "champion_integrity_policy": "carried forward unchanged from the frozen C5 config (dual comparison at adjudication; regression flag recorded, never silently overwritten)"
+  },
+  "derivation_policy": {
+    "outcome_free_rule": "No outcome-dependent quantity (label, hold1_ret, any model score, any prior result.json value) may be consulted in defining, selecting, or ordering the cluster definitions. Labels are read once, inside the harness, only to compute member statistics per the frozen evaluation rules.",
+    "intrinsic_threshold_rule": "Every split uses a fixed threshold that is intrinsic to the feature's own scale (0 or {0,1} membership or the 0.5 mid-percentile of a percentile feature, or the 1.0 pivot of a normalized/ATR-multiple feature). No distribution quantile, median, or data-derived constant is used, so no value was picked by looking at the data.",
+    "no_favorable_side_rule": "Both sides of every split are predeclared as members; there is no favorable-side selection and no post-hoc renaming.",
+    "design_vocabulary_rule": "Each axis comes from the frozen demand-zone design vocabulary that the champion line already models (volatility percentile regime, first-vs-later zone retest, volume confirmation, departure impulse magnitude, departure candle direction). No axis was added because of any measured performance.",
+    "column_verification_readonly": "Read-only scale verification at proposal time (2026-10-25): vix_percentile_60d in [0.0167, 1.0] with 0 NaN; zone_is_first_retest and bullish_candle in {0,1} with 0 NaN; relative_volume20 in [0.0, 19.45] with 0 NaN; zone_departure_atr_multiple in [0.1715, 34.28] with 0 NaN. Feature-range checks only; labels were never aggregated for this purpose."
+  },
+  "cluster_definitions": [
+    {
+      "experiment_axis": "vix_regime",
+      "hypothesis_id": "hyp-erc-vix-regime",
+      "rungs": [
+        {
+          "rung": "error_cluster_1",
+          "name": "high_volatility",
+          "mask": "vix_percentile_60d >= 0.5"
+        },
+        {
+          "rung": "error_cluster_2",
+          "name": "low_volatility",
+          "mask": "vix_percentile_60d < 0.5"
+        }
+      ]
+    },
+    {
+      "experiment_axis": "first_retest",
+      "hypothesis_id": "hyp-erc-first-retest",
+      "rungs": [
+        {
+          "rung": "error_cluster_1",
+          "name": "first_retest",
+          "mask": "zone_is_first_retest == 1"
+        },
+        {
+          "rung": "error_cluster_2",
+          "name": "subsequent_retest",
+          "mask": "zone_is_first_retest == 0"
+        }
+      ]
+    },
+    {
+      "experiment_axis": "volume_confirmation",
+      "hypothesis_id": "hyp-erc-volume-confirmation",
+      "rungs": [
+        {
+          "rung": "error_cluster_1",
+          "name": "elevated_volume",
+          "mask": "relative_volume20 >= 1.0"
+        },
+        {
+          "rung": "error_cluster_2",
+          "name": "sub_average_volume",
+          "mask": "relative_volume20 < 1.0"
+        }
+      ]
+    },
+    {
+      "experiment_axis": "departure_magnitude",
+      "hypothesis_id": "hyp-erc-departure-magnitude",
+      "rungs": [
+        {
+          "rung": "error_cluster_1",
+          "name": "large_departure",
+          "mask": "zone_departure_atr_multiple >= 1.0"
+        },
+        {
+          "rung": "error_cluster_2",
+          "name": "small_departure",
+          "mask": "zone_departure_atr_multiple < 1.0"
+        }
+      ]
+    },
+    {
+      "experiment_axis": "departure_candle_direction",
+      "hypothesis_id": "hyp-erc-departure-candle-direction",
+      "rungs": [
+        {
+          "rung": "error_cluster_1",
+          "name": "bullish_departure",
+          "mask": "bullish_candle == 1"
+        },
+        {
+          "rung": "error_cluster_2",
+          "name": "bearish_or_doji_departure",
+          "mask": "bullish_candle == 0"
+        }
+      ]
+    }
+  ],
+  "evaluation_rules": {
+    "data_source": {
+      "dataset_id": "study_v1_development_event_table",
+      "dataset_sha256_pin": "232de7db65c92bec249be801e593acdaa822ecd0b13eb0cd32b7eeaced85a4d0",
+      "path": "study_files/outputs/study_v1/development/event_table.csv"
+    },
+    "purged_walk_forward": {
+      "folds": [
+        2023,
+        2024,
+        2025
+      ],
+      "train_rule": "train rows require label exit_date < fold start (target-maturity purge, frozen study rule)",
+      "oof_rule": "scores are out-of-fold only; rows predating the first validation fold train only and are never scored",
+      "preprocessing": "fit on training fold only (frozen study contract)"
+    },
+    "matched_pair": "arm_a == arm_b == C; estimator_a = LogisticRegression; estimator_b = LightGBM; identical folds, seeds, and frame for both pipelines",
+    "member_statistic": {
+      "name": "pooled_roc_auc_delta",
+      "definition": "AUC(score_b) - AUC(score_a) within the cluster member frame (OOF rows only)",
+      "ci": {
+        "method": "moving_block_bootstrap",
+        "block_weeks": 4,
+        "n_boot": 2000,
+        "seed": 42
+      },
+      "signflip_persistence": "each member record persists the week-level sign-flip linear form (delta_hat, g vector, n_pos, n_neg, W) exactly as the v1.1.0 family machinery does, so the campaign-end procedure computes the approved p-value from the persisted record with the frozen flip draw"
+    },
+    "seed_set": [
+      42,
+      43,
+      44
+    ],
+    "acceptance_model": {
+      "type": "intersection_union_three_valued",
+      "conditions": "both rungs must independently hold point >= 0.0 AND ci_lower >= -0.01 (provisional margins, H-1 provenance)",
+      "floors": {
+        "min_rows": 50,
+        "min_events": 5
+      },
+      "undersized_or_underpowered": "INCONCLUSIVE, never a pass and never a refutation",
+      "degenerate_cluster": "member recorded UNAVAILABLE with reason; counted toward m at p=1.0 per C-2 Option A (strictens Holm, never loosens)"
+    },
+    "champion_rule": "V2.0.74 stays the standing champion; these are diagnostics, not promotions. delta_vs_pinned_parent / delta_vs_standing_champion are not applicable and champion_regression is never triggered by a diagnostic run.",
+    "cal_reporting": "per-member Brier and ECE (bins=10, matching the champion evidence era) are persisted as error_cluster_stats but NEVER gated (no calibration margin is valid for per-cluster member counts).",
+    "point_in_time_audit": "the experiment row declares the standard point-in-time data audit (source_vintage, universe_membership, timestamps, label_maturity) before any execution"
+  },
+  "exclusions": [
+    "the sealed holdout / prospective set: never opened, never generated, never cited (uses must stay 0)",
+    "rows predating the first validation fold: train-only, never scored",
+    "clusters whose member frame is degenerate or below the frozen floors: unavailable/INCONCLUSIVE per the frozen model, no substitution",
+    "no cross-campaign pooling: the campaign-end record pools ONLY this family's members adjudicated in this resumed C5 execution (pooled_exclusions carried from the frozen config)",
+    "no outcome-informed redefinition: if any cluster turns out under-floor or degenerate, the definition is NOT adjusted; the member is recorded per C-2",
+    "duplicate/already-asked layer: global and permanent, unchanged",
+    "no trading, cost, or profitability metrics: hold1_ret used solely for labels per the frozen study target; no backtest output"
+  ],
+  "multiplicity": {
+    "p_value_method": "week_level_signflip_holm",
+    "familywise_alpha": 0.05,
+    "family": "error_analysis",
+    "primitive": "error_clustering_analysis",
+    "members_per_experiment": 2,
+    "member_bound": 20,
+    "campaign_end_procedure": {
+      "pooling": "campaign_end_over_complete_family",
+      "flip_draw": "reuse the frozen campaign-4/5 flip draw (seed 2613983839999682065, M=1000, PCG64, rows-hash verified at use time) — never redrawn",
+      "correction": "holm_step_down",
+      "feasibility_check": {
+        "planned_members_m": 10,
+        "n_boot_rule": "2000 + 1 >= 20 * 10 = 200: SATISFIED",
+        "n_flips_rule": "1000 + 1 >= 20 * 10 = 200: SATISFIED",
+        "resolution_note": "at M=1000 the minimum representable p is 1/1001; disclosed in the campaign-end record as in the frozen config"
+      },
+      "no_record_outcome": "INCONCLUSIVE (per frozen multiplicity policy)"
+    }
+  },
+  "coverage_analysis": {
+    "covered_by_signed_authorization": [
+      "state/campaign_config.json authorization_scope: permitted_changes includes add_primitives (the declaration added 2026-10-25) and modify_regime_parameters (the volatility-regime axis extends the regime vocabulary); comparisons includes error_cluster; measurements includes pooled_oof_auc, brier_score, ece, error_cluster_stats; model_families includes LogisticRegression and LightGBM; operations read (events table + frozen OHLCV reads only)",
+      "B1 signed protocol scope: the error_analysis family (error_clustering_analysis, members_per_experiment=2, member_bound=20) is frozen verbatim in the config multiplicity_policy",
+      "frozen multiplicity policy: method, alpha, flip draw, feasibility rule, and campaign-end pooling are reused unchanged",
+      "champion integrity policy: carried forward unchanged; V2.0.74 remains the baseline",
+      "budget arithmetic: 23 of 45 max_total_executions used; 5 more fits; direction error_analysis currently at 0 of max_per_direction 15; exploration class budget 16 with 3 used, 5 more fits",
+      "campaign-end consumption machinery: stat_validation_h10/family_records.py imports the multiplicity family table (now including error_analysis), so no new statistics are invented"
+    ],
+    "requires_explicit_owner_approval": [
+      "A1: resuming the STOPPED loop at all. PORTFOLIO_COMPLETE was a predeclared clean stop; running further executions is a protocol action the owner must record YES/NO on.",
+      "A2: this predeclaration record itself, including the five axes and both members of each split, becomes binding only when the owner signs the countersign block below and the state flips to FROZEN_2026_10_25.",
+      "A3: activation of the execution path. error_clustering_analysis is declared executable=False at harness < 1.3.0; enabling execution requires flipping executable=True and adding the reviewed harness 1.3.0 collector plus the 1.3.0 config-selector gate. Owner approves this code change at signature time; until then the compiler refuses the primitive (fail-closed).",
+      "A4: five new experiment rows in the proposal ledger under the resumed campaign id (ledger is append-only; the owner authorizes new rows)."
+    ],
+    "not_required": [
+      "no byte change to the frozen campaign_config.json (protocol_fingerprint untouched; the C5 documented fingerprint defect stays open and unaffected)",
+      "no change to duplicate policy, outcome-blindness policy, holdout policy, or stop conditions",
+      "no multiplicity machinery change (family table wiring already in place)",
+      "no champion artifact, version directory, or CHAMPION.json change"
+    ]
+  },
+  "implementation_lineage": {
+    "note": "exact byte identity of the reviewed declaration as signed; the owner signs THESE files. 2026-10-25 LINEAGE REPIN (predeclared ordering: A2 freeze -> A3 activation commit -> lineage re-pin): the A3=YES activation commit updated autonomous_agent/proposal_layer/primitives.py to the activated contract (executable=True; exactly one predeclared error_cluster_axis param; the frozen matched pair recorded in extra; and the compiler missing-v1.3.0-renderer defect fixed so the 5-axis no-filler design the owner signed actually compiles and runs under harness 1.3.0); the implementation_lineage digest below was deliberately re-pinned to these post-activation bytes. The A3=YES countersign authorizes exactly this code change; no cluster definition, mask, threshold, budget, member bound, acceptance condition, or multiplicity rule changed. test_error_clustering_declaration.py is deliberately NOT pinned here: that module is the pin’s verifier and pins this record’s file digest and canonical pin instead; pinning it would be self-referential.",
+    "files": {
+      "autonomous_agent/three_valued.py": "9cda61a5d59330c1354892b3223e824624ce024ffcb3f16f8098441786d17add",
+      "autonomous_agent/proposal_layer/multiplicity.py": "5d3e8a05a6a7275c83820271b41c110c9e2182a16559d02d3a1ea0a5bf2a1456",
+      "autonomous_agent/proposal_layer/primitives.py": "52776acfa4bca1ea70ff4760d7764de420e50d5356e3d7dfd3bc50432a5cbbc3"
+    }
+  },
+  "countersign_block": {
+    "authorized_by": "PMED",
+    "authorized_at": "2026-10-25T00:00:00+00:00",
+    "decisions": {
+      "A1_resume": "YES",
+      "A2_record": "YES",
+      "A3_activation": "YES",
+      "A4_ledger_rows": "YES"
+    },
+    "signature_note": "each decision YES/NO/DEFER; YES on A2 flips _status to FROZEN_2026_10_25 and the record's pin becomes load-bearing"
+  },
+  "pin_algorithm": "sha256 over autonomous_agent.proposal_layer.schema.canonical_json(this document minus the 'pin' key)",
+  "pin": "dca3e744e850d6aa7b38b477ed7352e549d5d14f5092a21cca73744487da9c2c"
+}

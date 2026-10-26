@@ -1,0 +1,45 @@
+{
+  "proposal_id": "demand-zone-ai-search-proposal-v2.0.0",
+  "proposal_version": "2.0.2",
+  "status": "PROPOSAL_ONLY_NOT_ACTIVATED",
+  "activation_allowed": false,
+  "owner_approval": "PENDING",
+  "independent_statistical_review": "PENDING",
+  "development_implementation": "candidate_search_v2.py",
+  "implementation_version": "candidate-search-v2.0.2",
+  "canonical_deduplication": "feature column order is non-semantic; standardization is canonicalized to identity for tree families (RandomForest, HistGradientBoosting), while retained for LogisticRegression; feature-operator expansions (original, pairwise interactions, nonlinear marginals) remain distinct executable hypotheses",
+  "model_families": [
+    "LogisticRegression",
+    "RandomForestClassifier",
+    "HistGradientBoostingClassifier"
+  ],
+  "feature_transformations": [
+    "identity",
+    "standardize",
+    "degree_2_polynomial"
+  ],
+  "feature_operators": [
+    "original",
+    "pairwise_interactions",
+    "nonlinear_marginals"
+  ],
+  "feature_universe": "Caller-supplied isolated development fixture identifiers only; no production feature was added or enabled.",
+  "hyperparameters": "Small closed deterministic grids in the dev-only module; values are identity-bearing and validated.",
+  "evaluation": {
+    "split": "chronological train-before-validation synthetic fixture",
+    "metrics": ["roc_auc", "average_precision", "brier_score"],
+    "selection_boundary": "No final holdout or production evaluation; every candidate score is diagnostic on synthetic fixture data."
+  },
+  "approval_gates": [
+    "Owner approval of model-universe expansion",
+    "Independent statistical review of chronological split, feature availability, leakage, multiplicity, and uncertainty protocol",
+    "Owner approval of feature definitions and prediction-time availability",
+    "Versioned amendment to frozen candidate eligibility and benchmark protocol"
+  ],
+  "research_integrity": {
+    "production_generator_modified": false,
+    "campaigns_executed": false,
+    "sealed_holdout_accessed": false,
+    "sign_flip_validity_claimed": false
+  }
+}

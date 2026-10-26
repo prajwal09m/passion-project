@@ -1,0 +1,17 @@
+...................F.................................................... [ 53%]
+...............................................................          [100%]
+================================== FAILURES ===================================
+___________ ProposalLayerTestCase.test_campaign1_evidence_unchanged ___________
+
+self = <autonomous_agent.test_proposal_layer.ProposalLayerTestCase testMethod=test_campaign1_evidence_unchanged>
+
+    def test_campaign1_evidence_unchanged(self):
+        for relative, expected in CAMPAIGN1_FROZEN_HASHES.items():
+            path = REPO_ROOT / relative
+>           self.assertTrue(path.is_file(), f"missing: {relative}")
+E           AssertionError: False is not true : missing: autonomous_agent/MAIN AUDITS AND REFLECTIONS/AUTONOMOUS_CAMPAIGN_AUDIT_2026_10_04.md
+
+test_proposal_layer.py:894: AssertionError
+=========================== short test summary info ===========================
+FAILED test_proposal_layer.py::ProposalLayerTestCase::test_campaign1_evidence_unchanged
+1 failed, 134 passed in 12.40s

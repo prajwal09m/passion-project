@@ -1,0 +1,17 @@
+{
+  "campaign_config_sha256": "1e0e30b8ecd99119e3c12214aacd512167c7fb6546e7b946f9dd65d5436fea5a",
+  "campaign_id": "campaign-3-continuous-2026-10-05",
+  "consecutive_failures": 0,
+  "cycle": 40,
+  "executing": null,
+  "executions_done": 38,
+  "heartbeat_at": "2026-10-09T02:03:08+00:00",
+  "last_error": "minimums met and no admissible proposal",
+  "last_stop_reason": "PORTFOLIO_COMPLETE",
+  "max_cycles": 100000,
+  "schema_version": 1,
+  "seed_base": 20261005,
+  "started_at": "2026-10-05T20:38:45+00:00",
+  "status": "STOPPED",
+  "updated_at": "2026-10-09T02:03:08+00:00"
+}

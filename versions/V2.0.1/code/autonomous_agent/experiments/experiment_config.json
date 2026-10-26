@@ -1,0 +1,33 @@
+{
+  "arm_a": "B",
+  "arm_b": "C",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 5,
+  "estimator_a": "LightGBM",
+  "estimator_b": "LightGBM",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "max_brier_degradation": 0.005,
+    "max_ece_degradation": 0.02,
+    "min_folds": 3,
+    "note": "Candidate arm must not degrade pooled out-of-fold AUC (delta >= 0, CI lower >= -0.01) and must not degrade calibration beyond the declared margins (Brier <= +0.005 absolute, ECE <= +0.02 absolute) versus the matched reference arm; calibration deltas are reported per year.",
+    "primary_metric_min_delta": 0.0
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_recipe",
+  "hypothesis_id": "hyp-48797c54b9f9",
+  "hypothesis_text": "Are probability estimates stable across years, tickers, and market regimes?",
+  "n_boot": 500,
+  "recipe_id": "calibration_stability_check",
+  "recipe_version": "1.0.0",
+  "schema_version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

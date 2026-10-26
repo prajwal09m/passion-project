@@ -1,0 +1,70 @@
+{
+  "part_a_fixture": {
+    "fixture": {
+      "W": 30,
+      "sz": 15,
+      "pi": 0.28,
+      "rho": 0.5,
+      "theta_A": 0.35,
+      "theta_B": 0.33,
+      "n_boot": 1000,
+      "seed": 42,
+      "n_rows": 450
+    },
+    "backend": {
+      "delta_auc": -0.01993846153846157,
+      "ci_95": [
+        -0.062172456036298396,
+        0.015130504633600182
+      ],
+      "n_boot_valid": 1000,
+      "block_weeks": 4
+    },
+    "sequential_replica": {
+      "delta_auc": -0.01993846153846157,
+      "ci_95": [
+        -0.062172456036298396,
+        0.015130504633600182
+      ],
+      "n_boot_valid": 1000
+    },
+    "fast_path_on_same_draws": {
+      "ci_95": [
+        -0.06217245603629862,
+        0.015130504633600182
+      ]
+    },
+    "max_abs_diff_ci_seq_vs_backend": 0.0,
+    "max_abs_diff_ci_fast_vs_seq": 2.220446049250313e-16,
+    "abs_diff_delta_auc": 0.0,
+    "n_valid_match": true,
+    "bit_for_bit_pass": true,
+    "note": "the production fast path uses batched RNG draws (same statistical scheme, different RNG batching); bit-for-bit equivalence is established for the sequential replica, and the fast path is exact on identical draws (max_abs_diff_ci_fast_vs_seq)"
+  },
+  "part_b_unpaired_control": {
+    "n_trials": 300,
+    "B": 1000,
+    "seed": 5500,
+    "dgp": "cell-(i) balanced, rho=0.5, delta=0, W=60, sz=60, pi=0.30",
+    "paired_reject_at_0.05": {
+      "k": 19,
+      "rate": 0.06333333333333334
+    },
+    "unpaired_reject_at_0.05": {
+      "k": 1,
+      "rate": 0.0033333333333333335
+    },
+    "fisher_two_sided_p_on_rates": 3.07312051523574e-05,
+    "mean_ci_width_paired": 0.02643815790531242,
+    "mean_ci_width_unpaired": 0.06518417684343973,
+    "width_ratio_unpaired_over_paired": 2.465533986024865,
+    "measurably_different": true,
+    "note": "unpaired control resamples week blocks independently per arm, destroying the paired-replicate structure the harness CI gate relies on; expected to inflate CI width (variance from both arms sampled independently)"
+  },
+  "SIM5_pass": true,
+  "meta": {
+    "written_utc": "2026-10-10T20:32:22+00:00",
+    "simh10_sha256": "9464780ca36ea3a74da3f5ea76aa96418267f7a17a13b04f86ef6a69dce58eeb",
+    "runner": "run_sim.py"
+  }
+}

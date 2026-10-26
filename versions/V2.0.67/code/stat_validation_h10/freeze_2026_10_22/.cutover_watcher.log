@@ -1,0 +1,4 @@
+watcher start; old pid=4136
+still executing exp-proposal-a9141196f92c (600s waited)
+boundary reached (cycle 1, exec_done 0)
+STOP file written

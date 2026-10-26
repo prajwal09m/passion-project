@@ -1,0 +1,31 @@
+{
+  "arm_a": "A",
+  "arm_b": "B",
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "calibration_bins": 10,
+  "estimator_a": "LogisticRegression",
+  "estimator_b": "LogisticRegression",
+  "evaluation_criteria": {
+    "ci_lower_min": -0.01,
+    "min_folds": 3,
+    "note": "Arm B must not lose discrimination versus arm A; a strictly positive lower CI bound upgrades the finding from 'no evidence of harm' to 'evidence of gain'.",
+    "primary_metric_min_delta": 0.0
+  },
+  "folds": [
+    2023,
+    2024,
+    2025
+  ],
+  "generator": "deterministic_recipe",
+  "hypothesis_id": "hyp-4ae77037127f",
+  "hypothesis_text": "Do market-structure features add information beyond a matched baseline without future-data dependence?",
+  "n_boot": 500,
+  "recipe_id": "feature_arm_nested_ablation",
+  "recipe_version": "1.0.0",
+  "schema_version": 1,
+  "seeds": [
+    42,
+    43,
+    44
+  ]
+}

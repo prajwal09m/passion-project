@@ -1,0 +1,415 @@
+{
+  "schema_version": 1,
+  "attempts": [
+    {
+      "spec_sha256": "87fae83d277c7f94a0468837da5def7bcc526042a8f279e7cd6ea9a2414af47b",
+      "experiment_id": "exp-calibration-stability-check-a00",
+      "at": "2026-10-04T18:00:19+00:00"
+    },
+    {
+      "spec_sha256": "a9c39d7a448e4d0ff29d68f272d86f21235eeeaa266eb37174abaacaa6eb0cba",
+      "experiment_id": "exp-feature-arm-nested-ablation-a00",
+      "at": "2026-10-04T18:31:48+00:00"
+    },
+    {
+      "spec_sha256": "26204399de83607027618fbccbe2f73fdcffc34aeccc0ec6ce29f57988aa3db5",
+      "experiment_id": "exp-model-class-matched-comparison-a00",
+      "at": "2026-10-04T18:50:15+00:00"
+    },
+    {
+      "spec_sha256": "a1dbff6362dc682305030bf70707c5b98b1e542150110383c3106956137af0ac",
+      "experiment_id": "exp-calibration-stability-check-a01",
+      "at": "2026-10-04T19:05:09+00:00"
+    },
+    {
+      "spec_sha256": "7fab1485653d2e8bb477ca68938162fec1aa6eb0f356682b006260e88af8cfdd",
+      "experiment_id": "exp-feature-arm-nested-ablation-a01",
+      "at": "2026-10-04T19:20:22+00:00"
+    },
+    {
+      "spec_sha256": "5c995b7336b9984e365e21b84f8ad102b487e7d7d4e553b15c5e3ac3b417c8d8",
+      "experiment_id": "exp-model-class-matched-comparison-a01",
+      "at": "2026-10-04T19:36:38+00:00"
+    },
+    {
+      "spec_sha256": "f9ee5b962a82f80c4d28bc8800c5fed3d39eeb1bf03c5cfb1d1c16e4d1b3c225",
+      "experiment_id": "exp-feature-arm-nested-ablation-a02",
+      "at": "2026-10-04T19:52:45+00:00"
+    },
+    {
+      "spec_sha256": "5bc61d0f5f8f7c1815b55bb391edf46b425a4158198b4560c005ab9b9c36303d",
+      "experiment_id": "exp-model-class-matched-comparison-a02",
+      "at": "2026-10-04T20:11:33+00:00"
+    },
+    {
+      "spec_sha256": "45dfabb03d6b1c6de1ba461432268efc411e4ac4abbe07978fb928eb1ad2213e",
+      "experiment_id": "exp-proposal-c834d3a14888",
+      "at": "2026-10-05T01:10:06+00:00"
+    },
+    {
+      "spec_sha256": "4c5269371f06c570b949289ba861c073444a27ac2e72b3bf20c22c5cabff9178",
+      "experiment_id": "exp-proposal-df6e2b2b9189",
+      "at": "2026-10-05T01:24:08+00:00"
+    },
+    {
+      "spec_sha256": "2e4c549c4008b493658d00ac8432048bb73dd74397485a69d2fb107b40c62350",
+      "experiment_id": "exp-proposal-d4f0556a2553",
+      "at": "2026-10-05T02:05:49+00:00"
+    },
+    {
+      "spec_sha256": "c777f1856cf9eb46208711b59669910170cfd51c9486c7464fa07f7c384e7516",
+      "experiment_id": "exp-proposal-9aea15974ec3",
+      "at": "2026-10-05T03:14:33+00:00"
+    },
+    {
+      "spec_sha256": "74dde6e73335939f7dc6629a1c686b9bcbcd2736405c241c9a94d2aaba21ed82",
+      "experiment_id": "exp-proposal-a965e420e11b",
+      "at": "2026-10-05T20:38:47+00:00"
+    },
+    {
+      "spec_sha256": "ed62cff659b34311880724b8281bc318a47c9e95984d510a15af8a2a1b6a2cf7",
+      "experiment_id": "exp-proposal-50a88b8ff482",
+      "at": "2026-10-05T21:42:23+00:00"
+    },
+    {
+      "spec_sha256": "e2768ccf94266e416820025dd8324f0f08eae2044b548b3969dcea3955cb313e",
+      "experiment_id": "exp-proposal-5af6fb3fd11f",
+      "at": "2026-10-05T23:01:07+00:00"
+    },
+    {
+      "spec_sha256": "24b26fd48c5d4c8f15ebe600b3ffdb236271c63ac68539bc258daad667aa0543",
+      "experiment_id": "exp-proposal-597467df5f3f",
+      "at": "2026-10-06T00:32:00+00:00"
+    },
+    {
+      "spec_sha256": "5515a380ccb7ac01df4f9551e07d33e91091a16e3432bbcac4e31d336ddfea7c",
+      "experiment_id": "exp-proposal-7b2f1a05d315",
+      "at": "2026-10-06T09:39:10+00:00"
+    },
+    {
+      "spec_sha256": "d92602a6997fd01270dbd12a680b230c3837b809a2e840da37c5a3c210a2ede6",
+      "experiment_id": "exp-proposal-40a65b7c37d5",
+      "at": "2026-10-06T11:03:31+00:00"
+    },
+    {
+      "spec_sha256": "bea2874f70d061f70df485d6a7fcd78cd1bee69c9a89a859a834a5d16e5b2e30",
+      "experiment_id": "exp-proposal-004b9efe173c",
+      "at": "2026-10-06T13:03:53+00:00"
+    },
+    {
+      "spec_sha256": "d6dd7d06f8cc99acc79b862ec956c7f8083023a2b64d8b830d6419661ad79c6b",
+      "experiment_id": "exp-proposal-94c013994544",
+      "at": "2026-10-06T14:51:46+00:00"
+    },
+    {
+      "spec_sha256": "b2cf2eb527d246c1910d5708c9252fa90004d4ef8b864f0b777a3881be9fa657",
+      "experiment_id": "exp-proposal-0dd2734d128f",
+      "at": "2026-10-06T16:47:19+00:00"
+    },
+    {
+      "spec_sha256": "61e1baaee6294a8e34b89022ec866079bc643d223197106c61c3b856b93dfe1d",
+      "experiment_id": "exp-proposal-3405a1833f05",
+      "at": "2026-10-06T18:42:56+00:00"
+    },
+    {
+      "spec_sha256": "3120f97d56eceaf3bcd0e8ed439377ff23325ee3b62a7f6e75748c39e9225659",
+      "experiment_id": "exp-proposal-1521fa631548",
+      "at": "2026-10-06T20:37:23+00:00"
+    },
+    {
+      "spec_sha256": "1ac08386bf4982309396b5b4798812210812556d6e6e987f11268df6473604fd",
+      "experiment_id": "exp-proposal-60b3a5eaefb9",
+      "at": "2026-10-06T23:08:03+00:00"
+    },
+    {
+      "spec_sha256": "e559ef8024d34439bbf94919a3091c423d4133a38413d2d818bcef811a6b4380",
+      "experiment_id": "exp-proposal-e5e8542b4bb7",
+      "at": "2026-10-07T01:03:11+00:00"
+    },
+    {
+      "spec_sha256": "341d82dc8517aa44d22ed233b5b9bdb9517748ff9f7d4c4fc086a95993bf8af9",
+      "experiment_id": "exp-proposal-54baf2c80165",
+      "at": "2026-10-07T03:10:30+00:00"
+    },
+    {
+      "spec_sha256": "1580bf510c7c6c397c9bdcf018b740f30c6af4990582c614409050889b4f7546",
+      "experiment_id": "exp-proposal-60bfc7749c39",
+      "at": "2026-10-07T05:21:31+00:00"
+    },
+    {
+      "spec_sha256": "bd1e2541de844426c8f744edcea20bc5b559a5a76efefab0eba40c80af3f758c",
+      "experiment_id": "exp-proposal-0bf4344df50c",
+      "at": "2026-10-07T12:09:08+00:00"
+    },
+    {
+      "spec_sha256": "7ad2262d7b18e6742a06755f121343de19a23e3de3c58a51c60cf03326ab16e1",
+      "experiment_id": "exp-proposal-3729cb758570",
+      "at": "2026-10-07T14:17:38+00:00"
+    },
+    {
+      "spec_sha256": "51650e7165660aba353bbbb33fe94c171609fe45d163df2007babcd6718bcb9b",
+      "experiment_id": "exp-proposal-3412693676ec",
+      "at": "2026-10-07T16:25:23+00:00"
+    },
+    {
+      "spec_sha256": "97ec1b6c75a1b2d6c9582eb6013a2e08b1a3b25cd5145a3aa3d06371d58b6b08",
+      "experiment_id": "exp-proposal-6cb732f3a51c",
+      "at": "2026-10-07T18:42:34+00:00"
+    },
+    {
+      "spec_sha256": "876fa4ac3348d5804ae9677570436ca9779a04792f8af6c2cd0bbe56bb6b55e0",
+      "experiment_id": "exp-proposal-7d1b96faa0f8",
+      "at": "2026-10-07T20:57:40+00:00"
+    },
+    {
+      "spec_sha256": "0999b542fd207e6b1bc32b777bc26eda0d8adb2b9ad9b0d0d84543c700e4d2f2",
+      "experiment_id": "exp-proposal-b6e7f3dc7e44",
+      "at": "2026-10-07T23:17:15+00:00"
+    },
+    {
+      "spec_sha256": "ad4a0c9e8792da5cd11cb303fcaf724878b16d2641fa41606eda45761974371f",
+      "experiment_id": "exp-proposal-6aa5e85e530a",
+      "at": "2026-10-08T01:33:08+00:00"
+    },
+    {
+      "spec_sha256": "7bfe812e61fedf478b42096742d4b7d2c8181f49b3712b31e59d4bc7cac345f2",
+      "experiment_id": "exp-proposal-7f35d266df53",
+      "at": "2026-10-08T03:54:35+00:00"
+    },
+    {
+      "spec_sha256": "e37e77a260131e9ed25790d47dfa3ccd8bd152c105bab10382caaf3b30d0ca33",
+      "experiment_id": "exp-proposal-98c6db9c9f2b",
+      "at": "2026-10-08T06:23:17+00:00"
+    },
+    {
+      "spec_sha256": "86bec318e3c556b803b0c05ef770b56dcb45a16d1a54448096f7a71827a285e9",
+      "experiment_id": "exp-proposal-2b798bd99239",
+      "at": "2026-10-08T08:54:32+00:00"
+    },
+    {
+      "spec_sha256": "22841ddde1ce9461bdfb42c04432fe2b0041d3f6b66835336bd567eeff582c46",
+      "experiment_id": "exp-proposal-1afacd2289cb",
+      "at": "2026-10-08T11:27:01+00:00"
+    },
+    {
+      "spec_sha256": "3be3b18f18cae50d38cd233a3afa883bfc9c6d75930080649bc39c34d3d97e27",
+      "experiment_id": "exp-proposal-b1e7f236c72d",
+      "at": "2026-10-08T13:55:01+00:00"
+    },
+    {
+      "spec_sha256": "799913f9690e945d9d18d7726971908ab84244a2a23194eaa943e75b899b4493",
+      "experiment_id": "exp-proposal-70e1e8174843",
+      "at": "2026-10-08T19:53:13+00:00"
+    },
+    {
+      "spec_sha256": "96720d9670b5386e55439cd14324d0ddea612e265b63eb88f119feb8982246dd",
+      "experiment_id": "exp-proposal-32828c19b4a2",
+      "at": "2026-10-08T20:19:10+00:00"
+    },
+    {
+      "spec_sha256": "eab5b35771dd143bc81fb7db80fca468ba73c08a325628f24a6096c1ce415446",
+      "experiment_id": "exp-proposal-2e4387098c93",
+      "at": "2026-10-08T20:41:25+00:00"
+    },
+    {
+      "spec_sha256": "b5097fc08baee16e82fe57f20986ff2270e71276d799a5ed955505f293a7d26a",
+      "experiment_id": "exp-proposal-ab8a5888d8da",
+      "at": "2026-10-08T21:05:27+00:00"
+    },
+    {
+      "spec_sha256": "046b082e980dcd318d047df611041c9237dcb717218fa3e5c96d4a8592ebaecb",
+      "experiment_id": "exp-proposal-8e4a2730bb49",
+      "at": "2026-10-08T21:37:07+00:00"
+    },
+    {
+      "spec_sha256": "1925be34683d703989a95146301d5c1a65b54bd0dbba239e2c968bc42e0615c9",
+      "experiment_id": "exp-proposal-fe8cc84e0b89",
+      "at": "2026-10-08T22:54:50+00:00"
+    },
+    {
+      "spec_sha256": "8d6c344cf66953dd78f7344c66d0947e68832f73c9943e1c7104fa9776c1209e",
+      "experiment_id": "exp-proposal-bacc03af9608",
+      "at": "2026-10-08T23:25:47+00:00"
+    },
+    {
+      "spec_sha256": "d2b4fb10af83249de402573b0f9057959c09e9a5ec4ce366495c57e59c1bb048",
+      "experiment_id": "exp-proposal-90de6d378815",
+      "at": "2026-10-08T23:58:04+00:00"
+    },
+    {
+      "spec_sha256": "101dece53451af570b1a2b64cf40ac4e116893b54ed9732ecdbd5e95ac81fb9c",
+      "experiment_id": "exp-proposal-95620250a2d4",
+      "at": "2026-10-09T00:30:20+00:00"
+    },
+    {
+      "spec_sha256": "0bb169eacba072ff4880fb73b83c6be15cc2fcb872477b664cdb3b2930717789",
+      "experiment_id": "exp-proposal-22dfde2c603c",
+      "at": "2026-10-09T01:02:05+00:00"
+    },
+    {
+      "spec_sha256": "e971ad2ad3a41cf264759aab5fec4dd57d6b07e38f13f48a0beddd6400f5aff0",
+      "experiment_id": "exp-proposal-018dc4d8e0ec",
+      "at": "2026-10-09T01:34:37+00:00"
+    },
+    {
+      "spec_sha256": "5c7f7836368378dc9f326b5ae917363c86a89d68d95a1da10a0e93d6725443f3",
+      "experiment_id": "exp-proposal-5d52d16b94ca",
+      "at": "2026-10-15T00:18:22+00:00"
+    },
+    {
+      "spec_sha256": "04c0e3d2d2984f9130a682f4d881cf3154585957949228eb6737e972bdb7020c",
+      "experiment_id": "exp-proposal-4fdf6dd35236",
+      "at": "2026-10-15T00:52:48+00:00"
+    },
+    {
+      "spec_sha256": "f744b61b5c4200a0d19afdab6b07ab93d8ac507e0411445bd23a0dbd0a50f2ee",
+      "experiment_id": "exp-proposal-006cd3433838",
+      "at": "2026-10-15T20:40:02+00:00"
+    },
+    {
+      "spec_sha256": "e3f4d34635acca3ff3095e45f7756b733f00b532419e7a50f5486e6653d75330",
+      "experiment_id": "exp-proposal-4dbe8e8ccc66",
+      "at": "2026-10-15T21:42:19+00:00"
+    },
+    {
+      "spec_sha256": "28dbec90e340d35e3a547c393925d18534a590693503bde4d672762b38a66b0e",
+      "experiment_id": "exp-proposal-85ec7554a97f",
+      "at": "2026-10-15T22:09:08+00:00"
+    },
+    {
+      "spec_sha256": "6bcbaa860cc1cb46c7e2bdf8361b82c7d4142630d211c40a6e75f2ef18ac0d56",
+      "experiment_id": "exp-proposal-a5866f7efc61",
+      "at": "2026-10-15T22:47:34+00:00"
+    },
+    {
+      "spec_sha256": "b105e0474dc2e11c0bd1a9f00411821fa72697a1f327f70a303c36c3c81bcb99",
+      "experiment_id": "exp-proposal-5e72c5c28728",
+      "at": "2026-10-15T23:23:21+00:00"
+    },
+    {
+      "spec_sha256": "56477b6d0e61ad941e9a27a55c7098fa4037cd40a45bebc70ae21c0a29645cfd",
+      "experiment_id": "exp-proposal-7bfa795b4c04",
+      "at": "2026-10-16T00:02:18+00:00"
+    },
+    {
+      "spec_sha256": "4ed065be4d88c0f34110928d70ec5c0f5b2fb84cdcee8d1216ce2f8b54796029",
+      "experiment_id": "exp-proposal-b02fcee28cf4",
+      "at": "2026-10-16T00:23:04+00:00"
+    },
+    {
+      "spec_sha256": "50c72b4f647643925c7bd4ba0e9b1da31d469d8df01b433137c507abe63c81d8",
+      "experiment_id": "exp-proposal-2e720b1cb335",
+      "at": "2026-10-16T00:46:02+00:00"
+    },
+    {
+      "spec_sha256": "48dd0ab5f168fec31e42aca20d63945080ff4c9aee421a910ff86d4d86cebd57",
+      "experiment_id": "exp-proposal-fe0a0d9c120b",
+      "at": "2026-10-16T01:08:03+00:00"
+    },
+    {
+      "spec_sha256": "f0fbeb6d936c327e67455e1af37b1601dfcb0e4bb945a1a51660725cd995cf8c",
+      "experiment_id": "exp-proposal-baff5074640f",
+      "at": "2026-10-16T01:30:09+00:00"
+    },
+    {
+      "spec_sha256": "dccfb6b0415b27391acccaa85d3d8aee8121741a3f70b63d855afa3b6a9b91ad",
+      "experiment_id": "exp-proposal-8afa516dd237",
+      "at": "2026-10-16T01:53:05+00:00"
+    },
+    {
+      "spec_sha256": "828c49aeb2267d0277e6e09bf2d8f30929dc73af8aab60978d406c10063f68f6",
+      "experiment_id": "exp-proposal-c84744aeccbb",
+      "at": "2026-10-16T02:16:56+00:00"
+    },
+    {
+      "spec_sha256": "0e8a259af9af09fceb63ece07544ae26bb55c935c30c58afc3912f515c7e18d1",
+      "experiment_id": "exp-proposal-7ace12bead87",
+      "at": "2026-10-16T02:39:21+00:00"
+    },
+    {
+      "spec_sha256": "807e03419303552c7a85fe1989f67ec74935a80556c0279c2937ede63e8118b3",
+      "experiment_id": "exp-proposal-392606fef7f1",
+      "at": "2026-10-16T03:02:42+00:00"
+    },
+    {
+      "spec_sha256": "d84935e06f305e2983bbfce493a6a9ca37c3b4a4a511daa0fd388934abdfecea",
+      "experiment_id": "exp-proposal-75513a36d0c5",
+      "at": "2026-10-16T03:25:19+00:00"
+    },
+    {
+      "spec_sha256": "a0c8995ab907327fdc10e9a8bb74024148cc5516e2875c4781fc15f720998698",
+      "experiment_id": "exp-proposal-5825479a4b13",
+      "at": "2026-10-16T03:48:27+00:00"
+    },
+    {
+      "spec_sha256": "2fc4d7633fb6314ba2cfa02ce27dff771eb83a37cf92cde00f1120450d34a480",
+      "experiment_id": "exp-proposal-4ce0abcadd5d",
+      "at": "2026-10-16T04:10:39+00:00"
+    },
+    {
+      "spec_sha256": "e32700f5dc757e072acd30896e5d6fc976d7f9db2882424e4f3cf81b22766d7c",
+      "experiment_id": "exp-proposal-e4537e38cdcf",
+      "at": "2026-10-16T04:35:13+00:00"
+    },
+    {
+      "spec_sha256": "8012330a2d358d5ba9dcbf822ade573510cd2f6cb9f348820b8974b65a106d77",
+      "experiment_id": "exp-proposal-251521165b10",
+      "at": "2026-10-16T04:59:19+00:00"
+    },
+    {
+      "spec_sha256": "54384d976405ef9cca82d89a02312308d94e26af4addeaf3a9fc608f581272e6",
+      "experiment_id": "exp-proposal-9d0cf6b63cea",
+      "at": "2026-10-16T05:23:23+00:00"
+    },
+    {
+      "spec_sha256": "ad86e56b81889c0194a5be2bc62962b6e3e6a4399c153be8c86ffd78bc5029bd",
+      "experiment_id": "exp-proposal-1f863aaa1b33",
+      "at": "2026-10-16T10:05:42+00:00"
+    },
+    {
+      "spec_sha256": "e6cccf58c9c4a2d2f7b40e9a0bf60dda49abf9d4fdb915fc193822265c0f5879",
+      "experiment_id": "exp-proposal-7563472c00dd",
+      "at": "2026-10-16T10:34:12+00:00"
+    },
+    {
+      "spec_sha256": "3d9cf084144e7bc086f31b294809ae3eb32177196d5e819ca9e67dcd221594ee",
+      "experiment_id": "exp-proposal-f8a740131122",
+      "at": "2026-10-16T10:58:04+00:00"
+    },
+    {
+      "spec_sha256": "fa2e0ce6a4b03b32d9496aa85aa67d958722a0b1ae7be800342597956a601e2d",
+      "experiment_id": "exp-proposal-134f44d740b4",
+      "at": "2026-10-16T12:32:32+00:00"
+    },
+    {
+      "spec_sha256": "0ad59c6e7f22f709d32adac17d2b93ab807c029812f543b203f606c538e08a5f",
+      "experiment_id": "exp-proposal-dbcceddf3839",
+      "at": "2026-10-16T13:19:43+00:00"
+    },
+    {
+      "spec_sha256": "ab4ab3833a1f2e5ecd35ac8c6dfa1d0a4b6e65b50cb6a74e452cc9e765bf1433",
+      "experiment_id": "exp-proposal-377ffe96de73",
+      "at": "2026-10-16T19:27:27+00:00"
+    },
+    {
+      "spec_sha256": "cb7662a44ce1745a4c9ddcf72f529a6fd73c38883acfbb1242281d8efabe76a3",
+      "experiment_id": "exp-proposal-35b196ee5e7e",
+      "at": "2026-10-16T19:56:46+00:00"
+    },
+    {
+      "spec_sha256": "332d851acfebdb9d9673016d7854ed9f4e405f74f6e14dc386d94199d45220e8",
+      "experiment_id": "exp-proposal-22bf6a0e5efd",
+      "at": "2026-10-16T20:31:48+00:00"
+    },
+    {
+      "spec_sha256": "09a4c356cf14f2e070940485696afd27563b34599bb2a3f146221177336f82d1",
+      "experiment_id": "exp-proposal-24ba248f9b2c",
+      "at": "2026-10-16T21:01:51+00:00"
+    },
+    {
+      "spec_sha256": "669b3074420fb16233cce5aa1ca3275a5ece306836931e442cf25d0c8fc9c443",
+      "experiment_id": "exp-proposal-7628f97ad923",
+      "at": "2026-10-16T21:32:04+00:00"
+    }
+  ]
+}

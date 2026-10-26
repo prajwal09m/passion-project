@@ -1,0 +1,29 @@
+{"cycle": 1, "ready": true, "status": "RUNNING", "hypothesis": "Are the available inputs point-in-time and complete enough for a valid comparison?", "blockers": []}
+Traceback (most recent call last):
+  File "C:\Prajwal MIT\Passion\autonomous_agent\core.py", line 652, in acquire_lock
+    self._lock_fd = os.open(str(lock_path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+                    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileExistsError: [Errno 17] File exists: 'C:\\Prajwal MIT\\Passion\\autonomous_agent\\state\\supervisor.lock'
+
+During handling of the above exception, another exception occurred:
+
+OSError: [WinError 87] The parameter is incorrect
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Prajwal MIT\Passion\autonomous_agent\core.py", line 1170, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "C:\Prajwal MIT\Passion\autonomous_agent\core.py", line 1166, in main
+    return supervisor.run()
+           ~~~~~~~~~~~~~~^^
+  File "C:\Prajwal MIT\Passion\autonomous_agent\core.py", line 930, in run
+    if not self.acquire_lock():
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Prajwal MIT\Passion\autonomous_agent\core.py", line 659, in acquire_lock
+    os.kill(owner_pid, 0)
+    ~~~~~~~^^^^^^^^^^^^^^
+SystemError: <built-in function kill> returned a result with an exception set

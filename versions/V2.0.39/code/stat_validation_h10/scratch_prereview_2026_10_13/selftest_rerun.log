@@ -1,0 +1,16 @@
+==== stage: selftest (2026-10-13T22:25:53+00:00) ====
+[selftest] running simh10.selftest() ...
+[saved] C:\Prajwal MIT\Passion\stat_validation_h10\results\selftest.json
+  [PASS] auc_quadratic_vs_sklearn: 0.675763675112479 vs 0.675763675112479
+  [PASS] fast_vs_slow_bootstrap: max|diff| = 2.220e-16
+  [PASS] sequential_draw_sizes: rows = 288 vs 288
+  [PASS] signflip_linear_vs_brute: max|diff| = 1.527e-16
+  [PASS] signflip_identity: -0.013734312100 vs -0.013734312100
+  [PASS] holm_fixture: rejects = [True, True, False, False]
+  [PASS] fast_vs_slow_bootstrap_varying_sizes: max|diff| = 2.220e-16
+  [PASS] draw_bincount_vs_addat: K equal = True
+  [PASS] frozen_backend_base_delta: -0.019938461538 vs -0.019938461538
+  [PASS] frozen_backend_ci: [-0.05911301528485413, 0.020551710395805944] vs [-0.05911301528485413, 0.020551710395805944]
+  [PASS] frozen_backend_n_valid: 200 vs 200
+[selftest] ALL CHECKS PASSED (5.38s)
+==== done in 5s (exit 0) ====

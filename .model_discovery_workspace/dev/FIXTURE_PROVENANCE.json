@@ -1,0 +1,327 @@
+{
+  "created_at_utc": "2026-10-18T01:48:36.467585+00:00",
+  "files": [
+    {
+      "bytes": 100026639,
+      "path": "study_files/outputs/study_v1/development/event_table.csv",
+      "sha256": "232de7db65c92bec249be801e593acdaa822ecd0b13eb0cd32b7eeaced85a4d0",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 90614,
+      "path": "study_files/backend/demand_zone_study_v1.py",
+      "sha256": "cea2440425e1f2f56a95b576481ae2ef603fe1f6a9816078e0a998781e0cef2a",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 15778,
+      "path": "study_files/MARKET_STRUCTURE_STUDY_V1_PROTOCOL.json",
+      "sha256": "6b4e4557d6ca9dc5dec118d39c22f2e1483011b9fcc7fc1940ecd544f2e3ed05",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 3292,
+      "path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/PRIMITIVE_ACTIVATION_GRANT_R3_2026_10_12.md",
+      "sha256": "ab728ba6b463a67075bc071dea73377379ae8a685db7f4d0a5592869699e0ece",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 49445,
+      "path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/HARNESS_V1_1_0_IMPLEMENTATION_PLAN_2026_10_09.md",
+      "sha256": "094827b0e9a5f1c1b6d0ed13c32b9e22a6ff7c76568624228e8b2cb9f738eb4e",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 47940,
+      "path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/AUTONOMOUS_CAMPAIGN_AUDIT_2026_10_04.md",
+      "sha256": "47904cb1ba0f7b58f63a3c19a3853c10d8dcf7f673e060039ac9d076cdfab3e0",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 7071,
+      "path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/CAMPAIGN_4_CONFIG_DRAFT_2026_10_09.json",
+      "sha256": "307e98ab4b7207dac24bada4a438686fb859b28bec5e919e80219e249168cdcd",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 4459,
+      "path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/GOVERNANCE_SUITE_FLAKE_EVIDENCE_2026_10_11.md",
+      "sha256": "725046614c4dab73672042132caaad3b563859f8a5177731ec0687d0596ad4cf",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 1067,
+      "path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/CAMPAIGN_4_FINAL_ARCHIVE_2026-10-16/SHA256SUMS.txt",
+      "sha256": "7b4e75e2caff612568d7463fefc1c48f8435fd616716d794d6ff9b1f54c2bfb3",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 4435,
+      "path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/CAMPAIGN_3_FINAL_ARCHIVE_2026-10-09/campaign_config.json",
+      "sha256": "1e0e30b8ecd99119e3c12214aacd512167c7fb6546e7b946f9dd65d5436fea5a",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 5868,
+      "path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/C4_MEASUREMENT_WIRING_FINDING_OWNER_DECISION_RECORD_2026_10_16.md",
+      "sha256": "7d837caa9123be50ca0407d167b6c69aed29dc90d86f59968c693dcfc0d54130",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 21048,
+      "path": "autonomous_agent/state/campaign_config.json",
+      "sha256": "d8bff195eb6e3e1e81c201f78b9961f1d0d9738a611498eaca593f394e238862",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 66,
+      "path": "autonomous_agent/state/campaign_config.sha256",
+      "sha256": "105a64864660e25e105a5aa993f2d76b0d7c0791b11b3374ff78a0939bfc9a2d",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 4435,
+      "path": "autonomous_agent/state/campaign_config.campaign-3-continuous-2026-10-05.json",
+      "sha256": "1e0e30b8ecd99119e3c12214aacd512167c7fb6546e7b946f9dd65d5436fea5a",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 545,
+      "path": "autonomous_agent/state/loop_state.json",
+      "sha256": "7b51df327a4a53b02eda0b2b177aa1e764d5b8d72e80523de8c4113cdc04b9d9",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 577,
+      "path": "autonomous_agent/state/loop_state.campaign-3-continuous-2026-10-05.final.json",
+      "sha256": "336755756c7d33664a0fdf1a370c3cc05da326cee3601cebd074073cec170bb8",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 885104,
+      "path": "autonomous_agent/state/proposal_ledger.jsonl",
+      "sha256": "d97da2680245be8a690ab097d1e25b1ac99b7668b74ce064cf8068f6a51f9ba8",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 12050,
+      "path": "autonomous_agent/state/campaign_end_multiplicity.jsonl",
+      "sha256": "7547704337738e829ce71bddd524b7458cdc62f38ee3642443597eedd5abe9d3",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 17604,
+      "path": "autonomous_agent/state/baseline_reproduction.json",
+      "sha256": "a5c6d30370866a265e9b8fb174f8338207b127bb4fcacf42faa2eaec4bf9d914",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 11166,
+      "path": "autonomous_agent/candidates/exp-proposal-5d52d16b94ca/result.json",
+      "sha256": "eaa424bcc7988382ff8e3ea1d4f90b59694ecc3bfed20017ab1d8433876d3183",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 10697,
+      "path": "autonomous_agent/candidates/exp-proposal-4fdf6dd35236/result.json",
+      "sha256": "1416f83887f3c61c624a07574e37c24de76bf8113f58163970be8e65bed2e5bf",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 4674,
+      "path": "autonomous_agent/candidates/exp-calibration-stability-check-a00/spec.json",
+      "sha256": "c603b943b8d336c5c8832f534ef5f009b215cfe83f719b31788edd1243745f59",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 12061,
+      "path": "autonomous_agent/candidates/exp-calibration-stability-check-a00/result.json",
+      "sha256": "e900eea261de2196a47dea42892ef22619822e551acc0a1fd96e63d198c65ae2",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 4333,
+      "path": "autonomous_agent/candidates/exp-feature-arm-nested-ablation-a00/spec.json",
+      "sha256": "73a41652e4962d0a01e83d3a359e83e004c2b05d2ce2535ee6455edf8a385b51",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 11191,
+      "path": "autonomous_agent/candidates/exp-feature-arm-nested-ablation-a00/result.json",
+      "sha256": "3590074eb23525f6e1ec7cb0ace1a10b87d3e57edfb1c292d2236daab6a0d92d",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 4163,
+      "path": "autonomous_agent/candidates/exp-model-class-matched-comparison-a00/spec.json",
+      "sha256": "d66310eab0d0d88ab4f72cf477c56307c5198da2ee20eec2ecf07f6401ec04fc",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 11190,
+      "path": "autonomous_agent/candidates/exp-model-class-matched-comparison-a00/result.json",
+      "sha256": "49250b39f8155fec3a60c977ff9b9fcbf25d3cfa7f6388e4453d7f966e38f00a",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 4676,
+      "path": "autonomous_agent/candidates/exp-calibration-stability-check-a01/spec.json",
+      "sha256": "836d7729fdebcc5464cba45d1d525c7a53c68bb9c435973537c7f46bb04e4719",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 12062,
+      "path": "autonomous_agent/candidates/exp-calibration-stability-check-a01/result.json",
+      "sha256": "a006942f5282a118facec41c136670629dd9e560f432b614db20351454aba535",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 4335,
+      "path": "autonomous_agent/candidates/exp-feature-arm-nested-ablation-a01/spec.json",
+      "sha256": "7c02cd7be762f194089e083a3aa4bac4839d64b37cd1e1c8cf3c6c4cb371051b",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 11192,
+      "path": "autonomous_agent/candidates/exp-feature-arm-nested-ablation-a01/result.json",
+      "sha256": "2727ea7623c504782aadd019d53cf6d63f022de9f0b97111eb0640127a428d67",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 4165,
+      "path": "autonomous_agent/candidates/exp-model-class-matched-comparison-a01/spec.json",
+      "sha256": "98aefdb443966fd72da78dbcc5957d84017035d3adaa3a094b4d40237b4e42ee",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 11191,
+      "path": "autonomous_agent/candidates/exp-model-class-matched-comparison-a01/result.json",
+      "sha256": "def26799f8cbe31269ab17e5cbcef6830e233b2bcc3b3d7c0dcc4c4d603cc67f",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 4303,
+      "path": "autonomous_agent/candidates/exp-feature-arm-nested-ablation-a02/spec.json",
+      "sha256": "dc397c8087bd0752d0607d9045201a6e64a1149d26199f164b65d1587a8e994f",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 11176,
+      "path": "autonomous_agent/candidates/exp-feature-arm-nested-ablation-a02/result.json",
+      "sha256": "28e95ee0bb945f357603091045f775f924b289594992020297de0e1ead9f66cd",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 4163,
+      "path": "autonomous_agent/candidates/exp-model-class-matched-comparison-a02/spec.json",
+      "sha256": "955d228c7a53de3b8f316bf308ad930e9ffa12bd616e15a4637f41327620fd7b",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 12085,
+      "path": "autonomous_agent/candidates/exp-model-class-matched-comparison-a02/result.json",
+      "sha256": "526af856841f9e613129069a7be972374103132c148e32038af6b695207bbca8",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 14666,
+      "path": "versions/V2.0.1/version.json",
+      "sha256": "c5a9483b7a78c6eac5cb65a9166bf3ae56ac6be52f9044c35fcd430baf454236",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 12902,
+      "path": "versions/V2.0.2/version.json",
+      "sha256": "0042642c17a4b37132951ea061c2379b5db5234c8b390387c401ac0786835473",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 12870,
+      "path": "versions/V2.0.3/version.json",
+      "sha256": "5783e9fa86228e255d2de5c831b186ca7b01789f81aceb7dcba6fbb5294693eb",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 14667,
+      "path": "versions/V2.0.4/version.json",
+      "sha256": "f8fe5f972df5e5f233405e2f8c3a3e54fc1a0a2a668ed253994e4a66ef9782a5",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 12903,
+      "path": "versions/V2.0.5/version.json",
+      "sha256": "865a46c9a1e9228f12b5e46a51e55cfb75a814dd3bade768469c99a008703790",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 12871,
+      "path": "versions/V2.0.6/version.json",
+      "sha256": "83826793ca7c49ec1aca6ac0fdfcf228a4078292a14ec50e440fff95406e2822",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 12867,
+      "path": "versions/V2.0.7/version.json",
+      "sha256": "66f1eb0ba836060ff728f4e004933d8a8ef7e1192045d91aa531724fc4c324eb",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 14706,
+      "path": "versions/V2.0.8/version.json",
+      "sha256": "1e53902c57800871909afe3b9401ef66fd9cbde7940b001d82e7dd3eb841f282",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 27389,
+      "path": "stat_validation_h10/family_records.py",
+      "sha256": "a6f0583dca3caf0e83c363026dd4d1ea9eb6e669268a48fca9e9a5da538eaca1",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 24235,
+      "path": "stat_validation_h10/campaign_end_finalization.py",
+      "sha256": "10d89e947bd65a9f944043f210e4288eacba3c8cddd0fac43adf788e4c95b4c1",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 34312,
+      "path": "stat_validation_h10/simh10.py",
+      "sha256": "4b7ebd5f3ffc5413247cdcedb099d493a71e3cfc01346a68c8440de9d59b51f3",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 10210,
+      "path": "stat_validation_h10/launch_gates.json",
+      "sha256": "dfed21cda460f898f9958d0276db83b110a7a618b0e43591d008ff87af2adeea",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 7424,
+      "path": "stat_validation_h10/H10_DECISION_RECORD_AWAITING_SIGNATURE.md",
+      "sha256": "b9db32335c93ccf5a06b764023f21b6595c2fa4a0a4dd7ccbec6f87d2e9f0a42",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 10147,
+      "path": "stat_validation_h10/H10_D2_C3_OWNER_DECISION_RECORD_2026_10_14.md",
+      "sha256": "6dd405554e7afd7689162d275662b6e11d701e670f0416a7c5e21897f19528e0",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 64349,
+      "path": "stat_validation_h10/H10_D2_REVIEW_SUBMISSION.zip",
+      "sha256": "ee345dab3a587b5183e3d80b7a45f2283047f6d1d972c6eff5fc3bb47b74bb03",
+      "source": "authoritative retained development/provenance artifact"
+    },
+    {
+      "bytes": 94993,
+      "path": "autonomous_agent/signflip_port_fixtures_2026_10_14.json",
+      "sha256": "0bb6339a690de0615bf93ccf814719f541dfb008b452f7228cf454113edf1a98",
+      "source": "authoritative retained development/provenance artifact"
+    }
+  ],
+  "fixture_layout": "isolated-development-input-snapshot-v1",
+  "holdout_path_absent": true,
+  "scope": "read-only development/test fixtures only; no campaign execution; no holdout",
+  "source_root_label": "workspace-authoritative-checkout"
+}

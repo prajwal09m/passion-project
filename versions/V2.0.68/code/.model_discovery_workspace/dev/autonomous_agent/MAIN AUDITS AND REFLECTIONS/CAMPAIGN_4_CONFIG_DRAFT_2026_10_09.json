@@ -1,0 +1,149 @@
+{
+  "_DRAFT_STATUS": {
+    "state": "DRAFT_ONLY_NOT_FROZEN_NOT_LOADED",
+    "created_at": "2026-10-09",
+    "reason": "Awaiting explicit human review. This file is NOT autonomous_agent/state/campaign_config.json and is never read by the loop. The live loop_state/ledger/config remain Campaign 3 artifacts, untouched.",
+    "activation_requires": [
+      "Human approves this draft (or edits it) verbatim",
+      "Harness v1.1.0 implemented + unit tests pass (see HARNESS_V1_1_0_IMPLEMENTATION_PLAN_2026_10_09.md)",
+      "File copied to autonomous_agent/state/campaign_config.json with a fresh SHA-256 pin written to campaign_config.sha256 at freeze time",
+      "protocol_fingerprint recomputed by the proposal layer at freeze time (placeholder below)",
+      "Explicit human campaign-authorization prompt (funding/budget is a human action)"
+    ],
+    "note_on_placeholders": "campaign_id, created_at, protocol_fingerprint, seed_base are finalized at freeze time, not now."
+  },
+  "approval": {
+    "approver": "policy:campaign-4-continuous-2026-10-XX",
+    "mode": "autonomous_revalidation",
+    "policy": "revalidate_at_approval@1.0.0",
+    "rationale": "DRAFT prepared 2026-10-09 under the Campaign 4 decision approvals recorded in CAMPAIGN_3_POST_CAMPAIGN_AUDIT_AND_CAMPAIGN_4_PROPOSAL_2026_10_09.md (harness v1.1.0 = yes, dual-comparison rule = yes, budget 30/45 = yes). Final human authorization prompt must restate: new frozen epoch, 30 executions / 45 proposals."
+  },
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "campaign_id": "campaign-4-continuous-2026-10-XX",
+  "created_at": "TO_BE_SET_AT_FREEZE",
+  "direction_limits": {
+    "max_per_direction": 12
+  },
+  "duplicate_policy": {
+    "already_asked": "global_and_permanent_across_campaigns",
+    "budget_scope": "campaign_scoped_never_weakens_duplicates",
+    "cross_signature_text": "generation_side_diversity_preference_only",
+    "layers": [
+      "exact_proposal_fingerprint",
+      "bucketed_design_signature",
+      "same_signature_text_similarity>=0.90",
+      "prior_campaign_recipe_replay",
+      "already_asked_memory"
+    ],
+    "_note": "UNCHANGED from C3. No memory reset: harness v1.1.0's newly executable primitives emit new design signatures organically, while every C1-C3 signature stays permanently un-askable."
+  },
+  "execution": {
+    "adapter": "experiment_adapter.ExperimentAdapter.run_experiment",
+    "execution_selection": "portfolio_minimums_first_then_approval_order",
+    "max_total_executions": 30
+  },
+  "holdout_policy": {
+    "prospective_usage": 0,
+    "rule": "prospective/ never opened, never cited, never generated",
+    "status": "SEALED",
+    "uses": 0
+  },
+  "immutable": true,
+  "notes": "DRAFT successor to campaign-3-continuous-2026-10-05 (38/40 consumed, PORTFOLIO_COMPLETE, archived at autonomous_agent/state/ and MAIN AUDITS AND REFLECTIONS/CAMPAIGN_3_FINAL_ARCHIVE_2026-10-09/). C4 is a measurement-axis campaign, not a parameter re-sweep: it opens the three never-executed directions (error_analysis, data_quality, target_design) plus purge-sensitivity and complexity-reduction falsifiers via harness v1.1.0. Budgets are campaign-scoped; duplicate/already-asked memory stays global and permanent. Stage 1 bias_policy.json is NOT modified. Holdout stays SEALED. If the point-in-time audit (H2) reports contamination, the loop must STOP for human data-lineage review rather than continue.",
+  "outcome_blindness_policy": {
+    "closed_selection_inputs": [
+      "direction",
+      "proposal_class",
+      "novelty_score",
+      "evidence_gap_score",
+      "quota_pressure",
+      "priority",
+      "attempts_in_direction"
+    ],
+    "llm": "none",
+    "preregistered_expectation": "recorded_after_ranking_never_scored"
+  },
+  "parent_champion": "V2.0.35",
+  "policy_overrides": {
+    "campaign_id": "campaign-4-continuous-2026-10-XX",
+    "class_budgets": {
+      "confirmatory": 12,
+      "exploration": 9,
+      "falsification": 18,
+      "replication": 6
+    },
+    "max_per_direction": 12,
+    "max_proposals_per_cycle": 3,
+    "max_replication_share": 0.5,
+    "max_signature_count": 2,
+    "max_total_proposals": 45,
+    "min_falsification_share": 0.35,
+    "require_human_approval": false
+  },
+  "portfolio": {
+    "confirmatory_minimum": {
+      "count": 1
+    },
+    "falsification_minimum": {
+      "count": 1,
+      "share_floor": 0.35
+    },
+    "remaining_selection": "bias_governor_closed_inputs"
+  },
+  "champion_integrity_policy": {
+    "_status": "NEW_IN_C4_DRAFT",
+    "rule": "dual_comparison_at_adjudication",
+    "comparators": [
+      "pinned_parent_at_approval_time",
+      "current_standing_champion_at_adjudication_time"
+    ],
+    "record_fields": [
+      "delta_vs_pinned_parent",
+      "delta_vs_standing_champion",
+      "champion_regression"
+    ],
+    "champion_regression_handling": "Promotion remains allowed under the predeclared parent rule (no gate weakening); a true regression vs the standing champion must be recorded as champion_regression=true in the ledger row and in the version snapshot, so the champion line is auditable. Never silently overwrite a better absolute scorer without the flag.",
+    "note": "Addresses audit finding 5 (non-monotone champion line, V2.0.35 not the best absolute scorer)."
+  },
+  "protocol_fingerprint": "TO_BE_RECOMPUTED_AT_FREEZE",
+  "replication_limits": {
+    "class_budget": 6,
+    "max_replication_share": 0.5
+  },
+  "schema_version": 1,
+  "seed_base": "TO_BE_SET_AT_FREEZE",
+  "signature_limits": {
+    "max_signature_count": 2
+  },
+  "stage_id": "stage-5-continuous",
+  "stop_conditions": [
+    "max_total_executions_reached",
+    "portfolio_minimums_met_and_no_admissible_proposal",
+    "holdout_or_prospective_access_detected",
+    "arbitrary_code_or_executor_bypass_detected",
+    "validation_or_approval_bypass_detected",
+    "provenance_loss_or_ledger_corruption",
+    "budget_inconsistency_or_negative_capacity",
+    "duplicate_execution_detected",
+    "invalid_lifecycle_transition",
+    "repeated_crash_threshold_exceeded",
+    "stale_loop_lock",
+    "research_proposal_direction_or_class_exhaustion",
+    "explicit_STOP_file_present",
+    "campaign_config_hash_mismatch",
+    "point_in_time_contamination_detected"
+  ],
+  "_stop_condition_notes": {
+    "point_in_time_contamination_detected": "NEW C4 stop: harness primitive point_in_time_data_audit reporting contamination halts the campaign for human data-lineage review (see proposal, Limitations). Implementation must wire this stop before freeze; if the wiring is not ready, C4 must not launch."
+  },
+  "versions": {
+    "approval_policy": "revalidate_at_approval@1.0.0",
+    "bias_governor_policy_version": "1.0.0",
+    "compiler_version": "experiment_spec_seam@1.0.0",
+    "generator_version": "1.0.0",
+    "primitive_library_version": "1.1.0",
+    "proposal_layer_schema_version": 1,
+    "validator_version": "1.0.0",
+    "_note": "primitive_library_version bumps to 1.1.0 when the 5 dormant primitives become executable; all other component versions unchanged (no gate/governor/compiler changes)."
+  }
+}

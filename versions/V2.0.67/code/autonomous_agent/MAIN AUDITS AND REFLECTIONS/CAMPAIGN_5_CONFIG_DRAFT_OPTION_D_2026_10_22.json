@@ -1,0 +1,207 @@
+{
+  "_NOTE": "FROZEN CONFIGURATION FOR CAMPAIGN 5 - OPTION D: REGIME/ERROR ANALYSIS. FROZEN 2026-10-22. AUTHORIZED PER B4 OWNER DECISION PACKET.",
+  "approval": {
+    "approver": "PMED",
+    "authorized_at": "2026-10-22T00:00:00+00:00",
+    "mode": "autonomous_revalidation",
+    "policy": "revalidate_at_approval@1.0.0",
+    "rationale": "Campaign 5 Option D (Regime/Error Analysis) configuration frozen and authorized per B4 owner decision packet signed by PMED on 2026-10-22. Approval mode stays autonomous_revalidation: every proposal is revalidated against current ledger state at approval time; no hidden human selection. All prerequisites satisfied: B1 (protocol scope), B2 (AI statistical review accepted with risk acknowledgment), B3 (evaluation/holdout attestation), B5 (real-market predeclaration), B7 (legacy execution path classification)."
+  },
+  "baseline_id": "BASELINE_RECONSTRUCTED_2026_10",
+  "campaign_id": "campaign-5-regime-error-analysis-2026-10-22",
+  "champion_integrity_policy": {
+    "champion_regression_handling": "Promotion remains allowed under the predeclared parent rule (no gate weakening); a true regression vs the standing champion must be recorded as champion_regression=true in the ledger row and in the version snapshot, so the champion line is auditable. Never silently overwrite a better absolute scorer without the flag.",
+    "comparators": [
+      "pinned_parent_at_approval_time",
+      "current_standing_champion_at_adjudication_time"
+    ],
+    "note": "Carried forward from Campaign 4 to maintain champion line integrity.",
+    "record_fields": [
+      "delta_vs_pinned_parent",
+      "delta_vs_standing_champion",
+      "champion_regression"
+    ],
+    "rule": "dual_comparison_at_adjudication"
+  },
+  "created_at": "2026-10-22T00:00:00+00:00",
+  "direction_limits": {
+    "max_per_direction": 15
+  },
+  "duplicate_policy": {
+    "already_asked": "global_and_permanent_across_campaigns",
+    "budget_scope": "campaign_scoped_never_weakens_duplicates",
+    "cross_signature_text": "generation_side_diversity_preference_only",
+    "layers": [
+      "exact_proposal_fingerprint",
+      "bucketed_design_signature",
+      "same_signature_text_similarity>=0.90",
+      "prior_campaign_recipe_replay",
+      "already_asked_memory"
+    ]
+  },
+  "execution": {
+    "adapter": "experiment_adapter.ExperimentAdapter.run_experiment",
+    "execution_selection": "portfolio_minimums_first_then_approval_order",
+    "max_total_executions": 45
+  },
+  "holdout_policy": {
+    "prospective_usage": 0,
+    "rule": "prospective/ never opened, never cited, never generated",
+    "status": "SEALED",
+    "uses": 0
+  },
+  "immutable": true,
+  "multiplicity_policy": {
+    "_note": "Carried forward from Campaign 4. Family-wise alpha 0.05, week_level_signflip_holm method with M=1000. Flip draw from C4 remains frozen (seed + rows hash pinned).",
+    "campaign_end_record_required": true,
+    "correction": "holm_step_down",
+    "families": {
+      "complexity": {
+        "member_bound": 12,
+        "members_per_experiment": 1,
+        "primitive": "complexity_reduction_check"
+      },
+      "horizon": {
+        "member_bound": 36,
+        "members_per_experiment": 3,
+        "primitive": "target_horizon_robustness"
+      },
+      "purge": {
+        "member_bound": 36,
+        "members_per_experiment": 3,
+        "primitive": "purge_sensitivity_probe"
+      },
+      "regime": {
+        "member_bound": 24,
+        "members_per_experiment": 2,
+        "primitive": "regime_split_analysis"
+      },
+      "error_analysis": {
+        "member_bound": 20,
+        "members_per_experiment": 2,
+        "primitive": "error_clustering_analysis"
+      }
+    },
+    "familywise_alpha": 0.05,
+    "feasibility_rule": "n_boot + 1 >= 20 * m AND n_flips + 1 >= 20 * m for every declared family; otherwise freeze blocked (fail-closed)",
+    "flip_draw": {
+      "M": 1000,
+      "W": 157,
+      "bitgen": "PCG64",
+      "disclosures": {
+        "exchangeability_assumption": "assumption: week-level arm-label exchangeability (unestablished)",
+        "p_value_method": "week_level_signflip_holm",
+        "validity_scope": "procedure_level_marginal_over_flip_draw"
+      },
+      "drawn_at": "2026-10-14T00:01:27+00:00",
+      "flip_W_source": "documented frozen OOF evaluation frame: 41,221 rows / 157 ISO weeks / pi=0.165 (D2 review, D2_REVIEW_SUPERSESSION_NOTE_2026_10_13.md, H10_SIGNFLIP_PORT_SPEC_2026_10_13.md section 9); the recorded rows hash binds the actual frame W at use time",
+      "numpy_version": "2.3.3",
+      "procedure": "Case A: drawn once at configuration freeze by secrets.randbits(64) (OS CSPRNG, data-independent) before any Campaign 4 outcome exists; recorded here and never redrawn. Production callers obtain it via signflip.load_campaign_flip_draw and fail closed (FlipProvenanceMissing) on any stage/W/hash mismatch. Campaign 5 reuses the C4 flip draw.",
+      "rng_name": "numpy.random.default_rng",
+      "rows_sha256": "c9b6afb03d19aee4bb3a1075683f00c5a6874f7c2fa23b122e820401b3bc4b17",
+      "seed": 2613983839999682065,
+      "stage": "before_outcome_evaluation"
+    },
+    "max_family_size_m": 50,
+    "mc_resolution_note": "At M=1000 the minimum representable p is 1/1001; at Holm's first threshold a member must produce the minimum representable p to survive for m in 36-50, and borderline members are resolved with 25-48% probability, always biased toward non-rejection. Disclosed in the campaign-end record note.",
+    "missing_member_effect": "Counting an unavailable member toward m at p=1.0 STRICTENS, never loosens, the remaining members' Holm thresholds (corrected wording; the pinned decision sheet's 'thresholds are unchanged' is wrong -- see D2_REVIEW_SUPERSESSION_NOTE_2026_10_13.md item 1).",
+    "missing_member_label": "unavailable",
+    "missing_member_never_refuted": true,
+    "missing_member_p": 1.0,
+    "missing_member_rule": "C-2_option_A",
+    "n_boot": 1000,
+    "n_boot_floor": 1000,
+    "n_flips": 1000,
+    "n_flips_floor": 1000,
+    "n_flips_note": "M = the week-level sign-flip count. The recorded feasibility must include M: the p-value's resolution is 1/(M+1), so a formal refutation at Holm's first threshold alpha/m is attainable only while M + 1 >= 20*m. feasibility() now enforces both counts and treats a missing M as infeasible (never silently feasible).",
+    "no_multiplicity_record_outcome": "INCONCLUSIVE",
+    "p_value_method": "week_level_signflip_holm",
+    "p_value_note": "Adopted method (b): week-level sign-flip Monte-Carlo p-values at M=1000 with Holm step-down (familywise alpha=0.05), computed by the production port with recorded, data-independent flip-draw provenance (see multiplicity_policy.flip_draw). Validity is procedure-level (Result 2'-B, marginal over the recorded flip draw), never conditional on the realized flip set; Result 2 is retracted. The campaign-end record discloses the Monte-Carlo resolution limitation (min representable p = 1/1001; borderline members at large m resolved 25-48%, biased toward non-rejection) and the C-2 Option A missing-member rule (strictens, never loosens).",
+    "pooling": "campaign_end_over_complete_family",
+    "pooling_exclusions": [
+      "campaign_1_2_3_4_tests",
+      "primitives_not_named_above"
+    ]
+  },
+  "notes": "FROZEN production epoch (Campaign 5, Option D: Regime/Error Analysis). Configuration frozen and authorized 2026-10-22 per B4 owner decision packet signed by PMED. Campaign 5 is a regime and error analysis campaign: it deepens the regime and error analysis work from Campaign 4 to understand when and why the model fails. It adds a new error_analysis family (error_clustering_analysis) and expands regime definitions. Budgets are campaign-scoped; duplicate/already-asked memory stays global and permanent. Holdout stays SEALED. Prerequisites satisfied: (1) B1 protocol scope signed, (2) B2 AI statistical review accepted with risk acknowledgment, (3) B3 evaluation/holdout attestation completed, (4) B5 real-market predeclaration resolved, (5) B7 legacy execution path classification approved, (6) B4 owner authorization signed.",
+  "outcome_blindness_policy": {
+    "closed_selection_inputs": [
+      "direction",
+      "proposal_class",
+      "novelty_score",
+      "evidence_gap_score",
+      "quota_pressure",
+      "priority",
+      "attempts_in_direction"
+    ],
+    "llm": "none",
+    "preregistered_expectation": "recorded_after_ranking_never_scored"
+  },
+  "parent_champion": "V2.0.61",
+  "policy_overrides": {
+    "campaign_id": "campaign-5-regime-error-analysis-2026-10-22",
+    "class_budgets": {
+      "confirmatory": 12,
+      "exploration": 16,
+      "falsification": 24,
+      "replication": 8
+    },
+    "max_per_direction": 15,
+    "max_proposals_per_cycle": 3,
+    "max_replication_share": 0.5,
+    "max_signature_count": 2,
+    "max_total_proposals": 60,
+    "min_falsification_share": 0.30,
+    "require_human_approval": false
+  },
+  "portfolio": {
+    "confirmatory_minimum": {
+      "count": 1
+    },
+    "falsification_minimum": {
+      "count": 1,
+      "share_floor": 0.30
+    },
+    "remaining_selection": "bias_governor_closed_inputs"
+  },
+  "protocol_fingerprint": "be2e6d34c90eca95bd83cf826ae0c5555bd8af92e659e512dae74e9fb9b6587c",
+  "replication_limits": {
+    "class_budget": 8,
+    "max_replication_share": 0.5
+  },
+  "schema_version": 1,
+  "seed_base": 20261022,
+  "signature_limits": {
+    "max_signature_count": 2
+  },
+  "stage_id": "stage-5-continuous",
+  "stop_conditions": [
+    "max_total_executions_reached",
+    "portfolio_minimums_met_and_no_admissible_proposal",
+    "holdout_or_prospective_access_detected",
+    "arbitrary_code_or_executor_bypass_detected",
+    "validation_or_approval_bypass_detected",
+    "provenance_loss_or_ledger_corruption",
+    "budget_inconsistency_or_negative_capacity",
+    "duplicate_execution_detected",
+    "invalid_lifecycle_transition",
+    "repeated_crash_threshold_exceeded",
+    "stale_loop_lock",
+    "research_proposal_direction_or_class_exhaustion",
+    "explicit_STOP_file_present",
+    "campaign_config_hash_mismatch",
+    "point_in_time_contamination_detected",
+    "unverifiable_lineage_detected",
+    "regime_predefinition_violation",
+    "data_snooping_detected"
+  ],
+  "versions": {
+    "approval_policy": "revalidate_at_approval@1.0.0",
+    "bias_governor_policy_version": "1.0.0",
+    "compiler_version": "experiment_spec_seam@1.0.0",
+    "generator_version": "1.1.0",
+    "primitive_library_version": "1.2.0",
+    "proposal_layer_schema_version": 1,
+    "validator_version": "1.0.0"
+  }
+}

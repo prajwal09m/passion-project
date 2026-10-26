@@ -1,0 +1,294 @@
+{
+  "baseline": {
+    "dedup_emitted_at_original_budget_64": 0,
+    "implementation": "frozen-generator-v1.2.0 / bias-policy-v1.0.0",
+    "interpretation": "The equal-budget comparison is novel-evidence count: 0/18 at baseline versus 18/18 distinct synthetic candidate evidence identities under v2. Baseline's measured 18 outputs came from proposal budget 64 and were all redundant.",
+    "legacy_distinct_new_evidence_at_equal_18_output_budget": 0,
+    "legacy_historical_redundant_at_original_budget_64": 18,
+    "legacy_raw_emitted_at_original_budget_64": 18,
+    "legacy_redundancy_rate_at_original_budget_64": 1.0,
+    "measured_evidence_keys": 12,
+    "proposal_budget": 18,
+    "source": [
+      "bench_legacy_v4.json",
+      "bench_dedup_v3.json"
+    ],
+    "universe_evidence_keys": 16,
+    "unmeasured_keys": 4
+  },
+  "benchmark_version": "candidate-search-comparison-v2.0.0",
+  "campaign_activation": false,
+  "candidate_search_v2": {
+    "diversity": {
+      "family_counts": {
+        "hist_gradient_boosting": 7,
+        "logistic_regression": 5,
+        "random_forest": 6
+      },
+      "feature_operator_counts": {
+        "nonlinear_marginals": 6,
+        "original": 6,
+        "pairwise_interactions": 6
+      },
+      "proposals": 18,
+      "proposals_in_repeated_groups": 0,
+      "repeated_evidence_groups": 0,
+      "transform_counts": {
+        "identity": 7,
+        "polynomial2": 7,
+        "standardize": 4
+      },
+      "unique_evidence_keys": 18,
+      "unique_feature_sets": 4
+    },
+    "fit_seconds_sum": 4.066911,
+    "fixture_evaluation": {
+      "candidate_scores": [
+        {
+          "average_precision": 0.8327665913471578,
+          "brier": 0.1975386293440991,
+          "candidate_id": "0047b75fcf03d951ee85cf0ccd8b81ab90c5a66804c1cd6e578c9ce35e8d809a",
+          "fit_seconds": 0.09891339999740012,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7733333333333333
+        },
+        {
+          "average_precision": 0.8385633646432081,
+          "brier": 0.1988056902439259,
+          "candidate_id": "0071d3f536db08249eaed86a4049bc47a30a9d3e7d6d7eee3e7dcf4aa442df50",
+          "fit_seconds": 3.1454323999932967,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7904761904761904
+        },
+        {
+          "average_precision": 0.7489044844987462,
+          "brier": 0.2297149299736005,
+          "candidate_id": "2688e4a185a9817ee24239f25992f4c2b7e3fefded85e28bfb4650b8932f2064",
+          "fit_seconds": 0.004340200015576556,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.6742857142857144
+        },
+        {
+          "average_precision": 0.7848865547195718,
+          "brier": 0.19382334739235393,
+          "candidate_id": "01d0d261b08e87579249f5cb43ce3144c5b554d2e323d1bb75fae2fe9d4720cc",
+          "fit_seconds": 0.08750850000069477,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7736507936507937
+        },
+        {
+          "average_precision": 0.726479769754006,
+          "brier": 0.25589248689689503,
+          "candidate_id": "075336321cdf4df9ee34b48d90cc1705ed7543fcd39b293daf342d71b8b93bd0",
+          "fit_seconds": 0.07030550000490621,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.66
+        },
+        {
+          "average_precision": 0.8810778372896675,
+          "brier": 0.16440845676006152,
+          "candidate_id": "276bb930a608d567b0cc0b6597f6d888de80faea98317283ef1018e6cb225bf8",
+          "fit_seconds": 0.004264600021997467,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.8552380952380952
+        },
+        {
+          "average_precision": 0.8156341384502783,
+          "brier": 0.22991050711213382,
+          "candidate_id": "04e7250f904bf1d170e5e7a6531892ff6eb99764549c4eedc72c86571466d731",
+          "fit_seconds": 0.05257620001793839,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7660317460317461
+        },
+        {
+          "average_precision": 0.830093147125264,
+          "brier": 0.19633458053838798,
+          "candidate_id": "4e90741ae3620a02cd38ca59f86d5cb0c5ceb9d0344301c4091211367a6a4605",
+          "fit_seconds": 0.14014070000848733,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7803174603174602
+        },
+        {
+          "average_precision": 0.8576080116762134,
+          "brier": 0.18455592394972878,
+          "candidate_id": "1b1da4f921f75cd907f6c8e5f8088ab8189176f73e7a3f67de4c9089d3923969",
+          "fit_seconds": 0.04787350000697188,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.8082539682539682
+        },
+        {
+          "average_precision": 0.8460594463396388,
+          "brier": 0.20263797731601266,
+          "candidate_id": "2287cbabab9d765bd89fda4e7abe5c5bfea463ba23d3f30c30fe6238df30c9b0",
+          "fit_seconds": 0.06803530000615865,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7987301587301586
+        },
+        {
+          "average_precision": 0.8019829733826978,
+          "brier": 0.19332545804210371,
+          "candidate_id": "3972fe6e99388da3863b8824e8685e50be8cbf2f2f02d9e95a6836e66477d5d6",
+          "fit_seconds": 0.003814399999100715,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7746031746031746
+        },
+        {
+          "average_precision": 0.7187292596876125,
+          "brier": 0.23259256195114988,
+          "candidate_id": "3b51eed2d96d6524a29b1743e25194d9fe6c1ed64cb97a7e24fa5ea1523b8517",
+          "fit_seconds": 0.002381899976171553,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.6653968253968254
+        },
+        {
+          "average_precision": 0.7948549567996533,
+          "brier": 0.20954094508498167,
+          "candidate_id": "07d931f6adb8cb73f44e5d97f5036848fa434061ebc746e7c3dc9f9953a3a943",
+          "fit_seconds": 0.04862039998988621,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7568253968253968
+        },
+        {
+          "average_precision": 0.8152634279423193,
+          "brier": 0.20089949427112425,
+          "candidate_id": "0252f14d2ae10f9faf0579f49404a35af3eea5978bb13a9a8e49dd98e3949c41",
+          "fit_seconds": 0.06793270001071505,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7707936507936508
+        },
+        {
+          "average_precision": 0.8395278993441715,
+          "brier": 0.18459368396971781,
+          "candidate_id": "10ee2a727a6544a5fb825d5636716f377c5b80deef342d96c062530550990d44",
+          "fit_seconds": 0.10346739998203702,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7961904761904762
+        },
+        {
+          "average_precision": 0.7404496765557392,
+          "brier": 0.25156301127431685,
+          "candidate_id": "0c70f44bebe12718a372bd2c71c5a0096d014a34c5caa1113aec027ae580a5f7",
+          "fit_seconds": 0.06295689998660237,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.6669841269841269
+        },
+        {
+          "average_precision": 0.8264845381188676,
+          "brier": 0.21509341554501651,
+          "candidate_id": "17824ead618c3c7722a765bedd34b91421fe857ef73b0a7a50f4a49ecc8bd4b9",
+          "fit_seconds": 0.05518519997713156,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.7885714285714286
+        },
+        {
+          "average_precision": 0.868143351534908,
+          "brier": 0.15586768336788792,
+          "candidate_id": "3dc221deebf99401321d6a9dfb3ef0697c5414e12e3563b638d5539589052cc2",
+          "fit_seconds": 0.0031618000066373497,
+          "n_train": 160,
+          "n_validation": 80,
+          "positive_rate_validation": 0.5625,
+          "roc_auc": 0.8577777777777778
+        }
+      ],
+      "interpretation": "Synthetic smoke-test metrics only; not actual market evidence, not an independent holdout, and not comparable to historical AUC.",
+      "mean_average_precision": 0.8093060794005401,
+      "mean_brier": 0.20539437683519432,
+      "mean_roc_auc": 0.7643033509700177,
+      "n_train": 160,
+      "n_validation": 80,
+      "validation_positive_rate": 0.5625
+    },
+    "raw_candidates": 360,
+    "runtime_seconds_including_fits": 6.166448,
+    "selected_candidates": 18,
+    "selection_stats": {
+      "dimension_coverage": {
+        "estimator_family": {
+          "hist_gradient_boosting": 7,
+          "logistic_regression": 5,
+          "random_forest": 6
+        },
+        "feature_operator": {
+          "nonlinear_marginals": 6,
+          "original": 6,
+          "pairwise_interactions": 6
+        },
+        "features": {
+          "[\"fixture_trend\",\"fixture_interaction\"]": 4,
+          "[\"fixture_trend\",\"fixture_volatility\",\"fixture_interaction\"]": 5,
+          "[\"fixture_trend\",\"fixture_volatility\"]": 5,
+          "[\"fixture_volatility\",\"fixture_interaction\"]": 4
+        },
+        "hyperparameters": {
+          "{\"C\":0.1}": 2,
+          "{\"C\":1.0}": 3,
+          "{\"learning_rate\":0.05,\"max_leaf_nodes\":15}": 2,
+          "{\"learning_rate\":0.05,\"max_leaf_nodes\":7}": 1,
+          "{\"learning_rate\":0.1,\"max_leaf_nodes\":15}": 2,
+          "{\"learning_rate\":0.1,\"max_leaf_nodes\":7}": 2,
+          "{\"max_depth\":3,\"n_estimators\":128}": 1,
+          "{\"max_depth\":3,\"n_estimators\":64}": 1,
+          "{\"max_depth\":6,\"n_estimators\":128}": 2,
+          "{\"max_depth\":6,\"n_estimators\":64}": 2
+        },
+        "transform": {
+          "identity": 7,
+          "polynomial2": 7,
+          "standardize": 4
+        }
+      },
+      "duplicate_configs_removed": 96,
+      "duplicate_evidence_in_input_removed": 0,
+      "input_count": 360,
+      "invalid_count": 0,
+      "invalid_reasons": [],
+      "redundant_evidence_removed": 0,
+      "remaining_after_budget": 246,
+      "selected": 18,
+      "unique_evidence_candidates": 264,
+      "unique_evidence_keys_selected": 18,
+      "valid_unique_candidates": 264
+    }
+  },
+  "conclusion": "Engineering diversity improved on its synthetic fixture: v2 selects 18 distinct model/feature/transform evidence keys from 120 executable configs; the legacy frozen generator selected no novel evidence under the recorded history. Predictive generalization improvement remains unmeasured.",
+  "dataset_id": "synthetic-fixture-dataset-v1",
+  "fixture_status": "DEVELOPMENT_FIXTURE_ONLY",
+  "protocol_id": "demand-zone-ai-search-proposal-v2.1.0",
+  "same_proposal_budget": 18,
+  "split_id": "synthetic-chronological-split-v1"
+}

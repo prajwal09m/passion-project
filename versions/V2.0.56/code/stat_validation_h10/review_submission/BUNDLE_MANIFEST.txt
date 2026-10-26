@@ -1,0 +1,96 @@
+H-10 D2 EXTERNAL REVIEW — SUBMISSION BUNDLE MANIFEST
+====================================================
+Prepared: 2026-10-11 (ET). STATUS: REVIEW NOT YET OBTAINED.
+Purpose: enable an independent statistician to (1) read the full review
+packet, (2) inspect the simulation code and summary results, and (3)
+reproduce any stage. No method is adopted; no review has occurred; nothing
+in this bundle constitutes validation of the proposed test.
+
+INSTRUCTIONS FOR THE REVIEWER
+----------------------------
+1. Read H10_D2_EXTERNAL_REVIEW_PACKET.md first — it states the exact
+   statistic and null (§1), the evidence classification (§2), the
+   simulation battery (§3), the CI-vs-p reconciliation question (§4), the
+   unverifiable exchangeability assumption (§5), the dependence structures
+   NOT simulated (§6), the Holm families and missing-member rule (§7), all
+   known discrepancies (§8), and the six review questions with the
+   adoption/rejection criteria (§9).
+2. Then read H10_SIMULATION_EVIDENCE_REPORT.md — the full evidence
+   report for SIM-1..SIM-5 including protocols, tables, and limitations.
+3. Code: simh10.py (simulation core) and run_sim.py (stage runner) are
+   the complete, self-contained simulation sources; run_sharded_sim2.sh
+   is the sharded SIM-2 driver actually used.
+4. Summary results: results/*.json are the summarized outputs of each
+   stage (self-test, SIM-1 per-cell, SIM-2 merged, SIM-3, SIM-4, SIM-5).
+   The large per-trial arrays (*.npz, ~11 MB each) are NOT bundled; they
+   are available on request from the owner.
+5. Verify integrity: every file's SHA-256 is listed below. Compare before
+   trusting any content.
+6. Reproduce: see REPRODUCTION below.
+7. Answer the six questions in packet §9 in a written assessment. State
+   your qualifications, any conflict of interest, and the scope
+   boundaries of your review.
+
+FILES AND SHA-256 HASHES (verified 2026-10-11 against the repository)
+--------------------------------------------------------------------
+H10_D2_EXTERNAL_REVIEW_PACKET.md
+  9ad9178570388d78c43d9416c74ff23b73ff6bfa9447f4810c106072d6c601f6
+H10_SIMULATION_EVIDENCE_REPORT.md
+  85c6ac4f21be0755671726fe1ceb0db37d645206e7183692b9ff545a8255a884
+simh10.py
+  4b7ebd5f3ffc5413247cdcedb099d493a71e3cfc01346a68c8440de9d59b51f3
+run_sim.py
+  96aa497cebb30ae38a381e361540dc68566f098b108eb26056777dcfecb3dcc1
+run_sharded_sim2.sh
+  f34de5e8e7fe69ef6e51db24b8448d0aba00165ba2116c620dd8946d8c56ad7c
+  (driver for the 8-shard SIM-2 run)
+results/selftest.json
+  fb7fce987be73be5a3de08519de709665d1bc6a345ecdb8e2f097465ad5076da
+results/sim1_summary.json
+  d203e04bcb5e3af331f6fea7b4e02192bd0c1a79d811f53c81ab208c6209bbc0
+results/sim2_summary.json
+  e2b267e49a6df52731f77e1041a60b474ff524032cac76cb3b4123d313c07bbb
+results/sim3.json
+  02b84d7d26fdae3403d91661623565a33a341aabdfd7778eba6dfea6ef59f848
+results/sim4.json
+  e00f4b1e1fabc3cf1aa32cc7b8d038087ab24e1eb0ae8f8af3501e4564422c15
+results/sim5.json
+  4bf8d364aba232d9b6c1eab70a7552b8ac86487c0c6f052c912926ee5a156bc2
+REVIEW_REQUEST_READY_TO_SEND.txt
+  (this is the owner's outgoing message; not part of the reviewed
+  evidence)
+BUNDLE_MANIFEST.txt
+  (this file)
+
+Not bundled, available on request from the owner (full per-trial data):
+  results/sim1_*.npz  results/sim2_rho*_pvalues.npz  shard logs
+The plan file (protocol authority) and the harness source are also not
+bundled; the packet §10 lists their paths and hashes.
+
+REPRODUCTION
+------------
+Environment (as run): Python 3.13.1, numpy 2.3.3, scipy 1.16.2,
+scikit-learn 1.9.0.
+Full battery (from the repository root; plan-compliant defaults):
+  py -3 -X utf8 stat_validation_h10/run_sim.py all
+SIM-2 as actually run (8 strided shards + merge, ~14 core-hours; the
+sharded output was smoke-proven bit-identical to the sequential path):
+  sh stat_validation_h10/run_sharded_sim2.sh
+Single stage example:
+  py -3 -X utf8 stat_validation_h10/run_sim.py sim1
+Seeds (also recorded per output file in each "meta" block with the
+simh10.py hash and a UTC timestamp):
+  self-test 7/11/13/21; SIM-1 cells 1100-1106; SIM-2 rho 2200-2202 and
+  mixed 2999; SIM-5 fixture 21/42 and unpaired control 5500.
+
+WHAT THIS BUNDLE IS NOT
+-----------------------
+It is not a claim of method validation. The simulation battery is a
+predeclared falsification exercise on synthetic data; it cannot establish
+the week-level exchangeability assumption on the real data, and no
+diagnostic can prove that assumption. FWER control on real data is not
+guaranteed by these results. The governance-suite test flake (1 failure
+in 10 runs, identity not captured) remains open and is disclosed in
+packet §8. The sealed holdout has not been accessed. Nothing here adopts
+method (b), signs or ratifies any decision, implements or freezes
+anything, or authorizes any launch.

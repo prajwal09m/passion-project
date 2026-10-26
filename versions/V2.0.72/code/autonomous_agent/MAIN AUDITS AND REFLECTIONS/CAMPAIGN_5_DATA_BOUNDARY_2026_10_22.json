@@ -1,0 +1,31 @@
+{
+  "record_id": "data-boundary-c5-regime-error-2026-10-22",
+  "record_path": "autonomous_agent/MAIN AUDITS AND REFLECTIONS/CAMPAIGN_5_DATA_BOUNDARY_2026_10_22.json",
+  "record_sha256": "TO_BE_COMPUTED_AT_FINALIZATION",
+  "permission_status": "explicitly_permitted",
+  "permitted_datasets": [
+    {
+      "dataset_id": "study_v1_development_event_table",
+      "sha256": "232de7db65c92bec249be801e593acdaa822ecd0b13eb0cd32b7eeaced85a4d0",
+      "operations": [
+        "read",
+        "preprocessing",
+        "fold_local_analysis"
+      ]
+    },
+    {
+      "dataset_id": "study_v1_development_oof_predictions",
+      "sha256": "011530761a19016f430232f631a9c3b0199ac17aff297e491d8d50d4b1508829",
+      "operations": [
+        "read",
+        "calibration_analysis"
+      ]
+    }
+  ],
+  "denied_paths": [
+    "prospective/",
+    "study_files/prospective/",
+    "holdout",
+    "autonomous_agent/prospective"
+  ]
+}
