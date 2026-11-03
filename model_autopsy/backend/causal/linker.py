@@ -245,6 +245,10 @@ def _rules(tool: str, result: dict) -> list[tuple[str, str, str]]:
             out.append(("leakage", "supports",
                         f"non-score input |r|={peak:.3f}: near-duplicate "
                         "of the label"))
+        elif inputs and peak >= 0.7:
+            out.append(("leakage", "supports",
+                        f"non-score input |r|={peak:.3f}: strong "
+                        "label association, corroboration still needed"))
         elif inputs and peak < 0.5:
             out.append(("leakage", "contradicts",
                         f"max non-score |r|={peak:.2f}: no label duplicate"))

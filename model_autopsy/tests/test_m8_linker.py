@@ -147,6 +147,53 @@ def test_leakage_rule_ignores_label_and_score_columns():
     assert supports and supports[0][1] == "supports"
 
 
+def test_leakage_rule_supports_strong_sub_duplicate_association():
+    from model_autopsy.backend.causal import linker as LK
+    # The multi_clinic leak (|r|=0.912) sat in the old [0.5, 0.95)
+    # indecision band and linked to nothing: the probe measured the leak
+    # while the leak hypothesis starved. A strong non-score association
+    # now supports (corroboration still needed); the band below 0.7 is
+    # still indecision, and <0.5 still contradicts.
+    supports = LK._rules("feature_target_suspiciousness",
+                         {"top_correlations": [
+                             {"feature": "leak_flag", "abs_r": 0.9123}]})
+    assert supports and supports[0][0] == "leakage" \
+        and supports[0][1] == "supports"
+    assert LK._rules("feature_target_suspiciousness",
+                     {"top_correlations": [
+                         {"feature": "x", "abs_r": 0.6}]}) == []
+    assert LK._rules("feature_target_suspiciousness",
+                     {"top_correlations": [
+                         {"feature": "x", "abs_r": 0.4}]})[0][1] \
+        == "contradicts"
+
+
+def test_measured_leak_links_leak_hypothesis():
+    from model_autopsy.backend.causal import linker as LK
+    init_db()
+    s = SessionLocal()
+    try:
+        inv, hid, act = _inv(
+            s, "feature_target_suspiciousness",
+            {"feature_csv":
+             "model_autopsy/tests/fixture_challenge/multi_clinic.csv",
+             "label_csv":
+             "model_autopsy/tests/fixture_challenge/multi_clinic.csv"},
+            "Model failure is driven by label leakage via leak_flag "
+            "duplicating label information")
+        top = max(r["abs_r"] for r in act.result["top_correlations"]
+                  if r["feature"] == "leak_flag")
+        assert top >= 0.7, "fixture must carry the leak"
+        applied = LK.link_tool_result(s, inv, act)
+        assert applied and applied[0]["direction"] == "supports"
+        from model_autopsy.backend.db import Hypothesis
+        h = s.get(Hypothesis, hid)
+        assert h.status == "investigating"
+        assert any(r["action_id"] == act.id for r in h.evidence_refs)
+    finally:
+        s.close()
+
+
 def test_failed_actions_never_generate_evidence():
     from model_autopsy.backend.causal import linker as LK
     init_db()
