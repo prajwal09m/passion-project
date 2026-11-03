@@ -1,0 +1,20 @@
+# Render free hosting (no credit card) — single public URL for judges.
+# Frontend (Vite) is built then served BY the FastAPI backend (same origin,
+# no CORS). Your MODEL_API_KEY stays a secret env var; guests see answers only.
+services:
+  - type: web
+    name: model-autopsy
+    runtime: python
+    plan: free
+    buildCommand: >-
+      pip install -r model_autopsy/requirements.txt &&
+      cd model_autopsy/frontend && npm install && npm run build && cd ../..
+    startCommand: python -m model_autopsy.backend
+    envVars:
+      - key: MODEL_API_KEY
+        sync: false
+      - key: MODEL_API_BASE_URL
+        value: https://api.meta.ai/v1
+      - key: MODEL_API_MODEL_ID
+        value: muse-spark-1.3
+    healthCheckPath: /api/meta/status

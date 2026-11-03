@@ -39,10 +39,17 @@ from .meta_api import loop as meta_loop
 
 app = FastAPI(title="Model Autopsy", version="0.2.0")
 
-# Dashboard on :5173 talks to this backend; loopback dev origins only.
+# Dashboard on :5173 talks to this backend. Loopback by default; tunnel
+# origins allowed so a hosted share URL (ngrok/cloudflare/localtunnel)
+# works for judges using YOUR key blind. Extra origins via
+# MODEL_AUTOPSY_PUBLIC_ORIGINS (comma-separated, e.g. "https://xxxx.ngrok-free.app").
+import os as _os
+_PUBLIC_EXTRA = [o.strip() for o in _os.environ.get("MODEL_AUTOPSY_PUBLIC_ORIGINS", "").split(",") if o.strip()]
 app.add_middleware(
-    CORSMiddleware, allow_origins=["http://localhost:5173",
-                                   "http://127.0.0.1:5173"],
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173",
+                   "http://127.0.0.1:5173"] + _PUBLIC_EXTRA,
+    allow_origin_regex=r"https://.*\.(ngrok-free\.app|ngrok\.io|loca\.lt|trycloudflare\.com)(:\d+)?",
     allow_methods=["GET", "POST", "PATCH"], allow_headers=["*"])
 
 
@@ -1407,3 +1414,28 @@ def lab_model_performance() -> dict:
                 k2: {"delta": c["val_delta"]["delta"],
                      "ci": c["val_delta"]["delta_ci95"]}
                 for k2, c in v["cands"].items()}}
+
+
+# ---- Single-service hosting (Render free): serve the built Vite app ----
+# When model_autopsy/frontend/dist exists (Render build step), mount it so
+# one public URL serves both UI and /api (no CORS, no second service).
+# Local dev is unaffected (no dist checked in; vite :5173 proxies /api).
+try:
+    from fastapi.responses import FileResponse as _FileResponse
+    from fastapi.staticfiles import StaticFiles as _StaticFiles
+    _DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
+    if _DIST.is_dir() and (_DIST / "index.html").exists():
+        app.mount("/assets", _StaticFiles(directory=str(_DIST / "assets")),
+                   name="assets")
+
+        @app.get("/{path:path}", include_in_schema=False)
+        def _spa(path: str):
+            if path.startswith("api/"):
+                from fastapi import HTTPException as _HE
+                raise _HE(status_code=404, detail="Not Found")
+            cand = _DIST / path
+            if path and cand.is_file():
+                return _FileResponse(str(cand))
+            return _FileResponse(str(_DIST / "index.html"))
+except Exception:
+    pass

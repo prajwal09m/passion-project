@@ -57,11 +57,14 @@ study_files/outputs/v2/demand_zone_v2_dataset.csv
 
 # Model Autopsy project (model_autopsy/): re-include files shadowed by broad root patterns
 !model_autopsy/README.md
+!model_autopsy/requirements.txt
 !model_autopsy/frontend/package.json
 !model_autopsy/frontend/package-lock.json
 
 # Model Autopsy runtime + build artifacts (never commit)
 .ma_*
+*.log
+.dev-backend.log
 .vite.log
 model_autopsy/frontend/dist/
 model_autopsy/backend/data/
