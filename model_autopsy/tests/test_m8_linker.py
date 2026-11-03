@@ -194,6 +194,29 @@ def test_measured_leak_links_leak_hypothesis():
         s.close()
 
 
+def test_script_inspection_fit_before_split_links_leakage():
+    from model_autopsy.backend.causal import linker as LK
+    rules = LK._rules("script_static_inspection",
+                      {"source": "leaky_pipeline.py",
+                       "warnings": [
+                           {"pattern": "fit_before_split",
+                            "message": "fit-like call precedes split",
+                            "lines": [12, 30]}]})
+    assert rules and rules[0][0] == "leakage" \
+        and rules[0][1] == "supports"
+    # Keyword-only suspicion still bears (code suspicion, not proof).
+    rules2 = LK._rules("script_static_inspection",
+                       {"source": "pipe.py",
+                        "warnings": [
+                            {"pattern": "fillna", "message": "m",
+                             "lines": [3]}]})
+    assert rules2 and rules2[0][1] == "supports"
+    # Clean static read links nothing: absence of a keyword is not
+    # evidence of a clean pipeline.
+    assert LK._rules("script_static_inspection",
+                     {"source": "pipe.py", "warnings": []}) == []
+
+
 def test_failed_actions_never_generate_evidence():
     from model_autopsy.backend.causal import linker as LK
     init_db()

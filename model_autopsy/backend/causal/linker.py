@@ -252,6 +252,31 @@ def _rules(tool: str, result: dict) -> list[tuple[str, str, str]]:
         elif inputs and peak < 0.5:
             out.append(("leakage", "contradicts",
                         f"max non-score |r|={peak:.2f}: no label duplicate"))
+    elif tool == "script_static_inspection":
+        warnings = result.get("warnings") or []
+        patterns = {w.get("pattern") for w in warnings
+                    if isinstance(w, dict)}
+        src = str(result.get("source") or "script")
+        if "fit_before_split" in patterns:
+            out.append(("leakage", "supports",
+                        f"{src}: a fit-like call precedes the first "
+                        f"split-like call — preprocessing may be fitted "
+                        f"on the full data (code suspicion, verify "
+                        f"data flow)"))
+        elif {"fillna", "target"} & patterns:
+            hit = sorted({"fillna", "target"} & patterns)
+            out.append(("leakage", "supports",
+                        f"{src}: code references {'/'.join(hit)} in a "
+                        f"target-adjacent pattern — verify fill values "
+                        f"and feature timing do not use the label "
+                        f"(code suspicion, not proof)"))
+        elif "leak" in patterns:
+            out.append(("leakage", "supports",
+                        f"{src}: identifier literally mentions leakage "
+                        f"— inspect manually (code suspicion, not proof)"))
+        # No warnings: a clean static read neither supports nor
+        # contradicts a leakage claim (absence of a keyword is not
+        # evidence of a clean pipeline).
     elif tool == "calibration_and_error_analysis":
         rel = result.get("reliability_bins") or []
         gaps = [abs(b.get("mean_score", 0) - b.get("fraction_positive", 0))

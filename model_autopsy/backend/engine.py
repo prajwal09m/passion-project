@@ -666,11 +666,26 @@ def build_context(session: Session, inv: Investigation,
             context["investigator_brief"] = adapter.investigator_brief()
             context["capabilities"] = adapter.available_capabilities()
         else:
-            # Legacy path (Demand Zone default): unchanged behavior.
             predictions = cfg.get("predictions_path")
             labels = cfg.get("labels")
             context_payload = tools_registry.ml_tools()["artifact_summary"]
-            if predictions:
+            if not predictions:
+                # No predictions file selected (e.g. script-only
+                # investigation): record the gap explicitly instead of
+                # silently loading the Demand Zone template as context.
+                # Otherwise the workspace Source names a file the user
+                # never uploaded and Meta spends turns diagnosing it.
+                # Tool-level defaults (artifact_summary with no args)
+                # are unchanged for benchmarks and the case study.
+                context = {"ok": True, "source": None,
+                           "filename": None,
+                           "note": ("no predictions file selected — "
+                                    "score-based diagnostics will report "
+                                    "the gap; script/artifact-level "
+                                    "diagnostics can proceed"),
+                           "n_rows": 0, "n_columns": 0, "columns": [],
+                           "label_column": None}
+            elif predictions:
                 try:
                     context = context_payload(predictions_path=predictions, labels=labels)
                 except ValueError as exc:
@@ -681,8 +696,6 @@ def build_context(session: Session, inv: Investigation,
                     # proceed. Metric tools keep refusing honestly until a
                     # real label is mapped.
                     context = _label_free_dataset_context(predictions, str(exc))
-            else:
-                context = context_payload(predictions_path=predictions, labels=labels)
     inv.config = {**inv.config, "context": context}
     record_event(session, inv.id, "tool_result", "Context loaded",
                  detail=repr(context)[:400], payload=context)

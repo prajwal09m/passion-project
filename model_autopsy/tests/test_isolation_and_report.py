@@ -81,6 +81,20 @@ def test_report_links_findings_to_evidence_actions():
         s.close()
 
 
+def test_blank_predictions_context_marks_gap_no_template():
+    init_db()
+    s = SessionLocal()
+    try:
+        inv = _mk_inv(s)
+        ctx = engine.build_context(s, inv)
+        assert ctx["source"] is None
+        assert "no predictions file selected" in ctx["note"]
+        stored = dict(s.get(inv.__class__, inv.id).config["context"])
+        assert stored["source"] is None
+    finally:
+        s.close()
+
+
 def test_duplicate_finding_is_idempotent_and_report_renders_once():
     init_db()
     s = SessionLocal()
