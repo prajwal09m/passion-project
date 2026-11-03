@@ -234,6 +234,25 @@ export default function Workspace({ id, onBack }: { id: string; onBack: () => vo
               </div>
             )}
             <EvidenceMap inv={inv} />
+            {(() => {
+              const links = (events ?? []).filter((e) => e.kind === 'linker').slice(-3).reverse()
+              if (links.length === 0) return null
+              return (
+                <div style={{ margin: '10px 0 2px' }}>
+                  <div className="faint" style={{ fontSize: 12, marginBottom: 4 }}>
+                    Latest linkage — why new evidence did or didn&apos;t move the hypotheses above:
+                  </div>
+                  <ul className="tl" style={{ marginTop: 0 }}>
+                    {links.map((e) => (
+                      <li key={e.seq} className={/no bearing/i.test(e.title) ? 'k-warn' : 'k-info'}>
+                        <span className="tlt">{e.title}{e.detail ? ` — ${e.detail}` : ''}</span>
+                        <span className="tltime">#{e.seq}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            })()}
             <HypothesisBoard inv={inv} actions={inv.actions ?? []} busy={busy !== ''} onChanged={refresh} />
             <div className="actionsrow" style={{ marginTop: 10 }}>
               <button className="ghost" disabled={busy !== ''} title="Offline, deterministic: proposes up to 3 hypotheses from recorded diagnostics only. Never duplicates existing ones." onClick={() => act('interp', async () => {

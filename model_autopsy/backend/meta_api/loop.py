@@ -161,6 +161,38 @@ def _compact_context(inv: Investigation) -> dict:
     return context
 
 
+def _recorded_dataset_schema(session: Session, inv: Investigation) -> dict | None:
+    """Compact recorded schema so Meta never invents column names.
+
+    Takes the newest ran dataset_validation/artifact_summary result and
+    returns its filename + column names (capped). Without this the model
+    guesses Demand-Zone-era names (fold/split/target) against arbitrary
+    uploads and burns turns on honest `required column ... missing`
+    failures. Pure read of recorded evidence; None when nothing ran yet.
+    """
+    acts = (session.query(Action)
+            .filter(Action.investigation_id == inv.id,
+                    Action.status == "ran",
+                    Action.tool_name.in_(
+                        ("dataset_validation", "artifact_summary")))
+            .order_by(Action.seq.desc()).all())
+    for a in acts:
+        res = dict(a.result or {})
+        cols = res.get("columns")
+        names: list[str] = []
+        if isinstance(cols, list):
+            for c in cols[:40]:
+                if isinstance(c, dict) and c.get("name"):
+                    names.append(str(c["name"]))
+                elif isinstance(c, str) and c:
+                    names.append(c)
+        if names:
+            return {"predictions_file": res.get("filename")
+                    or res.get("path") or a.tool_name,
+                    "columns": names}
+    return None
+
+
 def _initial_context_items(session: Session, inv: Investigation) -> list[dict]:
     items = [
         {"role": "user", "content": json.dumps({
@@ -489,6 +521,7 @@ def run_meta_turn(session: Session, inv: Investigation,
                 "recommended": _brief["recommended"],
                 "open_hypotheses": _brief["open"],
                 "untested": _brief["untested"],
+                "dataset_schema": _recorded_dataset_schema(session, inv),
                 "instruction": (
                     "Run the top recommended diagnostic first unless "
                     "recorded evidence already answers it; if you deviate, "
@@ -503,7 +536,15 @@ def run_meta_turn(session: Session, inv: Investigation,
                     "(no suitable measurement / evidence sufficient / "
                     "redundant / budget insufficient). "
                     "A turn with new hypotheses, no diagnostic, and no "
-                    "reason is incomplete.")}}, sort_keys=True)}]
+                    "reason is incomplete. "
+                    "Column arguments (split_column, fold_column, "
+                    "date_column, slice_column, group_column, "
+                    "score_column, label_column, target_column, "
+                    "prediction_column) must be chosen from "
+                    "dataset_schema.columns when present — never invent "
+                    "fold/split/date/target; if the column you need is "
+                    "absent, use the closest present column or record why "
+                    "none fits.")}}, sort_keys=True)}]
     record_event(session, inv.id, "selection",
                  f"Selection brief: top={(_top_names[:1] or ['none'])[0]}",
                  payload={"recommended": _top_names,
