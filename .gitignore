@@ -57,6 +57,7 @@ study_files/outputs/v2/demand_zone_v2_dataset.csv
 
 # Model Autopsy project (model_autopsy/): re-include files shadowed by broad root patterns
 !model_autopsy/README.md
+!/requirements.txt
 !model_autopsy/requirements.txt
 !model_autopsy/frontend/package.json
 !model_autopsy/frontend/package-lock.json

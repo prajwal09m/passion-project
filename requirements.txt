@@ -1,0 +1,4 @@
+# Root shim for hosts (Render) whose default Python build runs
+# `pip install -r requirements.txt` at the repo root.
+# Real backend deps live in model_autopsy/requirements.txt.
+-r model_autopsy/requirements.txt
