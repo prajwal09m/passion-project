@@ -233,17 +233,39 @@ def classification_metrics(predictions_path: str | None = None,
     if score_column not in df.columns:
         raise ValueError(f"score_column {score_column!r} not in {csv_path.name}")
     y = df[label_col].to_numpy()
-    p = df[score_column].to_numpy()
-    pred = (p >= float(threshold)).astype(int)
+    p = df[score_column].to_numpy(dtype=float)
+    # Rank-based AUC is valid for any monotonic score (e.g. COMPAS
+    # deciles 1-10); probability-space metrics need [0,1] scores.
+    # Skipping them with a recorded note beats failing the whole
+    # diagnostic or fabricating rescaled probabilities.
+    prob_like = bool(np.isfinite(p).all() and p.min() >= 0.0
+                     and p.max() <= 1.0)
     out = {"ok": True, "source": str(csv_path), "score_column": score_column,
            "n": int(len(y)),
            "roc_auc": (float(roc_auc_score(y, p))
                        if len(set(y.tolist())) > 1 else None),
-           "brier": float(brier_score_loss(y, p)),
-           "brier_convention": "lower is better; probability of positive class",
-           "precision_at_threshold": float(precision_score(y, pred, zero_division=0)),
-           "recall_at_threshold": float(recall_score(y, pred, zero_division=0)),
-           "threshold": float(threshold)}
+           "score_scale_note": (None if prob_like
+                                 else f"score outside [0,1] "
+                                 f"(min {float(p.min()):.3g}, max "
+                                 f"{float(p.max()):.3g}): Brier and "
+                                 f"threshold metrics skipped; AUC is "
+                                 f"rank-based and valid")} 
+    if prob_like:
+        pred = (p >= float(threshold)).astype(int)
+        out["brier"] = float(brier_score_loss(y, p))
+        out["brier_convention"] = ("lower is better; probability of "
+                                    "positive class")
+        out["precision_at_threshold"] = float(
+            precision_score(y, pred, zero_division=0))
+        out["recall_at_threshold"] = float(
+            recall_score(y, pred, zero_division=0))
+        out["threshold"] = float(threshold)
+    else:
+        out["brier"] = None
+        out["brier_convention"] = ("n/a: score is not a probability")
+        out["precision_at_threshold"] = None
+        out["recall_at_threshold"] = None
+        out["threshold"] = float(threshold)
     if split_by and split_by in df.columns:
         per = {}
         for value, chunk in df.groupby(split_by):
@@ -445,24 +467,51 @@ def time_split_validation(predictions_path: str | None = None,
 
 def feature_target_suspiciousness(feature_csv: str, label_csv: str | None = None,
                                   feature_col: str | None = None,
-                                  n_top: int = 12) -> dict:
+                                  n_top: int = 12,
+                                  label_column: str | None = None) -> dict:
     """Correlation-style suspiciousness scan of features vs labels.
 
     Returns the strongest |point-biserial|-style correlations. This is
     screening evidence only — it can NEVER alone confirm leakage.
+    label_column names the label (explicit stays strict); None keeps
+    the legacy 'label' default with alias fallback (label/target/y/
+    grade/relevance), so non-conforming files (e.g. COMPAS
+    two_year_recid) are screenable instead of KeyErroring.
     """
     from scipy import stats as sps
     feat_path = _resolve_project_csv(feature_csv, "")
     frame = pd.read_csv(feat_path)
     if label_csv:
-        label_frame = pd.read_csv(_resolve_project_csv(label_csv, ""))["label"]
-        merged = frame.assign(_label=label_frame.values)
+        label_frame = pd.read_csv(_resolve_project_csv(label_csv, ""))
+        if label_column:
+            if label_column not in label_frame.columns:
+                raise ValueError(
+                    f"explicit label_column={label_column!r} not in "
+                    f"label_csv columns {list(label_frame.columns)}")
+            ycol = label_column
+        elif "label" in label_frame.columns:
+            ycol = "label"
+        elif label_frame.shape[1] == 1:
+            ycol = str(label_frame.columns[0])
+        else:
+            ycol = _resolve_label_column(label_frame, None)
+        merged = frame.assign(_label=label_frame[ycol].values)
         y = merged["_label"]
         frame = merged
     else:
-        y = frame["label"]
+        if label_column:
+            if label_column not in frame.columns:
+                raise ValueError(
+                    f"explicit label_column={label_column!r} not in "
+                    f"columns {list(frame.columns)}")
+            ycol = label_column
+        elif "label" in frame.columns:
+            ycol = "label"
+        else:
+            ycol = _resolve_label_column(frame, None)
+        y = frame[ycol]
     n_features = int(frame.shape[1])
-    label_names = {'label', 'target', 'y', '_label'}
+    label_names = {'label', 'target', 'y', '_label', str(ycol)}
     rows = []
     for col in frame.columns:
         if col in label_names or not pd.api.types.is_numeric_dtype(frame[col]):
