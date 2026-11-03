@@ -1,0 +1,226 @@
+{
+  "project": "eval_wellness",
+  "investigation_id": "92e55637e56b45d5a7ce8b23fd9ab576",
+  "report": {
+    "executive_summary": "0 supported / 1 rejected / 0 inconclusive-or-blocked from 1 experiment(s).",
+    "project_understanding": {
+      "project_id": "eval_wellness",
+      "predicting": "Routine check: is the wellness index model healthy?",
+      "receives": {
+        "columns": [
+          "steps",
+          "target",
+          "prediction"
+        ],
+        "note": "model inputs per observed artifact schema"
+      },
+      "produces": {
+        "target": "Numeric wellness index",
+        "note": "model outputs per spec"
+      },
+      "success": "MAE/RMSE, residual analysis",
+      "evaluation": "MAE/RMSE, residual analysis",
+      "evaluation_assumptions": [
+        "reported metrics assume the supplied predictions match the described evaluation split",
+        "recomputed metrics assume label/target columns are correct"
+      ],
+      "missing": [],
+      "possible": [
+        "dataset_validation: schema/quality overview",
+        "error_analysis: predictions vs ground truth",
+        "model_inspection: per declared availability (local)"
+      ],
+      "impossible": [
+        "temporal_analysis: no date column observed"
+      ],
+      "inconsistencies": [],
+      "dataset": {
+        "location": "model_autopsy/tests/fixture_eval/investigator/wellness_index.csv",
+        "readable": true,
+        "path": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\wellness_index.csv",
+        "n_rows_peek": 800,
+        "columns": [
+          "steps",
+          "target",
+          "prediction"
+        ],
+        "dtypes": {
+          "steps": "float64",
+          "target": "float64",
+          "prediction": "float64"
+        },
+        "null_counts": {
+          "steps": 0,
+          "target": 0,
+          "prediction": 0
+        },
+        "samples": [
+          {
+            "steps": 6551.0,
+            "target": 74.1,
+            "prediction": 70.5
+          },
+          {
+            "steps": 10582.0,
+            "target": 74.8,
+            "prediction": 70.7
+          },
+          {
+            "steps": 9559.0,
+            "target": 79.2,
+            "prediction": 81.8
+          },
+          {
+            "steps": 9495.0,
+            "target": 86.1,
+            "prediction": 88.0
+          },
+          {
+            "steps": 8927.0,
+            "target": 74.7,
+            "prediction": 70.0
+          }
+        ],
+        "numeric_summary": {
+          "steps": {
+            "mean": 7030.75125,
+            "std": 2612.413757700954,
+            "min": -1114.0,
+            "max": 14364.0
+          },
+          "target": {
+            "mean": 74.12025,
+            "std": 5.941522704876731,
+            "min": 52.8,
+            "max": 92.3
+          },
+          "prediction": {
+            "mean": 74.07287500000001,
+            "std": 6.649514778753867,
+            "min": 51.7,
+            "max": 94.6
+          }
+        }
+      },
+      "model": {
+        "name": "well-reg",
+        "framework": "sklearn",
+        "availability": "local",
+        "training_config": {}
+      },
+      "docs": {},
+      "provenance": {
+        "built_by": "recon.build_understanding",
+        "artifact": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\wellness_index.csv"
+      }
+    },
+    "confirmed_findings": [],
+    "rejected_hypotheses": [
+      {
+        "hypothesis_id": "acbbc5fd1a98",
+        "title": "Systematic bias in one segment"
+      }
+    ],
+    "inconclusive": [],
+    "open_hypotheses": [
+      {
+        "hypothesis_id": "d5a6f306de01",
+        "title": "No material issue (null hypothesis)",
+        "status": "proposed"
+      }
+    ],
+    "experiments": [
+      {
+        "experiment_id": "494cc884acec",
+        "hypothesis_id": "acbbc5fd1a98",
+        "tool": "regression_metrics",
+        "status": "ran",
+        "breach": false,
+        "summary": "MAE=2 bias=0.05 featcorr=steps:-0.01",
+        "numbers": {
+          "n": 800,
+          "mae": 2.31,
+          "bias": 0.05,
+          "groups": {},
+          "residual_feature_corr": -0.006,
+          "residual_feature": "steps"
+        }
+      }
+    ],
+    "verification": [
+      {
+        "hypothesis_id": "acbbc5fd1a98",
+        "claim": "Systematic bias in one segment",
+        "verdict": "upheld",
+        "checks": [
+          {
+            "check": "sample_size_sufficient",
+            "pass": true,
+            "detail": "n=800; <30 is insufficient for a finding"
+          },
+          {
+            "check": "methodology_appropriate",
+            "pass": true,
+            "detail": "method=regression_metrics"
+          },
+          {
+            "check": "evidence_linked",
+            "pass": true,
+            "detail": "1 evidence result(s)"
+          },
+          {
+            "check": "no_leak_in_diagnostic",
+            "pass": true,
+            "detail": "diagnostic is read-only recomputation; no leakage signal"
+          },
+          {
+            "check": "numbers_reproducible",
+            "pass": true,
+            "detail": "6 numeric value(s) with seeds"
+          }
+        ],
+        "disagreement": null,
+        "disproof_wanted": "segment biases within noise of each other"
+      }
+    ],
+    "limitations": [
+      "offline deterministic triage; LLM reasoning quality covered by prior frozen live campaigns, not here",
+      "single scenario per task family in this suite slice",
+      "heuristic prioritization is not Bayesian information gain"
+    ],
+    "reproducibility": {
+      "seeds": "fixed per diagnostic",
+      "artifacts": "committed CSV fixtures",
+      "runner": "lab.run_autonomous_investigation"
+    },
+    "recommendations": [
+      "re-run breached diagnostics on fresh splits before acting",
+      "add a reusable diagnostic module for any candidate novel mechanism before treating it as a finding type"
+    ]
+  },
+  "scorecard": {
+    "project": "eval_wellness",
+    "verdict": "correct-null",
+    "note": "correct null: no material issue established",
+    "false_positive": false,
+    "dimensions": {
+      "discovery": 1.0,
+      "evidence": 1.0,
+      "reasoning": 1.0,
+      "calibration": 1.0,
+      "efficiency": 1.0,
+      "reproducibility": 1.0
+    },
+    "weights": {
+      "discovery": 0.3,
+      "evidence": 0.25,
+      "reasoning": 0.15,
+      "calibration": 0.15,
+      "efficiency": 0.05,
+      "reproducibility": 0.1
+    },
+    "overall": 1.0,
+    "assessment": "deterministic + heuristic; LLM/human reserved"
+  },
+  "elapsed_s": 0.19
+}

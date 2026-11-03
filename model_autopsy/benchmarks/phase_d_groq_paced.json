@@ -1,0 +1,454 @@
+{
+  "mode": "live_paired_groq",
+  "generated_utc": "2026-10-28T23:55:54Z",
+  "sandbox_db": null,
+  "model": "openai/gpt-oss-120b",
+  "temperature": 0.2,
+  "rounds_per_turn": 3,
+  "turns_per_run": 2,
+  "tool_list": [
+    "propose_hypothesis",
+    "artifact_summary",
+    "dataset_validation",
+    "classification_metrics",
+    "time_split_validation",
+    "feature_target_suspiciousness",
+    "calibration_and_error_analysis",
+    "grouped_auc_comparison"
+  ],
+  "caps": {
+    "max_attempts": 30,
+    "max_total_tokens": 70000,
+    "max_est_cost": 0.02,
+    "repeated_429_limit": 15
+  },
+  "pricing_estimate_source": {
+    "input": 0.15,
+    "output": 0.6,
+    "source": "console.groq.com/docs/models (current published price)"
+  },
+  "totals": {
+    "provider_http_attempts": 16,
+    "billed_ok_requests": 3,
+    "failed_requests": 13,
+    "input_tokens": 3535,
+    "output_tokens": 777,
+    "estimated_cost_usd": 0.000996,
+    "stop_reason": "request turn1r3 still rate-limited after 8 provider-guided waits (total waited 530s)"
+  },
+  "runs": [
+    {
+      "condition": "full",
+      "investigation_name": "phase-d-groq-full",
+      "aborted": null,
+      "chained_context_chars": null,
+      "turn1": {
+        "rounds": 3,
+        "final_text": "",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 2,
+        "summary_block_seen": false
+      },
+      "turn2": {
+        "rounds": 0,
+        "final_text": "",
+        "finish_reasons": [],
+        "tool_calls_in_turn": 0,
+        "summary_block_seen": false,
+        "aborted_before_start": true
+      },
+      "summary": {
+        "valid": false,
+        "errors": [
+          "no structured summary found in the final message"
+        ],
+        "conclusion": null
+      },
+      "summary_repair_attempts": 0,
+      "summary_valid_after_repair": false,
+      "backend": {
+        "actions_ran": [
+          "artifact_summary"
+        ],
+        "actions_ran_count": 1,
+        "actions_failed": [
+          "feature_target_suspiciousness"
+        ],
+        "tool_calls_used": 1,
+        "max_tool_calls": 6,
+        "event_kinds": {
+          "status_change": 2,
+          "tool_result": 3,
+          "tool_request": 2,
+          "summary": 1
+        },
+        "reused_results": 0,
+        "hypothesis_statuses": []
+      },
+      "condition_totals": {
+        "provider_latency_s": 12.114,
+        "requests": 15,
+        "rate_limit_wait_s": 530.0,
+        "last_rate_hints": {
+          "retry_after": 526.0,
+          "remaining_tokens": 8000
+        }
+      },
+      "per_request": [
+        {
+          "tag": "turn1r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.11,
+          "prompt_tokens": 1719,
+          "completion_tokens": 697,
+          "usage_missing": false,
+          "shipped_messages": 2,
+          "shipped_chars": 2468,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r2",
+          "try": 1,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.577,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 4,
+          "shipped_chars": 3018,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r2",
+          "try": 2,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.706,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 4,
+          "shipped_chars": 3018,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r2",
+          "try": 3,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.569,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 4,
+          "shipped_chars": 3018,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r2",
+          "try": 4,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.67,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 4,
+          "shipped_chars": 3018,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r2",
+          "try": 5,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 0.991,
+          "prompt_tokens": 1816,
+          "completion_tokens": 80,
+          "usage_missing": false,
+          "shipped_messages": 4,
+          "shipped_chars": 3018,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r3",
+          "try": 1,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.62,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 6,
+          "shipped_chars": 4213,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r3",
+          "try": 2,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.611,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 6,
+          "shipped_chars": 4213,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r3",
+          "try": 3,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.627,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 6,
+          "shipped_chars": 4213,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r3",
+          "try": 4,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.724,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 6,
+          "shipped_chars": 4213,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r3",
+          "try": 5,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.823,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 6,
+          "shipped_chars": 4213,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r3",
+          "try": 6,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.668,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 6,
+          "shipped_chars": 4213,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r3",
+          "try": 7,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.67,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 6,
+          "shipped_chars": 4213,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r3",
+          "try": 8,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 1.079,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 6,
+          "shipped_chars": 4213,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r3",
+          "try": 9,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.669,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 6,
+          "shipped_chars": 4213,
+          "finish_reason": null
+        }
+      ],
+      "final_message_head": ""
+    },
+    {
+      "condition": "delta",
+      "status": "skipped: cap reached (request turn1r3 still rate-limited after 8 provider-guided waits (total waited 530s))"
+    }
+  ],
+  "per_request_ledger": [
+    {
+      "condition": "-",
+      "kind": "models_list",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 0.533,
+      "error": null
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.11,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1719,
+        "completion_tokens": 697,
+        "total_tokens": 2416,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r2",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.577,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r2#try2",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.706,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r2#try3",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.569,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r2#try4",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.67,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r2#try5",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 0.991,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1816,
+        "completion_tokens": 80,
+        "total_tokens": 1896,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r3",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.62,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r3#try2",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.611,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r3#try3",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.627,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r3#try4",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.724,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r3#try5",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.823,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r3#try6",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.668,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r3#try7",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.67,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r3#try8",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 1.079,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r3#try9",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.669,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    }
+  ],
+  "limitations": [
+    "Groq Chat Completions is STATELESS: every request resends the conversation transcript. This does NOT reproduce Meta's previous_response_id retention; it measures how the full-context vs delta chained-turn strategies behave when requests resend history.",
+    "The turn-1 transcript resend is identical for both conditions; only the chained-turn opening message differs, so the measured difference is the redundant corpus re-transmission Phase C removes.",
+    "429 handling is owner-directed pacing: wait to the next minute boundary (~8 000 tokens/minute on-demand window) and retry; every attempt including retries is ledgered, nothing silent.",
+    "Groq results do NOT establish Meta API savings or billing behavior.",
+    "Cost figures are ESTIMATES from published pricing, not actual charges.",
+    "One paired comparison: no statistical significance."
+  ]
+}

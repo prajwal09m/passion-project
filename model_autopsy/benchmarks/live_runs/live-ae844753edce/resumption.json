@@ -1,0 +1,18 @@
+{
+ "plan": {
+  "run_id": "live-ae844753edce",
+  "pid": "eval_claim",
+  "investigation_id": "28473f0c19244a19beb6a03d94a3325f",
+  "inv_status": "hypotheses_proposed",
+  "response_id": "resp_6ae756f51ad6c5fd67514fc2",
+  "rounds_done": 1,
+  "experiments_done": 4,
+  "rollup_experiments": 3,
+  "attempts_done": 4,
+  "input_tokens": 13443,
+  "cached_tokens": 4081,
+  "output_tokens": 1336
+ },
+ "resumed_at": "2026-11-01T15:21:08Z",
+ "note": "same run ID, same DB, same investigation; no replayed requests or re-executed tools; budget carried over"
+}

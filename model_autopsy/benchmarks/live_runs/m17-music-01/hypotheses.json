@@ -1,0 +1,119 @@
+[
+  {
+    "id": "ebf934ffd64942e88d48b9848951c508",
+    "text": "Ranking quality (precision@top-K) is uniform across catalog slices; no slice systematically receives less relevant top results.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link [contradicts]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (hypothesis claims uniformity/noise for the measured effect and the measurement slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices; euphemized denial decides) [contradictory evidence recorded; demoted; action f9ab71c3fd6f42899f60c78e3da55d83]",
+    "evidence_refs": [
+      {
+        "action_id": "e5a2607b3e9a4c1e8a952788a5e83262",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "contradicts",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "350cd116d2534b79af6becd5bb609900",
+        "tool": "classification_metrics",
+        "relation": "relevant_to",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "f9ab71c3fd6f42899f60c78e3da55d83",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "contradicts",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 23:17:32",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 23:17:32",
+        "from": "investigating",
+        "to": "investigating"
+      }
+    ]
+  },
+  {
+    "id": "55fa8c39d93a466fb4066d4ffe6cf6d7",
+    "text": "Top-K relevance is systematically worse for new/long-tail catalog slice(s) due to model under-ranking relevant cold items.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link [supports]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (measurement directly bears on the hypothesis mechanism: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices) [supporting evidence recorded; needs independent corroboration (1 same-tool repeat(s) recorded, not independent corroboration); action f9ab71c3fd6f42899f60c78e3da55d83]",
+    "evidence_refs": [
+      {
+        "action_id": "e5a2607b3e9a4c1e8a952788a5e83262",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "350cd116d2534b79af6becd5bb609900",
+        "tool": "classification_metrics",
+        "relation": "relevant_to",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "f9ab71c3fd6f42899f60c78e3da55d83",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 23:17:32",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 23:17:32",
+        "from": "investigating",
+        "to": "investigating"
+      }
+    ]
+  },
+  {
+    "id": "b12f124ef2e840db8f0bdaad16bda69a",
+    "text": "Observed slice P@K differences are driven by data/evaluation hygiene (missingness, duplicates, or tiny slice size), not by true ranking-quality differences.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link [supports]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (measurement directly bears on the hypothesis mechanism: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices) [supporting evidence recorded; needs independent corroboration (1 same-tool repeat(s) recorded, not independent corroboration); action f9ab71c3fd6f42899f60c78e3da55d83]",
+    "evidence_refs": [
+      {
+        "action_id": "e5a2607b3e9a4c1e8a952788a5e83262",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "350cd116d2534b79af6becd5bb609900",
+        "tool": "classification_metrics",
+        "relation": "relevant_to",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "f9ab71c3fd6f42899f60c78e3da55d83",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 23:17:32",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 23:17:32",
+        "from": "investigating",
+        "to": "investigating"
+      }
+    ]
+  }
+]

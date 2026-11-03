@@ -1,0 +1,354 @@
+{
+  "written": "C:\\Prajwal MIT\\Passion\\model_autopsy\\benchmarks\\phase_d_meta_results.json",
+  "summary": {
+    "billed_requests": 24,
+    "failed_requests": 0,
+    "total_attempts": 24,
+    "input_tokens": 91534,
+    "output_tokens": 29921,
+    "cached_input_tokens": 53829,
+    "uncached_input_tokens": 37705,
+    "total_provider_tokens": 121455,
+    "usage_incomplete_requests": 0,
+    "token_totals_complete": true,
+    "cached_exceeds_input": 0,
+    "blocked_before_request": 0,
+    "incomplete_responses": 10,
+    "estimated_cost_usd": 0.18237,
+    "stop_reason": null
+  },
+  "runs": [
+    {
+      "condition": "full",
+      "context_strategy": "full_resend",
+      "investigation_id": "c55be9d2cfa14e08a9b7ec23c5339032",
+      "chain_used_for_turn2": "resp_6ae3e6f99af032ed9226431b",
+      "turn1_status": "ok",
+      "turn2_status": "ok",
+      "run_outcome": "incomplete_provider_response",
+      "investigation_complete": false,
+      "provider_response_statuses": [
+        "completed",
+        "completed",
+        "incomplete",
+        "completed",
+        "completed",
+        "incomplete",
+        "incomplete"
+      ],
+      "incomplete_response_count": 3,
+      "incomplete_turn1": 1,
+      "incomplete_turn2": 2,
+      "provider_status_unknown_count": 0,
+      "provider_status_not_completed_count": 3,
+      "usage_incomplete_request_count": 0,
+      "summary_repair_used_turn1": 1,
+      "summary_repair_used_turn2": 1,
+      "turn1_continuation_state": {
+        "attempted": true,
+        "valid": true,
+        "response_id_source": "repair"
+      },
+      "turn2_continuation_state": {
+        "attempted": true,
+        "valid": false,
+        "response_id_source": "original"
+      },
+      "turn1_returned_response_id_is_latest": true,
+      "turn2_returned_response_id_is_latest": false,
+      "chain_used_is_latest_turn1_response": true,
+      "summary_valid": false,
+      "summary_errors": [
+        "no structured summary found in the final message"
+      ],
+      "conclusion": null,
+      "tool_calls_turn1": {
+        "executed": 4,
+        "reused": 0,
+        "context_mode": "full"
+      },
+      "tool_calls_turn2": {
+        "executed": 1,
+        "reused": 0,
+        "context_mode": "delta",
+        "fallback_used": false,
+        "latency_s": 71.753,
+        "api_attempts": 3
+      },
+      "event_kinds": {
+        "status_change": 2,
+        "tool_result": 6,
+        "meta_request": 5,
+        "meta_response": 5,
+        "hypothesis": 3,
+        "tool_request": 5,
+        "summary": 4,
+        "summary_repair": 4,
+        "meta_usage": 2
+      },
+      "fallback_events": 0,
+      "actions": {
+        "ran": [
+          "calibration_and_error_analysis",
+          "classification_metrics",
+          "propose_hypothesis"
+        ],
+        "ran_count": 5,
+        "failed": []
+      },
+      "hypothesis_statuses": [
+        "proposed",
+        "proposed",
+        "proposed"
+      ],
+      "final_message_head": ""
+    },
+    {
+      "condition": "delta",
+      "context_strategy": "delta",
+      "investigation_id": "160642798c8b4fbf81768e4963044975",
+      "chain_used_for_turn2": "resp_6ae3e766b1ccbd49405f497b",
+      "turn1_status": "ok",
+      "turn2_status": "ok",
+      "run_outcome": "incomplete_provider_response",
+      "investigation_complete": false,
+      "provider_response_statuses": [
+        "incomplete",
+        "completed",
+        "completed",
+        "completed",
+        "completed"
+      ],
+      "incomplete_response_count": 1,
+      "incomplete_turn1": 1,
+      "incomplete_turn2": 0,
+      "provider_status_unknown_count": 0,
+      "provider_status_not_completed_count": 1,
+      "usage_incomplete_request_count": 0,
+      "summary_repair_used_turn1": 1,
+      "summary_repair_used_turn2": 0,
+      "turn1_continuation_state": {
+        "attempted": true,
+        "valid": true,
+        "response_id_source": "repair"
+      },
+      "turn2_continuation_state": {
+        "attempted": false,
+        "valid": null,
+        "response_id_source": "original"
+      },
+      "turn1_returned_response_id_is_latest": true,
+      "turn2_returned_response_id_is_latest": true,
+      "chain_used_is_latest_turn1_response": true,
+      "summary_valid": true,
+      "summary_errors": [],
+      "conclusion": "UNRESOLVED: no discriminating diagnostics recorded within budget, cause of OOF underperformance cannot be determined",
+      "tool_calls_turn1": {
+        "executed": 0,
+        "reused": 0,
+        "context_mode": "full"
+      },
+      "tool_calls_turn2": {
+        "executed": 4,
+        "reused": 0,
+        "context_mode": "delta",
+        "fallback_used": false,
+        "latency_s": 70.41,
+        "api_attempts": 3
+      },
+      "event_kinds": {
+        "status_change": 2,
+        "tool_result": 5,
+        "meta_request": 4,
+        "meta_response": 4,
+        "summary": 3,
+        "summary_repair": 2,
+        "meta_usage": 2,
+        "hypothesis": 3,
+        "tool_request": 4
+      },
+      "fallback_events": 0,
+      "actions": {
+        "ran": [
+          "artifact_summary",
+          "propose_hypothesis"
+        ],
+        "ran_count": 4,
+        "failed": []
+      },
+      "hypothesis_statuses": [
+        "proposed",
+        "proposed",
+        "proposed"
+      ],
+      "final_message_head": "Fact: recorded artifact contains 41221 rows, 3 folds (2023,2024,2025), imbalanced labels, and 8 model score columns plus metadata.\nHypothesis: three competing explanations were proposed \u2014 poor generalization, fold heterogeneity, miscalibration \u2014 but no discriminating metric or calibration result was recorded.\nConclusion: UNRESOLVED \u2014 without OOF AUC, per-fold splits, or calibration, the cause of u"
+    },
+    {
+      "condition": "full",
+      "context_strategy": "full_resend",
+      "investigation_id": "17c043071c214be190d081fb1092b943",
+      "chain_used_for_turn2": "resp_6ae3e7e7443e4e679131462b",
+      "turn1_status": "ok",
+      "turn2_status": "ok",
+      "run_outcome": "incomplete_provider_response",
+      "investigation_complete": false,
+      "provider_response_statuses": [
+        "completed",
+        "completed",
+        "completed",
+        "completed",
+        "incomplete",
+        "incomplete"
+      ],
+      "incomplete_response_count": 2,
+      "incomplete_turn1": 0,
+      "incomplete_turn2": 2,
+      "provider_status_unknown_count": 0,
+      "provider_status_not_completed_count": 2,
+      "usage_incomplete_request_count": 0,
+      "summary_repair_used_turn1": 0,
+      "summary_repair_used_turn2": 1,
+      "turn1_continuation_state": {
+        "attempted": false,
+        "valid": null,
+        "response_id_source": "original"
+      },
+      "turn2_continuation_state": {
+        "attempted": true,
+        "valid": false,
+        "response_id_source": "original"
+      },
+      "turn1_returned_response_id_is_latest": true,
+      "turn2_returned_response_id_is_latest": false,
+      "chain_used_is_latest_turn1_response": true,
+      "summary_valid": false,
+      "summary_errors": [
+        "no structured summary found in the final message"
+      ],
+      "conclusion": null,
+      "tool_calls_turn1": {
+        "executed": 4,
+        "reused": 0,
+        "context_mode": "full"
+      },
+      "tool_calls_turn2": {
+        "executed": 1,
+        "reused": 0,
+        "context_mode": "delta",
+        "fallback_used": false,
+        "latency_s": 64.026,
+        "api_attempts": 3
+      },
+      "event_kinds": {
+        "status_change": 2,
+        "tool_result": 6,
+        "meta_request": 5,
+        "meta_response": 5,
+        "hypothesis": 3,
+        "tool_request": 5,
+        "summary": 3,
+        "meta_usage": 2,
+        "summary_repair": 2
+      },
+      "fallback_events": 0,
+      "actions": {
+        "ran": [
+          "artifact_summary",
+          "calibration_and_error_analysis",
+          "propose_hypothesis"
+        ],
+        "ran_count": 5,
+        "failed": []
+      },
+      "hypothesis_statuses": [
+        "proposed",
+        "proposed",
+        "proposed"
+      ],
+      "final_message_head": ""
+    },
+    {
+      "condition": "delta",
+      "context_strategy": "delta",
+      "investigation_id": "e894d323b1274ec294f27ba2f8efe7cb",
+      "chain_used_for_turn2": "resp_6ae3e85dbacf120776004155",
+      "turn1_status": "ok",
+      "turn2_status": "ok",
+      "run_outcome": "incomplete_provider_response",
+      "investigation_complete": false,
+      "provider_response_statuses": [
+        "completed",
+        "completed",
+        "incomplete",
+        "incomplete",
+        "incomplete",
+        "incomplete"
+      ],
+      "incomplete_response_count": 4,
+      "incomplete_turn1": 2,
+      "incomplete_turn2": 2,
+      "provider_status_unknown_count": 0,
+      "provider_status_not_completed_count": 4,
+      "usage_incomplete_request_count": 0,
+      "summary_repair_used_turn1": 1,
+      "summary_repair_used_turn2": 1,
+      "turn1_continuation_state": {
+        "attempted": true,
+        "valid": false,
+        "response_id_source": "original"
+      },
+      "turn2_continuation_state": {
+        "attempted": true,
+        "valid": false,
+        "response_id_source": "original"
+      },
+      "turn1_returned_response_id_is_latest": false,
+      "turn2_returned_response_id_is_latest": false,
+      "chain_used_is_latest_turn1_response": false,
+      "summary_valid": false,
+      "summary_errors": [
+        "no structured summary found in the final message"
+      ],
+      "conclusion": null,
+      "tool_calls_turn1": {
+        "executed": 4,
+        "reused": 0,
+        "context_mode": "full"
+      },
+      "tool_calls_turn2": {
+        "executed": 0,
+        "reused": 0,
+        "context_mode": "delta",
+        "fallback_used": false,
+        "latency_s": 54.786,
+        "api_attempts": 2
+      },
+      "event_kinds": {
+        "status_change": 2,
+        "tool_result": 5,
+        "meta_request": 4,
+        "meta_response": 4,
+        "hypothesis": 3,
+        "tool_request": 4,
+        "summary": 4,
+        "summary_repair": 4,
+        "meta_usage": 2
+      },
+      "fallback_events": 0,
+      "actions": {
+        "ran": [
+          "calibration_and_error_analysis",
+          "propose_hypothesis"
+        ],
+        "ran_count": 4,
+        "failed": []
+      },
+      "hypothesis_statuses": [
+        "proposed",
+        "proposed",
+        "proposed"
+      ],
+      "final_message_head": "[fact] Per-fold AUC from action `1773fde26a67460ab2e6d12f462b9a48` is 2023: 0.690708, 2024: 0.680062, 2025: 0.689827, Brier 0.130634.\n[fact] Reliability bins from same action show mean_score vs fraction_positive gaps of ~+0.02 to +0.036 in low bins (n=16997, 12663) and -0.04 to -0.065 in 0.3-0.5 bins (n=2712, 559); highest bins have n<=32.\n[hypothesis] `1b5a788872da46adbfc496a115a0b698` predicted "
+    }
+  ]
+}

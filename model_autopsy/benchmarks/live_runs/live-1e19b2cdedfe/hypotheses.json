@@ -1,0 +1,55 @@
+[
+  {
+    "id": "04655406927c47d8b34412c4ab4d431c",
+    "text": "Model discrimination differs by region: ranking ability (AUC) is materially lower in one or more regions due to missing region interaction.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link: no nulls/duplicates in n=1500 [contradictory evidence recorded; demoted; action e8eb661aee9241d9a1c8df5d7e672b03]",
+    "evidence_refs": [
+      {
+        "action_id": "e8eb661aee9241d9a1c8df5d7e672b03",
+        "tool": "data_quality_profile",
+        "relation": "contradicts",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 15:48:54",
+        "from": "proposed",
+        "to": "investigating"
+      }
+    ]
+  },
+  {
+    "id": "663b418761d94977890a068ffc074054",
+    "text": "Model is miscalibrated by region: predicted default probabilities are systematically biased in some regions despite similar discrimination.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Uneven scores can arise from miscalibration rather than ranking failure; evaluation methodology explicitly includes calibration.",
+    "evidence_refs": null,
+    "revisions": null
+  },
+  {
+    "id": "802813e0406c4d2d8a12cecd356bd27c",
+    "text": "Apparent regional unevenness reflects differing base rates or data quality across regions, not a region-specific model defect.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link: no nulls/duplicates in n=1500 [contradictory evidence recorded; demoted; action e8eb661aee9241d9a1c8df5d7e672b03]",
+    "evidence_refs": [
+      {
+        "action_id": "e8eb661aee9241d9a1c8df5d7e672b03",
+        "tool": "data_quality_profile",
+        "relation": "contradicts",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 15:48:54",
+        "from": "proposed",
+        "to": "investigating"
+      }
+    ]
+  }
+]

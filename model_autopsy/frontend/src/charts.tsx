@@ -361,9 +361,9 @@ export function TimelineFunnelChart({ items }: {
           const y = 18 + i * 20
           const emphasis = /^(tool_result|hypothesis|finding|report|revision)$/.test(it.kind)
           return (
-            <g key={it.seq}>
-              <circle cx={14} cy={y} r={emphasis ? 4 : 3}
-                fill={emphasis ? '#e2b25f' : '#6b7480'} />
+            <g key={`${it.seq}-${i}`}>
+              <circle cx={14} cy={y} r={emphasis ? 4.5 : 3.5}
+                fill={emphasis ? '#e8b34b' : '#9aa5b5'} />
               <text x={26} y={y + 4} fontSize="11" fill="#e8e5de">
                 {it.label.length > 84 ? it.label.slice(0, 84) + '…' : it.label}
               </text>

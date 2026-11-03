@@ -1,0 +1,29 @@
+{
+  "executive_summary": "No recorded facts, hypotheses, or actions available to conclude investigation.",
+  "confirmed_findings": [],
+  "rejected_hypotheses": [],
+  "inconclusive": [],
+  "experiments": [],
+  "verification": [],
+  "limitations": [
+    "no diagnostic executed and no finding recorded; this report contains recorded structure only and no evidence-backed conclusions",
+    "available diagnostics never run in this investigation: artifact_summary, dataset_validation, classification_metrics, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, ranking_slice_diagnostics, slice_gap_significance, regression_metrics, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile, data_quality_profile, segment_quality_screen, calibration_snapshot, residual_feature_dependence"
+  ],
+  "investigation_id": "4665d86970194e8f861c0ecedafad52c",
+  "structured_summary_valid": true,
+  "report_generation_status": "model_repaired",
+  "report_provenance": {
+    "status": "model_repaired",
+    "output_class": "valid_structured",
+    "repair_attempted": true,
+    "repair_via": "summary_repair",
+    "consistency_passed": true,
+    "consistency_failures": [],
+    "consistency_warnings": [],
+    "assembly_mutated_state": false,
+    "schema_version": "m8-v1",
+    "generated_at": "2026-11-02T14:10:34.223272+00:00",
+    "fallback_reason": null
+  },
+  "fallback_used": false
+}

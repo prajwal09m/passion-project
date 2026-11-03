@@ -28,7 +28,16 @@ _RETRYABLE_STATUS = {408, 429, 500, 502, 503, 504}
 
 
 class MetaUnavailable(RuntimeError):
-    """No API key configured (or network/API error) — surfaced to the UI."""
+    """No API key configured (or network/API error) — surfaced to the UI.
+
+    `status_code` is set when a provider HTTP status was the cause (None for
+    missing-key or network failures), so callers can SAFELY distinguish
+    continuation-state problems (e.g. an expired/invalid previous_response_id)
+    from outages — never by inferring from the message text alone."""
+
+    def __init__(self, message: str, status_code: int | None = None):
+        super().__init__(message)
+        self.status_code = status_code
 
 
 def _headers() -> dict[str, str]:
@@ -93,18 +102,27 @@ def create_response(*, model: str, input_items, tools: list[dict],
         body["instructions"] = instructions
     headers = _headers()          # raises MetaUnavailable without a key
     last_error = "unknown error"
+    latency_total = 0.0           # wall time across ALL attempts of this request
+    attempts_used = 0
     for attempt in range(1, MAX_RETRIES + 1):
+        t0 = time.perf_counter()
         try:
             resp = httpx.post(_url(), headers=headers, json=body,
                               timeout=REQUEST_TIMEOUT)
         except httpx.HTTPError as exc:
             raise MetaUnavailable(f"{type(exc).__name__}: {exc}") from exc
+        latency_total += time.perf_counter() - t0
+        attempts_used = attempt
         if resp.status_code == 200:
             try:
-                return resp.json()
+                payload = resp.json()
             except json.JSONDecodeError as exc:
                 raise MetaUnavailable(
                     f"non-JSON response from Meta: {exc}") from exc
+            payload.setdefault("_request_perf", {
+                "latency_s": round(latency_total, 3),
+                "attempts": attempts_used})
+            return payload
         last_error = f"HTTP {resp.status_code}: {resp.text[:300]}"
         if resp.status_code not in _RETRYABLE_STATUS:
             break
@@ -114,7 +132,17 @@ def create_response(*, model: str, input_items, tools: list[dict],
                      retry_after.replace(".", "").isdigit()
                      else RETRY_BACKOFF_SECONDS * attempt)
             time.sleep(min(delay, 10.0))
-    raise MetaUnavailable(last_error)
+    message = last_error
+    if attempts_used > 1:
+        message += f" (after {attempts_used} attempts)"
+    raise MetaUnavailable(message, status_code=resp.status_code)
+
+
+# Chain-continuation state failures: non-transient, non-auth request errors
+# observed while a `previous_response_id` was in play. These are the only
+# failures for which a context-delta turn should attempt its full-context
+# fallback (docs: non-retryable statuses must not be retried identically).
+CHAIN_STATE_ERROR_STATUSES = {400, 404, 409, 410, 413}
 
 
 def extract_function_calls(response: dict) -> list[dict]:
@@ -151,6 +179,20 @@ def response_id(response: dict) -> str | None:
 
 
 def usage(response: dict) -> dict:
+    """Provider-reported token usage, flattened from nested detail dicts.
+
+    Known Responses-style wrappers (`usage.input_tokens_details.cached_tokens`)
+    become dotted keys like `input_tokens_details.cached_tokens` so cached-token
+    accounting is captured honestly when the provider reports it and absent
+    when it does not. Nothing is invented: numbers only, no placeholders."""
     u = response.get("usage") if isinstance(response.get("usage"), dict) else {}
-    return {k: u.get(k) for k in ("input_tokens", "output_tokens",
-                                  "total_tokens") if k in u}
+    out: dict = {}
+    for key, value in u.items():
+        if isinstance(value, (int, float)) and not isinstance(value, bool):
+            out[key] = value
+        elif isinstance(value, dict):
+            for sub_key, sub_value in value.items():
+                if (isinstance(sub_value, (int, float))
+                        and not isinstance(sub_value, bool)):
+                    out[f"{key}.{sub_key}"] = sub_value
+    return out

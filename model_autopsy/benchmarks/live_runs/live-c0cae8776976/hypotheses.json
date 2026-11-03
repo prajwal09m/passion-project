@@ -1,0 +1,101 @@
+[
+  {
+    "id": "a9d97ee6bac14fd6b7d3fddffc96f625",
+    "text": "Forecasts miss because target underwent a recent persistent level shift (regime change) that the turbine-ar model does not track.",
+    "status": "supported",
+    "source": "meta",
+    "rationale": "auto-link [supports]: late MAE 24.315671 >> early 7.000986 (measurement directly bears on the hypothesis mechanism: late MAE 24.315671 >> early 7.000986) [two supporting evidence items, no contradiction; action e97876e6e15d4dc09cba0f36209a09b7]",
+    "evidence_refs": [
+      {
+        "action_id": "e0e6f0f24b1a404aba2beec7f3f0042f",
+        "tool": "temporal_changepoint_scan",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "e97876e6e15d4dc09cba0f36209a09b7",
+        "tool": "residual_time_analysis",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 18:48:43",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 18:49:01",
+        "from": "investigating",
+        "to": "supported"
+      }
+    ]
+  },
+  {
+    "id": "f5d10c0844cd490caeaaa78b103ea3ba",
+    "text": "Forecasts miss due to persistent systematic bias/miscalibration present throughout history, not a new level change.",
+    "status": "supported",
+    "source": "meta",
+    "rationale": "auto-link [supports]: late MAE 24.315671 >> early 7.000986 (measurement directly bears on the hypothesis mechanism: late MAE 24.315671 >> early 7.000986) [two supporting evidence items, no contradiction; action e97876e6e15d4dc09cba0f36209a09b7]",
+    "evidence_refs": [
+      {
+        "action_id": "e0e6f0f24b1a404aba2beec7f3f0042f",
+        "tool": "temporal_changepoint_scan",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "e97876e6e15d4dc09cba0f36209a09b7",
+        "tool": "residual_time_analysis",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 18:48:43",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 18:49:01",
+        "from": "investigating",
+        "to": "supported"
+      }
+    ]
+  },
+  {
+    "id": "ed19080787ea4f88960b557d0ada1889",
+    "text": "Recent forecast-target divergence is a data quality artifact (missing/corrupt recent records), not a true level shift or model failure.",
+    "status": "supported",
+    "source": "meta",
+    "rationale": "auto-link [supports]: late MAE 24.315671 >> early 7.000986 (measurement directly bears on the hypothesis mechanism: late MAE 24.315671 >> early 7.000986) [two supporting evidence items, no contradiction; action e97876e6e15d4dc09cba0f36209a09b7]",
+    "evidence_refs": [
+      {
+        "action_id": "e0e6f0f24b1a404aba2beec7f3f0042f",
+        "tool": "temporal_changepoint_scan",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "e97876e6e15d4dc09cba0f36209a09b7",
+        "tool": "residual_time_analysis",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 18:48:43",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 18:49:01",
+        "from": "investigating",
+        "to": "supported"
+      }
+    ]
+  }
+]

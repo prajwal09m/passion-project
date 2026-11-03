@@ -1,0 +1,28 @@
+{
+  "run": "p2-full",
+  "campaign": "phase_d_meta_live_20261031T204311Z",
+  "started_utc": "2026-10-31T20:45:30Z",
+  "finalized_utc": "2026-10-31T20:47:19Z",
+  "status": "finalized",
+  "reason": null,
+  "outcome": {
+    "run_outcome": "incomplete_provider_response",
+    "summary_valid": true,
+    "final_message_head": "```investigation_summary\n{\"conclusion\": \"OOF underperformance is uniform modest discrimination (AUC ~0.68 all folds) not fold shift; calibration gaps are small so threshold recall collapse reflects weak ranking and conservative scores.\", \"recommended_next\": \"Compare train vs OOF to test overfitting and tune threshold for imbalance.\", \"status_recommendations\": [{\"basis\": [\"6643b493b3ae4c719b7ded747"
+  },
+  "artifacts": {
+    "run_start.json": "848bf21d07a2a94c6343f531fc9ae79a87ca9b1960e696880e5b4101ccf33b6b",
+    "responses.jsonl": "bc318315b1570fd3101560ec3a383750fed71f3738982ee5bfaee68bb062e6a5",
+    "assistant_messages.jsonl": "644bdbb81f4173694e079dd1f43370840f54359cfcb78f125991a3a293113ab3",
+    "usage.jsonl": "0a45287e2d6135e28bec93daceecf1bc54bf8c0cf257f7f9e85f293f1a66efb5",
+    "events_dump.json": "b27dd8a6272205324dedbfdcc170b990cb95e35ac0c22a2918fe2659c8ddd5cf",
+    "sandbox_final.db": "6ba1622a5c05b49a771951f691045541e0a6d24f19e2bc477d1713c43956323e"
+  },
+  "required_evidence_present": {
+    "responses": true,
+    "assistant_messages": true,
+    "usage": true,
+    "events_dump": true,
+    "sandbox_final.db": true
+  }
+}

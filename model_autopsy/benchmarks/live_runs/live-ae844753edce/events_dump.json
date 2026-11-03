@@ -1,0 +1,1030 @@
+[
+  {
+    "seq": 1,
+    "kind": "status_change",
+    "title": "Investigation created",
+    "detail": "mode=ml; max_iterations=3; max_tool_calls=12",
+    "payload": {},
+    "created_at": "2026-11-01 15:12:19"
+  },
+  {
+    "seq": 2,
+    "kind": "tool_result",
+    "title": "Live recon context prepared (neutral brief + schema)",
+    "detail": null,
+    "payload": {
+      "columns": [
+        "amount",
+        "velocity",
+        "device_age",
+        "target",
+        "prediction"
+      ],
+      "tools": [
+        "artifact_summary",
+        "calibration_and_error_analysis",
+        "calibration_snapshot",
+        "classification_metrics",
+        "clustering_stability",
+        "data_quality_profile",
+        "dataset_validation",
+        "distribution_shift_profile",
+        "feature_target_suspiciousness",
+        "forecast_diagnostics",
+        "grouped_auc_comparison",
+        "propose_hypothesis",
+        "regression_metrics",
+        "residual_time_analysis",
+        "temporal_changepoint_scan",
+        "time_split_validation"
+      ]
+    },
+    "created_at": "2026-11-01 15:12:19"
+  },
+  {
+    "seq": 3,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "calibration_snapshot"
+      ],
+      "context_mode": "full"
+    },
+    "created_at": "2026-11-01 15:12:25"
+  },
+  {
+    "seq": 3,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Severity looks systematically high \u2014 I'll test competing explanations for the bias.",
+    "payload": {
+      "response_id": "resp_6ae756d90a2b4a39941e4af4",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 4169,
+        "input_tokens_details.cached_tokens": 0,
+        "output_tokens": 456,
+        "output_tokens_details.reasoning_tokens": 238,
+        "total_tokens": 4625
+      },
+      "text": "Severity looks systematically high \u2014 I'll test competing explanations for the bias."
+    },
+    "created_at": "2026-11-01 15:12:25"
+  },
+  {
+    "seq": 4,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Predictions have systematic positive bias (overpredict severity) due to pipeline change shifting prediction level.",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "ee63449565c74b39a74b5616ce74242d",
+      "source": "meta",
+      "predicted_observation": "calibration_snapshot shows large positive mean residual (prediction-target) with small variance of residual mean vs RMSE; regression_metrics shows MAE/RMSE dominated by bias.",
+      "confidence_note": "Uncalibrated, low prior; bias visible in sample rows but needs quantification."
+    },
+    "created_at": "2026-11-01 15:12:25"
+  },
+  {
+    "seq": 4,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated, low prior; bias visible in sample rows but needs quantification.",
+        "predicted_observation": "calibration_snapshot shows large positive mean residual (prediction-target) with small variance of residual mean vs RMSE; regression_metrics shows MAE/RMSE dominated by bias.",
+        "rationale": "Sample rows show prediction > target in all 5 examples (e.g., 819 vs 614). Objective says systematically off since pipeline change, suggesting global intercept/scale shift.",
+        "text": "Predictions have systematic positive bias (overpredict severity) due to pipeline change shifting prediction level."
+      },
+      "action_seq": 4
+    },
+    "created_at": "2026-11-01 15:12:25"
+  },
+  {
+    "seq": 5,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\\\", 1793500694888149700, 36299]]]\", \"ok\": true, \"hypothesis_id\": \"ee63449565c74b39a74b5616ce74242d\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Predictions have systematic positive bias (overpredict severity) due t",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+        "ok": true,
+        "hypothesis_id": "ee63449565c74b39a74b5616ce74242d",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Predictions have systematic positive bias (overpredict severity) due to pipeline change shifting prediction level."
+      },
+      "action_seq": 4
+    },
+    "created_at": "2026-11-01 15:12:25"
+  },
+  {
+    "seq": 6,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "calibration_snapshot"
+      ],
+      "context_mode": "full"
+    },
+    "created_at": "2026-11-01 15:12:43"
+  },
+  {
+    "seq": 6,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "One bias hypothesis logged \u2014 adding rival explanations before testing.",
+    "payload": {
+      "response_id": "resp_6ae756e20a27f03a06614821",
+      "n_tool_calls": 2,
+      "usage": {
+        "input_tokens": 4518,
+        "input_tokens_details.cached_tokens": 4081,
+        "output_tokens": 381,
+        "output_tokens_details.reasoning_tokens": 13,
+        "total_tokens": 4899
+      },
+      "text": "One bias hypothesis logged \u2014 adding rival explanations before testing."
+    },
+    "created_at": "2026-11-01 15:12:43"
+  },
+  {
+    "seq": 7,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Error is feature-dependent miscalibration (slope/scale error with amount or velocity), not uniform bias.",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "1fca636bd8b141b0a587dc646524171c",
+      "source": "meta",
+      "predicted_observation": "If true, residual-vs-input or grouped MAE shows error growing with amount/velocity; calibration_snapshot bias small relative to slope/miscalibration.",
+      "confidence_note": "Uncalibrated, competing alternative; plausible if error scales with inputs."
+    },
+    "created_at": "2026-11-01 15:12:44"
+  },
+  {
+    "seq": 7,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated, competing alternative; plausible if error scales with inputs.",
+        "predicted_observation": "If true, residual-vs-input or grouped MAE shows error growing with amount/velocity; calibration_snapshot bias small relative to slope/miscalibration.",
+        "rationale": "Severity often scales with amount/velocity; pipeline change could have broken feature scaling causing slope error rather than intercept shift.",
+        "text": "Error is feature-dependent miscalibration (slope/scale error with amount or velocity), not uniform bias."
+      },
+      "action_seq": 7
+    },
+    "created_at": "2026-11-01 15:12:44"
+  },
+  {
+    "seq": 8,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\\\", 1793500694888149700, 36299]]]\", \"ok\": true, \"hypothesis_id\": \"1fca636bd8b141b0a587dc646524171c\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Error is feature-dependent miscalibration (slope/scale error with amou",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+        "ok": true,
+        "hypothesis_id": "1fca636bd8b141b0a587dc646524171c",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Error is feature-dependent miscalibration (slope/scale error with amount or velocity), not uniform bias."
+      },
+      "action_seq": 7
+    },
+    "created_at": "2026-11-01 15:12:44"
+  },
+  {
+    "seq": 9,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Apparent systematic error is artifact of data quality issues (missing, duplicates, corrupt target/prediction values).",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "2056e694de524d44a6c1cf0268f765f0",
+      "source": "meta",
+      "predicted_observation": "data_quality_profile would show nulls/dups/constant cols or target anomalies; regression_metrics per-group would be driven by bad rows.",
+      "confidence_note": "Uncalibrated, competing alternative about data quality."
+    },
+    "created_at": "2026-11-01 15:12:44"
+  },
+  {
+    "seq": 9,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated, competing alternative about data quality.",
+        "predicted_observation": "data_quality_profile would show nulls/dups/constant cols or target anomalies; regression_metrics per-group would be driven by bad rows.",
+        "rationale": "Pipeline changes often introduce missing/duplicated/corrupted rows that inflate error metrics without true model bias.",
+        "text": "Apparent systematic error is artifact of data quality issues (missing, duplicates, corrupt target/prediction values)."
+      },
+      "action_seq": 9
+    },
+    "created_at": "2026-11-01 15:12:44"
+  },
+  {
+    "seq": 10,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\\\", 1793500694888149700, 36299]]]\", \"ok\": true, \"hypothesis_id\": \"2056e694de524d44a6c1cf0268f765f0\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Apparent systematic error is artifact of data quality issues (missing,",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+        "ok": true,
+        "hypothesis_id": "2056e694de524d44a6c1cf0268f765f0",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Apparent systematic error is artifact of data quality issues (missing, duplicates, corrupt target/prediction values)."
+      },
+      "action_seq": 9
+    },
+    "created_at": "2026-11-01 15:12:44"
+  },
+  {
+    "seq": 11,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "One bias hypothesis logged \u2014 adding rival explanations before testing.",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 15:12:44"
+  },
+  {
+    "seq": 12,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 15:12:46"
+  },
+  {
+    "seq": 12,
+    "kind": "summary_repair",
+    "title": "Summary repair unavailable \u2014 original verdict stands",
+    "detail": "HTTP 400: {\"error\":{\"code\":null,\"message\":\"No tool output found for function call call_4bbd2cab-90c2-4ed8-bf34-2ad5576e0175.\",\"param\":null,\"type\":\"invalid_request_error\"}}",
+    "payload": {},
+    "created_at": "2026-11-01 15:12:46"
+  },
+  {
+    "seq": 12,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 2,
+      "api_attempts": 2,
+      "latency_s": 24.401,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "full",
+      "fallback_used": false,
+      "tool_calls_executed": 3,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 8687,
+        "input_tokens_details.cached_tokens": 4081,
+        "output_tokens": 837,
+        "output_tokens_details.reasoning_tokens": 251,
+        "total_tokens": 9524
+      }
+    },
+    "created_at": "2026-11-01 15:12:46"
+  },
+  {
+    "seq": 13,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "calibration_snapshot"
+      ],
+      "context_mode": "delta"
+    },
+    "created_at": "2026-11-01 15:12:49"
+  },
+  {
+    "seq": 13,
+    "kind": "meta_request",
+    "title": "Continuation state refused \u2014 one full-context fallback",
+    "detail": "HTTP 400: {\"error\":{\"code\":null,\"message\":\"No tool output found for function call call_4bbd2cab-90c2-4ed8-bf34-2ad5576e0175.\",\"param\":null,\"type\":\"invalid_request_error\"}}",
+    "payload": {},
+    "created_at": "2026-11-01 15:12:49"
+  },
+  {
+    "seq": 14,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Investigating the severity bias \u2014 testing for systematic overprediction first.",
+    "payload": {
+      "response_id": "resp_6ae756f51ad6c5fd67514fc2",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 4756,
+        "input_tokens_details.cached_tokens": 0,
+        "output_tokens": 499,
+        "output_tokens_details.reasoning_tokens": 380,
+        "total_tokens": 5255
+      },
+      "text": "Investigating the severity bias \u2014 testing for systematic overprediction first."
+    },
+    "created_at": "2026-11-01 15:12:54"
+  },
+  {
+    "seq": 14,
+    "kind": "tool_request",
+    "title": "Requested calibration_snapshot",
+    "detail": null,
+    "payload": {
+      "tool": "calibration_snapshot",
+      "arguments": {
+        "prediction_column": "prediction",
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/claim_severity.csv",
+        "target_column": "target"
+      },
+      "action_seq": 14
+    },
+    "created_at": "2026-11-01 15:12:54"
+  },
+  {
+    "seq": 15,
+    "kind": "tool_result",
+    "title": "tool:calibration_snapshot (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\\\", 1793500694888149700, 36299]]]\", \"ok\": true, \"n\": 1500, \"bias_mean_residual\": -131.768, \"residual_std\": 80.65515, \"mae\": 132.5096, \"establishes\": \"bias vs variance decomposition\", \"does_not_establish\": \"source of the bias\"}",
+    "payload": {
+      "tool": "calibration_snapshot",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+        "ok": true,
+        "n": 1500,
+        "bias_mean_residual": -131.768,
+        "residual_std": 80.65515,
+        "mae": 132.5096,
+        "establishes": "bias vs variance decomposition",
+        "does_not_establish": "source of the bias"
+      },
+      "action_seq": 14
+    },
+    "created_at": "2026-11-01 15:12:54"
+  },
+  {
+    "seq": 16,
+    "kind": "status_change",
+    "title": "Run resumed from interruption (chained from resp_6ae756f\u2026; budget carried: 4/12 attempts, $0.0180/$0.40)",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 15:21:08"
+  },
+  {
+    "seq": 17,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "calibration_snapshot"
+      ],
+      "context_mode": "delta"
+    },
+    "created_at": "2026-11-01 15:21:11"
+  },
+  {
+    "seq": 17,
+    "kind": "meta_request",
+    "title": "Continuation state refused \u2014 one full-context fallback",
+    "detail": "HTTP 400: {\"error\":{\"code\":null,\"message\":\"No tool output found for function call call_8d5c71e1-58cc-41e0-9b6d-659791d8d9af.\",\"param\":null,\"type\":\"invalid_request_error\"}}",
+    "payload": {},
+    "created_at": "2026-11-01 15:21:11"
+  },
+  {
+    "seq": 18,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Bias is showing \u2014 now checking if bad data explains it or if the shift is real.",
+    "payload": {
+      "response_id": "resp_6ae758f394108fdfeeb24444",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 4901,
+        "input_tokens_details.cached_tokens": 0,
+        "output_tokens": 372,
+        "output_tokens_details.reasoning_tokens": 278,
+        "total_tokens": 5273
+      },
+      "text": "Bias is showing \u2014 now checking if bad data explains it or if the shift is real."
+    },
+    "created_at": "2026-11-01 15:21:23"
+  },
+  {
+    "seq": 18,
+    "kind": "tool_request",
+    "title": "Requested data_quality_profile",
+    "detail": null,
+    "payload": {
+      "tool": "data_quality_profile",
+      "arguments": {
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/claim_severity.csv"
+      },
+      "action_seq": 18
+    },
+    "created_at": "2026-11-01 15:21:23"
+  },
+  {
+    "seq": 19,
+    "kind": "tool_result",
+    "title": "tool:data_quality_profile (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\\\", 1793500694888149700, 36299]]]\", \"ok\": true, \"n\": 1500, \"n_columns\": 5, \"nulls\": {\"amount\": 0, \"velocity\": 0, \"device_age\": 0, \"target\": 0, \"prediction\": 0}, \"duplicate_rows\": 0, \"establishes\": \"missingness/duplication facts\", \"does_not_establish\": \"whether quality issues caused errors\"}",
+    "payload": {
+      "tool": "data_quality_profile",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+        "ok": true,
+        "n": 1500,
+        "n_columns": 5,
+        "nulls": {
+          "amount": 0,
+          "velocity": 0,
+          "device_age": 0,
+          "target": 0,
+          "prediction": 0
+        },
+        "duplicate_rows": 0,
+        "establishes": "missingness/duplication facts",
+        "does_not_establish": "whether quality issues caused errors"
+      },
+      "action_seq": 18
+    },
+    "created_at": "2026-11-01 15:21:23"
+  },
+  {
+    "seq": 20,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "calibration_snapshot"
+      ],
+      "context_mode": "delta_fallback"
+    },
+    "created_at": "2026-11-01 15:21:45"
+  },
+  {
+    "seq": 20,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "Fact: calibration_snapshot action 24e17f6efb23441384beee8ddc9fcc97 shows mean residual -131.8 with MAE 132.5 \u2014 bias dominates. Fact: data_quality_profile shows zero nulls and zero duplicates. Hypothesis H3 predicted missingness/duplication \u2014 this contradicts H3. Hypothesis H1 predicted systematic bias \u2014 this supports H1. Hypothesis H2 remains open and needs a feature-grouped error check.",
+    "payload": {
+      "response_id": "resp_6ae759026f7cd853dadf4139",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 5127,
+        "input_tokens_details.cached_tokens": 3569,
+        "output_tokens": 1628,
+        "output_tokens_details.reasoning_tokens": 1412,
+        "total_tokens": 6755
+      },
+      "text": "Fact: calibration_snapshot action 24e17f6efb23441384beee8ddc9fcc97 shows mean residual -131.8 with MAE 132.5 \u2014 bias dominates. Fact: data_quality_profile shows zero nulls and zero duplicates. Hypothesis H3 predicted missingness/duplication \u2014 this contradicts H3. Hypothesis H1 predicted systematic bias \u2014 this supports H1. Hypothesis H2 remains open and needs a feature-grouped error check."
+    },
+    "created_at": "2026-11-01 15:21:45"
+  },
+  {
+    "seq": 20,
+    "kind": "tool_request",
+    "title": "Requested regression_metrics",
+    "detail": null,
+    "payload": {
+      "tool": "regression_metrics",
+      "arguments": {
+        "group_column": "velocity",
+        "prediction_column": "prediction",
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/claim_severity.csv",
+        "target_column": "target"
+      },
+      "action_seq": 20
+    },
+    "created_at": "2026-11-01 15:21:45"
+  },
+  {
+    "seq": 21,
+    "kind": "tool_result",
+    "title": "tool:regression_metrics (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\\\", 1793500694888149700, 36299]]]\", \"ok\": true, \"source\": \"C:\\\\Prajwal MIT\\\\Passion\\\\model_autopsy\\\\tests\\\\fixture_eval\\\\investigator\\\\claim_severity.csv\", \"n\": 1500, \"mae\": 132.5096, \"mse\": 23863.722267, \"rmse\": 154.478873, \"r2\": -0.988432, \"bias_mean_residual\": -131.768, \"residual_std\": 8",
+    "payload": {
+      "tool": "regression_metrics",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+        "ok": true,
+        "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\claim_severity.csv",
+        "n": 1500,
+        "mae": 132.5096,
+        "mse": 23863.722267,
+        "rmse": 154.478873,
+        "r2": -0.988432,
+        "bias_mean_residual": -131.768,
+        "residual_std": 80.628261,
+        "heteroscedasticity_hint": 0.020827,
+        "outliers_abs_z_gt_3": 0,
+        "mae_by_group": {
+          "0": 145.738824,
+          "1": 124.877828,
+          "2": 129.940166,
+          "3": 132.096904,
+          "4": 137.024017,
+          "5": 137.923684,
+          "6": 132.055714,
+          "7": 139.846154,
+          "8": 114.51,
+          "9": 96.4625,
+          "10": 122.65
+        }
+      },
+      "action_seq": 20
+    },
+    "created_at": "2026-11-01 15:21:45"
+  },
+  {
+    "seq": 22,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "Fact: calibration_snapshot action 24e17f6efb23441384beee8ddc9fcc97 shows mean residual -131.8 with MAE 132.5 \u2014 bias dominates. Fact: data_quality_profile shows zero nulls and zero duplicates. Hypothesis H3 predicted missingness/duplication \u2014 this contradicts H3. Hypothesis H1 predicted systematic bias \u2014 this supports H1. Hypothesis H2 remains open and needs a feature-grouped error check.",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 15:21:45"
+  },
+  {
+    "seq": 23,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 15:21:47"
+  },
+  {
+    "seq": 23,
+    "kind": "summary_repair",
+    "title": "Summary repair unavailable \u2014 original verdict stands",
+    "detail": "HTTP 400: {\"error\":{\"code\":null,\"message\":\"No tool output found for function call call_6d66ef2e-74a6-4a91-9e6e-eb7bc151d7dc.\",\"param\":null,\"type\":\"invalid_request_error\"}}",
+    "payload": {},
+    "created_at": "2026-11-01 15:21:47"
+  },
+  {
+    "seq": 23,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 2,
+      "api_attempts": 2,
+      "latency_s": 33.609,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "delta_fallback",
+      "fallback_used": true,
+      "tool_calls_executed": 2,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 10028,
+        "input_tokens_details.cached_tokens": 3569,
+        "output_tokens": 2000,
+        "output_tokens_details.reasoning_tokens": 1690,
+        "total_tokens": 12028
+      }
+    },
+    "created_at": "2026-11-01 15:21:47"
+  },
+  {
+    "seq": 24,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "calibration_snapshot"
+      ],
+      "context_mode": "delta"
+    },
+    "created_at": "2026-11-01 15:21:51"
+  },
+  {
+    "seq": 24,
+    "kind": "meta_request",
+    "title": "Continuation state refused \u2014 one full-context fallback",
+    "detail": "HTTP 400: {\"error\":{\"code\":null,\"message\":\"No tool output found for function call call_6d66ef2e-74a6-4a91-9e6e-eb7bc151d7dc.\",\"param\":null,\"type\":\"invalid_request_error\"}}",
+    "payload": {},
+    "created_at": "2026-11-01 15:21:51"
+  },
+  {
+    "seq": 25,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Evidence so far points to uniform over-prediction \u2014 I'll run one more check to rule out feature-dependent error.",
+    "payload": {
+      "response_id": "resp_6ae7591b838a2e2fc37e43b6",
+      "n_tool_calls": 0,
+      "usage": {
+        "input_tokens": 5214,
+        "input_tokens_details.cached_tokens": 3569,
+        "output_tokens": 2000,
+        "output_tokens_details.reasoning_tokens": 1943,
+        "total_tokens": 7214
+      },
+      "text": "Evidence so far points to uniform over-prediction \u2014 I'll run one more check to rule out feature-dependent error."
+    },
+    "created_at": "2026-11-01 15:22:04"
+  },
+  {
+    "seq": 26,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "Evidence so far points to uniform over-prediction \u2014 I'll run one more check to rule out feature-dependent error.",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 15:22:04"
+  },
+  {
+    "seq": 27,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 15:22:29"
+  },
+  {
+    "seq": 27,
+    "kind": "summary",
+    "title": "Structured summary parsed: valid",
+    "detail": "{\"conclusion\": \"FACT: calibration_snapshot (24e17f6efb23441384beee8ddc9fcc97) shows systematic overprediction mean residual -131.768 MAE 132.51 n=1500; CONCLUSION: systematic positive bias best explains failure, feature-dependent and data-quality explanations contradicted by recorded diagnostics\", \"status_recommendations\": [{\"basis\": \"24e17f6efb23441384beee8ddc9fcc97 shows bias -131.768 vs residual_std 80.65\", \"hypothesis_id\": \"ee63449565c74b39a74b5616ce74242d\", \"status\": \"supported\"}, {\"basis\": \"3a09c71a2c9b48e48f4681b942f53d38 shows low heteroscedasticity_hint 0.020827 and similar MAE across",
+    "payload": {
+      "valid": true,
+      "errors": [],
+      "raw_block": "{\"conclusion\": \"FACT: calibration_snapshot (24e17f6efb23441384beee8ddc9fcc97) shows systematic overprediction mean residual -131.768 MAE 132.51 n=1500; CONCLUSION: systematic positive bias best explains failure, feature-dependent and data-quality explanations contradicted by recorded diagnostics\", \"status_recommendations\": [{\"basis\": \"24e17f6efb23441384beee8ddc9fcc97 shows bias -131.768 vs residual_std 80.65\", \"hypothesis_id\": \"ee63449565c74b39a74b5616ce74242d\", \"status\": \"supported\"}, {\"basis\": \"3a09c71a2c9b48e48f4681b942f53d38 shows low heteroscedasticity_hint 0.020827 and similar MAE across velocity groups\", \"hypothesis_id\": \"1fca636bd8b141b0a587dc646524171c\", \"status\": \"rejected\"}, {\"basis\": \"fc28c1a4f51c4daf861cc1748fdbc1d5 shows duplicate_rows 0 and nulls 0 for reported columns\", \"hypothesis_id\": \"2056e694de524d44a6c1cf0268f765f0\", \"status\": \"rejected\"}], \"uncertainties\": [\"source of bias such as specific pipeline change not established by available diagnostics\", \"full null profile truncated in digest for remaining columns\"], \"recommended_next\": \"Audit post-change pipeline for level shift in prediction generation and re-validate after fix\"}"
+    },
+    "created_at": "2026-11-01 15:22:29"
+  },
+  {
+    "seq": 28,
+    "kind": "summary_repair",
+    "title": "Summary repair produced a valid structured summary",
+    "detail": null,
+    "payload": {
+      "valid": true,
+      "continuation": "repair"
+    },
+    "created_at": "2026-11-01 15:22:29"
+  },
+  {
+    "seq": 28,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 1,
+      "api_calls": 2,
+      "api_attempts": 2,
+      "latency_s": 38.108,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "repair",
+      "context_mode": "delta_fallback",
+      "fallback_used": true,
+      "tool_calls_executed": 0,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 7449,
+        "input_tokens_details.cached_tokens": 3569,
+        "output_tokens": 3173,
+        "output_tokens_details.reasoning_tokens": 2782,
+        "total_tokens": 10622
+      }
+    },
+    "created_at": "2026-11-01 15:22:29"
+  },
+  {
+    "seq": 29,
+    "kind": "status_change",
+    "title": "hypotheses_proposed -> investigating",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 15:22:29"
+  },
+  {
+    "seq": 29,
+    "kind": "status_change",
+    "title": "investigating -> finalizing",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 15:22:29"
+  },
+  {
+    "seq": 30,
+    "kind": "report",
+    "title": "Final report recorded",
+    "detail": null,
+    "payload": {
+      "investigation_id": "28473f0c19244a19beb6a03d94a3325f",
+      "mode": "ml",
+      "question": "Severity estimates look systematically off since a pipeline change; find what is wrong and show evidence.",
+      "generated_at": "2026-11-01 15:22:29Z",
+      "confirmed": [],
+      "likely": [],
+      "rejected": [],
+      "unresolved": [
+        {
+          "hypothesis_id": "ee63449565c74b39a74b5616ce74242d",
+          "text": "Predictions have systematic positive bias (overpredict severity) due to pipeline change shifting prediction level.",
+          "status": "proposed",
+          "origin": "meta",
+          "confidence_is_model_note": true
+        },
+        {
+          "hypothesis_id": "1fca636bd8b141b0a587dc646524171c",
+          "text": "Error is feature-dependent miscalibration (slope/scale error with amount or velocity), not uniform bias.",
+          "status": "proposed",
+          "origin": "meta",
+          "confidence_is_model_note": true
+        },
+        {
+          "hypothesis_id": "2056e694de524d44a6c1cf0268f765f0",
+          "text": "Apparent systematic error is artifact of data quality issues (missing, duplicates, corrupt target/prediction values).",
+          "status": "proposed",
+          "origin": "meta",
+          "confidence_is_model_note": true
+        }
+      ],
+      "supported_hypotheses": [],
+      "evidence_performed": [
+        {
+          "action_id": "bf678a153e0746d897107af5def71ef4",
+          "seq": 4,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+            "hypothesis_id": "ee63449565c74b39a74b5616ce74242d",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Predictions have systematic positive bias (overpredict severity) due to pipeline change shifting prediction level."
+          }
+        },
+        {
+          "action_id": "8b3618a0046c44a0916d1187a46cd9bf",
+          "seq": 7,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+            "hypothesis_id": "1fca636bd8b141b0a587dc646524171c",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Error is feature-dependent miscalibration (slope/scale error with amount or velocity), not uniform bias."
+          }
+        },
+        {
+          "action_id": "745f0c2fbd594c87970f162923197240",
+          "seq": 9,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+            "hypothesis_id": "2056e694de524d44a6c1cf0268f765f0",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Apparent systematic error is artifact of data quality issues (missing, duplicates, corrupt target/prediction values)."
+          }
+        },
+        {
+          "action_id": "24e17f6efb23441384beee8ddc9fcc97",
+          "seq": 14,
+          "tool": "calibration_snapshot",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+            "bias_mean_residual": -131.768,
+            "does_not_establish": "source of the bias",
+            "establishes": "bias vs variance decomposition",
+            "mae": 132.5096,
+            "n": 1500,
+            "ok": true,
+            "residual_std": 80.65515
+          }
+        },
+        {
+          "action_id": "fc28c1a4f51c4daf861cc1748fdbc1d5",
+          "seq": 18,
+          "tool": "data_quality_profile",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+            "does_not_establish": "whether quality issues caused errors",
+            "duplicate_rows": 0,
+            "establishes": "missingness/duplication facts",
+            "n": 1500,
+            "n_columns": 5,
+            "ok": true
+          }
+        },
+        {
+          "action_id": "3a09c71a2c9b48e48f4681b942f53d38",
+          "seq": 20,
+          "tool": "regression_metrics",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+            "bias_mean_residual": -131.768,
+            "heteroscedasticity_hint": 0.020827,
+            "mae": 132.5096,
+            "mse": 23863.722267,
+            "n": 1500,
+            "ok": true
+          }
+        }
+      ],
+      "limitations": [
+        "available diagnostics never run in this investigation: artifact_summary, dataset_validation, classification_metrics, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile"
+      ],
+      "recommended_next": [
+        {
+          "for": "ee63449565c74b39a74b5616ce74242d",
+          "action": "Design a test that would falsify: Predictions have systematic positive bias (overpredict severity) due to pipeline change shifting prediction level.",
+          "status": "hypothesis remains proposed"
+        },
+        {
+          "for": "1fca636bd8b141b0a587dc646524171c",
+          "action": "Design a test that would falsify: Error is feature-dependent miscalibration (slope/scale error with amount or velocity), not uniform bias.",
+          "status": "hypothesis remains proposed"
+        },
+        {
+          "for": "2056e694de524d44a6c1cf0268f765f0",
+          "action": "Design a test that would falsify: Apparent systematic error is artifact of data quality issues (missing, duplicates, corrupt target/prediction values).",
+          "status": "hypothesis remains proposed"
+        }
+      ],
+      "budget": {
+        "tool_calls": [
+          6,
+          12
+        ],
+        "iterations": [
+          0,
+          3
+        ]
+      },
+      "scope_note": "assembled deterministically from the investigation's recorded findings, hypotheses and executed actions; no section is model-invented and every rejected hypothesis carries its contradicting action ids."
+    },
+    "created_at": "2026-11-01 15:22:29"
+  },
+  {
+    "seq": 30,
+    "kind": "status_change",
+    "title": "finalizing -> complete",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 15:22:29"
+  }
+]

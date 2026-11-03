@@ -1,0 +1,32 @@
+{
+  "run": "run-full",
+  "campaign": "phase_d_groq_live_20261031T212749Z",
+  "started_utc": "2026-10-31T21:27:49Z",
+  "finalized_utc": "2026-10-31T21:32:01Z",
+  "status": "finalized",
+  "reason": null,
+  "outcome": {
+    "condition": "full",
+    "aborted": null,
+    "stop_reason": null,
+    "repair_attempted": true,
+    "summary_valid": true
+  },
+  "artifacts": {
+    "run_start.json": "046cacdf1e3e6307b9cad43ace3bbe3f3f8a20022f0d8b1c83e03dd759e19ad6",
+    "responses.jsonl": "e7d6851c9c733203b5a7c6361ed05de2270dcab3d0b45c0e2f4c9d38437dd335",
+    "assistant_messages.jsonl": "8270b9c8cb4ff11bbe2901e33736f4a311c99f97c2bb2fc9d97217c950f65e3b",
+    "usage.jsonl": "de75c976dfccd1640fabfed8a77b5191b1c1c8d0eba11ce153eee4cf17e27f0b",
+    "repairs.jsonl": "3614f55c0fc199a6fa3b4af7e26f6d4b27eb281104c2ecb107985ffbc447ffb2",
+    "events_dump.json": "0d7123f488b15eae6ca3883290ea20de5df5287b5580be27ed4ef8d9fa4e1b5b",
+    "sandbox_final.db": "2064841c6b4a5b65bc6626ddd7940854a949a1679d031f67305ebcf4c4f937c5"
+  },
+  "required_evidence_present": {
+    "responses": true,
+    "assistant_messages": true,
+    "usage": true,
+    "events_dump": true,
+    "sandbox_final.db": true,
+    "repairs": true
+  }
+}

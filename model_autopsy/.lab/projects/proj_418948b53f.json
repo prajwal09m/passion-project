@@ -1,0 +1,42 @@
+{
+ "id": "proj_418948b53f",
+ "objectives": "smoke",
+ "status": "active",
+ "agenda": [
+  {
+   "id": "paidX",
+   "kind": "paid",
+   "importance": 9,
+   "info_gain": 9,
+   "cost": 1,
+   "status": "awaiting-approval"
+  }
+ ],
+ "hypotheses": [],
+ "experiments": [],
+ "evidence": [],
+ "decisions": [],
+ "unresolved": [],
+ "resource_usage": {
+  "tool_calls": 0
+ },
+ "budget": {
+  "tool_calls": 20
+ },
+ "checkpoints": [],
+ "idempotency_keys": [],
+ "history": [
+  {
+   "t": 1793593447.868446,
+   "event": "created"
+  },
+  {
+   "t": 1793593447.9030702,
+   "event": "propose:paidX"
+  },
+  {
+   "t": 1793593447.9101787,
+   "event": "scheduler-tick"
+  }
+ ]
+}

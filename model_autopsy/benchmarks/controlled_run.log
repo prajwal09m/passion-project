@@ -1,0 +1,22 @@
+[pair 1] start 2026-10-29T22:00:38Z order=full first db=C:\Users\kamal\AppData\Local\Temp\ma-controlled-p1-vrabmkhl\sandbox.db
+[pair 1] completed elapsed=506.3s attempts=14 tokens=42983 cost=$0.009066 design=True (ok)
+[pair 2] start 2026-10-29T22:09:04Z order=delta first db=C:\Users\kamal\AppData\Local\Temp\ma-controlled-p2-6ra5dh9b\sandbox.db
+[pair 2] completed elapsed=600.4s attempts=17 tokens=45959 cost=$0.009400 design=True (ok)
+[pair 3] start 2026-10-29T22:19:04Z order=full first db=C:\Users\kamal\AppData\Local\Temp\ma-controlled-p3-_65ahckx\sandbox.db
+[pair 3] completed elapsed=539.9s attempts=15 tokens=45959 cost=$0.009206 design=True (ok)
+[pair 4] start 2026-10-29T22:28:04Z order=delta first db=C:\Users\kamal\AppData\Local\Temp\ma-controlled-p4-gkf6ixgp\sandbox.db
+[pair 4] completed elapsed=539.8s attempts=15 tokens=47162 cost=$0.010187 design=True (ok)
+[pair 5] start 2026-10-29T22:37:04Z order=full first db=C:\Users\kamal\AppData\Local\Temp\ma-controlled-p5-wqbpunse\sandbox.db
+[pair 5] completed elapsed=601.0s attempts=15 tokens=46314 cost=$0.009390 design=True (ok)
+{
+  "ledger": "C:\\Prajwal MIT\\Passion\\model_autopsy\\benchmarks\\phase_d_groq_controlled_ledger.json",
+  "status": "completed",
+  "stop_reason": null,
+  "totals": {
+    "pairs_completed": 5,
+    "provider_http_attempts": 76,
+    "input_plus_output_tokens": 228377,
+    "estimated_cost_usd": 0.047249,
+    "aborted_pairs": 0
+  }
+}

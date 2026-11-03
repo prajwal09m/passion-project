@@ -1,0 +1,357 @@
+{
+  "project": "eval_credit",
+  "investigation_id": "b04ad4d728e54570a231197f7918a4a4",
+  "report": {
+    "executive_summary": "1 supported / 1 rejected / 0 inconclusive-or-blocked from 2 experiment(s).",
+    "project_understanding": {
+      "project_id": "eval_credit",
+      "predicting": "Card-default scores look uneven across regions.",
+      "receives": {
+        "columns": [
+          "age",
+          "income",
+          "tenure",
+          "region",
+          "delinq",
+          "score",
+          "label"
+        ],
+        "note": "model inputs per observed artifact schema"
+      },
+      "produces": {
+        "target": "Binary: default within 12 months",
+        "note": "model outputs per spec"
+      },
+      "success": "AUC overall + per region, calibration",
+      "evaluation": "AUC overall + per region, calibration",
+      "evaluation_assumptions": [
+        "reported metrics assume the supplied predictions match the described evaluation split",
+        "recomputed metrics assume label/target columns are correct"
+      ],
+      "missing": [],
+      "possible": [
+        "dataset_validation: schema/quality overview",
+        "error_analysis: predictions vs ground truth"
+      ],
+      "impossible": [
+        "temporal_analysis: no date column observed",
+        "white-box inspection: black-box availability, inputs/outputs only"
+      ],
+      "inconsistencies": [],
+      "dataset": {
+        "location": "model_autopsy/tests/fixture_eval/investigator/credit_default.csv",
+        "readable": true,
+        "path": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\credit_default.csv",
+        "n_rows_peek": 1500,
+        "columns": [
+          "age",
+          "income",
+          "tenure",
+          "region",
+          "delinq",
+          "score",
+          "label"
+        ],
+        "dtypes": {
+          "age": "int64",
+          "income": "float64",
+          "tenure": "int64",
+          "region": "object",
+          "delinq": "int64",
+          "score": "float64",
+          "label": "int64"
+        },
+        "null_counts": {
+          "age": 0,
+          "income": 0,
+          "tenure": 0,
+          "region": 0,
+          "delinq": 0,
+          "score": 0,
+          "label": 0
+        },
+        "samples": [
+          {
+            "age": 21,
+            "income": 65.3,
+            "tenure": 5,
+            "region": "N",
+            "delinq": 1,
+            "score": 0.1241,
+            "label": 0
+          },
+          {
+            "age": 58,
+            "income": 66.8,
+            "tenure": 12,
+            "region": "S",
+            "delinq": 1,
+            "score": 0.0278,
+            "label": 0
+          },
+          {
+            "age": 43,
+            "income": 32.8,
+            "tenure": 19,
+            "region": "S",
+            "delinq": 0,
+            "score": 0.0736,
+            "label": 0
+          },
+          {
+            "age": 55,
+            "income": 42.2,
+            "tenure": 16,
+            "region": "W",
+            "delinq": 1,
+            "score": 0.5665,
+            "label": 1
+          },
+          {
+            "age": 34,
+            "income": 29.2,
+            "tenure": 16,
+            "region": "N",
+            "delinq": 2,
+            "score": 0.01,
+            "label": 0
+          }
+        ],
+        "numeric_summary": {
+          "age": {
+            "mean": 46.63066666666667,
+            "std": 15.83869214933975,
+            "min": 20.0,
+            "max": 74.0
+          },
+          "income": {
+            "mean": 54.999,
+            "std": 17.739053385398183,
+            "min": -1.4,
+            "max": 121.5
+          },
+          "tenure": {
+            "mean": 9.425333333333333,
+            "std": 5.7134508459658955,
+            "min": 0.0,
+            "max": 19.0
+          },
+          "delinq": {
+            "mean": 1.2153333333333334,
+            "std": 1.0938140495557547,
+            "min": 0.0,
+            "max": 7.0
+          },
+          "score": {
+            "mean": 0.41014439999999996,
+            "std": 0.31392807949385976,
+            "min": 0.01,
+            "max": 0.99
+          },
+          "label": {
+            "mean": 0.3606666666666667,
+            "std": 0.4803540870248771,
+            "min": 0.0,
+            "max": 1.0
+          }
+        }
+      },
+      "model": {
+        "name": "default-gbm",
+        "framework": "xgboost",
+        "availability": "black_box",
+        "training_config": {}
+      },
+      "docs": {},
+      "provenance": {
+        "built_by": "recon.build_understanding",
+        "artifact": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\credit_default.csv"
+      }
+    },
+    "confirmed_findings": [
+      {
+        "hypothesis_id": "6f731622734d",
+        "title": "Subgroup underperformance hidden by pooled metric",
+        "mechanism": "Strong overall AUC can conceal a failing slice (ward/segment); pooled metric conceals the mode.",
+        "evidence": [
+          "segment-like columns present",
+          {
+            "experiment_id": "9fe5691ecb5b",
+            "tool": "classification_metrics",
+            "numbers": {
+              "n": 1500,
+              "auc": 0.9704,
+              "auc_by_group": {
+                "E": 1.0,
+                "N": 1.0,
+                "S": 1.0,
+                "W": 0.5385
+              },
+              "group_column": "region",
+              "group_gap": 0.4615
+            }
+          }
+        ]
+      }
+    ],
+    "rejected_hypotheses": [
+      {
+        "hypothesis_id": "60a757491f49",
+        "title": "Proxy feature leaks the label"
+      }
+    ],
+    "inconclusive": [],
+    "open_hypotheses": [
+      {
+        "hypothesis_id": "fc0d3bcd993d",
+        "title": "No material issue (null hypothesis)",
+        "status": "proposed"
+      }
+    ],
+    "experiments": [
+      {
+        "experiment_id": "9c1c5b69a39a",
+        "hypothesis_id": "60a757491f49",
+        "tool": "feature_target_suspiciousness",
+        "status": "ran",
+        "breach": false,
+        "summary": "top feature delinq |r|=0.371 (gap 0.099)",
+        "numbers": {
+          "n": 1500,
+          "top_feature": "delinq",
+          "top_corr": 0.3714,
+          "gap": 0.0991
+        }
+      },
+      {
+        "experiment_id": "9fe5691ecb5b",
+        "hypothesis_id": "6f731622734d",
+        "tool": "classification_metrics",
+        "status": "ran",
+        "breach": true,
+        "summary": "AUC=0.970 via score group_gap=0.462(region)",
+        "numbers": {
+          "n": 1500,
+          "auc": 0.9704,
+          "auc_by_group": {
+            "E": 1.0,
+            "N": 1.0,
+            "S": 1.0,
+            "W": 0.5385
+          },
+          "group_column": "region",
+          "group_gap": 0.4615
+        }
+      }
+    ],
+    "verification": [
+      {
+        "hypothesis_id": "60a757491f49",
+        "claim": "Proxy feature leaks the label",
+        "verdict": "upheld",
+        "checks": [
+          {
+            "check": "sample_size_sufficient",
+            "pass": true,
+            "detail": "n=1500; <30 is insufficient for a finding"
+          },
+          {
+            "check": "methodology_appropriate",
+            "pass": true,
+            "detail": "method=feature_target_suspiciousness"
+          },
+          {
+            "check": "evidence_linked",
+            "pass": true,
+            "detail": "1 evidence result(s)"
+          },
+          {
+            "check": "no_leak_in_diagnostic",
+            "pass": true,
+            "detail": "diagnostic is read-only recomputation; no leakage signal"
+          },
+          {
+            "check": "numbers_reproducible",
+            "pass": true,
+            "detail": "4 numeric value(s) with seeds"
+          }
+        ],
+        "disagreement": null,
+        "disproof_wanted": "all |correlations| modest (<0.4) or top feature is a legitimate driver"
+      },
+      {
+        "hypothesis_id": "6f731622734d",
+        "claim": "Subgroup underperformance hidden by pooled metric",
+        "verdict": "upheld",
+        "checks": [
+          {
+            "check": "sample_size_sufficient",
+            "pass": true,
+            "detail": "n=1500; <30 is insufficient for a finding"
+          },
+          {
+            "check": "methodology_appropriate",
+            "pass": true,
+            "detail": "method=classification_metrics"
+          },
+          {
+            "check": "evidence_linked",
+            "pass": true,
+            "detail": "1 evidence result(s)"
+          },
+          {
+            "check": "no_leak_in_diagnostic",
+            "pass": true,
+            "detail": "diagnostic is read-only recomputation; no leakage signal"
+          },
+          {
+            "check": "numbers_reproducible",
+            "pass": true,
+            "detail": "5 numeric value(s) with seeds"
+          }
+        ],
+        "disagreement": null,
+        "disproof_wanted": "segment AUCs within 0.03 of each other"
+      }
+    ],
+    "limitations": [
+      "offline deterministic triage; LLM reasoning quality covered by prior frozen live campaigns, not here",
+      "single scenario per task family in this suite slice",
+      "heuristic prioritization is not Bayesian information gain"
+    ],
+    "reproducibility": {
+      "seeds": "fixed per diagnostic",
+      "artifacts": "committed CSV fixtures",
+      "runner": "lab.run_autonomous_investigation"
+    },
+    "recommendations": [
+      "re-run breached diagnostics on fresh splits before acting",
+      "add a reusable diagnostic module for any candidate novel mechanism before treating it as a finding type"
+    ]
+  },
+  "scorecard": {
+    "project": "eval_credit",
+    "verdict": "correct",
+    "note": "mechanism named + numbers support (max group_gap=0.4615)",
+    "false_positive": false,
+    "dimensions": {
+      "discovery": 1.0,
+      "evidence": 1.0,
+      "reasoning": 1.0,
+      "calibration": 1.0,
+      "efficiency": 1.0,
+      "reproducibility": 1.0
+    },
+    "weights": {
+      "discovery": 0.3,
+      "evidence": 0.25,
+      "reasoning": 0.15,
+      "calibration": 0.15,
+      "efficiency": 0.05,
+      "reproducibility": 0.1
+    },
+    "overall": 1.0,
+    "assessment": "deterministic + heuristic; LLM/human reserved"
+  },
+  "elapsed_s": 3.47
+}

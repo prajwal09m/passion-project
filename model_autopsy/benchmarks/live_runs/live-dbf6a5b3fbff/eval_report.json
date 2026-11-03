@@ -1,0 +1,122 @@
+{
+  "executive_summary": "Residuals show little link to numeric features, weakening the scaling theory \u2014 now checking for systematic bias.",
+  "confirmed_findings": [],
+  "rejected_hypotheses": [],
+  "inconclusive": [
+    {
+      "hypothesis_id": "685cb37267584ef3abc9034d49f1a1c5",
+      "text": "Predictions have systematic district-specific bias (e.g., district B over/under-predicted) caused by schema update mishandling of district feature.",
+      "status": "investigating",
+      "origin": "meta",
+      "confidence_is_model_note": true
+    },
+    {
+      "hypothesis_id": "3b94f1cb3b644a8c96210e528e67dae5",
+      "text": "Errors are driven by mis-scaled numeric feature (area and/or rooms) after schema update, not by district membership itself.",
+      "status": "investigating",
+      "origin": "meta",
+      "confidence_is_model_note": true
+    },
+    {
+      "hypothesis_id": "282f282f29f84bd7a5e6f1f2b7577615",
+      "text": "Model has global miscalibration/target drift affecting all districts similarly, with no true district-specific failure.",
+      "status": "investigating",
+      "origin": "meta",
+      "confidence_is_model_note": true
+    }
+  ],
+  "experiments": [
+    {
+      "experiment_id": "63db9531a544444bb1c1c2d7aa524074",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "dff43b8b24214bc9957bc7dd97355c38",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "392759294426437b89ae01f1f5718037",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "50704274072a4b70807a3786c566b803",
+      "tool": "regression_metrics",
+      "summary": "regression_metrics: bias_mean_residual=114.465; mae=191.221667; n=1200",
+      "numbers": {
+        "n": 1200,
+        "mae": 191.221667,
+        "mse": 97373.865,
+        "rmse": 312.047857,
+        "r2": 0.786538,
+        "bias_mean_residual": 114.465,
+        "residual_std": 290.295761,
+        "heteroscedasticity_hint": 0.069377,
+        "outliers_abs_z_gt_3": 30,
+        "mae_by_group": {
+          "A": 93.725941,
+          "B": 97.38809,
+          "C": 583.987234
+        }
+      }
+    },
+    {
+      "experiment_id": "d53e376513fa49f1b245629b725c2a00",
+      "tool": "residual_feature_dependence",
+      "summary": "residual_feature_dependence: n=1200",
+      "numbers": {
+        "n": 1200,
+        "n_numeric_scanned": 2,
+        "max_abs_corr": 0.180565
+      }
+    },
+    {
+      "experiment_id": "87b44cde97934f138eab7923a193c188",
+      "tool": "calibration_snapshot",
+      "summary": "calibration_snapshot: bias_mean_residual=114.465; mae=191.221667; n=1200",
+      "numbers": {
+        "n": 1200,
+        "bias_mean_residual": 114.465,
+        "residual_std": 290.416793,
+        "mae": 191.221667
+      }
+    }
+  ],
+  "verification": [],
+  "limitations": [
+    "available diagnostics never run in this investigation: artifact_summary, dataset_validation, classification_metrics, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile, data_quality_profile"
+  ],
+  "investigation_id": "5ba609b895334846bd3f5220be6a86a1",
+  "structured_summary_valid": false,
+  "deterministic_fallback": {
+    "schema_version": "m8-v1",
+    "kind": "deterministic-fallback",
+    "fallback_version": "m8-fallback-v1",
+    "conclusion": "Inconclusive: no hypothesis met the supported bar. Leading open explanation: Predictions have systematic district-specific bias (e.g., district B over/under-predicted) caused by schema update mishandling of district feature.",
+    "status_recommendations": [],
+    "uncertainties": [
+      "Open: Predictions have systematic district-specific bias (e.g., district B over/under-predicted) caused by schema update mishandling of district feature.",
+      "Open: Errors are driven by mis-scaled numeric feature (area and/or rooms) after schema update, not by district membership itself.",
+      "Open: Model has global miscalibration/target drift affecting all districts similarly, with no true district-specific failure."
+    ],
+    "recommended_next": "Design a test that would falsify: Predictions have systematic district-specific bias (e.g., district B over/under-predicted) caused by schema update misha",
+    "evidence_action_ids": [
+      "63db9531a544444bb1c1c2d7aa524074",
+      "dff43b8b24214bc9957bc7dd97355c38",
+      "392759294426437b89ae01f1f5718037",
+      "50704274072a4b70807a3786c566b803",
+      "d53e376513fa49f1b245629b725c2a00",
+      "87b44cde97934f138eab7923a193c188"
+    ],
+    "model_summary_errors": [
+      "no structured summary found in the final message"
+    ],
+    "provenance": "composed deterministically from recorded hypotheses/actions/report; the investigator's invalid response was preserved, not repaired away"
+  },
+  "fallback_used": true
+}

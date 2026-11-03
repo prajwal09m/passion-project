@@ -1,0 +1,43 @@
+{
+  "campaign": "phase_d_meta_paired_2026_10_29",
+  "rubric_version": "v1",
+  "created_utc": "2026-10-30T00:30:20Z",
+  "condition_key": {
+    "path": "model_autopsy/benchmarks/.sealed/phase_d_blind_condition_key_v1.json",
+    "sha256": "d990f0854feba33cf45b17fb0b285af04e69a6c0fde079df11e03e7c7e7ddc9b",
+    "entries": 4
+  },
+  "raw_traces_sha256": {
+    "phase_d_groq_20b_pilot.json": "9818a1b5191d740afe277870510d3f22d6b5640ba01d186d7ec35afe2e36b5bf",
+    "phase_d_groq_20b_pilot2.json": "36b159ff5693cc68f068f9bb88f7a8848828cc518e4c8ae0f711c122cd4b7f95",
+    "phase_d_groq_20b_pilot3.json": "e79d3bca1b7d470bbcc337abdedabee52036e23cedbb64ec9d36cf651f9852fa",
+    "phase_d_groq_20b_pilot4.json": "ffbe67fed545da0ac6470762c8060ed727b7c227ccd6984fb8b8579a5fecc5cd",
+    "phase_d_groq_20b_pilot5.json": "e182855b66a0e9ec290a18d7dd44922e989b38667509a3b547f030f345a40157",
+    "phase_d_groq_controlled_analysis.json": "9f1d012be19edecc756c02133eed2f20b49d06e1991fa3c9152087e76e21da29",
+    "phase_d_groq_controlled_blind_sheet.json": "e01c54b7f74a24d824a40e47b28756d70f9124d3a7abad589ba2a480ebfd0456",
+    "phase_d_groq_controlled_ledger.json": "81dee3858174742900d7b2f194ede3f1d3668fa392f7b099cac099cbd9ae10ed",
+    "phase_d_groq_controlled_mechanical.json": "7318ba5f18f3e0df9cb81b5278a98af788e8779d673ddc5dbb893b8fdcd857ac",
+    "phase_d_groq_controlled_pair1.json": "722cb9f997602e592d58c2367e9395a9a98a615092d763533b452b1639336fe7",
+    "phase_d_groq_controlled_pair2.json": "dd9889b89a649c10e70a3e83f1adc22b78fa05b1cf5bf97f24e7d9ba9612bf7f",
+    "phase_d_groq_controlled_pair3.json": "da5e806f7f974aecbbedd655ef3cf7c8e6b2978fd7abee571054b8b7becde923",
+    "phase_d_groq_controlled_pair4.json": "428f5551cd602e37aef42f2468a324cce21a3ed1e222e7cc9cf682e62e73004e",
+    "phase_d_groq_controlled_pair5.json": "9af0b70e826248a0b2af7911dec010b3933b0a5ec70f31caee9a5407ab0118ee",
+    "phase_d_groq_controlled_report_data.json": "45d63d38c426abceb11d7b3dec358dd04f79b5e90d72fe64c10db66ec11c55e5",
+    "phase_d_groq_controlled_scores_blind.json": "15e1e3300c4748f275167fa4b8168ed725cc8c5a473889a436836551f45117db",
+    "phase_d_groq_paced.json": "f1ba14b3217d0f76358bb4d2a19029e5a41eeb93a0a267e094113971f79c3a56",
+    "phase_d_groq_pair_trace_analysis.json": "96aa78f0117ac5b6a7e9206d820510ada14f5861380a93af37016c65d22bd69c",
+    "phase_d_groq_results.json": "00f7ae73a1ecb6d065fd3b49a8afbc81cbc14903f4c7d17e1d1e90e32bb475f9",
+    "phase_d_groq_trial1.json": "2bda58107dffa35a9a273211e8360cd30f59a8b95b65dfcd5364cfda3df22e37",
+    "phase_d_groq_trial2.json": "c21839b451f24ef0ac0321216c1d6c0b0e40cfa49526fc875eecd1b44ae6f422",
+    "phase_d_groq_trial3.json": "bacc6a7bfde51a4addd56c25abd76d0fa8e82de85a9abe72cb92d799eb0c2cc0"
+  },
+  "scoring_package_sha256": {
+    "phase_d_blind_scoring_rubric_v1.md": "2a172a501bce7516470cf6f69ed59ea6e9c51e376c69fcc49115b120c0805b09",
+    "phase_d_blind_evaluation_protocol_v1.md": "681969431677e5cfa65b366d36b4d96084f4f18d544c83a0ee83a5b10b4cd61b",
+    "phase_d_blind_scoring_sheets/run-01.md": "f1f3b9ce6469ff3072737f784ef0e6a7e1b53ddbbf4715e920e67ed387408be6",
+    "phase_d_blind_scoring_sheets/run-02.md": "f46a2752b98a539b78584e1b52ee2615bd928a51e312f302b2d67abd298fc91b",
+    "phase_d_blind_scoring_sheets/run-03.md": "4cae0e6ed1956d7de5e39ac4ce5b5fc272fe5db7dbb59ceff3e899a4ebbabc59",
+    "phase_d_blind_scoring_sheets/run-04.md": "4da8b826e8b85f2c086fc98ac3871b70328f5905aa9b74d008877234833104b6",
+    "blind_scoring.py": "11df932294f67245726db9fd6f4efa388cc1abd465fccbdb8072ea7d5fcf33f0"
+  }
+}

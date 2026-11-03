@@ -1,0 +1,80 @@
+{
+  "executive_summary": "I've mapped three competing explanations for slice performance. Now I'll run the slice-aware ranking diagnostic that best discriminates them.",
+  "confirmed_findings": [],
+  "rejected_hypotheses": [
+    {
+      "hypothesis_id": "7bc7be5692a34e9f905d9026eda6397e",
+      "title": "Top-K relevance is uniform across catalog slices; no slice systematically underperforms."
+    }
+  ],
+  "inconclusive": [],
+  "experiments": [
+    {
+      "experiment_id": "a6668a81c7214a439ca5c6ca02b3df86",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "d46e1d30df8f4130a2c98dd4e7fde488",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "161f4d3905d64d78b6bd0cdfcc9b84c6",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "1ac579ac447f454bab2962af17075548",
+      "tool": "ranking_slice_diagnostics",
+      "summary": "ranking_slice_diagnostics: recorded",
+      "numbers": {
+        "k_frac": 0.1,
+        "pooled_precision_at_k": 0.9432,
+        "max_slice_gap": 0.1695
+      }
+    },
+    {
+      "experiment_id": "4b49bf94c0d24768a1fb712817eb94e2",
+      "tool": "segment_quality_screen",
+      "summary": "segment_quality_screen: n=1760",
+      "numbers": {
+        "n": 1760,
+        "worst_null_rate": 0.0,
+        "worst_dup_rate": 0.07363
+      }
+    }
+  ],
+  "verification": [],
+  "limitations": [
+    "available diagnostics never run in this investigation: artifact_summary, dataset_validation, classification_metrics, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, regression_metrics, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile, data_quality_profile, calibration_snapshot, residual_feature_dependence"
+  ],
+  "investigation_id": "e85e297532aa4ebda81848cc9e195a8d",
+  "structured_summary_valid": false,
+  "deterministic_fallback": {
+    "schema_version": "m8-v1",
+    "kind": "deterministic-fallback",
+    "fallback_version": "m8-fallback-v1",
+    "conclusion": "Best-supported explanation (recorded evidence only): Ranking quality fails selectively in the 'new' catalog slice due to cold-start / feature sparsity.",
+    "status_recommendations": [],
+    "uncertainties": [
+      "none recorded; see evidence trail"
+    ],
+    "recommended_next": "No open hypotheses remain; investigation may be closed",
+    "evidence_action_ids": [
+      "a6668a81c7214a439ca5c6ca02b3df86",
+      "d46e1d30df8f4130a2c98dd4e7fde488",
+      "161f4d3905d64d78b6bd0cdfcc9b84c6",
+      "1ac579ac447f454bab2962af17075548",
+      "4b49bf94c0d24768a1fb712817eb94e2"
+    ],
+    "model_summary_errors": [
+      "no structured summary found in the final message"
+    ],
+    "provenance": "composed deterministically from recorded hypotheses/actions/report; the investigator's invalid response was preserved, not repaired away"
+  },
+  "fallback_used": true
+}

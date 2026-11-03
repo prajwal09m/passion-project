@@ -1,0 +1,42 @@
+{
+ "id": "proj_d3dcd9180d",
+ "objectives": "smoke",
+ "status": "active",
+ "agenda": [
+  {
+   "id": "paidX",
+   "kind": "paid",
+   "importance": 9,
+   "info_gain": 9,
+   "cost": 1,
+   "status": "awaiting-approval"
+  }
+ ],
+ "hypotheses": [],
+ "experiments": [],
+ "evidence": [],
+ "decisions": [],
+ "unresolved": [],
+ "resource_usage": {
+  "tool_calls": 0
+ },
+ "budget": {
+  "tool_calls": 20
+ },
+ "checkpoints": [],
+ "idempotency_keys": [],
+ "history": [
+  {
+   "t": 1793590257.6397555,
+   "event": "created"
+  },
+  {
+   "t": 1793590257.685437,
+   "event": "propose:paidX"
+  },
+  {
+   "t": 1793590257.6928082,
+   "event": "scheduler-tick"
+  }
+ ]
+}

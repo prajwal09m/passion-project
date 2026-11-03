@@ -1,0 +1,1081 @@
+
+> model-autopsy-dashboard@0.1.0 dev
+> vite --host 127.0.0.1 --port 5173
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m331[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m5173[22m/[39m
+[2m1:43:02 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m1:43:10 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m1:43:10 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "./NewInvestigation" from "src/App.tsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/App.tsx[39m:9:37
+[33m  23 |  import { EvalPage } from "./Eval";
+  24 |  import { LabPage } from "./Lab";
+  25 |  import { NewInvestigationPage } from "./NewInvestigation";
+     |                                        ^
+  26 |  const NAV = [
+  27 |    { key: "landing", label: "Home" },[39m
+      at TransformPluginContext._formatError (file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 10)
+      at async TransformPluginContext.transform (file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+[2m1:43:10 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "./NewInvestigation" from "src/App.tsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/App.tsx[39m:9:37
+[33m  23 |  import { EvalPage } from "./Eval";
+  24 |  import { LabPage } from "./Lab";
+  25 |  import { NewInvestigationPage } from "./NewInvestigation";
+     |                                        ^
+  26 |  const NAV = [
+  27 |    { key: "landing", label: "Home" },[39m
+      at TransformPluginContext._formatError (file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 10)
+      at async TransformPluginContext.transform (file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///C:/Prajwal%20MIT/Passion/model_autopsy/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+[2m1:43:19 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Landing.tsx, /src/Projects.tsx, /src/Lab.tsx, /src/Eval.tsx, /src/pages.tsx, /src/Workspace.tsx, /src/ResearchLab.tsx, /src/ui.tsx[22m
+[2m1:43:19 PM[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/ui.tsx[22m Could not Fast Refresh ("fmtNum" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m1:43:19 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Lab.tsx, /src/Eval.tsx, /src/pages.tsx, /src/Workspace.tsx, /src/ResearchLab.tsx[22m
+[2m1:44:28 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Landing.tsx[22m
+[2m1:44:40 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Landing.tsx[22m
+[2m1:44:48 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Landing.tsx[22m
+[2m1:45:05 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages.tsx[22m
+[2m1:45:19 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages.tsx[22m
+[2m1:45:40 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Lab.tsx[22m
+[2m1:45:47 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Eval.tsx[22m
+[2m1:45:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m2:02:53 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m2:22:49 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m2:22:55 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m2:23:12 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m2:27:14 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m2:27:21 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m2:35:34 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m2:35:46 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m2:37:32 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m4:01:08 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Landing.tsx, /src/Projects.tsx, /src/Lab.tsx, /src/Eval.tsx, /src/pages.tsx, /src/Workspace.tsx, /src/ResearchLab.tsx, /src/ui.tsx, /src/NewInvestigation.tsx[22m
+[2m4:01:08 PM[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/ui.tsx[22m Could not Fast Refresh ("fmtNum" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m4:01:08 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Lab.tsx, /src/Eval.tsx, /src/pages.tsx, /src/Workspace.tsx, /src/ResearchLab.tsx, /src/NewInvestigation.tsx[22m
+[2m4:01:32 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx, /src/Workspace.tsx[22m
+[2m4:01:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m4:02:41 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m4:03:05 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m4:03:30 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m4:04:26 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages.tsx[22m
+[2m4:04:41 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m4:04:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m4:06:04 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m4:06:14 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m4:15:58 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m4:16:24 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m4:17:11 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m4:57:41 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:17:05 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:38:56 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/ui.tsx[22m
+[2m5:38:56 PM[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/ui.tsx[22m Could not Fast Refresh ("fmtNum" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m5:38:56 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Lab.tsx, /src/Eval.tsx, /src/pages.tsx, /src/Workspace.tsx, /src/ResearchLab.tsx, /src/NewInvestigation.tsx[22m
+[2m5:47:15 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m5:48:14 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/ui.tsx[22m
+[2m5:48:14 PM[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/ui.tsx[22m Could not Fast Refresh (new export)
+[2m5:48:14 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Lab.tsx, /src/Eval.tsx, /src/pages.tsx, /src/Workspace.tsx, /src/ResearchLab.tsx, /src/NewInvestigation.tsx[22m
+[2m5:48:43 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/ui.tsx[22m
+[2m5:48:43 PM[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/ui.tsx[22m Could not Fast Refresh ("fmtInt" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m5:48:43 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Lab.tsx, /src/Eval.tsx, /src/pages.tsx, /src/Workspace.tsx, /src/ResearchLab.tsx, /src/NewInvestigation.tsx[22m
+[2m5:48:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/ui.tsx[22m
+[2m5:48:52 PM[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/ui.tsx[22m Could not Fast Refresh ("fmtInt" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m5:48:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Lab.tsx, /src/Eval.tsx, /src/pages.tsx, /src/Workspace.tsx, /src/ResearchLab.tsx, /src/NewInvestigation.tsx[22m
+[2m5:49:04 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/ui.tsx[22m
+[2m5:49:04 PM[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/ui.tsx[22m Could not Fast Refresh ("fmtInt" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m5:49:04 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Lab.tsx, /src/Eval.tsx, /src/pages.tsx, /src/Workspace.tsx, /src/ResearchLab.tsx, /src/NewInvestigation.tsx[22m
+[2m5:50:20 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:50:34 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:52:02 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:52:11 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:52:16 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:52:44 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:52:56 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:53:13 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:53:20 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:53:27 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:53:27 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Unexpected token, expected "," (1019:57)
+
+[0m [90m 1017 |[31m           [33m<[31m[33m/[31m[33mdetails[31m[33m>[31m
+ [90m 1018 |[31m         [33m<[31m[33m/[31m[33mli[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1019 |[31m       ) [33m:[31m g[33m.[31mmap((e) [33m=>[31m [33m<[31m[33mTimelineRow[31m key[33m=[31m{e[33m.[31mseq} e[33m=[31m{e} [33m/[31m[33m>[31m)}
+ [90m      |[31m                                                          [31m[1m^[22m[31m
+ [90m 1020 |[31m       {gi [33m===[31m groups[33m.[31mlength [33m&&[31m [36mnull[31m}
+ [90m 1021 |[31m     [33m<[31m[33m/[31m[33mul[31m[33m>[31m
+ [90m 1022 |[31m   )[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:1019:57
+[33m  1050|        <div>
+  1051|          <EmptyState what="No final report yet."
+  1052|            action={hasEvidence ? 'Generate one from the recorded evidence.' : 'Run diagnostics first; the report needs evidence.'} />
+     |                                                                                                                                  ^
+  1053|          {hasEvidence && (
+  1054|            <button className="primary" disabled={busy} onClick={run}>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.unexpected (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6620:16)
+      at TypeScriptParserMixin.expect (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6929:12)
+      at TypeScriptParserMixin.parseCallExpressionArguments (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8152:14)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8095:29)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8024:19)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13041:18)
+      at TypeScriptParserMixin.parseSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7998:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7989:17)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4654:31)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4733:36)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+[2m5:53:28 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Unexpected token, expected "," (1019:57)
+
+[0m [90m 1017 |[31m           [33m<[31m[33m/[31m[33mdetails[31m[33m>[31m
+ [90m 1018 |[31m         [33m<[31m[33m/[31m[33mli[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1019 |[31m       ) [33m:[31m g[33m.[31mmap((e) [33m=>[31m [33m<[31m[33mTimelineRow[31m key[33m=[31m{e[33m.[31mseq} e[33m=[31m{e} [33m/[31m[33m>[31m)}
+ [90m      |[31m                                                          [31m[1m^[22m[31m
+ [90m 1020 |[31m       {gi [33m===[31m groups[33m.[31mlength [33m&&[31m [36mnull[31m}
+ [90m 1021 |[31m     [33m<[31m[33m/[31m[33mul[31m[33m>[31m
+ [90m 1022 |[31m   )[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:1019:57
+[33m  1050|        <div>
+  1051|          <EmptyState what="No final report yet."
+  1052|            action={hasEvidence ? 'Generate one from the recorded evidence.' : 'Run diagnostics first; the report needs evidence.'} />
+     |                                                                                                                                  ^
+  1053|          {hasEvidence && (
+  1054|            <button className="primary" disabled={busy} onClick={run}>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.unexpected (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6620:16)
+      at TypeScriptParserMixin.expect (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6929:12)
+      at TypeScriptParserMixin.parseCallExpressionArguments (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8152:14)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8095:29)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8024:19)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13041:18)
+      at TypeScriptParserMixin.parseSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7998:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7989:17)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4654:31)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4733:36)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+[2m5:53:41 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:53:41 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Unexpected token, expected "," (1019:57)
+
+[0m [90m 1017 |[31m           [33m<[31m[33m/[31m[33mdetails[31m[33m>[31m
+ [90m 1018 |[31m         [33m<[31m[33m/[31m[33mli[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1019 |[31m       ) [33m:[31m g[33m.[31mmap((e) [33m=>[31m [33m<[31m[33mTimelineRow[31m key[33m=[31m{e[33m.[31mseq} e[33m=[31m{e} [33m/[31m[33m>[31m)}
+ [90m      |[31m                                                          [31m[1m^[22m[31m
+ [90m 1020 |[31m     [33m<[31m[33m/[31m[33mul[31m[33m>[31m
+ [90m 1021 |[31m   )
+ [90m 1022 |[31m }[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:1019:57
+[33m  1051|            action={hasEvidence ? 'Generate one from the recorded evidence.' : 'Run diagnostics first; the report needs evidence.'} />
+  1052|          {hasEvidence && (
+  1053|            <button className="primary" disabled={busy} onClick={run}>
+     |        ^
+  1054|              {busy ? 'Generating…' : 'Generate final report'}
+  1055|            </button>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.unexpected (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6620:16)
+      at TypeScriptParserMixin.expect (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6929:12)
+      at TypeScriptParserMixin.parseCallExpressionArguments (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8152:14)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8095:29)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8024:19)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13041:18)
+      at TypeScriptParserMixin.parseSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7998:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7989:17)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4654:31)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4733:36)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+[2m5:53:41 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Unexpected token, expected "," (1019:57)
+
+[0m [90m 1017 |[31m           [33m<[31m[33m/[31m[33mdetails[31m[33m>[31m
+ [90m 1018 |[31m         [33m<[31m[33m/[31m[33mli[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1019 |[31m       ) [33m:[31m g[33m.[31mmap((e) [33m=>[31m [33m<[31m[33mTimelineRow[31m key[33m=[31m{e[33m.[31mseq} e[33m=[31m{e} [33m/[31m[33m>[31m)}
+ [90m      |[31m                                                          [31m[1m^[22m[31m
+ [90m 1020 |[31m     [33m<[31m[33m/[31m[33mul[31m[33m>[31m
+ [90m 1021 |[31m   )
+ [90m 1022 |[31m }[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:1019:57
+[33m  1051|            action={hasEvidence ? 'Generate one from the recorded evidence.' : 'Run diagnostics first; the report needs evidence.'} />
+  1052|          {hasEvidence && (
+  1053|            <button className="primary" disabled={busy} onClick={run}>
+     |        ^
+  1054|              {busy ? 'Generating…' : 'Generate final report'}
+  1055|            </button>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.unexpected (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6620:16)
+      at TypeScriptParserMixin.expect (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6929:12)
+      at TypeScriptParserMixin.parseCallExpressionArguments (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8152:14)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8095:29)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8024:19)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13041:18)
+      at TypeScriptParserMixin.parseSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7998:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7989:17)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4654:31)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4733:36)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+[2m5:53:56 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:53:56 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Unexpected token, expected "," (1015:57)
+
+[0m [90m 1013 |[31m           [33m<[31m[33m/[31m[33mdetails[31m[33m>[31m
+ [90m 1014 |[31m         [33m<[31m[33m/[31m[33mli[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1015 |[31m       ) [33m:[31m g[33m.[31mmap((e) [33m=>[31m [33m<[31m[33mTimelineRow[31m key[33m=[31m{e[33m.[31mseq} e[33m=[31m{e} [33m/[31m[33m>[31m)}
+ [90m      |[31m                                                          [31m[1m^[22m[31m
+ [90m 1016 |[31m     [33m<[31m[33m/[31m[33mul[31m[33m>[31m
+ [90m 1017 |[31m   )
+ [90m 1018 |[31m }[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:1015:57
+[33m  1047|            action={hasEvidence ? 'Generate one from the recorded evidence.' : 'Run diagnostics first; the report needs evidence.'} />
+  1048|          {hasEvidence && (
+  1049|            <button className="primary" disabled={busy} onClick={run}>
+     |    ^
+  1050|              {busy ? 'Generating…' : 'Generate final report'}
+  1051|            </button>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.unexpected (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6620:16)
+      at TypeScriptParserMixin.expect (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6929:12)
+      at TypeScriptParserMixin.parseCallExpressionArguments (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8152:14)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8095:29)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8024:19)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13041:18)
+      at TypeScriptParserMixin.parseSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7998:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7989:17)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4654:31)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4733:36)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+[2m5:53:57 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Unexpected token, expected "," (1015:57)
+
+[0m [90m 1013 |[31m           [33m<[31m[33m/[31m[33mdetails[31m[33m>[31m
+ [90m 1014 |[31m         [33m<[31m[33m/[31m[33mli[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1015 |[31m       ) [33m:[31m g[33m.[31mmap((e) [33m=>[31m [33m<[31m[33mTimelineRow[31m key[33m=[31m{e[33m.[31mseq} e[33m=[31m{e} [33m/[31m[33m>[31m)}
+ [90m      |[31m                                                          [31m[1m^[22m[31m
+ [90m 1016 |[31m     [33m<[31m[33m/[31m[33mul[31m[33m>[31m
+ [90m 1017 |[31m   )
+ [90m 1018 |[31m }[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:1015:57
+[33m  1047|            action={hasEvidence ? 'Generate one from the recorded evidence.' : 'Run diagnostics first; the report needs evidence.'} />
+  1048|          {hasEvidence && (
+  1049|            <button className="primary" disabled={busy} onClick={run}>
+     |    ^
+  1050|              {busy ? 'Generating…' : 'Generate final report'}
+  1051|            </button>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.unexpected (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6620:16)
+      at TypeScriptParserMixin.expect (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6929:12)
+      at TypeScriptParserMixin.parseCallExpressionArguments (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8152:14)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8095:29)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8024:19)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13041:18)
+      at TypeScriptParserMixin.parseSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7998:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7989:17)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4654:31)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4733:36)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+[2m5:54:08 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:54:09 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Unexpected token, expected "," (1015:57)
+
+[0m [90m 1013 |[31m           [33m<[31m[33m/[31m[33mdetails[31m[33m>[31m
+ [90m 1014 |[31m         [33m<[31m[33m/[31m[33mli[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1015 |[31m       ) [33m:[31m g[33m.[31mmap((e) [33m=>[31m [33m<[31m[33mTimelineRow[31m key[33m=[31m{e[33m.[31mseq} e[33m=[31m{e} [33m/[31m[33m>[31m)}
+ [90m      |[31m                                                          [31m[1m^[22m[31m
+ [90m 1016 |[31m     [33m<[31m[33m/[31m[33mul[31m[33m>[31m
+ [90m 1017 |[31m   )
+ [90m 1018 |[31m }[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:1015:57
+[33m  1047|            action={hasEvidence ? 'Generate one from the recorded evidence.' : 'Run diagnostics first; the report needs evidence.'} />
+  1048|          {hasEvidence && (
+  1049|            <button className="primary" disabled={busy} onClick={run}>
+     |    ^
+  1050|              {busy ? 'Generating…' : 'Generate final report'}
+  1051|            </button>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.unexpected (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6620:16)
+      at TypeScriptParserMixin.expect (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6929:12)
+      at TypeScriptParserMixin.parseCallExpressionArguments (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8152:14)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8095:29)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8024:19)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13041:18)
+      at TypeScriptParserMixin.parseSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7998:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7989:17)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4654:31)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4733:36)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+[2m5:54:09 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Unexpected token, expected "," (1015:57)
+
+[0m [90m 1013 |[31m           [33m<[31m[33m/[31m[33mdetails[31m[33m>[31m
+ [90m 1014 |[31m         [33m<[31m[33m/[31m[33mli[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1015 |[31m       ) [33m:[31m g[33m.[31mmap((e) [33m=>[31m [33m<[31m[33mTimelineRow[31m key[33m=[31m{e[33m.[31mseq} e[33m=[31m{e} [33m/[31m[33m>[31m)}
+ [90m      |[31m                                                          [31m[1m^[22m[31m
+ [90m 1016 |[31m     [33m<[31m[33m/[31m[33mul[31m[33m>[31m
+ [90m 1017 |[31m   )
+ [90m 1018 |[31m }[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:1015:57
+[33m  1047|            action={hasEvidence ? 'Generate one from the recorded evidence.' : 'Run diagnostics first; the report needs evidence.'} />
+  1048|          {hasEvidence && (
+  1049|            <button className="primary" disabled={busy} onClick={run}>
+     |    ^
+  1050|              {busy ? 'Generating…' : 'Generate final report'}
+  1051|            </button>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.unexpected (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6620:16)
+      at TypeScriptParserMixin.expect (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6929:12)
+      at TypeScriptParserMixin.parseCallExpressionArguments (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8152:14)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8095:29)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8024:19)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13041:18)
+      at TypeScriptParserMixin.parseSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7998:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7989:17)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4654:31)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4733:36)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+[2m5:54:40 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:54:41 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Unexpected token, expected "," (1017:7)
+
+[0m [90m 1015 |[31m       ) [33m:[31m (
+ [90m 1016 |[31m         [33m<[31m[33mFragment[31m key[33m=[31m{g[[35m0[31m][33m.[31mseq}[33m>[31m{g[33m.[31mmap((e) [33m=>[31m [33m<[31m[33mTimelineRow[31m key[33m=[31m{e[33m.[31mseq} e[33m=[31m{e} [33m/[31m[33m>[31m)}[33m<[31m[33m/[31m[33mFragment[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1017 |[31m       )}
+ [90m      |[31m        [31m[1m^[22m[31m
+ [90m 1018 |[31m     [33m<[31m[33m/[31m[33mul[31m[33m>[31m
+ [90m 1019 |[31m   )
+ [90m 1020 |[31m }[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:1017:7
+[33m  1049|            action={hasEvidence ? 'Generate one from the recorded evidence.' : 'Run diagnostics first; the report needs evidence.'} />
+  1050|          {hasEvidence && (
+  1051|            <button className="primary" disabled={busy} onClick={run}>
+     |      ^
+  1052|              {busy ? 'Generating…' : 'Generate final report'}
+  1053|            </button>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.unexpected (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6620:16)
+      at TypeScriptParserMixin.expect (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6929:12)
+      at TypeScriptParserMixin.parseCallExpressionArguments (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8152:14)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8095:29)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8024:19)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13041:18)
+      at TypeScriptParserMixin.parseSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7998:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7989:17)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4654:31)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4733:36)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+[2m5:54:41 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Unexpected token, expected "," (1017:7)
+
+[0m [90m 1015 |[31m       ) [33m:[31m (
+ [90m 1016 |[31m         [33m<[31m[33mFragment[31m key[33m=[31m{g[[35m0[31m][33m.[31mseq}[33m>[31m{g[33m.[31mmap((e) [33m=>[31m [33m<[31m[33mTimelineRow[31m key[33m=[31m{e[33m.[31mseq} e[33m=[31m{e} [33m/[31m[33m>[31m)}[33m<[31m[33m/[31m[33mFragment[31m[33m>[31m
+[31m[1m>[22m[31m[90m 1017 |[31m       )}
+ [90m      |[31m        [31m[1m^[22m[31m
+ [90m 1018 |[31m     [33m<[31m[33m/[31m[33mul[31m[33m>[31m
+ [90m 1019 |[31m   )
+ [90m 1020 |[31m }[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:1017:7
+[33m  1049|            action={hasEvidence ? 'Generate one from the recorded evidence.' : 'Run diagnostics first; the report needs evidence.'} />
+  1050|          {hasEvidence && (
+  1051|            <button className="primary" disabled={busy} onClick={run}>
+     |      ^
+  1052|              {busy ? 'Generating…' : 'Generate final report'}
+  1053|            </button>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.unexpected (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6620:16)
+      at TypeScriptParserMixin.expect (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6929:12)
+      at TypeScriptParserMixin.parseCallExpressionArguments (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8152:14)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8095:29)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8024:19)
+      at TypeScriptParserMixin.parseSubscript (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13041:18)
+      at TypeScriptParserMixin.parseSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7998:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7989:17)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4654:31)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4733:36)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+[2m5:54:56 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:55:17 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m5:56:08 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages.tsx[22m
+[2m5:56:13 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages.tsx[22m
+[2m5:56:39 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m5:56:53 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m5:57:14 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages.tsx[22m
+[2m5:57:22 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Eval.tsx[22m
+[2m5:59:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m6:00:52 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m6:01:33 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m6:01:53 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m6:03:49 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m7:33:01 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m7:33:01 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Expected corresponding JSX closing tag for <div>. (403:14)
+
+[0m [90m 401 |[31m                   [36melse[31m setActErr([32m'Meta turn ended early: '[31m [33m+[31m r[33m.[31mstatus)
+ [90m 402 |[31m                 })} [33m/[31m[33m>[31m
+[31m[1m>[22m[31m[90m 403 |[31m               [33m<[31m[33m/[31m[33mdetails[31m[33m>[31m
+ [90m     |[31m               [31m[1m^[22m[31m
+ [90m 404 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 405 |[31m             {(inv[33m.[31mactions[33m?[31m[33m.[31mlength [33m?[31m[33m?[31m [35m0[31m) [33m<[31m [35m1[31m [33m&&[31m (
+ [90m 406 |[31m               [33m<[31m[33mp[31m className[33m=[31m[32m"faint"[31m style[33m=[31m{{ marginTop[33m:[31m [35m8[31m[33m,[31m fontSize[33m:[31m [35m12[31m }}[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:403:14
+[33m  410|                </p>
+  411|              )}
+  412|              {autoLog.length > 0 && (
+     |                                      ^
+  413|                <details style={{ marginTop: 8 }}>
+  414|                  <summary className="faint" style={{ cursor: 'pointer', fontSize: 12 }}>Automatic run log ({autoLog.length})</summary>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4749:16)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9340:16)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10073:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9717:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13277:18)
+      at TypeScriptParserMixin.parseStatementLike (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9686:17)
+      at TypeScriptParserMixin.parseStatementListItem (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9666:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10247:61)
+      at TypeScriptParserMixin.parseBlockBody (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10240:10)
+      at TypeScriptParserMixin.parseBlock (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10228:10)
+      at TypeScriptParserMixin.parseFunctionBody (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9016:24)
+[2m7:33:01 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Expected corresponding JSX closing tag for <div>. (403:14)
+
+[0m [90m 401 |[31m                   [36melse[31m setActErr([32m'Meta turn ended early: '[31m [33m+[31m r[33m.[31mstatus)
+ [90m 402 |[31m                 })} [33m/[31m[33m>[31m
+[31m[1m>[22m[31m[90m 403 |[31m               [33m<[31m[33m/[31m[33mdetails[31m[33m>[31m
+ [90m     |[31m               [31m[1m^[22m[31m
+ [90m 404 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 405 |[31m             {(inv[33m.[31mactions[33m?[31m[33m.[31mlength [33m?[31m[33m?[31m [35m0[31m) [33m<[31m [35m1[31m [33m&&[31m (
+ [90m 406 |[31m               [33m<[31m[33mp[31m className[33m=[31m[32m"faint"[31m style[33m=[31m{{ marginTop[33m:[31m [35m8[31m[33m,[31m fontSize[33m:[31m [35m12[31m }}[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:403:14
+[33m  410|                </p>
+  411|              )}
+  412|              {autoLog.length > 0 && (
+     |                                      ^
+  413|                <details style={{ marginTop: 8 }}>
+  414|                  <summary className="faint" style={{ cursor: 'pointer', fontSize: 12 }}>Automatic run log ({autoLog.length})</summary>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4749:16)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9340:16)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10073:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9717:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13277:18)
+      at TypeScriptParserMixin.parseStatementLike (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9686:17)
+      at TypeScriptParserMixin.parseStatementListItem (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9666:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10247:61)
+      at TypeScriptParserMixin.parseBlockBody (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10240:10)
+      at TypeScriptParserMixin.parseBlock (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10228:10)
+      at TypeScriptParserMixin.parseFunctionBody (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9016:24)
+[2m7:33:01 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Expected corresponding JSX closing tag for <div>. (403:14)
+
+[0m [90m 401 |[31m                   [36melse[31m setActErr([32m'Meta turn ended early: '[31m [33m+[31m r[33m.[31mstatus)
+ [90m 402 |[31m                 })} [33m/[31m[33m>[31m
+[31m[1m>[22m[31m[90m 403 |[31m               [33m<[31m[33m/[31m[33mdetails[31m[33m>[31m
+ [90m     |[31m               [31m[1m^[22m[31m
+ [90m 404 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 405 |[31m             {(inv[33m.[31mactions[33m?[31m[33m.[31mlength [33m?[31m[33m?[31m [35m0[31m) [33m<[31m [35m1[31m [33m&&[31m (
+ [90m 406 |[31m               [33m<[31m[33mp[31m className[33m=[31m[32m"faint"[31m style[33m=[31m{{ marginTop[33m:[31m [35m8[31m[33m,[31m fontSize[33m:[31m [35m12[31m }}[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:403:14
+[33m  410|                </p>
+  411|              )}
+  412|              {autoLog.length > 0 && (
+     |                                      ^
+  413|                <details style={{ marginTop: 8 }}>
+  414|                  <summary className="faint" style={{ cursor: 'pointer', fontSize: 12 }}>Automatic run log ({autoLog.length})</summary>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4749:16)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9340:16)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10073:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9717:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13277:18)
+      at TypeScriptParserMixin.parseStatementLike (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9686:17)
+      at TypeScriptParserMixin.parseStatementListItem (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9666:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10247:61)
+      at TypeScriptParserMixin.parseBlockBody (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10240:10)
+      at TypeScriptParserMixin.parseBlock (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10228:10)
+      at TypeScriptParserMixin.parseFunctionBody (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9016:24)
+[2m7:33:01 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Prajwal MIT\Passion\model_autopsy\frontend\src\Workspace.tsx: Expected corresponding JSX closing tag for <div>. (403:14)
+
+[0m [90m 401 |[31m                   [36melse[31m setActErr([32m'Meta turn ended early: '[31m [33m+[31m r[33m.[31mstatus)
+ [90m 402 |[31m                 })} [33m/[31m[33m>[31m
+[31m[1m>[22m[31m[90m 403 |[31m               [33m<[31m[33m/[31m[33mdetails[31m[33m>[31m
+ [90m     |[31m               [31m[1m^[22m[31m
+ [90m 404 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 405 |[31m             {(inv[33m.[31mactions[33m?[31m[33m.[31mlength [33m?[31m[33m?[31m [35m0[31m) [33m<[31m [35m1[31m [33m&&[31m (
+ [90m 406 |[31m               [33m<[31m[33mp[31m className[33m=[31m[32m"faint"[31m style[33m=[31m{{ marginTop[33m:[31m [35m8[31m[33m,[31m fontSize[33m:[31m [35m12[31m }}[33m>[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Prajwal MIT/Passion/model_autopsy/frontend/src/Workspace.tsx[39m:403:14
+[33m  410|                </p>
+  411|              )}
+  412|              {autoLog.length > 0 && (
+     |                                      ^
+  413|                <details style={{ marginTop: 8 }}>
+  414|                  <summary className="faint" style={{ cursor: 'pointer', fontSize: 12 }}>Automatic run log ({autoLog.length})</summary>[39m
+      at constructor (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6600:19)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4749:16)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4720:32)
+      at TypeScriptParserMixin.jsxParseElement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4771:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4781:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:39
+      at TypeScriptParserMixin.tryParse (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:6937:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13544:18)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9345:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7697:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9412:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8584:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:8240:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:4786:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7985:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7970:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7950:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13606:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7796:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7801:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7778:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7728:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13555:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7681:23)
+      at C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:39
+      at TypeScriptParserMixin.allowInAnd (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9340:16)
+      at TypeScriptParserMixin.parseExpression (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:7677:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10073:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9717:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:13277:18)
+      at TypeScriptParserMixin.parseStatementLike (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9686:17)
+      at TypeScriptParserMixin.parseStatementListItem (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9666:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10247:61)
+      at TypeScriptParserMixin.parseBlockBody (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10240:10)
+      at TypeScriptParserMixin.parseBlock (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:10228:10)
+      at TypeScriptParserMixin.parseFunctionBody (C:\Prajwal MIT\Passion\model_autopsy\frontend\node_modules\@babel\parser\lib\index.js:9016:24)
+[2m7:33:17 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m7:34:07 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m7:38:09 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/charts.tsx[22m
+[2m7:38:09 PM[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/charts.tsx[22m Could not Fast Refresh ("shortName" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m7:38:09 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages.tsx, /src/Workspace.tsx, /src/ui.tsx[22m
+[2m7:38:10 PM[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/ui.tsx[22m Could not Fast Refresh ("fmtInt" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+[2m7:38:10 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Lab.tsx, /src/Eval.tsx, /src/pages.tsx, /src/Workspace.tsx, /src/ResearchLab.tsx, /src/NewInvestigation.tsx[22m
+[2m7:38:21 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m7:38:27 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m7:44:34 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/Workspace.tsx[22m
+[2m7:44:40 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m7:46:33 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m7:52:07 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m7:52:15 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m
+[2m7:54:44 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/NewInvestigation.tsx[22m

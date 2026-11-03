@@ -66,3 +66,7 @@ study_files/outputs/v2/demand_zone_v2_dataset.csv
 model_autopsy/frontend/dist/
 model_autopsy/backend/data/
 model_autopsy/backend/__pycache__/
+
+# Sealed blind-scoring condition key (never commit; evaluator must not see it)
+model_autopsy/benchmarks/.sealed/
+model_autopsy/.m10_work/

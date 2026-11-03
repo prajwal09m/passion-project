@@ -14,7 +14,9 @@ parameters (types, requirements, bounds, string limits). Two consumers:
 from __future__ import annotations
 
 import json
+import os
 import re
+from pathlib import Path
 from typing import Callable
 
 from sqlalchemy.orm import Session
@@ -174,6 +176,32 @@ PARAM_SCHEMA: dict[str, dict[str, dict]] = {
                          "description": "Score column (default 'LightGBM_C' for the case study)."},
         "bins": _i(2, 20, False, "Calibration bins (2..20; default 10)."),
     },
+    "ranking_slice_diagnostics": {
+        "predictions_path": {"type": "string", "required": False, "max_length": 512,
+                             "description": "Project-root-relative CSV override."},
+        "labels": {"type": "string", "required": False, "max_length": 80,
+                   "description": "Relevance/label column (auto-detected when absent)."},
+        "score_column": {"type": "string", "required": False, "max_length": 80,
+                         "description": "Score column (auto-detected when absent)."},
+        "slice_column": {"type": "string", "required": False, "max_length": 80,
+                         "description": "Slice column (auto-detected when absent)."},
+        "k_frac": {"type": "number", "required": False,
+                   "description": "Top fraction per slice (0..0.5; default 0.1)."},
+    },
+    "slice_gap_significance": {
+        "predictions_path": {"type": "string", "required": False, "max_length": 512,
+                             "description": "Project-root-relative CSV override."},
+        "labels": {"type": "string", "required": False, "max_length": 80,
+                   "description": "Relevance/label column (auto-detected when absent)."},
+        "score_column": {"type": "string", "required": False, "max_length": 80,
+                         "description": "Score column (auto-detected when absent)."},
+        "slice_column": {"type": "string", "required": False, "max_length": 80,
+                         "description": "Slice column (auto-detected when absent)."},
+        "k_frac": {"type": "number", "required": False,
+                   "description": "Top fraction per slice (0..0.5; default 0.1)."},
+        "n_perm": _i(100, 5000, False, "Permutation replicates (100..5000; default 2000)."),
+        "seed": _i(0, 2**31 - 1, False, "Fixed seed for determinism (default 7)."),
+    },
     "grouped_auc_comparison": {
         "predictions_path": {"type": "string", "required": False, "max_length": 512,
                              "description": "Project-root-relative CSV override."},
@@ -184,6 +212,97 @@ PARAM_SCHEMA: dict[str, dict[str, dict]] = {
         "score_b": {"type": "string", "required": False, "max_length": 80,
                     "description": "Challenger score column (delta = B - A)."},
         "n_boot": _i(1, 5000, False, "Bootstrap replicates (1..5000; default 2000)."),
+    },
+    "regression_metrics": {
+        "predictions_path": {"type": "string", "required": False, "max_length": 512,
+                             "description": "Project-root-relative CSV override."},
+        "target_column": {"type": "string", "required": False, "max_length": 80,
+                          "description": "Ground-truth column (default 'target')."},
+        "prediction_column": {"type": "string", "required": False, "max_length": 80,
+                              "description": "Prediction column (default 'prediction')."},
+        "group_column": {"type": "string", "required": False, "max_length": 80,
+                         "description": "Optional grouping column for per-group MAE."},
+    },
+    "forecast_diagnostics": {
+        "predictions_path": {"type": "string", "required": False, "max_length": 512,
+                             "description": "Project-root-relative CSV override."},
+        "date_column": {"type": "string", "required": False, "max_length": 80,
+                        "description": "Date column (default 'date')."},
+        "target_column": {"type": "string", "required": False, "max_length": 80,
+                          "description": "Ground-truth column (default 'target')."},
+        "prediction_column": {"type": "string", "required": False, "max_length": 80,
+                              "description": "Prediction column (default 'prediction')."},
+        "horizon_column": {"type": "string", "required": False, "max_length": 80,
+                           "description": "Optional forecast-horizon column."},
+        "split_column": {"type": "string", "required": False, "max_length": 80,
+                         "description": "Optional split column for overlap check."},
+    },
+    "clustering_stability": {
+        "feature_csv": {"type": "string", "required": True, "max_length": 512,
+                        "description": "Project-root-relative feature CSV."},
+        "n_clusters": _i(2, 20, False, "k for k-means screening (2..20; default 3)."),
+    },
+    "temporal_changepoint_scan": {
+        "predictions_path": {"type": "string", "required": True, "max_length": 512,
+                             "description": "Project-root-relative CSV with date/target/prediction."},
+        "date_column": {"type": "string", "required": False, "max_length": 80,
+                        "description": "Date column (default 'date')."},
+        "target_column": {"type": "string", "required": False, "max_length": 80,
+                          "description": "Ground-truth column (default 'target')."},
+        "prediction_column": {"type": "string", "required": False, "max_length": 80,
+                              "description": "Prediction column (default 'prediction')."},
+        "min_segment": _i(10, 200, False, "Min rows per side of a break (10..200; default 30)."),
+    },
+    "residual_time_analysis": {
+        "predictions_path": {"type": "string", "required": True, "max_length": 512,
+                             "description": "Project-root-relative CSV with date/target/prediction."},
+        "date_column": {"type": "string", "required": False, "max_length": 80,
+                        "description": "Date column (default 'date')."},
+        "target_column": {"type": "string", "required": False, "max_length": 80,
+                          "description": "Ground-truth column (default 'target')."},
+        "prediction_column": {"type": "string", "required": False, "max_length": 80,
+                              "description": "Prediction column (default 'prediction')."},
+        "split_column": {"type": "string", "required": False, "max_length": 80,
+                         "description": "Optional split column for train/test comparison."},
+    },
+    "distribution_shift_profile": {
+        "predictions_path": {"type": "string", "required": True, "max_length": 512,
+                             "description": "Project-root-relative CSV with target + split."},
+        "target_column": {"type": "string", "required": False, "max_length": 80,
+                          "description": "Ground-truth column (default 'target')."},
+        "split_column": {"type": "string", "required": False, "max_length": 80,
+                         "description": "Split column (default 'split')."},
+    },
+    "data_quality_profile": {
+        "predictions_path": {"type": "string", "required": True, "max_length": 512,
+                             "description": "Project-root-relative CSV to screen."},
+    },
+    "segment_quality_screen": {
+        "predictions_path": {"type": "string", "required": True, "max_length": 512,
+                             "description": "Project-root-relative CSV with a segment column."},
+        "segment_column": {"type": "string", "required": False, "max_length": 80,
+                           "description": "Segment column (auto-detected if absent)."},
+    },
+    "calibration_snapshot": {
+        "predictions_path": {"type": "string", "required": True, "max_length": 512,
+                             "description": "Project-root-relative CSV with target/prediction."},
+        "prediction_column": {"type": "string", "required": False, "max_length": 80,
+                              "description": "Prediction column (default 'prediction')."},
+        "target_column": {"type": "string", "required": False, "max_length": 80,
+                          "description": "Ground-truth column (default 'target')."},
+    },
+    "residual_feature_dependence": {
+        "predictions_path": {"type": "string", "required": True, "max_length": 512,
+                             "description": "Project-root-relative CSV with target/prediction plus numeric feature columns."},
+        "target_column": {"type": "string", "required": False, "max_length": 80,
+                          "description": "Ground-truth column (default 'target')."},
+        "prediction_column": {"type": "string", "required": False, "max_length": 80,
+                              "description": "Prediction column (default 'prediction')."},
+        "top_k": _i(1, 20, False, "Top correlated columns to report (1..20; default 5)."),
+    },
+    "script_static_inspection": {
+        "script_path": {"type": "string", "required": True, "max_length": 512,
+                        "description": "Project-root-relative .py file to parse (never executed)."},
     },
 }
 
@@ -216,6 +335,9 @@ def software_tools() -> dict[str, Callable]:
 
 def ml_tools() -> dict[str, Callable]:
     from . import ml_tools as ml
+    from . import task_diagnostics as td
+    from .causal import adaptive as ad
+    from . import script_inspection as si
     return {"artifact_summary": ml.artifact_summary,
             "dataset_validation": ml.dataset_validation,
             "classification_metrics": ml.classification_metrics,
@@ -223,6 +345,19 @@ def ml_tools() -> dict[str, Callable]:
             "feature_target_suspiciousness": ml.feature_target_suspiciousness,
             "calibration_and_error_analysis": ml.calibration_and_error_analysis,
             "grouped_auc_comparison": ml.grouped_auc_comparison,
+            "ranking_slice_diagnostics": ml.ranking_slice_diagnostics,
+            "slice_gap_significance": ml.slice_gap_significance,
+            "regression_metrics": td.regression_metrics,
+            "forecast_diagnostics": td.forecast_diagnostics,
+            "clustering_stability": td.clustering_stability,
+            "temporal_changepoint_scan": ad.temporal_changepoint_scan,
+            "residual_time_analysis": ad.residual_time_analysis,
+            "distribution_shift_profile": ad.distribution_shift_profile,
+            "data_quality_profile": ad.data_quality_profile,
+            "segment_quality_screen": ad.segment_quality_screen,
+            "calibration_snapshot": ad.calibration_snapshot,
+            "residual_feature_dependence": ad.residual_feature_dependence,
+            "script_static_inspection": si.inspect_script,
             "propose_hypothesis": _engine_propose_hypothesis}
 
 
@@ -411,24 +546,106 @@ def record_result_event(session: Session, inv: Investigation, tool: str,
                           "action_seq": action_seq})
 
 
+# ---------------------------------------------------------------------------
+# Redundancy guard: deterministic dedup for Meta-driven repeat requests
+# ---------------------------------------------------------------------------
+
+def canonical_args(args: dict) -> str:
+    """Deterministic, order-insensitive serialization of validated args."""
+    return json.dumps(args or {}, sort_keys=True, default=str)
+
+
+def _artifact_fingerprint(inv: Investigation, normalized: dict) -> str:
+    """Identity of the data this call would touch, for reuse safety.
+
+    Includes the investigation's recorded context identity (paths, row/col
+    counts as recorded at build_context time) AND live file stats of every
+    CSV path involved, so a changed on-disk artifact can never be served
+    from a stale cached result. Context fingerprint is per-investigation:
+    results are never reused across investigations or modes."""
+    paths: list[str] = []
+    for key in ("predictions_path", "feature_csv", "label_csv"):
+        v = normalized.get(key) or (inv.config or {}).get(key)
+        if v:
+            paths.append(str(v))
+    file_stats = []
+    for p in paths:
+        try:
+            st = os.stat(Path(p))
+            file_stats.append([p, st.st_mtime_ns, st.st_size])
+        except OSError:
+            file_stats.append([p, None, None])
+    ctx = (inv.config or {}).get("context") or {}
+    identity = ["ml", ctx.get("path"), ctx.get("n_rows"), ctx.get("n_columns")]
+    if inv.mode == "software":
+        identity = ["software", inv.config.get("workspace_root"),
+                    (ctx.get("git") or {}).get("head")
+                    or (ctx.get("git") or {}).get("ref")]
+    return json.dumps([identity, file_stats], default=str)
+
+
+def _find_reusable_action(session: Session, inv: Investigation,
+                          tool_name: str, normalized: dict):
+    """Prior successful action with identical tool+args+data identity."""
+    canon = canonical_args(normalized)
+    actions = (session.query(Action)
+               .filter(Action.investigation_id == inv.id,
+                       Action.tool_name == tool_name,
+                       Action.status == "ran")
+               .order_by(Action.seq.asc()).all())
+    fp = _artifact_fingerprint(inv, normalized)
+    for action in actions:
+        if (a_json := to_json_blob(action.arguments or {})) is None:
+            continue
+        if canonical_args(a_json) != canon:
+            continue
+        if (to_json_blob(action.result or {}) or {}).get("_dedup") != fp:
+            continue
+        return action
+    return None
+
+
 def _mode_allows(tool_name: str, inv_mode: str) -> bool:
     spec = TOOL_SPECS.get(tool_name)
     return bool(spec) and spec["mode"] in (inv_mode, "both")
 
 
 def execute(session: Session, inv: Investigation, tool_name: str,
-            arguments: dict) -> dict:
-    """Validation, execution, recording. Caller commits."""
+            arguments: dict, allow_reuse: bool = False) -> dict:
+    """Validation, execution, recording. Caller commits.
+
+    `allow_reuse` (Meta-originated requests only): a request identical to a
+    prior successful action in this investigation — same tool, same
+    canonically-normalized arguments, same data/artifact identity — returns
+    the recorded prior result instead of re-executing. Reuse consumes NO
+    tool-call budget and is recorded explicitly so the model can see the
+    experiment was not rerun. Manual-mode requests execute as before."""
     if tool_name not in TOOL_SPECS or not _mode_allows(tool_name, inv.mode):
         raise LookupError(f"unknown or not-allowed tool {tool_name!r} "
                           f"for mode {inv.mode!r}")
     normalized = validate_arguments(tool_name, arguments)
+    if allow_reuse:
+        prior = _find_reusable_action(session, inv, tool_name, normalized)
+        if prior is not None:
+            from .db import to_json_blob as _tjb  # local alias for clarity
+            clean = {k: v for k, v in (_tjb(prior.result or {}) or {}).items()
+                     if k != "_dedup"}
+            record_event(session, inv.id, "tool_result",
+                         f"duplicate request for {tool_name}; prior result "
+                         f"reused (not re-executed, no budget consumed)",
+                         payload={"tool": tool_name,
+                                  "reused": True,
+                                  "original_action_seq": prior.seq,
+                                  "original_action_id": prior.id})
+            return {"ok": True, "result": {**clean, "reused": True},
+                    "action_id": prior.id, "reused": True}
     fn = TOOL_SPECS[tool_name]["fn"]
     if tool_name in _TAKES_SESSION:
         result = fn(session, inv, **normalized)
     else:
         result = fn(**normalized)
     result_json = to_json_blob(result) or {"ok": False}
+    result_json = {"_dedup": _artifact_fingerprint(inv, normalized), **result_json}
     action = record_tool_call(session, inv, tool_name, normalized,
                               "ran", result_json, None)
     record_result_event(session, inv, tool_name, "ran", result_json, None,

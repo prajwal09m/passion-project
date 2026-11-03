@@ -1,0 +1,463 @@
+{
+  "mode": "live_paired_groq",
+  "generated_utc": "2026-10-29T00:38:04Z",
+  "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-phase-d-groq-qw4qf5cc\\sandbox.db",
+  "model": "openai/gpt-oss-20b",
+  "temperature": 0.2,
+  "rounds_per_turn": 3,
+  "turns_per_run": 2,
+  "tool_list": [
+    "propose_hypothesis",
+    "artifact_summary",
+    "dataset_validation",
+    "classification_metrics",
+    "time_split_validation",
+    "feature_target_suspiciousness",
+    "calibration_and_error_analysis",
+    "grouped_auc_comparison"
+  ],
+  "caps": {
+    "max_attempts": 25,
+    "max_total_tokens": 120000,
+    "max_est_cost": 0.5,
+    "repeated_429_limit": 4
+  },
+  "pricing_estimate_source": {
+    "input": 0.075,
+    "output": 0.3,
+    "source": "console.groq.com/docs/models (current published price)"
+  },
+  "totals": {
+    "provider_http_attempts": 11,
+    "billed_ok_requests": 11,
+    "failed_requests": 0,
+    "input_tokens": 22973,
+    "output_tokens": 6264,
+    "estimated_cost_usd": 0.003602,
+    "stop_reason": null
+  },
+  "runs": [
+    {
+      "condition": "full",
+      "investigation_name": "phase-d-groq-full",
+      "aborted": null,
+      "chained_context_chars": 2343,
+      "turn1": {
+        "rounds": 3,
+        "final_text": "",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 3,
+        "summary_block_seen": false
+      },
+      "turn2": {
+        "rounds": 1,
+        "final_text": "```investigation_summary\n{\n  \"conclusion\": \"The available out\u2011of\u2011fold metrics do not provide evidence that the model is overfitting; AUC is moderate and consistent across folds, and no leakage is detected from the suspiciousness analysis. Additional diagnostics are required to determine the cause of underperformance.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"be076d8906a146b2b27034ce3882eb4d\",\n      \"status\": \"inconclusive\",\n      \"basis\": [\n        \"1f787a332d204499860ec073538e1cef\",\n        \"6aa91959febf4ed69d7453ffd9a450b9\",\n        \"15bd3d7dd3fa4e96829bba0bc2dfdd28\"\n      ]\n    }\n  ],\n  \"uncertainties\": [\n    \"Training AUC and cross\u2011validation performance are not available for comparison.\",\n    \"Potential data leakage cannot be ruled out without feature provenance.\",\n    \"Model complexity and regularization settings are unknown.\"\n  ],\n  \"recommended_next\": \"Gather training and validation AUCs, inspect feature importance, verify feature provenance to rule out leakage, and evaluate model complexity.\"\n}\n```",
+        "finish_reasons": [
+          "stop"
+        ],
+        "tool_calls_in_turn": 0,
+        "summary_block_seen": true
+      },
+      "summary": {
+        "valid": true,
+        "errors": [],
+        "conclusion": null
+      },
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "backend": {
+        "actions_ran": [
+          "classification_metrics",
+          "feature_target_suspiciousness",
+          "propose_hypothesis"
+        ],
+        "actions_ran_count": 3,
+        "actions_failed": [],
+        "tool_calls_used": 3,
+        "max_tool_calls": 6,
+        "event_kinds": {
+          "status_change": 2,
+          "tool_result": 4,
+          "hypothesis": 1,
+          "tool_request": 3,
+          "summary": 2
+        },
+        "reused_results": 0,
+        "hypothesis_statuses": [
+          "proposed"
+        ]
+      },
+      "condition_totals": {
+        "provider_latency_s": 9.263,
+        "requests": 5,
+        "rate_limit_wait_s": 0.0,
+        "last_rate_hints": {
+          "reset_tokens_s": 22.59,
+          "remaining_tokens": 4988
+        }
+      },
+      "per_request": [
+        {
+          "tag": "turn1r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.107,
+          "prompt_tokens": 1719,
+          "completion_tokens": 485,
+          "usage_missing": false,
+          "shipped_messages": 2,
+          "shipped_chars": 2468,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.401,
+          "prompt_tokens": 1978,
+          "completion_tokens": 534,
+          "usage_missing": false,
+          "shipped_messages": 4,
+          "shipped_chars": 3727,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r3",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.549,
+          "prompt_tokens": 2223,
+          "completion_tokens": 1122,
+          "usage_missing": false,
+          "shipped_messages": 6,
+          "shipped_chars": 4772,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.15,
+          "prompt_tokens": 3350,
+          "completion_tokens": 679,
+          "usage_missing": false,
+          "shipped_messages": 10,
+          "shipped_chars": 9113,
+          "finish_reason": "stop"
+        },
+        {
+          "tag": "turn2repair",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.056,
+          "prompt_tokens": 2478,
+          "completion_tokens": 721,
+          "usage_missing": false,
+          "shipped_messages": 11,
+          "shipped_chars": 10116,
+          "finish_reason": "stop"
+        }
+      ],
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"The available out\u2011of\u2011fold metrics do not provide evidence that the model is overfitting; AUC is moderate and consistent across folds, and no leakage is detected from the suspiciousness analysis. Additional diagnostics are required to determine the cause of underperformance.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"be076d8906a146b2b27"
+    },
+    {
+      "condition": "delta",
+      "investigation_name": "phase-d-groq-delta",
+      "aborted": null,
+      "chained_context_chars": 2089,
+      "turn1": {
+        "rounds": 3,
+        "final_text": "",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 3,
+        "summary_block_seen": false
+      },
+      "turn2": {
+        "rounds": 1,
+        "final_text": "```investigation_summary\n{\n  \"conclusion\": \"Insufficient evidence to confirm or refute temporal drift; further analysis required.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"25886219f6c44fe788d2591f4af9bd7b\",\n      \"status\": \"inconclusive\",\n      \"basis\": [\"9b3a830f793a47e4b28ee19b5d4ba6bd\",\"e71ccd4e623545e989861507110ac0db\"]\n    }\n  ],\n  \"uncertainties\": [\n    \"No per-fold performance metrics available\",\n    \"Distribution of features across years unknown\"\n  ],\n  \"recommended_next\": \"Compute per-fold AUC and compare across years to test the temporal drift hypothesis.\"\n}\n```",
+        "finish_reasons": [
+          "stop"
+        ],
+        "tool_calls_in_turn": 0,
+        "summary_block_seen": true
+      },
+      "summary": {
+        "valid": true,
+        "errors": [],
+        "conclusion": null
+      },
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "backend": {
+        "actions_ran": [
+          "classification_metrics",
+          "propose_hypothesis",
+          "time_split_validation"
+        ],
+        "actions_ran_count": 3,
+        "actions_failed": [],
+        "tool_calls_used": 3,
+        "max_tool_calls": 6,
+        "event_kinds": {
+          "status_change": 2,
+          "tool_result": 4,
+          "tool_request": 3,
+          "hypothesis": 1,
+          "summary": 2
+        },
+        "reused_results": 0,
+        "hypothesis_statuses": [
+          "proposed"
+        ]
+      },
+      "condition_totals": {
+        "provider_latency_s": 9.415,
+        "requests": 5,
+        "rate_limit_wait_s": 0.0,
+        "last_rate_hints": {
+          "reset_tokens_s": 22.41,
+          "remaining_tokens": 5012
+        }
+      },
+      "per_request": [
+        {
+          "tag": "turn1r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.011,
+          "prompt_tokens": 1719,
+          "completion_tokens": 364,
+          "usage_missing": false,
+          "shipped_messages": 2,
+          "shipped_chars": 2468,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.444,
+          "prompt_tokens": 1916,
+          "completion_tokens": 554,
+          "usage_missing": false,
+          "shipped_messages": 4,
+          "shipped_chars": 3378,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r3",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.914,
+          "prompt_tokens": 2185,
+          "completion_tokens": 350,
+          "usage_missing": false,
+          "shipped_messages": 6,
+          "shipped_chars": 4402,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.382,
+          "prompt_tokens": 3138,
+          "completion_tokens": 898,
+          "usage_missing": false,
+          "shipped_messages": 10,
+          "shipped_chars": 8296,
+          "finish_reason": "stop"
+        },
+        {
+          "tag": "turn2repair",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.664,
+          "prompt_tokens": 2267,
+          "completion_tokens": 557,
+          "usage_missing": false,
+          "shipped_messages": 11,
+          "shipped_chars": 9299,
+          "finish_reason": "stop"
+        }
+      ],
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"Insufficient evidence to confirm or refute temporal drift; further analysis required.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"25886219f6c44fe788d2591f4af9bd7b\",\n      \"status\": \"inconclusive\",\n      \"basis\": [\"9b3a830f793a47e4b28ee19b5d4ba6bd\",\"e71ccd4e623545e989861507110ac0db\"]\n    }\n  ],\n  \"uncertainties\": [\n    \"No per-fold perfo"
+    }
+  ],
+  "per_request_ledger": [
+    {
+      "condition": "-",
+      "kind": "models_list",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 0.709,
+      "error": null
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.107,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1719,
+        "completion_tokens": 485,
+        "total_tokens": 2204,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.401,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1978,
+        "completion_tokens": 534,
+        "total_tokens": 2512,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r3",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.549,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2223,
+        "completion_tokens": 1122,
+        "total_tokens": 3345,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn2r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.15,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3350,
+        "completion_tokens": 679,
+        "total_tokens": 4029,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn2repair",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.056,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2478,
+        "completion_tokens": 721,
+        "total_tokens": 3199,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.011,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1719,
+        "completion_tokens": 364,
+        "total_tokens": 2083,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.444,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1916,
+        "completion_tokens": 554,
+        "total_tokens": 2470,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r3",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.914,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2185,
+        "completion_tokens": 350,
+        "total_tokens": 2535,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn2r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.382,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3138,
+        "completion_tokens": 898,
+        "total_tokens": 4036,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn2repair",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.664,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2267,
+        "completion_tokens": 557,
+        "total_tokens": 2824,
+        "usage_missing": false
+      }
+    }
+  ],
+  "limitations": [
+    "Groq Chat Completions is STATELESS: every request resends the conversation transcript. This does NOT reproduce Meta's previous_response_id retention; it measures how the full-context vs delta chained-turn strategies behave when requests resend history.",
+    "The turn-1 transcript resend is identical for both conditions; only the chained-turn opening message differs, so the measured difference is the redundant corpus re-transmission Phase C removes.",
+    "429 handling is owner-directed pacing: wait to the next minute boundary (~8 000 tokens/minute on-demand window) and retry; every attempt including retries is ledgered, nothing silent.",
+    "Groq results do NOT establish Meta API savings or billing behavior.",
+    "Cost figures are ESTIMATES from published pricing, not actual charges.",
+    "One paired comparison: no statistical significance."
+  ]
+}

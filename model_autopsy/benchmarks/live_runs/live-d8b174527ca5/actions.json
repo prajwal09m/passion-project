@@ -1,0 +1,243 @@
+[
+  {
+    "id": "85c3860d28f04bfbba556fa17340254e",
+    "seq": 6,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior ~0.4, not evidence of truth.",
+      "predicted_observation": "Per-region AUC/calibration shows one region with markedly lower AUC and/or systematic miscalibration vs others.",
+      "rationale": "Requester reports uneven scores across regions; black-box GBM may have learned region-correlated patterns poorly, plausible regional discrimination/calibration failure.",
+      "text": "Model discrimination/calibration fails in one specific region (e.g., lower AUC or systematic under/over-prediction) while other regions perform adequately."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+      "ok": true,
+      "hypothesis_id": "a33cbb7b402a4290aceb50ea229b43d6",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Model discrimination/calibration fails in one specific region (e.g., lower AUC or systematic under/over-prediction) while other regions perform adequately."
+    },
+    "error": null
+  },
+  {
+    "id": "cd38f97e53c843a399c3e5c3ad502e30",
+    "seq": 10,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior ~0.3, not evidence.",
+      "predicted_observation": "Data quality screen shows region-correlated missingness/duplicates or distribution shift in label rate/features explaining apparent unevenness without model fault.",
+      "rationale": "Uneven scores could reflect different base rates or data hygiene per region rather than model discrimination failure; need to rule out artifact.",
+      "text": "Apparent regional unevenness is driven by data artifacts: differing default base rates, missingness, or feature distribution shift across regions, not model miscalibration."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+      "ok": true,
+      "hypothesis_id": "48c93f36f53b4c2189c6b60939c6d0dc",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Apparent regional unevenness is driven by data artifacts: differing default base rates, missingness, or feature distribution shift across regions, not model miscalibration."
+    },
+    "error": null
+  },
+  {
+    "id": "0598af1c86fb4a619c6abb8b235cddb3",
+    "seq": 16,
+    "kind": "tool_call",
+    "tool": "calibration_and_error_analysis",
+    "status": "ran",
+    "arguments": {},
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+      "score_column": "LightGBM_C",
+      "brier": 0.130634,
+      "reliability_bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 16997,
+          "mean_score": 0.055127,
+          "fraction_positive": 0.07566
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 12663,
+          "mean_score": 0.146642,
+          "fraction_positive": 0.182895
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.3,
+          "n": 8123,
+          "mean_score": 0.244358,
+          "fraction_positive": 0.256802
+        },
+        {
+          "bin_low": 0.3,
+          "bin_high": 0.4,
+          "n": 2712,
+          "mean_score": 0.338636,
+          "fraction_positive": 0.298304
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 559,
+          "mean_score": 0.43966,
+          "fraction_positive": 0.373882
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6,
+          "n": 130,
+          "mean_score": 0.539683,
+          "fraction_positive": 0.507692
+        },
+        {
+          "bin_low": 0.6,
+          "bin_high": 0.7,
+          "n": 32,
+          "mean_score": 0.634944,
+          "fraction_positive": 0.53125
+        },
+        {
+          "bin_low": 0.7,
+          "bin_high": 0.8,
+          "n": 5,
+          "mean_score": 0.733361,
+          "fraction_positive": 0.6
+        }
+      ],
+      "per_fold_auc": {
+        "2023": 0.690708,
+        "2024": 0.680062,
+        "2025": 0.689827
+      }
+    },
+    "error": null
+  },
+  {
+    "id": "2ba87642504c4180b7a9933f15c43f3f",
+    "seq": 18,
+    "kind": "tool_call",
+    "tool": "artifact_summary",
+    "status": "ran",
+    "arguments": {},
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+      "ok": true,
+      "path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+      "filename": "oof_predictions.csv",
+      "n_rows": 41221,
+      "n_columns": 17,
+      "columns": [
+        "ticker",
+        "date",
+        "event_id",
+        "label",
+        "hold1_ret",
+        "entry_date",
+        "exit_date",
+        "fold",
+        "fold_validation_key",
+        "LogisticRegression_A",
+        "LightGBM_A",
+        "LogisticRegression_B",
+        "LightGBM_B",
+        "LogisticRegression_C",
+        "LightGBM_C",
+        "LogisticRegression_D",
+        "LightGBM_D"
+      ],
+      "label_counts": {
+        "0": 34429,
+        "1": 6792
+      },
+      "unique_labels": 2,
+      "n_folds": 3,
+      "folds_present": [
+        2023,
+        2024,
+        2025
+      ],
+      "not_a_model_column": [
+        "ticker",
+        "date",
+        "event_id",
+        "label",
+        "hold1_ret",
+        "entry_date",
+        "exit_date",
+        "fold",
+        "fold_validation_key"
+      ]
+    },
+    "error": null
+  },
+  {
+    "id": "77de2082f9614a52a7cf6115f2c2fb6d",
+    "seq": 25,
+    "kind": "tool_call",
+    "tool": "classification_metrics",
+    "status": "failed",
+    "arguments": {
+      "label_column": "label",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/credit_default.csv",
+      "score_column": "score",
+      "split_by": "region"
+    },
+    "result": null,
+    "error": "classification_metrics: unknown parameter(s) ['label_column']; accepted parameters are ['labels', 'predictions_path', 'score_column', 'split_by', 'threshold']"
+  },
+  {
+    "id": "b699fb7dcb324e3991052924eadaa838",
+    "seq": 27,
+    "kind": "tool_call",
+    "tool": "artifact_summary",
+    "status": "ran",
+    "arguments": {
+      "labels": "label",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/credit_default.csv"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+      "ok": true,
+      "path": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\credit_default.csv",
+      "filename": "credit_default.csv",
+      "n_rows": 1500,
+      "n_columns": 7,
+      "columns": [
+        "age",
+        "income",
+        "tenure",
+        "region",
+        "delinq",
+        "score",
+        "label"
+      ],
+      "label_counts": {
+        "0": 959,
+        "1": 541
+      },
+      "unique_labels": 2,
+      "n_folds": null,
+      "folds_present": null,
+      "not_a_model_column": [
+        "age",
+        "income",
+        "tenure",
+        "region",
+        "delinq",
+        "score",
+        "label"
+      ]
+    },
+    "error": null
+  }
+]

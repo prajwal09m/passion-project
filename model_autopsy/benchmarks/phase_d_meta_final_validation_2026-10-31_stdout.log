@@ -1,0 +1,440 @@
+{
+  "written": "model_autopsy\\benchmarks\\phase_d_meta_final_validation_2026-10-31.json",
+  "summary": {
+    "billed_requests": 24,
+    "failed_requests": 2,
+    "total_attempts": 30,
+    "input_tokens": 76973,
+    "output_tokens": 27377,
+    "cached_input_tokens": 56374,
+    "uncached_input_tokens": 20599,
+    "total_provider_tokens": 104350,
+    "usage_incomplete_requests": 0,
+    "token_totals_complete": true,
+    "cached_exceeds_input": 0,
+    "blocked_before_request": 0,
+    "incomplete_responses": 8,
+    "estimated_cost_usd": 0.150557,
+    "stop_reason": null
+  },
+  "runs": [
+    {
+      "condition": "full",
+      "context_strategy": "full_resend",
+      "investigation_id": "c9eba68e9df04ce7ac82fc33ed9fd4bb",
+      "chain_used_for_turn2": "resp_6ae663eb52ef55c85b2f4efd",
+      "turn1_status": "ok",
+      "turn2_status": "ok",
+      "run_outcome": "incomplete_provider_response",
+      "investigation_complete": false,
+      "provider_response_statuses": [
+        "completed",
+        "completed",
+        "completed",
+        "completed",
+        "incomplete",
+        "incomplete"
+      ],
+      "incomplete_response_count": 2,
+      "incomplete_turn1": 0,
+      "incomplete_turn2": 2,
+      "provider_status_unknown_count": 0,
+      "provider_status_not_completed_count": 2,
+      "usage_incomplete_request_count": 0,
+      "summary_repair_used_turn1": 1,
+      "summary_repair_used_turn2": 1,
+      "turn1_continuation_state": {
+        "attempted": true,
+        "valid": null,
+        "response_id_source": "original"
+      },
+      "turn2_continuation_state": {
+        "attempted": true,
+        "valid": false,
+        "response_id_source": "original"
+      },
+      "turn1_returned_response_id_is_latest": true,
+      "turn2_returned_response_id_is_latest": false,
+      "chain_used_is_latest_turn1_response": true,
+      "summary_valid": false,
+      "summary_errors": [
+        "no structured summary found in the final message"
+      ],
+      "conclusion": null,
+      "tool_calls_turn1": {
+        "executed": 3,
+        "reused": 0,
+        "context_mode": "full"
+      },
+      "tool_calls_turn2": {
+        "executed": 1,
+        "reused": 0,
+        "context_mode": "delta_fallback",
+        "fallback_used": true,
+        "latency_s": 34.317,
+        "api_attempts": 3
+      },
+      "event_kinds": {
+        "status_change": 2,
+        "tool_result": 5,
+        "meta_request": 6,
+        "meta_response": 5,
+        "hypothesis": 3,
+        "tool_request": 4,
+        "summary": 3,
+        "summary_repair": 4,
+        "meta_usage": 2
+      },
+      "fallback_events": 1,
+      "actions": {
+        "ran": [
+          "calibration_and_error_analysis",
+          "propose_hypothesis"
+        ],
+        "ran_count": 4,
+        "failed": []
+      },
+      "hypothesis_statuses": [
+        "proposed",
+        "proposed",
+        "proposed"
+      ],
+      "final_message_head": "",
+      "preservation": {
+        "manifest": "finalized",
+        "required_evidence_present": {
+          "responses": true,
+          "assistant_messages": true,
+          "usage": true,
+          "events_dump": true,
+          "sandbox_final.db": true,
+          "repairs": true
+        },
+        "artifacts": [
+          "assistant_messages.jsonl",
+          "events_dump.json",
+          "repairs.jsonl",
+          "responses.jsonl",
+          "run_start.json",
+          "sandbox_final.db",
+          "usage.jsonl"
+        ],
+        "finalized_utc": "2026-10-31T21:56:42Z",
+        "run_dir": "C:\\Prajwal MIT\\Passion\\model_autopsy\\benchmarks\\phase_d_meta_live_20261031T215509Z\\run-zfxpvt8j"
+      }
+    },
+    {
+      "condition": "delta",
+      "context_strategy": "delta",
+      "investigation_id": "5c69bc23437547b99a45d4ecce4e5511",
+      "chain_used_for_turn2": "resp_6ae66429f878a72fbbd0447a",
+      "turn1_status": "ok",
+      "turn2_status": "ok",
+      "run_outcome": "incomplete_provider_response",
+      "investigation_complete": false,
+      "provider_response_statuses": [
+        "incomplete",
+        "completed",
+        "completed",
+        "completed",
+        "incomplete",
+        "completed"
+      ],
+      "incomplete_response_count": 2,
+      "incomplete_turn1": 1,
+      "incomplete_turn2": 1,
+      "provider_status_unknown_count": 0,
+      "provider_status_not_completed_count": 2,
+      "usage_incomplete_request_count": 0,
+      "summary_repair_used_turn1": 1,
+      "summary_repair_used_turn2": 1,
+      "turn1_continuation_state": {
+        "attempted": true,
+        "valid": true,
+        "response_id_source": "repair"
+      },
+      "turn2_continuation_state": {
+        "attempted": true,
+        "valid": true,
+        "response_id_source": "repair"
+      },
+      "turn1_returned_response_id_is_latest": true,
+      "turn2_returned_response_id_is_latest": true,
+      "chain_used_is_latest_turn1_response": true,
+      "summary_valid": true,
+      "summary_errors": [],
+      "conclusion": "OOF ROC-AUC 0.683 with uniform per-fold AUCs ~0.68-0.69 and recall 0.013 at 0.5 threshold suggests uniformly weak discrimination plus threshold/imbalance effect, not heterogeneous temporal shift; no further tools per budget",
+      "tool_calls_turn1": {
+        "executed": 0,
+        "reused": 0,
+        "context_mode": "full"
+      },
+      "tool_calls_turn2": {
+        "executed": 4,
+        "reused": 0,
+        "context_mode": "delta",
+        "fallback_used": false,
+        "latency_s": 69.04,
+        "api_attempts": 5
+      },
+      "event_kinds": {
+        "status_change": 2,
+        "tool_result": 5,
+        "meta_request": 4,
+        "meta_response": 4,
+        "summary": 4,
+        "summary_repair": 4,
+        "meta_usage": 2,
+        "hypothesis": 3,
+        "tool_request": 4
+      },
+      "fallback_events": 0,
+      "actions": {
+        "ran": [
+          "classification_metrics",
+          "propose_hypothesis"
+        ],
+        "ran_count": 4,
+        "failed": []
+      },
+      "hypothesis_statuses": [
+        "proposed",
+        "proposed",
+        "proposed"
+      ],
+      "final_message_head": "```investigation_summary\n{\"conclusion\":\"OOF ROC-AUC 0.683 with uniform per-fold AUCs ~0.68-0.69 and recall 0.013 at 0.5 threshold suggests uniformly weak discrimination plus threshold/imbalance effect, not heterogeneous temporal shift; no further tools per budget\",\"status_recommendations\":[],\"uncertainties\":[\"No train vs OOF gap measured so overfitting magnitude UNRESOLVED\",\"Calibration and thresh",
+      "preservation": {
+        "manifest": "finalized",
+        "required_evidence_present": {
+          "responses": true,
+          "assistant_messages": true,
+          "usage": true,
+          "events_dump": true,
+          "sandbox_final.db": true,
+          "repairs": true
+        },
+        "artifacts": [
+          "assistant_messages.jsonl",
+          "events_dump.json",
+          "repairs.jsonl",
+          "responses.jsonl",
+          "run_start.json",
+          "sandbox_final.db",
+          "usage.jsonl"
+        ],
+        "finalized_utc": "2026-10-31T21:58:15Z",
+        "run_dir": "C:\\Prajwal MIT\\Passion\\model_autopsy\\benchmarks\\phase_d_meta_live_20261031T215509Z\\run-n8gzenu9"
+      }
+    },
+    {
+      "condition": "full",
+      "context_strategy": "full_resend",
+      "investigation_id": "056333012ce14220a52043207bc7c2f3",
+      "chain_used_for_turn2": "resp_6ae66499c39eea2770224959",
+      "turn1_status": "ok",
+      "turn2_status": "ok",
+      "run_outcome": "incomplete_provider_response",
+      "investigation_complete": false,
+      "provider_response_statuses": [
+        "incomplete",
+        "completed",
+        "completed",
+        "completed",
+        "incomplete",
+        "incomplete"
+      ],
+      "incomplete_response_count": 3,
+      "incomplete_turn1": 1,
+      "incomplete_turn2": 2,
+      "provider_status_unknown_count": 0,
+      "provider_status_not_completed_count": 3,
+      "usage_incomplete_request_count": 0,
+      "summary_repair_used_turn1": 1,
+      "summary_repair_used_turn2": 1,
+      "turn1_continuation_state": {
+        "attempted": true,
+        "valid": true,
+        "response_id_source": "repair"
+      },
+      "turn2_continuation_state": {
+        "attempted": true,
+        "valid": false,
+        "response_id_source": "original"
+      },
+      "turn1_returned_response_id_is_latest": true,
+      "turn2_returned_response_id_is_latest": false,
+      "chain_used_is_latest_turn1_response": true,
+      "summary_valid": false,
+      "summary_errors": [
+        "no structured summary found in the final message"
+      ],
+      "conclusion": null,
+      "tool_calls_turn1": {
+        "executed": 0,
+        "reused": 0,
+        "context_mode": "full"
+      },
+      "tool_calls_turn2": {
+        "executed": 4,
+        "reused": 0,
+        "context_mode": "delta",
+        "fallback_used": false,
+        "latency_s": 53.479,
+        "api_attempts": 4
+      },
+      "event_kinds": {
+        "status_change": 2,
+        "tool_result": 5,
+        "meta_request": 4,
+        "meta_response": 4,
+        "summary": 4,
+        "summary_repair": 4,
+        "meta_usage": 2,
+        "hypothesis": 3,
+        "tool_request": 4
+      },
+      "fallback_events": 0,
+      "actions": {
+        "ran": [
+          "calibration_and_error_analysis",
+          "propose_hypothesis"
+        ],
+        "ran_count": 4,
+        "failed": []
+      },
+      "hypothesis_statuses": [
+        "proposed",
+        "proposed",
+        "proposed"
+      ],
+      "final_message_head": "Fact: calibration_and_error_analysis reports per-fold AUC 2023:0.6907, 2024:0.6800, 2025:0.6898 with Brier 0.1306, and reliability bins showing mean_score vs fraction_positive close at low scores with overestimation in 0.3-0.5 range on small n.\nHypothesis 26210f7a0d5249eb902867ee663800de predicted large fold heterogeneity; observed range",
+      "preservation": {
+        "manifest": "finalized",
+        "required_evidence_present": {
+          "responses": true,
+          "assistant_messages": true,
+          "usage": true,
+          "events_dump": true,
+          "sandbox_final.db": true,
+          "repairs": true
+        },
+        "artifacts": [
+          "assistant_messages.jsonl",
+          "events_dump.json",
+          "repairs.jsonl",
+          "responses.jsonl",
+          "run_start.json",
+          "sandbox_final.db",
+          "usage.jsonl"
+        ],
+        "finalized_utc": "2026-10-31T21:59:48Z",
+        "run_dir": "C:\\Prajwal MIT\\Passion\\model_autopsy\\benchmarks\\phase_d_meta_live_20261031T215509Z\\run-eamlugzy"
+      }
+    },
+    {
+      "condition": "delta",
+      "context_strategy": "delta",
+      "investigation_id": "544aaaf83f484ff9a370be07de30ae34",
+      "chain_used_for_turn2": "resp_6ae6650c446477c953eb4478",
+      "turn1_status": "ok",
+      "turn2_status": "ok",
+      "run_outcome": "incomplete_provider_response",
+      "investigation_complete": false,
+      "provider_response_statuses": [
+        "completed",
+        "completed",
+        "incomplete",
+        "completed",
+        "completed",
+        "completed"
+      ],
+      "incomplete_response_count": 1,
+      "incomplete_turn1": 1,
+      "incomplete_turn2": 0,
+      "provider_status_unknown_count": 0,
+      "provider_status_not_completed_count": 1,
+      "usage_incomplete_request_count": 0,
+      "summary_repair_used_turn1": 1,
+      "summary_repair_used_turn2": 0,
+      "turn1_continuation_state": {
+        "attempted": true,
+        "valid": true,
+        "response_id_source": "repair"
+      },
+      "turn2_continuation_state": {
+        "attempted": false,
+        "valid": null,
+        "response_id_source": "original"
+      },
+      "turn1_returned_response_id_is_latest": true,
+      "turn2_returned_response_id_is_latest": true,
+      "chain_used_is_latest_turn1_response": true,
+      "summary_valid": true,
+      "summary_errors": [],
+      "conclusion": "OOF underperformance explained by weak uniform discrimination (pooled AUC 0.683, per-fold 0.68-0.69); fold-shift and pure-miscalibration hypotheses rejected.",
+      "tool_calls_turn1": {
+        "executed": 4,
+        "reused": 0,
+        "context_mode": "full"
+      },
+      "tool_calls_turn2": {
+        "executed": 1,
+        "reused": 0,
+        "context_mode": "delta",
+        "fallback_used": false,
+        "latency_s": 43.059,
+        "api_attempts": 3
+      },
+      "event_kinds": {
+        "status_change": 2,
+        "tool_result": 6,
+        "meta_request": 5,
+        "meta_response": 5,
+        "hypothesis": 3,
+        "tool_request": 5,
+        "summary": 3,
+        "summary_repair": 2,
+        "meta_usage": 2
+      },
+      "fallback_events": 0,
+      "actions": {
+        "ran": [
+          "calibration_and_error_analysis",
+          "classification_metrics",
+          "propose_hypothesis"
+        ],
+        "ran_count": 5,
+        "failed": []
+      },
+      "hypothesis_statuses": [
+        "proposed",
+        "proposed",
+        "proposed"
+      ],
+      "final_message_head": "Fact: recorded `classification_metrics` [action b8624fed472b4737bd6225d795018431] reports pooled ROC-AUC 0.683495 with per-split AUCs 2023 0.690708, 2024 0.680062, 2025 0.689827, precision 0.51497 and recall 0.012662 at 0.5, Brier 0.130634.\nFact: recorded `calibration_and_error_analysis` shows reliability bins tracking mean_score vs fraction_positive (e.g. 0.0-0.1: 0.055 vs 0.076, n=16997; 0.1-0.2",
+      "preservation": {
+        "manifest": "finalized",
+        "required_evidence_present": {
+          "responses": true,
+          "assistant_messages": true,
+          "usage": true,
+          "events_dump": true,
+          "sandbox_final.db": true,
+          "repairs": true
+        },
+        "artifacts": [
+          "assistant_messages.jsonl",
+          "events_dump.json",
+          "repairs.jsonl",
+          "responses.jsonl",
+          "run_start.json",
+          "sandbox_final.db",
+          "usage.jsonl"
+        ],
+        "finalized_utc": "2026-10-31T22:01:33Z",
+        "run_dir": "C:\\Prajwal MIT\\Passion\\model_autopsy\\benchmarks\\phase_d_meta_live_20261031T215509Z\\run-4ia6ynjt"
+      }
+    }
+  ]
+}
+META_EXIT=0

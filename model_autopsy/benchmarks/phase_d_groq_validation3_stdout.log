@@ -1,0 +1,42 @@
+{
+  "written": "model_autopsy\\benchmarks\\phase_d_groq_validation3_results.json",
+  "summary": {
+    "provider_http_attempts": 15,
+    "billed_ok_requests": 15,
+    "failed_requests": 0,
+    "input_tokens": 40224,
+    "output_tokens": 4883,
+    "estimated_cost_usd": 0.008963,
+    "stop_reason": null
+  },
+  "runs": [
+    {
+      "condition": "full",
+      "status": null,
+      "condition_totals": {
+        "provider_latency_s": 13.37,
+        "requests": 7,
+        "rate_limit_wait_s": 0.0,
+        "last_rate_hints": {
+          "reset_tokens_s": 28.935,
+          "remaining_tokens": 4142
+        }
+      },
+      "chained_context_chars": 2516
+    },
+    {
+      "condition": "delta",
+      "status": null,
+      "condition_totals": {
+        "provider_latency_s": 11.172,
+        "requests": 7,
+        "rate_limit_wait_s": 0.0,
+        "last_rate_hints": {
+          "reset_tokens_s": 26.43,
+          "remaining_tokens": 4476
+        }
+      },
+      "chained_context_chars": 2153
+    }
+  ]
+}

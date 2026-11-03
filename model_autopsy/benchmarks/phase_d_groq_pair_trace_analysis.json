@@ -1,0 +1,3263 @@
+{
+  "source_files": [
+    "phase_d_groq_20b_pilot.json",
+    "phase_d_groq_20b_pilot2.json",
+    "phase_d_groq_20b_pilot3.json",
+    "phase_d_groq_20b_pilot4.json",
+    "phase_d_groq_20b_pilot5.json"
+  ],
+  "pairs": [
+    {
+      "file": "phase_d_groq_20b_pilot.json",
+      "generated_utc": "2026-10-29T00:16:06Z",
+      "model": "openai/gpt-oss-20b",
+      "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-phase-d-groq-7obifybk\\sandbox.db",
+      "totals": {
+        "provider_http_attempts": 12,
+        "billed_ok_requests": 12,
+        "failed_requests": 0,
+        "input_tokens": 27845,
+        "output_tokens": 6591,
+        "estimated_cost_usd": 0.004066,
+        "stop_reason": null
+      },
+      "runs": [
+        {
+          "condition": "full",
+          "investigation_id": "f82760ded64f4ce19c2c9626888f872a",
+          "tool_calls_used": 4,
+          "max_tool_calls": 6,
+          "turn1": {
+            "rounds": 3,
+            "finish_reasons": [
+              "tool_calls",
+              "tool_calls",
+              "tool_calls"
+            ],
+            "summary_block_seen": false,
+            "actions": [
+              {
+                "id": "e5e0751cfa374091bd503eeeaa9467f3",
+                "seq": 3,
+                "tool": "feature_target_suspiciousness",
+                "status": "ran",
+                "arguments": {
+                  "feature_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "label_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "n_top": 10
+                },
+                "numeric_evidence": {
+                  "n_features": 18
+                },
+                "detail": {
+                  "top_correlations": [
+                    {
+                      "feature": "label",
+                      "r": 1.0
+                    },
+                    {
+                      "feature": "hold1_ret",
+                      "r": 0.606409
+                    },
+                    {
+                      "feature": "LightGBM_D",
+                      "r": 0.234215
+                    },
+                    {
+                      "feature": "LightGBM_C",
+                      "r": 0.234122
+                    }
+                  ],
+                  "caveat": "statistical association only; leakage claims require feature provenance and re-evaluation evidence"
+                },
+                "error": null
+              },
+              {
+                "id": "179c2505ea1f45c8a3e380e7ddc62181",
+                "seq": 5,
+                "tool": "classification_metrics",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "score_column": "LightGBM_C",
+                  "split_by": "fold"
+                },
+                "numeric_evidence": {
+                  "n": 41221,
+                  "roc_auc": 0.683495,
+                  "brier": 0.130634,
+                  "precision_at_threshold": 0.51497,
+                  "recall_at_threshold": 0.012662,
+                  "threshold": 0.5
+                },
+                "detail": {
+                  "per_split_auc": {
+                    "2023": 0.690708,
+                    "2024": 0.680062,
+                    "2025": 0.689827
+                  }
+                },
+                "error": null
+              },
+              {
+                "id": "33d85145baaf4867a5d71b17ad108d49",
+                "seq": 7,
+                "tool": "time_split_validation",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv"
+                },
+                "numeric_evidence": {
+                  "n_rows": 41221
+                },
+                "detail": {},
+                "error": null
+              }
+            ]
+          },
+          "turn2": {
+            "rounds": 2,
+            "finish_reasons": [
+              "tool_calls",
+              "stop"
+            ],
+            "ended_with_stop": true,
+            "extra_rounds_before_synthesis": 1,
+            "actions_after_turn1": [
+              {
+                "id": "163b9c02161f4666a32dbe8b7a61c0ad",
+                "seq": 9,
+                "tool": "propose_hypothesis",
+                "status": "ran",
+                "arguments": {
+                  "confidence_note": "Uncalibrated confidence; plausible due to high correlation.",
+                  "predicted_observation": "AUC drops significantly when hold1_ret is excluded.",
+                  "rationale": "hold1_ret shows abs_r 0.606 with label; suggests leakage.",
+                  "text": "Feature leakage from hold1_ret inflates training performance but not OOF; removing it will reduce AUC."
+                },
+                "numeric_evidence": {},
+                "detail": {},
+                "error": null
+              }
+            ],
+            "tool_calls": 1
+          },
+          "all_actions": [
+            {
+              "id": "e5e0751cfa374091bd503eeeaa9467f3",
+              "seq": 3,
+              "tool": "feature_target_suspiciousness",
+              "status": "ran",
+              "arguments": {
+                "feature_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "label_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "n_top": 10
+              },
+              "numeric_evidence": {
+                "n_features": 18
+              },
+              "detail": {
+                "top_correlations": [
+                  {
+                    "feature": "label",
+                    "r": 1.0
+                  },
+                  {
+                    "feature": "hold1_ret",
+                    "r": 0.606409
+                  },
+                  {
+                    "feature": "LightGBM_D",
+                    "r": 0.234215
+                  },
+                  {
+                    "feature": "LightGBM_C",
+                    "r": 0.234122
+                  }
+                ],
+                "caveat": "statistical association only; leakage claims require feature provenance and re-evaluation evidence"
+              },
+              "error": null
+            },
+            {
+              "id": "179c2505ea1f45c8a3e380e7ddc62181",
+              "seq": 5,
+              "tool": "classification_metrics",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "score_column": "LightGBM_C",
+                "split_by": "fold"
+              },
+              "numeric_evidence": {
+                "n": 41221,
+                "roc_auc": 0.683495,
+                "brier": 0.130634,
+                "precision_at_threshold": 0.51497,
+                "recall_at_threshold": 0.012662,
+                "threshold": 0.5
+              },
+              "detail": {
+                "per_split_auc": {
+                  "2023": 0.690708,
+                  "2024": 0.680062,
+                  "2025": 0.689827
+                }
+              },
+              "error": null
+            },
+            {
+              "id": "33d85145baaf4867a5d71b17ad108d49",
+              "seq": 7,
+              "tool": "time_split_validation",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv"
+              },
+              "numeric_evidence": {
+                "n_rows": 41221
+              },
+              "detail": {},
+              "error": null
+            },
+            {
+              "id": "163b9c02161f4666a32dbe8b7a61c0ad",
+              "seq": 9,
+              "tool": "propose_hypothesis",
+              "status": "ran",
+              "arguments": {
+                "confidence_note": "Uncalibrated confidence; plausible due to high correlation.",
+                "predicted_observation": "AUC drops significantly when hold1_ret is excluded.",
+                "rationale": "hold1_ret shows abs_r 0.606 with label; suggests leakage.",
+                "text": "Feature leakage from hold1_ret inflates training performance but not OOF; removing it will reduce AUC."
+              },
+              "numeric_evidence": {},
+              "detail": {},
+              "error": null
+            }
+          ],
+          "diagnostic_families": [
+            "feature_target_scan",
+            "hypothesis_proposal",
+            "oof_performance",
+            "time_split_structure"
+          ],
+          "diagnostic_family_count": 3,
+          "evidence_bearing_tools": [
+            "classification_metrics",
+            "feature_target_suspiciousness"
+          ],
+          "hypotheses": [
+            {
+              "id": "da1606c81ddf4549ba9e74125f44230b",
+              "status": "proposed",
+              "text": "Feature leakage from hold1_ret inflates training performance but not OOF; removing it will reduce AUC."
+            }
+          ],
+          "summary_attempts": [
+            {
+              "event_seq": 11,
+              "valid": false,
+              "errors": [
+                "no structured summary found in the final message"
+              ],
+              "conclusion": null,
+              "status_recommendations": null,
+              "uncertainties": null,
+              "recommended_next": null,
+              "hypothesis_refs": [],
+              "hypothesis_refs_known": [],
+              "basis_ids": [],
+              "basis_ids_valid": [],
+              "basis_ids_unknown": [],
+              "basis_is_list": false
+            },
+            {
+              "event_seq": 12,
+              "valid": true,
+              "errors": [],
+              "conclusion": "The available evidence indicates a strong correlation between the feature `hold1_ret` and the target label, suggesting potential leakage that could inflate training performance and lead to underperformance on out‑of‑fold data. However, without training‑time metrics or direct leakage tests, this remains an unconfirmed hypothesis.",
+              "status_recommendations": [
+                {
+                  "hypothesis_id": "da1606c81ddf4549ba9e74125f44230b",
+                  "status": "investigating",
+                  "basis": [
+                    "e5e0751cfa374091bd503eeeaa9467f3"
+                  ]
+                }
+              ],
+              "uncertainties": [
+                "No training‑time performance metrics are available to compare against OOF results.",
+                "Correlation alone does not prove leakage; feature provenance and temporal alignment need verification."
+              ],
+              "recommended_next": "Run a controlled experiment removing `hold1_ret` from the training set and compare training vs. OOF AUC; additionally, perform a feature importance analysis to confirm whether `hold1_ret` dominates model predictions.",
+              "hypothesis_refs": [
+                "da1606c81ddf4549ba9e74125f44230b"
+              ],
+              "hypothesis_refs_known": [
+                "da1606c81ddf4549ba9e74125f44230b"
+              ],
+              "basis_ids": [
+                "e5e0751cfa374091bd503eeeaa9467f3"
+              ],
+              "basis_ids_valid": [
+                "e5e0751cfa374091bd503eeeaa9467f3"
+              ],
+              "basis_ids_unknown": [],
+              "basis_is_list": true
+            }
+          ],
+          "final_summary": {
+            "event_seq": 12,
+            "valid": true,
+            "errors": [],
+            "conclusion": "The available evidence indicates a strong correlation between the feature `hold1_ret` and the target label, suggesting potential leakage that could inflate training performance and lead to underperformance on out‑of‑fold data. However, without training‑time metrics or direct leakage tests, this remains an unconfirmed hypothesis.",
+            "status_recommendations": [
+              {
+                "hypothesis_id": "da1606c81ddf4549ba9e74125f44230b",
+                "status": "investigating",
+                "basis": [
+                  "e5e0751cfa374091bd503eeeaa9467f3"
+                ]
+              }
+            ],
+            "uncertainties": [
+              "No training‑time performance metrics are available to compare against OOF results.",
+              "Correlation alone does not prove leakage; feature provenance and temporal alignment need verification."
+            ],
+            "recommended_next": "Run a controlled experiment removing `hold1_ret` from the training set and compare training vs. OOF AUC; additionally, perform a feature importance analysis to confirm whether `hold1_ret` dominates model predictions.",
+            "hypothesis_refs": [
+              "da1606c81ddf4549ba9e74125f44230b"
+            ],
+            "hypothesis_refs_known": [
+              "da1606c81ddf4549ba9e74125f44230b"
+            ],
+            "basis_ids": [
+              "e5e0751cfa374091bd503eeeaa9467f3"
+            ],
+            "basis_ids_valid": [
+              "e5e0751cfa374091bd503eeeaa9467f3"
+            ],
+            "basis_ids_unknown": [],
+            "basis_is_list": true
+          },
+          "ledger_summary": {
+            "valid": true,
+            "errors": [],
+            "conclusion": null
+          },
+          "summary_repair_attempts": 1,
+          "summary_valid_after_repair": true,
+          "summary_repair_errors": [],
+          "chained_context_chars": 2147,
+          "tokens": {
+            "turn1r1": [
+              1719,
+              560
+            ],
+            "turn1r2": [
+              2255,
+              436
+            ],
+            "turn1r3": [
+              2500,
+              613
+            ],
+            "turn2r1": [
+              3508,
+              1092
+            ],
+            "turn2r2": [
+              3764,
+              975
+            ],
+            "turn2repair": [
+              2892,
+              585
+            ]
+          },
+          "condition_totals": {
+            "provider_latency_s": 10.949,
+            "requests": 6,
+            "rate_limit_wait_s": 0.0,
+            "last_rate_hints": {
+              "reset_tokens_s": 22.162,
+              "remaining_tokens": 5045
+            }
+          }
+        },
+        {
+          "condition": "delta",
+          "investigation_id": "265125264eb940c896d45938a97ad34e",
+          "tool_calls_used": 3,
+          "max_tool_calls": 6,
+          "turn1": {
+            "rounds": 3,
+            "finish_reasons": [
+              "tool_calls",
+              "tool_calls",
+              "tool_calls"
+            ],
+            "summary_block_seen": false,
+            "actions": [
+              {
+                "id": "db3b4e3f15c848fb8d2353115cf2f8de",
+                "seq": 3,
+                "tool": "classification_metrics",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "score_column": "LightGBM_C"
+                },
+                "numeric_evidence": {
+                  "n": 41221,
+                  "roc_auc": 0.683495,
+                  "brier": 0.130634,
+                  "precision_at_threshold": 0.51497,
+                  "recall_at_threshold": 0.012662,
+                  "threshold": 0.5
+                },
+                "detail": {},
+                "error": null
+              },
+              {
+                "id": "c8cf941ecf724493863c7349e7084028",
+                "seq": 5,
+                "tool": "classification_metrics",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "score_column": "LightGBM_C",
+                  "split_by": "fold"
+                },
+                "numeric_evidence": {
+                  "n": 41221,
+                  "roc_auc": 0.683495,
+                  "brier": 0.130634,
+                  "precision_at_threshold": 0.51497,
+                  "recall_at_threshold": 0.012662,
+                  "threshold": 0.5
+                },
+                "detail": {
+                  "per_split_auc": {
+                    "2023": 0.690708,
+                    "2024": 0.680062,
+                    "2025": 0.689827
+                  }
+                },
+                "error": null
+              },
+              {
+                "id": "48ec406c1e884377a81129b656349310",
+                "seq": 7,
+                "tool": "propose_hypothesis",
+                "status": "ran",
+                "arguments": {
+                  "confidence_note": "Moderate",
+                  "predicted_observation": "A feature-target correlation analysis would reveal high point-biserial correlation for an id or timestamp feature, and a time split validation would show that the distribution of that feature differs across folds.",
+                  "rationale": "The dataset has 17 columns, including 9 non-model columns; some may be identifiers or timestamps. Overfitting to such features can inflate training performance but degrade OOF performance.",
+                  "text": "Hypothesis 1: The model overfits to id-based or timestamp features that are present in training folds but absent or different in test folds, leading to poor generalization on OOF data."
+                },
+                "numeric_evidence": {},
+                "detail": {},
+                "error": null
+              }
+            ]
+          },
+          "turn2": {
+            "rounds": 1,
+            "finish_reasons": [
+              "stop"
+            ],
+            "ended_with_stop": true,
+            "extra_rounds_before_synthesis": 0,
+            "actions_after_turn1": [],
+            "tool_calls": 0
+          },
+          "all_actions": [
+            {
+              "id": "db3b4e3f15c848fb8d2353115cf2f8de",
+              "seq": 3,
+              "tool": "classification_metrics",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "score_column": "LightGBM_C"
+              },
+              "numeric_evidence": {
+                "n": 41221,
+                "roc_auc": 0.683495,
+                "brier": 0.130634,
+                "precision_at_threshold": 0.51497,
+                "recall_at_threshold": 0.012662,
+                "threshold": 0.5
+              },
+              "detail": {},
+              "error": null
+            },
+            {
+              "id": "c8cf941ecf724493863c7349e7084028",
+              "seq": 5,
+              "tool": "classification_metrics",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "score_column": "LightGBM_C",
+                "split_by": "fold"
+              },
+              "numeric_evidence": {
+                "n": 41221,
+                "roc_auc": 0.683495,
+                "brier": 0.130634,
+                "precision_at_threshold": 0.51497,
+                "recall_at_threshold": 0.012662,
+                "threshold": 0.5
+              },
+              "detail": {
+                "per_split_auc": {
+                  "2023": 0.690708,
+                  "2024": 0.680062,
+                  "2025": 0.689827
+                }
+              },
+              "error": null
+            },
+            {
+              "id": "48ec406c1e884377a81129b656349310",
+              "seq": 7,
+              "tool": "propose_hypothesis",
+              "status": "ran",
+              "arguments": {
+                "confidence_note": "Moderate",
+                "predicted_observation": "A feature-target correlation analysis would reveal high point-biserial correlation for an id or timestamp feature, and a time split validation would show that the distribution of that feature differs across folds.",
+                "rationale": "The dataset has 17 columns, including 9 non-model columns; some may be identifiers or timestamps. Overfitting to such features can inflate training performance but degrade OOF performance.",
+                "text": "Hypothesis 1: The model overfits to id-based or timestamp features that are present in training folds but absent or different in test folds, leading to poor generalization on OOF data."
+              },
+              "numeric_evidence": {},
+              "detail": {},
+              "error": null
+            }
+          ],
+          "diagnostic_families": [
+            "hypothesis_proposal",
+            "oof_performance"
+          ],
+          "diagnostic_family_count": 1,
+          "evidence_bearing_tools": [
+            "classification_metrics"
+          ],
+          "hypotheses": [
+            {
+              "id": "d1995f1ba5c04e5986a777dadc4977fe",
+              "status": "proposed",
+              "text": "Hypothesis 1: The model overfits to id-based or timestamp features that are present in training folds but absent or different in test folds, leading to poor generalization on OOF data."
+            }
+          ],
+          "summary_attempts": [
+            {
+              "event_seq": 9,
+              "valid": false,
+              "errors": [
+                "no structured summary found in the final message"
+              ],
+              "conclusion": null,
+              "status_recommendations": null,
+              "uncertainties": null,
+              "recommended_next": null,
+              "hypothesis_refs": [],
+              "hypothesis_refs_known": [],
+              "basis_ids": [],
+              "basis_ids_valid": [],
+              "basis_ids_unknown": [],
+              "basis_is_list": false
+            },
+            {
+              "event_seq": 10,
+              "valid": true,
+              "errors": [],
+              "conclusion": "No definitive cause for the OOF underperformance can be established from the current metrics alone.",
+              "status_recommendations": [
+                {
+                  "hypothesis_id": "d1995f1ba5c04e5986a777dadc4977fe",
+                  "status": "inconclusive",
+                  "basis": [
+                    "db3b4e3f15c848fb8d2353115cf2f8de",
+                    "c8cf941ecf724493863c7349e7084028"
+                  ]
+                }
+              ],
+              "uncertainties": [
+                "Potential leakage from id or timestamp features not confirmed.",
+                "Model calibration and threshold choice may affect recall.",
+                "Feature importance and correlation analyses have not been performed."
+              ],
+              "recommended_next": "Conduct feature importance, correlation, and leakage checks, and evaluate model performance on a time‑split validation to assess generalization.",
+              "hypothesis_refs": [
+                "d1995f1ba5c04e5986a777dadc4977fe"
+              ],
+              "hypothesis_refs_known": [
+                "d1995f1ba5c04e5986a777dadc4977fe"
+              ],
+              "basis_ids": [
+                "db3b4e3f15c848fb8d2353115cf2f8de",
+                "c8cf941ecf724493863c7349e7084028"
+              ],
+              "basis_ids_valid": [
+                "db3b4e3f15c848fb8d2353115cf2f8de",
+                "c8cf941ecf724493863c7349e7084028"
+              ],
+              "basis_ids_unknown": [],
+              "basis_is_list": true
+            }
+          ],
+          "final_summary": {
+            "event_seq": 10,
+            "valid": true,
+            "errors": [],
+            "conclusion": "No definitive cause for the OOF underperformance can be established from the current metrics alone.",
+            "status_recommendations": [
+              {
+                "hypothesis_id": "d1995f1ba5c04e5986a777dadc4977fe",
+                "status": "inconclusive",
+                "basis": [
+                  "db3b4e3f15c848fb8d2353115cf2f8de",
+                  "c8cf941ecf724493863c7349e7084028"
+                ]
+              }
+            ],
+            "uncertainties": [
+              "Potential leakage from id or timestamp features not confirmed.",
+              "Model calibration and threshold choice may affect recall.",
+              "Feature importance and correlation analyses have not been performed."
+            ],
+            "recommended_next": "Conduct feature importance, correlation, and leakage checks, and evaluate model performance on a time‑split validation to assess generalization.",
+            "hypothesis_refs": [
+              "d1995f1ba5c04e5986a777dadc4977fe"
+            ],
+            "hypothesis_refs_known": [
+              "d1995f1ba5c04e5986a777dadc4977fe"
+            ],
+            "basis_ids": [
+              "db3b4e3f15c848fb8d2353115cf2f8de",
+              "c8cf941ecf724493863c7349e7084028"
+            ],
+            "basis_ids_valid": [
+              "db3b4e3f15c848fb8d2353115cf2f8de",
+              "c8cf941ecf724493863c7349e7084028"
+            ],
+            "basis_ids_unknown": [],
+            "basis_is_list": true
+          },
+          "ledger_summary": {
+            "valid": true,
+            "errors": [],
+            "conclusion": null
+          },
+          "summary_repair_attempts": 1,
+          "summary_valid_after_repair": true,
+          "summary_repair_errors": [],
+          "chained_context_chars": 2134,
+          "tokens": {
+            "turn1r1": [
+              1719,
+              491
+            ],
+            "turn1r2": [
+              1924,
+              434
+            ],
+            "turn1r3": [
+              2169,
+              366
+            ],
+            "turn2r1": [
+              3133,
+              596
+            ],
+            "turn2repair": [
+              2262,
+              443
+            ]
+          },
+          "condition_totals": {
+            "provider_latency_s": 11.531,
+            "requests": 5,
+            "rate_limit_wait_s": 0.0,
+            "last_rate_hints": {
+              "reset_tokens_s": 21.435,
+              "remaining_tokens": 5142
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "phase_d_groq_20b_pilot2.json",
+      "generated_utc": "2026-10-29T00:31:04Z",
+      "model": "openai/gpt-oss-20b",
+      "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-phase-d-groq-fcgoq13d\\sandbox.db",
+      "totals": {
+        "provider_http_attempts": 12,
+        "billed_ok_requests": 12,
+        "failed_requests": 0,
+        "input_tokens": 26950,
+        "output_tokens": 6351,
+        "estimated_cost_usd": 0.003927,
+        "stop_reason": null
+      },
+      "runs": [
+        {
+          "condition": "full",
+          "investigation_id": "9167ece3ba394376974c43992613e64d",
+          "tool_calls_used": 3,
+          "max_tool_calls": 6,
+          "turn1": {
+            "rounds": 3,
+            "finish_reasons": [
+              "tool_calls",
+              "tool_calls",
+              "tool_calls"
+            ],
+            "summary_block_seen": false,
+            "actions": [
+              {
+                "id": "ab8fb2704143466a84c7b617f7bc5736",
+                "seq": 3,
+                "tool": "propose_hypothesis",
+                "status": "ran",
+                "arguments": {
+                  "confidence_note": "Moderate",
+                  "predicted_observation": "Per-fold AUCs differ significantly.",
+                  "rationale": "The dataset has 3 folds; if the model overfits to training folds, OOF performance may drop on certain folds.",
+                  "text": "Distribution shift between folds leads to lower OOF performance. If true, we would observe significant variation in AUC across folds, with some folds performing worse. This would be contradicted if AUC is consistent across folds."
+                },
+                "numeric_evidence": {},
+                "detail": {},
+                "error": null
+              },
+              {
+                "id": "ba9a652c36d34988a8e74ace30f7201f",
+                "seq": 5,
+                "tool": "propose_hypothesis",
+                "status": "ran",
+                "arguments": {
+                  "confidence_note": "Moderate",
+                  "predicted_observation": "Training AUC significantly higher than OOF AUC.",
+                  "rationale": "If data leakage exists, training metrics will be inflated compared to OOF. Contradicted if training and OOF AUCs are similar.",
+                  "text": "Data leakage between training and validation sets causes inflated training performance but lower OOF performance. If true, training AUC will be significantly higher than OOF AUC; if not, hypothesis is contradicted."
+                },
+                "numeric_evidence": {},
+                "detail": {},
+                "error": null
+              },
+              {
+                "id": "e55013cc4b8d41be86f25e06cd3db2d7",
+                "seq": 7,
+                "tool": "classification_metrics",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "split_by": "fold"
+                },
+                "numeric_evidence": {
+                  "n": 41221,
+                  "roc_auc": 0.683495,
+                  "brier": 0.130634,
+                  "precision_at_threshold": 0.51497,
+                  "recall_at_threshold": 0.012662,
+                  "threshold": 0.5
+                },
+                "detail": {
+                  "per_split_auc": {
+                    "2023": 0.690708,
+                    "2024": 0.680062,
+                    "2025": 0.689827
+                  }
+                },
+                "error": null
+              }
+            ]
+          },
+          "turn2": {
+            "rounds": 1,
+            "finish_reasons": [
+              "stop"
+            ],
+            "ended_with_stop": true,
+            "extra_rounds_before_synthesis": 0,
+            "actions_after_turn1": [],
+            "tool_calls": 0
+          },
+          "all_actions": [
+            {
+              "id": "ab8fb2704143466a84c7b617f7bc5736",
+              "seq": 3,
+              "tool": "propose_hypothesis",
+              "status": "ran",
+              "arguments": {
+                "confidence_note": "Moderate",
+                "predicted_observation": "Per-fold AUCs differ significantly.",
+                "rationale": "The dataset has 3 folds; if the model overfits to training folds, OOF performance may drop on certain folds.",
+                "text": "Distribution shift between folds leads to lower OOF performance. If true, we would observe significant variation in AUC across folds, with some folds performing worse. This would be contradicted if AUC is consistent across folds."
+              },
+              "numeric_evidence": {},
+              "detail": {},
+              "error": null
+            },
+            {
+              "id": "ba9a652c36d34988a8e74ace30f7201f",
+              "seq": 5,
+              "tool": "propose_hypothesis",
+              "status": "ran",
+              "arguments": {
+                "confidence_note": "Moderate",
+                "predicted_observation": "Training AUC significantly higher than OOF AUC.",
+                "rationale": "If data leakage exists, training metrics will be inflated compared to OOF. Contradicted if training and OOF AUCs are similar.",
+                "text": "Data leakage between training and validation sets causes inflated training performance but lower OOF performance. If true, training AUC will be significantly higher than OOF AUC; if not, hypothesis is contradicted."
+              },
+              "numeric_evidence": {},
+              "detail": {},
+              "error": null
+            },
+            {
+              "id": "e55013cc4b8d41be86f25e06cd3db2d7",
+              "seq": 7,
+              "tool": "classification_metrics",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "split_by": "fold"
+              },
+              "numeric_evidence": {
+                "n": 41221,
+                "roc_auc": 0.683495,
+                "brier": 0.130634,
+                "precision_at_threshold": 0.51497,
+                "recall_at_threshold": 0.012662,
+                "threshold": 0.5
+              },
+              "detail": {
+                "per_split_auc": {
+                  "2023": 0.690708,
+                  "2024": 0.680062,
+                  "2025": 0.689827
+                }
+              },
+              "error": null
+            }
+          ],
+          "diagnostic_families": [
+            "hypothesis_proposal",
+            "oof_performance"
+          ],
+          "diagnostic_family_count": 1,
+          "evidence_bearing_tools": [
+            "classification_metrics"
+          ],
+          "hypotheses": [
+            {
+              "id": "147726b7c78444669751d39f7c045be5",
+              "status": "proposed",
+              "text": "Distribution shift between folds leads to lower OOF performance. If true, we would observe significant variation in AUC across folds, with some folds performing worse. This would be contradicted if AUC is consistent across folds."
+            },
+            {
+              "id": "b9b8a73dc82c41238f65114f9e251958",
+              "status": "proposed",
+              "text": "Data leakage between training and validation sets causes inflated training performance but lower OOF performance. If true, training AUC will be significantly higher than OOF AUC; if not, hypothesis is contradicted."
+            }
+          ],
+          "summary_attempts": [
+            {
+              "event_seq": 9,
+              "valid": false,
+              "errors": [
+                "no structured summary found in the final message"
+              ],
+              "conclusion": null,
+              "status_recommendations": null,
+              "uncertainties": null,
+              "recommended_next": null,
+              "hypothesis_refs": [],
+              "hypothesis_refs_known": [],
+              "basis_ids": [],
+              "basis_ids_valid": [],
+              "basis_ids_unknown": [],
+              "basis_is_list": false
+            },
+            {
+              "event_seq": 10,
+              "valid": false,
+              "errors": [
+                "no structured summary found in the final message"
+              ],
+              "conclusion": null,
+              "status_recommendations": null,
+              "uncertainties": null,
+              "recommended_next": null,
+              "hypothesis_refs": [],
+              "hypothesis_refs_known": [],
+              "basis_ids": [],
+              "basis_ids_valid": [],
+              "basis_ids_unknown": [],
+              "basis_is_list": true
+            }
+          ],
+          "final_summary": {
+            "event_seq": 10,
+            "valid": false,
+            "errors": [
+              "no structured summary found in the final message"
+            ],
+            "conclusion": null,
+            "status_recommendations": null,
+            "uncertainties": null,
+            "recommended_next": null,
+            "hypothesis_refs": [],
+            "hypothesis_refs_known": [],
+            "basis_ids": [],
+            "basis_ids_valid": [],
+            "basis_ids_unknown": [],
+            "basis_is_list": true
+          },
+          "ledger_summary": {
+            "valid": false,
+            "errors": [
+              "no structured summary found in the final message"
+            ],
+            "conclusion": null
+          },
+          "summary_repair_attempts": 1,
+          "summary_valid_after_repair": false,
+          "summary_repair_errors": [],
+          "chained_context_chars": 2514,
+          "tokens": {
+            "turn1r1": [
+              1719,
+              431
+            ],
+            "turn1r2": [
+              1974,
+              257
+            ],
+            "turn1r3": [
+              2232,
+              402
+            ],
+            "turn2r1": [
+              3294,
+              590
+            ],
+            "turn2repair": [
+              2442,
+              891
+            ]
+          },
+          "condition_totals": {
+            "provider_latency_s": 8.576,
+            "requests": 5,
+            "rate_limit_wait_s": 0.0,
+            "last_rate_hints": {
+              "reset_tokens_s": 20.662,
+              "remaining_tokens": 5245
+            }
+          }
+        },
+        {
+          "condition": "delta",
+          "investigation_id": "dd41ae71bf2348e094e5f596598e9113",
+          "tool_calls_used": 4,
+          "max_tool_calls": 6,
+          "turn1": {
+            "rounds": 3,
+            "finish_reasons": [
+              "tool_calls",
+              "tool_calls",
+              "tool_calls"
+            ],
+            "summary_block_seen": false,
+            "actions": [
+              {
+                "id": "32d6f2f453214af9af22737d3c378572",
+                "seq": 3,
+                "tool": "classification_metrics",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "score_column": "LightGBM_C"
+                },
+                "numeric_evidence": {
+                  "n": 41221,
+                  "roc_auc": 0.683495,
+                  "brier": 0.130634,
+                  "precision_at_threshold": 0.51497,
+                  "recall_at_threshold": 0.012662,
+                  "threshold": 0.5
+                },
+                "detail": {},
+                "error": null
+              },
+              {
+                "id": "73b2e0e158154bc3be930c28f14f4f3c",
+                "seq": 5,
+                "tool": "feature_target_suspiciousness",
+                "status": "ran",
+                "arguments": {
+                  "feature_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "label_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "n_top": 5
+                },
+                "numeric_evidence": {
+                  "n_features": 18
+                },
+                "detail": {
+                  "top_correlations": [
+                    {
+                      "feature": "label",
+                      "r": 1.0
+                    },
+                    {
+                      "feature": "hold1_ret",
+                      "r": 0.606409
+                    },
+                    {
+                      "feature": "LightGBM_D",
+                      "r": 0.234215
+                    },
+                    {
+                      "feature": "LightGBM_C",
+                      "r": 0.234122
+                    }
+                  ],
+                  "caveat": "statistical association only; leakage claims require feature provenance and re-evaluation evidence"
+                },
+                "error": null
+              },
+              {
+                "id": "25fd58487a1e44c48f1f2a196bf95504",
+                "seq": 7,
+                "tool": "time_split_validation",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv"
+                },
+                "numeric_evidence": {
+                  "n_rows": 41221
+                },
+                "detail": {},
+                "error": null
+              }
+            ]
+          },
+          "turn2": {
+            "rounds": 2,
+            "finish_reasons": [
+              "tool_calls",
+              "stop"
+            ],
+            "ended_with_stop": true,
+            "extra_rounds_before_synthesis": 1,
+            "actions_after_turn1": [
+              {
+                "id": "6a8c3d47ecb84e39ab2ef3c00444dce7",
+                "seq": 9,
+                "tool": "propose_hypothesis",
+                "status": "ran",
+                "arguments": {
+                  "confidence_note": "Moderate",
+                  "predicted_observation": "Recall improves above 0.1 with reweighting; AUC stays ~0.68.",
+                  "rationale": "The dataset has 34429 zeros and 6792 ones, a 5:1 imbalance. The current recall at 0.5 threshold is 0.0126, indicating the model rarely predicts positives.",
+                  "text": "Class imbalance causes the model to predict mostly the majority class, leading to low recall and moderate AUC. If we reweight or resample the training data, recall should increase while AUC remains similar."
+                },
+                "numeric_evidence": {},
+                "detail": {},
+                "error": null
+              }
+            ],
+            "tool_calls": 1
+          },
+          "all_actions": [
+            {
+              "id": "32d6f2f453214af9af22737d3c378572",
+              "seq": 3,
+              "tool": "classification_metrics",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "score_column": "LightGBM_C"
+              },
+              "numeric_evidence": {
+                "n": 41221,
+                "roc_auc": 0.683495,
+                "brier": 0.130634,
+                "precision_at_threshold": 0.51497,
+                "recall_at_threshold": 0.012662,
+                "threshold": 0.5
+              },
+              "detail": {},
+              "error": null
+            },
+            {
+              "id": "73b2e0e158154bc3be930c28f14f4f3c",
+              "seq": 5,
+              "tool": "feature_target_suspiciousness",
+              "status": "ran",
+              "arguments": {
+                "feature_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "label_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "n_top": 5
+              },
+              "numeric_evidence": {
+                "n_features": 18
+              },
+              "detail": {
+                "top_correlations": [
+                  {
+                    "feature": "label",
+                    "r": 1.0
+                  },
+                  {
+                    "feature": "hold1_ret",
+                    "r": 0.606409
+                  },
+                  {
+                    "feature": "LightGBM_D",
+                    "r": 0.234215
+                  },
+                  {
+                    "feature": "LightGBM_C",
+                    "r": 0.234122
+                  }
+                ],
+                "caveat": "statistical association only; leakage claims require feature provenance and re-evaluation evidence"
+              },
+              "error": null
+            },
+            {
+              "id": "25fd58487a1e44c48f1f2a196bf95504",
+              "seq": 7,
+              "tool": "time_split_validation",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv"
+              },
+              "numeric_evidence": {
+                "n_rows": 41221
+              },
+              "detail": {},
+              "error": null
+            },
+            {
+              "id": "6a8c3d47ecb84e39ab2ef3c00444dce7",
+              "seq": 9,
+              "tool": "propose_hypothesis",
+              "status": "ran",
+              "arguments": {
+                "confidence_note": "Moderate",
+                "predicted_observation": "Recall improves above 0.1 with reweighting; AUC stays ~0.68.",
+                "rationale": "The dataset has 34429 zeros and 6792 ones, a 5:1 imbalance. The current recall at 0.5 threshold is 0.0126, indicating the model rarely predicts positives.",
+                "text": "Class imbalance causes the model to predict mostly the majority class, leading to low recall and moderate AUC. If we reweight or resample the training data, recall should increase while AUC remains similar."
+              },
+              "numeric_evidence": {},
+              "detail": {},
+              "error": null
+            }
+          ],
+          "diagnostic_families": [
+            "feature_target_scan",
+            "hypothesis_proposal",
+            "oof_performance",
+            "time_split_structure"
+          ],
+          "diagnostic_family_count": 3,
+          "evidence_bearing_tools": [
+            "classification_metrics",
+            "feature_target_suspiciousness"
+          ],
+          "hypotheses": [
+            {
+              "id": "bb88f4e259f14e4ab5c44efe2c1deea3",
+              "status": "proposed",
+              "text": "Class imbalance causes the model to predict mostly the majority class, leading to low recall and moderate AUC. If we reweight or resample the training data, recall should increase while AUC remains similar."
+            }
+          ],
+          "summary_attempts": [
+            {
+              "event_seq": 11,
+              "valid": false,
+              "errors": [
+                "no structured summary found in the final message"
+              ],
+              "conclusion": null,
+              "status_recommendations": null,
+              "uncertainties": null,
+              "recommended_next": null,
+              "hypothesis_refs": [],
+              "hypothesis_refs_known": [],
+              "basis_ids": [],
+              "basis_ids_valid": [],
+              "basis_ids_unknown": [],
+              "basis_is_list": false
+            },
+            {
+              "event_seq": 12,
+              "valid": true,
+              "errors": [],
+              "conclusion": "The model’s poor out‑of‑fold performance is primarily due to class imbalance, which leads to a very low recall while maintaining a moderate AUC.",
+              "status_recommendations": [
+                {
+                  "hypothesis_id": "bb88f4e259f14e4ab5c44efe2c1deea3",
+                  "status": "supported",
+                  "basis": [
+                    "32d6f2f453214af9af22737d3c378572"
+                  ]
+                }
+              ],
+              "uncertainties": [
+                "Other factors such as feature leakage or temporal drift may also contribute to the low recall.",
+                "The impact of re‑weighting or resampling on overall performance has not been empirically verified."
+              ],
+              "recommended_next": "Conduct experiments with class‑weighting or oversampling of the minority class, and evaluate recall and AUC on the out‑of‑fold data to confirm the hypothesis.",
+              "hypothesis_refs": [
+                "bb88f4e259f14e4ab5c44efe2c1deea3"
+              ],
+              "hypothesis_refs_known": [
+                "bb88f4e259f14e4ab5c44efe2c1deea3"
+              ],
+              "basis_ids": [
+                "32d6f2f453214af9af22737d3c378572"
+              ],
+              "basis_ids_valid": [
+                "32d6f2f453214af9af22737d3c378572"
+              ],
+              "basis_ids_unknown": [],
+              "basis_is_list": true
+            }
+          ],
+          "final_summary": {
+            "event_seq": 12,
+            "valid": true,
+            "errors": [],
+            "conclusion": "The model’s poor out‑of‑fold performance is primarily due to class imbalance, which leads to a very low recall while maintaining a moderate AUC.",
+            "status_recommendations": [
+              {
+                "hypothesis_id": "bb88f4e259f14e4ab5c44efe2c1deea3",
+                "status": "supported",
+                "basis": [
+                  "32d6f2f453214af9af22737d3c378572"
+                ]
+              }
+            ],
+            "uncertainties": [
+              "Other factors such as feature leakage or temporal drift may also contribute to the low recall.",
+              "The impact of re‑weighting or resampling on overall performance has not been empirically verified."
+            ],
+            "recommended_next": "Conduct experiments with class‑weighting or oversampling of the minority class, and evaluate recall and AUC on the out‑of‑fold data to confirm the hypothesis.",
+            "hypothesis_refs": [
+              "bb88f4e259f14e4ab5c44efe2c1deea3"
+            ],
+            "hypothesis_refs_known": [
+              "bb88f4e259f14e4ab5c44efe2c1deea3"
+            ],
+            "basis_ids": [
+              "32d6f2f453214af9af22737d3c378572"
+            ],
+            "basis_ids_valid": [
+              "32d6f2f453214af9af22737d3c378572"
+            ],
+            "basis_ids_unknown": [],
+            "basis_is_list": true
+          },
+          "ledger_summary": {
+            "valid": true,
+            "errors": [],
+            "conclusion": null
+          },
+          "summary_repair_attempts": 1,
+          "summary_valid_after_repair": true,
+          "summary_repair_errors": [],
+          "chained_context_chars": 1948,
+          "tokens": {
+            "turn1r1": [
+              1719,
+              148
+            ],
+            "turn1r2": [
+              1924,
+              353
+            ],
+            "turn1r3": [
+              2285,
+              894
+            ],
+            "turn2r1": [
+              3194,
+              924
+            ],
+            "turn2r2": [
+              3518,
+              1021
+            ],
+            "turn2repair": [
+              2649,
+              440
+            ]
+          },
+          "condition_totals": {
+            "provider_latency_s": 10.98,
+            "requests": 6,
+            "rate_limit_wait_s": 0.0,
+            "last_rate_hints": {
+              "reset_tokens_s": 26.797,
+              "remaining_tokens": 4427
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "phase_d_groq_20b_pilot3.json",
+      "generated_utc": "2026-10-29T00:38:04Z",
+      "model": "openai/gpt-oss-20b",
+      "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-phase-d-groq-qw4qf5cc\\sandbox.db",
+      "totals": {
+        "provider_http_attempts": 11,
+        "billed_ok_requests": 11,
+        "failed_requests": 0,
+        "input_tokens": 22973,
+        "output_tokens": 6264,
+        "estimated_cost_usd": 0.003602,
+        "stop_reason": null
+      },
+      "runs": [
+        {
+          "condition": "full",
+          "investigation_id": "6037f7c2fb9d46c6b40bdac45285809e",
+          "tool_calls_used": 3,
+          "max_tool_calls": 6,
+          "turn1": {
+            "rounds": 3,
+            "finish_reasons": [
+              "tool_calls",
+              "tool_calls",
+              "tool_calls"
+            ],
+            "summary_block_seen": false,
+            "actions": [
+              {
+                "id": "1f787a332d204499860ec073538e1cef",
+                "seq": 3,
+                "tool": "propose_hypothesis",
+                "status": "ran",
+                "arguments": {
+                  "confidence_note": "Low",
+                  "predicted_observation": "AUC on all folds is significantly lower than training AUC, with no fold showing markedly better performance.",
+                  "rationale": "The dataset has a moderate class imbalance (0:34429, 1:6792). The model may have learned noise patterns that do not generalize.",
+                  "text": "Hypothesis 1: The model is overfitting to the training folds due to high model complexity and insufficient regularization, leading to poor generalization on out-of-fold data."
+                },
+                "numeric_evidence": {},
+                "detail": {},
+                "error": null
+              },
+              {
+                "id": "6aa91959febf4ed69d7453ffd9a450b9",
+                "seq": 5,
+                "tool": "classification_metrics",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "score_column": "LightGBM_C",
+                  "split_by": "fold"
+                },
+                "numeric_evidence": {
+                  "n": 41221,
+                  "roc_auc": 0.683495,
+                  "brier": 0.130634,
+                  "precision_at_threshold": 0.51497,
+                  "recall_at_threshold": 0.012662,
+                  "threshold": 0.5
+                },
+                "detail": {
+                  "per_split_auc": {
+                    "2023": 0.690708,
+                    "2024": 0.680062,
+                    "2025": 0.689827
+                  }
+                },
+                "error": null
+              },
+              {
+                "id": "15bd3d7dd3fa4e96829bba0bc2dfdd28",
+                "seq": 7,
+                "tool": "feature_target_suspiciousness",
+                "status": "ran",
+                "arguments": {
+                  "feature_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "label_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "n_top": 5
+                },
+                "numeric_evidence": {
+                  "n_features": 18
+                },
+                "detail": {
+                  "top_correlations": [
+                    {
+                      "feature": "label",
+                      "r": 1.0
+                    },
+                    {
+                      "feature": "hold1_ret",
+                      "r": 0.606409
+                    },
+                    {
+                      "feature": "LightGBM_D",
+                      "r": 0.234215
+                    },
+                    {
+                      "feature": "LightGBM_C",
+                      "r": 0.234122
+                    }
+                  ],
+                  "caveat": "statistical association only; leakage claims require feature provenance and re-evaluation evidence"
+                },
+                "error": null
+              }
+            ]
+          },
+          "turn2": {
+            "rounds": 1,
+            "finish_reasons": [
+              "stop"
+            ],
+            "ended_with_stop": true,
+            "extra_rounds_before_synthesis": 0,
+            "actions_after_turn1": [],
+            "tool_calls": 0
+          },
+          "all_actions": [
+            {
+              "id": "1f787a332d204499860ec073538e1cef",
+              "seq": 3,
+              "tool": "propose_hypothesis",
+              "status": "ran",
+              "arguments": {
+                "confidence_note": "Low",
+                "predicted_observation": "AUC on all folds is significantly lower than training AUC, with no fold showing markedly better performance.",
+                "rationale": "The dataset has a moderate class imbalance (0:34429, 1:6792). The model may have learned noise patterns that do not generalize.",
+                "text": "Hypothesis 1: The model is overfitting to the training folds due to high model complexity and insufficient regularization, leading to poor generalization on out-of-fold data."
+              },
+              "numeric_evidence": {},
+              "detail": {},
+              "error": null
+            },
+            {
+              "id": "6aa91959febf4ed69d7453ffd9a450b9",
+              "seq": 5,
+              "tool": "classification_metrics",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "score_column": "LightGBM_C",
+                "split_by": "fold"
+              },
+              "numeric_evidence": {
+                "n": 41221,
+                "roc_auc": 0.683495,
+                "brier": 0.130634,
+                "precision_at_threshold": 0.51497,
+                "recall_at_threshold": 0.012662,
+                "threshold": 0.5
+              },
+              "detail": {
+                "per_split_auc": {
+                  "2023": 0.690708,
+                  "2024": 0.680062,
+                  "2025": 0.689827
+                }
+              },
+              "error": null
+            },
+            {
+              "id": "15bd3d7dd3fa4e96829bba0bc2dfdd28",
+              "seq": 7,
+              "tool": "feature_target_suspiciousness",
+              "status": "ran",
+              "arguments": {
+                "feature_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "label_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "n_top": 5
+              },
+              "numeric_evidence": {
+                "n_features": 18
+              },
+              "detail": {
+                "top_correlations": [
+                  {
+                    "feature": "label",
+                    "r": 1.0
+                  },
+                  {
+                    "feature": "hold1_ret",
+                    "r": 0.606409
+                  },
+                  {
+                    "feature": "LightGBM_D",
+                    "r": 0.234215
+                  },
+                  {
+                    "feature": "LightGBM_C",
+                    "r": 0.234122
+                  }
+                ],
+                "caveat": "statistical association only; leakage claims require feature provenance and re-evaluation evidence"
+              },
+              "error": null
+            }
+          ],
+          "diagnostic_families": [
+            "feature_target_scan",
+            "hypothesis_proposal",
+            "oof_performance"
+          ],
+          "diagnostic_family_count": 2,
+          "evidence_bearing_tools": [
+            "classification_metrics",
+            "feature_target_suspiciousness"
+          ],
+          "hypotheses": [
+            {
+              "id": "be076d8906a146b2b27034ce3882eb4d",
+              "status": "proposed",
+              "text": "Hypothesis 1: The model is overfitting to the training folds due to high model complexity and insufficient regularization, leading to poor generalization on out-of-fold data."
+            }
+          ],
+          "summary_attempts": [
+            {
+              "event_seq": 9,
+              "valid": false,
+              "errors": [
+                "no structured summary found in the final message"
+              ],
+              "conclusion": null,
+              "status_recommendations": null,
+              "uncertainties": null,
+              "recommended_next": null,
+              "hypothesis_refs": [],
+              "hypothesis_refs_known": [],
+              "basis_ids": [],
+              "basis_ids_valid": [],
+              "basis_ids_unknown": [],
+              "basis_is_list": false
+            },
+            {
+              "event_seq": 10,
+              "valid": true,
+              "errors": [],
+              "conclusion": "The available out‑of‑fold metrics do not provide evidence that the model is overfitting; AUC is moderate and consistent across folds, and no leakage is detected from the suspiciousness analysis. Additional diagnostics are required to determine the cause of underperformance.",
+              "status_recommendations": [
+                {
+                  "hypothesis_id": "be076d8906a146b2b27034ce3882eb4d",
+                  "status": "inconclusive",
+                  "basis": [
+                    "1f787a332d204499860ec073538e1cef",
+                    "6aa91959febf4ed69d7453ffd9a450b9",
+                    "15bd3d7dd3fa4e96829bba0bc2dfdd28"
+                  ]
+                }
+              ],
+              "uncertainties": [
+                "Training AUC and cross‑validation performance are not available for comparison.",
+                "Potential data leakage cannot be ruled out without feature provenance.",
+                "Model complexity and regularization settings are unknown."
+              ],
+              "recommended_next": "Gather training and validation AUCs, inspect feature importance, verify feature provenance to rule out leakage, and evaluate model complexity.",
+              "hypothesis_refs": [
+                "be076d8906a146b2b27034ce3882eb4d"
+              ],
+              "hypothesis_refs_known": [
+                "be076d8906a146b2b27034ce3882eb4d"
+              ],
+              "basis_ids": [
+                "1f787a332d204499860ec073538e1cef",
+                "6aa91959febf4ed69d7453ffd9a450b9",
+                "15bd3d7dd3fa4e96829bba0bc2dfdd28"
+              ],
+              "basis_ids_valid": [
+                "1f787a332d204499860ec073538e1cef",
+                "6aa91959febf4ed69d7453ffd9a450b9",
+                "15bd3d7dd3fa4e96829bba0bc2dfdd28"
+              ],
+              "basis_ids_unknown": [],
+              "basis_is_list": true
+            }
+          ],
+          "final_summary": {
+            "event_seq": 10,
+            "valid": true,
+            "errors": [],
+            "conclusion": "The available out‑of‑fold metrics do not provide evidence that the model is overfitting; AUC is moderate and consistent across folds, and no leakage is detected from the suspiciousness analysis. Additional diagnostics are required to determine the cause of underperformance.",
+            "status_recommendations": [
+              {
+                "hypothesis_id": "be076d8906a146b2b27034ce3882eb4d",
+                "status": "inconclusive",
+                "basis": [
+                  "1f787a332d204499860ec073538e1cef",
+                  "6aa91959febf4ed69d7453ffd9a450b9",
+                  "15bd3d7dd3fa4e96829bba0bc2dfdd28"
+                ]
+              }
+            ],
+            "uncertainties": [
+              "Training AUC and cross‑validation performance are not available for comparison.",
+              "Potential data leakage cannot be ruled out without feature provenance.",
+              "Model complexity and regularization settings are unknown."
+            ],
+            "recommended_next": "Gather training and validation AUCs, inspect feature importance, verify feature provenance to rule out leakage, and evaluate model complexity.",
+            "hypothesis_refs": [
+              "be076d8906a146b2b27034ce3882eb4d"
+            ],
+            "hypothesis_refs_known": [
+              "be076d8906a146b2b27034ce3882eb4d"
+            ],
+            "basis_ids": [
+              "1f787a332d204499860ec073538e1cef",
+              "6aa91959febf4ed69d7453ffd9a450b9",
+              "15bd3d7dd3fa4e96829bba0bc2dfdd28"
+            ],
+            "basis_ids_valid": [
+              "1f787a332d204499860ec073538e1cef",
+              "6aa91959febf4ed69d7453ffd9a450b9",
+              "15bd3d7dd3fa4e96829bba0bc2dfdd28"
+            ],
+            "basis_ids_unknown": [],
+            "basis_is_list": true
+          },
+          "ledger_summary": {
+            "valid": true,
+            "errors": [],
+            "conclusion": null
+          },
+          "summary_repair_attempts": 1,
+          "summary_valid_after_repair": true,
+          "summary_repair_errors": [],
+          "chained_context_chars": 2343,
+          "tokens": {
+            "turn1r1": [
+              1719,
+              485
+            ],
+            "turn1r2": [
+              1978,
+              534
+            ],
+            "turn1r3": [
+              2223,
+              1122
+            ],
+            "turn2r1": [
+              3350,
+              679
+            ],
+            "turn2repair": [
+              2478,
+              721
+            ]
+          },
+          "condition_totals": {
+            "provider_latency_s": 9.263,
+            "requests": 5,
+            "rate_limit_wait_s": 0.0,
+            "last_rate_hints": {
+              "reset_tokens_s": 22.59,
+              "remaining_tokens": 4988
+            }
+          }
+        },
+        {
+          "condition": "delta",
+          "investigation_id": "2ab18b3cb3774d4c928e3442dd0c3b3a",
+          "tool_calls_used": 3,
+          "max_tool_calls": 6,
+          "turn1": {
+            "rounds": 3,
+            "finish_reasons": [
+              "tool_calls",
+              "tool_calls",
+              "tool_calls"
+            ],
+            "summary_block_seen": false,
+            "actions": [
+              {
+                "id": "9b3a830f793a47e4b28ee19b5d4ba6bd",
+                "seq": 3,
+                "tool": "classification_metrics",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv"
+                },
+                "numeric_evidence": {
+                  "n": 41221,
+                  "roc_auc": 0.683495,
+                  "brier": 0.130634,
+                  "precision_at_threshold": 0.51497,
+                  "recall_at_threshold": 0.012662,
+                  "threshold": 0.5
+                },
+                "detail": {},
+                "error": null
+              },
+              {
+                "id": "e71ccd4e623545e989861507110ac0db",
+                "seq": 5,
+                "tool": "time_split_validation",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv"
+                },
+                "numeric_evidence": {
+                  "n_rows": 41221
+                },
+                "detail": {},
+                "error": null
+              },
+              {
+                "id": "110285bae4714ac7ac84e6c4e72ff92f",
+                "seq": 7,
+                "tool": "propose_hypothesis",
+                "status": "ran",
+                "arguments": {
+                  "confidence_note": "Moderate",
+                  "predicted_observation": "AUC for 2025 fold significantly lower than 2023/2024 folds.",
+                  "rationale": "The dataset spans three years; if performance drops in the latest year, temporal drift is plausible.",
+                  "text": "Temporal drift hypothesis: The model was trained on earlier years (2023-2024) and the distribution of features or target shifts in 2025, leading to lower performance on the 2025 fold."
+                },
+                "numeric_evidence": {},
+                "detail": {},
+                "error": null
+              }
+            ]
+          },
+          "turn2": {
+            "rounds": 1,
+            "finish_reasons": [
+              "stop"
+            ],
+            "ended_with_stop": true,
+            "extra_rounds_before_synthesis": 0,
+            "actions_after_turn1": [],
+            "tool_calls": 0
+          },
+          "all_actions": [
+            {
+              "id": "9b3a830f793a47e4b28ee19b5d4ba6bd",
+              "seq": 3,
+              "tool": "classification_metrics",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv"
+              },
+              "numeric_evidence": {
+                "n": 41221,
+                "roc_auc": 0.683495,
+                "brier": 0.130634,
+                "precision_at_threshold": 0.51497,
+                "recall_at_threshold": 0.012662,
+                "threshold": 0.5
+              },
+              "detail": {},
+              "error": null
+            },
+            {
+              "id": "e71ccd4e623545e989861507110ac0db",
+              "seq": 5,
+              "tool": "time_split_validation",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv"
+              },
+              "numeric_evidence": {
+                "n_rows": 41221
+              },
+              "detail": {},
+              "error": null
+            },
+            {
+              "id": "110285bae4714ac7ac84e6c4e72ff92f",
+              "seq": 7,
+              "tool": "propose_hypothesis",
+              "status": "ran",
+              "arguments": {
+                "confidence_note": "Moderate",
+                "predicted_observation": "AUC for 2025 fold significantly lower than 2023/2024 folds.",
+                "rationale": "The dataset spans three years; if performance drops in the latest year, temporal drift is plausible.",
+                "text": "Temporal drift hypothesis: The model was trained on earlier years (2023-2024) and the distribution of features or target shifts in 2025, leading to lower performance on the 2025 fold."
+              },
+              "numeric_evidence": {},
+              "detail": {},
+              "error": null
+            }
+          ],
+          "diagnostic_families": [
+            "hypothesis_proposal",
+            "oof_performance",
+            "time_split_structure"
+          ],
+          "diagnostic_family_count": 2,
+          "evidence_bearing_tools": [
+            "classification_metrics"
+          ],
+          "hypotheses": [
+            {
+              "id": "25886219f6c44fe788d2591f4af9bd7b",
+              "status": "proposed",
+              "text": "Temporal drift hypothesis: The model was trained on earlier years (2023-2024) and the distribution of features or target shifts in 2025, leading to lower performance on the 2025 fold."
+            }
+          ],
+          "summary_attempts": [
+            {
+              "event_seq": 9,
+              "valid": false,
+              "errors": [
+                "no structured summary found in the final message"
+              ],
+              "conclusion": null,
+              "status_recommendations": null,
+              "uncertainties": null,
+              "recommended_next": null,
+              "hypothesis_refs": [],
+              "hypothesis_refs_known": [],
+              "basis_ids": [],
+              "basis_ids_valid": [],
+              "basis_ids_unknown": [],
+              "basis_is_list": false
+            },
+            {
+              "event_seq": 10,
+              "valid": true,
+              "errors": [],
+              "conclusion": "Insufficient evidence to confirm or refute temporal drift; further analysis required.",
+              "status_recommendations": [
+                {
+                  "hypothesis_id": "25886219f6c44fe788d2591f4af9bd7b",
+                  "status": "inconclusive",
+                  "basis": [
+                    "9b3a830f793a47e4b28ee19b5d4ba6bd",
+                    "e71ccd4e623545e989861507110ac0db"
+                  ]
+                }
+              ],
+              "uncertainties": [
+                "No per-fold performance metrics available",
+                "Distribution of features across years unknown"
+              ],
+              "recommended_next": "Compute per-fold AUC and compare across years to test the temporal drift hypothesis.",
+              "hypothesis_refs": [
+                "25886219f6c44fe788d2591f4af9bd7b"
+              ],
+              "hypothesis_refs_known": [
+                "25886219f6c44fe788d2591f4af9bd7b"
+              ],
+              "basis_ids": [
+                "9b3a830f793a47e4b28ee19b5d4ba6bd",
+                "e71ccd4e623545e989861507110ac0db"
+              ],
+              "basis_ids_valid": [
+                "9b3a830f793a47e4b28ee19b5d4ba6bd",
+                "e71ccd4e623545e989861507110ac0db"
+              ],
+              "basis_ids_unknown": [],
+              "basis_is_list": true
+            }
+          ],
+          "final_summary": {
+            "event_seq": 10,
+            "valid": true,
+            "errors": [],
+            "conclusion": "Insufficient evidence to confirm or refute temporal drift; further analysis required.",
+            "status_recommendations": [
+              {
+                "hypothesis_id": "25886219f6c44fe788d2591f4af9bd7b",
+                "status": "inconclusive",
+                "basis": [
+                  "9b3a830f793a47e4b28ee19b5d4ba6bd",
+                  "e71ccd4e623545e989861507110ac0db"
+                ]
+              }
+            ],
+            "uncertainties": [
+              "No per-fold performance metrics available",
+              "Distribution of features across years unknown"
+            ],
+            "recommended_next": "Compute per-fold AUC and compare across years to test the temporal drift hypothesis.",
+            "hypothesis_refs": [
+              "25886219f6c44fe788d2591f4af9bd7b"
+            ],
+            "hypothesis_refs_known": [
+              "25886219f6c44fe788d2591f4af9bd7b"
+            ],
+            "basis_ids": [
+              "9b3a830f793a47e4b28ee19b5d4ba6bd",
+              "e71ccd4e623545e989861507110ac0db"
+            ],
+            "basis_ids_valid": [
+              "9b3a830f793a47e4b28ee19b5d4ba6bd",
+              "e71ccd4e623545e989861507110ac0db"
+            ],
+            "basis_ids_unknown": [],
+            "basis_is_list": true
+          },
+          "ledger_summary": {
+            "valid": true,
+            "errors": [],
+            "conclusion": null
+          },
+          "summary_repair_attempts": 1,
+          "summary_valid_after_repair": true,
+          "summary_repair_errors": [],
+          "chained_context_chars": 2089,
+          "tokens": {
+            "turn1r1": [
+              1719,
+              364
+            ],
+            "turn1r2": [
+              1916,
+              554
+            ],
+            "turn1r3": [
+              2185,
+              350
+            ],
+            "turn2r1": [
+              3138,
+              898
+            ],
+            "turn2repair": [
+              2267,
+              557
+            ]
+          },
+          "condition_totals": {
+            "provider_latency_s": 9.415,
+            "requests": 5,
+            "rate_limit_wait_s": 0.0,
+            "last_rate_hints": {
+              "reset_tokens_s": 22.41,
+              "remaining_tokens": 5012
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "phase_d_groq_20b_pilot4.json",
+      "generated_utc": "2026-10-29T20:35:04Z",
+      "model": "openai/gpt-oss-20b",
+      "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-phase-d-groq-882s9fgi\\sandbox.db",
+      "totals": {
+        "provider_http_attempts": 12,
+        "billed_ok_requests": 12,
+        "failed_requests": 0,
+        "input_tokens": 28659,
+        "output_tokens": 7850,
+        "estimated_cost_usd": 0.004504,
+        "stop_reason": null
+      },
+      "runs": [
+        {
+          "condition": "full",
+          "investigation_id": "4b9c90e88219442da51ee1c7179e7d94",
+          "tool_calls_used": 4,
+          "max_tool_calls": 6,
+          "turn1": {
+            "rounds": 3,
+            "finish_reasons": [
+              "tool_calls",
+              "tool_calls",
+              "tool_calls"
+            ],
+            "summary_block_seen": false,
+            "actions": [
+              {
+                "id": "44e04452eaec459bb45cd7e0759ea9ad",
+                "seq": 3,
+                "tool": "feature_target_suspiciousness",
+                "status": "ran",
+                "arguments": {
+                  "feature_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "label_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "n_top": 10
+                },
+                "numeric_evidence": {
+                  "n_features": 18
+                },
+                "detail": {
+                  "top_correlations": [
+                    {
+                      "feature": "label",
+                      "r": 1.0
+                    },
+                    {
+                      "feature": "hold1_ret",
+                      "r": 0.606409
+                    },
+                    {
+                      "feature": "LightGBM_D",
+                      "r": 0.234215
+                    },
+                    {
+                      "feature": "LightGBM_C",
+                      "r": 0.234122
+                    }
+                  ],
+                  "caveat": "statistical association only; leakage claims require feature provenance and re-evaluation evidence"
+                },
+                "error": null
+              },
+              {
+                "id": "1b9ffbfef5eb4be3aa360a0ef18d055e",
+                "seq": 5,
+                "tool": "classification_metrics",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "score_column": "LightGBM_C"
+                },
+                "numeric_evidence": {
+                  "n": 41221,
+                  "roc_auc": 0.683495,
+                  "brier": 0.130634,
+                  "precision_at_threshold": 0.51497,
+                  "recall_at_threshold": 0.012662,
+                  "threshold": 0.5
+                },
+                "detail": {},
+                "error": null
+              },
+              {
+                "id": "9d1e524467f44a7aad5155dc880b4bc9",
+                "seq": 7,
+                "tool": "classification_metrics",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "score_column": "LightGBM_C",
+                  "split_by": "fold"
+                },
+                "numeric_evidence": {
+                  "n": 41221,
+                  "roc_auc": 0.683495,
+                  "brier": 0.130634,
+                  "precision_at_threshold": 0.51497,
+                  "recall_at_threshold": 0.012662,
+                  "threshold": 0.5
+                },
+                "detail": {
+                  "per_split_auc": {
+                    "2023": 0.690708,
+                    "2024": 0.680062,
+                    "2025": 0.689827
+                  }
+                },
+                "error": null
+              }
+            ]
+          },
+          "turn2": {
+            "rounds": 2,
+            "finish_reasons": [
+              "tool_calls",
+              "stop"
+            ],
+            "ended_with_stop": true,
+            "extra_rounds_before_synthesis": 1,
+            "actions_after_turn1": [
+              {
+                "id": "5dc69353866a4e388108066456a30f89",
+                "seq": 9,
+                "tool": "propose_hypothesis",
+                "status": "ran",
+                "arguments": {
+                  "confidence_note": "Moderate",
+                  "predicted_observation": "Removing hold1_ret would reduce OOF AUC significantly.",
+                  "rationale": "Feature suspiciousness shows hold1_ret has correlation 0.606 with label, far higher than other features. This suggests it may be derived from future information or directly related to the target, leading to leakage.",
+                  "text": "Target leakage via hold1_ret feature causing inflated training performance but not OOF."
+                },
+                "numeric_evidence": {},
+                "detail": {},
+                "error": null
+              }
+            ],
+            "tool_calls": 1
+          },
+          "all_actions": [
+            {
+              "id": "44e04452eaec459bb45cd7e0759ea9ad",
+              "seq": 3,
+              "tool": "feature_target_suspiciousness",
+              "status": "ran",
+              "arguments": {
+                "feature_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "label_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "n_top": 10
+              },
+              "numeric_evidence": {
+                "n_features": 18
+              },
+              "detail": {
+                "top_correlations": [
+                  {
+                    "feature": "label",
+                    "r": 1.0
+                  },
+                  {
+                    "feature": "hold1_ret",
+                    "r": 0.606409
+                  },
+                  {
+                    "feature": "LightGBM_D",
+                    "r": 0.234215
+                  },
+                  {
+                    "feature": "LightGBM_C",
+                    "r": 0.234122
+                  }
+                ],
+                "caveat": "statistical association only; leakage claims require feature provenance and re-evaluation evidence"
+              },
+              "error": null
+            },
+            {
+              "id": "1b9ffbfef5eb4be3aa360a0ef18d055e",
+              "seq": 5,
+              "tool": "classification_metrics",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "score_column": "LightGBM_C"
+              },
+              "numeric_evidence": {
+                "n": 41221,
+                "roc_auc": 0.683495,
+                "brier": 0.130634,
+                "precision_at_threshold": 0.51497,
+                "recall_at_threshold": 0.012662,
+                "threshold": 0.5
+              },
+              "detail": {},
+              "error": null
+            },
+            {
+              "id": "9d1e524467f44a7aad5155dc880b4bc9",
+              "seq": 7,
+              "tool": "classification_metrics",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "score_column": "LightGBM_C",
+                "split_by": "fold"
+              },
+              "numeric_evidence": {
+                "n": 41221,
+                "roc_auc": 0.683495,
+                "brier": 0.130634,
+                "precision_at_threshold": 0.51497,
+                "recall_at_threshold": 0.012662,
+                "threshold": 0.5
+              },
+              "detail": {
+                "per_split_auc": {
+                  "2023": 0.690708,
+                  "2024": 0.680062,
+                  "2025": 0.689827
+                }
+              },
+              "error": null
+            },
+            {
+              "id": "5dc69353866a4e388108066456a30f89",
+              "seq": 9,
+              "tool": "propose_hypothesis",
+              "status": "ran",
+              "arguments": {
+                "confidence_note": "Moderate",
+                "predicted_observation": "Removing hold1_ret would reduce OOF AUC significantly.",
+                "rationale": "Feature suspiciousness shows hold1_ret has correlation 0.606 with label, far higher than other features. This suggests it may be derived from future information or directly related to the target, leading to leakage.",
+                "text": "Target leakage via hold1_ret feature causing inflated training performance but not OOF."
+              },
+              "numeric_evidence": {},
+              "detail": {},
+              "error": null
+            }
+          ],
+          "diagnostic_families": [
+            "feature_target_scan",
+            "hypothesis_proposal",
+            "oof_performance"
+          ],
+          "diagnostic_family_count": 2,
+          "evidence_bearing_tools": [
+            "classification_metrics",
+            "feature_target_suspiciousness"
+          ],
+          "hypotheses": [
+            {
+              "id": "e67afc78dbbd46f8ad0566bb24f0542a",
+              "status": "proposed",
+              "text": "Target leakage via hold1_ret feature causing inflated training performance but not OOF."
+            }
+          ],
+          "summary_attempts": [
+            {
+              "event_seq": 11,
+              "valid": false,
+              "errors": [
+                "no structured summary found in the final message"
+              ],
+              "conclusion": null,
+              "status_recommendations": null,
+              "uncertainties": null,
+              "recommended_next": null,
+              "hypothesis_refs": [],
+              "hypothesis_refs_known": [],
+              "basis_ids": [],
+              "basis_ids_valid": [],
+              "basis_ids_unknown": [],
+              "basis_is_list": false
+            },
+            {
+              "event_seq": 12,
+              "valid": true,
+              "errors": [],
+              "conclusion": "The high correlation of hold1_ret with the target suggests potential target leakage, which may explain the model’s underperformance on out‑of‑fold data.",
+              "status_recommendations": [
+                {
+                  "hypothesis_id": "e67afc78dbbd46f8ad0566bb24f0542a",
+                  "status": "investigating",
+                  "basis": [
+                    "44e04452eaec459bb45cd7e0759ea9ad"
+                  ]
+                }
+              ],
+              "uncertainties": [
+                "It is unclear whether hold1_ret contains future information or is simply a highly predictive feature.",
+                "The impact of removing hold1_ret on OOF performance has not yet been quantified."
+              ],
+              "recommended_next": "Conduct a feature ablation study by removing hold1_ret from the training data and re‑evaluate OOF metrics to confirm whether leakage is responsible for the performance gap.",
+              "hypothesis_refs": [
+                "e67afc78dbbd46f8ad0566bb24f0542a"
+              ],
+              "hypothesis_refs_known": [
+                "e67afc78dbbd46f8ad0566bb24f0542a"
+              ],
+              "basis_ids": [
+                "44e04452eaec459bb45cd7e0759ea9ad"
+              ],
+              "basis_ids_valid": [
+                "44e04452eaec459bb45cd7e0759ea9ad"
+              ],
+              "basis_ids_unknown": [],
+              "basis_is_list": true
+            }
+          ],
+          "final_summary": {
+            "event_seq": 12,
+            "valid": true,
+            "errors": [],
+            "conclusion": "The high correlation of hold1_ret with the target suggests potential target leakage, which may explain the model’s underperformance on out‑of‑fold data.",
+            "status_recommendations": [
+              {
+                "hypothesis_id": "e67afc78dbbd46f8ad0566bb24f0542a",
+                "status": "investigating",
+                "basis": [
+                  "44e04452eaec459bb45cd7e0759ea9ad"
+                ]
+              }
+            ],
+            "uncertainties": [
+              "It is unclear whether hold1_ret contains future information or is simply a highly predictive feature.",
+              "The impact of removing hold1_ret on OOF performance has not yet been quantified."
+            ],
+            "recommended_next": "Conduct a feature ablation study by removing hold1_ret from the training data and re‑evaluate OOF metrics to confirm whether leakage is responsible for the performance gap.",
+            "hypothesis_refs": [
+              "e67afc78dbbd46f8ad0566bb24f0542a"
+            ],
+            "hypothesis_refs_known": [
+              "e67afc78dbbd46f8ad0566bb24f0542a"
+            ],
+            "basis_ids": [
+              "44e04452eaec459bb45cd7e0759ea9ad"
+            ],
+            "basis_ids_valid": [
+              "44e04452eaec459bb45cd7e0759ea9ad"
+            ],
+            "basis_ids_unknown": [],
+            "basis_is_list": true
+          },
+          "ledger_summary": {
+            "valid": true,
+            "errors": [],
+            "conclusion": null
+          },
+          "summary_repair_attempts": 1,
+          "summary_valid_after_repair": true,
+          "summary_repair_errors": [],
+          "chained_context_chars": 2164,
+          "tokens": {
+            "turn1r1": [
+              1719,
+              688
+            ],
+            "turn1r2": [
+              2255,
+              142
+            ],
+            "turn1r3": [
+              2460,
+              384
+            ],
+            "turn2r1": [
+              3423,
+              990
+            ],
+            "turn2r2": [
+              3686,
+              806
+            ],
+            "turn2repair": [
+              2815,
+              475
+            ]
+          },
+          "condition_totals": {
+            "provider_latency_s": 11.232,
+            "requests": 6,
+            "rate_limit_wait_s": 0.0,
+            "last_rate_hints": {
+              "reset_tokens_s": 22.942,
+              "remaining_tokens": 4941
+            }
+          }
+        },
+        {
+          "condition": "delta",
+          "investigation_id": "79f77841e03d4836b45022446466d110",
+          "tool_calls_used": 3,
+          "max_tool_calls": 6,
+          "turn1": {
+            "rounds": 3,
+            "finish_reasons": [
+              "tool_calls",
+              "tool_calls",
+              "tool_calls"
+            ],
+            "summary_block_seen": false,
+            "actions": [
+              {
+                "id": "0a4f646d2a47456985548e1224dcc424",
+                "seq": 3,
+                "tool": "classification_metrics",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "split_by": "fold"
+                },
+                "numeric_evidence": {
+                  "n": 41221,
+                  "roc_auc": 0.683495,
+                  "brier": 0.130634,
+                  "precision_at_threshold": 0.51497,
+                  "recall_at_threshold": 0.012662,
+                  "threshold": 0.5
+                },
+                "detail": {
+                  "per_split_auc": {
+                    "2023": 0.690708,
+                    "2024": 0.680062,
+                    "2025": 0.689827
+                  }
+                },
+                "error": null
+              },
+              {
+                "id": "f3d21c49431a427d945e19623b2452c4",
+                "seq": 5,
+                "tool": "feature_target_suspiciousness",
+                "status": "ran",
+                "arguments": {
+                  "feature_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "label_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "n_top": 10
+                },
+                "numeric_evidence": {
+                  "n_features": 18
+                },
+                "detail": {
+                  "top_correlations": [
+                    {
+                      "feature": "label",
+                      "r": 1.0
+                    },
+                    {
+                      "feature": "hold1_ret",
+                      "r": 0.606409
+                    },
+                    {
+                      "feature": "LightGBM_D",
+                      "r": 0.234215
+                    },
+                    {
+                      "feature": "LightGBM_C",
+                      "r": 0.234122
+                    }
+                  ],
+                  "caveat": "statistical association only; leakage claims require feature provenance and re-evaluation evidence"
+                },
+                "error": null
+              },
+              {
+                "id": "2f00596cf1ff41c8ad420796ecb32ebd",
+                "seq": 7,
+                "tool": "propose_hypothesis",
+                "status": "ran",
+                "arguments": {
+                  "confidence_note": "moderate",
+                  "predicted_observation": "AUC decreases when hold1_ret removed",
+                  "rationale": "High correlation indicates potential leakage; OOF performance low.",
+                  "text": "Feature leakage via hold1_ret: The feature hold1_ret is highly correlated with the label (0.606) and may be derived from future or target information, causing the model to overfit to training folds and underperform on OOF. Predicted observation: Removing hold1_ret from the feature set will reduce the model's AUC on OOF. Rationale: High correlation suggests leakage; OOF AUC is modest. Confidence note: moderate."
+                },
+                "numeric_evidence": {},
+                "detail": {},
+                "error": null
+              }
+            ]
+          },
+          "turn2": {
+            "rounds": 1,
+            "finish_reasons": [
+              "stop"
+            ],
+            "ended_with_stop": true,
+            "extra_rounds_before_synthesis": 0,
+            "actions_after_turn1": [],
+            "tool_calls": 0
+          },
+          "all_actions": [
+            {
+              "id": "0a4f646d2a47456985548e1224dcc424",
+              "seq": 3,
+              "tool": "classification_metrics",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "split_by": "fold"
+              },
+              "numeric_evidence": {
+                "n": 41221,
+                "roc_auc": 0.683495,
+                "brier": 0.130634,
+                "precision_at_threshold": 0.51497,
+                "recall_at_threshold": 0.012662,
+                "threshold": 0.5
+              },
+              "detail": {
+                "per_split_auc": {
+                  "2023": 0.690708,
+                  "2024": 0.680062,
+                  "2025": 0.689827
+                }
+              },
+              "error": null
+            },
+            {
+              "id": "f3d21c49431a427d945e19623b2452c4",
+              "seq": 5,
+              "tool": "feature_target_suspiciousness",
+              "status": "ran",
+              "arguments": {
+                "feature_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "label_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "n_top": 10
+              },
+              "numeric_evidence": {
+                "n_features": 18
+              },
+              "detail": {
+                "top_correlations": [
+                  {
+                    "feature": "label",
+                    "r": 1.0
+                  },
+                  {
+                    "feature": "hold1_ret",
+                    "r": 0.606409
+                  },
+                  {
+                    "feature": "LightGBM_D",
+                    "r": 0.234215
+                  },
+                  {
+                    "feature": "LightGBM_C",
+                    "r": 0.234122
+                  }
+                ],
+                "caveat": "statistical association only; leakage claims require feature provenance and re-evaluation evidence"
+              },
+              "error": null
+            },
+            {
+              "id": "2f00596cf1ff41c8ad420796ecb32ebd",
+              "seq": 7,
+              "tool": "propose_hypothesis",
+              "status": "ran",
+              "arguments": {
+                "confidence_note": "moderate",
+                "predicted_observation": "AUC decreases when hold1_ret removed",
+                "rationale": "High correlation indicates potential leakage; OOF performance low.",
+                "text": "Feature leakage via hold1_ret: The feature hold1_ret is highly correlated with the label (0.606) and may be derived from future or target information, causing the model to overfit to training folds and underperform on OOF. Predicted observation: Removing hold1_ret from the feature set will reduce the model's AUC on OOF. Rationale: High correlation suggests leakage; OOF AUC is modest. Confidence note: moderate."
+              },
+              "numeric_evidence": {},
+              "detail": {},
+              "error": null
+            }
+          ],
+          "diagnostic_families": [
+            "feature_target_scan",
+            "hypothesis_proposal",
+            "oof_performance"
+          ],
+          "diagnostic_family_count": 2,
+          "evidence_bearing_tools": [
+            "classification_metrics",
+            "feature_target_suspiciousness"
+          ],
+          "hypotheses": [
+            {
+              "id": "40aef6cd5ac6499dbbd93b191237ab8d",
+              "status": "proposed",
+              "text": "Feature leakage via hold1_ret: The feature hold1_ret is highly correlated with the label (0.606) and may be derived from future or target information, causing the model to overfit to training folds and underperform on OOF. Predicted observation: Removing hold1_ret from the feature set will reduce the model's AUC on OOF. Rationale: High correlation suggests leakage; OOF AUC is modest. Confidence note: moderate."
+            }
+          ],
+          "summary_attempts": [
+            {
+              "event_seq": 9,
+              "valid": false,
+              "errors": [
+                "no structured summary found in the final message"
+              ],
+              "conclusion": null,
+              "status_recommendations": null,
+              "uncertainties": null,
+              "recommended_next": null,
+              "hypothesis_refs": [],
+              "hypothesis_refs_known": [],
+              "basis_ids": [],
+              "basis_ids_valid": [],
+              "basis_ids_unknown": [],
+              "basis_is_list": false
+            },
+            {
+              "event_seq": 10,
+              "valid": true,
+              "errors": [],
+              "conclusion": "The current evidence does not confirm or refute the hypothesis that the feature hold1_ret causes leakage and model underperformance on out-of-fold data.",
+              "status_recommendations": [
+                {
+                  "hypothesis_id": "40aef6cd5ac6499dbbd93b191237ab8d",
+                  "status": "proposed",
+                  "basis": "0a4f646d2a47456985548e1224dcc424, f3d21c49431a427d945e19623b2452c4, 2f00596cf1ff41c8ad420796ecb32ebd"
+                }
+              ],
+              "uncertainties": [
+                "No direct evidence that removing hold1_ret improves OOF performance.",
+                "Correlation alone does not prove leakage without feature provenance."
+              ],
+              "recommended_next": "Conduct a controlled experiment by retraining the model without hold1_ret and compare OOF metrics to assess its impact.",
+              "hypothesis_refs": [
+                "40aef6cd5ac6499dbbd93b191237ab8d"
+              ],
+              "hypothesis_refs_known": [
+                "40aef6cd5ac6499dbbd93b191237ab8d"
+              ],
+              "basis_ids": [
+                "0a4f646d2a47456985548e1224dcc424",
+                "f3d21c49431a427d945e19623b2452c4",
+                "2f00596cf1ff41c8ad420796ecb32ebd"
+              ],
+              "basis_ids_valid": [
+                "0a4f646d2a47456985548e1224dcc424",
+                "f3d21c49431a427d945e19623b2452c4",
+                "2f00596cf1ff41c8ad420796ecb32ebd"
+              ],
+              "basis_ids_unknown": [],
+              "basis_is_list": false
+            }
+          ],
+          "final_summary": {
+            "event_seq": 10,
+            "valid": true,
+            "errors": [],
+            "conclusion": "The current evidence does not confirm or refute the hypothesis that the feature hold1_ret causes leakage and model underperformance on out-of-fold data.",
+            "status_recommendations": [
+              {
+                "hypothesis_id": "40aef6cd5ac6499dbbd93b191237ab8d",
+                "status": "proposed",
+                "basis": "0a4f646d2a47456985548e1224dcc424, f3d21c49431a427d945e19623b2452c4, 2f00596cf1ff41c8ad420796ecb32ebd"
+              }
+            ],
+            "uncertainties": [
+              "No direct evidence that removing hold1_ret improves OOF performance.",
+              "Correlation alone does not prove leakage without feature provenance."
+            ],
+            "recommended_next": "Conduct a controlled experiment by retraining the model without hold1_ret and compare OOF metrics to assess its impact.",
+            "hypothesis_refs": [
+              "40aef6cd5ac6499dbbd93b191237ab8d"
+            ],
+            "hypothesis_refs_known": [
+              "40aef6cd5ac6499dbbd93b191237ab8d"
+            ],
+            "basis_ids": [
+              "0a4f646d2a47456985548e1224dcc424",
+              "f3d21c49431a427d945e19623b2452c4",
+              "2f00596cf1ff41c8ad420796ecb32ebd"
+            ],
+            "basis_ids_valid": [
+              "0a4f646d2a47456985548e1224dcc424",
+              "f3d21c49431a427d945e19623b2452c4",
+              "2f00596cf1ff41c8ad420796ecb32ebd"
+            ],
+            "basis_ids_unknown": [],
+            "basis_is_list": false
+          },
+          "ledger_summary": {
+            "valid": true,
+            "errors": [],
+            "conclusion": null
+          },
+          "summary_repair_attempts": 1,
+          "summary_valid_after_repair": true,
+          "summary_repair_errors": [],
+          "chained_context_chars": 2146,
+          "tokens": {
+            "turn1r1": [
+              1719,
+              574
+            ],
+            "turn1r2": [
+              1956,
+              683
+            ],
+            "turn1r3": [
+              2492,
+              1880
+            ],
+            "turn2r1": [
+              3503,
+              561
+            ],
+            "turn2repair": [
+              2631,
+              667
+            ]
+          },
+          "condition_totals": {
+            "provider_latency_s": 11.937,
+            "requests": 5,
+            "rate_limit_wait_s": 0.0,
+            "last_rate_hints": {
+              "reset_tokens_s": 21.705,
+              "remaining_tokens": 5106
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "phase_d_groq_20b_pilot5.json",
+      "generated_utc": "2026-10-29T20:44:04Z",
+      "model": "openai/gpt-oss-20b",
+      "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-phase-d-groq-ywuxegre\\sandbox.db",
+      "totals": {
+        "provider_http_attempts": 10,
+        "billed_ok_requests": 10,
+        "failed_requests": 0,
+        "input_tokens": 21163,
+        "output_tokens": 5370,
+        "estimated_cost_usd": 0.003198,
+        "stop_reason": null
+      },
+      "runs": [
+        {
+          "condition": "full",
+          "investigation_id": "aafe854c090e4d6895156cc6dce08394",
+          "tool_calls_used": 3,
+          "max_tool_calls": 6,
+          "turn1": {
+            "rounds": 3,
+            "finish_reasons": [
+              "tool_calls",
+              "tool_calls",
+              "tool_calls"
+            ],
+            "summary_block_seen": false,
+            "actions": [
+              {
+                "id": "6cfb5ba597544293b6d69f459248e975",
+                "seq": 3,
+                "tool": "classification_metrics",
+                "status": "ran",
+                "arguments": {
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "split_by": "fold"
+                },
+                "numeric_evidence": {
+                  "n": 41221,
+                  "roc_auc": 0.683495,
+                  "brier": 0.130634,
+                  "precision_at_threshold": 0.51497,
+                  "recall_at_threshold": 0.012662,
+                  "threshold": 0.5
+                },
+                "detail": {
+                  "per_split_auc": {
+                    "2023": 0.690708,
+                    "2024": 0.680062,
+                    "2025": 0.689827
+                  }
+                },
+                "error": null
+              },
+              {
+                "id": "fbb660c45cd84f87bd52c518ec889190",
+                "seq": 5,
+                "tool": "dataset_validation",
+                "status": "ran",
+                "arguments": {
+                  "fold_column": "fold",
+                  "label_column": "label",
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv"
+                },
+                "numeric_evidence": {
+                  "n_rows": 41221
+                },
+                "detail": {},
+                "error": null
+              },
+              {
+                "id": "b1d72cd88c3545b0b4ecf22fe57d5b4e",
+                "seq": 7,
+                "tool": "propose_hypothesis",
+                "status": "ran",
+                "arguments": {
+                  "confidence_note": "low",
+                  "predicted_observation": "AUC would drop significantly on an external holdout or when increasing fold count.",
+                  "rationale": "Current AUC ~0.6835 is modest; recall is very low, suggesting model may not capture true signal.",
+                  "text": "The model overfits to training folds due to high variance features, leading to poor generalization on OOF."
+                },
+                "numeric_evidence": {},
+                "detail": {},
+                "error": null
+              }
+            ]
+          },
+          "turn2": {
+            "rounds": 1,
+            "finish_reasons": [
+              "stop"
+            ],
+            "ended_with_stop": true,
+            "extra_rounds_before_synthesis": 0,
+            "actions_after_turn1": [],
+            "tool_calls": 0
+          },
+          "all_actions": [
+            {
+              "id": "6cfb5ba597544293b6d69f459248e975",
+              "seq": 3,
+              "tool": "classification_metrics",
+              "status": "ran",
+              "arguments": {
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "split_by": "fold"
+              },
+              "numeric_evidence": {
+                "n": 41221,
+                "roc_auc": 0.683495,
+                "brier": 0.130634,
+                "precision_at_threshold": 0.51497,
+                "recall_at_threshold": 0.012662,
+                "threshold": 0.5
+              },
+              "detail": {
+                "per_split_auc": {
+                  "2023": 0.690708,
+                  "2024": 0.680062,
+                  "2025": 0.689827
+                }
+              },
+              "error": null
+            },
+            {
+              "id": "fbb660c45cd84f87bd52c518ec889190",
+              "seq": 5,
+              "tool": "dataset_validation",
+              "status": "ran",
+              "arguments": {
+                "fold_column": "fold",
+                "label_column": "label",
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv"
+              },
+              "numeric_evidence": {
+                "n_rows": 41221
+              },
+              "detail": {},
+              "error": null
+            },
+            {
+              "id": "b1d72cd88c3545b0b4ecf22fe57d5b4e",
+              "seq": 7,
+              "tool": "propose_hypothesis",
+              "status": "ran",
+              "arguments": {
+                "confidence_note": "low",
+                "predicted_observation": "AUC would drop significantly on an external holdout or when increasing fold count.",
+                "rationale": "Current AUC ~0.6835 is modest; recall is very low, suggesting model may not capture true signal.",
+                "text": "The model overfits to training folds due to high variance features, leading to poor generalization on OOF."
+              },
+              "numeric_evidence": {},
+              "detail": {},
+              "error": null
+            }
+          ],
+          "diagnostic_families": [
+            "data_integrity",
+            "hypothesis_proposal",
+            "oof_performance"
+          ],
+          "diagnostic_family_count": 2,
+          "evidence_bearing_tools": [
+            "classification_metrics",
+            "dataset_validation"
+          ],
+          "hypotheses": [
+            {
+              "id": "1dff373f11324a5c8000b3dc221a9408",
+              "status": "proposed",
+              "text": "The model overfits to training folds due to high variance features, leading to poor generalization on OOF."
+            }
+          ],
+          "summary_attempts": [
+            {
+              "event_seq": 9,
+              "valid": false,
+              "errors": [
+                "no structured summary found in the final message"
+              ],
+              "conclusion": null,
+              "status_recommendations": null,
+              "uncertainties": null,
+              "recommended_next": null,
+              "hypothesis_refs": [],
+              "hypothesis_refs_known": [],
+              "basis_ids": [],
+              "basis_ids_valid": [],
+              "basis_ids_unknown": [],
+              "basis_is_list": false
+            },
+            {
+              "event_seq": 10,
+              "valid": true,
+              "errors": [],
+              "conclusion": "The current evidence does not support or refute the hypothesis that the model overfits to training folds, causing poor out-of-fold performance.",
+              "status_recommendations": [
+                {
+                  "hypothesis_id": "1dff373f11324a5c8000b3dc221a9408",
+                  "status": "proposed",
+                  "basis": [
+                    "b1d72cd88c3545b0b4ecf22fe57d5b4e"
+                  ]
+                }
+              ],
+              "uncertainties": [
+                "No diagnostic metrics or additional experiments were performed to test overfitting.",
+                "The AUC and precision/recall metrics alone cannot determine overfitting."
+              ],
+              "recommended_next": "No further experiments can be performed within the remaining budget; consider collecting additional data or performing cross-validation with more folds if possible.",
+              "hypothesis_refs": [
+                "1dff373f11324a5c8000b3dc221a9408"
+              ],
+              "hypothesis_refs_known": [
+                "1dff373f11324a5c8000b3dc221a9408"
+              ],
+              "basis_ids": [
+                "b1d72cd88c3545b0b4ecf22fe57d5b4e"
+              ],
+              "basis_ids_valid": [
+                "b1d72cd88c3545b0b4ecf22fe57d5b4e"
+              ],
+              "basis_ids_unknown": [],
+              "basis_is_list": true
+            }
+          ],
+          "final_summary": {
+            "event_seq": 10,
+            "valid": true,
+            "errors": [],
+            "conclusion": "The current evidence does not support or refute the hypothesis that the model overfits to training folds, causing poor out-of-fold performance.",
+            "status_recommendations": [
+              {
+                "hypothesis_id": "1dff373f11324a5c8000b3dc221a9408",
+                "status": "proposed",
+                "basis": [
+                  "b1d72cd88c3545b0b4ecf22fe57d5b4e"
+                ]
+              }
+            ],
+            "uncertainties": [
+              "No diagnostic metrics or additional experiments were performed to test overfitting.",
+              "The AUC and precision/recall metrics alone cannot determine overfitting."
+            ],
+            "recommended_next": "No further experiments can be performed within the remaining budget; consider collecting additional data or performing cross-validation with more folds if possible.",
+            "hypothesis_refs": [
+              "1dff373f11324a5c8000b3dc221a9408"
+            ],
+            "hypothesis_refs_known": [
+              "1dff373f11324a5c8000b3dc221a9408"
+            ],
+            "basis_ids": [
+              "b1d72cd88c3545b0b4ecf22fe57d5b4e"
+            ],
+            "basis_ids_valid": [
+              "b1d72cd88c3545b0b4ecf22fe57d5b4e"
+            ],
+            "basis_ids_unknown": [],
+            "basis_is_list": true
+          },
+          "ledger_summary": {
+            "valid": true,
+            "errors": [],
+            "conclusion": null
+          },
+          "summary_repair_attempts": 1,
+          "summary_valid_after_repair": true,
+          "summary_repair_errors": [],
+          "chained_context_chars": 2326,
+          "tokens": {
+            "turn1r1": [
+              1719,
+              375
+            ],
+            "turn1r2": [
+              1956,
+              413
+            ],
+            "turn1r3": [
+              2269,
+              600
+            ],
+            "turn2r1": [
+              3277,
+              650
+            ],
+            "turn2repair": [
+              2406,
+              792
+            ]
+          },
+          "condition_totals": {
+            "provider_latency_s": 9.192,
+            "requests": 5,
+            "rate_limit_wait_s": 0.0,
+            "last_rate_hints": {
+              "reset_tokens_s": 20.205,
+              "remaining_tokens": 5306
+            }
+          }
+        },
+        {
+          "condition": "delta",
+          "investigation_id": "5a9f6a64323c4292a808dfaed4e88175",
+          "tool_calls_used": 3,
+          "max_tool_calls": 6,
+          "turn1": {
+            "rounds": 3,
+            "finish_reasons": [
+              "tool_calls",
+              "tool_calls",
+              "tool_calls"
+            ],
+            "summary_block_seen": false,
+            "actions": [
+              {
+                "id": "8f5ddf335535404097181cc41d12bf39",
+                "seq": 3,
+                "tool": "classification_metrics",
+                "status": "ran",
+                "arguments": {
+                  "labels": "label",
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "score_column": "LightGBM_C",
+                  "split_by": "fold"
+                },
+                "numeric_evidence": {
+                  "n": 41221,
+                  "roc_auc": 0.683495,
+                  "brier": 0.130634,
+                  "precision_at_threshold": 0.51497,
+                  "recall_at_threshold": 0.012662,
+                  "threshold": 0.5
+                },
+                "detail": {
+                  "per_split_auc": {
+                    "2023": 0.690708,
+                    "2024": 0.680062,
+                    "2025": 0.689827
+                  }
+                },
+                "error": null
+              },
+              {
+                "id": "2bbac55355534eb89db329548bc03985",
+                "seq": 5,
+                "tool": "feature_target_suspiciousness",
+                "status": "ran",
+                "arguments": {
+                  "feature_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "label_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "n_top": 5
+                },
+                "numeric_evidence": {
+                  "n_features": 18
+                },
+                "detail": {
+                  "top_correlations": [
+                    {
+                      "feature": "label",
+                      "r": 1.0
+                    },
+                    {
+                      "feature": "hold1_ret",
+                      "r": 0.606409
+                    },
+                    {
+                      "feature": "LightGBM_D",
+                      "r": 0.234215
+                    },
+                    {
+                      "feature": "LightGBM_C",
+                      "r": 0.234122
+                    }
+                  ],
+                  "caveat": "statistical association only; leakage claims require feature provenance and re-evaluation evidence"
+                },
+                "error": null
+              },
+              {
+                "id": "67a764517aeb4d558d15656f84817fd8",
+                "seq": 7,
+                "tool": "calibration_and_error_analysis",
+                "status": "ran",
+                "arguments": {
+                  "bins": 10,
+                  "labels": "label",
+                  "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                  "score_column": "LightGBM_C"
+                },
+                "numeric_evidence": {
+                  "brier": 0.130634
+                },
+                "detail": {},
+                "error": null
+              }
+            ]
+          },
+          "turn2": {
+            "rounds": 1,
+            "finish_reasons": [
+              "stop"
+            ],
+            "ended_with_stop": true,
+            "extra_rounds_before_synthesis": 0,
+            "actions_after_turn1": [],
+            "tool_calls": 0
+          },
+          "all_actions": [
+            {
+              "id": "8f5ddf335535404097181cc41d12bf39",
+              "seq": 3,
+              "tool": "classification_metrics",
+              "status": "ran",
+              "arguments": {
+                "labels": "label",
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "score_column": "LightGBM_C",
+                "split_by": "fold"
+              },
+              "numeric_evidence": {
+                "n": 41221,
+                "roc_auc": 0.683495,
+                "brier": 0.130634,
+                "precision_at_threshold": 0.51497,
+                "recall_at_threshold": 0.012662,
+                "threshold": 0.5
+              },
+              "detail": {
+                "per_split_auc": {
+                  "2023": 0.690708,
+                  "2024": 0.680062,
+                  "2025": 0.689827
+                }
+              },
+              "error": null
+            },
+            {
+              "id": "2bbac55355534eb89db329548bc03985",
+              "seq": 5,
+              "tool": "feature_target_suspiciousness",
+              "status": "ran",
+              "arguments": {
+                "feature_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "label_csv": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "n_top": 5
+              },
+              "numeric_evidence": {
+                "n_features": 18
+              },
+              "detail": {
+                "top_correlations": [
+                  {
+                    "feature": "label",
+                    "r": 1.0
+                  },
+                  {
+                    "feature": "hold1_ret",
+                    "r": 0.606409
+                  },
+                  {
+                    "feature": "LightGBM_D",
+                    "r": 0.234215
+                  },
+                  {
+                    "feature": "LightGBM_C",
+                    "r": 0.234122
+                  }
+                ],
+                "caveat": "statistical association only; leakage claims require feature provenance and re-evaluation evidence"
+              },
+              "error": null
+            },
+            {
+              "id": "67a764517aeb4d558d15656f84817fd8",
+              "seq": 7,
+              "tool": "calibration_and_error_analysis",
+              "status": "ran",
+              "arguments": {
+                "bins": 10,
+                "labels": "label",
+                "predictions_path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+                "score_column": "LightGBM_C"
+              },
+              "numeric_evidence": {
+                "brier": 0.130634
+              },
+              "detail": {},
+              "error": null
+            }
+          ],
+          "diagnostic_families": [
+            "calibration_errors",
+            "feature_target_scan",
+            "oof_performance"
+          ],
+          "diagnostic_family_count": 3,
+          "evidence_bearing_tools": [
+            "calibration_and_error_analysis",
+            "classification_metrics",
+            "feature_target_suspiciousness"
+          ],
+          "hypotheses": [],
+          "summary_attempts": [
+            {
+              "event_seq": 9,
+              "valid": true,
+              "errors": [],
+              "conclusion": "The out‑of‑fold (OOF) performance is modest (AUC ≈ 0.683, Brier ≈ 0.131) with extremely low recall at the default threshold (0.5). The feature‑target correlation scan shows a very strong association between the feature `hold1_ret` and the label (|r| = 0.606), suggesting possible leakage or an overly predictive proxy that the model relies on. The per‑fold AUCs are fairly consistent (≈ 0.68–0.69), indicating no obvious distribution shift across folds. The low recall points to a threshold that is too high for the class imbalance (≈ 15 % positives). Together, these observations imply that the model may be over‑fitting to a leakage‑rich training signal and that the chosen operating point is sub‑optimal for the target class.\n\nRecommended next steps: \n1. Verify the provenance of `hold1_ret` and other highly correlated features; remove or transform any that are derived from the target or future information. \n2. Re‑train the model with stricter regularization or a simpler architecture to reduce over‑fitting. \n3. Re‑evaluate the model using a threshold tuned to the desired recall/F1 trade‑off (e.g., via ROC or precision‑recall curves). \n4. Compare OOF metrics to training metrics to quantify the gap and confirm that leakage removal improves generalisation.\n\nThese actions should clarify whether leakage or threshold choice is the primary driver of the observed OOF underperformance.",
+              "status_recommendations": [],
+              "uncertainties": [
+                "Whether `hold1_ret` truly leaks target information or is simply a strong predictive feature.",
+                "The impact of class imbalance on the low recall and whether a different threshold would yield acceptable performance.",
+                "The extent to which model complexity contributes to over‑fitting versus data leakage."
+              ],
+              "recommended_next": "Investigate feature provenance for `hold1_ret`, adjust model regularisation, and tune the decision threshold to improve recall while monitoring OOF AUC.",
+              "hypothesis_refs": [],
+              "hypothesis_refs_known": [],
+              "basis_ids": [],
+              "basis_ids_valid": [],
+              "basis_ids_unknown": [],
+              "basis_is_list": true
+            }
+          ],
+          "final_summary": {
+            "event_seq": 9,
+            "valid": true,
+            "errors": [],
+            "conclusion": "The out‑of‑fold (OOF) performance is modest (AUC ≈ 0.683, Brier ≈ 0.131) with extremely low recall at the default threshold (0.5). The feature‑target correlation scan shows a very strong association between the feature `hold1_ret` and the label (|r| = 0.606), suggesting possible leakage or an overly predictive proxy that the model relies on. The per‑fold AUCs are fairly consistent (≈ 0.68–0.69), indicating no obvious distribution shift across folds. The low recall points to a threshold that is too high for the class imbalance (≈ 15 % positives). Together, these observations imply that the model may be over‑fitting to a leakage‑rich training signal and that the chosen operating point is sub‑optimal for the target class.\n\nRecommended next steps: \n1. Verify the provenance of `hold1_ret` and other highly correlated features; remove or transform any that are derived from the target or future information. \n2. Re‑train the model with stricter regularization or a simpler architecture to reduce over‑fitting. \n3. Re‑evaluate the model using a threshold tuned to the desired recall/F1 trade‑off (e.g., via ROC or precision‑recall curves). \n4. Compare OOF metrics to training metrics to quantify the gap and confirm that leakage removal improves generalisation.\n\nThese actions should clarify whether leakage or threshold choice is the primary driver of the observed OOF underperformance.",
+            "status_recommendations": [],
+            "uncertainties": [
+              "Whether `hold1_ret` truly leaks target information or is simply a strong predictive feature.",
+              "The impact of class imbalance on the low recall and whether a different threshold would yield acceptable performance.",
+              "The extent to which model complexity contributes to over‑fitting versus data leakage."
+            ],
+            "recommended_next": "Investigate feature provenance for `hold1_ret`, adjust model regularisation, and tune the decision threshold to improve recall while monitoring OOF AUC.",
+            "hypothesis_refs": [],
+            "hypothesis_refs_known": [],
+            "basis_ids": [],
+            "basis_ids_valid": [],
+            "basis_ids_unknown": [],
+            "basis_is_list": true
+          },
+          "ledger_summary": {
+            "valid": true,
+            "errors": [],
+            "conclusion": null
+          },
+          "summary_repair_attempts": 0,
+          "summary_valid_after_repair": false,
+          "summary_repair_errors": [],
+          "chained_context_chars": 1985,
+          "tokens": {
+            "turn1r1": [
+              1719,
+              277
+            ],
+            "turn1r2": [
+              1968,
+              437
+            ],
+            "turn1r3": [
+              2329,
+              666
+            ],
+            "turn2r1": [
+              3520,
+              1160
+            ]
+          },
+          "condition_totals": {
+            "provider_latency_s": 7.826,
+            "requests": 4,
+            "rate_limit_wait_s": 0.0,
+            "last_rate_hints": {
+              "reset_tokens_s": 30.9,
+              "remaining_tokens": 3880
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Read-only extraction; no provider calls.",
+    "Sandbox databases are the same ones the pilots wrote.",
+    "Basis-ID validity is measured against Action rows in the SAME investigation; the production validator does not check basis ids."
+  ]
+}

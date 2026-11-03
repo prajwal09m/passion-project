@@ -1,0 +1,57 @@
+{
+  "run_id": "m16b-music-03",
+  "kind": "m5-live-meta-pilot",
+  "eval_project": "eval_music",
+  "investigation_id": "e7f4a8938ebb4698b9ecdfdf5605b226",
+  "status": "completed",
+  "error": null,
+  "model": "muse-spark-1.3",
+  "endpoint": "https://api.meta.ai/v1/responses",
+  "budget": {
+    "rounds": [
+      2,
+      3
+    ],
+    "experiments": [
+      6,
+      6
+    ],
+    "attempts": [
+      7,
+      12
+    ],
+    "tokens": {
+      "input": 26711,
+      "cached": 20006,
+      "output": 6227,
+      "total": 32938,
+      "cap": 50000
+    },
+    "cost_usd": {
+      "spent": 0.037847,
+      "cap": 0.4
+    },
+    "pricing": "muse-spark-1.3 Standard: $1.25/$0.15 cached input, $4.25 output per 1M"
+  },
+  "structured_summary_note": "verbatim assistant text preserved in assistant_messages; no truncation",
+  "artifacts": {
+    "events_dump.json": "4d74ab46f4698da0b9c749811cb393606c89e6a4b3085129171137740706a19a",
+    "assistant_messages.jsonl": "682f72b0a65876f5346fc7a83c9787d43d085f90f8eeef055c5cecaff6ccc9f9",
+    "usage.jsonl": "7330b4c4c33ed32f40395cac64a5e13a80da2a3605def09388ba75081a9629a4",
+    "hypotheses.json": "3e1966625d57bb6b64b63fe6fae2b71d025894f96120626f9f298067bf1c3a86",
+    "actions.json": "bcb6512ea433895fb5a23f6ad7e3265c36f74538a8744a545d4a47dcc98929e3",
+    "eval_report.json": "55e3e630a908ab84b42ceefdfb560b48dc38c072b1d9279e8c98fa9eb7a6a033",
+    "scorecard.json": "ffae408aaced413f14eaac9b5529f088b7ed4c3f3e49972bea3a51a68cb65801",
+    "sandbox_final.db": "63986b7a677d7b2e94d5068dc72d5fd804405e9e506d54cbab6735fdaac1cfd9"
+  },
+  "required_evidence_present": {
+    "events_dump": true,
+    "assistant_messages": true,
+    "usage": true,
+    "hypotheses": true,
+    "actions": true,
+    "sandbox_db": true,
+    "eval_report": true,
+    "scorecard": true
+  }
+}

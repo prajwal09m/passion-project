@@ -1,0 +1,272 @@
+{
+  "project": "eval_claim",
+  "investigation_id": "425b1cd902af4ae184fdaa8e4c36131b",
+  "report": {
+    "executive_summary": "1 supported / 0 rejected / 0 inconclusive-or-blocked from 1 experiment(s).",
+    "project_understanding": {
+      "project_id": "eval_claim",
+      "predicting": "Severity estimates look systematically off since a pipeline change.",
+      "receives": {
+        "columns": [
+          "amount",
+          "velocity",
+          "device_age",
+          "target",
+          "prediction"
+        ],
+        "note": "model inputs per observed artifact schema"
+      },
+      "produces": {
+        "target": "Numeric claim severity",
+        "note": "model outputs per spec"
+      },
+      "success": "MAE/RMSE, residual-vs-input analysis",
+      "evaluation": "MAE/RMSE, residual-vs-input analysis",
+      "evaluation_assumptions": [
+        "reported metrics assume the supplied predictions match the described evaluation split",
+        "recomputed metrics assume label/target columns are correct"
+      ],
+      "missing": [],
+      "possible": [
+        "dataset_validation: schema/quality overview",
+        "error_analysis: predictions vs ground truth",
+        "model_inspection: per declared availability (local)"
+      ],
+      "impossible": [
+        "temporal_analysis: no date column observed"
+      ],
+      "inconsistencies": [],
+      "dataset": {
+        "location": "model_autopsy/tests/fixture_eval/investigator/claim_severity.csv",
+        "readable": true,
+        "path": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\claim_severity.csv",
+        "n_rows_peek": 1500,
+        "columns": [
+          "amount",
+          "velocity",
+          "device_age",
+          "target",
+          "prediction"
+        ],
+        "dtypes": {
+          "amount": "float64",
+          "velocity": "int64",
+          "device_age": "int64",
+          "target": "float64",
+          "prediction": "float64"
+        },
+        "null_counts": {
+          "amount": 0,
+          "velocity": 0,
+          "device_age": 0,
+          "target": 0,
+          "prediction": 0
+        },
+        "samples": [
+          {
+            "amount": 1067.0,
+            "velocity": 3,
+            "device_age": 48,
+            "target": 613.9,
+            "prediction": 819.4
+          },
+          {
+            "amount": 779.0,
+            "velocity": 1,
+            "device_age": 26,
+            "target": 439.7,
+            "prediction": 535.4
+          },
+          {
+            "amount": 889.0,
+            "velocity": 1,
+            "device_age": 33,
+            "target": 467.7,
+            "prediction": 579.5
+          },
+          {
+            "amount": 1359.0,
+            "velocity": 2,
+            "device_age": 40,
+            "target": 699.0,
+            "prediction": 870.2
+          },
+          {
+            "amount": 1119.0,
+            "velocity": 0,
+            "device_age": 51,
+            "target": 561.5,
+            "prediction": 794.7
+          }
+        ],
+        "numeric_summary": {
+          "amount": {
+            "mean": 896.5593333333334,
+            "std": 247.6557167701192,
+            "min": 153.0,
+            "max": 1812.0
+          },
+          "velocity": {
+            "mean": 2.9686666666666666,
+            "std": 1.7773925579601946,
+            "min": 0.0,
+            "max": 10.0
+          },
+          "device_age": {
+            "mean": 29.468,
+            "std": 17.443044914155656,
+            "min": 0.0,
+            "max": 59.0
+          },
+          "target": {
+            "mean": 533.1127333333333,
+            "std": 109.58686894769554,
+            "min": 208.3,
+            "max": 881.5
+          },
+          "prediction": {
+            "mean": 664.8807333333333,
+            "std": 135.0924069210925,
+            "min": 289.5,
+            "max": 1096.5
+          }
+        }
+      },
+      "model": {
+        "name": "sev-reg",
+        "framework": "sklearn",
+        "availability": "local",
+        "training_config": {}
+      },
+      "docs": {},
+      "provenance": {
+        "built_by": "recon.build_understanding",
+        "artifact": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\claim_severity.csv"
+      }
+    },
+    "confirmed_findings": [
+      {
+        "hypothesis_id": "1afc6c202239",
+        "title": "Systematic bias in one segment",
+        "mechanism": "Additive offset for a subgroup (e.g. pricing rule) shifts predictions one way.",
+        "evidence": [
+          "segment column present alongside target/prediction",
+          {
+            "experiment_id": "b59f15c5eea1",
+            "tool": "regression_metrics",
+            "numbers": {
+              "n": 1500,
+              "mae": 132.51,
+              "bias": -131.77,
+              "groups": {},
+              "residual_feature_corr": -0.967,
+              "residual_feature": "device_age"
+            }
+          }
+        ]
+      }
+    ],
+    "rejected_hypotheses": [],
+    "inconclusive": [],
+    "open_hypotheses": [
+      {
+        "hypothesis_id": "58af5be19b1f",
+        "title": "No material issue (null hypothesis)",
+        "status": "proposed"
+      }
+    ],
+    "experiments": [
+      {
+        "experiment_id": "b59f15c5eea1",
+        "hypothesis_id": "1afc6c202239",
+        "tool": "regression_metrics",
+        "status": "ran",
+        "breach": true,
+        "summary": "MAE=133 bias=-131.77 featcorr=device_age:-0.97",
+        "numbers": {
+          "n": 1500,
+          "mae": 132.51,
+          "bias": -131.77,
+          "groups": {},
+          "residual_feature_corr": -0.967,
+          "residual_feature": "device_age"
+        }
+      }
+    ],
+    "verification": [
+      {
+        "hypothesis_id": "1afc6c202239",
+        "claim": "Systematic bias in one segment",
+        "verdict": "upheld",
+        "checks": [
+          {
+            "check": "sample_size_sufficient",
+            "pass": true,
+            "detail": "n=1500; <30 is insufficient for a finding"
+          },
+          {
+            "check": "methodology_appropriate",
+            "pass": true,
+            "detail": "method=regression_metrics"
+          },
+          {
+            "check": "evidence_linked",
+            "pass": true,
+            "detail": "1 evidence result(s)"
+          },
+          {
+            "check": "no_leak_in_diagnostic",
+            "pass": true,
+            "detail": "diagnostic is read-only recomputation; no leakage signal"
+          },
+          {
+            "check": "numbers_reproducible",
+            "pass": true,
+            "detail": "6 numeric value(s) with seeds"
+          }
+        ],
+        "disagreement": null,
+        "disproof_wanted": "segment biases within noise of each other"
+      }
+    ],
+    "limitations": [
+      "offline deterministic triage; LLM reasoning quality covered by prior frozen live campaigns, not here",
+      "single scenario per task family in this suite slice",
+      "heuristic prioritization is not Bayesian information gain"
+    ],
+    "reproducibility": {
+      "seeds": "fixed per diagnostic",
+      "artifacts": "committed CSV fixtures",
+      "runner": "lab.run_autonomous_investigation"
+    },
+    "recommendations": [
+      "re-run breached diagnostics on fresh splits before acting",
+      "add a reusable diagnostic module for any candidate novel mechanism before treating it as a finding type"
+    ]
+  },
+  "scorecard": {
+    "project": "eval_claim",
+    "verdict": "partial",
+    "note": "mechanism found at symptom level; second documented concern untestable -> partial",
+    "false_positive": false,
+    "dimensions": {
+      "discovery": 0.6,
+      "evidence": 0.5,
+      "reasoning": 0.6,
+      "calibration": 0.5,
+      "efficiency": 1.0,
+      "reproducibility": 1.0
+    },
+    "weights": {
+      "discovery": 0.3,
+      "evidence": 0.25,
+      "reasoning": 0.15,
+      "calibration": 0.15,
+      "efficiency": 0.05,
+      "reproducibility": 0.1
+    },
+    "overall": 0.62,
+    "assessment": "deterministic + heuristic; LLM/human reserved"
+  },
+  "elapsed_s": 0.21
+}

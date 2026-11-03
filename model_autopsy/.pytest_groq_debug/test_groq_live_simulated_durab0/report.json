@@ -1,0 +1,62 @@
+{
+  "mode": "live_paired_groq",
+  "generated_utc": "2026-10-30T01:52:30Z",
+  "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\model_autopsy_test_db_i26h4143\\test.sqlite3",
+  "model": "openai/gpt-oss-120b",
+  "temperature": 0.2,
+  "rounds_per_turn": 3,
+  "turns_per_run": 2,
+  "tool_list": [
+    "propose_hypothesis",
+    "artifact_summary",
+    "dataset_validation",
+    "classification_metrics",
+    "time_split_validation",
+    "feature_target_suspiciousness",
+    "calibration_and_error_analysis",
+    "grouped_auc_comparison"
+  ],
+  "controlled_mode": true,
+  "controlled_continuation_instruction": "Continue the investigation from the recorded state. Use the available tools if another measurement could change the conclusion; otherwise conclude. End with the required investigation_summary block.",
+  "condition_order": [],
+  "caps": {
+    "max_attempts": 25,
+    "max_total_tokens": 120000,
+    "max_est_cost": 0.5,
+    "repeated_429_limit": 4
+  },
+  "pricing_estimate_source": {
+    "input": 0.15,
+    "output": 0.6,
+    "source": "console.groq.com/docs/models (current published price)"
+  },
+  "totals": {
+    "provider_http_attempts": 1,
+    "billed_ok_requests": 0,
+    "failed_requests": 1,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "estimated_cost_usd": 0.0,
+    "stop_reason": "unexpected provider behavior: HTTP 401 GET /models failed or 'openai/gpt-oss-120b' not listed (got 0 ids)"
+  },
+  "runs": [],
+  "per_request_ledger": [
+    {
+      "condition": "-",
+      "kind": "models_list",
+      "ok": false,
+      "http_status": 401,
+      "latency_s": 0.738,
+      "error": "GET /models failed or 'openai/gpt-oss-120b' not listed (got 0 ids)"
+    }
+  ],
+  "limitations": [
+    "Groq Chat Completions is STATELESS: every request resends the conversation transcript. This does NOT reproduce Meta's previous_response_id retention; it measures how the full-context vs delta chained-turn strategies behave when requests resend history.",
+    "The turn-1 transcript resend is identical for both conditions; only the chained-turn opening message differs, so the measured difference is the redundant corpus re-transmission Phase C removes.",
+    "429 handling is owner-directed pacing: wait to the next minute boundary (~8 000 tokens/minute on-demand window) and retry; every attempt including retries is ledgered, nothing silent.",
+    "Groq results do NOT establish Meta API savings or billing behavior.",
+    "Cost figures are ESTIMATES from published pricing, not actual charges.",
+    "One paired comparison: no statistical significance.",
+    "Controlled mode removes the turn-1 'finish now' cue and the delta-specific framing note, and equalizes round/tool budgets; the remaining difference is whether recorded_context is resent in the continuation payload."
+  ]
+}

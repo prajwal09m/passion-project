@@ -1,0 +1,614 @@
+{
+  "mode": "live_paired_groq",
+  "generated_utc": "2026-10-29T22:47:04Z",
+  "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-controlled-p5-wqbpunse\\sandbox.db",
+  "model": "openai/gpt-oss-120b",
+  "temperature": 0.2,
+  "rounds_per_turn": 3,
+  "turns_per_run": 2,
+  "tool_list": [
+    "propose_hypothesis",
+    "artifact_summary",
+    "dataset_validation",
+    "classification_metrics",
+    "time_split_validation",
+    "feature_target_suspiciousness",
+    "calibration_and_error_analysis",
+    "grouped_auc_comparison"
+  ],
+  "controlled_mode": true,
+  "controlled_continuation_instruction": "Continue the investigation from the recorded state. Use the available tools if another measurement could change the conclusion; otherwise conclude. End with the required investigation_summary block.",
+  "condition_order": [
+    "full",
+    "delta"
+  ],
+  "caps": {
+    "max_attempts": 30,
+    "max_total_tokens": 80000,
+    "max_est_cost": 0.1,
+    "repeated_429_limit": 4
+  },
+  "pricing_estimate_source": {
+    "input": 0.15,
+    "output": 0.6,
+    "source": "console.groq.com/docs/models (current published price)"
+  },
+  "totals": {
+    "provider_http_attempts": 15,
+    "billed_ok_requests": 15,
+    "failed_requests": 0,
+    "input_tokens": 40886,
+    "output_tokens": 5428,
+    "estimated_cost_usd": 0.00939,
+    "stop_reason": null
+  },
+  "runs": [
+    {
+      "condition": "full",
+      "investigation_name": "phase-d-groq-full",
+      "aborted": null,
+      "controlled_design": {
+        "enabled": true,
+        "context_variant": "full",
+        "recorded_context_included": true,
+        "continuation_instruction": "Continue the investigation from the recorded state. Use the available tools if another measurement could change the conclusion; otherwise conclude. End with the required investigation_summary block.",
+        "turn1_wrapup_allowed": false,
+        "turn2_wrapup_policy": "last scheduled round or budget exhaustion",
+        "turn_rounds": 3,
+        "max_tool_calls": 6,
+        "forced_diagnostic": false
+      },
+      "chained_context_chars": 2609,
+      "turn1": {
+        "rounds": 3,
+        "final_text": "",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 3,
+        "summary_block_seen": false
+      },
+      "turn2": {
+        "rounds": 3,
+        "final_text": "```investigation_summary\n{\n  \"conclusion\": \"Both proposed explanations remain plausible; current evidence does not decisively favor one over the other.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"3dfd687858884d07b44967ce8b7ac460\",\n      \"status\": \"inconclusive\",\n      \"basis\": [\"6895eca4ee4a435c978c15c1817ecf24\"]\n    },\n    {\n      \"hypothesis_id\": \"50bd6c0d7e5340279397c8a4adcb64e2\",\n      \"status\": \"inconclusive\",\n      \"basis\": [\"6895eca4ee4a435c978c15c1817ecf24\"]\n    }\n  ],\n  \"uncertainties\": [\n    \"Whether any of the non-model columns leak target information (e.g., hold1_ret, entry_date, exit_date).\",\n    \"The extent of temporal distribution shift across folds and its impact on model performance.\"\n  ],\n  \"recommended_next\": \"Perform targeted feature importance and leakage checks on the non-model columns, and evaluate per\u2011fold performance trends with additional temporal diagnostics.\"\n}\n```",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 3,
+        "summary_block_seen": true
+      },
+      "summary": {
+        "valid": true,
+        "errors": [],
+        "conclusion": null
+      },
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "summary_repair_errors": [],
+      "backend": {
+        "actions_ran": [
+          "artifact_summary",
+          "calibration_and_error_analysis",
+          "classification_metrics",
+          "propose_hypothesis"
+        ],
+        "actions_ran_count": 5,
+        "actions_failed": [
+          "feature_target_suspiciousness"
+        ],
+        "tool_calls_used": 5,
+        "max_tool_calls": 6,
+        "event_kinds": {
+          "status_change": 2,
+          "tool_result": 7,
+          "tool_request": 6,
+          "hypothesis": 2,
+          "summary": 2
+        },
+        "reused_results": 0,
+        "hypothesis_statuses": [
+          "proposed",
+          "proposed"
+        ]
+      },
+      "condition_totals": {
+        "provider_latency_s": 14.381,
+        "requests": 7,
+        "rate_limit_wait_s": 0.0,
+        "last_rate_hints": {
+          "reset_tokens_s": 30.014,
+          "remaining_tokens": 3998
+        }
+      },
+      "per_request": [
+        {
+          "tag": "turn1r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.406,
+          "prompt_tokens": 1719,
+          "completion_tokens": 310,
+          "usage_missing": false,
+          "shipped_messages": 2,
+          "shipped_chars": 2468,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.667,
+          "prompt_tokens": 2005,
+          "completion_tokens": 445,
+          "usage_missing": false,
+          "shipped_messages": 4,
+          "shipped_chars": 3663,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r3",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.374,
+          "prompt_tokens": 2358,
+          "completion_tokens": 238,
+          "usage_missing": false,
+          "shipped_messages": 6,
+          "shipped_chars": 5392,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.664,
+          "prompt_tokens": 3469,
+          "completion_tokens": 298,
+          "usage_missing": false,
+          "shipped_messages": 9,
+          "shipped_chars": 9846,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.392,
+          "prompt_tokens": 3720,
+          "completion_tokens": 285,
+          "usage_missing": false,
+          "shipped_messages": 11,
+          "shipped_chars": 10909,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r3",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 3.738,
+          "prompt_tokens": 3817,
+          "completion_tokens": 1160,
+          "usage_missing": false,
+          "shipped_messages": 13,
+          "shipped_chars": 11460,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2repair",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.14,
+          "prompt_tokens": 3557,
+          "completion_tokens": 258,
+          "usage_missing": false,
+          "shipped_messages": 17,
+          "shipped_chars": 14495,
+          "finish_reason": "stop"
+        }
+      ],
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"Both proposed explanations remain plausible; current evidence does not decisively favor one over the other.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"3dfd687858884d07b44967ce8b7ac460\",\n      \"status\": \"inconclusive\",\n      \"basis\": [\"6895eca4ee4a435c978c15c1817ecf24\"]\n    },\n    {\n      \"hypothesis_id\": \"50bd6c0d7e5340279397c8a4adcb64"
+    },
+    {
+      "condition": "delta",
+      "investigation_name": "phase-d-groq-delta",
+      "aborted": null,
+      "controlled_design": {
+        "enabled": true,
+        "context_variant": "delta",
+        "recorded_context_included": false,
+        "continuation_instruction": "Continue the investigation from the recorded state. Use the available tools if another measurement could change the conclusion; otherwise conclude. End with the required investigation_summary block.",
+        "turn1_wrapup_allowed": false,
+        "turn2_wrapup_policy": "last scheduled round or budget exhaustion",
+        "turn_rounds": 3,
+        "max_tool_calls": 6,
+        "forced_diagnostic": false
+      },
+      "chained_context_chars": 2357,
+      "turn1": {
+        "rounds": 3,
+        "final_text": "",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 3,
+        "summary_block_seen": false
+      },
+      "turn2": {
+        "rounds": 3,
+        "final_text": "```investigation_summary\n{\n  \"conclusion\": \"The model\u2019s out\u2011of\u2011fold performance does not show a clear degradation over time; AUC scores are similar across the 2023, 2024, and 2025 folds, which contradicts the temporal drift hypothesis and is consistent with a uniformly modest performance that could stem from underfitting or other factors.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"b3c207b1d66c46c398dd45de884d3265\",\n      \"status\": \"rejected\",\n      \"basis\": [\"0c6efb0326ae4adf88668805757e9084\", \"85cbf5b108d44c5d8b4a16b24cc759db\"]\n    },\n    {\n      \"hypothesis_id\": \"ef85272cc73445bd9ccf6f52fc91a024\",\n      \"status\": \"investigating\",\n      \"basis\": [\"ef929fc76cc242e5a2f076f2713fe2f2\", \"c0c5e5d9a1f34b2e9d6f7a3b8c9d0e1f\"]\n    }\n  ],\n  \"uncertainties\": [\n    \"Whether the uniformly modest performance is due to underfitting, suboptimal hyperparameters, data quality issues, or other causes cannot be distinguished without further diagnostics (e.g., learning curves, feature importance, calibration).\"\n  ],\n  \"recommended_next\": \"Run a learning\u2011curve analysis or hyperparameter sweep to test for underfitting, and compute calibration curves to assess systematic probability bias.\"\n}\n```",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 3,
+        "summary_block_seen": true
+      },
+      "summary": {
+        "valid": true,
+        "errors": [],
+        "conclusion": null
+      },
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "summary_repair_errors": [],
+      "backend": {
+        "actions_ran": [
+          "classification_metrics",
+          "dataset_validation",
+          "propose_hypothesis",
+          "time_split_validation"
+        ],
+        "actions_ran_count": 5,
+        "actions_failed": [
+          "calibration_and_error_analysis"
+        ],
+        "tool_calls_used": 5,
+        "max_tool_calls": 6,
+        "event_kinds": {
+          "status_change": 2,
+          "tool_result": 7,
+          "tool_request": 6,
+          "hypothesis": 2,
+          "summary": 2
+        },
+        "reused_results": 0,
+        "hypothesis_statuses": [
+          "proposed",
+          "proposed"
+        ]
+      },
+      "condition_totals": {
+        "provider_latency_s": 12.027,
+        "requests": 7,
+        "rate_limit_wait_s": 0.0,
+        "last_rate_hints": {
+          "reset_tokens_s": 26.474,
+          "remaining_tokens": 4470
+        }
+      },
+      "per_request": [
+        {
+          "tag": "turn1r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.873,
+          "prompt_tokens": 1719,
+          "completion_tokens": 506,
+          "usage_missing": false,
+          "shipped_messages": 2,
+          "shipped_chars": 2468,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.048,
+          "prompt_tokens": 1988,
+          "completion_tokens": 636,
+          "usage_missing": false,
+          "shipped_messages": 4,
+          "shipped_chars": 3492,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r3",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.438,
+          "prompt_tokens": 2344,
+          "completion_tokens": 260,
+          "usage_missing": false,
+          "shipped_messages": 6,
+          "shipped_chars": 5142,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.522,
+          "prompt_tokens": 3363,
+          "completion_tokens": 173,
+          "usage_missing": false,
+          "shipped_messages": 9,
+          "shipped_chars": 9360,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.229,
+          "prompt_tokens": 3683,
+          "completion_tokens": 126,
+          "usage_missing": false,
+          "shipped_messages": 11,
+          "shipped_chars": 10678,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r3",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.649,
+          "prompt_tokens": 3928,
+          "completion_tokens": 371,
+          "usage_missing": false,
+          "shipped_messages": 13,
+          "shipped_chars": 11723,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2repair",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.268,
+          "prompt_tokens": 3216,
+          "completion_tokens": 362,
+          "usage_missing": false,
+          "shipped_messages": 17,
+          "shipped_chars": 13584,
+          "finish_reason": "stop"
+        }
+      ],
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"The model\u2019s out\u2011of\u2011fold performance does not show a clear degradation over time; AUC scores are similar across the 2023, 2024, and 2025 folds, which contradicts the temporal drift hypothesis and is consistent with a uniformly modest performance that could stem from underfitting or other factors.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\""
+    }
+  ],
+  "per_request_ledger": [
+    {
+      "condition": "-",
+      "kind": "models_list",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 0.774,
+      "error": null
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.406,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1719,
+        "completion_tokens": 310,
+        "total_tokens": 2029,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.667,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2005,
+        "completion_tokens": 445,
+        "total_tokens": 2450,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r3",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.374,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2358,
+        "completion_tokens": 238,
+        "total_tokens": 2596,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn2r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.664,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3469,
+        "completion_tokens": 298,
+        "total_tokens": 3767,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn2r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.392,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3720,
+        "completion_tokens": 285,
+        "total_tokens": 4005,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn2r3",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 3.738,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3817,
+        "completion_tokens": 1160,
+        "total_tokens": 4977,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn2repair",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.14,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3557,
+        "completion_tokens": 258,
+        "total_tokens": 3815,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.873,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1719,
+        "completion_tokens": 506,
+        "total_tokens": 2225,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.048,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1988,
+        "completion_tokens": 636,
+        "total_tokens": 2624,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r3",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.438,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2344,
+        "completion_tokens": 260,
+        "total_tokens": 2604,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn2r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.522,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3363,
+        "completion_tokens": 173,
+        "total_tokens": 3536,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn2r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.229,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3683,
+        "completion_tokens": 126,
+        "total_tokens": 3809,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn2r3",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.649,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3928,
+        "completion_tokens": 371,
+        "total_tokens": 4299,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn2repair",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.268,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3216,
+        "completion_tokens": 362,
+        "total_tokens": 3578,
+        "usage_missing": false
+      }
+    }
+  ],
+  "limitations": [
+    "Groq Chat Completions is STATELESS: every request resends the conversation transcript. This does NOT reproduce Meta's previous_response_id retention; it measures how the full-context vs delta chained-turn strategies behave when requests resend history.",
+    "The turn-1 transcript resend is identical for both conditions; only the chained-turn opening message differs, so the measured difference is the redundant corpus re-transmission Phase C removes.",
+    "429 handling is owner-directed pacing: wait to the next minute boundary (~8 000 tokens/minute on-demand window) and retry; every attempt including retries is ledgered, nothing silent.",
+    "Groq results do NOT establish Meta API savings or billing behavior.",
+    "Cost figures are ESTIMATES from published pricing, not actual charges.",
+    "One paired comparison: no statistical significance.",
+    "Controlled mode removes the turn-1 'finish now' cue and the delta-specific framing note, and equalizes round/tool budgets; the remaining difference is whether recorded_context is resent in the continuation payload."
+  ]
+}

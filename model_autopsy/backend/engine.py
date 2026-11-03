@@ -9,7 +9,9 @@ confirmed without a recorded tool result.
 """
 from __future__ import annotations
 
+import json
 import os
+import re
 from pathlib import Path
 from typing import Callable
 
@@ -17,6 +19,53 @@ from sqlalchemy.orm import Session
 
 from . import config, db, tools_registry
 from .db import (Investigation, record_event, to_json_blob)
+
+
+def _investigation_scope(inv, actions) -> dict:
+    """Files uploaded / examined / used / stored-only + missing evidence."""
+    q = inv.question or ""
+    import re as _re
+    paths = _re.findall(r"[\w./\\-]+\.[A-Za-z0-9]{2,8}", q)
+    uploaded = sorted(set(paths))[:20]
+    used: list[str] = []
+    for a in actions:
+        if a.status != "ran":
+            continue
+        res = a.result if isinstance(a.result, dict) else {}
+        src = res.get("source")
+        if src:
+            used.append(str(src))
+        args = a.arguments if isinstance(a.arguments, dict) else {}
+        for k in ("predictions_path", "feature_csv", "label_csv", "script_path"):
+            if args.get(k):
+                used.append(str(args[k]))
+    # dedupe preserving order
+    seen: set = set()
+    used_u = [x for x in used if not (x in seen or seen.add(x))]
+    examined = used_u
+    stored_only = [p for p in uploaded if p not in used_u]
+    missing: list[str] = []
+    if not any(p.endswith(('.csv', '.json', '.jsonl', '.parquet')) for p in uploaded + used_u):
+        missing.append("predictions/dataset artifact with score + label columns")
+    if any(p.endswith('.py') for p in uploaded) and not any((a.tool_name == 'script_static_inspection') for a in actions if a.status == 'ran'):
+        missing.append("static inspection of attached training script(s)")
+    return {"uploaded": uploaded, "examined": examined,
+            "used_by_diagnostics": used_u, "stored_not_examined": stored_only,
+            "missing": missing}
+
+
+def _main_interpretation(sci: dict, supported_h, sections, likely, unresolved_n: int, ran_n: int) -> str:
+    status = sci.get("status", "inconclusive")
+    expl = sci.get("explanation", "")
+    if status == "supported":
+        return f"The evidence currently supports an explanation. {expl} All claims below trace to recorded diagnostics."
+    if status == "partially_supported":
+        return f"The evidence suggests a possible explanation but does not yet prove it. {expl} Treat every candidate as a hypothesis to verify, not a confirmed finding."
+    if status == "no_issue_detected_within_scope":
+        return f"Relevant tests ran without detecting the suspected issue ({ran_n} diagnostics). {expl} This is limited strictly to what was tested."
+    if status == "contradicted":
+        return f"The investigated explanation was contradicted by recorded evidence. {expl}"
+    return f"No explanation has been established yet ({ran_n} diagnostics, {unresolved_n} open hypotheses). {expl} A lack of findings is not evidence that no problem exists."
 
 VALID_MODES = ("software", "ml")
 VALID_TARGET_STATUSES = ("created", "context_ready", "hypotheses_proposed",
@@ -100,7 +149,7 @@ def update_hypothesis(session: Session, hypothesis_id: str, status: str,
     if h is None:
         raise LookupError("hypothesis not found")
     if status not in ("proposed", "investigating", "supported", "rejected",
-                      "inconclusive"):
+                      "inconclusive", "blocked"):
         raise ValueError(f"invalid hypothesis status {status!r}")
     prev = {"status": h.status, "confidence": h.confidence,
             "rationale": h.rationale}
@@ -123,10 +172,17 @@ def update_hypothesis(session: Session, hypothesis_id: str, status: str,
 
 
 
+NON_MOVING_RELATIONS = ("relevant_to", "mentions", "neutral",
+                        "insufficient", "uncertain")
+
+
 def link_evidence(session: Session, hypothesis_id: str, action_id: str,
                   relation: str) -> dict:
-    """Attach a real executed action to a hypothesis as supporting or
-    contradicting evidence. Both IDs must exist; relation is audited."""
+    """Attach a real executed action to a hypothesis.
+
+    supports/contradicts move belief (via update_with_evidence). M9
+    non-moving relations are stored visibly but change neither status
+    nor confidence. Both IDs must exist; relation is audited."""
     from .db import Action, Hypothesis
     h = session.get(Hypothesis, hypothesis_id)
     if h is None:
@@ -134,8 +190,9 @@ def link_evidence(session: Session, hypothesis_id: str, action_id: str,
     a = session.get(Action, action_id)
     if a is None or a.investigation_id != h.investigation_id:
         raise LookupError("action not found in this investigation")
-    if relation not in ("supports", "contradicts"):
-        raise ValueError("relation must be 'supports' or 'contradicts'")
+    if relation not in ("supports", "contradicts") + NON_MOVING_RELATIONS:
+        raise ValueError(f"relation must be supports/contradicts or one of "
+                         f"{NON_MOVING_RELATIONS}")
     refs = list(h.evidence_refs or [])
     if any(r.get("action_id") == action_id and r.get("relation") == relation
            for r in refs):
@@ -181,6 +238,8 @@ def propose_hypothesis(session: Session, inv: Investigation,
                  payload={"hypothesis_id": h.id, "source": "meta",
                           "predicted_observation": predicted_observation,
                           "confidence_note": confidence_note})
+    session.commit()  # durable now: a later failed tool's rollback must
+    # never wipe an already-recorded hypothesis (M7 robustness).
     return {"ok": True, "hypothesis_id": h.id, "origin": "meta",
             "note": "model-generated confidence is uncalibrated; only "
                     "tool-computed facts are findings", "text": h.text}
@@ -263,6 +322,130 @@ def record_finding(session: Session, inv: Investigation, summary: str,
                  payload={"evidence_action_id": evidence_action_id})
     session.commit()
     return finding
+
+
+# Hypothesis status vocabulary the model may RECOMMEND in its structured
+# summary (the same statuses `update_hypothesis` accepts). Meta can never
+# apply them itself.
+HYPOTHESIS_RECOMMENDABLE_STATUSES = ("proposed", "investigating", "supported",
+                                     "rejected", "inconclusive", "blocked")
+
+
+def ensure_finalizable(session: Session, inv: Investigation) -> list[str]:
+    """Single legal FSM walk to finalizing (M6 Part 3 hardening).
+
+    Mirrors the report endpoint so the driver, API and tests share one
+    path. Returns the walked statuses. Never skips stages.
+    """
+    walked: list[str] = []
+    if inv.status in ("created", "context_ready", "hypotheses_proposed",
+                      "revising", "blocked", "failed"):
+        set_status(session, inv, "investigating")
+        walked.append("investigating")
+    if inv.status == "investigating":
+        set_status(session, inv, "finalizing")
+        walked.append("finalizing")
+    session.commit()
+    return walked
+
+
+def validate_structured_summary(session: Session, inv: Investigation,
+                                message_text: str) -> dict:
+    """Parse and validate Meta's final structured summary.
+
+    Looks for a fenced ```investigation_summary block (or a bare JSON
+    object containing "conclusion") in the model's final message. Returns
+    {'valid': bool, 'summary': parsed|None, 'errors': [...]} and records
+    event kind 'summary' — invalid output is recorded, never silently
+    trusted OR thrown away. Every referenced hypothesis_id must exist in
+    THIS investigation (exact id or unique prefix), and every recommended
+    status must come from the application's own vocabulary. The model
+    cannot change statuses here; these are recommendations for the owner.
+    """
+    from .db import Hypothesis
+    errors: list[str] = []
+    parsed = None
+    candidates: list[str] = re.findall(
+        r"```\s*investigation_summary\s*\n?(.*?)```", message_text or "",
+        flags=re.DOTALL)
+    if not candidates:
+        # fallback: a bare JSON object that introduces a conclusion field
+        candidates = re.findall(r"\{\s*\"conclusion\"[^{}]*\}",
+                                message_text or "", flags=re.DOTALL)
+    for cand in candidates:
+        try:
+            parsed = json.loads(cand.strip())
+            if isinstance(parsed, dict):
+                break
+            parsed = None
+            errors.append("summary JSON parsed but is not an object")
+        except json.JSONDecodeError as exc:
+            errors.append(f"summary is not valid JSON: {exc}")
+    if parsed is None:
+        errors.append("no structured summary found in the final message")
+        result = {"valid": False, "summary": None, "errors": errors,
+                  "schema_version": "m8-v1"}
+    else:
+        # M8 versioned contract (superset of the M6 checks): strict
+        # schema, types, refs, truncation and overconfidence gates.
+        from .causal import report_schema as _RS
+        from .db import Action as _Action
+        hyps = session.query(Hypothesis).filter(
+            Hypothesis.investigation_id == inv.id).all()
+        acts = session.query(_Action).filter(
+            _Action.investigation_id == inv.id).all()
+        checked = _RS.validate(
+            parsed, {h.id for h in hyps}, {a.id for a in acts})
+        errors.extend(e for e in checked["errors"] if e not in errors)
+        result = {"valid": checked["valid"],
+                  "summary": checked["normalized"],
+                  "errors": errors,
+                  "warnings": checked["warnings"],
+                  "schema_version": checked["schema_version"]}
+    # M20 Phase 1: output classification recorded in report metadata.
+    # Additive only: validation behavior unchanged. The raw model output
+    # is preserved (payload prose head; full verbatim text already lives
+    # in the meta_response event) and never overwritten by repair.
+    from .causal import summary_class as _SC
+    _cls = _SC.classify(message_text, result)
+    result["output_class"] = _cls["class"]
+    result["output_class_reason"] = _cls["reason"]
+    # M21: read-only consistency advisory for valid summaries. Recorded,
+    # not enforced — the M20 record-not-reject contract is frozen (see
+    # M21_EVALUATION_PROTOCOL §4). Advisory only; validity unchanged.
+    # Never breaks validation: any snapshot failure degrades to a warning.
+    _advisory: dict = {"passed": True, "failures": [], "warnings": []}
+    if result.get("valid"):
+        try:
+            from .causal import report_consistency as _RC
+            _advisory = _RC.check(result.get("summary"),
+                                  _RC.build_snapshot(session, inv))
+        except Exception:
+            _advisory = {"passed": True, "failures": [],
+                         "warnings": ["consistency advisory unavailable"]}
+    result["consistency_passed"] = _advisory["passed"]
+    result["consistency_failures"] = list(_advisory["failures"])[:8]
+    result["consistency_warnings"] = list(_advisory["warnings"])[:8]
+    record_event(session, inv.id, "summary",
+                 f"Structured summary parsed: "
+                 f"{'valid' if result['valid'] else 'INVALID'} "
+                 f"({_cls['class']})",
+                 detail=(json.dumps(parsed, default=str)[:600] if parsed
+                         else (message_text or "")[:600]),                         payload={"valid": result["valid"],
+                          "errors": errors,
+                          "output_class": _cls["class"],
+                          "output_class_reason": _cls["reason"][:200],
+                          "repair_eligible": _cls["repair_eligible"],
+                          "consistency_passed": result[
+                              "consistency_passed"],
+                          "consistency_failures": result[
+                              "consistency_failures"],
+                          "consistency_warnings": result[
+                              "consistency_warnings"],
+                          "raw_block": (json.dumps(parsed, default=str)
+                                        if parsed else None)})
+    session.commit()
+    return result
 
 
 def build_report(session: Session, inv: Investigation) -> dict:
@@ -348,6 +531,39 @@ def build_report(session: Session, inv: Investigation) -> dict:
     if inv.tool_call_count < inv.max_tool_calls and not recommended:
         recommended.append({"for": None, "action": "No open hypotheses "
                             "remain; investigation may be closed", "status": "n/a"})
+    # ---- scientific assessment + scope + experiments (additive, deterministic) ---
+    try:
+        from . import scientific as _sci
+        sci = _sci.evaluate(session, inv)
+    except Exception:
+        sci = {"status": "inconclusive", "explanation": "scientific evaluation unavailable.",
+               "guidance": "", "evidence_gaps": [], "scope_gaps": [],
+               "suspicious_max_abs_r": None, "suspicious_feature": None}
+    try:
+        from . import hypothesis_gen as _hg
+        experiments = _hg.recommend(session, inv)
+    except Exception:
+        experiments = []
+    # investigation scope: files uploaded / examined / used / stored-only
+    try:
+        scope = _investigation_scope(inv, actions)
+    except Exception:
+        scope = {"uploaded": [], "examined": [], "used_by_diagnostics": [],
+                 "stored_not_examined": [], "missing": []}
+    main_interp = _main_interpretation(sci, supported_h, sections, likely=[f for f in findings if f.get("status") == "likely"], unresolved_n=len(unresolved), ran_n=len(ran))
+    # Evidence-driven recommended experiments replace/augment generic ones
+    exp_recs = []
+    for e in experiments:
+        exp_recs.append({"for": e.get("hypothesis_id"), "action": f"{e.get('title')}: {e.get('what')} Support if: {e.get('support_if')} Contradict if: {e.get('contradict_if')}", "status": "proposed experiment", "detail": e})
+    recommended_combined = exp_recs + recommended
+    # candidate explanations split by origin
+    machine_h = [{"hypothesis_id": h.id, "text": h.text, "status": h.status,
+                   "evidence_refs": h.evidence_refs or [], "rationale": h.rationale,
+                   "predicted_observation": h.predicted_observation}
+                  for h in hyps if (h.source == "machine" or "[machine-generated]" in (h.rationale or ""))]
+    manual_h = [{"hypothesis_id": h.id, "text": h.text, "status": h.status,
+                 "origin": h.source, "evidence_refs": h.evidence_refs or []}
+                for h in hyps if not ((h.source == "machine" or "[machine-generated]" in (h.rationale or "")))]
     report = {
         "investigation_id": inv.id, "mode": inv.mode,
         "question": inv.question, "generated_at": str(db.utcnow()) + "Z",
@@ -358,14 +574,68 @@ def build_report(session: Session, inv: Investigation) -> dict:
         "supported_hypotheses": supported_h,
         "evidence_performed": evidence_performed,
         "limitations": limitations or ["none recorded"],
-        "recommended_next": recommended,
+        "recommended_next": recommended_combined or recommended,
         "budget": {"tool_calls": [inv.tool_call_count, inv.max_tool_calls],
                    "iterations": [inv.iteration_count, inv.max_iterations]},
         "scope_note": "assembled deterministically from the investigation's "
                       "recorded findings, hypotheses and executed actions; "
                       "no section is model-invented and every rejected "
-                      "hypothesis carries its contradicting action ids."}
+                      "hypothesis carries its contradicting action ids.",
+        "execution_status": inv.status,
+        "scientific_assessment": sci,
+        "main_interpretation": main_interp,
+        "investigation_scope": scope,
+        "candidate_explanations": {"machine": machine_h, "manual": manual_h},
+        "recommended_experiments": experiments,
+        "diagnostics_not_run": unused,
+        "reproducibility": {
+            "artifact_identities": scope.get("examined", []),
+            "eval_version": (inv.config or {}).get("eval_rubric_version"),
+            "budget": {"tool_calls": [inv.tool_call_count, inv.max_tool_calls]},
+        },
+    }
     return report
+
+
+def grounded_summary(session: Session, inv: Investigation) -> dict:
+    """M16 P1-2: model-proof structured facts for summary grounding.
+
+    Pure function of recorded state (no event, deterministic): every
+    hypothesis id, status, confidence, evidence ref (action id + tool +
+    relation), and independent-support counts, plus the action ledger.
+    The model explains these facts; it must not regenerate them.
+    """
+    from .db import Action, Hypothesis
+    hyps = session.query(Hypothesis).filter(
+        Hypothesis.investigation_id == inv.id).all()
+    acts = session.query(Action).filter(
+        Action.investigation_id == inv.id).order_by(Action.seq).all()
+    hviews = []
+    for h in hyps:
+        refs = h.evidence_refs or []
+        tools_sup = sorted({r.get("tool") or "?" for r in refs
+                            if r.get("relation") == "supports"})
+        tools_con = sorted({r.get("tool") or "?" for r in refs
+                            if r.get("relation") == "contradicts"})
+        hviews.append({
+            "hypothesis_id": h.id, "text": h.text,
+            "status": h.status, "confidence": h.confidence,
+            "evidence_refs": [{"action_id": r.get("action_id"),
+                                 "tool": r.get("tool"),
+                                 "relation": r.get("relation")}
+                                for r in refs],
+            "independent_supports": len(tools_sup),
+            "independent_contradicts": len(tools_con)})
+    return {
+        "investigation_id": inv.id,
+        "hypotheses": hviews,
+        "actions": [{"action_id": a.id, "seq": a.seq,
+                       "tool": a.tool_name, "status": a.status}
+                      for a in acts],
+        "rule": ("explain ONLY these recorded facts; do not invent "
+                   "hypothesis ids, statuses, action ids, or measured "
+                   "numbers; anything not listed here is unresolved"),
+    }
 
 
 def build_context(session: Session, inv: Investigation,
@@ -386,10 +656,33 @@ def build_context(session: Session, inv: Investigation,
         }
     else:
         cfg = inv.config
-        predictions = cfg.get("predictions_path")
-        labels = cfg.get("labels")
-        context_payload = tools_registry.ml_tools()["artifact_summary"]
-        context = context_payload(predictions_path=predictions, labels=labels)
+        project_id = cfg.get("project_id")
+        if project_id:
+            # Universal path (Phase 5): the project adapter describes the
+            # project; the engine never touches project-specific fields.
+            from .projects import get_project
+            adapter = get_project(project_id)
+            context = adapter.context_summary()
+            context["investigator_brief"] = adapter.investigator_brief()
+            context["capabilities"] = adapter.available_capabilities()
+        else:
+            # Legacy path (Demand Zone default): unchanged behavior.
+            predictions = cfg.get("predictions_path")
+            labels = cfg.get("labels")
+            context_payload = tools_registry.ml_tools()["artifact_summary"]
+            if predictions:
+                try:
+                    context = context_payload(predictions_path=predictions, labels=labels)
+                except ValueError as exc:
+                    # A user-selected file without a usable binary label
+                    # column must not block the investigation at Start:
+                    # record a label-free profile (never a guessed label)
+                    # so dataset/script-level diagnostics and Meta turns can
+                    # proceed. Metric tools keep refusing honestly until a
+                    # real label is mapped.
+                    context = _label_free_dataset_context(predictions, str(exc))
+            else:
+                context = context_payload(predictions_path=predictions, labels=labels)
     inv.config = {**inv.config, "context": context}
     record_event(session, inv.id, "tool_result", "Context loaded",
                  detail=repr(context)[:400], payload=context)
@@ -397,6 +690,38 @@ def build_context(session: Session, inv: Investigation,
         set_status(session, inv, "context_ready")
     session.commit()
     return context
+
+
+def _label_free_dataset_context(predictions: str, reason: str) -> dict:
+    """Label-free context profile for a selected CSV with no usable label.
+
+    Profiles the file with dataset_validation (which records the label gap
+    factually) and lists binary-{0,1} columns as *mapping candidates* for
+    the operator. Nothing here selects or synthesizes a label: metric tools
+    keep reporting the gap until a real label is mapped."""
+    import pandas as pd
+    from . import ml_tools
+    profile = ml_tools.dataset_validation(predictions_path=predictions)
+    candidates: list[str] = []
+    try:
+        df = pd.read_csv(profile["source"])
+        for col in df.columns:
+            try:
+                vals = set(pd.to_numeric(df[col], errors="coerce")
+                           .dropna().unique().tolist())
+            except Exception:
+                continue
+            if vals and vals <= {0, 1}:
+                candidates.append(str(col))
+    except Exception:
+        candidates = []
+    return {
+        **profile,
+        "label_status": ("no usable binary label column (" + reason + "); "
+                          "label-free profile only — metric tools will "
+                          "report the gap until a real label is mapped"),
+        "binary_label_candidates": candidates,
+    }
 
 
 def run_tool(session: Session, inv: Investigation, tool_name: str,
@@ -409,14 +734,20 @@ def run_tool(session: Session, inv: Investigation, tool_name: str,
         return {"ok": False, "error": "tool_call_budget_exhausted",
                 "detail": f"max_tool_calls={inv.max_tool_calls}"}
     try:
-        outcome = tools_registry.execute(session, inv, tool_name, dict(arguments or {}))
+        outcome = tools_registry.execute(session, inv, tool_name,
+                                         dict(arguments or {}),
+                                         allow_reuse=bool(source_meta))
     except Exception as exc:  # tool errors must be visible, not swallowed
         session.rollback()
         action, payload = tools_registry.record_failed_call(
             session, inv, tool_name, arguments or {}, str(exc))
         return {"ok": False, "error": type(exc).__name__, "detail": str(exc),
                 "action_id": action.id}
-    inv.tool_call_count += 1
+    inner = dict(outcome.get("result") or {})
+    inner.pop("_dedup", None)          # internal fingerprint: not model/API-facing
+    outcome["result"] = inner
+    if not outcome.get("reused"):
+        inv.tool_call_count += 1
     payload = {"budget": {"used": inv.tool_call_count,
                           "max": inv.max_tool_calls}, **outcome}
     session.commit()

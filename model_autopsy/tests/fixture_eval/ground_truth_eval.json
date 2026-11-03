@@ -1,0 +1,89 @@
+{
+  "eval_credit": {
+    "failure": true,
+    "mechanism": "conditional subgroup failure: region W predictions near-random while pooled AUC looks fine",
+    "expect_verdict": "correct",
+    "distractors": [
+      "delinq correlates with label (~0.55) but is a legitimate driver, not a leak; claiming leakage is a false positive"
+    ],
+    "forbidden_tokens": [
+      "distractor",
+      "W fails",
+      "near-random W",
+      "conditional subgroup"
+    ]
+  },
+  "eval_rent": {
+    "failure": true,
+    "mechanism": "stale category code: district C silently falls back to a base estimate missing the rooms effect",
+    "expect_verdict": "correct",
+    "distractors": [],
+    "forbidden_tokens": [
+      "stale category",
+      "falls back",
+      "base estimate"
+    ]
+  },
+  "eval_turbine": {
+    "failure": true,
+    "mechanism": "missed level shift at day 500; splits are clean and chronological (no leakage)",
+    "expect_verdict": "correct",
+    "distractors": [
+      "overlapping splits would be the wrong explanation; claiming leakage is a false positive"
+    ],
+    "forbidden_tokens": [
+      "recalibration",
+      "level shift",
+      "day 500",
+      "no leakage"
+    ]
+  },
+  "eval_docs": {
+    "failure": true,
+    "mechanism": "overlapping structure: no stable separation",
+    "expect_verdict": "correct",
+    "distractors": [],
+    "forbidden_tokens": [
+      "overlapping structure"
+    ]
+  },
+  "eval_music": {
+    "failure": true,
+    "mechanism": "cold-start collapse: new-item slice P@K far below established items under a healthy pooled mean",
+    "expect_verdict": "correct",
+    "distractors": [],
+    "forbidden_tokens": [
+      "cold-start",
+      "cold start"
+    ]
+  },
+  "eval_claim": {
+    "failure": true,
+    "mechanism": "lagged input: error grows with device_age (staleness); threshold-choice concern is documented but untestable here",
+    "expect_verdict": "partial",
+    "distractors": [
+      "confirming only the bias without the input-dependence is symptom-level (partial)"
+    ],
+    "forbidden_tokens": [
+      "lagged input",
+      "staleness",
+      "device_age grows"
+    ]
+  },
+  "eval_wellness": {
+    "failure": false,
+    "mechanism": "none: healthy control",
+    "expect_verdict": "correct-null",
+    "distractors": [],
+    "forbidden_tokens": []
+  },
+  "eval_pilot": {
+    "failure": false,
+    "mechanism": "none planted: hints are weak at n=120; correct outcome is inconclusive / more-evidence-required",
+    "expect_verdict": "inconclusive-handled",
+    "distractors": [
+      "any confirmed failure here is a false positive"
+    ],
+    "forbidden_tokens": []
+  }
+}

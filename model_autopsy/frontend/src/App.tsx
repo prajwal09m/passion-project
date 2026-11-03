@@ -3,14 +3,22 @@ import { useState } from 'react'
 import Landing from './Landing'
 import Workspace from './Workspace'
 import { HistoryPage, MLPage, SettingsPage, SoftwarePage } from './pages'
+import { ProjectsPage } from './Projects'
+import { EvalPage } from './Eval'
+import { LabPage } from './Lab'
+import { NewInvestigationPage } from './NewInvestigation'
 
-type Page = 'landing' | 'software' | 'ml' | 'history' | 'settings'
+type Page = 'landing' | 'new' | 'cases' | 'software' | 'ml' | 'projects' | 'eval' | 'lab' | 'history' | 'settings'
 
 const NAV: { key: Page; label: string }[] = [
   { key: 'landing', label: 'Home' },
-  { key: 'ml', label: 'Case Study' },
-  { key: 'software', label: 'Software' },
+  { key: 'new', label: 'New Investigation' },
+  { key: 'cases', label: 'Case Studies' },
+  { key: 'projects', label: 'Projects' },
   { key: 'history', label: 'History' },
+  { key: 'eval', label: 'Evaluation' },
+  { key: 'lab', label: 'Laboratory' },
+  { key: 'software', label: 'Software' },
   { key: 'settings', label: 'Settings' },
 ]
 
@@ -40,7 +48,11 @@ export default function App() {
   const [page, setPage] = useState<Page>('landing')
   const [detailId, setDetailId] = useState<string | null>(null)
 
-  function go(p: Page) { setPage(p); setDetailId(null); window.scrollTo(0, 0) }
+  function go(p: Page) {
+    // 'ml' is the legacy Demand Zone route — it now lives under Case Studies.
+    const mapped = p === 'ml' ? 'cases' : p
+    setPage(mapped); setDetailId(null); window.scrollTo(0, 0)
+  }
   function open(id: string) { setDetailId(id); window.scrollTo(0, 0) }
 
   if (page === 'landing' && !detailId) {
@@ -53,10 +65,18 @@ export default function App() {
       <div className="main">
         {detailId
           ? <Workspace id={detailId} onBack={() => { setDetailId(null); window.scrollTo(0, 0) }} />
-          : page === 'software'
-            ? <SoftwarePage onOpen={open} />
-            : page === 'ml'
+          : page === 'new'
+            ? <NewInvestigationPage onOpen={open} onGo={go} />
+            : page === 'cases'
               ? <MLPage onOpen={open} />
+              : page === 'software'
+              ? <SoftwarePage onOpen={open} />
+              : page === 'projects'
+              ? <ProjectsPage onOpen={open} />
+              : page === 'eval'
+              ? <EvalPage />
+              : page === 'lab'
+              ? <LabPage />
               : page === 'history'
                 ? <HistoryPage onOpen={open} />
                 : <SettingsPage />}

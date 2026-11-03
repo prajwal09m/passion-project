@@ -1,0 +1,101 @@
+[
+  {
+    "id": "189bf6e9cc84400090a7cc0bd59997cc",
+    "text": "Top-K ranking quality is uniform across catalog slices; any slice differences reflect base rates, not model failure.",
+    "status": "supported",
+    "source": "meta",
+    "rationale": "auto-link [supports]: worst segment defect rate 0.074: defects concentrate (measurement directly bears on the hypothesis mechanism: worst segment defect rate 0.074: defects concentrate) [two independent supporting measurements, no contradiction; action 1a2156f8479f4cceb17a4fe11a34a692]",
+    "evidence_refs": [
+      {
+        "action_id": "eedf860aee564a899151e0ce2d8dde61",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+        "tool": "segment_quality_screen",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 22:26:42",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 22:26:59",
+        "from": "investigating",
+        "to": "supported"
+      }
+    ]
+  },
+  {
+    "id": "53a3b09eec184b3a862b7fa9df24140d",
+    "text": "Ranking fails selectively on new/long-tail catalog slice due to feature sparsity, yielding lower precision@top-K there.",
+    "status": "supported",
+    "source": "meta",
+    "rationale": "auto-link [supports]: worst segment defect rate 0.074: defects concentrate (measurement directly bears on the hypothesis mechanism: worst segment defect rate 0.074: defects concentrate) [two independent supporting measurements, no contradiction; action 1a2156f8479f4cceb17a4fe11a34a692]",
+    "evidence_refs": [
+      {
+        "action_id": "eedf860aee564a899151e0ce2d8dde61",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+        "tool": "segment_quality_screen",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 22:26:42",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 22:26:59",
+        "from": "investigating",
+        "to": "supported"
+      }
+    ]
+  },
+  {
+    "id": "294a7730de4e473fbe3119814d4b7dff",
+    "text": "Apparent slice gaps are measurement artifacts from segment hygiene problems (missing/small/duplicate slices), not relevance differences.",
+    "status": "supported",
+    "source": "meta",
+    "rationale": "auto-link [supports]: worst segment defect rate 0.074: defects concentrate (measurement directly bears on the hypothesis mechanism: worst segment defect rate 0.074: defects concentrate) [two independent supporting measurements, no contradiction; action 1a2156f8479f4cceb17a4fe11a34a692]",
+    "evidence_refs": [
+      {
+        "action_id": "eedf860aee564a899151e0ce2d8dde61",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+        "tool": "segment_quality_screen",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 22:26:42",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 22:26:59",
+        "from": "investigating",
+        "to": "supported"
+      }
+    ]
+  }
+]

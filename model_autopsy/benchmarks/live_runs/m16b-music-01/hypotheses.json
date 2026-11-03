@@ -1,0 +1,108 @@
+[
+  {
+    "id": "bce2d3b028cb40dd82403360cb28c648",
+    "text": "Top-K relevance is uniform across catalog slices; any observed gap is sampling noise.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link [supports]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (measurement directly bears on the hypothesis mechanism: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices) [supporting evidence recorded; needs independent corroboration; action bdd4625c6702432abc0dc96525e67e29]",
+    "evidence_refs": [
+      {
+        "action_id": "bdd4625c6702432abc0dc96525e67e29",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "7cc777717751421e805d7aa270b471f6",
+        "tool": "classification_metrics",
+        "relation": "relevant_to",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 22:18:04",
+        "from": "proposed",
+        "to": "investigating"
+      }
+    ]
+  },
+  {
+    "id": "6f5c04059a3e42cc9aa1754164d220b3",
+    "text": "Ranking quality is systematically worse for new/long-tail catalog slices due to feature sparsity / cold-start.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link [supports]: worst segment defect rate 0.074: defects concentrate (measurement directly bears on the hypothesis mechanism: worst segment defect rate 0.074: defects concentrate) [supporting evidence recorded; needs independent corroboration; action e719a74d07184fb0af41efdde311a12a]",
+    "evidence_refs": [
+      {
+        "action_id": "bdd4625c6702432abc0dc96525e67e29",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "relevant_to",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "e719a74d07184fb0af41efdde311a12a",
+        "tool": "segment_quality_screen",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "7cc777717751421e805d7aa270b471f6",
+        "tool": "classification_metrics",
+        "relation": "relevant_to",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 22:18:24",
+        "from": "proposed",
+        "to": "investigating"
+      }
+    ]
+  },
+  {
+    "id": "8953339d13ef469dac1402033929943c",
+    "text": "Apparent slice differences are driven by evaluation / data hygiene artifacts (label prevalence, nulls, duplicates) rather than model ranking ability.",
+    "status": "rejected",
+    "source": "meta",
+    "rationale": "auto-link [contradicts]: per-split AUC spread 0.008: uniform (measurement directly bears on the hypothesis mechanism: per-split AUC spread 0.008: uniform) [core prediction contradicted by recorded evidence; action 7cc777717751421e805d7aa270b471f6]",
+    "evidence_refs": [
+      {
+        "action_id": "bdd4625c6702432abc0dc96525e67e29",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "e719a74d07184fb0af41efdde311a12a",
+        "tool": "segment_quality_screen",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "7cc777717751421e805d7aa270b471f6",
+        "tool": "classification_metrics",
+        "relation": "contradicts",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 22:18:04",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 22:18:24",
+        "from": "investigating",
+        "to": "supported"
+      },
+      {
+        "at": "2026-11-01 22:18:47",
+        "from": "supported",
+        "to": "rejected"
+      }
+    ]
+  }
+]

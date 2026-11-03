@@ -1,0 +1,57 @@
+{
+  "run_id": "live-1e19b2cdedfe",
+  "kind": "m5-live-meta-pilot",
+  "eval_project": "eval_credit",
+  "investigation_id": "a7562f9536964972aed84d0e9ce35682",
+  "status": "completed",
+  "error": null,
+  "model": "muse-spark-1.3",
+  "endpoint": "https://api.meta.ai/v1/responses",
+  "budget": {
+    "rounds": [
+      3,
+      3
+    ],
+    "experiments": [
+      8,
+      6
+    ],
+    "attempts": [
+      6,
+      12
+    ],
+    "tokens": {
+      "input": 32511,
+      "cached": 7650,
+      "output": 6160,
+      "total": 38671,
+      "cap": 50000
+    },
+    "cost_usd": {
+      "spent": 0.058404,
+      "cap": 0.4
+    },
+    "pricing": "muse-spark-1.3 Standard: $1.25/$0.15 cached input, $4.25 output per 1M"
+  },
+  "structured_summary_note": "verbatim assistant text preserved in assistant_messages; no truncation",
+  "artifacts": {
+    "events_dump.json": "61e0bebab7ec41624c1e2668cfc0559fcf410d0d8b7bc93e775043001b282db5",
+    "assistant_messages.jsonl": "12b7b7187233cd669c39fe93c419ebe1ee7f936d54d257c49faeb0757f26227d",
+    "usage.jsonl": "35a18362f736ae45d3fd1ae91e3df120eaad5dc1738ab0903c2e04359e8b6f05",
+    "hypotheses.json": "e3deb83c4e55f9d190124892a23dddd44004a4b7e324caf4aa602888596989ad",
+    "actions.json": "809277673f9d6c3760d9e59d64e000a502a79cd6bf7fd6eab4deea7bd15b4c80",
+    "eval_report.json": "9b69c283757b589833f03a6564d9eedf7b7ae806fca96ed0735a6db50c95cc9b",
+    "scorecard.json": "e970fd267f3a3d69d076c42ace37bce53e8eb38f1a196a14bf66b4a4c043897d",
+    "sandbox_final.db": "a0f489e76678072e0fe6ad322d4854bf33cec09efdf45def6303565fa012a466"
+  },
+  "required_evidence_present": {
+    "events_dump": true,
+    "assistant_messages": true,
+    "usage": true,
+    "hypotheses": true,
+    "actions": true,
+    "sandbox_db": true,
+    "eval_report": true,
+    "scorecard": true
+  }
+}

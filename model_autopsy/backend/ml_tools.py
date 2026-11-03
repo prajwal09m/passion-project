@@ -160,26 +160,55 @@ def _resolve_project_csv(path: str | None, fallback: str) -> Path:
     return candidate
 
 
-def load_predictions_csv(predictions_path: str | None) -> tuple[pd.DataFrame, Path]:
-    """Load a real prediction CSV, validating Case Study required columns."""
+def _resolve_label_column(df, requested: str | None) -> str:
+    """M15: schema-alias handling for the live failure mode.
+
+    An explicit labels= argument stays strict (honest error when
+    absent). When the investigator did not map the schema
+    (labels=None), fall back through known binary-label aliases
+    instead of failing on the default name."""
+    if requested:
+        if requested not in df.columns:
+            raise ValueError(
+                f"explicit labels={requested!r} not in columns "
+                f"{list(df.columns)}")
+        return requested
+    for cand in ("label", "target", "y", "grade", "relevance"):
+        if cand in df.columns:
+            return cand
+    raise ValueError(
+        f"no label column (tried label/target/y/grade/relevance) "
+        f"in {list(df.columns)}")
+
+
+def load_predictions_csv(predictions_path: str | None,
+                         label_col: str | None = None) -> tuple[pd.DataFrame, Path]:
+    """Load a real prediction CSV, validating the binary label column.
+
+    The fold column is optional (universal use): fold-dependent outputs are
+    None/empty when absent instead of refusing to load. label_col=None
+    (investigator did not map the schema) auto-detects aliases
+    (label/target/y/grade/relevance); an explicit name stays strict.
+    Returns (df, path); the resolved column is df.attrs['label_col]."""
     csv_path = _resolve_project_csv(predictions_path, CASE_STUDY_CONFIG["oof_csv"])
     df = pd.read_csv(csv_path)
-    for col in ("label", "fold"):
-        if col not in df.columns:
-            raise ValueError(f"{csv_path.name}: required column '{col}' missing")
-    labels = df["label"].astype(int)
+    resolved = _resolve_label_column(df, label_col)
+    labels = df[resolved].astype(int)
     if set(labels.unique()) != {0, 1}:
-        raise ValueError(f"{csv_path.name}: 'label' is not binary (values "
+        raise ValueError(f"{csv_path.name}: {resolved!r} is not binary (values "
                          f"{sorted(labels.unique().tolist())[:5]}...)")
+    df.attrs["label_col"] = resolved
     return df, csv_path
 
 
 def artifact_summary(predictions_path: str | None = None,
                      labels: str | None = None) -> dict:
     """Schema/quality overview of the configured prediction artifact."""
-    df, csv_path = load_predictions_csv(predictions_path)
-    label_col = labels or "label"
+    label_col = labels  # None -> auto-detect aliases in the loader
+    df, csv_path = load_predictions_csv(predictions_path, label_col)
+    label_col = str(df.attrs.get("label_col", labels or "label"))
     out = {"ok": True, "path": str(csv_path), "filename": csv_path.name,
+           "label_column": label_col,
            "n_rows": int(df.shape[0]), "n_columns": int(df.shape[1]),
            "columns": list(df.columns),
            "label_counts": to_json_blob(df[label_col].value_counts().to_dict()),
@@ -199,8 +228,8 @@ def classification_metrics(predictions_path: str | None = None,
                            split_by: str | None = None) -> dict:
     """Real ROC-AUC (OOF), Brier, precision, recall — overall, optionally
     recomputed per split (e.g. per fold or per year)."""
-    label_col = labels or "label"
-    df, csv_path = load_predictions_csv(predictions_path)
+    df, csv_path = load_predictions_csv(predictions_path, labels)
+    label_col = str(df.attrs.get("label_col", labels or "label"))
     if score_column not in df.columns:
         raise ValueError(f"score_column {score_column!r} not in {csv_path.name}")
     y = df[label_col].to_numpy()
@@ -225,13 +254,170 @@ def classification_metrics(predictions_path: str | None = None,
     return out
 
 
+def ranking_slice_diagnostics(predictions_path: str | None = None,
+                              labels: str | None = None,
+                              score_column: str | None = None,
+                              slice_column: str | None = None,
+                              k_frac: float = 0.1,
+                              min_n: int = 30) -> dict:
+    """Slice-aware ranking quality: precision@top-K per slice (v1).
+
+    Pooled AUC can stay healthy while one slice's top-K collapses
+    (e.g. cold-start failure). This measures, per slice, the hit
+    rate in the top fraction by score and reports the gap. Thin
+    slices (n<min_n) are reported inconclusive, never as failures.
+    Score/slice columns auto-detect when not given; provenance is
+    recorded. Binary relevance labels only."""
+    df, csv_path = load_predictions_csv(predictions_path, labels)
+    label_col = str(df.attrs.get("label_col", labels or "label"))
+    if score_column is None:
+        score_column = next((c for c in ("score", "prediction",
+                                         "pred", "LightGBM_C")
+                             if c in df.columns), None)
+    if score_column not in df.columns:
+        raise ValueError(f"no score column in {list(df.columns)}")
+    if slice_column is None:
+        known = ("slice", "segment", "region", "district", "ward",
+                 "zone", "machine", "county", "fold", "split")
+        slice_column = next((c for c in known if c in df.columns), None)
+        if slice_column is None:
+            for c in df.columns:
+                if c in (label_col, score_column):
+                    continue
+                if str(df[c].dtype) == "object" \
+                        and 2 <= int(df[c].nunique(dropna=True)) <= 20:
+                    slice_column = c
+                    break
+    if slice_column not in df.columns:
+        raise ValueError("no slice column found; pass slice_column")
+    if not 0 < float(k_frac) <= 0.5:
+        raise ValueError("k_frac must be in (0, 0.5]")
+    per, pooled_hits, pooled_n = {}, 0, 0
+    for value, chunk in df.groupby(slice_column):
+        n = int(len(chunk))
+        if n < int(min_n):
+            per[str(value)] = {"n": n, "precision_at_k": None,
+                               "note": f"n<{min_n}: inconclusive"}
+            continue
+        k = max(1, int(round(n * float(k_frac))))
+        top = chunk.nlargest(k, score_column)
+        hits = int(top[label_col].astype(int).sum())
+        per[str(value)] = {"n": n, "k": k,
+                           "precision_at_k": round(hits / k, 4),
+                           "base_rate": round(
+                               float(chunk[label_col].mean()), 4)}
+        pooled_hits += hits
+        pooled_n += k
+    vals = [v["precision_at_k"] for v in per.values()
+            if v["precision_at_k"] is not None]
+    gap = (max(vals) - min(vals)) if len(vals) >= 2 else None
+    return {"ok": True, "source": str(csv_path),
+            "label_column": label_col, "score_column": score_column,
+            "slice_column": slice_column, "k_frac": float(k_frac),
+            "per_slice": per,
+            "pooled_precision_at_k": round(pooled_hits / pooled_n, 4)
+            if pooled_n else None,
+            "max_slice_gap": round(gap, 4) if gap is not None else None,
+            "method_version": "ranking-slice-v1",
+            "limits": "observational ranking gap, not a causal "
+                        "finding; thin slices inconclusive"}
+
+
+def slice_gap_significance(predictions_path: str | None = None,
+                           labels: str | None = None,
+                           score_column: str | None = None,
+                           slice_column: str | None = None,
+                           k_frac: float = 0.1,
+                           min_n: int = 30,
+                           n_perm: int = 2000,
+                           seed: int = 7) -> dict:
+    """Permutation significance of the slice P@K gap (v1).
+
+    The descriptive diagnostic measures the gap; this tests whether the
+    gap could be sampling noise. Shuffles slice labels (fixed seed),
+    recomputes the max slice P@K gap under the null, and reports the
+    permutation p-value. Different method from ranking_slice_diagnostics
+    (inference vs description) sharing the same data — disclosed here,
+    not hidden. Thin slices (n<min_n) make the test impossible, never a
+    pass. Binary relevance labels only. Deterministic for fixed seed.
+    """
+    df, csv_path = load_predictions_csv(predictions_path, labels)
+    label_col = str(df.attrs.get("label_col", labels or "label"))
+    if score_column is None:
+        score_column = next((c for c in ("score", "prediction",
+                                         "pred", "LightGBM_C")
+                             if c in df.columns), None)
+    if score_column not in df.columns:
+        raise ValueError(f"no score column in {list(df.columns)}")
+    if slice_column is None:
+        known = ("slice", "segment", "region", "district", "ward",
+                 "zone", "machine", "county", "fold", "split")
+        slice_column = next((c for c in known if c in df.columns), None)
+        if slice_column is None:
+            for c in df.columns:
+                if c in (label_col, score_column):
+                    continue
+                if str(df[c].dtype) == "object" \
+                        and 2 <= int(df[c].nunique(dropna=True)) <= 20:
+                    slice_column = c
+                    break
+    if slice_column not in df.columns:
+        raise ValueError("no slice column found; pass slice_column")
+    if not 0 < float(k_frac) <= 0.5:
+        raise ValueError("k_frac must be in (0, 0.5]")
+    n_perm = max(100, min(int(n_perm), 5000))
+    y = df[label_col].to_numpy().astype(int)
+    s = df[score_column].to_numpy(dtype=float)
+    seg = df[slice_column].to_numpy()
+    order = np.argsort(-s, kind="stable")
+    ys, segs = y[order], seg[order]
+    uniq, counts = np.unique(segs, return_counts=True)
+    per_n = {str(v): int(c) for v, c in zip(uniq, counts)}
+    if len(uniq) < 2 or any(c < int(min_n) for c in counts):
+        return {"ok": True, "source": str(csv_path),
+                "testable": False, "significant": False,
+                "reason": ("fewer than 2 slices" if len(uniq) < 2
+                           else f"thin slice n<{min_n}: inconclusive"),
+                "per_slice_n": per_n, "k_frac": float(k_frac),
+                "method_version": "slice-gap-perm-v1",
+                "limits": "inadequate slice support; no inference drawn"}
+
+    def _gap(sl: np.ndarray) -> float:
+        vals = []
+        for v in uniq:
+            idx = np.flatnonzero(sl == v)
+            k = max(1, int(round(len(idx) * float(k_frac))))
+            vals.append(float(ys[idx[:k]].mean()) if k else 0.0)
+        return max(vals) - min(vals)
+
+    obs_gap = _gap(segs)
+    rng = np.random.default_rng(int(seed))
+    ge = 0
+    for _ in range(n_perm):
+        if _gap(rng.permutation(segs)) >= obs_gap:
+            ge += 1
+    p_value = (ge + 1) / (n_perm + 1)
+    significant = bool(p_value < 0.01 and obs_gap >= 0.10)
+    return {"ok": True, "source": str(csv_path),
+            "label_column": label_col, "score_column": score_column,
+            "slice_column": slice_column, "k_frac": float(k_frac),
+            "per_slice_n": per_n, "gap": round(float(obs_gap), 4),
+            "n_perm": n_perm, "seed": int(seed),
+            "p_value": round(float(p_value), 6),
+            "testable": True, "significant": significant,
+            "method_version": "slice-gap-perm-v1",
+            "limits": ("permutation null = exchangeable slice labels; "
+                       "tests gap-is-real vs gap-is-noise, not the causal "
+                       "mechanism behind a real gap")}
+
+
 def time_split_validation(predictions_path: str | None = None,
                           labels: str | None = None,
                           date_column: str | None = None) -> dict:
     """Chronology checks of the fold/date columns (fold date spans, sizes).
     """
-    label_col = labels or "label"
-    df, csv_path = load_predictions_csv(predictions_path)
+    df, csv_path = load_predictions_csv(predictions_path, labels)
+    label_col = str(df.attrs.get("label_col", labels or "label"))
     if date_column is None:
         date_column = next((c for c in ("date", "entry_date", "exit_date")
                             if c in df.columns), None)
@@ -276,14 +462,15 @@ def feature_target_suspiciousness(feature_csv: str, label_csv: str | None = None
     else:
         y = frame["label"]
     n_features = int(frame.shape[1])
+    label_names = {'label', 'target', 'y', '_label'}
     rows = []
     for col in frame.columns:
-        if col == "_label" or not pd.api.types.is_numeric_dtype(frame[col]):
+        if col in label_names or not pd.api.types.is_numeric_dtype(frame[col]):
             continue
         series = frame[col].dropna()
         if series.nunique() <= 1:
             continue
-        r, p = sps.pointbiserialr(frame["_label"][series.index], series)
+        r, p = sps.pointbiserialr(y[series.index], series)
         rows.append({"feature": col, "r": float(r), "abs_r": abs(float(r)),
                      "n": int(series.shape[0])})
     rows.sort(key=lambda row: -row["abs_r"])
@@ -298,8 +485,8 @@ def calibration_and_error_analysis(predictions_path: str | None = None,
                                    score_column: str = "LightGBM_C",
                                    bins: int = 10) -> dict:
     """Calibration curve (binned reliability) plus per-fold AUC."""
-    label_col = labels or "label"
-    df, csv_path = load_predictions_csv(predictions_path)
+    df, csv_path = load_predictions_csv(predictions_path, labels)
+    label_col = str(df.attrs.get("label_col", labels or "label"))
     if score_column not in df.columns:
         raise ValueError(f"score_column {score_column!r} not in {csv_path.name}")
     y = df[label_col].to_numpy()
@@ -398,8 +585,8 @@ def grouped_auc_comparison(predictions_path: str | None = None,
                            n_boot: int = 2000) -> dict:
     """Pooled Delta AUC between two real score columns (pooled OOF) with a
     bootstrap interval — the real Demand Zone contrast simplified."""
-    label_col = labels or "label"
-    df, csv_path = load_predictions_csv(predictions_path)
+    df, csv_path = load_predictions_csv(predictions_path, labels)
+    label_col = str(df.attrs.get("label_col", labels or "label"))
     missing = [c for c in (score_a, score_b) if c not in df.columns]
     if missing:
         raise ValueError(f"score columns missing: {missing}")

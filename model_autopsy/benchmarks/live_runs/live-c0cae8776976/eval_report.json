@@ -1,0 +1,89 @@
+{
+  "executive_summary": "Early errors look small and recent errors large, which argues against a constant bias \u2014 now checking if the target level itself shifted.",
+  "confirmed_findings": [],
+  "rejected_hypotheses": [],
+  "inconclusive": [],
+  "experiments": [
+    {
+      "experiment_id": "5882c031d90d47aeae8d84eb100ffc7f",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "6c878ca5d5a744fa818026dcdbe22e1c",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "d1bad246bc68457d8e56e801ec727793",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "e0e6f0f24b1a404aba2beec7f3f0042f",
+      "tool": "temporal_changepoint_scan",
+      "summary": "temporal_changepoint_scan: n=730",
+      "numbers": {
+        "n": 730,
+        "changepoint_index": 443,
+        "pre_residual_mean": -0.538081,
+        "post_residual_mean": 27.945331,
+        "shift_size": 28.483412,
+        "overall_residual_mean": 10.660192
+      }
+    },
+    {
+      "experiment_id": "e97876e6e15d4dc09cba0f36209a09b7",
+      "tool": "residual_time_analysis",
+      "summary": "residual_time_analysis: n=730",
+      "numbers": {
+        "n": 730,
+        "early_mae": 7.000986,
+        "late_mae": 24.315671,
+        "early_residual_mean": -0.334466,
+        "late_residual_mean": 21.654849
+      }
+    },
+    {
+      "experiment_id": "ac659a1f3b444b2a8afb65ff7031d899",
+      "tool": "distribution_shift_profile",
+      "summary": "distribution_shift_profile: recorded",
+      "numbers": {
+        "mean_shift": -10.437808
+      }
+    }
+  ],
+  "verification": [],
+  "limitations": [
+    "available diagnostics never run in this investigation: artifact_summary, dataset_validation, classification_metrics, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, regression_metrics, forecast_diagnostics, clustering_stability, data_quality_profile, calibration_snapshot, residual_feature_dependence"
+  ],
+  "investigation_id": "bf064eeea88d4e1888171040599cb4dc",
+  "structured_summary_valid": false,
+  "deterministic_fallback": {
+    "schema_version": "m8-v1",
+    "kind": "deterministic-fallback",
+    "fallback_version": "m8-fallback-v1",
+    "conclusion": "Best-supported explanation (recorded evidence only): Forecasts miss because target underwent a recent persistent level shift (regime change) that the turbine-ar model does not track.",
+    "status_recommendations": [],
+    "uncertainties": [
+      "none recorded; see evidence trail"
+    ],
+    "recommended_next": "No open hypotheses remain; investigation may be closed",
+    "evidence_action_ids": [
+      "5882c031d90d47aeae8d84eb100ffc7f",
+      "6c878ca5d5a744fa818026dcdbe22e1c",
+      "d1bad246bc68457d8e56e801ec727793",
+      "e0e6f0f24b1a404aba2beec7f3f0042f",
+      "e97876e6e15d4dc09cba0f36209a09b7",
+      "ac659a1f3b444b2a8afb65ff7031d899"
+    ],
+    "model_summary_errors": [
+      "no structured summary found in the final message"
+    ],
+    "provenance": "composed deterministically from recorded hypotheses/actions/report; the investigator's invalid response was preserved, not repaired away"
+  },
+  "fallback_used": true
+}

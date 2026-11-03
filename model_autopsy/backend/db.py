@@ -91,6 +91,10 @@ class Hypothesis(Base):
     # Structured extensions (SQLite ALTER TABLE migrations in init_db):
     evidence_refs: Mapped[list | None] = mapped_column(JSON, nullable=True)
     revisions: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    # M6 causal extensions (additive, nullable):
+    expected_consequences: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    missing_evidence: Mapped[list | None] = mapped_column(JSON, nullable=True)
+    status_justification: Mapped[str | None] = mapped_column(Text, nullable=True)
     created_at: Mapped[_dt.datetime] = mapped_column(DateTime, default=utcnow)
 
     investigation: Mapped[Investigation] = relationship(back_populates="hypotheses")
@@ -134,6 +138,28 @@ class Event(Base):
     investigation: Mapped[Investigation] = relationship(back_populates="events")
 
 
+class MemoryEntry(Base):
+    """Cross-investigation research memory (M9 Workstream 6).
+
+    Stores reusable methodology, observations, outcomes, and failures
+    with full provenance. Created by create_all on new and existing
+    DBs (no column migration needed for a new table)."""
+    __tablename__ = "memory_entries"
+
+    id: Mapped[str] = mapped_column(String(32), primary_key=True,
+                                    default=_uuid)
+    kind: Mapped[str] = mapped_column(String(24), index=True)
+    # methodology | observation | finding | failure
+    family: Mapped[str] = mapped_column(String(64), index=True,
+                                        default="")
+    mechanism: Mapped[str] = mapped_column(Text, default="")
+    summary: Mapped[str] = mapped_column(Text, default="")
+    provenance: Mapped[dict] = mapped_column(JSON, default=dict)
+    # {run_id, project_id, investigation_id, experiment_ids, created_by}
+    created_at: Mapped[_dt.datetime] = mapped_column(DateTime,
+                                                    default=utcnow)
+
+
 class Setting(Base):
     __tablename__ = "settings"
 
@@ -159,6 +185,9 @@ def _migrate_sqlite_columns(bind) -> None:
             "confidence_note": "TEXT",
             "evidence_refs": "JSON",
             "revisions": "JSON",
+            "expected_consequences": "JSON",
+            "missing_evidence": "JSON",
+            "status_justification": "TEXT",
         },
     }
     with bind.connect() as conn:

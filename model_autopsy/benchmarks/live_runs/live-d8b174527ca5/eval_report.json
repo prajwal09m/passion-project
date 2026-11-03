@@ -1,0 +1,96 @@
+{
+  "executive_summary": "That regional comparison didn't run \u2014 I'll inspect the artifact itself to fix the inputs.",
+  "confirmed_findings": [],
+  "rejected_hypotheses": [],
+  "inconclusive": [
+    {
+      "hypothesis_id": "a33cbb7b402a4290aceb50ea229b43d6",
+      "text": "Model discrimination/calibration fails in one specific region (e.g., lower AUC or systematic under/over-prediction) while other regions perform adequately.",
+      "status": "proposed",
+      "origin": "meta",
+      "confidence_is_model_note": true
+    },
+    {
+      "hypothesis_id": "48c93f36f53b4c2189c6b60939c6d0dc",
+      "text": "Apparent regional unevenness is driven by data artifacts: differing default base rates, missingness, or feature distribution shift across regions, not model miscalibration.",
+      "status": "proposed",
+      "origin": "meta",
+      "confidence_is_model_note": true
+    }
+  ],
+  "experiments": [
+    {
+      "experiment_id": "85c3860d28f04bfbba556fa17340254e",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "cd38f97e53c843a399c3e5c3ad502e30",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "0598af1c86fb4a619c6abb8b235cddb3",
+      "tool": "calibration_and_error_analysis",
+      "summary": "calibration_and_error_analysis: recorded",
+      "numbers": {
+        "brier": 0.130634
+      }
+    },
+    {
+      "experiment_id": "2ba87642504c4180b7a9933f15c43f3f",
+      "tool": "artifact_summary",
+      "summary": "artifact_summary: recorded",
+      "numbers": {
+        "n_rows": 41221,
+        "n_columns": 17,
+        "unique_labels": 2,
+        "n_folds": 3
+      }
+    },
+    {
+      "experiment_id": "b699fb7dcb324e3991052924eadaa838",
+      "tool": "artifact_summary",
+      "summary": "artifact_summary: recorded",
+      "numbers": {
+        "n_rows": 1500,
+        "n_columns": 7,
+        "unique_labels": 2
+      }
+    }
+  ],
+  "verification": [],
+  "limitations": [
+    "diagnostics that failed and were never rerun: classification_metrics",
+    "available diagnostics never run in this investigation: dataset_validation, classification_metrics, time_split_validation, feature_target_suspiciousness, grouped_auc_comparison, regression_metrics, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile, data_quality_profile, segment_quality_screen, calibration_snapshot, residual_feature_dependence"
+  ],
+  "investigation_id": "dea26731672544a0bc7b61c9c2191939",
+  "structured_summary_valid": false,
+  "deterministic_fallback": {
+    "schema_version": "m8-v1",
+    "kind": "deterministic-fallback",
+    "fallback_version": "m8-fallback-v1",
+    "conclusion": "Inconclusive: no hypothesis met the supported bar. Leading open explanation: Model discrimination/calibration fails in one specific region (e.g., lower AUC or systematic under/over-prediction) while other regions perform adequately.",
+    "status_recommendations": [],
+    "uncertainties": [
+      "Open: Model discrimination/calibration fails in one specific region (e.g., lower AUC or systematic under/over-prediction) while other regions perform adequately.",
+      "Open: Apparent regional unevenness is driven by data artifacts: differing default base rates, missingness, or feature distribution shift across regions, not model mis"
+    ],
+    "recommended_next": "Design a test that would falsify: Model discrimination/calibration fails in one specific region (e.g., lower AUC or systematic under/over-prediction) whil",
+    "evidence_action_ids": [
+      "85c3860d28f04bfbba556fa17340254e",
+      "cd38f97e53c843a399c3e5c3ad502e30",
+      "0598af1c86fb4a619c6abb8b235cddb3",
+      "2ba87642504c4180b7a9933f15c43f3f",
+      "77de2082f9614a52a7cf6115f2c2fb6d",
+      "b699fb7dcb324e3991052924eadaa838"
+    ],
+    "model_summary_errors": [
+      "no structured summary found in the final message"
+    ],
+    "provenance": "composed deterministically from recorded hypotheses/actions/report; the investigator's invalid response was preserved, not repaired away"
+  },
+  "fallback_used": true
+}

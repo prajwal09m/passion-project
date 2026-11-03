@@ -1,0 +1,145 @@
+[
+  {
+    "id": "381e19b1461e426a8821a3640076011e",
+    "seq": 6,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, low confidence without slice metrics; plausible given 'new' slice sample.",
+      "predicted_observation": "Slice-segmented ranking quality shows markedly lower P@K / precision for 'new' slice vs other slices despite similar score distributions.",
+      "rationale": "Sample rows all show slice='new' with relevance=0; if new items systematically lack relevance signal model may rank them poorly. Plausible cold-start failure.",
+      "text": "Top results are irrelevant for new-catalog slice due to cold-start ranking failure, while other slices rank well."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "hypothesis_id": "8f6387871b614d219907f8a7170cea4b",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Top results are irrelevant for new-catalog slice due to cold-start ranking failure, while other slices rank well."
+    },
+    "error": null
+  },
+  {
+    "id": "1e049b08bb00435aae493ff88ebbfc79",
+    "seq": 9,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, low confidence; data artifact alternative to model failure.",
+      "predicted_observation": "Segment quality / distribution profile shows slice imbalance, missing scores, or near-zero relevance base rate in some slices making P@K uninformative rather than model error.",
+      "rationale": "Pooled precision and P@K per slice are sensitive to label sparsity and segment hygiene; apparent slice gap could reflect evaluation artifact not ranking ability.",
+      "text": "Apparent slice gaps are evaluation artifacts from label sparsity or segment hygiene issues, not true ranking quality differences."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "hypothesis_id": "16769538ccec44a8a516f19036488402",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Apparent slice gaps are evaluation artifacts from label sparsity or segment hygiene issues, not true ranking quality differences."
+    },
+    "error": null
+  },
+  {
+    "id": "a622fac1755a405f849ba7787a60bf86",
+    "seq": 12,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, low confidence; global failure alternative.",
+      "predicted_observation": "Classification/regression metrics on relevance vs score show uniformly poor discrimination and calibration across all slices with no significant slice interaction.",
+      "rationale": "Black-box LightGBM ranker may be globally miscalibrated or weakly predictive; pooled precision would then be low everywhere, not slice-specific.",
+      "text": "Ranker scores are globally uninformative for relevance across all catalog slices, not a slice-specific failure."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "hypothesis_id": "fb0baee5a26646cb92c953e1ebc3258b",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Ranker scores are globally uninformative for relevance across all catalog slices, not a slice-specific failure."
+    },
+    "error": null
+  },
+  {
+    "id": "034647d6b25c479bb6d989ff101f07d7",
+    "seq": 14,
+    "kind": "tool_call",
+    "tool": "artifact_summary",
+    "status": "failed",
+    "arguments": {
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv"
+    },
+    "result": null,
+    "error": "music_rank.csv: required column 'label' missing"
+  },
+  {
+    "id": "47b0a532e6c34e5cac041b85f152ad75",
+    "seq": 21,
+    "kind": "tool_call",
+    "tool": "classification_metrics",
+    "status": "ran",
+    "arguments": {
+      "labels": "relevance",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+      "score_column": "score",
+      "split_by": "slice"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\music_rank.csv",
+      "score_column": "score",
+      "n": 1760,
+      "roc_auc": 0.977169,
+      "brier": 0.117965,
+      "brier_convention": "lower is better; probability of positive class",
+      "precision_at_threshold": 0.715884,
+      "recall_at_threshold": 0.986133,
+      "threshold": 0.5,
+      "per_split_auc": {
+        "est": 0.974269,
+        "new": 0.981838
+      }
+    },
+    "error": null
+  },
+  {
+    "id": "185404815742460cb7d2eee1a19e9ce2",
+    "seq": 30,
+    "kind": "tool_call",
+    "tool": "segment_quality_screen",
+    "status": "ran",
+    "arguments": {
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+      "segment_column": "slice"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "n": 1760,
+      "segment_column": "slice",
+      "by_segment": {
+        "est": {
+          "n": 1168,
+          "null_rate": 0.0,
+          "dup_rate": 0.07363
+        },
+        "new": {
+          "n": 592,
+          "null_rate": 0.0,
+          "dup_rate": 0.008446
+        }
+      },
+      "worst_null_rate": 0.0,
+      "worst_dup_rate": 0.07363,
+      "establishes": "whether hygiene defects concentrate in a segment",
+      "does_not_establish": "whether quality issues caused errors"
+    },
+    "error": null
+  }
+]

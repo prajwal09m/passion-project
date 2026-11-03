@@ -1,0 +1,58 @@
+{
+ "id": "proj_d39c2d0508",
+ "objectives": "flagship-m14",
+ "status": "active",
+ "agenda": [],
+ "hypotheses": [],
+ "experiments": [
+  {
+   "tool": "regression_metrics",
+   "args": {
+    "predictions_path": "model_autopsy/tests/fixture_m10c/c_robustness.csv"
+   },
+   "idempotency_key": "m14-k1",
+   "result": {
+    "ok": true
+   },
+   "t": 1793587646.2825582
+  }
+ ],
+ "evidence": [],
+ "decisions": [],
+ "unresolved": [],
+ "resource_usage": {
+  "tool_calls": 1
+ },
+ "budget": {
+  "tool_calls": 8
+ },
+ "checkpoints": [
+  {
+   "t": 1793587646.2802773,
+   "state": {
+    "phase": "team-done"
+   }
+  }
+ ],
+ "idempotency_keys": [
+  "m14-k1"
+ ],
+ "history": [
+  {
+   "t": 1793587646.2787864,
+   "event": "created"
+  },
+  {
+   "t": 1793587646.280278,
+   "event": "checkpoint"
+  },
+  {
+   "t": 1793587646.28256,
+   "event": "experiment:regression_metrics"
+  },
+  {
+   "t": 1793587646.2845118,
+   "event": "experiment:regression_metrics"
+  }
+ ]
+}

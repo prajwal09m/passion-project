@@ -1,0 +1,29 @@
+{
+  "run": "run-delta",
+  "campaign": "phase_d_groq_live_20261030T015506Z",
+  "started_utc": "2026-10-30T01:59:04Z",
+  "finalized_utc": "2026-10-30T02:03:17Z",
+  "status": "interrupted",
+  "reason": "repeated provider rate limits (4 consecutive 429s)",
+  "outcome": {
+    "condition": "delta",
+    "aborted": null,
+    "stop_reason": "repeated provider rate limits (4 consecutive 429s)",
+    "summary_valid": false
+  },
+  "artifacts": {
+    "run_start.json": "f6c6af12d7f7cd4058152d1b0dbc988c5187d5dd4abb2b3986b0f8e6d5550d58",
+    "responses.jsonl": "83c6f7cbddb77a93aee6d4c60c3ad06caeef4897ed723bd5fa456b7f615e4d15",
+    "assistant_messages.jsonl": "9a674069dcb9824b1430d91b94bcb491f33416f31d912b8e42e885e65fbe8677",
+    "usage.jsonl": "842f2da8aa058a4c1ed1e938d44aa9eb361cf8caaae2281ea802401706e278df",
+    "events_dump.json": "69836356e4e31cb1f8f63dd4700a3c90521ec1945c924d40ceb3e288d5ee308f",
+    "sandbox_final.db": "73f4f28477f6bf2a498f819a4a56c43e9066f8f44f815d03b31f6855686537ff"
+  },
+  "required_evidence_present": {
+    "responses": true,
+    "assistant_messages": true,
+    "usage": true,
+    "events_dump": true,
+    "sandbox_final.db": true
+  }
+}

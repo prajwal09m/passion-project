@@ -1,0 +1,139 @@
+[
+  {
+    "id": "5ca78b575496492d89f26e75d6173dfa",
+    "seq": 4,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, moderate: level-change complaint directly suggests drift but not yet verified in data.",
+      "predicted_observation": "If true, forecast_diagnostics will show large target mean drift train vs test/split and systematic bias in recent predictions vs targets.",
+      "rationale": "Objective states forecasts miss a recent level change; sample shows targets ~192-205 in early Jan. Plausible the recent period mean shifted and black-box turbine-ar trained on old level cannot follow.",
+      "text": "Recent structural level shift (concept drift) in turbine output: test-period target mean differs substantially from train, causing systematic under/over-prediction."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "hypothesis_id": "30cb64843ee14c169813fc7d0e20972d",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Recent structural level shift (concept drift) in turbine output: test-period target mean differs substantially from train, causing systematic under/over-prediction."
+    },
+    "error": null
+  },
+  {
+    "id": "42b7b75f7fad4683a7691d2cd91fcecc",
+    "seq": 6,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, lower-moderate: AR models often degrade with horizon, alternative to pure drift.",
+      "predicted_observation": "If true, error grows with forecast horizon and residual autocorrelation remains high, while overall train vs test target means differ little.",
+      "rationale": "Model is statsmodels turbine-ar (autoregressive, black-box). Missing a change could reflect insufficient AR dynamics / horizon extrapolation failure rather than a true regime shift in the target.",
+      "text": "Model dynamics failure: autoregressive order insufficient, so errors grow with horizon and residuals stay autocorrelated, independent of any level shift."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "hypothesis_id": "84d159c6ff04499b99e81766600f30a2",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Model dynamics failure: autoregressive order insufficient, so errors grow with horizon and residuals stay autocorrelated, independent of any level shift."
+    },
+    "error": null
+  },
+  {
+    "id": "9e3b97831fb44cce927c5af967df77d1",
+    "seq": 8,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, low: hygiene issue is common confound that could mimic or hide drift.",
+      "predicted_observation": "If true, forecast_diagnostics split-overlap check will show train/test date overlap or leakage, invalidating drift interpretation.",
+      "rationale": "Evaluation uses train/test split column; if splits overlap in time or leak, apparent miss could be evaluation artifact rather than true regime change.",
+      "text": "Split-hygiene artifact: train and test periods overlap or leak, so measured miss of level change is an evaluation artifact not a true forecast failure."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "hypothesis_id": "e04155bbaee449859aff76dc2ada88c8",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Split-hygiene artifact: train and test periods overlap or leak, so measured miss of level change is an evaluation artifact not a true forecast failure."
+    },
+    "error": null
+  },
+  {
+    "id": "ea550a18b44c4b4fb46a5fb2f6609009",
+    "seq": 10,
+    "kind": "tool_call",
+    "tool": "forecast_diagnostics",
+    "status": "ran",
+    "arguments": {
+      "date_column": "date",
+      "prediction_column": "prediction",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/turbine_output.csv",
+      "split_column": "split",
+      "target_column": "target"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\turbine_output.csv",
+      "n": 730,
+      "mae": 15.658329,
+      "mae_by_horizon": {},
+      "drift_early_vs_late_mae": [
+        7.000986,
+        24.315671
+      ],
+      "residual_lag1_autocorr": 0.775832,
+      "split_date_spans": {
+        "test": [
+          "2024-05-15 00:00:00",
+          "2024-12-30 00:00:00"
+        ],
+        "train": [
+          "2023-01-01 00:00:00",
+          "2024-05-14 00:00:00"
+        ]
+      },
+      "split_overlap_hint": false
+    },
+    "error": null
+  },
+  {
+    "id": "19d203490dfe443f8963d0169ddbc1c6",
+    "seq": 16,
+    "kind": "tool_call",
+    "tool": "regression_metrics",
+    "status": "ran",
+    "arguments": {
+      "group_column": "split",
+      "prediction_column": "prediction",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/turbine_output.csv",
+      "target_column": "target"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\turbine_output.csv",
+      "n": 730,
+      "mae": 15.658329,
+      "mse": 451.84905,
+      "rmse": 21.256741,
+      "r2": 0.360091,
+      "bias_mean_residual": 10.660192,
+      "residual_std": 18.390469,
+      "heteroscedasticity_hint": -0.046293,
+      "outliers_abs_z_gt_3": 0,
+      "mae_by_group": {
+        "test": 34.70213,
+        "train": 6.89818
+      }
+    },
+    "error": null
+  }
+]

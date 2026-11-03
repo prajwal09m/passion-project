@@ -1,0 +1,601 @@
+{
+  "mode": "live_paired_groq",
+  "generated_utc": "2026-10-30T02:03:19Z",
+  "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-phase-d-groq-3goti29e\\sandbox.db",
+  "model": "openai/gpt-oss-120b",
+  "temperature": 0.2,
+  "rounds_per_turn": 3,
+  "turns_per_run": 2,
+  "tool_list": [
+    "propose_hypothesis",
+    "artifact_summary",
+    "dataset_validation",
+    "classification_metrics",
+    "time_split_validation",
+    "feature_target_suspiciousness",
+    "calibration_and_error_analysis",
+    "grouped_auc_comparison"
+  ],
+  "controlled_mode": true,
+  "controlled_continuation_instruction": "Continue the investigation from the recorded state. Use the available tools if another measurement could change the conclusion; otherwise conclude. End with the required investigation_summary block.",
+  "condition_order": [
+    "full",
+    "delta"
+  ],
+  "caps": {
+    "max_attempts": 25,
+    "max_total_tokens": 120000,
+    "max_est_cost": 0.5,
+    "repeated_429_limit": 4
+  },
+  "pricing_estimate_source": {
+    "input": 0.15,
+    "output": 0.6,
+    "source": "console.groq.com/docs/models (current published price)"
+  },
+  "totals": {
+    "provider_http_attempts": 14,
+    "billed_ok_requests": 10,
+    "failed_requests": 4,
+    "input_tokens": 23854,
+    "output_tokens": 2680,
+    "estimated_cost_usd": 0.005186,
+    "stop_reason": "repeated provider rate limits (4 consecutive 429s)"
+  },
+  "runs": [
+    {
+      "condition": "full",
+      "investigation_name": "phase-d-groq-full",
+      "aborted": null,
+      "controlled_design": {
+        "enabled": true,
+        "context_variant": "full",
+        "recorded_context_included": true,
+        "continuation_instruction": "Continue the investigation from the recorded state. Use the available tools if another measurement could change the conclusion; otherwise conclude. End with the required investigation_summary block.",
+        "turn1_wrapup_allowed": false,
+        "turn2_wrapup_policy": "last scheduled round or budget exhaustion",
+        "turn_rounds": 3,
+        "max_tool_calls": 6,
+        "forced_diagnostic": false
+      },
+      "chained_context_chars": 2517,
+      "turn1": {
+        "rounds": 3,
+        "final_text": "",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 3,
+        "summary_block_seen": false
+      },
+      "turn2": {
+        "rounds": 3,
+        "final_text": "```investigation_summary\n{\n  \"conclusion\": \"Both target leakage and distribution shift remain plausible explanations; current evidence does not decisively favor one over the other.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"a74d415bfd5445dc801dfc3a68c5647f\",\n      \"status\": \"inconclusive\",\n      \"basis\": [\"3df21677bf56451989f4914a177fed1b\", \"6aff8ffc0bd441818000dfb33294173e\"]\n    },\n    {\n      \"hypothesis_id\": \"264eadb3e50b4b40ab2fc0ecea0c9c3d\",\n      \"status\": \"inconclusive\",\n      \"basis\": [\"caf33f517efc48379fcdfa8ce6470d94\", \"6aff8ffc0bd441818000dfb33294173e\"]\n    }\n  ],\n  \"uncertainties\": [\n    \"Whether the high correlation of feature 'hold1_ret' with the label reflects genuine predictive signal or leakage.\",\n    \"The extent to which temporal differences across folds affect model performance.\"\n  ],\n  \"recommended_next\": \"Inspect feature provenance for 'hold1_ret' and evaluate per\u2011fold performance metrics to distinguish leakage from distribution shift.\"\n}\n```",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 3,
+        "summary_block_seen": true
+      },
+      "summary": {
+        "valid": true,
+        "errors": [],
+        "conclusion": "Both target leakage and distribution shift remain plausible explanations; current evidence does not decisively favor one over the other."
+      },
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "summary_repair_errors": [],
+      "backend": {
+        "actions_ran": [
+          "dataset_validation",
+          "feature_target_suspiciousness",
+          "propose_hypothesis",
+          "time_split_validation"
+        ],
+        "actions_ran_count": 5,
+        "actions_failed": [
+          "feature_target_suspiciousness"
+        ],
+        "tool_calls_used": 5,
+        "max_tool_calls": 6,
+        "event_kinds": {
+          "status_change": 2,
+          "tool_result": 7,
+          "hypothesis": 2,
+          "tool_request": 6,
+          "summary": 2
+        },
+        "reused_results": 0,
+        "hypothesis_statuses": [
+          "proposed",
+          "proposed"
+        ]
+      },
+      "condition_totals": {
+        "provider_latency_s": 10.347,
+        "requests": 7,
+        "rate_limit_wait_s": 0.0,
+        "last_rate_hints": {
+          "reset_tokens_s": 27.577,
+          "remaining_tokens": 4323
+        }
+      },
+      "per_request": [
+        {
+          "tag": "turn1r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.688,
+          "prompt_tokens": 1719,
+          "completion_tokens": 307,
+          "usage_missing": false,
+          "shipped_messages": 2,
+          "shipped_chars": 2468,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.379,
+          "prompt_tokens": 2052,
+          "completion_tokens": 270,
+          "usage_missing": false,
+          "shipped_messages": 4,
+          "shipped_chars": 4174,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r3",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.464,
+          "prompt_tokens": 2379,
+          "completion_tokens": 274,
+          "usage_missing": false,
+          "shipped_messages": 6,
+          "shipped_chars": 5787,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.119,
+          "prompt_tokens": 3223,
+          "completion_tokens": 151,
+          "usage_missing": false,
+          "shipped_messages": 9,
+          "shipped_chars": 9183,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.311,
+          "prompt_tokens": 3531,
+          "completion_tokens": 213,
+          "usage_missing": false,
+          "shipped_messages": 11,
+          "shipped_chars": 10447,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r3",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.755,
+          "prompt_tokens": 3809,
+          "completion_tokens": 322,
+          "usage_missing": false,
+          "shipped_messages": 13,
+          "shipped_chars": 11517,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2repair",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.631,
+          "prompt_tokens": 3363,
+          "completion_tokens": 285,
+          "usage_missing": false,
+          "shipped_messages": 17,
+          "shipped_chars": 14161,
+          "finish_reason": "stop"
+        }
+      ],
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"Both target leakage and distribution shift remain plausible explanations; current evidence does not decisively favor one over the other.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"a74d415bfd5445dc801dfc3a68c5647f\",\n      \"status\": \"inconclusive\",\n      \"basis\": [\"3df21677bf56451989f4914a177fed1b\", \"6aff8ffc0bd441818000dfb33294173e\"]\n  ",
+      "preservation": {
+        "manifest": "finalized",
+        "required_evidence_present": {
+          "responses": true,
+          "assistant_messages": true,
+          "usage": true,
+          "events_dump": true,
+          "sandbox_final.db": true
+        },
+        "artifacts": [
+          "assistant_messages.jsonl",
+          "events_dump.json",
+          "repairs.jsonl",
+          "responses.jsonl",
+          "run_start.json",
+          "sandbox_final.db",
+          "usage.jsonl"
+        ],
+        "run_dir": "C:\\Prajwal MIT\\Passion\\model_autopsy\\benchmarks\\phase_d_groq_live_20261030T015506Z\\run-full"
+      }
+    },
+    {
+      "condition": "delta",
+      "investigation_name": "phase-d-groq-delta",
+      "aborted": null,
+      "controlled_design": {
+        "enabled": true,
+        "context_variant": "delta",
+        "recorded_context_included": false,
+        "continuation_instruction": "Continue the investigation from the recorded state. Use the available tools if another measurement could change the conclusion; otherwise conclude. End with the required investigation_summary block.",
+        "turn1_wrapup_allowed": false,
+        "turn2_wrapup_policy": "last scheduled round or budget exhaustion",
+        "turn_rounds": 3,
+        "max_tool_calls": 6,
+        "forced_diagnostic": false
+      },
+      "chained_context_chars": null,
+      "turn1": {
+        "rounds": 3,
+        "final_text": "",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 2,
+        "summary_block_seen": false
+      },
+      "turn2": {
+        "rounds": 0,
+        "final_text": "",
+        "finish_reasons": [],
+        "tool_calls_in_turn": 0,
+        "summary_block_seen": false,
+        "aborted_before_start": true
+      },
+      "summary": {
+        "valid": false,
+        "errors": [
+          "no structured summary found in the final message"
+        ],
+        "conclusion": null
+      },
+      "summary_repair_attempts": 0,
+      "summary_valid_after_repair": false,
+      "summary_repair_errors": [],
+      "backend": {
+        "actions_ran": [
+          "propose_hypothesis"
+        ],
+        "actions_ran_count": 2,
+        "actions_failed": [],
+        "tool_calls_used": 2,
+        "max_tool_calls": 6,
+        "event_kinds": {
+          "status_change": 2,
+          "tool_result": 3,
+          "hypothesis": 2,
+          "tool_request": 2,
+          "summary": 1
+        },
+        "reused_results": 0,
+        "hypothesis_statuses": [
+          "proposed",
+          "proposed"
+        ]
+      },
+      "condition_totals": {
+        "provider_latency_s": 6.199,
+        "requests": 6,
+        "rate_limit_wait_s": 180.0,
+        "last_rate_hints": {
+          "retry_after": 361.0,
+          "remaining_tokens": 8000
+        }
+      },
+      "per_request": [
+        {
+          "tag": "turn1r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.809,
+          "prompt_tokens": 1719,
+          "completion_tokens": 505,
+          "usage_missing": false,
+          "shipped_messages": 2,
+          "shipped_chars": 2468,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.652,
+          "prompt_tokens": 2059,
+          "completion_tokens": 353,
+          "usage_missing": false,
+          "shipped_messages": 4,
+          "shipped_chars": 4156,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r3",
+          "try": 1,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.491,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 6,
+          "shipped_chars": 5883,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r3",
+          "try": 2,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.519,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 6,
+          "shipped_chars": 5883,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r3",
+          "try": 3,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 1.142,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 6,
+          "shipped_chars": 5883,
+          "finish_reason": null
+        },
+        {
+          "tag": "turn1r3",
+          "try": 4,
+          "ok": false,
+          "http_status": 429,
+          "latency_s": 0.586,
+          "prompt_tokens": null,
+          "completion_tokens": null,
+          "usage_missing": null,
+          "shipped_messages": 6,
+          "shipped_chars": 5883,
+          "finish_reason": null
+        }
+      ],
+      "final_message_head": "",
+      "preservation": {
+        "manifest": "interrupted",
+        "required_evidence_present": {
+          "responses": true,
+          "assistant_messages": true,
+          "usage": true,
+          "events_dump": true,
+          "sandbox_final.db": true
+        },
+        "artifacts": [
+          "assistant_messages.jsonl",
+          "events_dump.json",
+          "responses.jsonl",
+          "run_start.json",
+          "sandbox_final.db",
+          "usage.jsonl"
+        ],
+        "run_dir": "C:\\Prajwal MIT\\Passion\\model_autopsy\\benchmarks\\phase_d_groq_live_20261030T015506Z\\run-delta"
+      }
+    }
+  ],
+  "per_request_ledger": [
+    {
+      "condition": "-",
+      "kind": "models_list",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.3,
+      "error": null
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.688,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1719,
+        "completion_tokens": 307,
+        "total_tokens": 2026,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.379,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2052,
+        "completion_tokens": 270,
+        "total_tokens": 2322,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r3",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.464,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2379,
+        "completion_tokens": 274,
+        "total_tokens": 2653,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn2r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.119,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3223,
+        "completion_tokens": 151,
+        "total_tokens": 3374,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn2r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.311,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3531,
+        "completion_tokens": 213,
+        "total_tokens": 3744,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn2r3",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.755,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3809,
+        "completion_tokens": 322,
+        "total_tokens": 4131,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn2repair",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.631,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3363,
+        "completion_tokens": 285,
+        "total_tokens": 3648,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.809,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1719,
+        "completion_tokens": 505,
+        "total_tokens": 2224,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.652,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2059,
+        "completion_tokens": 353,
+        "total_tokens": 2412,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r3",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.491,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r3#try2",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.519,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r3#try3",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 1.142,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r3#try4",
+      "ok": false,
+      "http_status": 429,
+      "latency_s": 0.586,
+      "error": "HTTP 429: {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5g1p7rde5rs3kfpdhjqrp5s` service tier `on_demand` on"
+    }
+  ],
+  "limitations": [
+    "Groq Chat Completions is STATELESS: every request resends the conversation transcript. This does NOT reproduce Meta's previous_response_id retention; it measures how the full-context vs delta chained-turn strategies behave when requests resend history.",
+    "The turn-1 transcript resend is identical for both conditions; only the chained-turn opening message differs, so the measured difference is the redundant corpus re-transmission Phase C removes.",
+    "429 handling is owner-directed pacing: wait to the next minute boundary (~8 000 tokens/minute on-demand window) and retry; every attempt including retries is ledgered, nothing silent.",
+    "Groq results do NOT establish Meta API savings or billing behavior.",
+    "Cost figures are ESTIMATES from published pricing, not actual charges.",
+    "One paired comparison: no statistical significance.",
+    "Controlled mode removes the turn-1 'finish now' cue and the delta-specific framing note, and equalizes round/tool budgets; the remaining difference is whether recorded_context is resent in the continuation payload."
+  ],
+  "campaign_dir": "C:\\Prajwal MIT\\Passion\\model_autopsy\\benchmarks\\phase_d_groq_live_20261030T015506Z",
+  "crash_recovery": {
+    "scanned": true,
+    "recovered_runs": [],
+    "policy": "never delete; mark and preserve"
+  }
+}

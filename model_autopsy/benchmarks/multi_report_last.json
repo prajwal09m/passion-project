@@ -1,0 +1,122 @@
+{
+  "mode": "multi-round",
+  "model": "openai/gpt-oss-120b",
+  "rounds": 3,
+  "tool_list": [
+    "propose_hypothesis",
+    "artifact_summary",
+    "classification_metrics"
+  ],
+  "same_tools_both_conditions": [
+    "propose_hypothesis",
+    "artifact_summary",
+    "classification_metrics"
+  ],
+  "billed_requests": 10,
+  "request_cap": 10,
+  "conditions": [
+    {
+      "condition": "old",
+      "rounds_investigated": 3,
+      "per_round": [
+        {
+          "round": 1,
+          "prompt_tokens": 901,
+          "completion_tokens": 727,
+          "latency_s": 2.2,
+          "finish_reason": "tool_calls",
+          "tool_calls_requested": 1
+        },
+        {
+          "round": 2,
+          "prompt_tokens": 1269,
+          "completion_tokens": 520,
+          "latency_s": 1.87,
+          "finish_reason": "tool_calls",
+          "tool_calls_requested": 1
+        },
+        {
+          "round": 3,
+          "prompt_tokens": 1634,
+          "completion_tokens": 259,
+          "latency_s": 1.22,
+          "finish_reason": "tool_calls",
+          "tool_calls_requested": 1
+        }
+      ],
+      "cumulative": {
+        "input_tokens": 3804,
+        "output_tokens": 1506
+      },
+      "provider_reported": true,
+      "backend_validation": {
+        "executed": 3,
+        "executed_tools": [
+          "classification_metrics",
+          "propose_hypothesis"
+        ],
+        "failed": 0,
+        "reused_prior_results": 0,
+        "tool_calls_used": 3,
+        "max_tool_calls": 3
+      },
+      "billed_this_condition": 3,
+      "estimated_cost_usd": 0.001474
+    },
+    {
+      "condition": "new",
+      "rounds_investigated": 2,
+      "per_round": [
+        {
+          "round": 1,
+          "prompt_tokens": 1045,
+          "completion_tokens": 722,
+          "latency_s": 2.37,
+          "finish_reason": "tool_calls",
+          "tool_calls_requested": 1
+        },
+        {
+          "round": 2,
+          "prompt_tokens": 1386,
+          "completion_tokens": 647,
+          "latency_s": 1.96,
+          "finish_reason": "stop",
+          "tool_calls_requested": 0
+        }
+      ],
+      "cumulative": {
+        "input_tokens": 2431,
+        "output_tokens": 1369
+      },
+      "provider_reported": true,
+      "backend_validation": {
+        "executed": 1,
+        "executed_tools": [
+          "propose_hypothesis"
+        ],
+        "failed": 0,
+        "reused_prior_results": 0,
+        "tool_calls_used": 1,
+        "max_tool_calls": 3
+      },
+      "billed_this_condition": 2,
+      "estimated_cost_usd": 0.001186
+    }
+  ],
+  "pricing": {
+    "input": 0.15,
+    "output": 0.6,
+    "source": "console.groq.com/docs/models (current published price)"
+  },
+  "limitations": [
+    "Measures the COMBINED effect of instruction + context changes (they differ between conditions); not context compaction alone.",
+    "Groq chat-completions is stateless \u2014 each round resends the transcript; Meta's Responses API uses previous_response_id, so absolute per-round counts would differ behind Meta.",
+    "A 3-round simulation is not a real end-to-end investigation and cannot show that the new investigator reaches better conclusions.",
+    "Groq results do not establish Meta API performance.",
+    "Duplicate-diagnostic prevention is certified separately by the offline backend test (see RESULTS offline section); it is NOT included in these token totals.",
+    "Cost figures are estimates from published pricing, not actual charges.",
+    "Condition 'new' was re-run once (same parameters; other condition untouched) to complete all rounds after an HTTP 429 provider rate limit cut short that attempt; token totals exclude the non-billed 429 request.",
+    "Total billed requests across the completed comparison attempts: 8 (hard cap 10 per comparison run).",
+    "Total request ATTEMPTS across the completed comparison: 10 (hard cap 10). Attempts include HTTP 400/429 requests the provider rejected without billing; only generated-token responses were charged."
+  ]
+}

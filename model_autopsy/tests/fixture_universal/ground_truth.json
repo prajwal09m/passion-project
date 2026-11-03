@@ -1,0 +1,29 @@
+{
+  "clinic_readmit": {
+    "injected": "leak_flag mirrors label (5% flip)",
+    "leak_column": "leak_flag"
+  },
+  "house_prices": {
+    "injected": "+20000 systematic bias on urban segment",
+    "biased_group": "urban",
+    "bias_magnitude": 20000
+  },
+  "energy_demand": {
+    "injected": "30-day train/test overlap + upward drift the model misses",
+    "overlap_days": 30
+  },
+  "customers": {
+    "injected": "none: 3 well-separated blobs (control)",
+    "min_silhouette": 0.5
+  },
+  "blackbox_only": {
+    "injected": "predictions+labels only; leakage confirmation impossible",
+    "possible": [
+      "error_analysis",
+      "calibration"
+    ],
+    "impossible": [
+      "leakage_confirmation"
+    ]
+  }
+}

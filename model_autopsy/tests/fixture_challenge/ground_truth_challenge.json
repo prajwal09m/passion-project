@@ -1,0 +1,19 @@
+{
+  "ranking_search": {
+    "injected": "tail-slice relevance collapse hidden by pooled mean",
+    "slice_gap_min": 0.2
+  },
+  "pipeline_insurance": {
+    "injected": "train/infer scaling mismatch on bmi (standardized vs raw)",
+    "expect": "large systematic bias, residual correlates with bmi"
+  },
+  "multi_clinic": {
+    "injected": "leak_flag mirrors label AND south ward predictions near-random (interacting)",
+    "leak_column": "leak_flag",
+    "weak_slice": "south"
+  },
+  "clean_weather": {
+    "injected": "none: healthy regression control",
+    "expect": "no breach; null conclusion"
+  }
+}

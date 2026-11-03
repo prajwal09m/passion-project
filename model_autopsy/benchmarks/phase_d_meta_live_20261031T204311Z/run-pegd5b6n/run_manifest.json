@@ -1,0 +1,28 @@
+{
+  "run": "p1-full",
+  "campaign": "phase_d_meta_live_20261031T204311Z",
+  "started_utc": "2026-10-31T20:43:12Z",
+  "finalized_utc": "2026-10-31T20:44:06Z",
+  "status": "finalized",
+  "reason": null,
+  "outcome": {
+    "run_outcome": "completed",
+    "summary_valid": true,
+    "final_message_head": "[fact] Artifact schema observed in action 68d57b5b80d94dc29930af4283e4a9ae shows 41221 rows, 3 folds, 8 model score columns; no performance metrics recorded.\n[hypothesis] c64fd3a986654a188325dfe0c3a40569, 9e7376b12601420389809bfa10172765, 14fac235781547258fb18aa41944ba35 remain untested with zero findings recorded.\n[conclusion] Cause of OOF underperformance is UNRESOLVED on this artifact's evidenc"
+  },
+  "artifacts": {
+    "run_start.json": "78af0b0064eb42164d2097f01a6e26dbc114f130eb218bb0ad019fb0032f4022",
+    "responses.jsonl": "4f9b461e3ab72d1b689e63f280c64a4acac738739275083af11af89f5b349d58",
+    "assistant_messages.jsonl": "92d023eb09a36b35787d53165c5374b79cad5f716ef07d9308ff54545990d516",
+    "usage.jsonl": "406bb17e6622a4af2967c20ed11f6d32ba12aed66b1559d36977f52084f83218",
+    "events_dump.json": "3861dbf8d1b8336f80eac4ca08e2c8f0a2cc6ae35e752f4bd15c05dd2645cb2b",
+    "sandbox_final.db": "b49a7cfd55c31df79277400a518ec112f989b5c20c7b52c53ee4a47eda77b5d0"
+  },
+  "required_evidence_present": {
+    "responses": true,
+    "assistant_messages": true,
+    "usage": true,
+    "events_dump": true,
+    "sandbox_final.db": true
+  }
+}

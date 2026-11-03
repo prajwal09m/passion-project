@@ -1,0 +1,435 @@
+{
+  "mode": "live_paired_groq",
+  "generated_utc": "2026-10-29T20:44:04Z",
+  "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-phase-d-groq-ywuxegre\\sandbox.db",
+  "model": "openai/gpt-oss-20b",
+  "temperature": 0.2,
+  "rounds_per_turn": 3,
+  "turns_per_run": 2,
+  "tool_list": [
+    "propose_hypothesis",
+    "artifact_summary",
+    "dataset_validation",
+    "classification_metrics",
+    "time_split_validation",
+    "feature_target_suspiciousness",
+    "calibration_and_error_analysis",
+    "grouped_auc_comparison"
+  ],
+  "caps": {
+    "max_attempts": 25,
+    "max_total_tokens": 120000,
+    "max_est_cost": 0.5,
+    "repeated_429_limit": 4
+  },
+  "pricing_estimate_source": {
+    "input": 0.075,
+    "output": 0.3,
+    "source": "console.groq.com/docs/models (current published price)"
+  },
+  "totals": {
+    "provider_http_attempts": 10,
+    "billed_ok_requests": 10,
+    "failed_requests": 0,
+    "input_tokens": 21163,
+    "output_tokens": 5370,
+    "estimated_cost_usd": 0.003198,
+    "stop_reason": null
+  },
+  "runs": [
+    {
+      "condition": "full",
+      "investigation_name": "phase-d-groq-full",
+      "aborted": null,
+      "chained_context_chars": 2326,
+      "turn1": {
+        "rounds": 3,
+        "final_text": "",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 3,
+        "summary_block_seen": false
+      },
+      "turn2": {
+        "rounds": 1,
+        "final_text": "```investigation_summary\n{\n  \"conclusion\": \"The current evidence does not support or refute the hypothesis that the model overfits to training folds, causing poor out-of-fold performance.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"1dff373f11324a5c8000b3dc221a9408\",\n      \"status\": \"proposed\",\n      \"basis\": [\"b1d72cd88c3545b0b4ecf22fe57d5b4e\"]\n    }\n  ],\n  \"uncertainties\": [\n    \"No diagnostic metrics or additional experiments were performed to test overfitting.\",\n    \"The AUC and precision/recall metrics alone cannot determine overfitting.\"\n  ],\n  \"recommended_next\": \"No further experiments can be performed within the remaining budget; consider collecting additional data or performing cross-validation with more folds if possible.\"\n}\n```",
+        "finish_reasons": [
+          "stop"
+        ],
+        "tool_calls_in_turn": 0,
+        "summary_block_seen": true
+      },
+      "summary": {
+        "valid": true,
+        "errors": [],
+        "conclusion": null
+      },
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "summary_repair_errors": [],
+      "backend": {
+        "actions_ran": [
+          "classification_metrics",
+          "dataset_validation",
+          "propose_hypothesis"
+        ],
+        "actions_ran_count": 3,
+        "actions_failed": [],
+        "tool_calls_used": 3,
+        "max_tool_calls": 6,
+        "event_kinds": {
+          "status_change": 2,
+          "tool_result": 4,
+          "tool_request": 3,
+          "hypothesis": 1,
+          "summary": 2
+        },
+        "reused_results": 0,
+        "hypothesis_statuses": [
+          "proposed"
+        ]
+      },
+      "condition_totals": {
+        "provider_latency_s": 9.192,
+        "requests": 5,
+        "rate_limit_wait_s": 0.0,
+        "last_rate_hints": {
+          "reset_tokens_s": 20.205,
+          "remaining_tokens": 5306
+        }
+      },
+      "per_request": [
+        {
+          "tag": "turn1r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.39,
+          "prompt_tokens": 1719,
+          "completion_tokens": 375,
+          "usage_missing": false,
+          "shipped_messages": 2,
+          "shipped_chars": 2468,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.629,
+          "prompt_tokens": 1956,
+          "completion_tokens": 413,
+          "usage_missing": false,
+          "shipped_messages": 4,
+          "shipped_chars": 3481,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r3",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.618,
+          "prompt_tokens": 2269,
+          "completion_tokens": 600,
+          "usage_missing": false,
+          "shipped_messages": 6,
+          "shipped_chars": 4770,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.172,
+          "prompt_tokens": 3277,
+          "completion_tokens": 650,
+          "usage_missing": false,
+          "shipped_messages": 10,
+          "shipped_chars": 8833,
+          "finish_reason": "stop"
+        },
+        {
+          "tag": "turn2repair",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.383,
+          "prompt_tokens": 2406,
+          "completion_tokens": 792,
+          "usage_missing": false,
+          "shipped_messages": 11,
+          "shipped_chars": 9836,
+          "finish_reason": "stop"
+        }
+      ],
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"The current evidence does not support or refute the hypothesis that the model overfits to training folds, causing poor out-of-fold performance.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"1dff373f11324a5c8000b3dc221a9408\",\n      \"status\": \"proposed\",\n      \"basis\": [\"b1d72cd88c3545b0b4ecf22fe57d5b4e\"]\n    }\n  ],\n  \"uncertainties\": [\n   "
+    },
+    {
+      "condition": "delta",
+      "investigation_name": "phase-d-groq-delta",
+      "aborted": null,
+      "chained_context_chars": 1985,
+      "turn1": {
+        "rounds": 3,
+        "final_text": "",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 3,
+        "summary_block_seen": false
+      },
+      "turn2": {
+        "rounds": 1,
+        "final_text": "**Investigation Summary**\n\n```json\n{\n  \"conclusion\": \"The out\u2011of\u2011fold (OOF) performance is modest (AUC \u2248 0.683, Brier \u2248 0.131) with extremely low recall at the default threshold (0.5). The feature\u2011target correlation scan shows a very strong association between the feature `hold1_ret` and the label (|r|\u202f=\u202f0.606), suggesting possible leakage or an overly predictive proxy that the model relies on. The per\u2011fold AUCs are fairly consistent (\u2248\u202f0.68\u20130.69), indicating no obvious distribution shift across folds. The low recall points to a threshold that is too high for the class imbalance (\u2248\u202f15\u202f% positives). Together, these observations imply that the model may be over\u2011fitting to a leakage\u2011rich training signal and that the chosen operating point is sub\u2011optimal for the target class.\\n\\nRecommended next steps: \\n1. Verify the provenance of `hold1_ret` and other highly correlated features; remove or transform any that are derived from the target or future information. \\n2. Re\u2011train the model with stricter regularization or a simpler architecture to reduce over\u2011fitting. \\n3. Re\u2011evaluate the model using a threshold tuned to the desired recall/F1 trade\u2011off (e.g., via ROC or precision\u2011recall curves). \\n4. Compare OOF metrics to training metrics to quantify the gap and confirm that leakage removal improves generalisation.\\n\\nThese actions should clarify whether leakage or threshold choice is the primary driver of the observed OOF underperformance.\",\n  \"status_recommendations\": [],\n  \"uncertainties\": [\n    \"Whether `hold1_ret` truly leaks target information or is simply a strong predictive feature.\",\n    \"The impact of class imbalance on the low recall and whether a different threshold would yield acceptable performance.\",\n    \"The extent to which model complexity contributes to over\u2011fitting versus data leakage.\"\n  ],\n  \"recommended_next\": \"Investigate feature provenance for `hold1_ret`, adjust model regularisation, and tune the decision threshold to improve recall while monitoring OOF AUC.\"\n}\n```",
+        "finish_reasons": [
+          "stop"
+        ],
+        "tool_calls_in_turn": 0,
+        "summary_block_seen": false
+      },
+      "summary": {
+        "valid": true,
+        "errors": [],
+        "conclusion": null
+      },
+      "summary_repair_attempts": 0,
+      "summary_valid_after_repair": false,
+      "summary_repair_errors": [],
+      "backend": {
+        "actions_ran": [
+          "calibration_and_error_analysis",
+          "classification_metrics",
+          "feature_target_suspiciousness"
+        ],
+        "actions_ran_count": 3,
+        "actions_failed": [],
+        "tool_calls_used": 3,
+        "max_tool_calls": 6,
+        "event_kinds": {
+          "status_change": 2,
+          "tool_result": 4,
+          "tool_request": 3,
+          "summary": 1
+        },
+        "reused_results": 0,
+        "hypothesis_statuses": []
+      },
+      "condition_totals": {
+        "provider_latency_s": 7.826,
+        "requests": 4,
+        "rate_limit_wait_s": 0.0,
+        "last_rate_hints": {
+          "reset_tokens_s": 30.9,
+          "remaining_tokens": 3880
+        }
+      },
+      "per_request": [
+        {
+          "tag": "turn1r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.548,
+          "prompt_tokens": 1719,
+          "completion_tokens": 277,
+          "usage_missing": false,
+          "shipped_messages": 2,
+          "shipped_chars": 2468,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.185,
+          "prompt_tokens": 1968,
+          "completion_tokens": 437,
+          "usage_missing": false,
+          "shipped_messages": 4,
+          "shipped_chars": 3534,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r3",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.73,
+          "prompt_tokens": 2329,
+          "completion_tokens": 666,
+          "usage_missing": false,
+          "shipped_messages": 6,
+          "shipped_chars": 4889,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.363,
+          "prompt_tokens": 3520,
+          "completion_tokens": 1160,
+          "usage_missing": false,
+          "shipped_messages": 10,
+          "shipped_chars": 9268,
+          "finish_reason": "stop"
+        }
+      ],
+      "final_message_head": "**Investigation Summary**\n\n```json\n{\n  \"conclusion\": \"The out\u2011of\u2011fold (OOF) performance is modest (AUC \u2248 0.683, Brier \u2248 0.131) with extremely low recall at the default threshold (0.5). The feature\u2011target correlation scan shows a very strong association between the feature `hold1_ret` and the label (|r|\u202f=\u202f0.606), suggesting possible leakage or an overly predictive proxy that the model relies on. Th"
+    }
+  ],
+  "per_request_ledger": [
+    {
+      "condition": "-",
+      "kind": "models_list",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 0.749,
+      "error": null
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.39,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1719,
+        "completion_tokens": 375,
+        "total_tokens": 2094,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.629,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1956,
+        "completion_tokens": 413,
+        "total_tokens": 2369,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r3",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.618,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2269,
+        "completion_tokens": 600,
+        "total_tokens": 2869,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn2r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.172,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3277,
+        "completion_tokens": 650,
+        "total_tokens": 3927,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn2repair",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.383,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2406,
+        "completion_tokens": 792,
+        "total_tokens": 3198,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.548,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1719,
+        "completion_tokens": 277,
+        "total_tokens": 1996,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.185,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1968,
+        "completion_tokens": 437,
+        "total_tokens": 2405,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r3",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.73,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2329,
+        "completion_tokens": 666,
+        "total_tokens": 2995,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn2r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.363,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3520,
+        "completion_tokens": 1160,
+        "total_tokens": 4680,
+        "usage_missing": false
+      }
+    }
+  ],
+  "limitations": [
+    "Groq Chat Completions is STATELESS: every request resends the conversation transcript. This does NOT reproduce Meta's previous_response_id retention; it measures how the full-context vs delta chained-turn strategies behave when requests resend history.",
+    "The turn-1 transcript resend is identical for both conditions; only the chained-turn opening message differs, so the measured difference is the redundant corpus re-transmission Phase C removes.",
+    "429 handling is owner-directed pacing: wait to the next minute boundary (~8 000 tokens/minute on-demand window) and retry; every attempt including retries is ledgered, nothing silent.",
+    "Groq results do NOT establish Meta API savings or billing behavior.",
+    "Cost figures are ESTIMATES from published pricing, not actual charges.",
+    "One paired comparison: no statistical significance."
+  ]
+}

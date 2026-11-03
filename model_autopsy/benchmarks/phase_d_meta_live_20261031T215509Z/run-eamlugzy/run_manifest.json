@@ -1,0 +1,31 @@
+{
+  "run": "p2-full",
+  "campaign": "phase_d_meta_live_20261031T215509Z",
+  "started_utc": "2026-10-31T21:58:16Z",
+  "finalized_utc": "2026-10-31T21:59:48Z",
+  "status": "finalized",
+  "reason": null,
+  "outcome": {
+    "run_outcome": "incomplete_provider_response",
+    "summary_valid": false,
+    "final_message_head": "Fact: calibration_and_error_analysis reports per-fold AUC 2023:0.6907, 2024:0.6800, 2025:0.6898 with Brier 0.1306, and reliability bins showing mean_score vs fraction_positive close at low scores with overestimation in 0.3-0.5 range on small n.\nHypothesis 26210f7a0d5249eb902867ee663800de predicted large fold heterogeneity; observed range",
+    "repair_attempted": true
+  },
+  "artifacts": {
+    "run_start.json": "9b735cb41bfdbfa870bbfcc7f8e7892f6739063b39d6f33833f811e9bdddb2bc",
+    "responses.jsonl": "2c6f05ed8ede4fc1e8ce0a848184a52ff5a7b460f2d31403c9217a467f5d0e7e",
+    "assistant_messages.jsonl": "1374dd27e96f3369c671dbe9af4e2b96f51aca4ca3bdfe3ec57ff8d5707545e0",
+    "usage.jsonl": "36d20ac7beee2116a7737af308e61bb3ba4219f5fc106a21c00d64ae2caa4f5f",
+    "repairs.jsonl": "68d4be45c059f901e2406f2e0f5384704d24951b23907129d3e14eb50344ed75",
+    "events_dump.json": "ba7e0ce132523d66273f847892724d90d32742ac2a76d6184d20b08f99044bc6",
+    "sandbox_final.db": "7dd6b9db0778589750bc1551cc29c4f975a762b71d49212aa0c9d807345d3e72"
+  },
+  "required_evidence_present": {
+    "responses": true,
+    "assistant_messages": true,
+    "usage": true,
+    "events_dump": true,
+    "sandbox_final.db": true,
+    "repairs": true
+  }
+}

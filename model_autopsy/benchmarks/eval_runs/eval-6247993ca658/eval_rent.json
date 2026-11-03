@@ -1,0 +1,274 @@
+{
+  "project": "eval_rent",
+  "investigation_id": "eaa839463a8241a19492a696d1f76f4d",
+  "report": {
+    "executive_summary": "1 supported / 0 rejected / 0 inconclusive-or-blocked from 1 experiment(s).",
+    "project_understanding": {
+      "project_id": "eval_rent",
+      "predicting": "Rent estimates for one district look off after a schema update.",
+      "receives": {
+        "columns": [
+          "area",
+          "rooms",
+          "district",
+          "target",
+          "prediction"
+        ],
+        "note": "model inputs per observed artifact schema"
+      },
+      "produces": {
+        "target": "Numeric monthly rent",
+        "note": "model outputs per spec"
+      },
+      "success": "MAE/RMSE, residual analysis",
+      "evaluation": "MAE/RMSE, residual analysis",
+      "evaluation_assumptions": [
+        "reported metrics assume the supplied predictions match the described evaluation split",
+        "recomputed metrics assume label/target columns are correct"
+      ],
+      "missing": [],
+      "possible": [
+        "dataset_validation: schema/quality overview",
+        "error_analysis: predictions vs ground truth",
+        "model_inspection: per declared availability (local)"
+      ],
+      "impossible": [
+        "temporal_analysis: no date column observed"
+      ],
+      "inconsistencies": [],
+      "dataset": {
+        "location": "model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv",
+        "readable": true,
+        "path": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\rent_estimates.csv",
+        "n_rows_peek": 1200,
+        "columns": [
+          "area",
+          "rooms",
+          "district",
+          "target",
+          "prediction"
+        ],
+        "dtypes": {
+          "area": "int64",
+          "rooms": "int64",
+          "district": "object",
+          "target": "float64",
+          "prediction": "float64"
+        },
+        "null_counts": {
+          "area": 0,
+          "rooms": 0,
+          "district": 0,
+          "target": 0,
+          "prediction": 0
+        },
+        "samples": [
+          {
+            "area": 84,
+            "rooms": 4,
+            "district": "B",
+            "target": 2662.0,
+            "prediction": 2588.0
+          },
+          {
+            "area": 56,
+            "rooms": 2,
+            "district": "A",
+            "target": 1794.0,
+            "prediction": 1867.0
+          },
+          {
+            "area": 83,
+            "rooms": 3,
+            "district": "A",
+            "target": 2580.0,
+            "prediction": 2611.0
+          },
+          {
+            "area": 167,
+            "rooms": 4,
+            "district": "B",
+            "target": 3582.0,
+            "prediction": 3543.0
+          },
+          {
+            "area": 128,
+            "rooms": 5,
+            "district": "A",
+            "target": 3117.0,
+            "prediction": 3204.0
+          }
+        ],
+        "numeric_summary": {
+          "area": {
+            "mean": 112.27416666666667,
+            "std": 49.30870568522881,
+            "min": 30.0,
+            "max": 199.0
+          },
+          "rooms": {
+            "mean": 2.9425,
+            "std": 1.4192271093767872,
+            "min": 1.0,
+            "max": 5.0
+          },
+          "target": {
+            "mean": 2733.165,
+            "std": 675.6806344036286,
+            "min": 1097.0,
+            "max": 4380.0
+          },
+          "prediction": {
+            "mean": 2618.7,
+            "std": 709.2261979320803,
+            "min": 819.0,
+            "max": 4427.0
+          }
+        }
+      },
+      "model": {
+        "name": "rent-rf",
+        "framework": "sklearn",
+        "availability": "local",
+        "training_config": {}
+      },
+      "docs": {},
+      "provenance": {
+        "built_by": "recon.build_understanding",
+        "artifact": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\rent_estimates.csv"
+      }
+    },
+    "confirmed_findings": [
+      {
+        "hypothesis_id": "c6cd5686408a",
+        "title": "Systematic bias in one segment",
+        "mechanism": "Additive offset for a subgroup (e.g. pricing rule) shifts predictions one way.",
+        "evidence": [
+          "segment column present alongside target/prediction",
+          {
+            "experiment_id": "f6454b093414",
+            "tool": "regression_metrics",
+            "numbers": {
+              "n": 1200,
+              "mae": 191.22,
+              "bias": 114.47,
+              "groups": {
+                "A": 93.72594142259415,
+                "B": 97.38809034907598,
+                "C": 583.9872340425532
+              },
+              "residual_feature_corr": 0.181,
+              "residual_feature": "rooms"
+            }
+          }
+        ]
+      }
+    ],
+    "rejected_hypotheses": [],
+    "inconclusive": [],
+    "open_hypotheses": [
+      {
+        "hypothesis_id": "25c64fcb188e",
+        "title": "No material issue (null hypothesis)",
+        "status": "proposed"
+      }
+    ],
+    "experiments": [
+      {
+        "experiment_id": "f6454b093414",
+        "hypothesis_id": "c6cd5686408a",
+        "tool": "regression_metrics",
+        "status": "ran",
+        "breach": true,
+        "summary": "MAE=191 bias=114.47 featcorr=rooms:0.18",
+        "numbers": {
+          "n": 1200,
+          "mae": 191.22,
+          "bias": 114.47,
+          "groups": {
+            "A": 93.72594142259415,
+            "B": 97.38809034907598,
+            "C": 583.9872340425532
+          },
+          "residual_feature_corr": 0.181,
+          "residual_feature": "rooms"
+        }
+      }
+    ],
+    "verification": [
+      {
+        "hypothesis_id": "c6cd5686408a",
+        "claim": "Systematic bias in one segment",
+        "verdict": "upheld",
+        "checks": [
+          {
+            "check": "sample_size_sufficient",
+            "pass": true,
+            "detail": "n=1200; <30 is insufficient for a finding"
+          },
+          {
+            "check": "methodology_appropriate",
+            "pass": true,
+            "detail": "method=regression_metrics"
+          },
+          {
+            "check": "evidence_linked",
+            "pass": true,
+            "detail": "1 evidence result(s)"
+          },
+          {
+            "check": "no_leak_in_diagnostic",
+            "pass": true,
+            "detail": "diagnostic is read-only recomputation; no leakage signal"
+          },
+          {
+            "check": "numbers_reproducible",
+            "pass": true,
+            "detail": "6 numeric value(s) with seeds"
+          }
+        ],
+        "disagreement": null,
+        "disproof_wanted": "segment biases within noise of each other"
+      }
+    ],
+    "limitations": [
+      "offline deterministic triage; LLM reasoning quality covered by prior frozen live campaigns, not here",
+      "single scenario per task family in this suite slice",
+      "heuristic prioritization is not Bayesian information gain"
+    ],
+    "reproducibility": {
+      "seeds": "fixed per diagnostic",
+      "artifacts": "committed CSV fixtures",
+      "runner": "lab.run_autonomous_investigation"
+    },
+    "recommendations": [
+      "re-run breached diagnostics on fresh splits before acting",
+      "add a reusable diagnostic module for any candidate novel mechanism before treating it as a finding type"
+    ]
+  },
+  "scorecard": {
+    "project": "eval_rent",
+    "verdict": "correct",
+    "note": "mechanism named + numbers support (bias=114.47 spread~6.23 featcorr=0.181)",
+    "false_positive": false,
+    "dimensions": {
+      "discovery": 1.0,
+      "evidence": 1.0,
+      "reasoning": 1.0,
+      "calibration": 1.0,
+      "efficiency": 1.0,
+      "reproducibility": 1.0
+    },
+    "weights": {
+      "discovery": 0.3,
+      "evidence": 0.25,
+      "reasoning": 0.15,
+      "calibration": 0.15,
+      "efficiency": 0.05,
+      "reproducibility": 0.1
+    },
+    "overall": 1.0,
+    "assessment": "deterministic + heuristic; LLM/human reserved"
+  },
+  "elapsed_s": 0.6
+}

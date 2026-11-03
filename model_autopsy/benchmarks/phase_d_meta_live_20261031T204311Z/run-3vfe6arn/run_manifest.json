@@ -1,0 +1,28 @@
+{
+  "run": "p2-delta",
+  "campaign": "phase_d_meta_live_20261031T204311Z",
+  "started_utc": "2026-10-31T20:47:19Z",
+  "finalized_utc": "2026-10-31T20:48:57Z",
+  "status": "finalized",
+  "reason": null,
+  "outcome": {
+    "run_outcome": "incomplete_provider_response",
+    "summary_valid": false,
+    "final_message_head": "[fact] Action `76085908b79c4f6d95a6a3c81debcf3e` reports per-fold AUC 2023: 0.690708, 2024: 0.680062, 2025: 0.689827, Brier 0.130634, with large-n reliability bins close to diagonal.\n"
+  },
+  "artifacts": {
+    "run_start.json": "08ec412be949d77623728ec13b00b580ce9ff68109c9a027a08ac054af62cf3c",
+    "responses.jsonl": "f490dd1d0da836174ce30bedaadba546496c9f3f3833e2a85e24ea9939cbc6df",
+    "assistant_messages.jsonl": "565a14090d169be7173f6caaf92875668db378ec5770ab986d0c436f1bd912be",
+    "usage.jsonl": "ce95d2ce36d9efab771d42b76fe3fe52be5018c4dbcfefed4273b1e7ed7e0539",
+    "events_dump.json": "6d72e1bfaba2f0e7135080755d8f84bbc8102128b319aff90c4c4fa42e77b3df",
+    "sandbox_final.db": "86702b9f06e403f8bcad83af2131942aee0608ae6e8aa061735c54d846be899f"
+  },
+  "required_evidence_present": {
+    "responses": true,
+    "assistant_messages": true,
+    "usage": true,
+    "events_dump": true,
+    "sandbox_final.db": true
+  }
+}

@@ -1,0 +1,158 @@
+[
+  {
+    "id": "7f82ceaa161646c6bd52c0101953f048",
+    "seq": 7,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated, low prior; needs slice P@K evidence.",
+      "predicted_observation": "ranking_slice_diagnostics shows similar precision@top-K across all slice values.",
+      "rationale": "Model is black-box rank-lgb; without evidence slices could perform uniformly if training covered catalog evenly.",
+      "text": "Top-K relevance is uniform across catalog slices; no slice systematically underperforms."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "hypothesis_id": "7c31dc1fd30c4554af959cbfd62a6433",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Top-K relevance is uniform across catalog slices; no slice systematically underperforms."
+    },
+    "error": null
+  },
+  {
+    "id": "aa502048a51d40e0bebcf12ce214cad6",
+    "seq": 10,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated, moderate suspicion given 'new' slice sample with all relevance 0.",
+      "predicted_observation": "ranking_slice_diagnostics shows one slice (e.g., new/long-tail) with markedly lower precision@top-K than others.",
+      "rationale": "Sample rows show 'new' slice with relevance 0 examples; new items often lack interaction history causing ranker to misrank.",
+      "text": "Top-K relevance fails for a specific catalog slice (e.g., new items) due to poor generalization to low-history items."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "hypothesis_id": "29a0bd6374444b45b1b8fbd5c270b074",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Top-K relevance fails for a specific catalog slice (e.g., new items) due to poor generalization to low-history items."
+    },
+    "error": null
+  },
+  {
+    "id": "4eb23fc5899d492e8e7c95d99aaa28ba",
+    "seq": 13,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated, low-moderate; artifact hygiene alternative.",
+      "predicted_observation": "segment_quality_screen / data_quality_profile shows slice imbalance, missing scores, or duplicate query-item skew explaining apparent gaps, not model ranking ability.",
+      "rationale": "Apparent slice gaps could be evaluation artifact: uneven slice sizes, missing data, or label sparsity rather than true relevance failure.",
+      "text": "Apparent slice differences are driven by evaluation/data hygiene (slice size imbalance, label sparsity, missing scores) not by model ranking failure."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "hypothesis_id": "77ba7c98fd2e4f92a56f537dde5ad1d0",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Apparent slice differences are driven by evaluation/data hygiene (slice size imbalance, label sparsity, missing scores) not by model ranking failure."
+    },
+    "error": null
+  },
+  {
+    "id": "7e86979e00e3438ebdc86200800c270f",
+    "seq": 15,
+    "kind": "tool_call",
+    "tool": "ranking_slice_diagnostics",
+    "status": "ran",
+    "arguments": {
+      "k_frac": 0.1,
+      "labels": "relevance",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+      "score_column": "score",
+      "slice_column": "slice"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\music_rank.csv",
+      "label_column": "relevance",
+      "score_column": "score",
+      "slice_column": "slice",
+      "k_frac": 0.1,
+      "per_slice": {
+        "est": {
+          "n": 1168,
+          "k": 117,
+          "precision_at_k": 1.0,
+          "base_rate": 0.506
+        },
+        "new": {
+          "n": 592,
+          "k": 59,
+          "precision_at_k": 0.8305,
+          "base_rate": 0.098
+        }
+      },
+      "pooled_precision_at_k": 0.9432,
+      "max_slice_gap": 0.1695,
+      "method_version": "ranking-slice-v1",
+      "limits": "observational ranking gap, not a causal finding; thin slices inconclusive"
+    },
+    "error": null
+  },
+  {
+    "id": "3ea0ab9c7dd248b7bafaef3ed2ba721b",
+    "seq": 31,
+    "kind": "tool_call",
+    "tool": "segment_quality_screen",
+    "status": "ran",
+    "arguments": {
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+      "segment_column": "slice"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "n": 1760,
+      "segment_column": "slice",
+      "by_segment": {
+        "est": {
+          "n": 1168,
+          "null_rate": 0.0,
+          "dup_rate": 0.07363
+        },
+        "new": {
+          "n": 592,
+          "null_rate": 0.0,
+          "dup_rate": 0.008446
+        }
+      },
+      "worst_null_rate": 0.0,
+      "worst_dup_rate": 0.07363,
+      "establishes": "whether hygiene defects concentrate in a segment",
+      "does_not_establish": "whether quality issues caused errors"
+    },
+    "error": null
+  },
+  {
+    "id": "e3e728feb9234978a13179d12d63ee25",
+    "seq": 40,
+    "kind": "tool_call",
+    "tool": "classification_metrics",
+    "status": "failed",
+    "arguments": {
+      "labels": "relevance",
+      "score_column": "score",
+      "split_by": "slice"
+    },
+    "result": null,
+    "error": "explicit labels='relevance' not in columns ['ticker', 'date', 'event_id', 'label', 'hold1_ret', 'entry_date', 'exit_date', 'fold', 'fold_validation_key', 'LogisticRegression_A', 'LightGBM_A', 'LogisticRegression_B', 'LightGBM_B', 'LogisticRegression_C', 'LightGBM_C', 'LogisticRegression_D', 'LightGBM_D']"
+  }
+]

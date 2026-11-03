@@ -1,0 +1,30 @@
+{
+  "run": "run-delta",
+  "campaign": "phase_d_groq_live_20261031T200650Z",
+  "started_utc": "2026-10-31T20:11:03Z",
+  "finalized_utc": "2026-10-31T20:16:02Z",
+  "status": "finalized",
+  "reason": null,
+  "outcome": {
+    "condition": "delta",
+    "aborted": null,
+    "stop_reason": null,
+    "summary_valid": true
+  },
+  "artifacts": {
+    "run_start.json": "720756211db3fa033912509f3554102216633fd7d8dca33ea8b27a31adf09bd0",
+    "responses.jsonl": "e5e6a0b3b78596bc266f5a8443f88724dccd7a34e8a6922c540909310f281325",
+    "assistant_messages.jsonl": "7ae19938f2e702df456352469c773a5debded68c6ab366316fc1537dcce03111",
+    "usage.jsonl": "2e2be9b6583461443ee102f28f61a0e47a29b3b7807e5077a6d66c8dd791592a",
+    "repairs.jsonl": "73f8dc718a205b82e0274db8264049b51052f810450f06b55f27f6333d0e820d",
+    "events_dump.json": "20b0867a18334cae4a338a734828f54defdcb1ca79317df8983a08f091339d17",
+    "sandbox_final.db": "f2e973725b01b19597b07c120ccb3f12b92660fe76fc74c3d0c72abf34350fba"
+  },
+  "required_evidence_present": {
+    "responses": true,
+    "assistant_messages": true,
+    "usage": true,
+    "events_dump": true,
+    "sandbox_final.db": true
+  }
+}

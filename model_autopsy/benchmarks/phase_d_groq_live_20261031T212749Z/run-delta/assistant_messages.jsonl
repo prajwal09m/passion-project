@@ -1,0 +1,7 @@
+{"investigation_id": "425b0aa94304483297c14ca1595cc691", "recorded_utc": "2026-10-31T21:32:05Z", "response_id": null, "round": 1, "run": "phase-d-groq-delta", "status": "tool_calls", "text": "", "turn": "turn1"}
+{"investigation_id": "425b0aa94304483297c14ca1595cc691", "recorded_utc": "2026-10-31T21:33:02Z", "response_id": null, "round": 2, "run": "phase-d-groq-delta", "status": "tool_calls", "text": "", "turn": "turn1"}
+{"investigation_id": "425b0aa94304483297c14ca1595cc691", "recorded_utc": "2026-10-31T21:33:05Z", "response_id": null, "round": 3, "run": "phase-d-groq-delta", "status": "tool_calls", "text": "", "turn": "turn1"}
+{"investigation_id": "425b0aa94304483297c14ca1595cc691", "recorded_utc": "2026-10-31T21:34:01Z", "response_id": null, "round": 1, "run": "phase-d-groq-delta", "status": "tool_calls", "text": "", "turn": "turn2"}
+{"investigation_id": "425b0aa94304483297c14ca1595cc691", "recorded_utc": "2026-10-31T21:35:01Z", "response_id": null, "round": 2, "run": "phase-d-groq-delta", "status": "tool_calls", "text": "", "turn": "turn2"}
+{"investigation_id": "425b0aa94304483297c14ca1595cc691", "recorded_utc": "2026-10-31T21:36:01Z", "response_id": null, "round": 3, "run": "phase-d-groq-delta", "status": "tool_calls", "text": "", "turn": "turn2"}
+{"investigation_id": "425b0aa94304483297c14ca1595cc691", "recorded_utc": "2026-10-31T21:36:04Z", "response_id": null, "round": null, "run": "phase-d-groq-delta", "status": "final", "text": "", "turn": "turn2-final"}

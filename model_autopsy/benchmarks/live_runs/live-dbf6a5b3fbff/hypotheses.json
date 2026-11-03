@@ -1,0 +1,90 @@
+[
+  {
+    "id": "685cb37267584ef3abc9034d49f1a1c5",
+    "text": "Predictions have systematic district-specific bias (e.g., district B over/under-predicted) caused by schema update mishandling of district feature.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link: max|r|=0.180565: no tracking [contradictory evidence recorded; demoted; action d53e376513fa49f1b245629b725c2a00]",
+    "evidence_refs": [
+      {
+        "action_id": "50704274072a4b70807a3786c566b803",
+        "tool": "regression_metrics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "d53e376513fa49f1b245629b725c2a00",
+        "tool": "residual_feature_dependence",
+        "relation": "contradicts",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 16:58:55",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 16:59:08",
+        "from": "investigating",
+        "to": "investigating"
+      }
+    ]
+  },
+  {
+    "id": "3b94f1cb3b644a8c96210e528e67dae5",
+    "text": "Errors are driven by mis-scaled numeric feature (area and/or rooms) after schema update, not by district membership itself.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link: max|r|=0.180565: no tracking [contradictory evidence recorded; demoted; action d53e376513fa49f1b245629b725c2a00]",
+    "evidence_refs": [
+      {
+        "action_id": "50704274072a4b70807a3786c566b803",
+        "tool": "regression_metrics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "d53e376513fa49f1b245629b725c2a00",
+        "tool": "residual_feature_dependence",
+        "relation": "contradicts",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 16:58:55",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 16:59:08",
+        "from": "investigating",
+        "to": "investigating"
+      }
+    ]
+  },
+  {
+    "id": "282f282f29f84bd7a5e6f1f2b7577615",
+    "text": "Model has global miscalibration/target drift affecting all districts similarly, with no true district-specific failure.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link: group MAE ratio 6.23 (worst 583.99); errors concentrate [supporting evidence recorded; needs corroboration; action 50704274072a4b70807a3786c566b803]",
+    "evidence_refs": [
+      {
+        "action_id": "50704274072a4b70807a3786c566b803",
+        "tool": "regression_metrics",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 16:58:55",
+        "from": "proposed",
+        "to": "investigating"
+      }
+    ]
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "campaign": "phase_d_meta_live_20261031T204311Z",
+  "frozen_utc": "2026-10-31",
+  "rubric": "phase_d_blind_scoring_rubric_v1.md (v1, frozen 2026-10-29)",
+  "protocol": "phase_d_blind_evaluation_protocol_v1.md (v1, frozen 2026-10-29)",
+  "sheets": {
+    "RUN-01": 9,
+    "RUN-02": 7,
+    "RUN-03": 10,
+    "RUN-04": 8
+  },
+  "condition_key": "benchmarks/.sealed/phase_d_meta_final_run_index_2026-10-31.json (sealed; mapping not opened until this record was written)",
+  "original_key_digest_unchanged": "d990f0854feba33cf45b17fb0b285af04e69a6c0fde079df11e03e7c7e7ddc9b",
+  "file_digests": {
+    "final/phase_d_blind_scoring_sheets_final_2026-10-31/RUN-01.md": "e4b0f900423ef08b1183681a99001fa355e7c19d47d8e0d1e70465521286d92e",
+    "final/phase_d_blind_scoring_sheets_final_2026-10-31/RUN-02.md": "3613fb3c05b072d32f7606d0b2dd3e5a0b95224d7a94dbd0784dc27bad1892b6",
+    "final/phase_d_blind_scoring_sheets_final_2026-10-31/RUN-03.md": "106f1229493e492823005288f1d933cfc2a27ffcdc63a866312283ff0dee182a",
+    "final/phase_d_blind_scoring_sheets_final_2026-10-31/RUN-04.md": "2f36a909492fda59a7e0c2e6b4cdccd4012dec114aaf61632fba6a3ce2f0479d",
+    "final/phase_d_meta_final_packets_2026-10-31/RUN-01.md": "fa83c5003f54ad14b76df855b515a90e76b76ec8160df79f605a9f4c18c3b119",
+    "final/phase_d_meta_final_packets_2026-10-31/RUN-02.md": "4f721accf6f6cbeed0e4fbd354e2792fb5d3094a4367fde84ac65a47179ca097",
+    "final/phase_d_meta_final_packets_2026-10-31/RUN-03.md": "b3dce24000bb71a5ffeb49c46b92e289b0d5dc5df9feebb1b9aee9201c3ca937",
+    "final/phase_d_meta_final_packets_2026-10-31/RUN-04.md": "f1f4381ad5576e58f83bbf7b1b0f9ff376f0709d00506f0cb799c8e4a10c2a14"
+  }
+}

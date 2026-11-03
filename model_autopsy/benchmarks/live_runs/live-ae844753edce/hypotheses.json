@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ee63449565c74b39a74b5616ce74242d",
+    "text": "Predictions have systematic positive bias (overpredict severity) due to pipeline change shifting prediction level.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Sample rows show prediction > target in all 5 examples (e.g., 819 vs 614). Objective says systematically off since pipeline change, suggesting global intercept/scale shift.",
+    "evidence_refs": null,
+    "revisions": null
+  },
+  {
+    "id": "1fca636bd8b141b0a587dc646524171c",
+    "text": "Error is feature-dependent miscalibration (slope/scale error with amount or velocity), not uniform bias.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Severity often scales with amount/velocity; pipeline change could have broken feature scaling causing slope error rather than intercept shift.",
+    "evidence_refs": null,
+    "revisions": null
+  },
+  {
+    "id": "2056e694de524d44a6c1cf0268f765f0",
+    "text": "Apparent systematic error is artifact of data quality issues (missing, duplicates, corrupt target/prediction values).",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Pipeline changes often introduce missing/duplicated/corrupted rows that inflate error metrics without true model bias.",
+    "evidence_refs": null,
+    "revisions": null
+  }
+]

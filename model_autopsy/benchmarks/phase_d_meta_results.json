@@ -1,0 +1,1007 @@
+{
+  "mode": "live_paired",
+  "protocol": {
+    "revision": "v2",
+    "frozen": "2026-10-29",
+    "continuation_id_correction": true
+  },
+  "generated_utc": "2026-10-30T00:45:36Z",
+  "sandbox_db": "per-run temporary SQLite databases",
+  "sandbox_db_shared_across_runs": false,
+  "sandbox_db_paths": [
+    "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-phase-d-run-f5quqyhn\\sandbox.db",
+    "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-phase-d-run-d59tw190\\sandbox.db",
+    "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-phase-d-run-4uqmerzq\\sandbox.db",
+    "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-phase-d-run-h5gj3nn0\\sandbox.db"
+  ],
+  "run_isolation": "one fresh sandbox SQLite database per run; live app DB never opened",
+  "provider": {
+    "base_url": "https://api.meta.ai/v1",
+    "model_id": "muse-spark-1.3"
+  },
+  "scenario": {
+    "objective": "Why does the model underperform on out-of-fold data?",
+    "run_cfg": {
+      "max_tool_calls": 6
+    },
+    "turn_rounds": 3,
+    "turns_per_run": 2,
+    "temperature": 0.2,
+    "temperature_note": "client default; identical both conditions",
+    "max_output_tokens": 2000,
+    "max_output_tokens_note": "client default; identical both conditions",
+    "summary_repair_max_output_tokens": 1200
+  },
+  "caps": {
+    "max_attempts": 40,
+    "max_total_tokens": 150000,
+    "max_est_cost": 1.0,
+    "repeated_429_limit": 3
+  },
+  "pre_registered_limits": {
+    "pairs": 2,
+    "max_attempts": 40,
+    "max_total_tokens": 150000,
+    "max_est_cost": 1.0,
+    "repeated_429_limit": 3
+  },
+  "pricing_estimate_source": {
+    "cached_input": 0.15,
+    "input": 1.25,
+    "output": 4.25,
+    "source": "https://dev.meta.ai/docs/pricing-rate-limits (muse-spark-1.3 Standard mode; estimates only)"
+  },
+  "totals": {
+    "billed_requests": 24,
+    "failed_requests": 0,
+    "total_attempts": 24,
+    "input_tokens": 91534,
+    "output_tokens": 29921,
+    "cached_input_tokens": 53829,
+    "uncached_input_tokens": 37705,
+    "total_provider_tokens": 121455,
+    "usage_incomplete_requests": 0,
+    "token_totals_complete": true,
+    "cached_exceeds_input": 0,
+    "blocked_before_request": 0,
+    "incomplete_responses": 10,
+    "estimated_cost_usd": 0.18237,
+    "stop_reason": null
+  },
+  "runs": [
+    {
+      "condition": "full",
+      "context_strategy": "full_resend",
+      "investigation_id": "c55be9d2cfa14e08a9b7ec23c5339032",
+      "chain_used_for_turn2": "resp_6ae3e6f99af032ed9226431b",
+      "turn1_status": "ok",
+      "turn2_status": "ok",
+      "run_outcome": "incomplete_provider_response",
+      "investigation_complete": false,
+      "provider_response_statuses": [
+        "completed",
+        "completed",
+        "incomplete",
+        "completed",
+        "completed",
+        "incomplete",
+        "incomplete"
+      ],
+      "incomplete_response_count": 3,
+      "incomplete_turn1": 1,
+      "incomplete_turn2": 2,
+      "provider_status_unknown_count": 0,
+      "provider_status_not_completed_count": 3,
+      "usage_incomplete_request_count": 0,
+      "summary_repair_used_turn1": 1,
+      "summary_repair_used_turn2": 1,
+      "turn1_continuation_state": {
+        "attempted": true,
+        "valid": true,
+        "response_id_source": "repair"
+      },
+      "turn2_continuation_state": {
+        "attempted": true,
+        "valid": false,
+        "response_id_source": "original"
+      },
+      "turn1_returned_response_id_is_latest": true,
+      "turn2_returned_response_id_is_latest": false,
+      "chain_used_is_latest_turn1_response": true,
+      "summary_valid": false,
+      "summary_errors": [
+        "no structured summary found in the final message"
+      ],
+      "conclusion": null,
+      "tool_calls_turn1": {
+        "executed": 4,
+        "reused": 0,
+        "context_mode": "full"
+      },
+      "tool_calls_turn2": {
+        "executed": 1,
+        "reused": 0,
+        "context_mode": "delta",
+        "fallback_used": false,
+        "latency_s": 71.753,
+        "api_attempts": 3
+      },
+      "event_kinds": {
+        "status_change": 2,
+        "tool_result": 6,
+        "meta_request": 5,
+        "meta_response": 5,
+        "hypothesis": 3,
+        "tool_request": 5,
+        "summary": 4,
+        "summary_repair": 4,
+        "meta_usage": 2
+      },
+      "fallback_events": 0,
+      "actions": {
+        "ran": [
+          "calibration_and_error_analysis",
+          "classification_metrics",
+          "propose_hypothesis"
+        ],
+        "ran_count": 5,
+        "failed": []
+      },
+      "hypothesis_statuses": [
+        "proposed",
+        "proposed",
+        "proposed"
+      ],
+      "final_message_head": ""
+    },
+    {
+      "condition": "delta",
+      "context_strategy": "delta",
+      "investigation_id": "160642798c8b4fbf81768e4963044975",
+      "chain_used_for_turn2": "resp_6ae3e766b1ccbd49405f497b",
+      "turn1_status": "ok",
+      "turn2_status": "ok",
+      "run_outcome": "incomplete_provider_response",
+      "investigation_complete": false,
+      "provider_response_statuses": [
+        "incomplete",
+        "completed",
+        "completed",
+        "completed",
+        "completed"
+      ],
+      "incomplete_response_count": 1,
+      "incomplete_turn1": 1,
+      "incomplete_turn2": 0,
+      "provider_status_unknown_count": 0,
+      "provider_status_not_completed_count": 1,
+      "usage_incomplete_request_count": 0,
+      "summary_repair_used_turn1": 1,
+      "summary_repair_used_turn2": 0,
+      "turn1_continuation_state": {
+        "attempted": true,
+        "valid": true,
+        "response_id_source": "repair"
+      },
+      "turn2_continuation_state": {
+        "attempted": false,
+        "valid": null,
+        "response_id_source": "original"
+      },
+      "turn1_returned_response_id_is_latest": true,
+      "turn2_returned_response_id_is_latest": true,
+      "chain_used_is_latest_turn1_response": true,
+      "summary_valid": true,
+      "summary_errors": [],
+      "conclusion": "UNRESOLVED: no discriminating diagnostics recorded within budget, cause of OOF underperformance cannot be determined",
+      "tool_calls_turn1": {
+        "executed": 0,
+        "reused": 0,
+        "context_mode": "full"
+      },
+      "tool_calls_turn2": {
+        "executed": 4,
+        "reused": 0,
+        "context_mode": "delta",
+        "fallback_used": false,
+        "latency_s": 70.41,
+        "api_attempts": 3
+      },
+      "event_kinds": {
+        "status_change": 2,
+        "tool_result": 5,
+        "meta_request": 4,
+        "meta_response": 4,
+        "summary": 3,
+        "summary_repair": 2,
+        "meta_usage": 2,
+        "hypothesis": 3,
+        "tool_request": 4
+      },
+      "fallback_events": 0,
+      "actions": {
+        "ran": [
+          "artifact_summary",
+          "propose_hypothesis"
+        ],
+        "ran_count": 4,
+        "failed": []
+      },
+      "hypothesis_statuses": [
+        "proposed",
+        "proposed",
+        "proposed"
+      ],
+      "final_message_head": "Fact: recorded artifact contains 41221 rows, 3 folds (2023,2024,2025), imbalanced labels, and 8 model score columns plus metadata.\nHypothesis: three competing explanations were proposed \u2014 poor generalization, fold heterogeneity, miscalibration \u2014 but no discriminating metric or calibration result was recorded.\nConclusion: UNRESOLVED \u2014 without OOF AUC, per-fold splits, or calibration, the cause of u"
+    },
+    {
+      "condition": "full",
+      "context_strategy": "full_resend",
+      "investigation_id": "17c043071c214be190d081fb1092b943",
+      "chain_used_for_turn2": "resp_6ae3e7e7443e4e679131462b",
+      "turn1_status": "ok",
+      "turn2_status": "ok",
+      "run_outcome": "incomplete_provider_response",
+      "investigation_complete": false,
+      "provider_response_statuses": [
+        "completed",
+        "completed",
+        "completed",
+        "completed",
+        "incomplete",
+        "incomplete"
+      ],
+      "incomplete_response_count": 2,
+      "incomplete_turn1": 0,
+      "incomplete_turn2": 2,
+      "provider_status_unknown_count": 0,
+      "provider_status_not_completed_count": 2,
+      "usage_incomplete_request_count": 0,
+      "summary_repair_used_turn1": 0,
+      "summary_repair_used_turn2": 1,
+      "turn1_continuation_state": {
+        "attempted": false,
+        "valid": null,
+        "response_id_source": "original"
+      },
+      "turn2_continuation_state": {
+        "attempted": true,
+        "valid": false,
+        "response_id_source": "original"
+      },
+      "turn1_returned_response_id_is_latest": true,
+      "turn2_returned_response_id_is_latest": false,
+      "chain_used_is_latest_turn1_response": true,
+      "summary_valid": false,
+      "summary_errors": [
+        "no structured summary found in the final message"
+      ],
+      "conclusion": null,
+      "tool_calls_turn1": {
+        "executed": 4,
+        "reused": 0,
+        "context_mode": "full"
+      },
+      "tool_calls_turn2": {
+        "executed": 1,
+        "reused": 0,
+        "context_mode": "delta",
+        "fallback_used": false,
+        "latency_s": 64.026,
+        "api_attempts": 3
+      },
+      "event_kinds": {
+        "status_change": 2,
+        "tool_result": 6,
+        "meta_request": 5,
+        "meta_response": 5,
+        "hypothesis": 3,
+        "tool_request": 5,
+        "summary": 3,
+        "meta_usage": 2,
+        "summary_repair": 2
+      },
+      "fallback_events": 0,
+      "actions": {
+        "ran": [
+          "artifact_summary",
+          "calibration_and_error_analysis",
+          "propose_hypothesis"
+        ],
+        "ran_count": 5,
+        "failed": []
+      },
+      "hypothesis_statuses": [
+        "proposed",
+        "proposed",
+        "proposed"
+      ],
+      "final_message_head": ""
+    },
+    {
+      "condition": "delta",
+      "context_strategy": "delta",
+      "investigation_id": "e894d323b1274ec294f27ba2f8efe7cb",
+      "chain_used_for_turn2": "resp_6ae3e85dbacf120776004155",
+      "turn1_status": "ok",
+      "turn2_status": "ok",
+      "run_outcome": "incomplete_provider_response",
+      "investigation_complete": false,
+      "provider_response_statuses": [
+        "completed",
+        "completed",
+        "incomplete",
+        "incomplete",
+        "incomplete",
+        "incomplete"
+      ],
+      "incomplete_response_count": 4,
+      "incomplete_turn1": 2,
+      "incomplete_turn2": 2,
+      "provider_status_unknown_count": 0,
+      "provider_status_not_completed_count": 4,
+      "usage_incomplete_request_count": 0,
+      "summary_repair_used_turn1": 1,
+      "summary_repair_used_turn2": 1,
+      "turn1_continuation_state": {
+        "attempted": true,
+        "valid": false,
+        "response_id_source": "original"
+      },
+      "turn2_continuation_state": {
+        "attempted": true,
+        "valid": false,
+        "response_id_source": "original"
+      },
+      "turn1_returned_response_id_is_latest": false,
+      "turn2_returned_response_id_is_latest": false,
+      "chain_used_is_latest_turn1_response": false,
+      "summary_valid": false,
+      "summary_errors": [
+        "no structured summary found in the final message"
+      ],
+      "conclusion": null,
+      "tool_calls_turn1": {
+        "executed": 4,
+        "reused": 0,
+        "context_mode": "full"
+      },
+      "tool_calls_turn2": {
+        "executed": 0,
+        "reused": 0,
+        "context_mode": "delta",
+        "fallback_used": false,
+        "latency_s": 54.786,
+        "api_attempts": 2
+      },
+      "event_kinds": {
+        "status_change": 2,
+        "tool_result": 5,
+        "meta_request": 4,
+        "meta_response": 4,
+        "hypothesis": 3,
+        "tool_request": 4,
+        "summary": 4,
+        "summary_repair": 4,
+        "meta_usage": 2
+      },
+      "fallback_events": 0,
+      "actions": {
+        "ran": [
+          "calibration_and_error_analysis",
+          "propose_hypothesis"
+        ],
+        "ran_count": 4,
+        "failed": []
+      },
+      "hypothesis_statuses": [
+        "proposed",
+        "proposed",
+        "proposed"
+      ],
+      "final_message_head": "[fact] Per-fold AUC from action `1773fde26a67460ab2e6d12f462b9a48` is 2023: 0.690708, 2024: 0.680062, 2025: 0.689827, Brier 0.130634.\n[fact] Reliability bins from same action show mean_score vs fraction_positive gaps of ~+0.02 to +0.036 in low bins (n=16997, 12663) and -0.04 to -0.065 in 0.3-0.5 bins (n=2712, 559); highest bins have n<=32.\n[hypothesis] `1b5a788872da46adbfc496a115a0b698` predicted "
+    }
+  ],
+  "per_request_ledger": [
+    {
+      "run": "p1-full",
+      "turn": 1,
+      "condition": "full",
+      "chained": false,
+      "input_chars": 723,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 2501,
+        "input_tokens_details.cached_tokens": 0,
+        "output_tokens": 1695,
+        "output_tokens_details.reasoning_tokens": 1076,
+        "total_tokens": 4196
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 16.376,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p1-full",
+      "turn": 1,
+      "condition": "full",
+      "chained": true,
+      "input_chars": 1697,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 3553,
+        "input_tokens_details.cached_tokens": 2417,
+        "output_tokens": 313,
+        "output_tokens_details.reasoning_tokens": 238,
+        "total_tokens": 3866
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 17.799,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p1-full",
+      "turn": 1,
+      "condition": "full",
+      "chained": true,
+      "input_chars": 928,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "incomplete",
+      "incomplete": true,
+      "incomplete_reason": "max_output_tokens",
+      "status": "incomplete",
+      "usage": {
+        "input_tokens": 3867,
+        "input_tokens_details.cached_tokens": 0,
+        "output_tokens": 2000,
+        "output_tokens_details.reasoning_tokens": 1478,
+        "total_tokens": 5867
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 34.05,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p1-full",
+      "turn": 1,
+      "condition": "full",
+      "chained": true,
+      "input_chars": 1079,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 2690,
+        "input_tokens_details.cached_tokens": 0,
+        "output_tokens": 1038,
+        "output_tokens_details.reasoning_tokens": 712,
+        "total_tokens": 3728
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 21.168,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p1-full",
+      "turn": 2,
+      "condition": "full",
+      "chained": true,
+      "input_chars": 3482,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 5908,
+        "input_tokens_details.cached_tokens": 3441,
+        "output_tokens": 512,
+        "output_tokens_details.reasoning_tokens": 442,
+        "total_tokens": 6420
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 16.778,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p1-full",
+      "turn": 2,
+      "condition": "full",
+      "chained": true,
+      "input_chars": 1631,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "incomplete",
+      "incomplete": true,
+      "incomplete_reason": "max_output_tokens",
+      "status": "incomplete",
+      "usage": {
+        "input_tokens": 6520,
+        "input_tokens_details.cached_tokens": 3825,
+        "output_tokens": 2000,
+        "output_tokens_details.reasoning_tokens": 1998,
+        "total_tokens": 8520
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 26.248,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p1-full",
+      "turn": 2,
+      "condition": "full",
+      "chained": true,
+      "input_chars": 1079,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "incomplete",
+      "incomplete": true,
+      "incomplete_reason": "max_output_tokens",
+      "status": "incomplete",
+      "usage": {
+        "input_tokens": 4819,
+        "input_tokens_details.cached_tokens": 2673,
+        "output_tokens": 1200,
+        "output_tokens_details.reasoning_tokens": 1198,
+        "total_tokens": 6019
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 28.727,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p1-delta",
+      "turn": 1,
+      "condition": "delta",
+      "chained": false,
+      "input_chars": 723,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "incomplete",
+      "incomplete": true,
+      "incomplete_reason": "max_output_tokens",
+      "status": "incomplete",
+      "usage": {
+        "input_tokens": 2501,
+        "input_tokens_details.cached_tokens": 2417,
+        "output_tokens": 2000,
+        "output_tokens_details.reasoning_tokens": 1589,
+        "total_tokens": 4501
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 18.968,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p1-delta",
+      "turn": 1,
+      "condition": "delta",
+      "chained": true,
+      "input_chars": 967,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 783,
+        "input_tokens_details.cached_tokens": 241,
+        "output_tokens": 686,
+        "output_tokens_details.reasoning_tokens": 586,
+        "total_tokens": 1469
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 15.709,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p1-delta",
+      "turn": 2,
+      "condition": "delta",
+      "chained": true,
+      "input_chars": 479,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 2939,
+        "input_tokens_details.cached_tokens": 2417,
+        "output_tokens": 1640,
+        "output_tokens_details.reasoning_tokens": 995,
+        "total_tokens": 4579
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 30.299,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p1-delta",
+      "turn": 2,
+      "condition": "delta",
+      "chained": true,
+      "input_chars": 1667,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 4019,
+        "input_tokens_details.cached_tokens": 241,
+        "output_tokens": 690,
+        "output_tokens_details.reasoning_tokens": 624,
+        "total_tokens": 4709
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 15.252,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p1-delta",
+      "turn": 2,
+      "condition": "delta",
+      "chained": true,
+      "input_chars": 1247,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 4402,
+        "input_tokens_details.cached_tokens": 3953,
+        "output_tokens": 1304,
+        "output_tokens_details.reasoning_tokens": 1097,
+        "total_tokens": 5706
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 24.859,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p2-full",
+      "turn": 1,
+      "condition": "full",
+      "chained": false,
+      "input_chars": 723,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 2501,
+        "input_tokens_details.cached_tokens": 2417,
+        "output_tokens": 1596,
+        "output_tokens_details.reasoning_tokens": 946,
+        "total_tokens": 4097
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 13.968,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p2-full",
+      "turn": 1,
+      "condition": "full",
+      "chained": true,
+      "input_chars": 1744,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 3578,
+        "input_tokens_details.cached_tokens": 2417,
+        "output_tokens": 174,
+        "output_tokens_details.reasoning_tokens": 114,
+        "total_tokens": 3752
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 21.483,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p2-full",
+      "turn": 1,
+      "condition": "full",
+      "chained": true,
+      "input_chars": 1247,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 3955,
+        "input_tokens_details.cached_tokens": 3569,
+        "output_tokens": 1306,
+        "output_tokens_details.reasoning_tokens": 805,
+        "total_tokens": 5261
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 22.914,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p2-full",
+      "turn": 2,
+      "condition": "full",
+      "chained": true,
+      "input_chars": 3452,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 5338,
+        "input_tokens_details.cached_tokens": 3953,
+        "output_tokens": 405,
+        "output_tokens_details.reasoning_tokens": 303,
+        "total_tokens": 5743
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 13.249,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p2-full",
+      "turn": 2,
+      "condition": "full",
+      "chained": true,
+      "input_chars": 1631,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "incomplete",
+      "incomplete": true,
+      "incomplete_reason": "max_output_tokens",
+      "status": "incomplete",
+      "usage": {
+        "input_tokens": 5982,
+        "input_tokens_details.cached_tokens": 5233,
+        "output_tokens": 2000,
+        "output_tokens_details.reasoning_tokens": 1998,
+        "total_tokens": 7982
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 28.527,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p2-full",
+      "turn": 2,
+      "condition": "full",
+      "chained": true,
+      "input_chars": 1079,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "incomplete",
+      "incomplete": true,
+      "incomplete_reason": "max_output_tokens",
+      "status": "incomplete",
+      "usage": {
+        "input_tokens": 4274,
+        "input_tokens_details.cached_tokens": 497,
+        "output_tokens": 1200,
+        "output_tokens_details.reasoning_tokens": 1189,
+        "total_tokens": 5474
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 22.25,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p2-delta",
+      "turn": 1,
+      "condition": "delta",
+      "chained": false,
+      "input_chars": 723,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 2501,
+        "input_tokens_details.cached_tokens": 2417,
+        "output_tokens": 1450,
+        "output_tokens_details.reasoning_tokens": 808,
+        "total_tokens": 3951
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 12.409,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p2-delta",
+      "turn": 1,
+      "condition": "delta",
+      "chained": true,
+      "input_chars": 1705,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "completed",
+      "incomplete": false,
+      "incomplete_reason": null,
+      "status": "completed",
+      "usage": {
+        "input_tokens": 3581,
+        "input_tokens_details.cached_tokens": 2545,
+        "output_tokens": 312,
+        "output_tokens_details.reasoning_tokens": 240,
+        "total_tokens": 3893
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 10.585,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p2-delta",
+      "turn": 1,
+      "condition": "delta",
+      "chained": true,
+      "input_chars": 1631,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "incomplete",
+      "incomplete": true,
+      "incomplete_reason": "max_output_tokens",
+      "status": "incomplete",
+      "usage": {
+        "input_tokens": 4195,
+        "input_tokens_details.cached_tokens": 2417,
+        "output_tokens": 2000,
+        "output_tokens_details.reasoning_tokens": 1998,
+        "total_tokens": 6195
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 29.792,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p2-delta",
+      "turn": 1,
+      "condition": "delta",
+      "chained": true,
+      "input_chars": 1079,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "incomplete",
+      "incomplete": true,
+      "incomplete_reason": "max_output_tokens",
+      "status": "incomplete",
+      "usage": {
+        "input_tokens": 2496,
+        "input_tokens_details.cached_tokens": 497,
+        "output_tokens": 1200,
+        "output_tokens_details.reasoning_tokens": 1198,
+        "total_tokens": 3696
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 22.37,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p2-delta",
+      "turn": 2,
+      "condition": "delta",
+      "chained": true,
+      "input_chars": 3204,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "incomplete",
+      "incomplete": true,
+      "incomplete_reason": "max_output_tokens",
+      "status": "incomplete",
+      "usage": {
+        "input_tokens": 5061,
+        "input_tokens_details.cached_tokens": 4081,
+        "output_tokens": 2000,
+        "output_tokens_details.reasoning_tokens": 1790,
+        "total_tokens": 7061
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 31.704,
+      "instructions_chars": 1675
+    },
+    {
+      "run": "p2-delta",
+      "turn": 2,
+      "condition": "delta",
+      "chained": true,
+      "input_chars": 1079,
+      "ok": true,
+      "model": "muse-spark-1.3",
+      "response_status": "incomplete",
+      "incomplete": true,
+      "incomplete_reason": "max_output_tokens",
+      "status": "incomplete",
+      "usage": {
+        "input_tokens": 3570,
+        "input_tokens_details.cached_tokens": 2161,
+        "output_tokens": 1200,
+        "output_tokens_details.reasoning_tokens": 1198,
+        "total_tokens": 4770
+      },
+      "usage_missing": false,
+      "usage_missing_fields": [],
+      "attempts": 1,
+      "request_latency_s": 23.083,
+      "instructions_chars": 1675
+    }
+  ]
+}

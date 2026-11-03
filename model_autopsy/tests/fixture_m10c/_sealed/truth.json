@@ -1,0 +1,44 @@
+{
+ "c_interaction": {
+  "mechanism": "south-county high-load high-temp interaction",
+  "family": "interaction",
+  "grade": "discovered",
+  "key_tool": "regression_metrics",
+  "novel": true
+ },
+ "c_robustness": {
+  "mechanism": "m2 unit scale fault (10x)",
+  "family": "robustness",
+  "grade": "discovered",
+  "key_tool": "regression_metrics",
+  "novel": false
+ },
+ "c_saturation": {
+  "mechanism": "sensor saturation above 100",
+  "family": "calibration",
+  "grade": "discovered",
+  "key_tool": "calibration_and_error_analysis",
+  "novel": true
+ },
+ "c_combined": {
+  "mechanism": "east-county over-scoring plus base-rate shift",
+  "family": "subgroup",
+  "grade": "discovered",
+  "key_tool": "classification_metrics",
+  "novel": false
+ },
+ "c_steady": {
+  "mechanism": "none (healthy)",
+  "family": "clean",
+  "grade": "correct-null",
+  "key_tool": "none",
+  "novel": false
+ },
+ "c_thin": {
+  "mechanism": "unknown (n too small)",
+  "family": "thin",
+  "grade": "inconclusive",
+  "key_tool": "none",
+  "novel": false
+ }
+}

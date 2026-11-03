@@ -1,0 +1,28 @@
+{
+  "run": "p1-delta",
+  "campaign": "phase_d_meta_live_20261031T204311Z",
+  "started_utc": "2026-10-31T20:44:06Z",
+  "finalized_utc": "2026-10-31T20:45:30Z",
+  "status": "finalized",
+  "reason": null,
+  "outcome": {
+    "run_outcome": "completed",
+    "summary_valid": true,
+    "final_message_head": "Fact: classification_metrics on LightGBM_C shows pooled OOF ROC-AUC 0.683495, per-fold AUC 2023: 0.690708, 2024: 0.680062, 2025: 0.689827, precision 0.51497 / recall 0.012662 at 0.5, Brier 0.130634. Fact: artifact has 41221 rows, 3 folds, imbalanced labels.\n\n- Hypothesis H1 `ce133117f0214414bb6312324d7d24db` predicted near-chance pooled AUC: observed 0.683 contradicts near-chance \u2014 status demoted."
+  },
+  "artifacts": {
+    "run_start.json": "a62179a8f4355554f346616450b56a008871d1ca92114bad541b402ba48c0ffd",
+    "responses.jsonl": "cb7ea3d4b6e0ca04feb987bfe83d600f2979018a30cc3628feef971d87360888",
+    "assistant_messages.jsonl": "676ac9e4c98294bf01acb783163ec48c8e14f1a35543d68d632c08af0211da88",
+    "usage.jsonl": "d8cf2b921184f97229658539146533e2fbcc322df149ddf612d5f9c9ef3a9751",
+    "events_dump.json": "506051aac20e22e12c3877a4590909bd9833c94bf9ea629fe2fe6cd719353b42",
+    "sandbox_final.db": "e364df4e78629f00fa300797b0a401ea4b99707ac6b936c3c08232a224e79525"
+  },
+  "required_evidence_present": {
+    "responses": true,
+    "assistant_messages": true,
+    "usage": true,
+    "events_dump": true,
+    "sandbox_final.db": true
+  }
+}

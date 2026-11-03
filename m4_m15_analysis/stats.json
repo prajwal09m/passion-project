@@ -1,0 +1,80 @@
+{
+  "m4_mean": {
+    "mean": 0.945,
+    "sd": 0.133,
+    "n": 8,
+    "boot_ci95": [
+      0.85,
+      1.0
+    ]
+  },
+  "m10_mean": {
+    "mean": 0.9062,
+    "sd": 0.2652,
+    "n": 8,
+    "boot_ci95": [
+      0.7188,
+      1.0
+    ]
+  },
+  "m10_discovery_rate": {
+    "k": 5,
+    "n": 8,
+    "rate": 0.625,
+    "wilson_ci95": [
+      0.3057,
+      0.8632
+    ]
+  },
+  "live_discovery_zero_M6_M14": {
+    "k_zero": 6,
+    "n": 6,
+    "wilson_ci95_zero_rate": [
+      0.0,
+      0.3903
+    ],
+    "note": "M5 scored 0.4 under a partial-credit dimension; M6+ use strict 0.0 (no confirmed findings)"
+  },
+  "live_tokens": {
+    "mean": 33998.3,
+    "sd": 6098.2,
+    "min": 28192,
+    "max": 44181,
+    "n": 7
+  },
+  "live_cost": {
+    "mean": 0.0438,
+    "sd": 0.0121,
+    "min": 0.0308,
+    "max": 0.0584,
+    "n": 7
+  },
+  "paired_repeats_descriptive": {
+    "turbine_M5_vs_M9int": {
+      "M5": 0.55,
+      "M9int": 0.62,
+      "delta": 0.07,
+      "note": "different scorer generations; no significance claim"
+    },
+    "credit_M7_vs_M13": {
+      "M7": 0.61,
+      "M13": 0.63,
+      "delta": 0.02,
+      "note": "different scorer generations; no significance claim"
+    }
+  },
+  "multi_agent": {
+    "single": 0.688,
+    "team": 0.773,
+    "delta": 0.085,
+    "pct": 12.4,
+    "note": "n=1 scenario each (b_unit_shift M13, c_robustness M14); identical values across different scenarios; no significance testable"
+  },
+  "live_overall_trend": {
+    "slope_per_step": 0.0096,
+    "M5": 0.55,
+    "M14": 0.63,
+    "abs_gain": 0.08,
+    "note": "different projects/scorers per point; trend is descriptive, not a significance claim"
+  }
+}

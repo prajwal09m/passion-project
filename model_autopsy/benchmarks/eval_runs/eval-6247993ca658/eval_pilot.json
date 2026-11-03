@@ -1,0 +1,290 @@
+{
+  "project": "eval_pilot",
+  "investigation_id": "e66526caa8804646a9a586ff4606d5ab",
+  "report": {
+    "executive_summary": "0 supported / 2 rejected / 0 inconclusive-or-blocked from 2 experiment(s).",
+    "project_understanding": {
+      "project_id": "eval_pilot",
+      "predicting": "Small pilot readout: is there a material issue, or is more evidence required?",
+      "receives": {
+        "columns": [
+          "age",
+          "x",
+          "score",
+          "label"
+        ],
+        "note": "model inputs per observed artifact schema"
+      },
+      "produces": {
+        "target": "Binary pilot outcome",
+        "note": "model outputs per spec"
+      },
+      "success": "AUC, calibration (small n)",
+      "evaluation": "AUC, calibration (small n)",
+      "evaluation_assumptions": [
+        "reported metrics assume the supplied predictions match the described evaluation split",
+        "recomputed metrics assume label/target columns are correct"
+      ],
+      "missing": [],
+      "possible": [
+        "dataset_validation: schema/quality overview",
+        "error_analysis: predictions vs ground truth"
+      ],
+      "impossible": [
+        "temporal_analysis: no date column observed",
+        "white-box inspection: black-box availability, inputs/outputs only"
+      ],
+      "inconsistencies": [],
+      "dataset": {
+        "location": "model_autopsy/tests/fixture_eval/investigator/pilot_study.csv",
+        "readable": true,
+        "path": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\pilot_study.csv",
+        "n_rows_peek": 120,
+        "columns": [
+          "age",
+          "x",
+          "score",
+          "label"
+        ],
+        "dtypes": {
+          "age": "int64",
+          "x": "float64",
+          "score": "float64",
+          "label": "int64"
+        },
+        "null_counts": {
+          "age": 0,
+          "x": 0,
+          "score": 0,
+          "label": 0
+        },
+        "samples": [
+          {
+            "age": 26,
+            "x": 0.204,
+            "score": 0.3538,
+            "label": 0
+          },
+          {
+            "age": 78,
+            "x": 2.122,
+            "score": 0.6537,
+            "label": 1
+          },
+          {
+            "age": 22,
+            "x": -0.972,
+            "score": 0.507,
+            "label": 0
+          },
+          {
+            "age": 64,
+            "x": 0.578,
+            "score": 0.2435,
+            "label": 0
+          },
+          {
+            "age": 29,
+            "x": 0.506,
+            "score": 0.9232,
+            "label": 1
+          }
+        ],
+        "numeric_summary": {
+          "age": {
+            "mean": 47.516666666666666,
+            "std": 17.597738268222503,
+            "min": 20.0,
+            "max": 79.0
+          },
+          "x": {
+            "mean": -0.11758333333333335,
+            "std": 1.0703752548870467,
+            "min": -2.836,
+            "max": 3.596
+          },
+          "score": {
+            "mean": 0.457955,
+            "std": 0.23544832359571732,
+            "min": 0.01,
+            "max": 0.99
+          },
+          "label": {
+            "mean": 0.4083333333333333,
+            "std": 0.4935863156332357,
+            "min": 0.0,
+            "max": 1.0
+          }
+        }
+      },
+      "model": {
+        "name": "pilot-lr",
+        "framework": "sklearn",
+        "availability": "black_box",
+        "training_config": {}
+      },
+      "docs": {},
+      "provenance": {
+        "built_by": "recon.build_understanding",
+        "artifact": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\pilot_study.csv"
+      }
+    },
+    "confirmed_findings": [],
+    "rejected_hypotheses": [
+      {
+        "hypothesis_id": "bf2f9502c069",
+        "title": "Proxy feature leaks the label"
+      },
+      {
+        "hypothesis_id": "16a65b9f9003",
+        "title": "Subgroup underperformance hidden by pooled metric"
+      }
+    ],
+    "inconclusive": [],
+    "open_hypotheses": [
+      {
+        "hypothesis_id": "7ed9ee811f3b",
+        "title": "No material issue (null hypothesis)",
+        "status": "proposed"
+      }
+    ],
+    "experiments": [
+      {
+        "experiment_id": "d9fb15d3f2eb",
+        "hypothesis_id": "bf2f9502c069",
+        "tool": "feature_target_suspiciousness",
+        "status": "ran",
+        "breach": false,
+        "summary": "top feature x |r|=0.212 (gap 0.167)",
+        "numbers": {
+          "n": 120,
+          "top_feature": "x",
+          "top_corr": 0.2118,
+          "gap": 0.1666
+        }
+      },
+      {
+        "experiment_id": "8fa132b19c4a",
+        "hypothesis_id": "16a65b9f9003",
+        "tool": "classification_metrics",
+        "status": "ran",
+        "breach": false,
+        "summary": "AUC=0.895 via score",
+        "numbers": {
+          "n": 120,
+          "auc": 0.8951,
+          "group_gap": 0.0
+        }
+      }
+    ],
+    "verification": [
+      {
+        "hypothesis_id": "bf2f9502c069",
+        "claim": "Proxy feature leaks the label",
+        "verdict": "upheld",
+        "checks": [
+          {
+            "check": "sample_size_sufficient",
+            "pass": true,
+            "detail": "n=120; <30 is insufficient for a finding"
+          },
+          {
+            "check": "methodology_appropriate",
+            "pass": true,
+            "detail": "method=feature_target_suspiciousness"
+          },
+          {
+            "check": "evidence_linked",
+            "pass": true,
+            "detail": "1 evidence result(s)"
+          },
+          {
+            "check": "no_leak_in_diagnostic",
+            "pass": true,
+            "detail": "diagnostic is read-only recomputation; no leakage signal"
+          },
+          {
+            "check": "numbers_reproducible",
+            "pass": true,
+            "detail": "4 numeric value(s) with seeds"
+          }
+        ],
+        "disagreement": null,
+        "disproof_wanted": "all |correlations| modest (<0.4) or top feature is a legitimate driver"
+      },
+      {
+        "hypothesis_id": "16a65b9f9003",
+        "claim": "Subgroup underperformance hidden by pooled metric",
+        "verdict": "upheld",
+        "checks": [
+          {
+            "check": "sample_size_sufficient",
+            "pass": true,
+            "detail": "n=120; <30 is insufficient for a finding"
+          },
+          {
+            "check": "methodology_appropriate",
+            "pass": true,
+            "detail": "method=classification_metrics"
+          },
+          {
+            "check": "evidence_linked",
+            "pass": true,
+            "detail": "1 evidence result(s)"
+          },
+          {
+            "check": "no_leak_in_diagnostic",
+            "pass": true,
+            "detail": "diagnostic is read-only recomputation; no leakage signal"
+          },
+          {
+            "check": "numbers_reproducible",
+            "pass": true,
+            "detail": "3 numeric value(s) with seeds"
+          }
+        ],
+        "disagreement": null,
+        "disproof_wanted": "segment AUCs within 0.03 of each other"
+      }
+    ],
+    "limitations": [
+      "offline deterministic triage; LLM reasoning quality covered by prior frozen live campaigns, not here",
+      "single scenario per task family in this suite slice",
+      "heuristic prioritization is not Bayesian information gain"
+    ],
+    "reproducibility": {
+      "seeds": "fixed per diagnostic",
+      "artifacts": "committed CSV fixtures",
+      "runner": "lab.run_autonomous_investigation"
+    },
+    "recommendations": [
+      "re-run breached diagnostics on fresh splits before acting",
+      "add a reusable diagnostic module for any candidate novel mechanism before treating it as a finding type"
+    ]
+  },
+  "scorecard": {
+    "project": "eval_pilot",
+    "verdict": "inconclusive",
+    "note": "correctly inconclusive at n=120: no finding fabricated from weak hints",
+    "false_positive": false,
+    "dimensions": {
+      "discovery": 1.0,
+      "evidence": 1.0,
+      "reasoning": 0.6,
+      "calibration": 1.0,
+      "efficiency": 1.0,
+      "reproducibility": 1.0
+    },
+    "weights": {
+      "discovery": 0.3,
+      "evidence": 0.25,
+      "reasoning": 0.15,
+      "calibration": 0.15,
+      "efficiency": 0.05,
+      "reproducibility": 0.1
+    },
+    "overall": 0.94,
+    "assessment": "deterministic + heuristic; LLM/human reserved"
+  },
+  "elapsed_s": 0.75
+}

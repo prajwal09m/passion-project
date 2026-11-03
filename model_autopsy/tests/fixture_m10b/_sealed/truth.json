@@ -1,0 +1,38 @@
+{
+ "b_region_gap": {
+  "mechanism": "gamma-region degradation",
+  "family": "subgroup",
+  "grade": "discovered",
+  "key_tool": "classification_metrics"
+ },
+ "b_score_inflate": {
+  "mechanism": "systematic over-scoring",
+  "family": "calibration",
+  "grade": "discovered",
+  "key_tool": "calibration_and_error_analysis"
+ },
+ "b_gradual_drift": {
+  "mechanism": "gradual slope drift (lagging predictions)",
+  "family": "drift",
+  "grade": "partial",
+  "key_tool": "residual_time_analysis"
+ },
+ "b_unit_shift": {
+  "mechanism": "south-zone unit inconsistency",
+  "family": "subgroup",
+  "grade": "discovered",
+  "key_tool": "regression_metrics"
+ },
+ "b_steady": {
+  "mechanism": "none (healthy)",
+  "family": "clean",
+  "grade": "correct-null",
+  "key_tool": "none"
+ },
+ "b_thin": {
+  "mechanism": "unknown (n too small)",
+  "family": "thin",
+  "grade": "inconclusive",
+  "key_tool": "none"
+ }
+}

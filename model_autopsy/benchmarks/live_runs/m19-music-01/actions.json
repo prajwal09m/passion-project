@@ -1,0 +1,251 @@
+[
+  {
+    "id": "366630837c3f426d9f80f4e36035d523",
+    "seq": 6,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, low confidence before seeing slice metrics.",
+      "predicted_observation": "ranking_slice_diagnostics shows similar P@K across slices and slice_gap_significance p >> 0.05.",
+      "rationale": "Model is black-box LightGBM ranker; if training covered all slices, top-K relevance may generalize and pooled precision would reflect each slice.",
+      "text": "Top-K relevance is uniform across catalog slices; any observed slice differences are sampling noise, not systematic failure."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "hypothesis_id": "faadf18d1c7941ca86bae3b1e2e4d2d0",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Top-K relevance is uniform across catalog slices; any observed slice differences are sampling noise, not systematic failure."
+    },
+    "error": null
+  },
+  {
+    "id": "0748604b7d4947b698ec421e5ccb186f",
+    "seq": 9,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, moderate suspicion given 'new' slice often underperforms.",
+      "predicted_observation": "ranking_slice_diagnostics shows substantially lower P@K for one slice (e.g., new items) and slice_gap_significance p < 0.05.",
+      "rationale": "Sample rows show 'new' slice examples with low relevance; cold-start / popularity bias could make ranker demote or misrank new catalog content.",
+      "text": "Ranker systematically underperforms on new-item slice due to cold-start / feature sparsity, yielding lower precision@K than established slices."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "hypothesis_id": "cb48c582b1af44abba72a16bfe9a75da",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Ranker systematically underperforms on new-item slice due to cold-start / feature sparsity, yielding lower precision@K than established slices."
+    },
+    "error": null
+  },
+  {
+    "id": "dc0c9c1c52fe43a3b71c79d3edfa5d9a",
+    "seq": 12,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, low-moderate confidence; hygiene alternative to model-bias story.",
+      "predicted_observation": "segment_quality_screen / data_quality_profile shows high null/dup or tiny N in lagging slice, while per-slice relevance base rates differ sharply.",
+      "rationale": "Apparent slice gaps can arise from evaluation artifacts: differing base relevance rates, small slice N, or missing scores rather than ranking failure.",
+      "text": "Observed slice P@K gaps are artifacts of evaluation hygiene \u2014 differing base relevance rates, small-N slices, or missing/duplicate records \u2014 not true ranking quality differences."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "hypothesis_id": "8a1be6f82da1418093559c5ae4d3ee74",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Observed slice P@K gaps are artifacts of evaluation hygiene \u2014 differing base relevance rates, small-N slices, or missing/duplicate records \u2014 not true ranking quality differences."
+    },
+    "error": null
+  },
+  {
+    "id": "0b72e77fc76b448b989e19a9dee61979",
+    "seq": 18,
+    "kind": "tool_call",
+    "tool": "ranking_slice_diagnostics",
+    "status": "ran",
+    "arguments": {
+      "k_frac": 0.1,
+      "labels": "relevance",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+      "score_column": "score",
+      "slice_column": "slice"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\music_rank.csv",
+      "label_column": "relevance",
+      "score_column": "score",
+      "slice_column": "slice",
+      "k_frac": 0.1,
+      "per_slice": {
+        "est": {
+          "n": 1168,
+          "k": 117,
+          "precision_at_k": 1.0,
+          "base_rate": 0.506
+        },
+        "new": {
+          "n": 592,
+          "k": 59,
+          "precision_at_k": 0.8305,
+          "base_rate": 0.098
+        }
+      },
+      "pooled_precision_at_k": 0.9432,
+      "max_slice_gap": 0.1695,
+      "method_version": "ranking-slice-v1",
+      "limits": "observational ranking gap, not a causal finding; thin slices inconclusive"
+    },
+    "error": null
+  },
+  {
+    "id": "03b7952bbccc4f6aaaf829b234d668d6",
+    "seq": 29,
+    "kind": "tool_call",
+    "tool": "classification_metrics",
+    "status": "ran",
+    "arguments": {
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+      "score_column": "score",
+      "split_by": "slice",
+      "labels": "relevance"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\music_rank.csv",
+      "score_column": "score",
+      "n": 1760,
+      "roc_auc": 0.977169,
+      "brier": 0.117965,
+      "brier_convention": "lower is better; probability of positive class",
+      "precision_at_threshold": 0.715884,
+      "recall_at_threshold": 0.986133,
+      "threshold": 0.5,
+      "per_split_auc": {
+        "est": 0.974269,
+        "new": 0.981838
+      }
+    },
+    "error": null
+  },
+  {
+    "id": "cf0436799e724dd9bc31cde362d26563",
+    "seq": 39,
+    "kind": "tool_call",
+    "tool": "ranking_slice_diagnostics",
+    "status": "ran",
+    "arguments": {
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+      "slice_column": "slice",
+      "labels": "relevance"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\music_rank.csv",
+      "label_column": "relevance",
+      "score_column": "score",
+      "slice_column": "slice",
+      "k_frac": 0.1,
+      "per_slice": {
+        "est": {
+          "n": 1168,
+          "k": 117,
+          "precision_at_k": 1.0,
+          "base_rate": 0.506
+        },
+        "new": {
+          "n": 592,
+          "k": 59,
+          "precision_at_k": 0.8305,
+          "base_rate": 0.098
+        }
+      },
+      "pooled_precision_at_k": 0.9432,
+      "max_slice_gap": 0.1695,
+      "method_version": "ranking-slice-v1",
+      "limits": "observational ranking gap, not a causal finding; thin slices inconclusive"
+    },
+    "error": null
+  },
+  {
+    "id": "f6888bf341634850a4c177cb58947fc3",
+    "seq": 51,
+    "kind": "tool_call",
+    "tool": "regression_metrics",
+    "status": "ran",
+    "arguments": {
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+      "group_column": "slice",
+      "target_column": "relevance",
+      "prediction_column": "score"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\music_rank.csv",
+      "n": 1760,
+      "mae": 0.276076,
+      "mse": 0.117965,
+      "rmse": 0.343461,
+      "r2": 0.493219,
+      "bias_mean_residual": -0.176765,
+      "residual_std": 0.294482,
+      "heteroscedasticity_hint": -0.870548,
+      "outliers_abs_z_gt_3": 1,
+      "mae_by_group": {
+        "est": 0.250039,
+        "new": 0.327448
+      }
+    },
+    "error": null
+  },
+  {
+    "id": "b289c61c68d74410ad4dfd0f6a4f6f6b",
+    "seq": 69,
+    "kind": "tool_call",
+    "tool": "slice_gap_significance",
+    "status": "ran",
+    "arguments": {
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+      "slice_column": "slice",
+      "score_column": "score",
+      "labels": "relevance",
+      "k_frac": 0.1,
+      "n_perm": 2000,
+      "seed": 7
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\music_rank.csv",
+      "label_column": "relevance",
+      "score_column": "score",
+      "slice_column": "slice",
+      "k_frac": 0.1,
+      "per_slice_n": {
+        "est": 1168,
+        "new": 592
+      },
+      "gap": 0.1695,
+      "n_perm": 2000,
+      "seed": 7,
+      "p_value": 0.0005,
+      "testable": true,
+      "significant": true,
+      "method_version": "slice-gap-perm-v1",
+      "limits": "permutation null = exchangeable slice labels; tests gap-is-real vs gap-is-noise, not the causal mechanism behind a real gap"
+    },
+    "error": null
+  }
+]

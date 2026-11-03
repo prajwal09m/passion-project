@@ -1,0 +1,66 @@
+{
+  "run_id": "eval-6247993ca658",
+  "eval_version": "m4-v1",
+  "investigator_version": "lab-deterministic-v1",
+  "max_experiments": 4,
+  "results": [
+    {
+      "project": "eval_credit",
+      "verdict": "correct",
+      "overall": 1.0,
+      "elapsed_s": 3.47
+    },
+    {
+      "project": "eval_rent",
+      "verdict": "correct",
+      "overall": 1.0,
+      "elapsed_s": 0.6
+    },
+    {
+      "project": "eval_turbine",
+      "verdict": "correct",
+      "overall": 1.0,
+      "elapsed_s": 0.63
+    },
+    {
+      "project": "eval_docs",
+      "verdict": "correct",
+      "overall": 1.0,
+      "elapsed_s": 2.29
+    },
+    {
+      "project": "eval_music",
+      "verdict": "correct",
+      "overall": 1.0,
+      "elapsed_s": 0.68
+    },
+    {
+      "project": "eval_claim",
+      "verdict": "partial",
+      "overall": 0.62,
+      "elapsed_s": 0.64
+    },
+    {
+      "project": "eval_wellness",
+      "verdict": "correct-null",
+      "overall": 1.0,
+      "elapsed_s": 0.62
+    },
+    {
+      "project": "eval_pilot",
+      "verdict": "inconclusive",
+      "overall": 0.94,
+      "elapsed_s": 0.75
+    }
+  ],
+  "aggregate": {
+    "n": 8,
+    "mean_overall": 0.945,
+    "verdicts": {
+      "partial": 1,
+      "inconclusive": 1,
+      "correct": 5,
+      "correct-null": 1
+    }
+  }
+}

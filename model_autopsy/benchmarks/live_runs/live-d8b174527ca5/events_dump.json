@@ -1,0 +1,1218 @@
+[
+  {
+    "seq": 1,
+    "kind": "status_change",
+    "title": "Investigation created",
+    "detail": "mode=ml; max_iterations=3; max_tool_calls=12",
+    "payload": {},
+    "created_at": "2026-11-01 19:32:07"
+  },
+  {
+    "seq": 2,
+    "kind": "tool_result",
+    "title": "Live recon context prepared (neutral brief + schema)",
+    "detail": null,
+    "payload": {
+      "columns": [
+        "age",
+        "income",
+        "tenure",
+        "region",
+        "delinq",
+        "score",
+        "label"
+      ],
+      "tools": [
+        "artifact_summary",
+        "calibration_and_error_analysis",
+        "calibration_snapshot",
+        "classification_metrics",
+        "clustering_stability",
+        "data_quality_profile",
+        "dataset_validation",
+        "distribution_shift_profile",
+        "feature_target_suspiciousness",
+        "forecast_diagnostics",
+        "grouped_auc_comparison",
+        "propose_hypothesis",
+        "regression_metrics",
+        "residual_feature_dependence",
+        "residual_time_analysis",
+        "segment_quality_screen",
+        "temporal_changepoint_scan",
+        "time_split_validation"
+      ]
+    },
+    "created_at": "2026-11-01 19:32:07"
+  },
+  {
+    "seq": 3,
+    "kind": "selection",
+    "title": "Selection brief: top=artifact_summary",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "artifact_summary",
+        "data_quality_profile",
+        "dataset_validation"
+      ],
+      "open": []
+    },
+    "created_at": "2026-11-01 19:32:07"
+  },
+  {
+    "seq": 4,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "full"
+    },
+    "created_at": "2026-11-01 19:32:11"
+  },
+  {
+    "seq": 4,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Uneven regional scores flagged \u2014 I'll test competing explanations to isolate the fault.",
+    "payload": {
+      "response_id": "resp_6ae793bb1d29b1f039ff41b4",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 4795,
+        "input_tokens_details.cached_tokens": 0,
+        "output_tokens": 419,
+        "output_tokens_details.reasoning_tokens": 210,
+        "total_tokens": 5214
+      },
+      "text": "Uneven regional scores flagged \u2014 I'll test competing explanations to isolate the fault."
+    },
+    "created_at": "2026-11-01 19:32:11"
+  },
+  {
+    "seq": 5,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Model discrimination/calibration fails in one specific region (e.g., lower AUC or systematic under/over-prediction) while other regions perf",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "a33cbb7b402a4290aceb50ea229b43d6",
+      "source": "meta",
+      "predicted_observation": "Per-region AUC/calibration shows one region with markedly lower AUC and/or systematic miscalibration vs others.",
+      "confidence_note": "Uncalibrated prior ~0.4, not evidence of truth."
+    },
+    "created_at": "2026-11-01 19:32:11"
+  },
+  {
+    "seq": 6,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior ~0.4, not evidence of truth.",
+        "predicted_observation": "Per-region AUC/calibration shows one region with markedly lower AUC and/or systematic miscalibration vs others.",
+        "rationale": "Requester reports uneven scores across regions; black-box GBM may have learned region-correlated patterns poorly, plausible regional discrimination/calibration failure.",
+        "text": "Model discrimination/calibration fails in one specific region (e.g., lower AUC or systematic under/over-prediction) while other regions perform adequately."
+      },
+      "action_seq": 6
+    },
+    "created_at": "2026-11-01 19:32:11"
+  },
+  {
+    "seq": 7,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\\\", 1793500694868039900, 36344]]]\", \"ok\": true, \"hypothesis_id\": \"a33cbb7b402a4290aceb50ea229b43d6\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Model discrimination/calibration fails in one specific region (e.g., l",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+        "ok": true,
+        "hypothesis_id": "a33cbb7b402a4290aceb50ea229b43d6",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Model discrimination/calibration fails in one specific region (e.g., lower AUC or systematic under/over-prediction) while other regions perform adequately."
+      },
+      "action_seq": 6
+    },
+    "created_at": "2026-11-01 19:32:11"
+  },
+  {
+    "seq": 8,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "full"
+    },
+    "created_at": "2026-11-01 19:32:23"
+  },
+  {
+    "seq": 8,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "First theory logged \u2014 adding rival explanations before testing.",
+    "payload": {
+      "response_id": "resp_6ae793c02be077f1ca9a4b17",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 5147,
+        "input_tokens_details.cached_tokens": 0,
+        "output_tokens": 220,
+        "output_tokens_details.reasoning_tokens": 13,
+        "total_tokens": 5367
+      },
+      "text": "First theory logged \u2014 adding rival explanations before testing."
+    },
+    "created_at": "2026-11-01 19:32:23"
+  },
+  {
+    "seq": 9,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Apparent regional unevenness is driven by data artifacts: differing default base rates, missingness, or feature distribution shift across re",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "48c93f36f53b4c2189c6b60939c6d0dc",
+      "source": "meta",
+      "predicted_observation": "Data quality screen shows region-correlated missingness/duplicates or distribution shift in label rate/features explaining apparent unevenness without model fault.",
+      "confidence_note": "Uncalibrated prior ~0.3, not evidence."
+    },
+    "created_at": "2026-11-01 19:32:23"
+  },
+  {
+    "seq": 10,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior ~0.3, not evidence.",
+        "predicted_observation": "Data quality screen shows region-correlated missingness/duplicates or distribution shift in label rate/features explaining apparent unevenness without model fault.",
+        "rationale": "Uneven scores could reflect different base rates or data hygiene per region rather than model discrimination failure; need to rule out artifact.",
+        "text": "Apparent regional unevenness is driven by data artifacts: differing default base rates, missingness, or feature distribution shift across regions, not model miscalibration."
+      },
+      "action_seq": 10
+    },
+    "created_at": "2026-11-01 19:32:23"
+  },
+  {
+    "seq": 11,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\\\", 1793500694868039900, 36344]]]\", \"ok\": true, \"hypothesis_id\": \"48c93f36f53b4c2189c6b60939c6d0dc\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Apparent regional unevenness is driven by data artifacts: differing de",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+        "ok": true,
+        "hypothesis_id": "48c93f36f53b4c2189c6b60939c6d0dc",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Apparent regional unevenness is driven by data artifacts: differing default base rates, missingness, or feature distribution shift across regions, not model miscalibration."
+      },
+      "action_seq": 10
+    },
+    "created_at": "2026-11-01 19:32:23"
+  },
+  {
+    "seq": 12,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "First theory logged \u2014 adding rival explanations before testing.",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 19:32:23"
+  },
+  {
+    "seq": 13,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 19:32:30"
+  },
+  {
+    "seq": 13,
+    "kind": "summary",
+    "title": "Structured summary parsed: valid",
+    "detail": "{\"conclusion\": \"No discriminating diagnostics recorded; cause UNRESOLVED\", \"status_recommendations\": [{\"basis\": \"Only propose actions 85c3860d28f04bfbba556fa17340254e and cd38f97e53c843a399c3e5c3ad502e30 recorded; no diagnostic evidence\", \"hypothesis_id\": \"48c93f36f53b4c2189c6b60939c6d0dc\", \"status\": \"inconclusive\"}, {\"basis\": \"Only propose actions 85c3860d28f04bfbba556fa17340254e and cd38f97e53c843a399c3e5c3ad502e30 recorded; no diagnostic evidence\", \"hypothesis_id\": \"a33cbb7b402a4290aceb50ea229b43d6\", \"status\": \"inconclusive\"}], \"uncertainties\": [\"No per-region AUC/calibration results record",
+    "payload": {
+      "valid": true,
+      "errors": [],
+      "raw_block": "{\"conclusion\": \"No discriminating diagnostics recorded; cause UNRESOLVED\", \"status_recommendations\": [{\"basis\": \"Only propose actions 85c3860d28f04bfbba556fa17340254e and cd38f97e53c843a399c3e5c3ad502e30 recorded; no diagnostic evidence\", \"hypothesis_id\": \"48c93f36f53b4c2189c6b60939c6d0dc\", \"status\": \"inconclusive\"}, {\"basis\": \"Only propose actions 85c3860d28f04bfbba556fa17340254e and cd38f97e53c843a399c3e5c3ad502e30 recorded; no diagnostic evidence\", \"hypothesis_id\": \"a33cbb7b402a4290aceb50ea229b43d6\", \"status\": \"inconclusive\"}], \"uncertainties\": [\"No per-region AUC/calibration results recorded\", \"No data artifact or missingness screen recorded\"], \"recommended_next\": \"Run top selection_brief discriminating diagnostic for regional performance vs data artifacts\"}"
+    },
+    "created_at": "2026-11-01 19:32:30"
+  },
+  {
+    "seq": 14,
+    "kind": "summary_repair",
+    "title": "Summary repair produced a valid structured summary",
+    "detail": null,
+    "payload": {
+      "valid": true,
+      "continuation": "repair"
+    },
+    "created_at": "2026-11-01 19:32:30"
+  },
+  {
+    "seq": 14,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 3,
+      "api_attempts": 3,
+      "latency_s": 22.232,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "repair",
+      "context_mode": "full",
+      "fallback_used": false,
+      "tool_calls_executed": 2,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 11056,
+        "input_tokens_details.cached_tokens": 0,
+        "output_tokens": 1812,
+        "output_tokens_details.reasoning_tokens": 1157,
+        "total_tokens": 12868
+      },
+      "fallback_composed": false
+    },
+    "created_at": "2026-11-01 19:32:30"
+  },
+  {
+    "seq": 14,
+    "kind": "selection",
+    "title": "Adherence: n/a (no diagnostics requested this turn)",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "artifact_summary",
+        "data_quality_profile",
+        "dataset_validation"
+      ],
+      "executed_diagnostics": [],
+      "followed": null
+    },
+    "created_at": "2026-11-01 19:32:30"
+  },
+  {
+    "seq": 15,
+    "kind": "selection",
+    "title": "Selection brief: top=calibration_and_error_analysis",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "calibration_and_error_analysis",
+        "distribution_shift_profile",
+        "forecast_diagnostics"
+      ],
+      "open": [
+        "a33cbb7b402a4290aceb50ea229b43d6",
+        "48c93f36f53b4c2189c6b60939c6d0dc"
+      ]
+    },
+    "created_at": "2026-11-01 19:32:30"
+  },
+  {
+    "seq": 16,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "delta"
+    },
+    "created_at": "2026-11-01 19:32:47"
+  },
+  {
+    "seq": 16,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Uneven card-default scores across regions \u2014 I'll test whether it's real model failure or data artifact.",
+    "payload": {
+      "response_id": "resp_6ae793d7a039109c1fb04fda",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 5868,
+        "input_tokens_details.cached_tokens": 3953,
+        "output_tokens": 255,
+        "output_tokens_details.reasoning_tokens": 186,
+        "total_tokens": 6123
+      },
+      "text": "Uneven card-default scores across regions \u2014 I'll test whether it's real model failure or data artifact."
+    },
+    "created_at": "2026-11-01 19:32:47"
+  },
+  {
+    "seq": 16,
+    "kind": "tool_request",
+    "title": "Requested calibration_and_error_analysis",
+    "detail": null,
+    "payload": {
+      "tool": "calibration_and_error_analysis",
+      "arguments": {},
+      "action_seq": 16
+    },
+    "created_at": "2026-11-01 19:32:47"
+  },
+  {
+    "seq": 17,
+    "kind": "tool_result",
+    "title": "tool:calibration_and_error_analysis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\\\", 1793500694868039900, 36344]]]\", \"ok\": true, \"source\": \"C:\\\\Prajwal MIT\\\\Passion\\\\study_files\\\\outputs\\\\study_v1\\\\development\\\\oof_predictions.csv\", \"score_column\": \"LightGBM_C\", \"brier\": 0.130634, \"reliability_bins\": [{\"bin_low\": 0.0, \"bin_high\": 0.1, \"n\": 16997, \"mean_score\": 0.055127,",
+    "payload": {
+      "tool": "calibration_and_error_analysis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+        "ok": true,
+        "source": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+        "score_column": "LightGBM_C",
+        "brier": 0.130634,
+        "reliability_bins": [
+          {
+            "bin_low": 0.0,
+            "bin_high": 0.1,
+            "n": 16997,
+            "mean_score": 0.055127,
+            "fraction_positive": 0.07566
+          },
+          {
+            "bin_low": 0.1,
+            "bin_high": 0.2,
+            "n": 12663,
+            "mean_score": 0.146642,
+            "fraction_positive": 0.182895
+          },
+          {
+            "bin_low": 0.2,
+            "bin_high": 0.3,
+            "n": 8123,
+            "mean_score": 0.244358,
+            "fraction_positive": 0.256802
+          },
+          {
+            "bin_low": 0.3,
+            "bin_high": 0.4,
+            "n": 2712,
+            "mean_score": 0.338636,
+            "fraction_positive": 0.298304
+          },
+          {
+            "bin_low": 0.4,
+            "bin_high": 0.5,
+            "n": 559,
+            "mean_score": 0.43966,
+            "fraction_positive": 0.373882
+          },
+          {
+            "bin_low": 0.5,
+            "bin_high": 0.6,
+            "n": 130,
+            "mean_score": 0.539683,
+            "fraction_positive": 0.507692
+          },
+          {
+            "bin_low": 0.6,
+            "bin_high": 0.7,
+            "n": 32,
+            "mean_score": 0.634944,
+            "fraction_positive": 0.53125
+          },
+          {
+            "bin_low": 0.7,
+            "bin_high": 0.8,
+            "n": 5,
+            "mean_score": 0.733361,
+            "fraction_positive": 0.6
+          }
+        ],
+        "per_fold_auc": {
+          "2023": 0.690708,
+          "2024": 0.680062,
+          "2025": 0.689827
+        }
+      },
+      "action_seq": 16
+    },
+    "created_at": "2026-11-01 19:32:47"
+  },
+  {
+    "seq": 18,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "delta"
+    },
+    "created_at": "2026-11-01 19:33:07"
+  },
+  {
+    "seq": 18,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "Overall calibration looks stable, but that doesn't separate regional effects \u2014 checking the data layout to target the next regional test.",
+    "payload": {
+      "response_id": "resp_6ae793e9dd92359521b245be",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 6439,
+        "input_tokens_details.cached_tokens": 3953,
+        "output_tokens": 1138,
+        "output_tokens_details.reasoning_tokens": 1069,
+        "total_tokens": 7577
+      },
+      "text": "Overall calibration looks stable, but that doesn't separate regional effects \u2014 checking the data layout to target the next regional test."
+    },
+    "created_at": "2026-11-01 19:33:07"
+  },
+  {
+    "seq": 18,
+    "kind": "tool_request",
+    "title": "Requested artifact_summary",
+    "detail": null,
+    "payload": {
+      "tool": "artifact_summary",
+      "arguments": {},
+      "action_seq": 18
+    },
+    "created_at": "2026-11-01 19:33:07"
+  },
+  {
+    "seq": 19,
+    "kind": "tool_result",
+    "title": "tool:artifact_summary (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\\\", 1793500694868039900, 36344]]]\", \"ok\": true, \"path\": \"C:\\\\Prajwal MIT\\\\Passion\\\\study_files\\\\outputs\\\\study_v1\\\\development\\\\oof_predictions.csv\", \"filename\": \"oof_predictions.csv\", \"n_rows\": 41221, \"n_columns\": 17, \"columns\": [\"ticker\", \"date\", \"event_id\", \"label\", \"hold1_ret\", \"entry_d",
+    "payload": {
+      "tool": "artifact_summary",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+        "ok": true,
+        "path": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv",
+        "filename": "oof_predictions.csv",
+        "n_rows": 41221,
+        "n_columns": 17,
+        "columns": [
+          "ticker",
+          "date",
+          "event_id",
+          "label",
+          "hold1_ret",
+          "entry_date",
+          "exit_date",
+          "fold",
+          "fold_validation_key",
+          "LogisticRegression_A",
+          "LightGBM_A",
+          "LogisticRegression_B",
+          "LightGBM_B",
+          "LogisticRegression_C",
+          "LightGBM_C",
+          "LogisticRegression_D",
+          "LightGBM_D"
+        ],
+        "label_counts": {
+          "0": 34429,
+          "1": 6792
+        },
+        "unique_labels": 2,
+        "n_folds": 3,
+        "folds_present": [
+          2023,
+          2024,
+          2025
+        ],
+        "not_a_model_column": [
+          "ticker",
+          "date",
+          "event_id",
+          "label",
+          "hold1_ret",
+          "entry_date",
+          "exit_date",
+          "fold",
+          "fold_validation_key"
+        ]
+      },
+      "action_seq": 18
+    },
+    "created_at": "2026-11-01 19:33:07"
+  },
+  {
+    "seq": 20,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "Overall calibration looks stable, but that doesn't separate regional effects \u2014 checking the data layout to target the next regional test.",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 19:33:07"
+  },
+  {
+    "seq": 21,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 19:33:13"
+  },
+  {
+    "seq": 21,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 19:33:13"
+  },
+  {
+    "seq": 22,
+    "kind": "summary_repair",
+    "title": "Summary repair still invalid \u2014 original verdict stands",
+    "detail": null,
+    "payload": {
+      "valid": false,
+      "continuation": "original",
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 19:33:13"
+  },
+  {
+    "seq": 22,
+    "kind": "fallback",
+    "title": "Deterministic fallback composed from records",
+    "detail": null,
+    "payload": {
+      "fallback_version": "m8-fallback-v1"
+    },
+    "created_at": "2026-11-01 19:33:13"
+  },
+  {
+    "seq": 22,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 3,
+      "api_attempts": 3,
+      "latency_s": 43.172,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "delta",
+      "fallback_used": false,
+      "tool_calls_executed": 2,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 13664,
+        "input_tokens_details.cached_tokens": 8403,
+        "output_tokens": 2593,
+        "output_tokens_details.reasoning_tokens": 2453,
+        "total_tokens": 16257
+      },
+      "fallback_composed": true
+    },
+    "created_at": "2026-11-01 19:33:13"
+  },
+  {
+    "seq": 22,
+    "kind": "selection",
+    "title": "Adherence: followed (chose=calibration_and_error_analysis, recommended=calibration_and_error_analysis)",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "calibration_and_error_analysis",
+        "distribution_shift_profile",
+        "forecast_diagnostics"
+      ],
+      "executed_diagnostics": [
+        "calibration_and_error_analysis",
+        "artifact_summary"
+      ],
+      "followed": true
+    },
+    "created_at": "2026-11-01 19:33:13"
+  },
+  {
+    "seq": 23,
+    "kind": "selection",
+    "title": "Selection brief: top=distribution_shift_profile",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "distribution_shift_profile",
+        "forecast_diagnostics",
+        "residual_time_analysis"
+      ],
+      "open": [
+        "a33cbb7b402a4290aceb50ea229b43d6",
+        "48c93f36f53b4c2189c6b60939c6d0dc"
+      ]
+    },
+    "created_at": "2026-11-01 19:33:13"
+  },
+  {
+    "seq": 24,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "delta"
+    },
+    "created_at": "2026-11-01 19:33:16"
+  },
+  {
+    "seq": 24,
+    "kind": "meta_request",
+    "title": "Continuation state refused \u2014 one full-context fallback",
+    "detail": "HTTP 400: {\"error\":{\"code\":null,\"message\":\"No tool output found for function call call_a71a77c0-aacf-401f-9fb8-683b0e1bf327.\",\"param\":null,\"type\":\"invalid_request_error\"}}",
+    "payload": {},
+    "created_at": "2026-11-01 19:33:16"
+  },
+  {
+    "seq": 25,
+    "kind": "tool_request",
+    "title": "Requested classification_metrics",
+    "detail": null,
+    "payload": {
+      "tool": "classification_metrics",
+      "arguments": {
+        "label_column": "label",
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/credit_default.csv",
+        "score_column": "score",
+        "split_by": "region"
+      },
+      "action_seq": 25
+    },
+    "created_at": "2026-11-01 19:33:21"
+  },
+  {
+    "seq": 26,
+    "kind": "tool_result",
+    "title": "tool:classification_metrics (failed)",
+    "detail": "classification_metrics: unknown parameter(s) ['label_column']; accepted parameters are ['labels', 'predictions_path', 'score_column', 'split_by', 'threshold']",
+    "payload": {
+      "tool": "classification_metrics",
+      "status": "failed",
+      "result": {},
+      "action_seq": 25
+    },
+    "created_at": "2026-11-01 19:33:21"
+  },
+  {
+    "seq": 27,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "delta_fallback"
+    },
+    "created_at": "2026-11-01 19:33:33"
+  },
+  {
+    "seq": 27,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "That regional comparison didn't run \u2014 I'll inspect the artifact itself to fix the inputs.",
+    "payload": {
+      "response_id": "resp_6ae7940891fc44564faf407b",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 5445,
+        "input_tokens_details.cached_tokens": 5233,
+        "output_tokens": 708,
+        "output_tokens_details.reasoning_tokens": 603,
+        "total_tokens": 6153
+      },
+      "text": "That regional comparison didn't run \u2014 I'll inspect the artifact itself to fix the inputs."
+    },
+    "created_at": "2026-11-01 19:33:33"
+  },
+  {
+    "seq": 27,
+    "kind": "tool_request",
+    "title": "Requested artifact_summary",
+    "detail": null,
+    "payload": {
+      "tool": "artifact_summary",
+      "arguments": {
+        "labels": "label",
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/credit_default.csv"
+      },
+      "action_seq": 27
+    },
+    "created_at": "2026-11-01 19:33:33"
+  },
+  {
+    "seq": 28,
+    "kind": "tool_result",
+    "title": "tool:artifact_summary (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\\\", 1793500694868039900, 36344]]]\", \"ok\": true, \"path\": \"C:\\\\Prajwal MIT\\\\Passion\\\\model_autopsy\\\\tests\\\\fixture_eval\\\\investigator\\\\credit_default.csv\", \"filename\": \"credit_default.csv\", \"n_rows\": 1500, \"n_columns\": 7, \"columns\": [\"age\", \"income\", \"tenure\", \"region\", \"delinq\", \"score\", \"la",
+    "payload": {
+      "tool": "artifact_summary",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+        "ok": true,
+        "path": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\credit_default.csv",
+        "filename": "credit_default.csv",
+        "n_rows": 1500,
+        "n_columns": 7,
+        "columns": [
+          "age",
+          "income",
+          "tenure",
+          "region",
+          "delinq",
+          "score",
+          "label"
+        ],
+        "label_counts": {
+          "0": 959,
+          "1": 541
+        },
+        "unique_labels": 2,
+        "n_folds": null,
+        "folds_present": null,
+        "not_a_model_column": [
+          "age",
+          "income",
+          "tenure",
+          "region",
+          "delinq",
+          "score",
+          "label"
+        ]
+      },
+      "action_seq": 27
+    },
+    "created_at": "2026-11-01 19:33:33"
+  },
+  {
+    "seq": 29,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "That regional comparison didn't run \u2014 I'll inspect the artifact itself to fix the inputs.",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 19:33:33"
+  },
+  {
+    "seq": 30,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 19:33:39"
+  },
+  {
+    "seq": 30,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 19:33:39"
+  },
+  {
+    "seq": 31,
+    "kind": "summary_repair",
+    "title": "Summary repair still invalid \u2014 original verdict stands",
+    "detail": null,
+    "payload": {
+      "valid": false,
+      "continuation": "original",
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 19:33:39"
+  },
+  {
+    "seq": 31,
+    "kind": "fallback",
+    "title": "Deterministic fallback composed from records",
+    "detail": null,
+    "payload": {
+      "fallback_version": "m8-fallback-v1"
+    },
+    "created_at": "2026-11-01 19:33:39"
+  },
+  {
+    "seq": 31,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 3,
+      "api_attempts": 3,
+      "latency_s": 22.942,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "delta_fallback",
+      "fallback_used": true,
+      "tool_calls_executed": 2,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 12325,
+        "input_tokens_details.cached_tokens": 9186,
+        "output_tokens": 2731,
+        "output_tokens_details.reasoning_tokens": 2489,
+        "total_tokens": 15056
+      },
+      "fallback_composed": true
+    },
+    "created_at": "2026-11-01 19:33:39"
+  },
+  {
+    "seq": 31,
+    "kind": "selection",
+    "title": "Adherence: deviated (chose=classification_metrics, recommended=distribution_shift_profile)",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "distribution_shift_profile",
+        "forecast_diagnostics",
+        "residual_time_analysis"
+      ],
+      "executed_diagnostics": [
+        "classification_metrics",
+        "artifact_summary"
+      ],
+      "followed": false
+    },
+    "created_at": "2026-11-01 19:33:39"
+  },
+  {
+    "seq": 32,
+    "kind": "status_change",
+    "title": "hypotheses_proposed -> investigating",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 19:33:39"
+  },
+  {
+    "seq": 32,
+    "kind": "status_change",
+    "title": "investigating -> finalizing",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 19:33:39"
+  },
+  {
+    "seq": 33,
+    "kind": "report",
+    "title": "Final report recorded",
+    "detail": null,
+    "payload": {
+      "investigation_id": "dea26731672544a0bc7b61c9c2191939",
+      "mode": "ml",
+      "question": "Card-default scores look uneven across regions; find what is wrong and show the evidence.",
+      "generated_at": "2026-11-01 19:33:39Z",
+      "confirmed": [],
+      "likely": [],
+      "rejected": [],
+      "unresolved": [
+        {
+          "hypothesis_id": "a33cbb7b402a4290aceb50ea229b43d6",
+          "text": "Model discrimination/calibration fails in one specific region (e.g., lower AUC or systematic under/over-prediction) while other regions perform adequately.",
+          "status": "proposed",
+          "origin": "meta",
+          "confidence_is_model_note": true
+        },
+        {
+          "hypothesis_id": "48c93f36f53b4c2189c6b60939c6d0dc",
+          "text": "Apparent regional unevenness is driven by data artifacts: differing default base rates, missingness, or feature distribution shift across regions, not model miscalibration.",
+          "status": "proposed",
+          "origin": "meta",
+          "confidence_is_model_note": true
+        }
+      ],
+      "supported_hypotheses": [],
+      "evidence_performed": [
+        {
+          "action_id": "85c3860d28f04bfbba556fa17340254e",
+          "seq": 6,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+            "hypothesis_id": "a33cbb7b402a4290aceb50ea229b43d6",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Model discrimination/calibration fails in one specific region (e.g., lower AUC or systematic under/over-prediction) while other regions perform adequately."
+          }
+        },
+        {
+          "action_id": "cd38f97e53c843a399c3e5c3ad502e30",
+          "seq": 10,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+            "hypothesis_id": "48c93f36f53b4c2189c6b60939c6d0dc",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Apparent regional unevenness is driven by data artifacts: differing default base rates, missingness, or feature distribution shift across regions, not model miscalibration."
+          }
+        },
+        {
+          "action_id": "0598af1c86fb4a619c6abb8b235cddb3",
+          "seq": 16,
+          "tool": "calibration_and_error_analysis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+            "brier": 0.130634,
+            "ok": true,
+            "score_column": "LightGBM_C",
+            "source": "C:\\Prajwal MIT\\Passion\\study_files\\outputs\\study_v1\\development\\oof_predictions.csv"
+          }
+        },
+        {
+          "action_id": "2ba87642504c4180b7a9933f15c43f3f",
+          "seq": 18,
+          "tool": "artifact_summary",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+            "filename": "oof_predictions.csv",
+            "n_columns": 17,
+            "n_folds": 3,
+            "n_rows": 41221
+          }
+        },
+        {
+          "action_id": "77de2082f9614a52a7cf6115f2c2fb6d",
+          "seq": 25,
+          "tool": "classification_metrics",
+          "status": "failed",
+          "error": "classification_metrics: unknown parameter(s) ['label_column']; accepted parameters are ['labels', 'predictions_path', 'score_column', 'split_by', 'threshold']"
+        },
+        {
+          "action_id": "b699fb7dcb324e3991052924eadaa838",
+          "seq": 27,
+          "tool": "artifact_summary",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+            "filename": "credit_default.csv",
+            "folds_present": null,
+            "n_columns": 7,
+            "n_folds": null,
+            "n_rows": 1500
+          }
+        }
+      ],
+      "limitations": [
+        "diagnostics that failed and were never rerun: classification_metrics",
+        "available diagnostics never run in this investigation: dataset_validation, classification_metrics, time_split_validation, feature_target_suspiciousness, grouped_auc_comparison, regression_metrics, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile, data_quality_profile, segment_quality_screen, calibration_snapshot, residual_feature_dependence"
+      ],
+      "recommended_next": [
+        {
+          "for": "a33cbb7b402a4290aceb50ea229b43d6",
+          "action": "Design a test that would falsify: Model discrimination/calibration fails in one specific region (e.g., lower AUC or systematic under/over-prediction) whil",
+          "status": "hypothesis remains proposed"
+        },
+        {
+          "for": "48c93f36f53b4c2189c6b60939c6d0dc",
+          "action": "Design a test that would falsify: Apparent regional unevenness is driven by data artifacts: differing default base rates, missingness, or feature distribu",
+          "status": "hypothesis remains proposed"
+        }
+      ],
+      "budget": {
+        "tool_calls": [
+          5,
+          12
+        ],
+        "iterations": [
+          0,
+          3
+        ]
+      },
+      "scope_note": "assembled deterministically from the investigation's recorded findings, hypotheses and executed actions; no section is model-invented and every rejected hypothesis carries its contradicting action ids."
+    },
+    "created_at": "2026-11-01 19:33:39"
+  },
+  {
+    "seq": 33,
+    "kind": "status_change",
+    "title": "finalizing -> complete",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 19:33:39"
+  }
+]

@@ -18,7 +18,7 @@ import {
 
 export function Overview({ onOpen, onGo }: {
   onOpen: (id: string) => void
-  onGo: (p: 'software' | 'ml' | 'history' | 'settings') => void
+  onGo: (p: 'software' | 'ml' | 'cases' | 'new' | 'history' | 'settings') => void
 }) {
   const { data, error, reload } = useLoading<{ items: InvestigationSummary[] }>(
     () => api.listInvestigations())
@@ -83,7 +83,7 @@ export function Overview({ onOpen, onGo }: {
                     <RowLink key={i.id} onOpen={() => onOpen(i.id)}>
                       <td>{i.title}</td>
                       <td>{i.mode}</td>
-                      <td><Pill status={i.status} /></td>
+                      <td><span title="Whether the workflow finished"><Pill status={i.status} /></span>{i.scientific_status ? <span title="What the recorded evidence establishes"> <Pill status={i.scientific_status} /></span> : null}</td>
                       <td className="num">{i.tool_call_count}/{i.max_tool_calls}</td>
                       <td className="muted">{i.latest_findings.length
                         ? `${i.latest_findings[i.latest_findings.length - 1].status}: ${i.latest_findings[i.latest_findings.length - 1].summary.slice(0, 70)}${i.latest_findings[i.latest_findings.length - 1].summary.length > 70 ? '…' : ''}`
@@ -214,8 +214,12 @@ export function MLPage({ onOpen }: { onOpen: (id: string) => void }) {
   return (
     <>
       <div className="casehead">
-        <div className="kicker">Case study 1 · recomputable evidence</div>
+        <div className="kicker">Case Studies · Case study 1 · recomputable evidence · not the product definition</div>
         <h1>{cs?.name ?? 'Demand Zone AI'}</h1>
+        <p className="verdict" style={{ marginTop: 8, fontSize: 12.5 }}>
+          One demonstration of the general platform: upload any model’s artifacts on the{' '}
+          <b>New Investigation</b> page to run this same engine on your own problem.
+        </p>
         <p className="verdict">
           The frozen v1.0.2 protocol artifacts are the real, independently recomputable evidence.
           The archived 0.97 → 0.676 suspicious-AUC narrative is a <b>stored historical claim</b> over
@@ -249,7 +253,7 @@ export function MLPage({ onOpen }: { onOpen: (id: string) => void }) {
                 ['Registered arms', cs.model_cols.length],
                 ['Artifact summary',
                   cs.summary
-                    ? `${Number(cs.summary.n_rows).toLocaleString()} rows · folds ${JSON.stringify(cs.summary.folds_present)} · positive-share ${(Number(cs.summary.positive_rate) * 100).toFixed(1)}%`
+                    ? `${Number(cs.summary.n_rows).toLocaleString()} rows · folds ${(Array.isArray(cs.summary.folds_present) ? cs.summary.folds_present : Object.keys(cs.summary.folds_present ?? {})).join(', ') || '—'} · positive-share ${(Number(cs.summary.positive_rate) * 100).toFixed(1)}%`
                     : 'unavailable'],
               ]} />
             )}
@@ -519,9 +523,15 @@ function NewForm({ mode, onOpen }: { mode: 'software' | 'ml'; onOpen: (id: strin
 export function HistoryPage({ onOpen }: { onOpen: (id: string) => void }) {
   const [mode, setMode] = useState('')
   const [status, setStatus] = useState('')
+  const [sci, setSci] = useState('')
+  const [tab, setTab] = useState<'user' | 'test'>('user')
   const { data, error, reload } = useLoading<{ items: InvestigationSummary[] }>(
     () => api.listInvestigations(mode || undefined, status || undefined),
     [mode, status])
+  const userItems = (data?.items ?? []).filter((i) => !i.is_test_record)
+  const testItems = (data?.items ?? []).filter((i) => i.is_test_record)
+  const pool = tab === 'user' ? userItems : testItems
+  const shown = sci ? pool.filter((i) => (i.scientific_status ?? 'unassessed') === sci) : pool
 
   return (
     <>
@@ -550,12 +560,34 @@ export function HistoryPage({ onOpen }: { onOpen: (id: string) => void }) {
             <option value="stopped">stopped</option>
           </select>
         </div>
+        <div className="field" style={{ maxWidth: 190 }}>
+          <label htmlFor="hist-sci">Scientific assessment</label>
+          <select id="hist-sci" value={sci} onChange={(e) => setSci(e.target.value)}>
+            <option value="">all</option>
+            <option value="supported">supported</option>
+            <option value="inconclusive">inconclusive</option>
+            <option value="contradicted">contradicted</option>
+            <option value="unassessed">not assessed yet</option>
+          </select>
+        </div>
       </form>
+
+      <div className="actionsrow" role="tablist" aria-label="History source">
+        <button className={tab === 'user' ? 'primary' : 'ghost'} role="tab" aria-selected={tab === 'user'}
+          onClick={() => setTab('user')}>User investigations ({userItems.length})</button>
+        <button className={tab === 'test' ? 'primary' : 'ghost'} role="tab" aria-selected={tab === 'test'}
+          onClick={() => setTab('test')}>Test &amp; benchmark runs ({testItems.length})</button>
+      </div>
+      <p className="sub" style={{ marginTop: 10 }}>
+        {tab === 'user'
+          ? 'Your investigations and case-study runs. Benchmark evaluations of the investigator itself live on the Evaluation page — sealed ground truth, never mixed in here.'
+          : 'Legacy automated-test records and benchmark scaffolding preserved on record — excluded from counts elsewhere. Review with model_autopsy.backend.prune; remove only with explicit owner confirmation.'}
+      </p>
 
       {error && <ErrorState error={error} onRetry={reload} />}
       {!data && !error ? <Loading what="Loading history" /> : null}
-      {data && (data.items.length === 0
-        ? <EmptyState what="No investigations match these filters."
+      {data && (shown.length === 0
+        ? <EmptyState what={tab === 'user' ? 'No user investigations match these filters.' : 'No test or benchmark records under these filters.'}
           action="Clear the filters, or create a new investigation." />
         : (
           <div className="tablewrap">
@@ -567,14 +599,15 @@ export function HistoryPage({ onOpen }: { onOpen: (id: string) => void }) {
                 </tr>
               </thead>
               <tbody>
-                {data.items.map((i) => (
+                {shown.map((i) => (
                   <RowLink key={i.id} onOpen={() => onOpen(i.id)}>
                     <td className="faint">{i.id.slice(0, 8)}</td>
                     <td>{i.title}{i.is_test_record
                       ? <span className="pill warn" title="Legacy record created by automated tests against the live app database. It stays on record until the owner runs the documented prune procedure.">test</span>
-                      : null}</td>
+                      : null}
+                      {i.question ? <div className="histrow-sub clamp2">{i.question}</div> : null}</td>
                     <td>{i.mode}</td>
-                    <td><Pill status={i.status} /></td>
+                    <td><span title="Whether the workflow finished"><Pill status={i.status} /></span>{i.scientific_status ? <span title="What the recorded evidence establishes"> <Pill status={i.scientific_status} /></span> : null}</td>
                     <td>{i.created_at?.slice(0, 10)}</td>
                     <td className="num">{i.tool_call_count}/{i.max_tool_calls}</td>
                     <td className="num">{i.iteration_count}/{i.max_iterations}</td>

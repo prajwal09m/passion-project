@@ -1,0 +1,251 @@
+{
+  "project": "eval_turbine",
+  "investigation_id": "83f226d1b4a6457ebbaa1e0415e8e90a",
+  "report": {
+    "executive_summary": "1 supported / 0 rejected / 0 inconclusive-or-blocked from 1 experiment(s).",
+    "project_understanding": {
+      "project_id": "eval_turbine",
+      "predicting": "Output forecasts miss a recent level change.",
+      "receives": {
+        "columns": [
+          "date",
+          "target",
+          "prediction",
+          "split"
+        ],
+        "note": "model inputs per observed artifact schema"
+      },
+      "produces": {
+        "target": "Daily output (numeric)",
+        "note": "model outputs per spec"
+      },
+      "success": "MAE by horizon, drift, split hygiene",
+      "evaluation": "MAE by horizon, drift, split hygiene",
+      "evaluation_assumptions": [
+        "reported metrics assume the supplied predictions match the described evaluation split",
+        "recomputed metrics assume label/target columns are correct"
+      ],
+      "missing": [],
+      "possible": [
+        "dataset_validation: schema/quality overview",
+        "error_analysis: predictions vs ground truth",
+        "temporal_analysis: drift / split hygiene"
+      ],
+      "impossible": [
+        "white-box inspection: black-box availability, inputs/outputs only"
+      ],
+      "inconsistencies": [],
+      "dataset": {
+        "location": "model_autopsy/tests/fixture_eval/investigator/turbine_output.csv",
+        "readable": true,
+        "path": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\turbine_output.csv",
+        "n_rows_peek": 730,
+        "columns": [
+          "date",
+          "target",
+          "prediction",
+          "split"
+        ],
+        "dtypes": {
+          "date": "object",
+          "target": "float64",
+          "prediction": "float64",
+          "split": "object"
+        },
+        "null_counts": {
+          "date": 0,
+          "target": 0,
+          "prediction": 0,
+          "split": 0
+        },
+        "samples": [
+          {
+            "date": "2023-01-01",
+            "target": 201.54,
+            "prediction": 206.96,
+            "split": "train"
+          },
+          {
+            "date": "2023-01-02",
+            "target": 205.17,
+            "prediction": 203.96,
+            "split": "train"
+          },
+          {
+            "date": "2023-01-03",
+            "target": 204.06,
+            "prediction": 211.71,
+            "split": "train"
+          },
+          {
+            "date": "2023-01-04",
+            "target": 192.4,
+            "prediction": 204.16,
+            "split": "train"
+          },
+          {
+            "date": "2023-01-05",
+            "target": 198.59,
+            "prediction": 208.87,
+            "split": "train"
+          }
+        ],
+        "numeric_summary": {
+          "target": {
+            "mean": 210.79416438356162,
+            "std": 26.591028715499593,
+            "min": 146.29,
+            "max": 269.36
+          },
+          "prediction": {
+            "mean": 200.1339726027397,
+            "std": 28.89992715231994,
+            "min": 146.25,
+            "max": 251.88
+          }
+        },
+        "temporal_hint": {
+          "column": "date",
+          "min": "2023-01-01 00:00:00",
+          "max": "2024-12-30 00:00:00",
+          "n_valid": 730
+        }
+      },
+      "model": {
+        "name": "turbine-ar",
+        "framework": "statsmodels",
+        "availability": "black_box",
+        "training_config": {}
+      },
+      "docs": {},
+      "provenance": {
+        "built_by": "recon.build_understanding",
+        "artifact": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\turbine_output.csv"
+      }
+    },
+    "confirmed_findings": [
+      {
+        "hypothesis_id": "5f266b81c55b",
+        "title": "Stale validation split hides drift",
+        "mechanism": "Overlapping or shuffled train/test windows leak recent history; the model misses drift that a chronological split would expose.",
+        "evidence": [
+          "date + split columns present",
+          {
+            "experiment_id": "f13a8180ca09",
+            "tool": "forecast_diagnostics",
+            "numbers": {
+              "n": 730,
+              "drift": [
+                7.0009863013698626,
+                24.315671232876717
+              ],
+              "overlap": false
+            }
+          }
+        ]
+      }
+    ],
+    "rejected_hypotheses": [],
+    "inconclusive": [],
+    "open_hypotheses": [
+      {
+        "hypothesis_id": "62915ce0565a",
+        "title": "No material issue (null hypothesis)",
+        "status": "proposed"
+      }
+    ],
+    "experiments": [
+      {
+        "experiment_id": "f13a8180ca09",
+        "hypothesis_id": "5f266b81c55b",
+        "tool": "forecast_diagnostics",
+        "status": "ran",
+        "breach": true,
+        "summary": "drift=[7.0009863013698626, 24.315671232876717] overlap=False",
+        "numbers": {
+          "n": 730,
+          "drift": [
+            7.0009863013698626,
+            24.315671232876717
+          ],
+          "overlap": false
+        }
+      }
+    ],
+    "verification": [
+      {
+        "hypothesis_id": "5f266b81c55b",
+        "claim": "Stale validation split hides drift",
+        "verdict": "upheld",
+        "checks": [
+          {
+            "check": "sample_size_sufficient",
+            "pass": true,
+            "detail": "n=730; <30 is insufficient for a finding"
+          },
+          {
+            "check": "methodology_appropriate",
+            "pass": true,
+            "detail": "method=forecast_diagnostics"
+          },
+          {
+            "check": "evidence_linked",
+            "pass": true,
+            "detail": "1 evidence result(s)"
+          },
+          {
+            "check": "no_leak_in_diagnostic",
+            "pass": true,
+            "detail": "diagnostic is read-only recomputation; overlap/leak flag PRESENT in evidence, interpreted as signal not contamination"
+          },
+          {
+            "check": "numbers_reproducible",
+            "pass": true,
+            "detail": "3 numeric value(s) with seeds"
+          }
+        ],
+        "disagreement": null,
+        "disproof_wanted": "spans disjoint and error flat over time"
+      }
+    ],
+    "limitations": [
+      "offline deterministic triage; LLM reasoning quality covered by prior frozen live campaigns, not here",
+      "single scenario per task family in this suite slice",
+      "heuristic prioritization is not Bayesian information gain"
+    ],
+    "reproducibility": {
+      "seeds": "fixed per diagnostic",
+      "artifacts": "committed CSV fixtures",
+      "runner": "lab.run_autonomous_investigation"
+    },
+    "recommendations": [
+      "re-run breached diagnostics on fresh splits before acting",
+      "add a reusable diagnostic module for any candidate novel mechanism before treating it as a finding type"
+    ]
+  },
+  "scorecard": {
+    "project": "eval_turbine",
+    "verdict": "correct",
+    "note": "mechanism named + numbers support (drift=[7.0009863013698626, 24.315671232876717] overlap=False)",
+    "false_positive": false,
+    "dimensions": {
+      "discovery": 1.0,
+      "evidence": 1.0,
+      "reasoning": 1.0,
+      "calibration": 1.0,
+      "efficiency": 1.0,
+      "reproducibility": 1.0
+    },
+    "weights": {
+      "discovery": 0.3,
+      "evidence": 0.25,
+      "reasoning": 0.15,
+      "calibration": 0.15,
+      "efficiency": 0.05,
+      "reproducibility": 0.1
+    },
+    "overall": 1.0,
+    "assessment": "deterministic + heuristic; LLM/human reserved"
+  },
+  "elapsed_s": 0.63
+}

@@ -1,0 +1,1924 @@
+[
+  {
+    "seq": 1,
+    "kind": "status_change",
+    "title": "Investigation created",
+    "detail": "mode=ml; max_iterations=3; max_tool_calls=12",
+    "payload": {},
+    "created_at": "2026-11-01 22:24:21"
+  },
+  {
+    "seq": 2,
+    "kind": "tool_result",
+    "title": "Live recon context prepared (neutral brief + schema)",
+    "detail": null,
+    "payload": {
+      "columns": [
+        "query",
+        "slice",
+        "relevance",
+        "score"
+      ],
+      "tools": [
+        "artifact_summary",
+        "calibration_and_error_analysis",
+        "calibration_snapshot",
+        "classification_metrics",
+        "clustering_stability",
+        "data_quality_profile",
+        "dataset_validation",
+        "distribution_shift_profile",
+        "feature_target_suspiciousness",
+        "forecast_diagnostics",
+        "grouped_auc_comparison",
+        "propose_hypothesis",
+        "ranking_slice_diagnostics",
+        "regression_metrics",
+        "residual_feature_dependence",
+        "residual_time_analysis",
+        "segment_quality_screen",
+        "temporal_changepoint_scan",
+        "time_split_validation"
+      ]
+    },
+    "created_at": "2026-11-01 22:24:21"
+  },
+  {
+    "seq": 3,
+    "kind": "selection",
+    "title": "Selection brief: top=artifact_summary",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "artifact_summary",
+        "data_quality_profile",
+        "dataset_validation"
+      ],
+      "open": []
+    },
+    "created_at": "2026-11-01 22:24:21"
+  },
+  {
+    "seq": 4,
+    "kind": "reservation",
+    "title": "Reservation declined: fewer than 2 open hypotheses; no discrimination to buy",
+    "detail": null,
+    "payload": {
+      "reserved": false,
+      "reason": "fewer than 2 open hypotheses; no discrimination to buy"
+    },
+    "created_at": "2026-11-01 22:24:21"
+  },
+  {
+    "seq": 5,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "ranking_slice_diagnostics",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "full"
+    },
+    "created_at": "2026-11-01 22:24:29"
+  },
+  {
+    "seq": 5,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Investigating whether every catalog slice gets relevant top results \u2014 testing competing explanations for slice gaps.",
+    "payload": {
+      "response_id": "resp_6ae7bc1d30c0a0bb72b04bd5",
+      "n_tool_calls": 3,
+      "usage": {
+        "input_tokens": 4889,
+        "input_tokens_details.cached_tokens": 4849,
+        "output_tokens": 1033,
+        "output_tokens_details.reasoning_tokens": 474,
+        "total_tokens": 5922
+      },
+      "text": "Investigating whether every catalog slice gets relevant top results \u2014 testing competing explanations for slice gaps."
+    },
+    "created_at": "2026-11-01 22:24:29"
+  },
+  {
+    "seq": 6,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Top-K relevance is uniform across catalog slices; no slice systematically underperforms at top-K.",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "66cf08152c97411a9f87d60371dcc276",
+      "source": "meta",
+      "predicted_observation": "ranking_slice_diagnostics shows similar precision@top-K across all slice values.",
+      "confidence_note": "Uncalibrated prior ~60%; uniform performance is common null but needs slice test."
+    },
+    "created_at": "2026-11-01 22:24:29"
+  },
+  {
+    "seq": 7,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior ~60%; uniform performance is common null but needs slice test.",
+        "predicted_observation": "ranking_slice_diagnostics shows similar precision@top-K across all slice values.",
+        "rationale": "Pooled precision alone could hide or exaggerate slice differences; null hypothesis is no slice effect until slice-aware metrics show otherwise.",
+        "text": "Top-K relevance is uniform across catalog slices; no slice systematically underperforms at top-K."
+      },
+      "action_seq": 7
+    },
+    "created_at": "2026-11-01 22:24:29"
+  },
+  {
+    "seq": 8,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\\\", 1793500694885150900, 30142]]]\", \"ok\": true, \"hypothesis_id\": \"66cf08152c97411a9f87d60371dcc276\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Top-K relevance is uniform across catalog slices; no slice systematically ",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+        "ok": true,
+        "hypothesis_id": "66cf08152c97411a9f87d60371dcc276",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Top-K relevance is uniform across catalog slices; no slice systematically underperforms at top-K."
+      },
+      "action_seq": 7
+    },
+    "created_at": "2026-11-01 22:24:29"
+  },
+  {
+    "seq": 9,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: A specific catalog slice (e.g., new items) is systematically under-ranked, yielding lower precision@top-K than other slices.",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "59792c2ccaf74e46ab86785762ea4d83",
+      "source": "meta",
+      "predicted_observation": "ranking_slice_diagnostics shows one slice (e.g., new) with markedly lower precision@top-K than other slices.",
+      "confidence_note": "Uncalibrated prior ~55%; cold-start slice gaps are plausible in catalog ranking."
+    },
+    "created_at": "2026-11-01 22:24:29"
+  },
+  {
+    "seq": 10,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior ~55%; cold-start slice gaps are plausible in catalog ranking.",
+        "predicted_observation": "ranking_slice_diagnostics shows one slice (e.g., new) with markedly lower precision@top-K than other slices.",
+        "rationale": "Sample rows show 'new' slice examples with zero relevance; rank-lgb black-box may favor familiar items, causing slice-concentrated top-K failure.",
+        "text": "A specific catalog slice (e.g., new items) is systematically under-ranked, yielding lower precision@top-K than other slices."
+      },
+      "action_seq": 10
+    },
+    "created_at": "2026-11-01 22:24:29"
+  },
+  {
+    "seq": 11,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\\\", 1793500694885150900, 30142]]]\", \"ok\": true, \"hypothesis_id\": \"59792c2ccaf74e46ab86785762ea4d83\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"A specific catalog slice (e.g., new items) is systematically under-ranked,",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+        "ok": true,
+        "hypothesis_id": "59792c2ccaf74e46ab86785762ea4d83",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "A specific catalog slice (e.g., new items) is systematically under-ranked, yielding lower precision@top-K than other slices."
+      },
+      "action_seq": 10
+    },
+    "created_at": "2026-11-01 22:24:29"
+  },
+  {
+    "seq": 12,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Top-K irrelevance is global due to poor score-relevance separation, not driven by slice membership.",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "3703aca93a6b4dd3825cdbcd26cc1725",
+      "source": "meta",
+      "predicted_observation": "Slice precisions are all low and similar, with scores poorly separating relevant vs non-relevant overall.",
+      "confidence_note": "Uncalibrated prior ~40%; global scoring failure competes with slice-specific story."
+    },
+    "created_at": "2026-11-01 22:24:29"
+  },
+  {
+    "seq": 13,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior ~40%; global scoring failure competes with slice-specific story.",
+        "predicted_observation": "Slice precisions are all low and similar, with scores poorly separating relevant vs non-relevant overall.",
+        "rationale": "If scores do not separate relevance grades globally, top-K will be irrelevant everywhere, mimicking but distinct from slice-specific bias.",
+        "text": "Top-K irrelevance is global due to poor score-relevance separation, not driven by slice membership."
+      },
+      "action_seq": 13
+    },
+    "created_at": "2026-11-01 22:24:29"
+  },
+  {
+    "seq": 14,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\\\", 1793500694885150900, 30142]]]\", \"ok\": true, \"hypothesis_id\": \"3703aca93a6b4dd3825cdbcd26cc1725\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Top-K irrelevance is global due to poor score-relevance separation, not dr",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+        "ok": true,
+        "hypothesis_id": "3703aca93a6b4dd3825cdbcd26cc1725",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Top-K irrelevance is global due to poor score-relevance separation, not driven by slice membership."
+      },
+      "action_seq": 13
+    },
+    "created_at": "2026-11-01 22:24:29"
+  },
+  {
+    "seq": 15,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "ranking_slice_diagnostics",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "full"
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 15,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "I've mapped three competing failure modes \u2014 now running the slice-aware ranking test that best separates them.",
+    "payload": {
+      "response_id": "resp_6ae7bc23eefc09127f764529",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 5857,
+        "input_tokens_details.cached_tokens": 4849,
+        "output_tokens": 368,
+        "output_tokens_details.reasoning_tokens": 209,
+        "total_tokens": 6225
+      },
+      "text": "I've mapped three competing failure modes \u2014 now running the slice-aware ranking test that best separates them."
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 15,
+    "kind": "tool_request",
+    "title": "Requested ranking_slice_diagnostics",
+    "detail": null,
+    "payload": {
+      "tool": "ranking_slice_diagnostics",
+      "arguments": {
+        "k_frac": 0.1,
+        "labels": "relevance",
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+        "score_column": "score",
+        "slice_column": "slice"
+      },
+      "action_seq": 15
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 16,
+    "kind": "tool_result",
+    "title": "tool:ranking_slice_diagnostics (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\\\", 1793500694885150900, 30142]]]\", \"ok\": true, \"source\": \"C:\\\\Prajwal MIT\\\\Passion\\\\model_autopsy\\\\tests\\\\fixture_eval\\\\investigator\\\\music_rank.csv\", \"label_column\": \"relevance\", \"score_column\": \"score\", \"slice_column\": \"slice\", \"k_frac\": 0.1, \"per_slice\": {\"est\": {\"n\": 1168, \"k\": 117, \"preci",
+    "payload": {
+      "tool": "ranking_slice_diagnostics",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+        "ok": true,
+        "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\music_rank.csv",
+        "label_column": "relevance",
+        "score_column": "score",
+        "slice_column": "slice",
+        "k_frac": 0.1,
+        "per_slice": {
+          "est": {
+            "n": 1168,
+            "k": 117,
+            "precision_at_k": 1.0,
+            "base_rate": 0.506
+          },
+          "new": {
+            "n": 592,
+            "k": 59,
+            "precision_at_k": 0.8305,
+            "base_rate": 0.098
+          }
+        },
+        "pooled_precision_at_k": 0.9432,
+        "max_slice_gap": 0.1695,
+        "method_version": "ranking-slice-v1",
+        "limits": "observational ranking gap, not a causal finding; thin slices inconclusive"
+      },
+      "action_seq": 15
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 17,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Top-K relevance is uniform across catalog slices; no slice s... (contradicts)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "66cf08152c97411a9f87d60371dcc276",
+      "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+      "tool": "ranking_slice_diagnostics",
+      "relation": "contradicts"
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 18,
+    "kind": "hypothesis",
+    "title": "Hypothesis Top-K relevance is uniform across catalog slices; no slice s... -> investigating",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "66cf08152c97411a9f87d60371dcc276",
+      "status": "investigating",
+      "from": {
+        "status": "proposed",
+        "confidence": null,
+        "rationale": "Pooled precision alone could hide or exaggerate slice differences; null hypothesis is no slice effect until slice-aware metrics show otherwise."
+      },
+      "rationale": "auto-link [contradicts]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (hypothesis denies the measured segment effect (slice) and the measurement slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices; denial vs measurement decides) [contradictory evidence recorded; demoted; action 18fae8bb06fb401fb5bdc3a4fedb8167]"
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 19,
+    "kind": "hypothesis",
+    "title": "Evidence linked to A specific catalog slice (e.g., new items) is systematically... (supports)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "59792c2ccaf74e46ab86785762ea4d83",
+      "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+      "tool": "ranking_slice_diagnostics",
+      "relation": "supports"
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 20,
+    "kind": "hypothesis",
+    "title": "Hypothesis A specific catalog slice (e.g., new items) is systematically... -> investigating",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "59792c2ccaf74e46ab86785762ea4d83",
+      "status": "investigating",
+      "from": {
+        "status": "proposed",
+        "confidence": null,
+        "rationale": "Sample rows show 'new' slice examples with zero relevance; rank-lgb black-box may favor familiar items, causing slice-concentrated top-K failure."
+      },
+      "rationale": "auto-link [supports]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (measurement directly bears on the hypothesis mechanism: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices) [supporting evidence recorded; needs independent corroboration; action 18fae8bb06fb401fb5bdc3a4fedb8167]"
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 21,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Top-K irrelevance is global due to poor score-relevance sepa... (contradicts)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "3703aca93a6b4dd3825cdbcd26cc1725",
+      "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+      "tool": "ranking_slice_diagnostics",
+      "relation": "contradicts"
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 22,
+    "kind": "hypothesis",
+    "title": "Hypothesis Top-K irrelevance is global due to poor score-relevance sepa... -> investigating",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "3703aca93a6b4dd3825cdbcd26cc1725",
+      "status": "investigating",
+      "from": {
+        "status": "proposed",
+        "confidence": null,
+        "rationale": "If scores do not separate relevance grades globally, top-K will be irrelevant everywhere, mimicking but distinct from slice-specific bias."
+      },
+      "rationale": "auto-link [contradicts]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (hypothesis denies the measured segment effect (slice) and the measurement slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices; denial vs measurement decides) [contradictory evidence recorded; demoted; action 18fae8bb06fb401fb5bdc3a4fedb8167]"
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 23,
+    "kind": "linker",
+    "title": "auto-linked ranking_slice_diagnostics #15 to 3 hypotheses",
+    "detail": null,
+    "payload": {
+      "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+      "applied": [
+        {
+          "h": "66cf0815",
+          "d": "contradicts",
+          "s": "investigating"
+        },
+        {
+          "h": "59792c2c",
+          "d": "supports",
+          "s": "investigating"
+        },
+        {
+          "h": "3703aca9",
+          "d": "contradicts",
+          "s": "investigating"
+        }
+      ]
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 24,
+    "kind": "skeptic",
+    "title": "Skeptic-lite disabled by arm flag (comparison arm)",
+    "detail": null,
+    "payload": {
+      "m16_skeptic": false
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 25,
+    "kind": "grounded",
+    "title": "Grounded summary: 3 hypotheses, 4 actions",
+    "detail": null,
+    "payload": {
+      "investigation_id": "ac2d9cf40e5e4156ba7ac576c6616d1e",
+      "hypotheses": [
+        {
+          "hypothesis_id": "66cf08152c97411a9f87d60371dcc276",
+          "text": "Top-K relevance is uniform across catalog slices; no slice systematically underperforms at top-K.",
+          "status": "investigating",
+          "confidence": 15,
+          "evidence_refs": [
+            {
+              "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "contradicts"
+            }
+          ],
+          "independent_supports": 0,
+          "independent_contradicts": 1
+        },
+        {
+          "hypothesis_id": "59792c2ccaf74e46ab86785762ea4d83",
+          "text": "A specific catalog slice (e.g., new items) is systematically under-ranked, yielding lower precision@top-K than other slices.",
+          "status": "investigating",
+          "confidence": 55,
+          "evidence_refs": [
+            {
+              "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "supports"
+            }
+          ],
+          "independent_supports": 1,
+          "independent_contradicts": 0
+        },
+        {
+          "hypothesis_id": "3703aca93a6b4dd3825cdbcd26cc1725",
+          "text": "Top-K irrelevance is global due to poor score-relevance separation, not driven by slice membership.",
+          "status": "investigating",
+          "confidence": 15,
+          "evidence_refs": [
+            {
+              "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "contradicts"
+            }
+          ],
+          "independent_supports": 0,
+          "independent_contradicts": 1
+        }
+      ],
+      "actions": [
+        {
+          "action_id": "c9de2040a15740fc800d173ed7861cf1",
+          "seq": 7,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "62e09206046f41238865c944c0ecab31",
+          "seq": 10,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "9e9a9ceedcf946079383c845df7dd9a3",
+          "seq": 13,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+          "seq": 15,
+          "tool": "ranking_slice_diagnostics",
+          "status": "ran"
+        }
+      ],
+      "rule": "explain ONLY these recorded facts; do not invent hypothesis ids, statuses, action ids, or measured numbers; anything not listed here is unresolved"
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 26,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "I've mapped three competing failure modes \u2014 now running the slice-aware ranking test that best separates them.",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 22:24:39"
+  },
+  {
+    "seq": 27,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 22:24:48"
+  },
+  {
+    "seq": 27,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 22:24:48"
+  },
+  {
+    "seq": 28,
+    "kind": "summary_repair",
+    "title": "Summary repair still invalid \u2014 original verdict stands",
+    "detail": null,
+    "payload": {
+      "valid": false,
+      "continuation": "original",
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 22:24:48"
+  },
+  {
+    "seq": 28,
+    "kind": "fallback",
+    "title": "Deterministic fallback composed from records",
+    "detail": null,
+    "payload": {
+      "fallback_version": "m8-fallback-v1"
+    },
+    "created_at": "2026-11-01 22:24:48"
+  },
+  {
+    "seq": 28,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 3,
+      "api_attempts": 3,
+      "latency_s": 26.286,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "full",
+      "fallback_used": false,
+      "tool_calls_executed": 4,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 12860,
+        "input_tokens_details.cached_tokens": 10067,
+        "output_tokens": 2601,
+        "output_tokens_details.reasoning_tokens": 1881,
+        "total_tokens": 15461
+      },
+      "fallback_composed": true
+    },
+    "created_at": "2026-11-01 22:24:48"
+  },
+  {
+    "seq": 28,
+    "kind": "selection",
+    "title": "Adherence: deviated (chose=ranking_slice_diagnostics, recommended=artifact_summary)",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "artifact_summary",
+        "data_quality_profile",
+        "dataset_validation"
+      ],
+      "executed_diagnostics": [
+        "ranking_slice_diagnostics"
+      ],
+      "followed": false
+    },
+    "created_at": "2026-11-01 22:24:48"
+  },
+  {
+    "seq": 29,
+    "kind": "selection",
+    "title": "Selection brief: top=classification_metrics",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "classification_metrics",
+        "grouped_auc_comparison",
+        "calibration_and_error_analysis"
+      ],
+      "open": [
+        "66cf08152c97411a9f87d60371dcc276",
+        "59792c2ccaf74e46ab86785762ea4d83",
+        "3703aca93a6b4dd3825cdbcd26cc1725"
+      ]
+    },
+    "created_at": "2026-11-01 22:24:48"
+  },
+  {
+    "seq": 30,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "ranking_slice_diagnostics",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "delta"
+    },
+    "created_at": "2026-11-01 22:24:50"
+  },
+  {
+    "seq": 30,
+    "kind": "meta_request",
+    "title": "Continuation state refused \u2014 one full-context fallback",
+    "detail": "HTTP 400: {\"error\":{\"code\":null,\"message\":\"No tool output found for function call call_f4aee404-df02-4a57-8a0f-6d9a1be80bbd.\",\"param\":null,\"type\":\"invalid_request_error\"}}",
+    "payload": {},
+    "created_at": "2026-11-01 22:24:50"
+  },
+  {
+    "seq": 31,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Testing whether the top-K gap is slice-specific or a global scoring failure.",
+    "payload": {
+      "response_id": "resp_6ae7bc3b711efde03d234897",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 5439,
+        "input_tokens_details.cached_tokens": 4209,
+        "output_tokens": 1099,
+        "output_tokens_details.reasoning_tokens": 965,
+        "total_tokens": 6538
+      },
+      "text": "Testing whether the top-K gap is slice-specific or a global scoring failure."
+    },
+    "created_at": "2026-11-01 22:24:59"
+  },
+  {
+    "seq": 31,
+    "kind": "tool_request",
+    "title": "Requested classification_metrics",
+    "detail": null,
+    "payload": {
+      "tool": "classification_metrics",
+      "arguments": {
+        "labels": "relevance",
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+        "score_column": "score",
+        "split_by": "slice"
+      },
+      "action_seq": 31
+    },
+    "created_at": "2026-11-01 22:24:59"
+  },
+  {
+    "seq": 32,
+    "kind": "tool_result",
+    "title": "tool:classification_metrics (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\\\", 1793500694885150900, 30142]]]\", \"ok\": true, \"source\": \"C:\\\\Prajwal MIT\\\\Passion\\\\model_autopsy\\\\tests\\\\fixture_eval\\\\investigator\\\\music_rank.csv\", \"score_column\": \"score\", \"n\": 1760, \"roc_auc\": 0.977169, \"brier\": 0.117965, \"brier_convention\": \"lower is better; probability of positive class",
+    "payload": {
+      "tool": "classification_metrics",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+        "ok": true,
+        "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\music_rank.csv",
+        "score_column": "score",
+        "n": 1760,
+        "roc_auc": 0.977169,
+        "brier": 0.117965,
+        "brier_convention": "lower is better; probability of positive class",
+        "precision_at_threshold": 0.715884,
+        "recall_at_threshold": 0.986133,
+        "threshold": 0.5,
+        "per_split_auc": {
+          "est": 0.974269,
+          "new": 0.981838
+        }
+      },
+      "action_seq": 31
+    },
+    "created_at": "2026-11-01 22:24:59"
+  },
+  {
+    "seq": 33,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Top-K relevance is uniform across catalog slices; no slice s... (relevant_to)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "66cf08152c97411a9f87d60371dcc276",
+      "action_id": "2249196bdb754e3290709f1efc02000b",
+      "tool": "classification_metrics",
+      "relation": "relevant_to"
+    },
+    "created_at": "2026-11-01 22:24:59"
+  },
+  {
+    "seq": 34,
+    "kind": "hypothesis",
+    "title": "Evidence linked to A specific catalog slice (e.g., new items) is systematically... (relevant_to)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "59792c2ccaf74e46ab86785762ea4d83",
+      "action_id": "2249196bdb754e3290709f1efc02000b",
+      "tool": "classification_metrics",
+      "relation": "relevant_to"
+    },
+    "created_at": "2026-11-01 22:25:00"
+  },
+  {
+    "seq": 35,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Top-K irrelevance is global due to poor score-relevance sepa... (relevant_to)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "3703aca93a6b4dd3825cdbcd26cc1725",
+      "action_id": "2249196bdb754e3290709f1efc02000b",
+      "tool": "classification_metrics",
+      "relation": "relevant_to"
+    },
+    "created_at": "2026-11-01 22:25:00"
+  },
+  {
+    "seq": 36,
+    "kind": "linker",
+    "title": "auto-linked classification_metrics #31 to 3 hypotheses",
+    "detail": null,
+    "payload": {
+      "action_id": "2249196bdb754e3290709f1efc02000b",
+      "applied": [
+        {
+          "h": "66cf0815",
+          "d": "relevant_to",
+          "s": "investigating"
+        },
+        {
+          "h": "59792c2c",
+          "d": "relevant_to",
+          "s": "investigating"
+        },
+        {
+          "h": "3703aca9",
+          "d": "relevant_to",
+          "s": "investigating"
+        }
+      ]
+    },
+    "created_at": "2026-11-01 22:25:00"
+  },
+  {
+    "seq": 37,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "ranking_slice_diagnostics",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "delta_fallback"
+    },
+    "created_at": "2026-11-01 22:25:20"
+  },
+  {
+    "seq": 37,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "(tool call only)",
+    "payload": {
+      "response_id": "resp_6ae7bc4c74f624380fda4789",
+      "n_tool_calls": 0,
+      "usage": {
+        "input_tokens": 5758,
+        "input_tokens_details.cached_tokens": 5361,
+        "output_tokens": 2000,
+        "output_tokens_details.reasoning_tokens": 1998,
+        "total_tokens": 7758
+      },
+      "text": ""
+    },
+    "created_at": "2026-11-01 22:25:20"
+  },
+  {
+    "seq": 38,
+    "kind": "skeptic",
+    "title": "Skeptic-lite disabled by arm flag (comparison arm)",
+    "detail": null,
+    "payload": {
+      "m16_skeptic": false
+    },
+    "created_at": "2026-11-01 22:25:20"
+  },
+  {
+    "seq": 39,
+    "kind": "grounded",
+    "title": "Grounded summary: 3 hypotheses, 5 actions",
+    "detail": null,
+    "payload": {
+      "investigation_id": "ac2d9cf40e5e4156ba7ac576c6616d1e",
+      "hypotheses": [
+        {
+          "hypothesis_id": "66cf08152c97411a9f87d60371dcc276",
+          "text": "Top-K relevance is uniform across catalog slices; no slice systematically underperforms at top-K.",
+          "status": "investigating",
+          "confidence": 15,
+          "evidence_refs": [
+            {
+              "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "contradicts"
+            },
+            {
+              "action_id": "2249196bdb754e3290709f1efc02000b",
+              "tool": "classification_metrics",
+              "relation": "relevant_to"
+            }
+          ],
+          "independent_supports": 0,
+          "independent_contradicts": 1
+        },
+        {
+          "hypothesis_id": "59792c2ccaf74e46ab86785762ea4d83",
+          "text": "A specific catalog slice (e.g., new items) is systematically under-ranked, yielding lower precision@top-K than other slices.",
+          "status": "investigating",
+          "confidence": 55,
+          "evidence_refs": [
+            {
+              "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "supports"
+            },
+            {
+              "action_id": "2249196bdb754e3290709f1efc02000b",
+              "tool": "classification_metrics",
+              "relation": "relevant_to"
+            }
+          ],
+          "independent_supports": 1,
+          "independent_contradicts": 0
+        },
+        {
+          "hypothesis_id": "3703aca93a6b4dd3825cdbcd26cc1725",
+          "text": "Top-K irrelevance is global due to poor score-relevance separation, not driven by slice membership.",
+          "status": "investigating",
+          "confidence": 15,
+          "evidence_refs": [
+            {
+              "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "contradicts"
+            },
+            {
+              "action_id": "2249196bdb754e3290709f1efc02000b",
+              "tool": "classification_metrics",
+              "relation": "relevant_to"
+            }
+          ],
+          "independent_supports": 0,
+          "independent_contradicts": 1
+        }
+      ],
+      "actions": [
+        {
+          "action_id": "c9de2040a15740fc800d173ed7861cf1",
+          "seq": 7,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "62e09206046f41238865c944c0ecab31",
+          "seq": 10,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "9e9a9ceedcf946079383c845df7dd9a3",
+          "seq": 13,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+          "seq": 15,
+          "tool": "ranking_slice_diagnostics",
+          "status": "ran"
+        },
+        {
+          "action_id": "2249196bdb754e3290709f1efc02000b",
+          "seq": 31,
+          "tool": "classification_metrics",
+          "status": "ran"
+        }
+      ],
+      "rule": "explain ONLY these recorded facts; do not invent hypothesis ids, statuses, action ids, or measured numbers; anything not listed here is unresolved"
+    },
+    "created_at": "2026-11-01 22:25:20"
+  },
+  {
+    "seq": 40,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 22:25:20"
+  },
+  {
+    "seq": 41,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 22:25:30"
+  },
+  {
+    "seq": 41,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "```investigation_summary\n{\"conclusion\":\"Slice-specific under-ranking is supported by ranking slice diagnostics; uniform relevance and global poor separation are contradicted with strong global separation retained.\",\"status_recommendations\":[{\"hypothesis_id\":\"59792c2ccaf74e46ab86785762ea4d83\",\"status\":\"supported\",\"basis\":[\"18fae8bb06fb401fb5bdc3a4fedb8167\",\"2249196bdb754e3290709f1",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 22:25:30"
+  },
+  {
+    "seq": 42,
+    "kind": "summary_repair",
+    "title": "Summary repair still invalid \u2014 original verdict stands",
+    "detail": null,
+    "payload": {
+      "valid": false,
+      "continuation": "original",
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 22:25:30"
+  },
+  {
+    "seq": 42,
+    "kind": "fallback",
+    "title": "Deterministic fallback composed from records",
+    "detail": null,
+    "payload": {
+      "fallback_version": "m8-fallback-v1"
+    },
+    "created_at": "2026-11-01 22:25:30"
+  },
+  {
+    "seq": 42,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 3,
+      "api_attempts": 3,
+      "latency_s": 39.65,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "delta_fallback",
+      "fallback_used": true,
+      "tool_calls_executed": 1,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 13618,
+        "input_tokens_details.cached_tokens": 9939,
+        "output_tokens": 4299,
+        "output_tokens_details.reasoning_tokens": 4054,
+        "total_tokens": 17917
+      },
+      "fallback_composed": true
+    },
+    "created_at": "2026-11-01 22:25:30"
+  },
+  {
+    "seq": 42,
+    "kind": "selection",
+    "title": "Adherence: followed (chose=classification_metrics, recommended=classification_metrics)",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "classification_metrics",
+        "grouped_auc_comparison",
+        "calibration_and_error_analysis"
+      ],
+      "executed_diagnostics": [
+        "classification_metrics"
+      ],
+      "followed": true
+    },
+    "created_at": "2026-11-01 22:25:30"
+  },
+  {
+    "seq": 43,
+    "kind": "selection",
+    "title": "Selection brief: top=grouped_auc_comparison",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "grouped_auc_comparison",
+        "calibration_and_error_analysis",
+        "segment_quality_screen"
+      ],
+      "open": [
+        "66cf08152c97411a9f87d60371dcc276",
+        "59792c2ccaf74e46ab86785762ea4d83",
+        "3703aca93a6b4dd3825cdbcd26cc1725"
+      ]
+    },
+    "created_at": "2026-11-01 22:25:30"
+  },
+  {
+    "seq": 44,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "ranking_slice_diagnostics",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "delta"
+    },
+    "created_at": "2026-11-01 22:25:46"
+  },
+  {
+    "seq": 44,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Global scores separate well, so I'll check slice data quality to test the top-K gap.",
+    "payload": {
+      "response_id": "resp_6ae7bc6625a2af0fa0e442fc",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 7156,
+        "input_tokens_details.cached_tokens": 5745,
+        "output_tokens": 1328,
+        "output_tokens_details.reasoning_tokens": 1221,
+        "total_tokens": 8484
+      },
+      "text": "Global scores separate well, so I'll check slice data quality to test the top-K gap."
+    },
+    "created_at": "2026-11-01 22:25:46"
+  },
+  {
+    "seq": 44,
+    "kind": "tool_request",
+    "title": "Requested segment_quality_screen",
+    "detail": null,
+    "payload": {
+      "tool": "segment_quality_screen",
+      "arguments": {
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+        "segment_column": "slice"
+      },
+      "action_seq": 44
+    },
+    "created_at": "2026-11-01 22:25:46"
+  },
+  {
+    "seq": 45,
+    "kind": "tool_result",
+    "title": "tool:segment_quality_screen (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\\\", 1793500694885150900, 30142]]]\", \"ok\": true, \"n\": 1760, \"segment_column\": \"slice\", \"by_segment\": {\"est\": {\"n\": 1168, \"null_rate\": 0.0, \"dup_rate\": 0.07363}, \"new\": {\"n\": 592, \"null_rate\": 0.0, \"dup_rate\": 0.008446}}, \"worst_null_rate\": 0.0, \"worst_dup_rate\": 0.07363, \"establishes\": \"whether ",
+    "payload": {
+      "tool": "segment_quality_screen",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+        "ok": true,
+        "n": 1760,
+        "segment_column": "slice",
+        "by_segment": {
+          "est": {
+            "n": 1168,
+            "null_rate": 0.0,
+            "dup_rate": 0.07363
+          },
+          "new": {
+            "n": 592,
+            "null_rate": 0.0,
+            "dup_rate": 0.008446
+          }
+        },
+        "worst_null_rate": 0.0,
+        "worst_dup_rate": 0.07363,
+        "establishes": "whether hygiene defects concentrate in a segment",
+        "does_not_establish": "whether quality issues caused errors"
+      },
+      "action_seq": 44
+    },
+    "created_at": "2026-11-01 22:25:46"
+  },
+  {
+    "seq": 46,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Top-K relevance is uniform across catalog slices; no slice s... (contradicts)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "66cf08152c97411a9f87d60371dcc276",
+      "action_id": "c301dd16172e4ce39902f7dbb41d4d98",
+      "tool": "segment_quality_screen",
+      "relation": "contradicts"
+    },
+    "created_at": "2026-11-01 22:25:46"
+  },
+  {
+    "seq": 47,
+    "kind": "hypothesis",
+    "title": "Hypothesis Top-K relevance is uniform across catalog slices; no slice s... -> rejected",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "66cf08152c97411a9f87d60371dcc276",
+      "status": "rejected",
+      "from": {
+        "status": "investigating",
+        "confidence": 15,
+        "rationale": "auto-link [contradicts]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (hypothesis denies the measured segment effect (slice) and the measurement slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices; denial vs measurement decides) [contradictory evidence recorded; demoted; action 18fae8bb06fb401fb5bdc3a4fedb8167]"
+      },
+      "rationale": "auto-link [contradicts]: worst segment defect rate 0.074: defects concentrate (hypothesis denies the measured segment effect (slice) and the measurement worst segment defect rate 0.074: defects concentrate; denial vs measurement decides) [two independent contradicting measurements recorded; action c301dd16172e4ce39902f7dbb41d4d98]"
+    },
+    "created_at": "2026-11-01 22:25:46"
+  },
+  {
+    "seq": 48,
+    "kind": "hypothesis",
+    "title": "Evidence linked to A specific catalog slice (e.g., new items) is systematically... (supports)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "59792c2ccaf74e46ab86785762ea4d83",
+      "action_id": "c301dd16172e4ce39902f7dbb41d4d98",
+      "tool": "segment_quality_screen",
+      "relation": "supports"
+    },
+    "created_at": "2026-11-01 22:25:46"
+  },
+  {
+    "seq": 49,
+    "kind": "hypothesis",
+    "title": "Hypothesis A specific catalog slice (e.g., new items) is systematically... -> supported",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "59792c2ccaf74e46ab86785762ea4d83",
+      "status": "supported",
+      "from": {
+        "status": "investigating",
+        "confidence": 55,
+        "rationale": "auto-link [supports]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (measurement directly bears on the hypothesis mechanism: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices) [supporting evidence recorded; needs independent corroboration; action 18fae8bb06fb401fb5bdc3a4fedb8167]"
+      },
+      "rationale": "auto-link [supports]: worst segment defect rate 0.074: defects concentrate (measurement directly bears on the hypothesis mechanism: worst segment defect rate 0.074: defects concentrate) [two independent supporting measurements, no contradiction; action c301dd16172e4ce39902f7dbb41d4d98]"
+    },
+    "created_at": "2026-11-01 22:25:46"
+  },
+  {
+    "seq": 50,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Top-K irrelevance is global due to poor score-relevance sepa... (contradicts)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "3703aca93a6b4dd3825cdbcd26cc1725",
+      "action_id": "c301dd16172e4ce39902f7dbb41d4d98",
+      "tool": "segment_quality_screen",
+      "relation": "contradicts"
+    },
+    "created_at": "2026-11-01 22:25:46"
+  },
+  {
+    "seq": 51,
+    "kind": "hypothesis",
+    "title": "Hypothesis Top-K irrelevance is global due to poor score-relevance sepa... -> rejected",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "3703aca93a6b4dd3825cdbcd26cc1725",
+      "status": "rejected",
+      "from": {
+        "status": "investigating",
+        "confidence": 15,
+        "rationale": "auto-link [contradicts]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (hypothesis denies the measured segment effect (slice) and the measurement slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices; denial vs measurement decides) [contradictory evidence recorded; demoted; action 18fae8bb06fb401fb5bdc3a4fedb8167]"
+      },
+      "rationale": "auto-link [contradicts]: worst segment defect rate 0.074: defects concentrate (hypothesis denies the measured segment effect (slice) and the measurement worst segment defect rate 0.074: defects concentrate; denial vs measurement decides) [two independent contradicting measurements recorded; action c301dd16172e4ce39902f7dbb41d4d98]"
+    },
+    "created_at": "2026-11-01 22:25:46"
+  },
+  {
+    "seq": 52,
+    "kind": "linker",
+    "title": "auto-linked segment_quality_screen #44 to 3 hypotheses",
+    "detail": null,
+    "payload": {
+      "action_id": "c301dd16172e4ce39902f7dbb41d4d98",
+      "applied": [
+        {
+          "h": "66cf0815",
+          "d": "contradicts",
+          "s": "rejected"
+        },
+        {
+          "h": "59792c2c",
+          "d": "supports",
+          "s": "supported"
+        },
+        {
+          "h": "3703aca9",
+          "d": "contradicts",
+          "s": "rejected"
+        }
+      ]
+    },
+    "created_at": "2026-11-01 22:25:46"
+  },
+  {
+    "seq": 53,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "ranking_slice_diagnostics",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "delta"
+    },
+    "created_at": "2026-11-01 22:26:08"
+  },
+  {
+    "seq": 53,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "Global separation looks strong but top-K differs by slice \u2014 I'll run calibration to discriminate the remaining hypotheses.",
+    "payload": {
+      "response_id": "resp_6ae7bc7cc9e7772d63244eba",
+      "n_tool_calls": 0,
+      "usage": {
+        "input_tokens": 7439,
+        "input_tokens_details.cached_tokens": 4209,
+        "output_tokens": 2000,
+        "output_tokens_details.reasoning_tokens": 1926,
+        "total_tokens": 9439
+      },
+      "text": "Global separation looks strong but top-K differs by slice \u2014 I'll run calibration to discriminate the remaining hypotheses."
+    },
+    "created_at": "2026-11-01 22:26:08"
+  },
+  {
+    "seq": 54,
+    "kind": "skeptic",
+    "title": "Skeptic-lite disabled by arm flag (comparison arm)",
+    "detail": null,
+    "payload": {
+      "m16_skeptic": false
+    },
+    "created_at": "2026-11-01 22:26:08"
+  },
+  {
+    "seq": 55,
+    "kind": "grounded",
+    "title": "Grounded summary: 3 hypotheses, 6 actions",
+    "detail": null,
+    "payload": {
+      "investigation_id": "ac2d9cf40e5e4156ba7ac576c6616d1e",
+      "hypotheses": [
+        {
+          "hypothesis_id": "66cf08152c97411a9f87d60371dcc276",
+          "text": "Top-K relevance is uniform across catalog slices; no slice systematically underperforms at top-K.",
+          "status": "rejected",
+          "confidence": 5,
+          "evidence_refs": [
+            {
+              "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "contradicts"
+            },
+            {
+              "action_id": "2249196bdb754e3290709f1efc02000b",
+              "tool": "classification_metrics",
+              "relation": "relevant_to"
+            },
+            {
+              "action_id": "c301dd16172e4ce39902f7dbb41d4d98",
+              "tool": "segment_quality_screen",
+              "relation": "contradicts"
+            }
+          ],
+          "independent_supports": 0,
+          "independent_contradicts": 2
+        },
+        {
+          "hypothesis_id": "59792c2ccaf74e46ab86785762ea4d83",
+          "text": "A specific catalog slice (e.g., new items) is systematically under-ranked, yielding lower precision@top-K than other slices.",
+          "status": "supported",
+          "confidence": 70,
+          "evidence_refs": [
+            {
+              "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "supports"
+            },
+            {
+              "action_id": "2249196bdb754e3290709f1efc02000b",
+              "tool": "classification_metrics",
+              "relation": "relevant_to"
+            },
+            {
+              "action_id": "c301dd16172e4ce39902f7dbb41d4d98",
+              "tool": "segment_quality_screen",
+              "relation": "supports"
+            }
+          ],
+          "independent_supports": 2,
+          "independent_contradicts": 0
+        },
+        {
+          "hypothesis_id": "3703aca93a6b4dd3825cdbcd26cc1725",
+          "text": "Top-K irrelevance is global due to poor score-relevance separation, not driven by slice membership.",
+          "status": "rejected",
+          "confidence": 5,
+          "evidence_refs": [
+            {
+              "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "contradicts"
+            },
+            {
+              "action_id": "2249196bdb754e3290709f1efc02000b",
+              "tool": "classification_metrics",
+              "relation": "relevant_to"
+            },
+            {
+              "action_id": "c301dd16172e4ce39902f7dbb41d4d98",
+              "tool": "segment_quality_screen",
+              "relation": "contradicts"
+            }
+          ],
+          "independent_supports": 0,
+          "independent_contradicts": 2
+        }
+      ],
+      "actions": [
+        {
+          "action_id": "c9de2040a15740fc800d173ed7861cf1",
+          "seq": 7,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "62e09206046f41238865c944c0ecab31",
+          "seq": 10,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "9e9a9ceedcf946079383c845df7dd9a3",
+          "seq": 13,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+          "seq": 15,
+          "tool": "ranking_slice_diagnostics",
+          "status": "ran"
+        },
+        {
+          "action_id": "2249196bdb754e3290709f1efc02000b",
+          "seq": 31,
+          "tool": "classification_metrics",
+          "status": "ran"
+        },
+        {
+          "action_id": "c301dd16172e4ce39902f7dbb41d4d98",
+          "seq": 44,
+          "tool": "segment_quality_screen",
+          "status": "ran"
+        }
+      ],
+      "rule": "explain ONLY these recorded facts; do not invent hypothesis ids, statuses, action ids, or measured numbers; anything not listed here is unresolved"
+    },
+    "created_at": "2026-11-01 22:26:08"
+  },
+  {
+    "seq": 56,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "Global separation looks strong but top-K differs by slice \u2014 I'll run calibration to discriminate the remaining hypotheses.",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 22:26:08"
+  },
+  {
+    "seq": 57,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 22:26:16"
+  },
+  {
+    "seq": 57,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "{\"conclusion\": \"Specific catalog slice systematically under-ranked with lower precision at top-K than other slices; uniform-performance and global poor-separation explanations are rejected.\", \"status_recommendations\": [{\"hypothesis_id\": \"59792c2ccaf74e46ab86785762ea4d83\", \"status\": \"supported\", \"basis\": \"18fae8bb06fb401fb5bdc3a4fedb8167, 2249196bdb754e3290709f1efc02000b, c301dd16172e4ce39902f7dbb41d4d98\"}, {\"hypothesis_id\": \"66cf08152c97411a9f87d60371dcc276\", \"status\": \"rejected\", \"basis\": \"18fae8bb06fb401fb5bdc3a4fedb8167, 2249196bdb754e3290709f1efc02000b, c301dd16172e4ce39902f7dbb41d4d98\"}, ",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "supported 59792c2ccaf74e46ab86785762ea4d83 cites no evidence actions"
+      ],
+      "raw_block": "{\"conclusion\": \"Specific catalog slice systematically under-ranked with lower precision at top-K than other slices; uniform-performance and global poor-separation explanations are rejected.\", \"status_recommendations\": [{\"hypothesis_id\": \"59792c2ccaf74e46ab86785762ea4d83\", \"status\": \"supported\", \"basis\": \"18fae8bb06fb401fb5bdc3a4fedb8167, 2249196bdb754e3290709f1efc02000b, c301dd16172e4ce39902f7dbb41d4d98\"}, {\"hypothesis_id\": \"66cf08152c97411a9f87d60371dcc276\", \"status\": \"rejected\", \"basis\": \"18fae8bb06fb401fb5bdc3a4fedb8167, 2249196bdb754e3290709f1efc02000b, c301dd16172e4ce39902f7dbb41d4d98\"}, {\"hypothesis_id\": \"3703aca93a6b4dd3825cdbcd26cc1725\", \"status\": \"rejected\", \"basis\": \"18fae8bb06fb401fb5bdc3a4fedb8167, 2249196bdb754e3290709f1efc02000b, c301dd16172e4ce39902f7dbb41d4d98\"}], \"uncertainties\": [\"Causal mechanism for slice under-ranking not established by recorded diagnostics\"], \"recommended_next\": \"Investigate features and training coverage for underperforming slice to remediate ranking gap.\"}"
+    },
+    "created_at": "2026-11-01 22:26:16"
+  },
+  {
+    "seq": 58,
+    "kind": "summary_repair",
+    "title": "Summary repair still invalid \u2014 original verdict stands",
+    "detail": null,
+    "payload": {
+      "valid": false,
+      "continuation": "original",
+      "errors": [
+        "supported 59792c2ccaf74e46ab86785762ea4d83 cites no evidence actions"
+      ]
+    },
+    "created_at": "2026-11-01 22:26:16"
+  },
+  {
+    "seq": 58,
+    "kind": "fallback",
+    "title": "Deterministic fallback composed from records",
+    "detail": null,
+    "payload": {
+      "fallback_version": "m8-fallback-v1"
+    },
+    "created_at": "2026-11-01 22:26:16"
+  },
+  {
+    "seq": 58,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 3,
+      "api_attempts": 3,
+      "latency_s": 45.882,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "delta",
+      "fallback_used": false,
+      "tool_calls_executed": 1,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 17334,
+        "input_tokens_details.cached_tokens": 10451,
+        "output_tokens": 4401,
+        "output_tokens_details.reasoning_tokens": 3864,
+        "total_tokens": 21735
+      },
+      "fallback_composed": true
+    },
+    "created_at": "2026-11-01 22:26:16"
+  },
+  {
+    "seq": 58,
+    "kind": "selection",
+    "title": "Adherence: deviated (chose=segment_quality_screen, recommended=grouped_auc_comparison)",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "grouped_auc_comparison",
+        "calibration_and_error_analysis",
+        "segment_quality_screen"
+      ],
+      "executed_diagnostics": [
+        "segment_quality_screen"
+      ],
+      "followed": false
+    },
+    "created_at": "2026-11-01 22:26:16"
+  },
+  {
+    "seq": 59,
+    "kind": "status_change",
+    "title": "hypotheses_proposed -> investigating",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 22:26:16"
+  },
+  {
+    "seq": 59,
+    "kind": "status_change",
+    "title": "investigating -> finalizing",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 22:26:16"
+  },
+  {
+    "seq": 60,
+    "kind": "report",
+    "title": "Final report recorded",
+    "detail": null,
+    "payload": {
+      "investigation_id": "ac2d9cf40e5e4156ba7ac576c6616d1e",
+      "mode": "ml",
+      "question": "Are top results relevant for every catalog slice?",
+      "generated_at": "2026-11-01 22:26:16Z",
+      "confirmed": [],
+      "likely": [],
+      "rejected": [
+        {
+          "hypothesis_id": "66cf08152c97411a9f87d60371dcc276",
+          "text": "Top-K relevance is uniform across catalog slices; no slice systematically underperforms at top-K.",
+          "evidence_refs": [
+            {
+              "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "contradicts",
+              "action_status": "ran"
+            },
+            {
+              "action_id": "2249196bdb754e3290709f1efc02000b",
+              "tool": "classification_metrics",
+              "relation": "relevant_to",
+              "action_status": "ran"
+            },
+            {
+              "action_id": "c301dd16172e4ce39902f7dbb41d4d98",
+              "tool": "segment_quality_screen",
+              "relation": "contradicts",
+              "action_status": "ran"
+            }
+          ]
+        },
+        {
+          "hypothesis_id": "3703aca93a6b4dd3825cdbcd26cc1725",
+          "text": "Top-K irrelevance is global due to poor score-relevance separation, not driven by slice membership.",
+          "evidence_refs": [
+            {
+              "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "contradicts",
+              "action_status": "ran"
+            },
+            {
+              "action_id": "2249196bdb754e3290709f1efc02000b",
+              "tool": "classification_metrics",
+              "relation": "relevant_to",
+              "action_status": "ran"
+            },
+            {
+              "action_id": "c301dd16172e4ce39902f7dbb41d4d98",
+              "tool": "segment_quality_screen",
+              "relation": "contradicts",
+              "action_status": "ran"
+            }
+          ]
+        }
+      ],
+      "unresolved": [],
+      "supported_hypotheses": [
+        {
+          "hypothesis_id": "59792c2ccaf74e46ab86785762ea4d83",
+          "text": "A specific catalog slice (e.g., new items) is systematically under-ranked, yielding lower precision@top-K than other slices.",
+          "evidence_refs": [
+            {
+              "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "supports",
+              "action_status": "ran"
+            },
+            {
+              "action_id": "2249196bdb754e3290709f1efc02000b",
+              "tool": "classification_metrics",
+              "relation": "relevant_to",
+              "action_status": "ran"
+            },
+            {
+              "action_id": "c301dd16172e4ce39902f7dbb41d4d98",
+              "tool": "segment_quality_screen",
+              "relation": "supports",
+              "action_status": "ran"
+            }
+          ]
+        }
+      ],
+      "evidence_performed": [
+        {
+          "action_id": "c9de2040a15740fc800d173ed7861cf1",
+          "seq": 7,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "hypothesis_id": "66cf08152c97411a9f87d60371dcc276",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Top-K relevance is uniform across catalog slices; no slice systematically underperforms at top-K."
+          }
+        },
+        {
+          "action_id": "62e09206046f41238865c944c0ecab31",
+          "seq": 10,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "hypothesis_id": "59792c2ccaf74e46ab86785762ea4d83",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "A specific catalog slice (e.g., new items) is systematically under-ranked, yielding lower precision@top-K than other slices."
+          }
+        },
+        {
+          "action_id": "9e9a9ceedcf946079383c845df7dd9a3",
+          "seq": 13,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "hypothesis_id": "3703aca93a6b4dd3825cdbcd26cc1725",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Top-K irrelevance is global due to poor score-relevance separation, not driven by slice membership."
+          }
+        },
+        {
+          "action_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+          "seq": 15,
+          "tool": "ranking_slice_diagnostics",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "k_frac": 0.1,
+            "label_column": "relevance",
+            "limits": "observational ranking gap, not a causal finding; thin slices inconclusive",
+            "max_slice_gap": 0.1695,
+            "method_version": "ranking-slice-v1",
+            "ok": true
+          }
+        },
+        {
+          "action_id": "2249196bdb754e3290709f1efc02000b",
+          "seq": 31,
+          "tool": "classification_metrics",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "brier": 0.117965,
+            "brier_convention": "lower is better; probability of positive class",
+            "n": 1760,
+            "ok": true,
+            "precision_at_threshold": 0.715884,
+            "recall_at_threshold": 0.986133
+          }
+        },
+        {
+          "action_id": "c301dd16172e4ce39902f7dbb41d4d98",
+          "seq": 44,
+          "tool": "segment_quality_screen",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "does_not_establish": "whether quality issues caused errors",
+            "establishes": "whether hygiene defects concentrate in a segment",
+            "n": 1760,
+            "ok": true,
+            "segment_column": "slice",
+            "worst_dup_rate": 0.07363
+          }
+        }
+      ],
+      "limitations": [
+        "available diagnostics never run in this investigation: artifact_summary, dataset_validation, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, regression_metrics, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile, data_quality_profile, calibration_snapshot, residual_feature_dependence"
+      ],
+      "recommended_next": [
+        {
+          "for": null,
+          "action": "No open hypotheses remain; investigation may be closed",
+          "status": "n/a"
+        }
+      ],
+      "budget": {
+        "tool_calls": [
+          6,
+          12
+        ],
+        "iterations": [
+          0,
+          3
+        ]
+      },
+      "scope_note": "assembled deterministically from the investigation's recorded findings, hypotheses and executed actions; no section is model-invented and every rejected hypothesis carries its contradicting action ids."
+    },
+    "created_at": "2026-11-01 22:26:16"
+  },
+  {
+    "seq": 60,
+    "kind": "status_change",
+    "title": "finalizing -> complete",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 22:26:16"
+  }
+]

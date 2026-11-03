@@ -1,0 +1,517 @@
+{
+  "executive_summary": "Testing whether top results stay relevant across catalog slices \u2014 first slice diagnostic.",
+  "confirmed_findings": [],
+  "rejected_hypotheses": [
+    {
+      "hypothesis_id": "2d4fe3a45ebb49ae884b32692d5fb865",
+      "title": "Top-K relevance is uniform across catalog slices; no slice systematically receives less relevant top results."
+    }
+  ],
+  "inconclusive": [
+    {
+      "hypothesis_id": "3d790174966845aa9527c63764c75cca",
+      "text": "Apparent slice gaps reflect differing relevance base rates or query mix across slices, not worse model discrimination within slices.",
+      "status": "investigating",
+      "origin": "meta",
+      "confidence_is_model_note": true
+    }
+  ],
+  "experiments": [
+    {
+      "experiment_id": "035896c7e84b49f9a050d830addec173",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "e5e72e41d5ab4e048e3d0175334bfdf2",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "41614b74a5df4f119b5da57748c60e63",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "f51746cb4f104b869c458214556907f8",
+      "tool": "ranking_slice_diagnostics",
+      "summary": "ranking_slice_diagnostics: recorded",
+      "numbers": {
+        "k_frac": 0.1,
+        "pooled_precision_at_k": 0.9432,
+        "max_slice_gap": 0.1695
+      }
+    },
+    {
+      "experiment_id": "3ce83ed004ef4c7b98b544027be5317d",
+      "tool": "classification_metrics",
+      "summary": "classification_metrics: n=1760",
+      "numbers": {
+        "n": 1760,
+        "roc_auc": 0.977169,
+        "brier": 0.117965,
+        "precision_at_threshold": 0.715884,
+        "recall_at_threshold": 0.986133,
+        "threshold": 0.5
+      }
+    },
+    {
+      "experiment_id": "c47d712128084d0ca52418dbdb40e82c",
+      "tool": "ranking_slice_diagnostics",
+      "summary": "ranking_slice_diagnostics: recorded",
+      "numbers": {
+        "k_frac": 0.1,
+        "pooled_precision_at_k": 0.9432,
+        "max_slice_gap": 0.1695
+      }
+    },
+    {
+      "experiment_id": "adb7c2f4dc1247a09f0cf0e9503b1bbe",
+      "tool": "regression_metrics",
+      "summary": "regression_metrics: bias_mean_residual=-0.176765; mae=0.276076; n=1760",
+      "numbers": {
+        "n": 1760,
+        "mae": 0.276076,
+        "mse": 0.117965,
+        "rmse": 0.343461,
+        "r2": 0.493219,
+        "bias_mean_residual": -0.176765,
+        "residual_std": 0.294482,
+        "heteroscedasticity_hint": -0.870548,
+        "outliers_abs_z_gt_3": 1,
+        "mae_by_group": {
+          "est": 0.250039,
+          "new": 0.327448
+        }
+      }
+    },
+    {
+      "experiment_id": "300eec87a5aa4ae3a0bd8eabf7ca85dc",
+      "tool": "slice_gap_significance",
+      "summary": "slice_gap_significance: gap=0.1695",
+      "numbers": {
+        "k_frac": 0.1,
+        "gap": 0.1695,
+        "n_perm": 2000,
+        "seed": 7,
+        "p_value": 0.0005
+      }
+    }
+  ],
+  "verification": [],
+  "limitations": [
+    "available diagnostics never run in this investigation: artifact_summary, dataset_validation, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile, data_quality_profile, segment_quality_screen, calibration_snapshot, residual_feature_dependence"
+  ],
+  "investigation_id": "49c1f01ebdca4672a9ba68b6c8ec8158",
+  "structured_summary_valid": false,
+  "report_generation_status": "deterministic_fallback",
+  "report_provenance": {
+    "status": "deterministic_fallback",
+    "output_class": "empty_output",
+    "repair_attempted": false,
+    "repair_via": null,
+    "consistency_passed": true,
+    "consistency_failures": [],
+    "consistency_warnings": [
+      "no valid model summary; deterministic fallback carries the report"
+    ],
+    "assembly_mutated_state": false,
+    "useful_evidence": true,
+    "schema_version": "m8-v1",
+    "generated_at": "2026-11-02T16:25:37.673623+00:00",
+    "fallback_reason": [
+      "no structured summary found in the final message"
+    ]
+  },
+  "deterministic_fallback": {
+    "schema_version": "m8-v1",
+    "kind": "deterministic-fallback",
+    "fallback_version": "m8-fallback-v2",
+    "conclusion": "Best-supported explanation (recorded evidence only): Ranker underperforms on new-item slice due to cold-start feature sparsity, yielding lower top-K relevance for new catalog content.",
+    "status_recommendations": [],
+    "uncertainties": [
+      "Open: Apparent slice gaps reflect differing relevance base rates or query mix across slices, not worse model discrimination within slices."
+    ],
+    "recommended_next": "Design a test that would falsify: Apparent slice gaps reflect differing relevance base rates or query mix across slices, not worse model discrimination wi",
+    "evidence_action_ids": [
+      "035896c7e84b49f9a050d830addec173",
+      "e5e72e41d5ab4e048e3d0175334bfdf2",
+      "41614b74a5df4f119b5da57748c60e63",
+      "f51746cb4f104b869c458214556907f8",
+      "3ce83ed004ef4c7b98b544027be5317d",
+      "c47d712128084d0ca52418dbdb40e82c",
+      "adb7c2f4dc1247a09f0cf0e9503b1bbe",
+      "300eec87a5aa4ae3a0bd8eabf7ca85dc"
+    ],
+    "model_summary_errors": [
+      "no structured summary found in the final message"
+    ],
+    "provenance": "composed deterministically from recorded hypotheses/actions/report; the investigator's invalid response was preserved, not repaired away",
+    "investigation": {
+      "investigation_id": "49c1f01ebdca4672a9ba68b6c8ec8158",
+      "mode": "ml",
+      "question": "Are top results relevant for every catalog slice?",
+      "generated_at": "2026-11-02 16:25:37Z"
+    },
+    "main_findings": [],
+    "confirmed_findings": [],
+    "supported_but_unconfirmed": [
+      {
+        "hypothesis_id": "0cc64a42aafc48259632bd2ee7e36942",
+        "text": "Ranker underperforms on new-item slice due to cold-start feature sparsity, yielding lower top-K relevance for new catalog content.",
+        "status": null,
+        "evidence_refs": [
+          {
+            "action_id": "f51746cb4f104b869c458214556907f8",
+            "tool": "ranking_slice_diagnostics",
+            "relation": "supports"
+          },
+          {
+            "action_id": "3ce83ed004ef4c7b98b544027be5317d",
+            "tool": "classification_metrics",
+            "relation": "relevant_to"
+          },
+          {
+            "action_id": "c47d712128084d0ca52418dbdb40e82c",
+            "tool": "ranking_slice_diagnostics",
+            "relation": "supports"
+          },
+          {
+            "action_id": "adb7c2f4dc1247a09f0cf0e9503b1bbe",
+            "tool": "regression_metrics",
+            "relation": "supports"
+          },
+          {
+            "action_id": "300eec87a5aa4ae3a0bd8eabf7ca85dc",
+            "tool": "slice_gap_significance",
+            "relation": "supports"
+          }
+        ]
+      }
+    ],
+    "rejected_findings": [
+      {
+        "hypothesis_id": "2d4fe3a45ebb49ae884b32692d5fb865",
+        "text": "Top-K relevance is uniform across catalog slices; no slice systematically receives less relevant top results.",
+        "status": null,
+        "evidence_refs": [
+          {
+            "action_id": "f51746cb4f104b869c458214556907f8",
+            "tool": "ranking_slice_diagnostics",
+            "relation": "contradicts"
+          },
+          {
+            "action_id": "3ce83ed004ef4c7b98b544027be5317d",
+            "tool": "classification_metrics",
+            "relation": "relevant_to"
+          },
+          {
+            "action_id": "c47d712128084d0ca52418dbdb40e82c",
+            "tool": "ranking_slice_diagnostics",
+            "relation": "contradicts"
+          },
+          {
+            "action_id": "adb7c2f4dc1247a09f0cf0e9503b1bbe",
+            "tool": "regression_metrics",
+            "relation": "contradicts"
+          }
+        ]
+      }
+    ],
+    "unresolved_hypotheses": [
+      {
+        "hypothesis_id": "3d790174966845aa9527c63764c75cca",
+        "text": "Apparent slice gaps reflect differing relevance base rates or query mix across slices, not worse model discrimination within slices.",
+        "status": "investigating",
+        "origin": "meta"
+      }
+    ],
+    "evidence_for_each_finding": [
+      {
+        "hypothesis_id": "2d4fe3a45ebb49ae884b32692d5fb865",
+        "text": "Top-K relevance is uniform across catalog slices; no slice systematically receives less relevant top results.",
+        "status": "rejected",
+        "evidence_refs": [
+          {
+            "action_id": "f51746cb4f104b869c458214556907f8",
+            "tool": "ranking_slice_diagnostics",
+            "relation": "contradicts"
+          },
+          {
+            "action_id": "3ce83ed004ef4c7b98b544027be5317d",
+            "tool": "classification_metrics",
+            "relation": "relevant_to"
+          },
+          {
+            "action_id": "c47d712128084d0ca52418dbdb40e82c",
+            "tool": "ranking_slice_diagnostics",
+            "relation": "contradicts"
+          },
+          {
+            "action_id": "adb7c2f4dc1247a09f0cf0e9503b1bbe",
+            "tool": "regression_metrics",
+            "relation": "contradicts"
+          }
+        ],
+        "finding_state": "rejected"
+      },
+      {
+        "hypothesis_id": "0cc64a42aafc48259632bd2ee7e36942",
+        "text": "Ranker underperforms on new-item slice due to cold-start feature sparsity, yielding lower top-K relevance for new catalog content.",
+        "status": "supported",
+        "evidence_refs": [
+          {
+            "action_id": "f51746cb4f104b869c458214556907f8",
+            "tool": "ranking_slice_diagnostics",
+            "relation": "supports"
+          },
+          {
+            "action_id": "3ce83ed004ef4c7b98b544027be5317d",
+            "tool": "classification_metrics",
+            "relation": "relevant_to"
+          },
+          {
+            "action_id": "c47d712128084d0ca52418dbdb40e82c",
+            "tool": "ranking_slice_diagnostics",
+            "relation": "supports"
+          },
+          {
+            "action_id": "adb7c2f4dc1247a09f0cf0e9503b1bbe",
+            "tool": "regression_metrics",
+            "relation": "supports"
+          },
+          {
+            "action_id": "300eec87a5aa4ae3a0bd8eabf7ca85dc",
+            "tool": "slice_gap_significance",
+            "relation": "supports"
+          }
+        ],
+        "finding_state": "supported"
+      },
+      {
+        "hypothesis_id": "3d790174966845aa9527c63764c75cca",
+        "text": "Apparent slice gaps reflect differing relevance base rates or query mix across slices, not worse model discrimination within slices.",
+        "status": "investigating",
+        "evidence_refs": [
+          {
+            "action_id": "f51746cb4f104b869c458214556907f8",
+            "tool": "ranking_slice_diagnostics",
+            "relation": "supports"
+          },
+          {
+            "action_id": "3ce83ed004ef4c7b98b544027be5317d",
+            "tool": "classification_metrics",
+            "relation": "contradicts"
+          },
+          {
+            "action_id": "c47d712128084d0ca52418dbdb40e82c",
+            "tool": "ranking_slice_diagnostics",
+            "relation": "supports"
+          },
+          {
+            "action_id": "adb7c2f4dc1247a09f0cf0e9503b1bbe",
+            "tool": "regression_metrics",
+            "relation": "supports"
+          },
+          {
+            "action_id": "300eec87a5aa4ae3a0bd8eabf7ca85dc",
+            "tool": "slice_gap_significance",
+            "relation": "supports"
+          }
+        ],
+        "finding_state": "investigating"
+      }
+    ],
+    "contradictory_evidence": [
+      {
+        "hypothesis_id": "2d4fe3a45ebb49ae884b32692d5fb865",
+        "action_id": "f51746cb4f104b869c458214556907f8",
+        "tool": "ranking_slice_diagnostics"
+      },
+      {
+        "hypothesis_id": "2d4fe3a45ebb49ae884b32692d5fb865",
+        "action_id": "c47d712128084d0ca52418dbdb40e82c",
+        "tool": "ranking_slice_diagnostics"
+      },
+      {
+        "hypothesis_id": "2d4fe3a45ebb49ae884b32692d5fb865",
+        "action_id": "adb7c2f4dc1247a09f0cf0e9503b1bbe",
+        "tool": "regression_metrics"
+      },
+      {
+        "hypothesis_id": "3d790174966845aa9527c63764c75cca",
+        "action_id": "3ce83ed004ef4c7b98b544027be5317d",
+        "tool": "classification_metrics"
+      }
+    ],
+    "independent_verification": {
+      "performed": false,
+      "confirmed": false,
+      "detail": "no independent probe was run or recorded"
+    },
+    "adversarial_outcome": {
+      "reviewed": true,
+      "notes": [
+        "Skeptic-lite: 5 challenges, probe ranking_slice_diagnostics",
+        "Skeptic-lite: 4 challenges, 2 blocking, probe: none",
+        "Skeptic-lite: 4 challenges, 2 blocking, probe: none"
+      ]
+    },
+    "experiment_tool_summary": {
+      "ran_count": 8,
+      "failed_count": 0,
+      "tools": [
+        {
+          "action_id": "035896c7e84b49f9a050d830addec173",
+          "seq": 6,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "hypothesis_id": "2d4fe3a45ebb49ae884b32692d5fb865",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Top-K relevance is uniform across catalog slices; no slice systematically receives less relevant top results."
+          }
+        },
+        {
+          "action_id": "e5e72e41d5ab4e048e3d0175334bfdf2",
+          "seq": 9,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "hypothesis_id": "0cc64a42aafc48259632bd2ee7e36942",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Ranker underperforms on new-item slice due to cold-start feature sparsity, yielding lower top-K relevance for new catalog content."
+          }
+        },
+        {
+          "action_id": "41614b74a5df4f119b5da57748c60e63",
+          "seq": 12,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "hypothesis_id": "3d790174966845aa9527c63764c75cca",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Apparent slice gaps reflect differing relevance base rates or query mix across slices, not worse model discrimination within slices."
+          }
+        },
+        {
+          "action_id": "f51746cb4f104b869c458214556907f8",
+          "seq": 18,
+          "tool": "ranking_slice_diagnostics",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "k_frac": 0.1,
+            "label_column": "relevance",
+            "limits": "observational ranking gap, not a causal finding; thin slices inconclusive",
+            "max_slice_gap": 0.1695,
+            "method_version": "ranking-slice-v1",
+            "ok": true
+          }
+        },
+        {
+          "action_id": "3ce83ed004ef4c7b98b544027be5317d",
+          "seq": 29,
+          "tool": "classification_metrics",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "brier": 0.117965,
+            "brier_convention": "lower is better; probability of positive class",
+            "n": 1760,
+            "ok": true,
+            "precision_at_threshold": 0.715884,
+            "recall_at_threshold": 0.986133
+          }
+        },
+        {
+          "action_id": "c47d712128084d0ca52418dbdb40e82c",
+          "seq": 40,
+          "tool": "ranking_slice_diagnostics",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "k_frac": 0.1,
+            "label_column": "relevance",
+            "limits": "observational ranking gap, not a causal finding; thin slices inconclusive",
+            "max_slice_gap": 0.1695,
+            "method_version": "ranking-slice-v1",
+            "ok": true
+          }
+        },
+        {
+          "action_id": "adb7c2f4dc1247a09f0cf0e9503b1bbe",
+          "seq": 52,
+          "tool": "regression_metrics",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "bias_mean_residual": -0.176765,
+            "heteroscedasticity_hint": -0.870548,
+            "mae": 0.276076,
+            "mse": 0.117965,
+            "n": 1760,
+            "ok": true
+          }
+        },
+        {
+          "action_id": "300eec87a5aa4ae3a0bd8eabf7ca85dc",
+          "seq": 72,
+          "tool": "slice_gap_significance",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "gap": 0.1695,
+            "k_frac": 0.1,
+            "label_column": "relevance",
+            "limits": "permutation null = exchangeable slice labels; tests gap-is-real vs gap-is-noise, not the causal mechanism behind a real gap",
+            "method_version": "slice-gap-perm-v1",
+            "n_perm": 2000,
+            "ok": true
+          }
+        }
+      ]
+    },
+    "token_financial_usage": {
+      "budget": {
+        "tool_calls": [
+          8,
+          12
+        ],
+        "iterations": [
+          0,
+          3
+        ]
+      },
+      "tokens": {
+        "input_tokens": 8724,
+        "input_tokens_details.cached_tokens": 6513,
+        "output_tokens": 2000,
+        "output_tokens_details.reasoning_tokens": 1998,
+        "total_tokens": 10724
+      },
+      "financial": "not recorded in this context"
+    },
+    "limitations": [
+      "available diagnostics never run in this investigation: artifact_summary, dataset_validation, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile, data_quality_profile, segment_quality_screen, calibration_snapshot, residual_feature_dependence"
+    ],
+    "final_scientific_resolution": {
+      "status": "not recorded",
+      "conclusion": "no resolution contract recorded"
+    },
+    "generation_statement": "This report was generated deterministically from recorded investigation state without model dependence, because the model's summary output was missing or invalid and bounded repair did not produce a valid replacement."
+  },
+  "fallback_used": true
+}

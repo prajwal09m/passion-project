@@ -1,0 +1,50 @@
+{
+ "m10_ward_gap": {
+  "mechanism": "east-ward subgroup degradation",
+  "family": "subgroup",
+  "grade": "discovered",
+  "key_tool": "classification_metrics"
+ },
+ "m10_proxy_signal": {
+  "mechanism": "non-score input near-duplicate",
+  "family": "leakage",
+  "grade": "discovered",
+  "key_tool": "feature_target_suspiciousness"
+ },
+ "m10_threshold_skew": {
+  "mechanism": "systematic over-scoring",
+  "family": "calibration",
+  "grade": "discovered",
+  "key_tool": "calibration_and_error_analysis"
+ },
+ "m10_stale_lag": {
+  "mechanism": "lagged (stale) predictions",
+  "family": "misspecification",
+  "grade": "partial",
+  "key_tool": "residual_time_analysis"
+ },
+ "m10_district_scale": {
+  "mechanism": "district-c unit inconsistency",
+  "family": "subgroup",
+  "grade": "discovered",
+  "key_tool": "regression_metrics"
+ },
+ "m10_combo": {
+  "mechanism": "drift plus weak district gap",
+  "family": "drift",
+  "grade": "partial",
+  "key_tool": "temporal_changepoint_scan"
+ },
+ "m10_steady": {
+  "mechanism": "none (healthy)",
+  "family": "clean",
+  "grade": "correct-null",
+  "key_tool": "none"
+ },
+ "m10_sparse": {
+  "mechanism": "unknown (n too small)",
+  "family": "thin",
+  "grade": "inconclusive",
+  "key_tool": "none"
+ }
+}

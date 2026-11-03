@@ -1,0 +1,20 @@
+[
+  {
+    "id": "a33cbb7b402a4290aceb50ea229b43d6",
+    "text": "Model discrimination/calibration fails in one specific region (e.g., lower AUC or systematic under/over-prediction) while other regions perform adequately.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Requester reports uneven scores across regions; black-box GBM may have learned region-correlated patterns poorly, plausible regional discrimination/calibration failure.",
+    "evidence_refs": null,
+    "revisions": null
+  },
+  {
+    "id": "48c93f36f53b4c2189c6b60939c6d0dc",
+    "text": "Apparent regional unevenness is driven by data artifacts: differing default base rates, missingness, or feature distribution shift across regions, not model miscalibration.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Uneven scores could reflect different base rates or data hygiene per region rather than model discrimination failure; need to rule out artifact.",
+    "evidence_refs": null,
+    "revisions": null
+  }
+]

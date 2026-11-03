@@ -1,0 +1,368 @@
+{
+  "mode": "live_paired_groq",
+  "generated_utc": "2026-10-28T22:24:05Z",
+  "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-phase-d-groq-bsd13438\\sandbox.db",
+  "model": "openai/gpt-oss-120b",
+  "temperature": 0.2,
+  "rounds_per_turn": 2,
+  "turns_per_run": 2,
+  "tool_list": [
+    "propose_hypothesis",
+    "artifact_summary",
+    "dataset_validation",
+    "classification_metrics",
+    "time_split_validation",
+    "feature_target_suspiciousness",
+    "calibration_and_error_analysis",
+    "grouped_auc_comparison"
+  ],
+  "caps": {
+    "max_attempts": 25,
+    "max_total_tokens": 120000,
+    "max_est_cost": 0.5,
+    "repeated_429_limit": 4
+  },
+  "pricing_estimate_source": {
+    "input": 0.15,
+    "output": 0.6,
+    "source": "console.groq.com/docs/models (current published price)"
+  },
+  "totals": {
+    "provider_http_attempts": 8,
+    "billed_ok_requests": 8,
+    "failed_requests": 0,
+    "input_tokens": 16695,
+    "output_tokens": 3049,
+    "estimated_cost_usd": 0.004334,
+    "stop_reason": null
+  },
+  "runs": [
+    {
+      "condition": "full",
+      "investigation_name": "phase-d-groq-full",
+      "chained_context_chars": 2002,
+      "turn1": {
+        "rounds": 2,
+        "final_text": "",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 2,
+        "summary_block_seen": false
+      },
+      "turn2": {
+        "rounds": 1,
+        "final_text": "**Interpretation of recorded evidence**\n\n- The only recorded artifact is the OOF predictions file (`oof_predictions.csv`) containing 17 columns, of which 9 are marked as \u201cnot a model column.\u201d No performance metrics, calibration curves, or feature\u2011target correlation analyses have been computed yet.  \n- Consequently, there is **no factual evidence** that confirms or refutes either proposed explanation:\n  1. **Distribution shift across folds** (hypothesis\u202ff32526fb0b7246a39d4df8c341f2cc9e).  \n  2. **Target leakage in the feature set** (hypothesis\u202fecca52d5e2f449f68e6ecfa49a8852e3).  \n\nBoth remain **unresolved** given the current data.\n\n---\n\n```investigation_summary\n{\n  \"conclusion\": \"Insufficient evidence to attribute the OOF underperformance to either distribution shift or target leakage.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"f32526fb0b7246a39d4df8c341f2cc9e\",\n      \"status\": \"proposed\",\n      \"basis\": [\"1c4c9daa92394372a1083e7fe2b72039\"]\n    },\n    {\n      \"hypothesis_id\": \"ecca52d5e2f449f68e6ecfa49a8852e3\",\n      \"status\": \"proposed\",\n      \"basis\": [\"b910c5804b5647aeb812a355e248d8e2\"]\n    }\n  ],\n  \"uncertainties\": [\n    \"Per\u2011fold classification metrics (AUC, precision, recall, calibration) are unknown.\",\n    \"Feature\u2011target correlation strengths have not been measured.\",\n    \"Potential temporal or categorical distribution differences between folds have not been quantified.\"\n  ],\n  \"recommended_next\": \"Compute per\u2011fold classification metrics and calibration curves, and run a feature\u2011target suspiciousness scan to evaluate both distribution shift and target leakage hypotheses.\"\n}\n```",
+        "finish_reasons": [
+          "stop"
+        ],
+        "tool_calls_in_turn": 0,
+        "summary_block_seen": true
+      },
+      "summary": {
+        "valid": true,
+        "errors": [],
+        "conclusion": null
+      },
+      "backend": {
+        "actions_ran": [
+          "propose_hypothesis"
+        ],
+        "actions_ran_count": 2,
+        "actions_failed": [],
+        "tool_calls_used": 2,
+        "max_tool_calls": 6,
+        "event_kinds": {
+          "status_change": 2,
+          "tool_result": 3,
+          "hypothesis": 2,
+          "tool_request": 2,
+          "summary": 1
+        },
+        "reused_results": 0,
+        "hypothesis_statuses": [
+          "proposed",
+          "proposed"
+        ]
+      },
+      "condition_totals": {
+        "provider_latency_s": 6.491,
+        "requests": 3
+      },
+      "per_request": [
+        {
+          "tag": "turn1r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.661,
+          "prompt_tokens": 1719,
+          "completion_tokens": 625,
+          "usage_missing": false,
+          "shipped_messages": 2,
+          "shipped_chars": 2468,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.431,
+          "prompt_tokens": 2066,
+          "completion_tokens": 392,
+          "usage_missing": false,
+          "shipped_messages": 4,
+          "shipped_chars": 4222,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 2.399,
+          "prompt_tokens": 3101,
+          "completion_tokens": 748,
+          "usage_missing": false,
+          "shipped_messages": 8,
+          "shipped_chars": 8516,
+          "finish_reason": "stop"
+        }
+      ],
+      "final_message_head": "**Interpretation of recorded evidence**\n\n- The only recorded artifact is the OOF predictions file (`oof_predictions.csv`) containing 17 columns, of which 9 are marked as \u201cnot a model column.\u201d No performance metrics, calibration curves, or feature\u2011target correlation analyses have been computed yet.  \n- Consequently, there is **no factual evidence** that confirms or refutes either proposed explanati"
+    },
+    {
+      "condition": "delta",
+      "investigation_name": "phase-d-groq-delta",
+      "chained_context_chars": 1796,
+      "turn1": {
+        "rounds": 2,
+        "final_text": "",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 2,
+        "summary_block_seen": false
+      },
+      "turn2": {
+        "rounds": 2,
+        "final_text": "",
+        "finish_reasons": [
+          "tool_calls",
+          "tool_calls"
+        ],
+        "tool_calls_in_turn": 2,
+        "summary_block_seen": false
+      },
+      "summary": {
+        "valid": false,
+        "errors": [
+          "no structured summary found in the final message"
+        ],
+        "conclusion": null
+      },
+      "backend": {
+        "actions_ran": [
+          "propose_hypothesis",
+          "time_split_validation"
+        ],
+        "actions_ran_count": 3,
+        "actions_failed": [
+          "feature_target_suspiciousness"
+        ],
+        "tool_calls_used": 3,
+        "max_tool_calls": 6,
+        "event_kinds": {
+          "status_change": 2,
+          "tool_result": 5,
+          "hypothesis": 2,
+          "tool_request": 4,
+          "summary": 1
+        },
+        "reused_results": 0,
+        "hypothesis_statuses": [
+          "proposed",
+          "proposed"
+        ]
+      },
+      "condition_totals": {
+        "provider_latency_s": 5.55,
+        "requests": 4
+      },
+      "per_request": [
+        {
+          "tag": "turn1r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.784,
+          "prompt_tokens": 1719,
+          "completion_tokens": 494,
+          "usage_missing": false,
+          "shipped_messages": 2,
+          "shipped_chars": 2468,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn1r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.176,
+          "prompt_tokens": 2061,
+          "completion_tokens": 249,
+          "usage_missing": false,
+          "shipped_messages": 4,
+          "shipped_chars": 4132,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r1",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.496,
+          "prompt_tokens": 2966,
+          "completion_tokens": 310,
+          "usage_missing": false,
+          "shipped_messages": 8,
+          "shipped_chars": 8054,
+          "finish_reason": "tool_calls"
+        },
+        {
+          "tag": "turn2r2",
+          "try": 1,
+          "ok": true,
+          "http_status": 200,
+          "latency_s": 1.094,
+          "prompt_tokens": 3063,
+          "completion_tokens": 231,
+          "usage_missing": false,
+          "shipped_messages": 10,
+          "shipped_chars": 8604,
+          "finish_reason": "tool_calls"
+        }
+      ],
+      "final_message_head": ""
+    }
+  ],
+  "per_request_ledger": [
+    {
+      "condition": "-",
+      "kind": "models_list",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.394,
+      "error": null
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.661,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1719,
+        "completion_tokens": 625,
+        "total_tokens": 2344,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn1r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.431,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2066,
+        "completion_tokens": 392,
+        "total_tokens": 2458,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "full",
+      "kind": "chat:turn2r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 2.399,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3101,
+        "completion_tokens": 748,
+        "total_tokens": 3849,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.784,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 1719,
+        "completion_tokens": 494,
+        "total_tokens": 2213,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn1r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.176,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2061,
+        "completion_tokens": 249,
+        "total_tokens": 2310,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn2r1",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.496,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 2966,
+        "completion_tokens": 310,
+        "total_tokens": 3276,
+        "usage_missing": false
+      }
+    },
+    {
+      "condition": "delta",
+      "kind": "chat:turn2r2",
+      "ok": true,
+      "http_status": 200,
+      "latency_s": 1.094,
+      "error": null,
+      "usage": {
+        "prompt_tokens": 3063,
+        "completion_tokens": 231,
+        "total_tokens": 3294,
+        "usage_missing": false
+      }
+    }
+  ],
+  "limitations": [
+    "Groq Chat Completions is STATELESS: every request resends the conversation transcript. This does NOT reproduce Meta's previous_response_id retention; it measures how the full-context vs delta chained-turn strategies behave when requests resend history.",
+    "The turn-1 transcript resend is identical for both conditions; only the chained-turn opening message differs, so the measured difference is the redundant corpus re-transmission Phase C removes.",
+    "429 handling is owner-directed pacing: wait to the next minute boundary (~8 000 tokens/minute on-demand window) and retry; every attempt including retries is ledgered, nothing silent.",
+    "Groq results do NOT establish Meta API savings or billing behavior.",
+    "Cost figures are ESTIMATES from published pricing, not actual charges.",
+    "One paired comparison: no statistical significance."
+  ]
+}

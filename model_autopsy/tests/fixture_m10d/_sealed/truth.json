@@ -1,0 +1,26 @@
+{
+ "d_null": {
+  "mechanism": "none (healthy)",
+  "family": "clean",
+  "grade": "correct-null",
+  "key_tool": "none"
+ },
+ "d_thin": {
+  "mechanism": "unknown (n too small)",
+  "family": "thin",
+  "grade": "inconclusive",
+  "key_tool": "none"
+ },
+ "d_combined": {
+  "mechanism": "site-b over-scoring plus prevalence shift",
+  "family": "subgroup",
+  "grade": "discovered",
+  "key_tool": "classification_metrics"
+ },
+ "d_confounded": {
+  "mechanism": "south-zone size mix explains the error gap (confounded)",
+  "family": "subgroup",
+  "grade": "discovered",
+  "key_tool": "regression_metrics"
+ }
+}

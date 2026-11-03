@@ -11,10 +11,11 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { api, CaseMetrics, InvestigationSummary, useLoading } from './api'
 import { initNeuralScene } from './NeuralScene'
 
-type Go = (p: 'software' | 'ml' | 'history' | 'settings') => void
+type Go = (p: 'software' | 'ml' | 'cases' | 'new' | 'history' | 'settings' | 'projects' | 'eval' | 'lab') => void
 
-const LINKS: { key: 'software' | 'ml' | 'history' | 'settings'; label: string }[] = [
-  { key: 'ml', label: 'Case Study' },
+const LINKS: { key: 'new' | 'cases' | 'software' | 'history' | 'settings'; label: string }[] = [
+  { key: 'new', label: 'New Investigation' },
+  { key: 'cases', label: 'Case Studies' },
   { key: 'software', label: 'Software' },
   { key: 'history', label: 'History' },
   { key: 'settings', label: 'Settings' },
@@ -154,14 +155,17 @@ function Hero({ onGo }: { onGo: Go }) {
           hypotheses linked to evidence, and a <b>final report you can audit</b>.
         </p>
         <div className="hero-ctas">
-          <button className="cta-primary" onClick={() => onGo('ml')}>
-            Explore the Case Study <span className="arrow" aria-hidden>→</span>
+          <button className="cta-primary" onClick={() => onGo('new')}>
+            Start a new investigation <span className="arrow" aria-hidden>→</span>
           </button>
           <button className="cta-ghost" onClick={() => {
             document.getElementById('ground')?.scrollIntoView({ behavior: 'smooth' })
           }}>
             <span className="play" aria-hidden>▶</span>
             See live investigations
+          </button>
+          <button className="cta-ghost" onClick={() => onGo('cases')}>
+            Demand Zone AI case study <span aria-hidden>→</span>
           </button>
         </div>
       </div>
@@ -201,13 +205,11 @@ function HeroAnnotations() {
    ================================================================ */
 function Landbar() {
   const { data: inv } = useLoading<{ items: InvestigationSummary[] }>(() => api.listInvestigations())
-  const { data: m } = useLoading<CaseMetrics>(() => api.caseMetrics(200))
 
   const items = inv?.items ?? []
   const real = items.filter((i) => !i.is_test_record)
   const active = real.filter((i) => !['complete', 'failed', 'stopped'].includes(i.status))
   const completed = real.filter((i) => i.status === 'complete')
-  const pooled = m?.pooled_auc ?? null
 
   return (
     <section className="landbar">
@@ -230,22 +232,20 @@ function Landbar() {
       </Reveal>
 
       <Reveal className="col" delay={1}>
-        <h4><span className="spark">◫</span> Real Case Study Metrics</h4>
-        {pooled ? (
-          <div className="aucrow">
-            {(['LogisticRegression_A', 'LightGBM_A', 'LogisticRegression_B', 'LightGBM_B'] as const)
-              .filter((k) => k in pooled)
-              .map((k) => (
-                <div className="auc" key={k}>
-                  <div className="a">{pooled[k].toFixed(3)}</div>
-                  <div className="t">{shortArm(k)}</div>
-                </div>
-              ))}
-          </div>
-        ) : (
-          <div className="faint" style={{ fontSize: 12.5, paddingTop: 8 }}>computing from the frozen artifact…</div>
-        )}
-        <div className="aucsrc">pooled AUC recomputed live from the actual OOF artifact</div>
+        <h4><span className="spark">◫</span> What the platform does</h4>
+        <div className="loopflow" style={{ flexDirection: 'column', gap: 10 }}>
+          {[['Bring your model', 'uploads, datasets, scripts, configs, logs'],
+             ['Investigate', 'bounded diagnostics + competing hypotheses'],
+             ['Trace evidence', 'every claim links to recorded output'],
+             ['Understand the result', 'auditable report, unknowns stay unknown'],
+          ].map(([t, s]) => (
+            <div className="loopnode" key={t} style={{ width: 'auto' }}>
+              <div className="nm" style={{ fontSize: 16 }}>{t}</div>
+              <div className="ds">{s}</div>
+            </div>
+          ))}
+        </div>
+        <div className="aucsrc">task-agnostic: classification · regression · forecasting · ranking · clustering</div>
       </Reveal>
 
       <Reveal className="col loopcol" delay={2}>
@@ -271,11 +271,7 @@ function Landbar() {
   )
 }
 
-function shortArm(k: string): string {
-  if (k.startsWith('LogisticRegression_')) return 'LR ' + k.slice(-1)
-  if (k.startsWith('LightGBM_')) return 'LGBM ' + k.slice(-1)
-  return k
-}
+
 
 /* ================================================================
    problem / process — animated diagnostic deck (real + 1 labeled concept)
@@ -286,7 +282,7 @@ function ProblemProcess() {
     <section className="landsection">
       <div className="probgrid">
         <Reveal>
-          <div className="kicker-sm">The Problem</div>
+          <div className="kicker-sm">The Problem · illustrated by the Demand Zone AI case study</div>
           <h2 className="probh">Models can look good<br />while still <em>failing.</em></h2>
           <p className="probp">
             Hidden leakage. Poor calibration. Distribution shift. The real issues aren't
@@ -301,13 +297,13 @@ function ProblemProcess() {
         </Reveal>
 
         <Reveal className="paneldeck" delay={1}>
-          <DiagPanel title="Calibration" icon="◫"
+          <DiagPanel title="Calibration · case-study example" icon="◫"
             className="deck-a" render={(cv) => drawCalibration(cv, m ?? undefined)}>
-            <p className="concept">predicted vs observed — computed from the real artifact</p>
+            <p className="concept">Demand Zone AI artifact — predicted vs observed</p>
           </DiagPanel>
-          <DiagPanel title="Distribution Shift" icon="⇋"
+          <DiagPanel title="Distribution Shift · case-study example" icon="⇋"
             className="deck-b" render={(cv) => drawFoldAuc(cv, m ?? undefined)}>
-            <p className="concept">per-fold AUC — computed from the real artifact</p>
+            <p className="concept">Demand Zone AI artifact — per-fold AUC</p>
           </DiagPanel>
           <DiagPanel title="Feature Leakage" icon="∿"
             className="deck-c" render={drawLeakConcept} concept>
@@ -527,8 +523,9 @@ function GroundBand({ onOpen, onGo }: { onOpen: (id: string) => void; onGo: Go }
         <div className="kicker-sm violet">The Workbench</div>
         <h2><em>Real</em> investigations, <em>real</em> evidence,<br /><em>real</em> reports.</h2>
         <p>
-          Every number below comes from the running system or the frozen Demand Zone
-          artifact — nothing here is decorative or simulated.
+          Live investigations below come from the running system; the Demand Zone panel is a
+          clearly-labeled <b>case study</b> — one demonstration of the platform, not its definition.
+          Nothing here is decorative or simulated.
         </p>
       </Reveal>
 
@@ -576,7 +573,7 @@ function GroundBand({ onOpen, onGo }: { onOpen: (id: string) => void; onGo: Go }
 
         <Reveal delay={1}>
           <div className="hud">
-            <h3>Demand Zone AI — frozen v1.0.2 champion</h3>
+            <h3><span className="pill accent" style={{ marginLeft: 0, marginRight: 8 }}>Case study</span>Demand Zone AI — frozen v1.0.2 champion</h3>
             {mErr
               ? <p className="faint" style={{ fontSize: 12.5 }}>Case metrics unavailable: {mErr}</p>
               : !m ? <p className="faint" style={{ fontSize: 12.5 }}>Recomputing case-study metrics…</p>
@@ -603,7 +600,7 @@ function GroundBand({ onOpen, onGo }: { onOpen: (id: string) => void; onGo: Go }
                   </p>
                 </>
               )}
-            <button className="cta-primary" style={{ marginTop: 14 }} onClick={() => onGo('ml')}>
+            <button className="cta-primary" style={{ marginTop: 14 }} onClick={() => onGo('cases')}>
               Open the case study <span className="arrow" aria-hidden>→</span>
             </button>
           </div>

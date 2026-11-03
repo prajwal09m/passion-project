@@ -1,0 +1,206 @@
+{
+  "campaign": "phase_d_groq_controlled_2026-10-29",
+  "preregistration": "phase_d_groq_controlled_preregistration_2026-10-29.md",
+  "started_utc": "2026-10-29T22:00:38Z",
+  "model": "openai/gpt-oss-120b",
+  "global_caps": {
+    "max_pairs": 5,
+    "max_attempts": 100,
+    "max_total_tokens": 300000,
+    "max_est_cost_usd": 0.5,
+    "max_aborted_pairs": 2
+  },
+  "per_pair_caps": {
+    "max_attempts": 30,
+    "max_total_tokens": 80000,
+    "max_est_cost_usd": 0.1,
+    "repeated_429_limit": 4
+  },
+  "pairs": [
+    {
+      "pair": 1,
+      "order": [
+        "full",
+        "delta"
+      ],
+      "started_utc": "2026-10-29T22:00:38Z",
+      "elapsed_s": 506.3,
+      "exit_code": 0,
+      "pair_file": "phase_d_groq_controlled_pair1.json",
+      "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-controlled-p1-vrabmkhl\\sandbox.db",
+      "status": "completed",
+      "condition_order_ledger": [
+        "full",
+        "delta"
+      ],
+      "provider_http_attempts": 14,
+      "input_tokens": 37165,
+      "output_tokens": 5818,
+      "estimated_cost_usd": 0.009066,
+      "stop_reason": null,
+      "aborted_runs": 0,
+      "design_check": {
+        "ok": true,
+        "detail": "ok"
+      },
+      "summary_valid": {
+        "full": false,
+        "delta": true
+      },
+      "tool_calls": {
+        "full": 4,
+        "delta": 5
+      }
+    },
+    {
+      "pair": 2,
+      "order": [
+        "delta",
+        "full"
+      ],
+      "started_utc": "2026-10-29T22:09:04Z",
+      "elapsed_s": 600.4,
+      "exit_code": 0,
+      "pair_file": "phase_d_groq_controlled_pair2.json",
+      "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-controlled-p2-6ra5dh9b\\sandbox.db",
+      "status": "completed",
+      "condition_order_ledger": [
+        "delta",
+        "full"
+      ],
+      "provider_http_attempts": 17,
+      "input_tokens": 40389,
+      "output_tokens": 5570,
+      "estimated_cost_usd": 0.0094,
+      "stop_reason": null,
+      "aborted_runs": 0,
+      "design_check": {
+        "ok": true,
+        "detail": "ok"
+      },
+      "summary_valid": {
+        "delta": true,
+        "full": true
+      },
+      "tool_calls": {
+        "delta": 5,
+        "full": 6
+      }
+    },
+    {
+      "pair": 3,
+      "order": [
+        "full",
+        "delta"
+      ],
+      "started_utc": "2026-10-29T22:19:04Z",
+      "elapsed_s": 539.9,
+      "exit_code": 0,
+      "pair_file": "phase_d_groq_controlled_pair3.json",
+      "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-controlled-p3-_65ahckx\\sandbox.db",
+      "status": "completed",
+      "condition_order_ledger": [
+        "full",
+        "delta"
+      ],
+      "provider_http_attempts": 15,
+      "input_tokens": 40821,
+      "output_tokens": 5138,
+      "estimated_cost_usd": 0.009206,
+      "stop_reason": null,
+      "aborted_runs": 0,
+      "design_check": {
+        "ok": true,
+        "detail": "ok"
+      },
+      "summary_valid": {
+        "full": true,
+        "delta": true
+      },
+      "tool_calls": {
+        "full": 5,
+        "delta": 6
+      }
+    },
+    {
+      "pair": 4,
+      "order": [
+        "delta",
+        "full"
+      ],
+      "started_utc": "2026-10-29T22:28:04Z",
+      "elapsed_s": 539.8,
+      "exit_code": 0,
+      "pair_file": "phase_d_groq_controlled_pair4.json",
+      "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-controlled-p4-gkf6ixgp\\sandbox.db",
+      "status": "completed",
+      "condition_order_ledger": [
+        "delta",
+        "full"
+      ],
+      "provider_http_attempts": 15,
+      "input_tokens": 40244,
+      "output_tokens": 6918,
+      "estimated_cost_usd": 0.010187,
+      "stop_reason": null,
+      "aborted_runs": 0,
+      "design_check": {
+        "ok": true,
+        "detail": "ok"
+      },
+      "summary_valid": {
+        "delta": true,
+        "full": false
+      },
+      "tool_calls": {
+        "delta": 5,
+        "full": 5
+      }
+    },
+    {
+      "pair": 5,
+      "order": [
+        "full",
+        "delta"
+      ],
+      "started_utc": "2026-10-29T22:37:04Z",
+      "elapsed_s": 601.0,
+      "exit_code": 0,
+      "pair_file": "phase_d_groq_controlled_pair5.json",
+      "sandbox_db": "C:\\Users\\kamal\\AppData\\Local\\Temp\\ma-controlled-p5-wqbpunse\\sandbox.db",
+      "status": "completed",
+      "condition_order_ledger": [
+        "full",
+        "delta"
+      ],
+      "provider_http_attempts": 15,
+      "input_tokens": 40886,
+      "output_tokens": 5428,
+      "estimated_cost_usd": 0.00939,
+      "stop_reason": null,
+      "aborted_runs": 0,
+      "design_check": {
+        "ok": true,
+        "detail": "ok"
+      },
+      "summary_valid": {
+        "full": true,
+        "delta": true
+      },
+      "tool_calls": {
+        "full": 5,
+        "delta": 5
+      }
+    }
+  ],
+  "status": "completed",
+  "stop_reason": null,
+  "finished_utc": "2026-10-29T22:47:05Z",
+  "totals": {
+    "pairs_completed": 5,
+    "provider_http_attempts": 76,
+    "input_plus_output_tokens": 228377,
+    "estimated_cost_usd": 0.047249,
+    "aborted_pairs": 0
+  }
+}

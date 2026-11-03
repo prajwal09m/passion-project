@@ -1,0 +1,74 @@
+[
+  {
+    "id": "8f6387871b614d219907f8a7170cea4b",
+    "text": "Top results are irrelevant for new-catalog slice due to cold-start ranking failure, while other slices rank well.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link [contradicts]: per-split AUC spread 0.008: uniform (measurement directly bears on the hypothesis mechanism: per-split AUC spread 0.008: uniform) [contradictory evidence recorded; demoted; action 47b0a532e6c34e5cac041b85f152ad75]",
+    "evidence_refs": [
+      {
+        "action_id": "47b0a532e6c34e5cac041b85f152ad75",
+        "tool": "classification_metrics",
+        "relation": "contradicts",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 19:58:08",
+        "from": "proposed",
+        "to": "investigating"
+      }
+    ]
+  },
+  {
+    "id": "16769538ccec44a8a516f19036488402",
+    "text": "Apparent slice gaps are evaluation artifacts from label sparsity or segment hygiene issues, not true ranking quality differences.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link [contradicts]: per-split AUC spread 0.008: uniform (measurement directly bears on the hypothesis mechanism: per-split AUC spread 0.008: uniform) [contradictory evidence recorded; demoted; action 47b0a532e6c34e5cac041b85f152ad75]",
+    "evidence_refs": [
+      {
+        "action_id": "47b0a532e6c34e5cac041b85f152ad75",
+        "tool": "classification_metrics",
+        "relation": "contradicts",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "185404815742460cb7d2eee1a19e9ce2",
+        "tool": "segment_quality_screen",
+        "relation": "relevant_to",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 19:58:08",
+        "from": "proposed",
+        "to": "investigating"
+      }
+    ]
+  },
+  {
+    "id": "fb0baee5a26646cb92c953e1ebc3258b",
+    "text": "Ranker scores are globally uninformative for relevance across all catalog slices, not a slice-specific failure.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link [supports]: per-split AUC spread 0.008: uniform (hypothesis denies the measured segment effect (slice) and the measurement per-split AUC spread 0.008: uniform; denial vs measurement decides) [supporting evidence recorded; needs independent corroboration; action 47b0a532e6c34e5cac041b85f152ad75]",
+    "evidence_refs": [
+      {
+        "action_id": "47b0a532e6c34e5cac041b85f152ad75",
+        "tool": "classification_metrics",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 19:58:08",
+        "from": "proposed",
+        "to": "investigating"
+      }
+    ]
+  }
+]

@@ -1,0 +1,161 @@
+[
+  {
+    "id": "63db9531a544444bb1c1c2d7aa524074",
+    "seq": 6,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, low-moderate; district clue makes this salient but not confirmed.",
+      "predicted_observation": "If true, regression_metrics grouped by district will show markedly higher MAE/bias for one district vs other; residual_feature_dependence will show district association.",
+      "rationale": "Objective says one district looks off after schema update; sample shows district A/B column. Schema update could have broken district encoding/one-hot, causing systematic bias for that district.",
+      "text": "Predictions have systematic district-specific bias (e.g., district B over/under-predicted) caused by schema update mishandling of district feature."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+      "ok": true,
+      "hypothesis_id": "685cb37267584ef3abc9034d49f1a1c5",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Predictions have systematic district-specific bias (e.g., district B over/under-predicted) caused by schema update mishandling of district feature."
+    },
+    "error": null
+  },
+  {
+    "id": "dff43b8b24214bc9957bc7dd97355c38",
+    "seq": 9,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, low; plausible alternative if schema changed numeric units.",
+      "predicted_observation": "If true, residual_feature_dependence will show strong correlation of residuals with area and/or rooms, and error persists within each district after accounting for those features.",
+      "rationale": "Schema update could have changed numeric field units/definition (area, rooms). That would produce error dependent on numeric feature rather than district label per se.",
+      "text": "Errors are driven by mis-scaled numeric feature (area and/or rooms) after schema update, not by district membership itself."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+      "ok": true,
+      "hypothesis_id": "3b94f1cb3b644a8c96210e528e67dae5",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Errors are driven by mis-scaled numeric feature (area and/or rooms) after schema update, not by district membership itself."
+    },
+    "error": null
+  },
+  {
+    "id": "392759294426437b89ae01f1f5718037",
+    "seq": 12,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, low; base-rate alternative to rule out.",
+      "predicted_observation": "If true, calibration_snapshot will show overall bias/variance without district separation, and grouped MAE by district will be similar.",
+      "rationale": "Apparent district issue could be sampling noise or overall drift misattributed to one district; need to test global miscalibration vs localized failure.",
+      "text": "Model has global miscalibration/target drift affecting all districts similarly, with no true district-specific failure."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+      "ok": true,
+      "hypothesis_id": "282f282f29f84bd7a5e6f1f2b7577615",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Model has global miscalibration/target drift affecting all districts similarly, with no true district-specific failure."
+    },
+    "error": null
+  },
+  {
+    "id": "50704274072a4b70807a3786c566b803",
+    "seq": 14,
+    "kind": "tool_call",
+    "tool": "regression_metrics",
+    "status": "ran",
+    "arguments": {
+      "group_column": "district",
+      "prediction_column": "prediction",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv",
+      "target_column": "target"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\rent_estimates.csv",
+      "n": 1200,
+      "mae": 191.221667,
+      "mse": 97373.865,
+      "rmse": 312.047857,
+      "r2": 0.786538,
+      "bias_mean_residual": 114.465,
+      "residual_std": 290.295761,
+      "heteroscedasticity_hint": 0.069377,
+      "outliers_abs_z_gt_3": 30,
+      "mae_by_group": {
+        "A": 93.725941,
+        "B": 97.38809,
+        "C": 583.987234
+      }
+    },
+    "error": null
+  },
+  {
+    "id": "d53e376513fa49f1b245629b725c2a00",
+    "seq": 28,
+    "kind": "tool_call",
+    "tool": "residual_feature_dependence",
+    "status": "ran",
+    "arguments": {
+      "prediction_column": "prediction",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv",
+      "target_column": "target",
+      "top_k": 5
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+      "ok": true,
+      "n": 1200,
+      "ranked": [
+        {
+          "column": "rooms",
+          "abs_corr": 0.180565,
+          "corr": 0.180565,
+          "n": 1200
+        },
+        {
+          "column": "area",
+          "abs_corr": 0.005399,
+          "corr": 0.005399,
+          "n": 1200
+        }
+      ],
+      "n_numeric_scanned": 2,
+      "max_abs_corr": 0.180565,
+      "establishes": "whether residuals track an input column",
+      "does_not_establish": "the cause of the dependence"
+    },
+    "error": null
+  },
+  {
+    "id": "87b44cde97934f138eab7923a193c188",
+    "seq": 35,
+    "kind": "tool_call",
+    "tool": "calibration_snapshot",
+    "status": "ran",
+    "arguments": {
+      "prediction_column": "prediction",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv",
+      "target_column": "target"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+      "ok": true,
+      "n": 1200,
+      "bias_mean_residual": 114.465,
+      "residual_std": 290.416793,
+      "mae": 191.221667,
+      "establishes": "bias vs variance decomposition",
+      "does_not_establish": "source of the bias"
+    },
+    "error": null
+  }
+]

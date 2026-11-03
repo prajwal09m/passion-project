@@ -1,0 +1,221 @@
+{
+  "project": "eval_docs",
+  "investigation_id": "ab0d1e29461c49309c0e282937246578",
+  "report": {
+    "executive_summary": "1 supported / 0 rejected / 0 inconclusive-or-blocked from 1 experiment(s).",
+    "project_understanding": {
+      "project_id": "eval_docs",
+      "predicting": "Are these document groups stable and separated?",
+      "receives": {
+        "columns": [
+          "v1",
+          "v2"
+        ],
+        "note": "model inputs per observed artifact schema"
+      },
+      "produces": {
+        "target": "No labels: group assignment",
+        "note": "model outputs per spec"
+      },
+      "success": "Silhouette, stability, size balance",
+      "evaluation": "Silhouette, stability, size balance",
+      "evaluation_assumptions": [
+        "reported metrics assume the supplied predictions match the described evaluation split",
+        "recomputed metrics assume label/target columns are correct"
+      ],
+      "missing": [],
+      "possible": [
+        "dataset_validation: schema/quality overview",
+        "model_inspection: per declared availability (local)"
+      ],
+      "impossible": [
+        "error_analysis: needs predictions + ground truth",
+        "temporal_analysis: no date column observed"
+      ],
+      "inconsistencies": [],
+      "dataset": {
+        "location": "model_autopsy/tests/fixture_eval/investigator/doc_vectors.csv",
+        "readable": true,
+        "path": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\doc_vectors.csv",
+        "n_rows_peek": 600,
+        "columns": [
+          "v1",
+          "v2"
+        ],
+        "dtypes": {
+          "v1": "float64",
+          "v2": "float64"
+        },
+        "null_counts": {
+          "v1": 0,
+          "v2": 0
+        },
+        "samples": [
+          {
+            "v1": -0.614,
+            "v2": -3.388
+          },
+          {
+            "v1": -0.192,
+            "v2": -2.173
+          },
+          {
+            "v1": 0.073,
+            "v2": -1.979
+          },
+          {
+            "v1": 3.692,
+            "v2": 4.587
+          },
+          {
+            "v1": 4.345,
+            "v2": 1.815
+          }
+        ],
+        "numeric_summary": {
+          "v1": {
+            "mean": 0.6601650000000001,
+            "std": 2.392373690340214,
+            "min": -8.117,
+            "max": 8.058
+          },
+          "v2": {
+            "mean": 0.6292166666666668,
+            "std": 2.1989630291863564,
+            "min": -5.077,
+            "max": 7.329
+          }
+        }
+      },
+      "model": {
+        "name": "doc-kmeans",
+        "framework": "sklearn",
+        "availability": "local",
+        "training_config": {}
+      },
+      "docs": {},
+      "provenance": {
+        "built_by": "recon.build_understanding",
+        "artifact": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\doc_vectors.csv"
+      }
+    },
+    "confirmed_findings": [
+      {
+        "hypothesis_id": "d69e9dc039a8",
+        "title": "Segments unstable or imbalanced",
+        "mechanism": "Weak separation yields low silhouette or a degenerate giant cluster.",
+        "evidence": [
+          "numeric feature columns present",
+          {
+            "experiment_id": "9677b9fbb42e",
+            "tool": "clustering_stability",
+            "numbers": {
+              "n": 600,
+              "silhouette": 0.334,
+              "imbalance": 1.256
+            }
+          }
+        ]
+      }
+    ],
+    "rejected_hypotheses": [],
+    "inconclusive": [],
+    "open_hypotheses": [
+      {
+        "hypothesis_id": "879ae27d6ae4",
+        "title": "No material issue (null hypothesis)",
+        "status": "proposed"
+      }
+    ],
+    "experiments": [
+      {
+        "experiment_id": "9677b9fbb42e",
+        "hypothesis_id": "d69e9dc039a8",
+        "tool": "clustering_stability",
+        "status": "ran",
+        "breach": true,
+        "summary": "silhouette=0.334 imbalance=1.256",
+        "numbers": {
+          "n": 600,
+          "silhouette": 0.334,
+          "imbalance": 1.256
+        }
+      }
+    ],
+    "verification": [
+      {
+        "hypothesis_id": "d69e9dc039a8",
+        "claim": "Segments unstable or imbalanced",
+        "verdict": "upheld",
+        "checks": [
+          {
+            "check": "sample_size_sufficient",
+            "pass": true,
+            "detail": "n=600; <30 is insufficient for a finding"
+          },
+          {
+            "check": "methodology_appropriate",
+            "pass": true,
+            "detail": "method=clustering_stability"
+          },
+          {
+            "check": "evidence_linked",
+            "pass": true,
+            "detail": "1 evidence result(s)"
+          },
+          {
+            "check": "no_leak_in_diagnostic",
+            "pass": true,
+            "detail": "diagnostic is read-only recomputation; no leakage signal"
+          },
+          {
+            "check": "numbers_reproducible",
+            "pass": true,
+            "detail": "3 numeric value(s) with seeds"
+          }
+        ],
+        "disagreement": null,
+        "disproof_wanted": "silhouette >= 0.5 with balance < 2"
+      }
+    ],
+    "limitations": [
+      "offline deterministic triage; LLM reasoning quality covered by prior frozen live campaigns, not here",
+      "single scenario per task family in this suite slice",
+      "heuristic prioritization is not Bayesian information gain"
+    ],
+    "reproducibility": {
+      "seeds": "fixed per diagnostic",
+      "artifacts": "committed CSV fixtures",
+      "runner": "lab.run_autonomous_investigation"
+    },
+    "recommendations": [
+      "re-run breached diagnostics on fresh splits before acting",
+      "add a reusable diagnostic module for any candidate novel mechanism before treating it as a finding type"
+    ]
+  },
+  "scorecard": {
+    "project": "eval_docs",
+    "verdict": "correct",
+    "note": "mechanism named + numbers support (sil=0.334 imb=1.256)",
+    "false_positive": false,
+    "dimensions": {
+      "discovery": 1.0,
+      "evidence": 1.0,
+      "reasoning": 1.0,
+      "calibration": 1.0,
+      "efficiency": 1.0,
+      "reproducibility": 1.0
+    },
+    "weights": {
+      "discovery": 0.3,
+      "evidence": 0.25,
+      "reasoning": 0.15,
+      "calibration": 0.15,
+      "efficiency": 0.05,
+      "reproducibility": 0.1
+    },
+    "overall": 1.0,
+    "assessment": "deterministic + heuristic; LLM/human reserved"
+  },
+  "elapsed_s": 2.29
+}

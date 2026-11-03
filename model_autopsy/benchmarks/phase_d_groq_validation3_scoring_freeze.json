@@ -1,0 +1,20 @@
+{
+  "campaign": "phase_d_groq_live_20261031T202441Z",
+  "rubric": "benchmarks/phase_d_blind_scoring_rubric_v1.md (v1, frozen 2026-10-29)",
+  "packets": [
+    "PACKET-A",
+    "PACKET-B"
+  ],
+  "blind_order_rule": "sha256('phase_d_groq_validation3-blind-order-v1')[0]=='2' (even) -> alphabetical-first run dir presented first",
+  "condition_key": "benchmarks/.sealed/phase_d_groq_validation3_condition_key.json (sealed; hashes of packets/sheets recorded here, mapping contents never displayed)",
+  "machine_contract": "blind_scoring.py validate_scores + total_score both pass; totals 7 and 7, max 12",
+  "scores_frozen_before_unblinding": true,
+  "unblinded": false,
+  "no_condition_averages_computed": true,
+  "file_digests": {
+    "PACKET-A.md": "23edd45c5bb4b8c59565b84872635548ae15066586049dba2ea8707dea4b3016",
+    "PACKET-B.md": "cf929c86bc66c512c9e0d8e4a7f163f890a25ce6bdc99458c594ccf828330ccb",
+    "PACKET-A.scores.json": "a8f6dab09b2fd2416be04402101d12fa24d4e31ef8971813b68a5acf943f140a",
+    "PACKET-B.scores.json": "d785183bf1981b230af6a91216efaf1dd99fc337d11140a838234971e6b4e89e"
+  }
+}

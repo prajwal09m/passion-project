@@ -1,0 +1,1442 @@
+[
+  {
+    "seq": 1,
+    "kind": "status_change",
+    "title": "Investigation created",
+    "detail": "mode=ml; max_iterations=3; max_tool_calls=12",
+    "payload": {},
+    "created_at": "2026-11-01 22:26:26"
+  },
+  {
+    "seq": 2,
+    "kind": "tool_result",
+    "title": "Live recon context prepared (neutral brief + schema)",
+    "detail": null,
+    "payload": {
+      "columns": [
+        "query",
+        "slice",
+        "relevance",
+        "score"
+      ],
+      "tools": [
+        "artifact_summary",
+        "calibration_and_error_analysis",
+        "calibration_snapshot",
+        "classification_metrics",
+        "clustering_stability",
+        "data_quality_profile",
+        "dataset_validation",
+        "distribution_shift_profile",
+        "feature_target_suspiciousness",
+        "forecast_diagnostics",
+        "grouped_auc_comparison",
+        "propose_hypothesis",
+        "ranking_slice_diagnostics",
+        "regression_metrics",
+        "residual_feature_dependence",
+        "residual_time_analysis",
+        "segment_quality_screen",
+        "temporal_changepoint_scan",
+        "time_split_validation"
+      ]
+    },
+    "created_at": "2026-11-01 22:26:26"
+  },
+  {
+    "seq": 3,
+    "kind": "selection",
+    "title": "Selection brief: top=artifact_summary",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "artifact_summary",
+        "data_quality_profile",
+        "dataset_validation"
+      ],
+      "open": []
+    },
+    "created_at": "2026-11-01 22:26:26"
+  },
+  {
+    "seq": 4,
+    "kind": "reservation",
+    "title": "Reservation declined: fewer than 2 open hypotheses; no discrimination to buy",
+    "detail": null,
+    "payload": {
+      "reserved": false,
+      "reason": "fewer than 2 open hypotheses; no discrimination to buy"
+    },
+    "created_at": "2026-11-01 22:26:26"
+  },
+  {
+    "seq": 5,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "ranking_slice_diagnostics",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "full"
+    },
+    "created_at": "2026-11-01 22:26:33"
+  },
+  {
+    "seq": 5,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Investigating whether top results stay relevant across catalog slices \u2014 testing competing explanations for slice gaps.",
+    "payload": {
+      "response_id": "resp_6ae7bc99b4f2f2484de7462b",
+      "n_tool_calls": 3,
+      "usage": {
+        "input_tokens": 4889,
+        "input_tokens_details.cached_tokens": 4849,
+        "output_tokens": 872,
+        "output_tokens_details.reasoning_tokens": 298,
+        "total_tokens": 5761
+      },
+      "text": "Investigating whether top results stay relevant across catalog slices \u2014 testing competing explanations for slice gaps."
+    },
+    "created_at": "2026-11-01 22:26:33"
+  },
+  {
+    "seq": 6,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Top-K ranking quality is uniform across catalog slices; any slice differences reflect base rates, not model failure.",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "189bf6e9cc84400090a7cc0bd59997cc",
+      "source": "meta",
+      "predicted_observation": "ranking_slice_diagnostics shows similar precision@top-K across all slice values with overlapping variation.",
+      "confidence_note": "Uncalibrated prior ~40%; uniform performance possible but cold-start issues common in ranking."
+    },
+    "created_at": "2026-11-01 22:26:33"
+  },
+  {
+    "seq": 7,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior ~40%; uniform performance possible but cold-start issues common in ranking.",
+        "predicted_observation": "ranking_slice_diagnostics shows similar precision@top-K across all slice values with overlapping variation.",
+        "rationale": "If model generalizes, top-K relevance should be comparable per slice; pooled precision alone could mask slice parity, so slice-aware P@K is needed.",
+        "text": "Top-K ranking quality is uniform across catalog slices; any slice differences reflect base rates, not model failure."
+      },
+      "action_seq": 7
+    },
+    "created_at": "2026-11-01 22:26:33"
+  },
+  {
+    "seq": 8,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\\\", 1793500694885150900, 30142]]]\", \"ok\": true, \"hypothesis_id\": \"189bf6e9cc84400090a7cc0bd59997cc\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Top-K ranking quality is uniform across catalog slices; any slice differen",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+        "ok": true,
+        "hypothesis_id": "189bf6e9cc84400090a7cc0bd59997cc",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Top-K ranking quality is uniform across catalog slices; any slice differences reflect base rates, not model failure."
+      },
+      "action_seq": 7
+    },
+    "created_at": "2026-11-01 22:26:33"
+  },
+  {
+    "seq": 9,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Ranking fails selectively on new/long-tail catalog slice due to feature sparsity, yielding lower precision@top-K there.",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "53a3b09eec184b3a862b7fa9df24140d",
+      "source": "meta",
+      "predicted_observation": "ranking_slice_diagnostics shows materially lower precision@top-K for one slice (e.g., new items) vs others at same K fraction.",
+      "confidence_note": "Uncalibrated prior ~50%; cold-start underperformance is a common ranking failure mode."
+    },
+    "created_at": "2026-11-01 22:26:33"
+  },
+  {
+    "seq": 10,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior ~50%; cold-start underperformance is a common ranking failure mode.",
+        "predicted_observation": "ranking_slice_diagnostics shows materially lower precision@top-K for one slice (e.g., new items) vs others at same K fraction.",
+        "rationale": "Sample rows show slice=new; new catalog items often lack interaction features, plausibly degrading rank-lgb top results for that slice.",
+        "text": "Ranking fails selectively on new/long-tail catalog slice due to feature sparsity, yielding lower precision@top-K there."
+      },
+      "action_seq": 10
+    },
+    "created_at": "2026-11-01 22:26:33"
+  },
+  {
+    "seq": 11,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\\\", 1793500694885150900, 30142]]]\", \"ok\": true, \"hypothesis_id\": \"53a3b09eec184b3a862b7fa9df24140d\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Ranking fails selectively on new/long-tail catalog slice due to feature sp",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+        "ok": true,
+        "hypothesis_id": "53a3b09eec184b3a862b7fa9df24140d",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Ranking fails selectively on new/long-tail catalog slice due to feature sparsity, yielding lower precision@top-K there."
+      },
+      "action_seq": 10
+    },
+    "created_at": "2026-11-01 22:26:33"
+  },
+  {
+    "seq": 12,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Apparent slice gaps are measurement artifacts from segment hygiene problems (missing/small/duplicate slices), not relevance differences.",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "294a7730de4e473fbe3119814d4b7dff",
+      "source": "meta",
+      "predicted_observation": "data_quality/segment screens show high nulls, dups, or extreme size imbalance by slice, making P@K incomparable.",
+      "confidence_note": "Uncalibrated prior ~20%; hygiene issues less likely but would invalidate slice comparison."
+    },
+    "created_at": "2026-11-01 22:26:33"
+  },
+  {
+    "seq": 13,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior ~20%; hygiene issues less likely but would invalidate slice comparison.",
+        "predicted_observation": "data_quality/segment screens show high nulls, dups, or extreme size imbalance by slice, making P@K incomparable.",
+        "rationale": "Slice comparisons require adequate samples per slice; if artifact has missing slice labels or tiny slices, apparent gaps are measurement artifacts.",
+        "text": "Apparent slice gaps are measurement artifacts from segment hygiene problems (missing/small/duplicate slices), not relevance differences."
+      },
+      "action_seq": 13
+    },
+    "created_at": "2026-11-01 22:26:33"
+  },
+  {
+    "seq": 14,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\\\", 1793500694885150900, 30142]]]\", \"ok\": true, \"hypothesis_id\": \"294a7730de4e473fbe3119814d4b7dff\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Apparent slice gaps are measurement artifacts from segment hygiene problem",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+        "ok": true,
+        "hypothesis_id": "294a7730de4e473fbe3119814d4b7dff",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Apparent slice gaps are measurement artifacts from segment hygiene problems (missing/small/duplicate slices), not relevance differences."
+      },
+      "action_seq": 13
+    },
+    "created_at": "2026-11-01 22:26:33"
+  },
+  {
+    "seq": 15,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "ranking_slice_diagnostics",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "full"
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 15,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "Deviating to the slice-aware ranking check first \u2014 it directly tests the competing uniformity claims.",
+    "payload": {
+      "response_id": "resp_6ae7bc9efc83c6c7bf724c0e",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 5874,
+        "input_tokens_details.cached_tokens": 4849,
+        "output_tokens": 436,
+        "output_tokens_details.reasoning_tokens": 277,
+        "total_tokens": 6310
+      },
+      "text": "Deviating to the slice-aware ranking check first \u2014 it directly tests the competing uniformity claims."
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 15,
+    "kind": "tool_request",
+    "title": "Requested ranking_slice_diagnostics",
+    "detail": null,
+    "payload": {
+      "tool": "ranking_slice_diagnostics",
+      "arguments": {
+        "k_frac": 0.1,
+        "labels": "relevance",
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+        "score_column": "score",
+        "slice_column": "slice"
+      },
+      "action_seq": 15
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 16,
+    "kind": "tool_result",
+    "title": "tool:ranking_slice_diagnostics (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\\\", 1793500694885150900, 30142]]]\", \"ok\": true, \"source\": \"C:\\\\Prajwal MIT\\\\Passion\\\\model_autopsy\\\\tests\\\\fixture_eval\\\\investigator\\\\music_rank.csv\", \"label_column\": \"relevance\", \"score_column\": \"score\", \"slice_column\": \"slice\", \"k_frac\": 0.1, \"per_slice\": {\"est\": {\"n\": 1168, \"k\": 117, \"preci",
+    "payload": {
+      "tool": "ranking_slice_diagnostics",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+        "ok": true,
+        "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\music_rank.csv",
+        "label_column": "relevance",
+        "score_column": "score",
+        "slice_column": "slice",
+        "k_frac": 0.1,
+        "per_slice": {
+          "est": {
+            "n": 1168,
+            "k": 117,
+            "precision_at_k": 1.0,
+            "base_rate": 0.506
+          },
+          "new": {
+            "n": 592,
+            "k": 59,
+            "precision_at_k": 0.8305,
+            "base_rate": 0.098
+          }
+        },
+        "pooled_precision_at_k": 0.9432,
+        "max_slice_gap": 0.1695,
+        "method_version": "ranking-slice-v1",
+        "limits": "observational ranking gap, not a causal finding; thin slices inconclusive"
+      },
+      "action_seq": 15
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 17,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Top-K ranking quality is uniform across catalog slices; any ... (supports)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "189bf6e9cc84400090a7cc0bd59997cc",
+      "action_id": "eedf860aee564a899151e0ce2d8dde61",
+      "tool": "ranking_slice_diagnostics",
+      "relation": "supports"
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 18,
+    "kind": "hypothesis",
+    "title": "Hypothesis Top-K ranking quality is uniform across catalog slices; any ... -> investigating",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "189bf6e9cc84400090a7cc0bd59997cc",
+      "status": "investigating",
+      "from": {
+        "status": "proposed",
+        "confidence": null,
+        "rationale": "If model generalizes, top-K relevance should be comparable per slice; pooled precision alone could mask slice parity, so slice-aware P@K is needed."
+      },
+      "rationale": "auto-link [supports]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (measurement directly bears on the hypothesis mechanism: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices) [supporting evidence recorded; needs independent corroboration; action eedf860aee564a899151e0ce2d8dde61]"
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 19,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Ranking fails selectively on new/long-tail catalog slice due... (supports)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "53a3b09eec184b3a862b7fa9df24140d",
+      "action_id": "eedf860aee564a899151e0ce2d8dde61",
+      "tool": "ranking_slice_diagnostics",
+      "relation": "supports"
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 20,
+    "kind": "hypothesis",
+    "title": "Hypothesis Ranking fails selectively on new/long-tail catalog slice due... -> investigating",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "53a3b09eec184b3a862b7fa9df24140d",
+      "status": "investigating",
+      "from": {
+        "status": "proposed",
+        "confidence": null,
+        "rationale": "Sample rows show slice=new; new catalog items often lack interaction features, plausibly degrading rank-lgb top results for that slice."
+      },
+      "rationale": "auto-link [supports]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (measurement directly bears on the hypothesis mechanism: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices) [supporting evidence recorded; needs independent corroboration; action eedf860aee564a899151e0ce2d8dde61]"
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 21,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Apparent slice gaps are measurement artifacts from segment h... (supports)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "294a7730de4e473fbe3119814d4b7dff",
+      "action_id": "eedf860aee564a899151e0ce2d8dde61",
+      "tool": "ranking_slice_diagnostics",
+      "relation": "supports"
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 22,
+    "kind": "hypothesis",
+    "title": "Hypothesis Apparent slice gaps are measurement artifacts from segment h... -> investigating",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "294a7730de4e473fbe3119814d4b7dff",
+      "status": "investigating",
+      "from": {
+        "status": "proposed",
+        "confidence": null,
+        "rationale": "Slice comparisons require adequate samples per slice; if artifact has missing slice labels or tiny slices, apparent gaps are measurement artifacts."
+      },
+      "rationale": "auto-link [supports]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (measurement directly bears on the hypothesis mechanism: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices) [supporting evidence recorded; needs independent corroboration; action eedf860aee564a899151e0ce2d8dde61]"
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 23,
+    "kind": "linker",
+    "title": "auto-linked ranking_slice_diagnostics #15 to 3 hypotheses",
+    "detail": null,
+    "payload": {
+      "action_id": "eedf860aee564a899151e0ce2d8dde61",
+      "applied": [
+        {
+          "h": "189bf6e9",
+          "d": "supports",
+          "s": "investigating"
+        },
+        {
+          "h": "53a3b09e",
+          "d": "supports",
+          "s": "investigating"
+        },
+        {
+          "h": "294a7730",
+          "d": "supports",
+          "s": "investigating"
+        }
+      ]
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 24,
+    "kind": "skeptic",
+    "title": "Skeptic-lite: 6 challenges, 0 blocking, probe: none",
+    "detail": null,
+    "payload": {
+      "n_challenges": 6,
+      "n_blocking": 0,
+      "challenge_types": [
+        "confounder-ignored",
+        "missing-falsification"
+      ],
+      "probe": null,
+      "dissent": [],
+      "limitations": [
+        "challenges are heuristic screens, not proofs; evidence decides"
+      ]
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 25,
+    "kind": "grounded",
+    "title": "Grounded summary: 3 hypotheses, 4 actions",
+    "detail": null,
+    "payload": {
+      "investigation_id": "ff63aeacfaf34f0893242dd2434f256f",
+      "hypotheses": [
+        {
+          "hypothesis_id": "189bf6e9cc84400090a7cc0bd59997cc",
+          "text": "Top-K ranking quality is uniform across catalog slices; any slice differences reflect base rates, not model failure.",
+          "status": "investigating",
+          "confidence": 55,
+          "evidence_refs": [
+            {
+              "action_id": "eedf860aee564a899151e0ce2d8dde61",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "supports"
+            }
+          ],
+          "independent_supports": 1,
+          "independent_contradicts": 0
+        },
+        {
+          "hypothesis_id": "53a3b09eec184b3a862b7fa9df24140d",
+          "text": "Ranking fails selectively on new/long-tail catalog slice due to feature sparsity, yielding lower precision@top-K there.",
+          "status": "investigating",
+          "confidence": 55,
+          "evidence_refs": [
+            {
+              "action_id": "eedf860aee564a899151e0ce2d8dde61",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "supports"
+            }
+          ],
+          "independent_supports": 1,
+          "independent_contradicts": 0
+        },
+        {
+          "hypothesis_id": "294a7730de4e473fbe3119814d4b7dff",
+          "text": "Apparent slice gaps are measurement artifacts from segment hygiene problems (missing/small/duplicate slices), not relevance differences.",
+          "status": "investigating",
+          "confidence": 55,
+          "evidence_refs": [
+            {
+              "action_id": "eedf860aee564a899151e0ce2d8dde61",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "supports"
+            }
+          ],
+          "independent_supports": 1,
+          "independent_contradicts": 0
+        }
+      ],
+      "actions": [
+        {
+          "action_id": "a8f4e848e0c84b4a8e379fd10548edb1",
+          "seq": 7,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "0cab984e293149e2b9f912ccb9e7ccac",
+          "seq": 10,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "1d9747bc6a714ce6a0caa9e6e2fb5fdf",
+          "seq": 13,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "eedf860aee564a899151e0ce2d8dde61",
+          "seq": 15,
+          "tool": "ranking_slice_diagnostics",
+          "status": "ran"
+        }
+      ],
+      "rule": "explain ONLY these recorded facts; do not invent hypothesis ids, statuses, action ids, or measured numbers; anything not listed here is unresolved"
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 26,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "Deviating to the slice-aware ranking check first \u2014 it directly tests the competing uniformity claims.",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 22:26:42"
+  },
+  {
+    "seq": 27,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 22:26:52"
+  },
+  {
+    "seq": 27,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 22:26:52"
+  },
+  {
+    "seq": 28,
+    "kind": "summary_repair",
+    "title": "Summary repair still invalid \u2014 original verdict stands",
+    "detail": null,
+    "payload": {
+      "valid": false,
+      "continuation": "original",
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 22:26:52"
+  },
+  {
+    "seq": 28,
+    "kind": "fallback",
+    "title": "Deterministic fallback composed from records",
+    "detail": null,
+    "payload": {
+      "fallback_version": "m8-fallback-v1"
+    },
+    "created_at": "2026-11-01 22:26:52"
+  },
+  {
+    "seq": 28,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 3,
+      "api_attempts": 3,
+      "latency_s": 25.858,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "full",
+      "fallback_used": false,
+      "tool_calls_executed": 4,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 12879,
+        "input_tokens_details.cached_tokens": 10067,
+        "output_tokens": 2508,
+        "output_tokens_details.reasoning_tokens": 1773,
+        "total_tokens": 15387
+      },
+      "fallback_composed": true
+    },
+    "created_at": "2026-11-01 22:26:52"
+  },
+  {
+    "seq": 28,
+    "kind": "selection",
+    "title": "Adherence: deviated (chose=ranking_slice_diagnostics, recommended=artifact_summary)",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "artifact_summary",
+        "data_quality_profile",
+        "dataset_validation"
+      ],
+      "executed_diagnostics": [
+        "ranking_slice_diagnostics"
+      ],
+      "followed": false
+    },
+    "created_at": "2026-11-01 22:26:52"
+  },
+  {
+    "seq": 29,
+    "kind": "selection",
+    "title": "Selection brief: top=data_quality_profile",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "data_quality_profile",
+        "dataset_validation",
+        "distribution_shift_profile"
+      ],
+      "open": [
+        "189bf6e9cc84400090a7cc0bd59997cc",
+        "53a3b09eec184b3a862b7fa9df24140d",
+        "294a7730de4e473fbe3119814d4b7dff"
+      ]
+    },
+    "created_at": "2026-11-01 22:26:52"
+  },
+  {
+    "seq": 30,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "ranking_slice_diagnostics",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "delta"
+    },
+    "created_at": "2026-11-01 22:26:54"
+  },
+  {
+    "seq": 30,
+    "kind": "meta_request",
+    "title": "Continuation state refused \u2014 one full-context fallback",
+    "detail": "HTTP 400: {\"error\":{\"code\":null,\"message\":\"No tool output found for function call call_9be3fd3e-a823-4202-b339-ebe1e6bf528f.\",\"param\":null,\"type\":\"invalid_request_error\"}}",
+    "payload": {},
+    "created_at": "2026-11-01 22:26:54"
+  },
+  {
+    "seq": 31,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Testing whether slice gaps are real or just data artifacts.",
+    "payload": {
+      "response_id": "resp_6ae7bcb2390bffda4a114ed7",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 5443,
+        "input_tokens_details.cached_tokens": 4209,
+        "output_tokens": 531,
+        "output_tokens_details.reasoning_tokens": 431,
+        "total_tokens": 5974
+      },
+      "text": "Testing whether slice gaps are real or just data artifacts."
+    },
+    "created_at": "2026-11-01 22:26:59"
+  },
+  {
+    "seq": 31,
+    "kind": "tool_request",
+    "title": "Requested segment_quality_screen",
+    "detail": null,
+    "payload": {
+      "tool": "segment_quality_screen",
+      "arguments": {
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+        "segment_column": "slice"
+      },
+      "action_seq": 31
+    },
+    "created_at": "2026-11-01 22:26:59"
+  },
+  {
+    "seq": 32,
+    "kind": "tool_result",
+    "title": "tool:segment_quality_screen (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\\\", 1793500694885150900, 30142]]]\", \"ok\": true, \"n\": 1760, \"segment_column\": \"slice\", \"by_segment\": {\"est\": {\"n\": 1168, \"null_rate\": 0.0, \"dup_rate\": 0.07363}, \"new\": {\"n\": 592, \"null_rate\": 0.0, \"dup_rate\": 0.008446}}, \"worst_null_rate\": 0.0, \"worst_dup_rate\": 0.07363, \"establishes\": \"whether ",
+    "payload": {
+      "tool": "segment_quality_screen",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+        "ok": true,
+        "n": 1760,
+        "segment_column": "slice",
+        "by_segment": {
+          "est": {
+            "n": 1168,
+            "null_rate": 0.0,
+            "dup_rate": 0.07363
+          },
+          "new": {
+            "n": 592,
+            "null_rate": 0.0,
+            "dup_rate": 0.008446
+          }
+        },
+        "worst_null_rate": 0.0,
+        "worst_dup_rate": 0.07363,
+        "establishes": "whether hygiene defects concentrate in a segment",
+        "does_not_establish": "whether quality issues caused errors"
+      },
+      "action_seq": 31
+    },
+    "created_at": "2026-11-01 22:26:59"
+  },
+  {
+    "seq": 33,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Top-K ranking quality is uniform across catalog slices; any ... (supports)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "189bf6e9cc84400090a7cc0bd59997cc",
+      "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+      "tool": "segment_quality_screen",
+      "relation": "supports"
+    },
+    "created_at": "2026-11-01 22:26:59"
+  },
+  {
+    "seq": 34,
+    "kind": "hypothesis",
+    "title": "Hypothesis Top-K ranking quality is uniform across catalog slices; any ... -> supported",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "189bf6e9cc84400090a7cc0bd59997cc",
+      "status": "supported",
+      "from": {
+        "status": "investigating",
+        "confidence": 55,
+        "rationale": "auto-link [supports]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (measurement directly bears on the hypothesis mechanism: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices) [supporting evidence recorded; needs independent corroboration; action eedf860aee564a899151e0ce2d8dde61]"
+      },
+      "rationale": "auto-link [supports]: worst segment defect rate 0.074: defects concentrate (measurement directly bears on the hypothesis mechanism: worst segment defect rate 0.074: defects concentrate) [two independent supporting measurements, no contradiction; action 1a2156f8479f4cceb17a4fe11a34a692]"
+    },
+    "created_at": "2026-11-01 22:26:59"
+  },
+  {
+    "seq": 35,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Ranking fails selectively on new/long-tail catalog slice due... (supports)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "53a3b09eec184b3a862b7fa9df24140d",
+      "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+      "tool": "segment_quality_screen",
+      "relation": "supports"
+    },
+    "created_at": "2026-11-01 22:26:59"
+  },
+  {
+    "seq": 36,
+    "kind": "hypothesis",
+    "title": "Hypothesis Ranking fails selectively on new/long-tail catalog slice due... -> supported",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "53a3b09eec184b3a862b7fa9df24140d",
+      "status": "supported",
+      "from": {
+        "status": "investigating",
+        "confidence": 55,
+        "rationale": "auto-link [supports]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (measurement directly bears on the hypothesis mechanism: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices) [supporting evidence recorded; needs independent corroboration; action eedf860aee564a899151e0ce2d8dde61]"
+      },
+      "rationale": "auto-link [supports]: worst segment defect rate 0.074: defects concentrate (measurement directly bears on the hypothesis mechanism: worst segment defect rate 0.074: defects concentrate) [two independent supporting measurements, no contradiction; action 1a2156f8479f4cceb17a4fe11a34a692]"
+    },
+    "created_at": "2026-11-01 22:26:59"
+  },
+  {
+    "seq": 37,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Apparent slice gaps are measurement artifacts from segment h... (supports)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "294a7730de4e473fbe3119814d4b7dff",
+      "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+      "tool": "segment_quality_screen",
+      "relation": "supports"
+    },
+    "created_at": "2026-11-01 22:26:59"
+  },
+  {
+    "seq": 38,
+    "kind": "hypothesis",
+    "title": "Hypothesis Apparent slice gaps are measurement artifacts from segment h... -> supported",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "294a7730de4e473fbe3119814d4b7dff",
+      "status": "supported",
+      "from": {
+        "status": "investigating",
+        "confidence": 55,
+        "rationale": "auto-link [supports]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (measurement directly bears on the hypothesis mechanism: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices) [supporting evidence recorded; needs independent corroboration; action eedf860aee564a899151e0ce2d8dde61]"
+      },
+      "rationale": "auto-link [supports]: worst segment defect rate 0.074: defects concentrate (measurement directly bears on the hypothesis mechanism: worst segment defect rate 0.074: defects concentrate) [two independent supporting measurements, no contradiction; action 1a2156f8479f4cceb17a4fe11a34a692]"
+    },
+    "created_at": "2026-11-01 22:26:59"
+  },
+  {
+    "seq": 39,
+    "kind": "linker",
+    "title": "auto-linked segment_quality_screen #31 to 3 hypotheses",
+    "detail": null,
+    "payload": {
+      "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+      "applied": [
+        {
+          "h": "189bf6e9",
+          "d": "supports",
+          "s": "supported"
+        },
+        {
+          "h": "53a3b09e",
+          "d": "supports",
+          "s": "supported"
+        },
+        {
+          "h": "294a7730",
+          "d": "supports",
+          "s": "supported"
+        }
+      ]
+    },
+    "created_at": "2026-11-01 22:26:59"
+  },
+  {
+    "seq": 40,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "ranking_slice_diagnostics",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "segment_quality_screen",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "delta_fallback"
+    },
+    "created_at": "2026-11-01 22:27:22"
+  },
+  {
+    "seq": 40,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "(tool call only)",
+    "payload": {
+      "response_id": "resp_6ae7bcc6e97cd9ebe00c425f",
+      "n_tool_calls": 0,
+      "usage": {
+        "input_tokens": 5719,
+        "input_tokens_details.cached_tokens": 4209,
+        "output_tokens": 2000,
+        "output_tokens_details.reasoning_tokens": 1998,
+        "total_tokens": 7719
+      },
+      "text": ""
+    },
+    "created_at": "2026-11-01 22:27:22"
+  },
+  {
+    "seq": 41,
+    "kind": "skeptic",
+    "title": "Skeptic-lite: 6 challenges, 0 blocking, probe: none",
+    "detail": null,
+    "payload": {
+      "n_challenges": 6,
+      "n_blocking": 0,
+      "challenge_types": [
+        "confounder-ignored",
+        "missing-falsification"
+      ],
+      "probe": null,
+      "dissent": [],
+      "limitations": [
+        "challenges are heuristic screens, not proofs; evidence decides"
+      ]
+    },
+    "created_at": "2026-11-01 22:27:22"
+  },
+  {
+    "seq": 42,
+    "kind": "grounded",
+    "title": "Grounded summary: 3 hypotheses, 5 actions",
+    "detail": null,
+    "payload": {
+      "investigation_id": "ff63aeacfaf34f0893242dd2434f256f",
+      "hypotheses": [
+        {
+          "hypothesis_id": "189bf6e9cc84400090a7cc0bd59997cc",
+          "text": "Top-K ranking quality is uniform across catalog slices; any slice differences reflect base rates, not model failure.",
+          "status": "supported",
+          "confidence": 70,
+          "evidence_refs": [
+            {
+              "action_id": "eedf860aee564a899151e0ce2d8dde61",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "supports"
+            },
+            {
+              "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+              "tool": "segment_quality_screen",
+              "relation": "supports"
+            }
+          ],
+          "independent_supports": 2,
+          "independent_contradicts": 0
+        },
+        {
+          "hypothesis_id": "53a3b09eec184b3a862b7fa9df24140d",
+          "text": "Ranking fails selectively on new/long-tail catalog slice due to feature sparsity, yielding lower precision@top-K there.",
+          "status": "supported",
+          "confidence": 70,
+          "evidence_refs": [
+            {
+              "action_id": "eedf860aee564a899151e0ce2d8dde61",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "supports"
+            },
+            {
+              "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+              "tool": "segment_quality_screen",
+              "relation": "supports"
+            }
+          ],
+          "independent_supports": 2,
+          "independent_contradicts": 0
+        },
+        {
+          "hypothesis_id": "294a7730de4e473fbe3119814d4b7dff",
+          "text": "Apparent slice gaps are measurement artifacts from segment hygiene problems (missing/small/duplicate slices), not relevance differences.",
+          "status": "supported",
+          "confidence": 70,
+          "evidence_refs": [
+            {
+              "action_id": "eedf860aee564a899151e0ce2d8dde61",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "supports"
+            },
+            {
+              "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+              "tool": "segment_quality_screen",
+              "relation": "supports"
+            }
+          ],
+          "independent_supports": 2,
+          "independent_contradicts": 0
+        }
+      ],
+      "actions": [
+        {
+          "action_id": "a8f4e848e0c84b4a8e379fd10548edb1",
+          "seq": 7,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "0cab984e293149e2b9f912ccb9e7ccac",
+          "seq": 10,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "1d9747bc6a714ce6a0caa9e6e2fb5fdf",
+          "seq": 13,
+          "tool": "propose_hypothesis",
+          "status": "ran"
+        },
+        {
+          "action_id": "eedf860aee564a899151e0ce2d8dde61",
+          "seq": 15,
+          "tool": "ranking_slice_diagnostics",
+          "status": "ran"
+        },
+        {
+          "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+          "seq": 31,
+          "tool": "segment_quality_screen",
+          "status": "ran"
+        }
+      ],
+      "rule": "explain ONLY these recorded facts; do not invent hypothesis ids, statuses, action ids, or measured numbers; anything not listed here is unresolved"
+    },
+    "created_at": "2026-11-01 22:27:22"
+  },
+  {
+    "seq": 43,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 22:27:22"
+  },
+  {
+    "seq": 44,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 22:27:31"
+  },
+  {
+    "seq": 44,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 22:27:31"
+  },
+  {
+    "seq": 45,
+    "kind": "summary_repair",
+    "title": "Summary repair still invalid \u2014 original verdict stands",
+    "detail": null,
+    "payload": {
+      "valid": false,
+      "continuation": "original",
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 22:27:31"
+  },
+  {
+    "seq": 45,
+    "kind": "fallback",
+    "title": "Deterministic fallback composed from records",
+    "detail": null,
+    "payload": {
+      "fallback_version": "m8-fallback-v1"
+    },
+    "created_at": "2026-11-01 22:27:31"
+  },
+  {
+    "seq": 45,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 3,
+      "api_attempts": 3,
+      "latency_s": 36.94,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "delta_fallback",
+      "fallback_used": true,
+      "tool_calls_executed": 1,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 13593,
+        "input_tokens_details.cached_tokens": 8787,
+        "output_tokens": 3731,
+        "output_tokens_details.reasoning_tokens": 3627,
+        "total_tokens": 17324
+      },
+      "fallback_composed": true
+    },
+    "created_at": "2026-11-01 22:27:31"
+  },
+  {
+    "seq": 45,
+    "kind": "selection",
+    "title": "Adherence: deviated (chose=segment_quality_screen, recommended=data_quality_profile)",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "data_quality_profile",
+        "dataset_validation",
+        "distribution_shift_profile"
+      ],
+      "executed_diagnostics": [
+        "segment_quality_screen"
+      ],
+      "followed": false
+    },
+    "created_at": "2026-11-01 22:27:31"
+  },
+  {
+    "seq": 46,
+    "kind": "stopping",
+    "title": "Stopping early: all hypotheses resolved (supported/rejected/blocked); further experiments cannot change the conclusion",
+    "detail": null,
+    "payload": {
+      "rationale": "all hypotheses resolved (supported/rejected/blocked); further experiments cannot change the conclusion"
+    },
+    "created_at": "2026-11-01 22:27:31"
+  },
+  {
+    "seq": 47,
+    "kind": "status_change",
+    "title": "hypotheses_proposed -> investigating",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 22:27:31"
+  },
+  {
+    "seq": 47,
+    "kind": "status_change",
+    "title": "investigating -> finalizing",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 22:27:31"
+  },
+  {
+    "seq": 48,
+    "kind": "report",
+    "title": "Final report recorded",
+    "detail": null,
+    "payload": {
+      "investigation_id": "ff63aeacfaf34f0893242dd2434f256f",
+      "mode": "ml",
+      "question": "Are top results relevant for every catalog slice?",
+      "generated_at": "2026-11-01 22:27:31Z",
+      "confirmed": [],
+      "likely": [],
+      "rejected": [],
+      "unresolved": [],
+      "supported_hypotheses": [
+        {
+          "hypothesis_id": "189bf6e9cc84400090a7cc0bd59997cc",
+          "text": "Top-K ranking quality is uniform across catalog slices; any slice differences reflect base rates, not model failure.",
+          "evidence_refs": [
+            {
+              "action_id": "eedf860aee564a899151e0ce2d8dde61",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "supports",
+              "action_status": "ran"
+            },
+            {
+              "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+              "tool": "segment_quality_screen",
+              "relation": "supports",
+              "action_status": "ran"
+            }
+          ]
+        },
+        {
+          "hypothesis_id": "53a3b09eec184b3a862b7fa9df24140d",
+          "text": "Ranking fails selectively on new/long-tail catalog slice due to feature sparsity, yielding lower precision@top-K there.",
+          "evidence_refs": [
+            {
+              "action_id": "eedf860aee564a899151e0ce2d8dde61",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "supports",
+              "action_status": "ran"
+            },
+            {
+              "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+              "tool": "segment_quality_screen",
+              "relation": "supports",
+              "action_status": "ran"
+            }
+          ]
+        },
+        {
+          "hypothesis_id": "294a7730de4e473fbe3119814d4b7dff",
+          "text": "Apparent slice gaps are measurement artifacts from segment hygiene problems (missing/small/duplicate slices), not relevance differences.",
+          "evidence_refs": [
+            {
+              "action_id": "eedf860aee564a899151e0ce2d8dde61",
+              "tool": "ranking_slice_diagnostics",
+              "relation": "supports",
+              "action_status": "ran"
+            },
+            {
+              "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+              "tool": "segment_quality_screen",
+              "relation": "supports",
+              "action_status": "ran"
+            }
+          ]
+        }
+      ],
+      "evidence_performed": [
+        {
+          "action_id": "a8f4e848e0c84b4a8e379fd10548edb1",
+          "seq": 7,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "hypothesis_id": "189bf6e9cc84400090a7cc0bd59997cc",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Top-K ranking quality is uniform across catalog slices; any slice differences reflect base rates, not model failure."
+          }
+        },
+        {
+          "action_id": "0cab984e293149e2b9f912ccb9e7ccac",
+          "seq": 10,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "hypothesis_id": "53a3b09eec184b3a862b7fa9df24140d",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Ranking fails selectively on new/long-tail catalog slice due to feature sparsity, yielding lower precision@top-K there."
+          }
+        },
+        {
+          "action_id": "1d9747bc6a714ce6a0caa9e6e2fb5fdf",
+          "seq": 13,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "hypothesis_id": "294a7730de4e473fbe3119814d4b7dff",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Apparent slice gaps are measurement artifacts from segment hygiene problems (missing/small/duplicate slices), not relevance differences."
+          }
+        },
+        {
+          "action_id": "eedf860aee564a899151e0ce2d8dde61",
+          "seq": 15,
+          "tool": "ranking_slice_diagnostics",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "k_frac": 0.1,
+            "label_column": "relevance",
+            "limits": "observational ranking gap, not a causal finding; thin slices inconclusive",
+            "max_slice_gap": 0.1695,
+            "method_version": "ranking-slice-v1",
+            "ok": true
+          }
+        },
+        {
+          "action_id": "1a2156f8479f4cceb17a4fe11a34a692",
+          "seq": 31,
+          "tool": "segment_quality_screen",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+            "does_not_establish": "whether quality issues caused errors",
+            "establishes": "whether hygiene defects concentrate in a segment",
+            "n": 1760,
+            "ok": true,
+            "segment_column": "slice",
+            "worst_dup_rate": 0.07363
+          }
+        }
+      ],
+      "limitations": [
+        "available diagnostics never run in this investigation: artifact_summary, dataset_validation, classification_metrics, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, regression_metrics, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile, data_quality_profile, calibration_snapshot, residual_feature_dependence"
+      ],
+      "recommended_next": [
+        {
+          "for": null,
+          "action": "No open hypotheses remain; investigation may be closed",
+          "status": "n/a"
+        }
+      ],
+      "budget": {
+        "tool_calls": [
+          5,
+          12
+        ],
+        "iterations": [
+          0,
+          3
+        ]
+      },
+      "scope_note": "assembled deterministically from the investigation's recorded findings, hypotheses and executed actions; no section is model-invented and every rejected hypothesis carries its contradicting action ids."
+    },
+    "created_at": "2026-11-01 22:27:31"
+  },
+  {
+    "seq": 48,
+    "kind": "status_change",
+    "title": "finalizing -> complete",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 22:27:31"
+  }
+]

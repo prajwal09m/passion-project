@@ -1,0 +1,159 @@
+[
+  {
+    "id": "bf678a153e0746d897107af5def71ef4",
+    "seq": 4,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated, low prior; bias visible in sample rows but needs quantification.",
+      "predicted_observation": "calibration_snapshot shows large positive mean residual (prediction-target) with small variance of residual mean vs RMSE; regression_metrics shows MAE/RMSE dominated by bias.",
+      "rationale": "Sample rows show prediction > target in all 5 examples (e.g., 819 vs 614). Objective says systematically off since pipeline change, suggesting global intercept/scale shift.",
+      "text": "Predictions have systematic positive bias (overpredict severity) due to pipeline change shifting prediction level."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+      "ok": true,
+      "hypothesis_id": "ee63449565c74b39a74b5616ce74242d",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Predictions have systematic positive bias (overpredict severity) due to pipeline change shifting prediction level."
+    },
+    "error": null
+  },
+  {
+    "id": "8b3618a0046c44a0916d1187a46cd9bf",
+    "seq": 7,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated, competing alternative; plausible if error scales with inputs.",
+      "predicted_observation": "If true, residual-vs-input or grouped MAE shows error growing with amount/velocity; calibration_snapshot bias small relative to slope/miscalibration.",
+      "rationale": "Severity often scales with amount/velocity; pipeline change could have broken feature scaling causing slope error rather than intercept shift.",
+      "text": "Error is feature-dependent miscalibration (slope/scale error with amount or velocity), not uniform bias."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+      "ok": true,
+      "hypothesis_id": "1fca636bd8b141b0a587dc646524171c",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Error is feature-dependent miscalibration (slope/scale error with amount or velocity), not uniform bias."
+    },
+    "error": null
+  },
+  {
+    "id": "745f0c2fbd594c87970f162923197240",
+    "seq": 9,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated, competing alternative about data quality.",
+      "predicted_observation": "data_quality_profile would show nulls/dups/constant cols or target anomalies; regression_metrics per-group would be driven by bad rows.",
+      "rationale": "Pipeline changes often introduce missing/duplicated/corrupted rows that inflate error metrics without true model bias.",
+      "text": "Apparent systematic error is artifact of data quality issues (missing, duplicates, corrupt target/prediction values)."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+      "ok": true,
+      "hypothesis_id": "2056e694de524d44a6c1cf0268f765f0",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Apparent systematic error is artifact of data quality issues (missing, duplicates, corrupt target/prediction values)."
+    },
+    "error": null
+  },
+  {
+    "id": "24e17f6efb23441384beee8ddc9fcc97",
+    "seq": 14,
+    "kind": "tool_call",
+    "tool": "calibration_snapshot",
+    "status": "ran",
+    "arguments": {
+      "prediction_column": "prediction",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/claim_severity.csv",
+      "target_column": "target"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+      "ok": true,
+      "n": 1500,
+      "bias_mean_residual": -131.768,
+      "residual_std": 80.65515,
+      "mae": 132.5096,
+      "establishes": "bias vs variance decomposition",
+      "does_not_establish": "source of the bias"
+    },
+    "error": null
+  },
+  {
+    "id": "fc28c1a4f51c4daf861cc1748fdbc1d5",
+    "seq": 18,
+    "kind": "tool_call",
+    "tool": "data_quality_profile",
+    "status": "ran",
+    "arguments": {
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/claim_severity.csv"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+      "ok": true,
+      "n": 1500,
+      "n_columns": 5,
+      "nulls": {
+        "amount": 0,
+        "velocity": 0,
+        "device_age": 0,
+        "target": 0,
+        "prediction": 0
+      },
+      "duplicate_rows": 0,
+      "establishes": "missingness/duplication facts",
+      "does_not_establish": "whether quality issues caused errors"
+    },
+    "error": null
+  },
+  {
+    "id": "3a09c71a2c9b48e48f4681b942f53d38",
+    "seq": 20,
+    "kind": "tool_call",
+    "tool": "regression_metrics",
+    "status": "ran",
+    "arguments": {
+      "group_column": "velocity",
+      "prediction_column": "prediction",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/claim_severity.csv",
+      "target_column": "target"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/claim_severity.csv\", 1793500694888149700, 36299]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\claim_severity.csv",
+      "n": 1500,
+      "mae": 132.5096,
+      "mse": 23863.722267,
+      "rmse": 154.478873,
+      "r2": -0.988432,
+      "bias_mean_residual": -131.768,
+      "residual_std": 80.628261,
+      "heteroscedasticity_hint": 0.020827,
+      "outliers_abs_z_gt_3": 0,
+      "mae_by_group": {
+        "0": 145.738824,
+        "1": 124.877828,
+        "2": 129.940166,
+        "3": 132.096904,
+        "4": 137.024017,
+        "5": 137.923684,
+        "6": 132.055714,
+        "7": 139.846154,
+        "8": 114.51,
+        "9": 96.4625,
+        "10": 122.65
+      }
+    },
+    "error": null
+  }
+]

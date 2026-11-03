@@ -1,0 +1,164 @@
+[
+  {
+    "id": "5882c031d90d47aeae8d84eb100ffc7f",
+    "seq": 6,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated, low prior; needs temporal evidence.",
+      "predicted_observation": "Temporal scan shows sharp level break at recent date with post-break residuals systematically biased vs pre-break.",
+      "rationale": "Objective states forecasts miss a recent level change; AR black-box likely trained on earlier regime and cannot adapt to step change.",
+      "text": "Forecasts miss because target underwent a recent persistent level shift (regime change) that the turbine-ar model does not track."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "hypothesis_id": "a9d97ee6bac14fd6b7d3fddffc96f625",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Forecasts miss because target underwent a recent persistent level shift (regime change) that the turbine-ar model does not track."
+    },
+    "error": null
+  },
+  {
+    "id": "6c878ca5d5a744fa818026dcdbe22e1c",
+    "seq": 9,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated, low prior; calibration check will test it.",
+      "predicted_observation": "Calibration snapshot shows large overall bias and residual-time analysis shows stable bias across train and test with no distinct changepoint.",
+      "rationale": "Alternative to regime shift: model could be systematically biased throughout due to misspecification, appearing worse recently by chance.",
+      "text": "Forecasts miss due to persistent systematic bias/miscalibration present throughout history, not a new level change."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "hypothesis_id": "f5d10c0844cd490caeaaa78b103ea3ba",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Forecasts miss due to persistent systematic bias/miscalibration present throughout history, not a new level change."
+    },
+    "error": null
+  },
+  {
+    "id": "d1bad246bc68457d8e56e801ec727793",
+    "seq": 12,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated, low prior; data quality screen tests it.",
+      "predicted_observation": "Data quality profile shows missing/duplicates/anomalies concentrated in recent period explaining forecast-target gap without true regime shift.",
+      "rationale": "Recent forecast miss could be artifact of corrupted recent targets or missing data rather than true structural change or model fault.",
+      "text": "Recent forecast-target divergence is a data quality artifact (missing/corrupt recent records), not a true level shift or model failure."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "hypothesis_id": "ed19080787ea4f88960b557d0ada1889",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Recent forecast-target divergence is a data quality artifact (missing/corrupt recent records), not a true level shift or model failure."
+    },
+    "error": null
+  },
+  {
+    "id": "e0e6f0f24b1a404aba2beec7f3f0042f",
+    "seq": 14,
+    "kind": "tool_call",
+    "tool": "temporal_changepoint_scan",
+    "status": "ran",
+    "arguments": {
+      "date_column": "date",
+      "prediction_column": "prediction",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/turbine_output.csv",
+      "target_column": "target"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "n": 730,
+      "changepoint_date": "2024-03-19",
+      "changepoint_index": 443,
+      "pre_residual_mean": -0.538081,
+      "post_residual_mean": 27.945331,
+      "shift_size": 28.483412,
+      "overall_residual_mean": 10.660192,
+      "establishes": "location/size of largest residual-mean break",
+      "does_not_establish": "cause of the break"
+    },
+    "error": null
+  },
+  {
+    "id": "e97876e6e15d4dc09cba0f36209a09b7",
+    "seq": 28,
+    "kind": "tool_call",
+    "tool": "residual_time_analysis",
+    "status": "ran",
+    "arguments": {
+      "date_column": "date",
+      "prediction_column": "prediction",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/turbine_output.csv",
+      "split_column": "split",
+      "target_column": "target"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "n": 730,
+      "early_mae": 7.000986,
+      "late_mae": 24.315671,
+      "early_residual_mean": -0.334466,
+      "late_residual_mean": 21.654849,
+      "mae_by_split": {
+        "test": 34.70213,
+        "train": 6.89818
+      },
+      "residual_mean_by_split": {
+        "test": 34.70213,
+        "train": -0.3991
+      },
+      "pattern": "recent-shift pattern",
+      "establishes": "whether errors are recent vs persistent",
+      "does_not_establish": "the mechanism behind the pattern"
+    },
+    "error": null
+  },
+  {
+    "id": "ac659a1f3b444b2a8afb65ff7031d899",
+    "seq": 37,
+    "kind": "tool_call",
+    "tool": "distribution_shift_profile",
+    "status": "ran",
+    "arguments": {
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/turbine_output.csv",
+      "split_column": "split",
+      "target_column": "target"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "by_split": {
+        "test": {
+          "mean": 217.943348,
+          "std": 21.213441,
+          "median": 213.44,
+          "n": 230
+        },
+        "train": {
+          "mean": 207.50554,
+          "std": 28.14392,
+          "median": 213.19,
+          "n": 500
+        }
+      },
+      "mean_shift": -10.437808,
+      "establishes": "target level moved between splits",
+      "does_not_establish": "why it moved"
+    },
+    "error": null
+  }
+]

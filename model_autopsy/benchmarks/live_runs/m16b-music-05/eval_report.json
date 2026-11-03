@@ -1,0 +1,98 @@
+{
+  "executive_summary": "Global separation looks strong but top-K differs by slice \u2014 I'll run calibration to discriminate the remaining hypotheses.",
+  "confirmed_findings": [],
+  "rejected_hypotheses": [
+    {
+      "hypothesis_id": "66cf08152c97411a9f87d60371dcc276",
+      "title": "Top-K relevance is uniform across catalog slices; no slice systematically underperforms at top-K."
+    },
+    {
+      "hypothesis_id": "3703aca93a6b4dd3825cdbcd26cc1725",
+      "title": "Top-K irrelevance is global due to poor score-relevance separation, not driven by slice membership."
+    }
+  ],
+  "inconclusive": [],
+  "experiments": [
+    {
+      "experiment_id": "c9de2040a15740fc800d173ed7861cf1",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "62e09206046f41238865c944c0ecab31",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "9e9a9ceedcf946079383c845df7dd9a3",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "18fae8bb06fb401fb5bdc3a4fedb8167",
+      "tool": "ranking_slice_diagnostics",
+      "summary": "ranking_slice_diagnostics: recorded",
+      "numbers": {
+        "k_frac": 0.1,
+        "pooled_precision_at_k": 0.9432,
+        "max_slice_gap": 0.1695
+      }
+    },
+    {
+      "experiment_id": "2249196bdb754e3290709f1efc02000b",
+      "tool": "classification_metrics",
+      "summary": "classification_metrics: n=1760",
+      "numbers": {
+        "n": 1760,
+        "roc_auc": 0.977169,
+        "brier": 0.117965,
+        "precision_at_threshold": 0.715884,
+        "recall_at_threshold": 0.986133,
+        "threshold": 0.5
+      }
+    },
+    {
+      "experiment_id": "c301dd16172e4ce39902f7dbb41d4d98",
+      "tool": "segment_quality_screen",
+      "summary": "segment_quality_screen: n=1760",
+      "numbers": {
+        "n": 1760,
+        "worst_null_rate": 0.0,
+        "worst_dup_rate": 0.07363
+      }
+    }
+  ],
+  "verification": [],
+  "limitations": [
+    "available diagnostics never run in this investigation: artifact_summary, dataset_validation, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, regression_metrics, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile, data_quality_profile, calibration_snapshot, residual_feature_dependence"
+  ],
+  "investigation_id": "ac2d9cf40e5e4156ba7ac576c6616d1e",
+  "structured_summary_valid": false,
+  "deterministic_fallback": {
+    "schema_version": "m8-v1",
+    "kind": "deterministic-fallback",
+    "fallback_version": "m8-fallback-v1",
+    "conclusion": "Best-supported explanation (recorded evidence only): A specific catalog slice (e.g., new items) is systematically under-ranked, yielding lower precision@top-K than other slices.",
+    "status_recommendations": [],
+    "uncertainties": [
+      "none recorded; see evidence trail"
+    ],
+    "recommended_next": "No open hypotheses remain; investigation may be closed",
+    "evidence_action_ids": [
+      "c9de2040a15740fc800d173ed7861cf1",
+      "62e09206046f41238865c944c0ecab31",
+      "9e9a9ceedcf946079383c845df7dd9a3",
+      "18fae8bb06fb401fb5bdc3a4fedb8167",
+      "2249196bdb754e3290709f1efc02000b",
+      "c301dd16172e4ce39902f7dbb41d4d98"
+    ],
+    "model_summary_errors": [
+      "supported 59792c2ccaf74e46ab86785762ea4d83 cites no evidence actions"
+    ],
+    "provenance": "composed deterministically from recorded hypotheses/actions/report; the investigator's invalid response was preserved, not repaired away"
+  },
+  "fallback_used": true
+}

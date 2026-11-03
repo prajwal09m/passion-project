@@ -1,0 +1,29 @@
+[
+  {
+    "id": "4afe7e2f1c0641e7bfc3d6939ae6e3e3",
+    "text": "Top-K relevance is uniform across catalog slices; any slice differences are small/noise.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Model is single rank-lgb applied to all catalog; without slice-specific bias it could rank relevant items equally well per slice.",
+    "evidence_refs": null,
+    "revisions": null
+  },
+  {
+    "id": "8e38b28b26f74172a6aef27126c3a28a",
+    "text": "Ranking quality is degraded for new-catalog slice due to weaker model scores on relevant new items.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Sample rows show 'new' slice; new items often lack behavioral features, plausible ranking degrades there.",
+    "evidence_refs": null,
+    "revisions": null
+  },
+  {
+    "id": "14cbcbf654754fe8afd1a683b567c3c2",
+    "text": "Apparent slice gaps reflect data/evaluation artifacts (different relevance prevalence or query coverage) rather than model ranking failure.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Pooled precision and P@K are sensitive to label prevalence and query/slice sizes; apparent gap may reflect evaluation/data hygiene not ranking ability.",
+    "evidence_refs": null,
+    "revisions": null
+  }
+]

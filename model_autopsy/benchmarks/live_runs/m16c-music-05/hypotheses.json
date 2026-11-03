@@ -1,0 +1,101 @@
+[
+  {
+    "id": "95a85ff13fd94810b8a02e6f6515f509",
+    "text": "Top-K relevance is uniform across catalog slices; any pooled precision reflects each slice equally.",
+    "status": "supported",
+    "source": "meta",
+    "rationale": "auto-link [supports]: worst segment defect rate 0.074: defects concentrate (measurement directly bears on the hypothesis mechanism: worst segment defect rate 0.074: defects concentrate) [two independent supporting measurements, no contradiction; action 1ff12d3a2a814454960c77f59ed71681]",
+    "evidence_refs": [
+      {
+        "action_id": "c7b3ec0ac7c644298ddefb1d511d7164",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "1ff12d3a2a814454960c77f59ed71681",
+        "tool": "segment_quality_screen",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 22:32:01",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 22:32:18",
+        "from": "investigating",
+        "to": "supported"
+      }
+    ]
+  },
+  {
+    "id": "26a39b2870174c6689088512e5c8fe99",
+    "text": "Ranking quality is slice-dependent: one catalog slice has systematically lower precision@top-K due to model underfitting that segment.",
+    "status": "supported",
+    "source": "meta",
+    "rationale": "auto-link [supports]: worst segment defect rate 0.074: defects concentrate (measurement directly bears on the hypothesis mechanism: worst segment defect rate 0.074: defects concentrate) [two independent supporting measurements, no contradiction; action 1ff12d3a2a814454960c77f59ed71681]",
+    "evidence_refs": [
+      {
+        "action_id": "c7b3ec0ac7c644298ddefb1d511d7164",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "1ff12d3a2a814454960c77f59ed71681",
+        "tool": "segment_quality_screen",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 22:32:01",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 22:32:18",
+        "from": "investigating",
+        "to": "supported"
+      }
+    ]
+  },
+  {
+    "id": "f1d22ee678914997a282aba8123efaaf",
+    "text": "Apparent slice differences in top-K relevance are driven by data hygiene/label sparsity differences across slices, not by model ranking ability.",
+    "status": "supported",
+    "source": "meta",
+    "rationale": "auto-link [supports]: worst segment defect rate 0.074: defects concentrate (measurement directly bears on the hypothesis mechanism: worst segment defect rate 0.074: defects concentrate) [two independent supporting measurements, no contradiction; action 1ff12d3a2a814454960c77f59ed71681]",
+    "evidence_refs": [
+      {
+        "action_id": "c7b3ec0ac7c644298ddefb1d511d7164",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "1ff12d3a2a814454960c77f59ed71681",
+        "tool": "segment_quality_screen",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 22:32:01",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 22:32:18",
+        "from": "investigating",
+        "to": "supported"
+      }
+    ]
+  }
+]

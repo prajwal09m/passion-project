@@ -1,0 +1,2 @@
+{"recorded_utc": "2026-10-30T01:59:06Z", "response_id": null, "round": 1, "run": "phase-d-groq-delta", "status": "tool_calls", "text": "", "turn": "turn1"}
+{"recorded_utc": "2026-10-30T02:00:02Z", "response_id": null, "round": 2, "run": "phase-d-groq-delta", "status": "tool_calls", "text": "", "turn": "turn1"}

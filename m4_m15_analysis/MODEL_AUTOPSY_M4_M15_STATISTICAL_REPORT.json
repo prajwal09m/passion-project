@@ -1,0 +1,71 @@
+{
+  "title": "Model Autopsy M4-M15 quantitative statistical report",
+  "generated": "2026-11-01",
+  "method": "read-only artifact extraction; no paid APIs; no source modification",
+  "model_vs_target_separation": {
+    "model_autopsy_metrics": ["discovery", "experiment selection", "causal reasoning", "evidence quality", "calibration", "resolution", "reproducibility", "independent evaluation performance"],
+    "target_model_metrics": ["AUC", "Brier", "accuracy", "target-model precision/recall", "inference performance"],
+    "m15_target_model_result": {
+      "note": "kept separate from Model Autopsy scorecard",
+      "baseline_test_auc": 0.7177,
+      "candidate_test_auc": 0.7226,
+      "paired_delta": 0.0048,
+      "paired_delta_ci95": [0.0009, 0.0083],
+      "n_heldout": 15871,
+      "brier_base": 0.1466,
+      "brier_cand": 0.1449
+    }
+  },
+  "milestones": {
+    "M4": {"overall": 0.945, "overall_sd": 0.133, "n": 8, "boot_ci95": [0.85, 1.0], "per_project": [1.0, 1.0, 1.0, 1.0, 1.0, 0.62, 1.0, 0.94], "tests": 260, "system": "deterministic pipeline, 8 projects, offline, zero provider calls"},
+    "M5": {"overall": 0.55, "verdict": "partial", "dims": {"discovery": 0.4, "evidence": 0.5, "reasoning": 0.6, "calibration": 0.5, "efficiency": 0.8, "reproducibility": 1.0}, "rounds": "3/3", "experiments": "5 ran/1 failed", "attempts": "7/12", "tokens": {"input": 23263, "cached": 17446, "output": 4929, "total": 28192, "cap": 50000}, "cost_usd": 0.030836, "tests": 277, "hyps": 3, "fp": false},
+    "M6": {"overall": 0.62, "verdict": "inconclusive", "dims": {"discovery": 0.0, "evidence": 1.0, "reasoning": 0.6, "calibration": 1.0, "efficiency": 0.6, "reproducibility": 1.0}, "m6_9dim": 0.678, "rounds": "3/3", "experiments": "6/6", "attempts": "8/12", "tokens": {"input": 30920, "cached": 11219, "output": 6509, "total": 37429, "cap": 50000}, "cost_usd": 0.053972, "tests": 287, "hyps": 3, "fp": false},
+    "M7": {"overall": 0.61, "verdict": "inconclusive", "dims": {"discovery": 0.0, "evidence": 1.0, "reasoning": 0.6, "calibration": 1.0, "efficiency": 0.4, "reproducibility": 1.0}, "rounds": "3/3", "experiments": "8/6 BREACH (disclosed, fixed)", "attempts": "6/12", "tokens": {"input": 32511, "cached": 7650, "output": 6160, "total": 38671, "cap": 50000}, "cost_usd": 0.058404, "tests": 304, "hyps": 3, "status_transitions_live": 2, "fp": false},
+    "M8": {"overall": 0.62, "verdict": "inconclusive", "dims": {"discovery": 0.0, "evidence": 1.0, "reasoning": 0.6, "calibration": 1.0, "efficiency": 0.6, "reproducibility": 1.0}, "rounds": "2/3 (cap stop)", "experiments": "6/6 exact", "attempts": "7/12", "tokens": {"input": 24255, "cached": 17077, "output": 5272, "total": 29527, "cap": 50000}, "cost_usd": 0.03394, "tests": 346, "hyps": 3, "revisions": 5, "fp": false},
+    "M9": {"offline_means_8scen": {"invention": 1.0, "planning": 1.0, "attribution": 1.0, "discovery": 0.938, "causal": 0.75, "confounder": 0.625}, "live_integrated": {"overall": 0.62, "verdict": "inconclusive", "tokens_total": 29818, "tokens_in": 24030, "tokens_cached": 17845, "tokens_out": 5788, "cost_usd": 0.035007, "experiments": "6/6", "attempts": "7/12", "rounds": "2/3"}, "tests": 408, "fp_live": false},
+    "M10": {"discovery_mean": 0.9062, "sd": 0.2652, "n": 8, "boot_ci95": [0.7188, 1.0], "per_scenario": [1.0, 1.0, 0.25, 1.0, 1.0, 1.0, 1.0, 1.0], "discovered": 5, "discovery_rate_wilson_ci95": [0.3057, 0.8632], "correct_null": 2, "relevant_only": 1, "precision_naming": 1.0, "tests_new": 6},
+    "M11": {"team": 0.773, "single": 0.688, "delta": 0.085, "scenario": "ward_gap", "note": "n=1; no significance testable", "tests_new": 7, "cost_overhead": "<=1 extra tool call"},
+    "M12": {"tests_new": 7, "endpoints_new": 11, "eval": "no-scored-eval; durability/persistence demonstrated"},
+    "M13": {"live": {"overall": 0.63, "verdict": "inconclusive", "discovery": 0.0, "evidence": 1.0, "reasoning": 0.6, "calibration": 1.0, "efficiency": 0.8, "reproducibility": 1.0, "tokens_total": 44181, "tokens_in": 37045, "tokens_cached": 17589, "tokens_out": 7136, "cost_usd": 0.057286, "experiments": "6/6", "attempts": "10/12", "rounds": "3/3"}, "flagship_b_unit_shift": {"single": 0.688, "team": 0.773}, "tests": 425, "separation_audit_tests": "not-yet-introduced", "fp": false},
+    "M14": {"live": {"overall": 0.63, "verdict": "inconclusive", "discovery": 0.0, "evidence": 1.0, "reasoning": 0.6, "calibration": 1.0, "efficiency": 0.8, "reproducibility": 1.0, "tokens_total": 30170, "tokens_in": 23968, "tokens_cached": 17333, "tokens_out": 6202, "cost_usd": 0.037252, "experiments": "6/6", "attempts": "7/12", "rounds": "2/3", "audit": "6 opportunities, 1 lost at recognized"}, "flagship_c_robustness": {"single": 0.688, "team": 0.773, "aggregate": 0.709, "mechanism_ratio": 614.19, "verification": "not-reproduced (reported as uncertainty)"}, "tests": 439, "separation_audit": 52, "framework_tests": 33, "fp": false},
+    "M15": {"tests": 459, "new_tests": 5, "no_live_meta": true, "target_model_heldout": "see model_vs_target_separation (separate section)", "corpus_d": 4, "offline_smoke_max2steps": "4/4 execute"}
+  },
+  "statistics": {
+    "m4_mean": {"mean": 0.945, "sd": 0.133, "n": 8, "boot_ci95": [0.85, 1.0]},
+    "m10_mean": {"mean": 0.9062, "sd": 0.2652, "n": 8, "boot_ci95": [0.7188, 1.0]},
+    "m10_discovery_rate": {"k": 5, "n": 8, "rate": 0.625, "wilson_ci95": [0.3057, 0.8632]},
+    "live_discovery_zero_M6_M14": {"k_zero": 6, "n": 6, "wilson_ci95_zero_rate": [0.0, 0.3903]},
+    "live_tokens": {"mean": 33998.3, "sd": 6098.2, "min": 28192, "max": 44181, "n": 7},
+    "live_cost": {"mean": 0.0438, "sd": 0.0121, "min": 0.0308, "max": 0.0584, "n": 7},
+    "live_overall_M5_to_M14": {"abs_gain": 0.08, "ols_slope_per_step": 0.0096, "note": "different projects and scorer generations per point; descriptive only, not a significance claim"},
+    "paired_repeats_descriptive": {"turbine_M5_vs_M9int": {"M5": 0.55, "M9int": 0.62, "delta": 0.07}, "credit_M7_vs_M13": {"M7": 0.61, "M13": 0.63, "delta": 0.02}, "note": "different scorer generations; McNemar/N/A (n=1 each); no significance claim"},
+    "multi_agent": {"single": 0.688, "team": 0.773, "delta": 0.085, "pct": 12.4, "note": "n=1 scenario per milestone; identical values on different scenarios (b_unit_shift vs c_robustness); no test possible"}
+  },
+  "anchor_verification": {
+    "M4": "VERIFIED: manifest eval-6247993ca658 mean 0.945; 260/260 from M4-era suite records (current suite is 459)",
+    "M5": "VERIFIED: manifest live-140167117ef5 tokens 28192 cost 0.030836, 3 rounds, 5 ran/1 failed, scorecard 0.55; 277 passed",
+    "M6": "VERIFIED: manifest live-ae844753edce tokens 37429 cost 0.053972, 6/6, scorecard 0.62; 287 passed",
+    "M7": "VERIFIED: manifest live-1e19b2cdedfe 8 exps (breach), tokens 38671 cost 0.058404, scorecard 0.61; 304 passed",
+    "M8": "VERIFIED: manifest live-dbf6a5b3fbff 6/6 tokens 29527 cost 0.03394, scorecard 0.62; 346/346",
+    "M9": "VERIFIED: means 1.0/1.0/1.0/0.938/0.75/0.625 in validation docs; live-c0cae8776976 scorecard 0.62, tokens 29818 cost 0.035007; 408 pass",
+    "M10": "VERIFIED: challenge report 5 discovered + 2 correct-null + 1 relevant-only, mean 0.906",
+    "M11": "VERIFIED: 0.773 vs 0.688 on ward_gap in flagship/collab docs",
+    "M12": "VERIFIED: 7 new tests, 11 endpoints; no scored eval (correctly N/A)",
+    "M13": "VERIFIED: 425 tests; manifest live-d8b174527ca5 tokens 44181 cost 0.057286, scorecard 0.63; flagship 0.688/0.773",
+    "M14": "VERIFIED: 439 tests + 52 separation + 33 framework; manifest live-ecdd47fafd9d tokens 30170 cost 0.037252, scorecard 0.63; flagship aggregate 0.709",
+    "M15": "VERIFIED: 459 collected; target-model held-out delta +0.0048 [0.0009,0.0083] n=15871 kept separate; no live Meta"
+  },
+  "analytical_answers": {
+    "Q1_objective_improvement": "Offline capability breadth grew enormously (M4 1 system-score to M15 full research platform; tests 260->459). Live overall: +0.08 (0.55->0.63) across incompatible projects/scorers - not a provable gain. Honest answer: engineering + offline discovery improved; live-investigation discovery did not (0.0 in all 6 strict live runs).",
+    "Q2_most_improved": "Engineering reliability (260->459 tests; budget compliance restored after M7 breach); offline discovery (0.938/0.906 evidence-required means); durability/reproducibility (1.0 every live run); cost discipline (all runs under caps).",
+    "Q3_stagnated_regressed": "Live discovery (0.4 partial-credit M5, then 0.0 x6); reasoning dimension frozen at 0.6 x7 runs; M7 experiment-cap breach (fixed); report validity M5 invalid -> M6 valid -> M7 invalid -> M8 invalid-by-absence (unstable).",
+    "Q4_discovery_reliability": "Offline: yes (5/8 + controls, precision 1.0 when naming, Wilson CI wide [0.31,0.86]). Live: no (0 confirmed in 6 strict runs; zero false positives preserved - reliability as restraint, not as finding power).",
+    "Q5_causal_reasoning": "Offline improved (0.75 M9; confounder handling introduced). Live causal-diagnosis stuck at 0.5 (M6/M7) with qualitative-only thereafter; schema-vs-district confounding unresolved live.",
+    "Q6_multi_agent": "+0.085 (+12.4%) team over single, but n=1 scenario per milestone and identical values across different scenarios; benefit is unproven statistically; cost overhead bounded (<=1 extra call).",
+    "Q7_generalization": "Offline yes: 8+8+6+6+4 scenarios, 5+ frameworks with honest TF/HF guards, unfamiliar columns (zone/day/county/machine/sensor) discovered. Live: unproven (7 runs, 5 projects, 0 discoveries).",
+    "Q8_efficiency": "Per-investigation cost stable $0.031-$0.058 (mean $0.0438); tokens 28k-44k (mean ~34k); no cost growth with capability growth. Cost per resolved live hypothesis: undefined (no live resolution occurred).",
+    "Q9_reproducibility": "Strongest dimension: reproducibility 1.0 in all 7 live runs; manifests + hashes + preserved failures; determinism byte-identical offline (M9 408 means unchanged by attribution fix).",
+    "Q10_largest_weaknesses": ["Live discovery 0/6 strict runs (slice-aware probes missing from live path)", "Reasoning dimension frozen at 0.6 across all 7 live runs (mechanism pinning fails)", "Single-live-sample per milestone (n=1; no within-milestone variance estimable)"],
+    "Q11_M16_first": "Wire slice-aware/ranking-P@K probes + skeptic/judge-lite into the live loop and re-test on eval_music/eval_credit repeats (paired, same scorer); second: multi-run live campaigns (n>=5) so variance/CIs exist."
+  }
+}

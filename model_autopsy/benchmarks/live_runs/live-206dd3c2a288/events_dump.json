@@ -1,0 +1,941 @@
+[
+  {
+    "seq": 1,
+    "kind": "status_change",
+    "title": "Investigation created",
+    "detail": "mode=ml; max_iterations=3; max_tool_calls=12",
+    "payload": {},
+    "created_at": "2026-11-01 03:20:13"
+  },
+  {
+    "seq": 2,
+    "kind": "tool_result",
+    "title": "Live recon context prepared (neutral brief + schema)",
+    "detail": null,
+    "payload": {
+      "columns": [
+        "date",
+        "target",
+        "prediction",
+        "split"
+      ],
+      "tools": [
+        "artifact_summary",
+        "calibration_and_error_analysis",
+        "classification_metrics",
+        "clustering_stability",
+        "dataset_validation",
+        "feature_target_suspiciousness",
+        "forecast_diagnostics",
+        "grouped_auc_comparison",
+        "propose_hypothesis",
+        "regression_metrics",
+        "time_split_validation"
+      ]
+    },
+    "created_at": "2026-11-01 03:20:13"
+  },
+  {
+    "seq": 3,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability"
+      ],
+      "context_mode": "full"
+    },
+    "created_at": "2026-11-01 03:20:21"
+  },
+  {
+    "seq": 3,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Missing your recent level shift \u2014 I'll test competing explanations to pin down the break.",
+    "payload": {
+      "response_id": "resp_6ae6aff570503357fb3a46ee",
+      "n_tool_calls": 3,
+      "usage": {
+        "input_tokens": 3312,
+        "input_tokens_details.cached_tokens": 0,
+        "output_tokens": 1106,
+        "output_tokens_details.reasoning_tokens": 483,
+        "total_tokens": 4418
+      },
+      "text": "Missing your recent level shift \u2014 I'll test competing explanations to pin down the break."
+    },
+    "created_at": "2026-11-01 03:20:21"
+  },
+  {
+    "seq": 4,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Recent structural level shift (concept drift) in turbine output: test-period target mean differs substantially from train, causing systemati",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "30cb64843ee14c169813fc7d0e20972d",
+      "source": "meta",
+      "predicted_observation": "If true, forecast_diagnostics will show large target mean drift train vs test/split and systematic bias in recent predictions vs targets.",
+      "confidence_note": "Uncalibrated prior, moderate: level-change complaint directly suggests drift but not yet verified in data."
+    },
+    "created_at": "2026-11-01 03:20:21"
+  },
+  {
+    "seq": 4,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior, moderate: level-change complaint directly suggests drift but not yet verified in data.",
+        "predicted_observation": "If true, forecast_diagnostics will show large target mean drift train vs test/split and systematic bias in recent predictions vs targets.",
+        "rationale": "Objective states forecasts miss a recent level change; sample shows targets ~192-205 in early Jan. Plausible the recent period mean shifted and black-box turbine-ar trained on old level cannot follow.",
+        "text": "Recent structural level shift (concept drift) in turbine output: test-period target mean differs substantially from train, causing systematic under/over-prediction."
+      },
+      "action_seq": 4
+    },
+    "created_at": "2026-11-01 03:20:21"
+  },
+  {
+    "seq": 5,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\\\", 1793500694872054500, 23017]]]\", \"ok\": true, \"hypothesis_id\": \"30cb64843ee14c169813fc7d0e20972d\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Recent structural level shift (concept drift) in turbine output: test-",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+        "ok": true,
+        "hypothesis_id": "30cb64843ee14c169813fc7d0e20972d",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Recent structural level shift (concept drift) in turbine output: test-period target mean differs substantially from train, causing systematic under/over-prediction."
+      },
+      "action_seq": 4
+    },
+    "created_at": "2026-11-01 03:20:21"
+  },
+  {
+    "seq": 6,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Model dynamics failure: autoregressive order insufficient, so errors grow with horizon and residuals stay autocorrelated, independent of any",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "84d159c6ff04499b99e81766600f30a2",
+      "source": "meta",
+      "predicted_observation": "If true, error grows with forecast horizon and residual autocorrelation remains high, while overall train vs test target means differ little.",
+      "confidence_note": "Uncalibrated prior, lower-moderate: AR models often degrade with horizon, alternative to pure drift."
+    },
+    "created_at": "2026-11-01 03:20:21"
+  },
+  {
+    "seq": 6,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior, lower-moderate: AR models often degrade with horizon, alternative to pure drift.",
+        "predicted_observation": "If true, error grows with forecast horizon and residual autocorrelation remains high, while overall train vs test target means differ little.",
+        "rationale": "Model is statsmodels turbine-ar (autoregressive, black-box). Missing a change could reflect insufficient AR dynamics / horizon extrapolation failure rather than a true regime shift in the target.",
+        "text": "Model dynamics failure: autoregressive order insufficient, so errors grow with horizon and residuals stay autocorrelated, independent of any level shift."
+      },
+      "action_seq": 6
+    },
+    "created_at": "2026-11-01 03:20:21"
+  },
+  {
+    "seq": 7,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\\\", 1793500694872054500, 23017]]]\", \"ok\": true, \"hypothesis_id\": \"84d159c6ff04499b99e81766600f30a2\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Model dynamics failure: autoregressive order insufficient, so errors g",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+        "ok": true,
+        "hypothesis_id": "84d159c6ff04499b99e81766600f30a2",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Model dynamics failure: autoregressive order insufficient, so errors grow with horizon and residuals stay autocorrelated, independent of any level shift."
+      },
+      "action_seq": 6
+    },
+    "created_at": "2026-11-01 03:20:21"
+  },
+  {
+    "seq": 8,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Split-hygiene artifact: train and test periods overlap or leak, so measured miss of level change is an evaluation artifact not a true foreca",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "e04155bbaee449859aff76dc2ada88c8",
+      "source": "meta",
+      "predicted_observation": "If true, forecast_diagnostics split-overlap check will show train/test date overlap or leakage, invalidating drift interpretation.",
+      "confidence_note": "Uncalibrated prior, low: hygiene issue is common confound that could mimic or hide drift."
+    },
+    "created_at": "2026-11-01 03:20:21"
+  },
+  {
+    "seq": 8,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior, low: hygiene issue is common confound that could mimic or hide drift.",
+        "predicted_observation": "If true, forecast_diagnostics split-overlap check will show train/test date overlap or leakage, invalidating drift interpretation.",
+        "rationale": "Evaluation uses train/test split column; if splits overlap in time or leak, apparent miss could be evaluation artifact rather than true regime change.",
+        "text": "Split-hygiene artifact: train and test periods overlap or leak, so measured miss of level change is an evaluation artifact not a true forecast failure."
+      },
+      "action_seq": 8
+    },
+    "created_at": "2026-11-01 03:20:21"
+  },
+  {
+    "seq": 9,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\\\", 1793500694872054500, 23017]]]\", \"ok\": true, \"hypothesis_id\": \"e04155bbaee449859aff76dc2ada88c8\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Split-hygiene artifact: train and test periods overlap or leak, so mea",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+        "ok": true,
+        "hypothesis_id": "e04155bbaee449859aff76dc2ada88c8",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Split-hygiene artifact: train and test periods overlap or leak, so measured miss of level change is an evaluation artifact not a true forecast failure."
+      },
+      "action_seq": 8
+    },
+    "created_at": "2026-11-01 03:20:21"
+  },
+  {
+    "seq": 10,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability"
+      ],
+      "context_mode": "full"
+    },
+    "created_at": "2026-11-01 03:20:30"
+  },
+  {
+    "seq": 10,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "I've mapped three possible causes \u2014 now I'll run the key diagnostic to separate them.",
+    "payload": {
+      "response_id": "resp_6ae6affa19dc43c0b5ca454b",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 4362,
+        "input_tokens_details.cached_tokens": 0,
+        "output_tokens": 209,
+        "output_tokens_details.reasoning_tokens": 55,
+        "total_tokens": 4571
+      },
+      "text": "I've mapped three possible causes \u2014 now I'll run the key diagnostic to separate them."
+    },
+    "created_at": "2026-11-01 03:20:30"
+  },
+  {
+    "seq": 10,
+    "kind": "tool_request",
+    "title": "Requested forecast_diagnostics",
+    "detail": null,
+    "payload": {
+      "tool": "forecast_diagnostics",
+      "arguments": {
+        "date_column": "date",
+        "prediction_column": "prediction",
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/turbine_output.csv",
+        "split_column": "split",
+        "target_column": "target"
+      },
+      "action_seq": 10
+    },
+    "created_at": "2026-11-01 03:20:30"
+  },
+  {
+    "seq": 11,
+    "kind": "tool_result",
+    "title": "tool:forecast_diagnostics (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\\\", 1793500694872054500, 23017]]]\", \"ok\": true, \"source\": \"C:\\\\Prajwal MIT\\\\Passion\\\\model_autopsy\\\\tests\\\\fixture_eval\\\\investigator\\\\turbine_output.csv\", \"n\": 730, \"mae\": 15.658329, \"mae_by_horizon\": {}, \"drift_early_vs_late_mae\": [7.000986, 24.315671], \"residual_lag1_autocorr\": 0.775832,",
+    "payload": {
+      "tool": "forecast_diagnostics",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+        "ok": true,
+        "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\turbine_output.csv",
+        "n": 730,
+        "mae": 15.658329,
+        "mae_by_horizon": {},
+        "drift_early_vs_late_mae": [
+          7.000986,
+          24.315671
+        ],
+        "residual_lag1_autocorr": 0.775832,
+        "split_date_spans": {
+          "test": [
+            "2024-05-15 00:00:00",
+            "2024-12-30 00:00:00"
+          ],
+          "train": [
+            "2023-01-01 00:00:00",
+            "2024-05-14 00:00:00"
+          ]
+        },
+        "split_overlap_hint": false
+      },
+      "action_seq": 10
+    },
+    "created_at": "2026-11-01 03:20:30"
+  },
+  {
+    "seq": 12,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "I've mapped three possible causes \u2014 now I'll run the key diagnostic to separate them.",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 03:20:30"
+  },
+  {
+    "seq": 13,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 03:20:32"
+  },
+  {
+    "seq": 13,
+    "kind": "summary_repair",
+    "title": "Summary repair unavailable \u2014 original verdict stands",
+    "detail": "HTTP 400: {\"error\":{\"code\":null,\"message\":\"No tool output found for function call call_f1e3ae8c-5220-471b-9cef-e7708c165a83.\",\"param\":null,\"type\":\"invalid_request_error\"}}",
+    "payload": {},
+    "created_at": "2026-11-01 03:20:32"
+  },
+  {
+    "seq": 13,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 2,
+      "api_attempts": 2,
+      "latency_s": 17.002,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "full",
+      "fallback_used": false,
+      "tool_calls_executed": 4,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 7674,
+        "input_tokens_details.cached_tokens": 0,
+        "output_tokens": 1315,
+        "output_tokens_details.reasoning_tokens": 538,
+        "total_tokens": 8989
+      }
+    },
+    "created_at": "2026-11-01 03:20:32"
+  },
+  {
+    "seq": 14,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability"
+      ],
+      "context_mode": "delta"
+    },
+    "created_at": "2026-11-01 03:20:34"
+  },
+  {
+    "seq": 14,
+    "kind": "meta_request",
+    "title": "Continuation state refused \u2014 one full-context fallback",
+    "detail": "HTTP 400: {\"error\":{\"code\":null,\"message\":\"No tool output found for function call call_f1e3ae8c-5220-471b-9cef-e7708c165a83.\",\"param\":null,\"type\":\"invalid_request_error\"}}",
+    "payload": {},
+    "created_at": "2026-11-01 03:20:34"
+  },
+  {
+    "seq": 15,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Fact from prior diagnostics shows early-late error split and strong residual autocorrelation; split hygiene remains untested, so next I check train-test overlap to discriminate the artifact hypothesis.",
+    "payload": {
+      "response_id": "resp_6ae6b00bce0fcbb9d9644b04",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 4071,
+        "input_tokens_details.cached_tokens": 0,
+        "output_tokens": 1986,
+        "output_tokens_details.reasoning_tokens": 1814,
+        "total_tokens": 6057
+      },
+      "text": "Fact from prior diagnostics shows early-late error split and strong residual autocorrelation; split hygiene remains untested, so next I check train-test overlap to discriminate the artifact hypothesis."
+    },
+    "created_at": "2026-11-01 03:20:43"
+  },
+  {
+    "seq": 15,
+    "kind": "tool_result",
+    "title": "duplicate request for forecast_diagnostics; prior result reused (not re-executed, no budget consumed)",
+    "detail": null,
+    "payload": {
+      "tool": "forecast_diagnostics",
+      "reused": true,
+      "original_action_seq": 10,
+      "original_action_id": "ea550a18b44c4b4fb46a5fb2f6609009"
+    },
+    "created_at": "2026-11-01 03:20:43"
+  },
+  {
+    "seq": 16,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability"
+      ],
+      "context_mode": "delta_fallback"
+    },
+    "created_at": "2026-11-01 03:21:00"
+  },
+  {
+    "seq": 16,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "That repeat returned cached data, so I will run a split-grouped error breakdown to separate persistent drift from dynamics failure.",
+    "payload": {
+      "response_id": "resp_6ae6b0168625997414a94d07",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 4469,
+        "input_tokens_details.cached_tokens": 3953,
+        "output_tokens": 1384,
+        "output_tokens_details.reasoning_tokens": 1239,
+        "total_tokens": 5853
+      },
+      "text": "That repeat returned cached data, so I will run a split-grouped error breakdown to separate persistent drift from dynamics failure."
+    },
+    "created_at": "2026-11-01 03:21:00"
+  },
+  {
+    "seq": 16,
+    "kind": "tool_request",
+    "title": "Requested regression_metrics",
+    "detail": null,
+    "payload": {
+      "tool": "regression_metrics",
+      "arguments": {
+        "group_column": "split",
+        "prediction_column": "prediction",
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/turbine_output.csv",
+        "target_column": "target"
+      },
+      "action_seq": 16
+    },
+    "created_at": "2026-11-01 03:21:00"
+  },
+  {
+    "seq": 17,
+    "kind": "tool_result",
+    "title": "tool:regression_metrics (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\\\", 1793500694872054500, 23017]]]\", \"ok\": true, \"source\": \"C:\\\\Prajwal MIT\\\\Passion\\\\model_autopsy\\\\tests\\\\fixture_eval\\\\investigator\\\\turbine_output.csv\", \"n\": 730, \"mae\": 15.658329, \"mse\": 451.84905, \"rmse\": 21.256741, \"r2\": 0.360091, \"bias_mean_residual\": 10.660192, \"residual_std\": 18.39",
+    "payload": {
+      "tool": "regression_metrics",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+        "ok": true,
+        "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\turbine_output.csv",
+        "n": 730,
+        "mae": 15.658329,
+        "mse": 451.84905,
+        "rmse": 21.256741,
+        "r2": 0.360091,
+        "bias_mean_residual": 10.660192,
+        "residual_std": 18.390469,
+        "heteroscedasticity_hint": -0.046293,
+        "outliers_abs_z_gt_3": 0,
+        "mae_by_group": {
+          "test": 34.70213,
+          "train": 6.89818
+        }
+      },
+      "action_seq": 16
+    },
+    "created_at": "2026-11-01 03:21:00"
+  },
+  {
+    "seq": 18,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "That repeat returned cached data, so I will run a split-grouped error breakdown to separate persistent drift from dynamics failure.",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 03:21:00"
+  },
+  {
+    "seq": 19,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 03:21:03"
+  },
+  {
+    "seq": 19,
+    "kind": "summary_repair",
+    "title": "Summary repair unavailable \u2014 original verdict stands",
+    "detail": "HTTP 400: {\"error\":{\"code\":null,\"message\":\"No tool output found for function call call_2da05a59-9d81-4c08-a5cf-fb5fd7c044a1.\",\"param\":null,\"type\":\"invalid_request_error\"}}",
+    "payload": {},
+    "created_at": "2026-11-01 03:21:03"
+  },
+  {
+    "seq": 19,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 2,
+      "api_attempts": 2,
+      "latency_s": 26.589,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "delta_fallback",
+      "fallback_used": true,
+      "tool_calls_executed": 1,
+      "tool_calls_reused": 1,
+      "tokens": {
+        "input_tokens": 8540,
+        "input_tokens_details.cached_tokens": 3953,
+        "output_tokens": 3370,
+        "output_tokens_details.reasoning_tokens": 3053,
+        "total_tokens": 11910
+      }
+    },
+    "created_at": "2026-11-01 03:21:03"
+  },
+  {
+    "seq": 20,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability"
+      ],
+      "context_mode": "delta"
+    },
+    "created_at": "2026-11-01 03:21:05"
+  },
+  {
+    "seq": 20,
+    "kind": "meta_request",
+    "title": "Continuation state refused \u2014 one full-context fallback",
+    "detail": "HTTP 400: {\"error\":{\"code\":null,\"message\":\"No tool output found for function call call_2da05a59-9d81-4c08-a5cf-fb5fd7c044a1.\",\"param\":null,\"type\":\"invalid_request_error\"}}",
+    "payload": {},
+    "created_at": "2026-11-01 03:21:05"
+  },
+  {
+    "seq": 21,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Missed level change under the lens \u2014 testing split hygiene to rule out an evaluation artifact.",
+    "payload": {
+      "response_id": "resp_6ae6b0297dca5bff98ac4db6",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 4237,
+        "input_tokens_details.cached_tokens": 2801,
+        "output_tokens": 1299,
+        "output_tokens_details.reasoning_tokens": 1143,
+        "total_tokens": 5536
+      },
+      "text": "Missed level change under the lens \u2014 testing split hygiene to rule out an evaluation artifact."
+    },
+    "created_at": "2026-11-01 03:21:13"
+  },
+  {
+    "seq": 21,
+    "kind": "tool_result",
+    "title": "duplicate request for forecast_diagnostics; prior result reused (not re-executed, no budget consumed)",
+    "detail": null,
+    "payload": {
+      "tool": "forecast_diagnostics",
+      "reused": true,
+      "original_action_seq": 10,
+      "original_action_id": "ea550a18b44c4b4fb46a5fb2f6609009"
+    },
+    "created_at": "2026-11-01 03:21:13"
+  },
+  {
+    "seq": 22,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability"
+      ],
+      "context_mode": "delta_fallback"
+    },
+    "created_at": "2026-11-01 03:21:34"
+  },
+  {
+    "seq": 22,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "(tool call only)",
+    "payload": {
+      "response_id": "resp_6ae6b037bb84f00df9d24262",
+      "n_tool_calls": 0,
+      "usage": {
+        "input_tokens": 4619,
+        "input_tokens_details.cached_tokens": 4209,
+        "output_tokens": 2000,
+        "output_tokens_details.reasoning_tokens": 1998,
+        "total_tokens": 6619
+      },
+      "text": ""
+    },
+    "created_at": "2026-11-01 03:21:34"
+  },
+  {
+    "seq": 23,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 03:21:34"
+  },
+  {
+    "seq": 24,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 03:21:55"
+  },
+  {
+    "seq": 24,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 03:21:55"
+  },
+  {
+    "seq": 25,
+    "kind": "summary_repair",
+    "title": "Summary repair still invalid \u2014 original verdict stands",
+    "detail": null,
+    "payload": {
+      "valid": false,
+      "continuation": "original",
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 03:21:55"
+  },
+  {
+    "seq": 25,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 3,
+      "api_attempts": 3,
+      "latency_s": 50.102,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "delta_fallback",
+      "fallback_used": true,
+      "tool_calls_executed": 0,
+      "tool_calls_reused": 1,
+      "tokens": {
+        "input_tokens": 11265,
+        "input_tokens_details.cached_tokens": 7010,
+        "output_tokens": 4499,
+        "output_tokens_details.reasoning_tokens": 4339,
+        "total_tokens": 15764
+      }
+    },
+    "created_at": "2026-11-01 03:21:55"
+  },
+  {
+    "seq": 26,
+    "kind": "report",
+    "title": "Final report recorded",
+    "detail": null,
+    "payload": {
+      "investigation_id": "26d2d69b01724778834ac1097cbf4d4b",
+      "mode": "ml",
+      "question": "Output forecasts miss a recent level change; find what is wrong and show the evidence.",
+      "generated_at": "2026-11-01 03:21:55Z",
+      "confirmed": [],
+      "likely": [],
+      "rejected": [],
+      "unresolved": [
+        {
+          "hypothesis_id": "30cb64843ee14c169813fc7d0e20972d",
+          "text": "Recent structural level shift (concept drift) in turbine output: test-period target mean differs substantially from train, causing systematic under/over-prediction.",
+          "status": "proposed",
+          "origin": "meta",
+          "confidence_is_model_note": true
+        },
+        {
+          "hypothesis_id": "84d159c6ff04499b99e81766600f30a2",
+          "text": "Model dynamics failure: autoregressive order insufficient, so errors grow with horizon and residuals stay autocorrelated, independent of any level shift.",
+          "status": "proposed",
+          "origin": "meta",
+          "confidence_is_model_note": true
+        },
+        {
+          "hypothesis_id": "e04155bbaee449859aff76dc2ada88c8",
+          "text": "Split-hygiene artifact: train and test periods overlap or leak, so measured miss of level change is an evaluation artifact not a true forecast failure.",
+          "status": "proposed",
+          "origin": "meta",
+          "confidence_is_model_note": true
+        }
+      ],
+      "supported_hypotheses": [],
+      "evidence_performed": [
+        {
+          "action_id": "5ca78b575496492d89f26e75d6173dfa",
+          "seq": 4,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+            "hypothesis_id": "30cb64843ee14c169813fc7d0e20972d",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Recent structural level shift (concept drift) in turbine output: test-period target mean differs substantially from train, causing systematic under/over-prediction."
+          }
+        },
+        {
+          "action_id": "42b7b75f7fad4683a7691d2cd91fcecc",
+          "seq": 6,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+            "hypothesis_id": "84d159c6ff04499b99e81766600f30a2",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Model dynamics failure: autoregressive order insufficient, so errors grow with horizon and residuals stay autocorrelated, independent of any level shift."
+          }
+        },
+        {
+          "action_id": "9e3b97831fb44cce927c5af967df77d1",
+          "seq": 8,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+            "hypothesis_id": "e04155bbaee449859aff76dc2ada88c8",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Split-hygiene artifact: train and test periods overlap or leak, so measured miss of level change is an evaluation artifact not a true forecast failure."
+          }
+        },
+        {
+          "action_id": "ea550a18b44c4b4fb46a5fb2f6609009",
+          "seq": 10,
+          "tool": "forecast_diagnostics",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+            "mae": 15.658329,
+            "n": 730,
+            "ok": true,
+            "residual_lag1_autocorr": 0.775832,
+            "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\turbine_output.csv"
+          }
+        },
+        {
+          "action_id": "19d203490dfe443f8963d0169ddbc1c6",
+          "seq": 16,
+          "tool": "regression_metrics",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+            "bias_mean_residual": 10.660192,
+            "heteroscedasticity_hint": -0.046293,
+            "mae": 15.658329,
+            "mse": 451.84905,
+            "n": 730,
+            "ok": true
+          }
+        }
+      ],
+      "limitations": [
+        "available diagnostics never run in this investigation: artifact_summary, dataset_validation, classification_metrics, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, clustering_stability"
+      ],
+      "recommended_next": [
+        {
+          "for": "30cb64843ee14c169813fc7d0e20972d",
+          "action": "Design a test that would falsify: Recent structural level shift (concept drift) in turbine output: test-period target mean differs substantially from trai",
+          "status": "hypothesis remains proposed"
+        },
+        {
+          "for": "84d159c6ff04499b99e81766600f30a2",
+          "action": "Design a test that would falsify: Model dynamics failure: autoregressive order insufficient, so errors grow with horizon and residuals stay autocorrelated",
+          "status": "hypothesis remains proposed"
+        },
+        {
+          "for": "e04155bbaee449859aff76dc2ada88c8",
+          "action": "Design a test that would falsify: Split-hygiene artifact: train and test periods overlap or leak, so measured miss of level change is an evaluation artifa",
+          "status": "hypothesis remains proposed"
+        }
+      ],
+      "budget": {
+        "tool_calls": [
+          5,
+          12
+        ],
+        "iterations": [
+          0,
+          3
+        ]
+      },
+      "scope_note": "assembled deterministically from the investigation's recorded findings, hypotheses and executed actions; no section is model-invented and every rejected hypothesis carries its contradicting action ids."
+    },
+    "created_at": "2026-11-01 03:21:55"
+  },
+  {
+    "seq": 26,
+    "kind": "status_change",
+    "title": "Live run failed: ValueError: illegal transition hypotheses_proposed -> complete",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 03:21:55"
+  }
+]

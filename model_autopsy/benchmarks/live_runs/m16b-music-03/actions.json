@@ -1,0 +1,178 @@
+[
+  {
+    "id": "0edfdf0d419e46218f9b299805b1ba76",
+    "seq": 7,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, low confidence before seeing slice metrics.",
+      "predicted_observation": "ranking_slice_diagnostics shows similar precision@top-K across all slice values.",
+      "rationale": "Simplest baseline; model may generalize across catalog slices and pooled precision reflects each slice.",
+      "text": "Top-K relevance is uniform across catalog slices; no slice shows systematically lower precision@K."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "hypothesis_id": "8a5f50c94ed94887b746ba4b6802118d",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Top-K relevance is uniform across catalog slices; no slice shows systematically lower precision@K."
+    },
+    "error": null
+  },
+  {
+    "id": "e5e71279e728417aa4f1418a1878155f",
+    "seq": 10,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, moderate suspicion given 'new' slice sample rows all relevance 0.",
+      "predicted_observation": "ranking_slice_diagnostics shows markedly lower precision@top-K for one slice (e.g., new items) vs others at same K fraction.",
+      "rationale": "New/long-tail items often lack behavioral features, so ranker may systematically rank irrelevant new items at top.",
+      "text": "A specific catalog slice (e.g., new items) has degraded top-K ranking quality due to weaker model scoring for that slice."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "hypothesis_id": "96638e792f73493885aaeec7e5f78c98",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "A specific catalog slice (e.g., new items) has degraded top-K ranking quality due to weaker model scoring for that slice."
+    },
+    "error": null
+  },
+  {
+    "id": "26987c87df4e40e19b9bc109414095fd",
+    "seq": 13,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, moderate-low confidence; measurement artifact is common in slice comparisons.",
+      "predicted_observation": "Slice precision@K differences disappear after accounting for base relevance rate or slice size; segment_quality_screen shows uneven null/dup or size imbalance.",
+      "rationale": "Apparent slice gaps can arise from different label prevalence or data hygiene per slice rather than true ranking failure.",
+      "text": "Observed slice gaps in top-K precision reflect differing base relevance rates or data hygiene across slices, not differential model ranking ability."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "hypothesis_id": "f17df63791c04dd0bf1b25b63e1bb15c",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Observed slice gaps in top-K precision reflect differing base relevance rates or data hygiene across slices, not differential model ranking ability."
+    },
+    "error": null
+  },
+  {
+    "id": "f2e66c82941241389b76c0a76820c34d",
+    "seq": 15,
+    "kind": "tool_call",
+    "tool": "ranking_slice_diagnostics",
+    "status": "ran",
+    "arguments": {
+      "k_frac": 0.1,
+      "labels": "relevance",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+      "score_column": "score",
+      "slice_column": "slice"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\music_rank.csv",
+      "label_column": "relevance",
+      "score_column": "score",
+      "slice_column": "slice",
+      "k_frac": 0.1,
+      "per_slice": {
+        "est": {
+          "n": 1168,
+          "k": 117,
+          "precision_at_k": 1.0,
+          "base_rate": 0.506
+        },
+        "new": {
+          "n": 592,
+          "k": 59,
+          "precision_at_k": 0.8305,
+          "base_rate": 0.098
+        }
+      },
+      "pooled_precision_at_k": 0.9432,
+      "max_slice_gap": 0.1695,
+      "method_version": "ranking-slice-v1",
+      "limits": "observational ranking gap, not a causal finding; thin slices inconclusive"
+    },
+    "error": null
+  },
+  {
+    "id": "b81c53c610754ce89c64cf78c56c3e0f",
+    "seq": 31,
+    "kind": "tool_call",
+    "tool": "segment_quality_screen",
+    "status": "ran",
+    "arguments": {
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+      "segment_column": "slice"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "n": 1760,
+      "segment_column": "slice",
+      "by_segment": {
+        "est": {
+          "n": 1168,
+          "null_rate": 0.0,
+          "dup_rate": 0.07363
+        },
+        "new": {
+          "n": 592,
+          "null_rate": 0.0,
+          "dup_rate": 0.008446
+        }
+      },
+      "worst_null_rate": 0.0,
+      "worst_dup_rate": 0.07363,
+      "establishes": "whether hygiene defects concentrate in a segment",
+      "does_not_establish": "whether quality issues caused errors"
+    },
+    "error": null
+  },
+  {
+    "id": "64bb69fd1e6a4cc0a928f8925961a6e1",
+    "seq": 40,
+    "kind": "tool_call",
+    "tool": "distribution_shift_profile",
+    "status": "ran",
+    "arguments": {
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/music_rank.csv",
+      "split_column": "slice",
+      "target_column": "relevance"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/music_rank.csv\", 1793500694885150900, 30142]]]",
+      "ok": true,
+      "by_split": {
+        "est": {
+          "mean": 0.505993,
+          "std": 0.500178,
+          "median": 1.0,
+          "n": 1168
+        },
+        "new": {
+          "mean": 0.097973,
+          "std": 0.297529,
+          "median": 0.0,
+          "n": 592
+        }
+      },
+      "mean_shift": -0.40802,
+      "establishes": "target level moved between splits",
+      "does_not_establish": "why it moved"
+    },
+    "error": null
+  }
+]

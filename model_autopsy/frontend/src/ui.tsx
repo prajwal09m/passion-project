@@ -102,6 +102,43 @@ export function fmtNum(v: unknown, digits = 4): string {
   return v.toFixed(digits)
 }
 
+export function fmtInt(v: unknown): string {
+  if (typeof v !== 'number' || !isFinite(v)) return '—'
+  return Math.round(v).toLocaleString()
+}
+
+/** Shorten long filesystem paths for display; the full path stays in the title tooltip. */
+export function shortPath(p: string): string {
+  if (!p || p.length <= 48) return p
+  const parts = p.split(/[/\\]/)
+  const base = parts[parts.length - 1] || p
+  return parts.length > 1 ? `…/${base}` : (p.length > 48 ? '…' + p.slice(-45) : p)
+}
+
+export function PathVal({ path }: { path: string }) {
+  return <code className="inline" title={path}>{shortPath(path)}</code>
+}
+
+export function looksLikePath(v: string): boolean {
+  return v.length > 40 && (/[/\\]/.test(v)) && !/\s{2,}/.test(v)
+}
+
+/** Scale bar for a metric with a known reference range. Never implies good/bad —
+ *  the label carries the reference (e.g. “0.5 = random ranking”). */
+export function MBar({ label, value, min, max, display, invert }: {
+  label: string; value: number; min: number; max: number; display: string; invert?: boolean
+}) {
+  const t = Math.min(Math.max((value - min) / (max - min), 0), 1)
+  return (
+    <div className="mbar" role="img"
+      aria-label={`${label}: ${display} (scale ${min} to ${max})`}>
+      <span className="mlabel">{label}</span>
+      <span className="mtrack"><span className={'mfill' + (invert ? ' warn' : '')} style={{ width: `${(t * 100).toFixed(1)}%` }} /></span>
+      <span className="mval">{display}</span>
+    </div>
+  )
+}
+
 /* ---------- typed renderers ---------- */
 
 type Result = Record<string, unknown>
@@ -129,26 +166,36 @@ export function ResultRenderer({ action }: { action: Action }) {
     case 'propose_hypothesis': return <ProposeHypothesis result={result} />
     case 'propose_revision_instructions': return <ProposeRevision result={result} />
     case 'artifact_summary': return <ArtifactSummary result={result} />
+    case 'script_static_inspection': return <ScriptInspection result={result} />
     default: return <GenericResult result={result} />
   }
 }
 
 function ClassificationMetrics({ result: r }: { result: Result }) {
   const rocAuc = num(r, 'roc_auc')
+  const brier = num(r, 'brier')
+  const prec = num(r, 'precision_at_threshold')
+  const rec = num(r, 'recall_at_threshold')
   const perSplit = r.per_split_auc as Record<string, number> | undefined
   const splits = perSplit ? Object.entries(perSplit) : []
   return (
     <>
-      <KV items={[
-        ['Rows n', num(r, 'n').toLocaleString()],
-        ['ROC AUC', isFinite(rocAuc) ? rocAuc.toFixed(4) : 'n/a (single class present)'],
-        ['Brier score', <span>{fmtNum(num(r, 'brier'))} <span className="faint">{str(r, 'brier_convention')}</span></span>],
-        ['Precision @ thr', fmtNum(num(r, 'precision_at_threshold'))],
-        ['Recall @ thr', fmtNum(num(r, 'recall_at_threshold'))],
-        ['Threshold', fmtNum(num(r, 'threshold'), 2)],
-        ['Score column', str(r, 'score_column')],
-        ['Source', <code className="inline">{str(r, 'source')}</code>],
-      ]} />
+      <div className="faint" style={{ fontSize: 11.5, marginBottom: 6 }}>
+        {fmtInt(num(r, 'n'))} rows · threshold {fmtNum(num(r, 'threshold'), 2)} · score column <code className="inline">{str(r, 'score_column')}</code> · source <PathVal path={str(r, 'source')} />
+      </div>
+      {isFinite(rocAuc) && (
+        <MBar label="ROC AUC (0.5 = random)" value={rocAuc} min={0.5} max={1} display={rocAuc.toFixed(4)} />
+      )}
+      {!isFinite(rocAuc) && <Note>n/a — single class present, AUC undefined.</Note>}
+      {isFinite(brier) && (
+        <MBar label="Brier (0 = perfect, lower better)" value={brier} min={0} max={1} display={`${brier.toFixed(4)} ${str(r, 'brier_convention')}`} invert />
+      )}
+      {isFinite(prec) && (
+        <MBar label="Precision @ threshold" value={prec} min={0} max={1} display={prec.toFixed(4)} />
+      )}
+      {isFinite(rec) && (
+        <MBar label="Recall @ threshold" value={rec} min={0} max={1} display={rec.toFixed(4)} />
+      )}
       {splits.length > 0 && (
         <div className="tablewrap" style={{ marginTop: 10 }}>
           <table>
@@ -184,23 +231,26 @@ function CalibrationAnalysis({ result: r }: { result: Result }) {
       {perFold && Object.keys(perFold).length > 0 && (
         <PooledAucChart pooled={perFold} nRows={bins.reduce((s, b) => s + b.n, 0)} />
       )}
-      <div className="tablewrap">
-        <table>
-          <thead>
-            <tr><th>Bin</th><th className="num">n</th><th className="num">Mean score</th><th className="num">Observed +</th></tr>
-          </thead>
-          <tbody>
-            {bins.map((b, i) => (
-              <tr key={i}>
-                <td>{b.bin_low.toFixed(1)}–{b.bin_high.toFixed(1)}</td>
-                <td className="num">{b.n.toLocaleString()}</td>
-                <td className="num">{b.mean_score.toFixed(3)}</td>
-                <td className="num">{b.fraction_positive.toFixed(3)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <details>
+        <summary className="faint" style={{ cursor: 'pointer', fontSize: 12 }}>Reliability bins table ({bins.length} bins — also shown in the chart above)</summary>
+        <div className="tablewrap">
+          <table>
+            <thead>
+              <tr><th>Bin</th><th className="num">n</th><th className="num">Mean score</th><th className="num">Observed +</th></tr>
+            </thead>
+            <tbody>
+              {bins.map((b, i) => (
+                <tr key={i}>
+                  <td>{b.bin_low.toFixed(1)}–{b.bin_high.toFixed(1)}</td>
+                  <td className="num">{b.n.toLocaleString()}</td>
+                  <td className="num">{b.mean_score.toFixed(3)}</td>
+                  <td className="num">{b.fraction_positive.toFixed(3)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
     </>
   )
 }
@@ -213,11 +263,11 @@ function TimeSplit({ result: r }: { result: Result }) {
   return (
     <>
       <KV items={[
-        ['Rows', num(r, 'n_rows').toLocaleString()],
+        ['Rows', fmtInt(num(r, 'n_rows'))],
         ['Date column', r.date_column ? String(r.date_column) : 'not present'],
-        ['Valid dates', r.n_valid_dates != null ? num(r, 'n_valid_dates').toLocaleString() : '—'],
+        ['Valid dates', r.n_valid_dates != null ? fmtInt(num(r, 'n_valid_dates')) : '—'],
         ['Date range', r.date_min ? `${str(r, 'date_min')} → ${str(r, 'date_max')}` : '—'],
-        ['Source', <code className="inline">{str(r, 'source')}</code>],
+        ['Source', <PathVal path={str(r, 'source')} />],
       ]} />
       {spans && spanEntries.length > 0 && (
         <div className="tablewrap" style={{ marginTop: 10 }}>
@@ -262,8 +312,8 @@ function GroupedAuc({ result: r }: { result: Result }) {
         ['AUC B', fmtNum(num(r, 'auc_b'))],
         ['Δ (B − A)', fmtNum(num(r, 'delta'))],
         ['Bootstrap 95% CI', ci ? `[${ci[0].toFixed(4)}, ${ci[1].toFixed(4)}] — row-level resampling, seed 42` : '—'],
-        ['Rows n', num(r, 'n').toLocaleString()],
-        ['Replicates', num(r, 'n_boot').toLocaleString()],
+        ['Rows n', fmtInt(num(r, 'n'))],
+        ['Replicates', fmtInt(num(r, 'n_boot'))],
         ['Source', <code className="inline">{str(r, 'source')}</code>],
       ]} />
       <Note kind="warn">
@@ -279,22 +329,25 @@ function Suspiciousness({ result: r }: { result: Result }) {
   const rows = (r.top_correlations ?? []) as { feature: string; r: number; abs_r: number; n: number }[]
   return (
     <>
-      <KV items={[
-        ['Features scanned', num(r, 'n_features').toLocaleString()],
-        ['Source', <code className="inline">{str(r, 'source')}</code>],
-      ]} />
+      <div className="faint" style={{ fontSize: 11.5, marginBottom: 6 }}>
+        {fmtInt(num(r, 'n_features'))} features scanned · <PathVal path={str(r, 'source')} />
+      </div>
       <div className="tablewrap">
         <table>
           <caption className="faint" style={{ captionSide: 'top', textAlign: 'left', fontSize: 11, padding: '4px 0' }}>
             Strongest |point-biserial| feature–label associations. ASSOCIATION ONLY — not proof of leakage.
           </caption>
-          <thead><tr><th>Feature</th><th className="num">r</th><th className="num">|r|</th><th className="num">n</th></tr></thead>
+          <thead><tr><th>Feature</th><th className="num">r</th><th style={{ minWidth: 130 }}>strength</th><th className="num">n</th></tr></thead>
           <tbody>
             {rows.map((row) => (
               <tr key={row.feature}>
                 <td><code className="inline">{row.feature}</code></td>
                 <td className="num">{row.r.toFixed(4)}</td>
-                <td className="num">{row.abs_r.toFixed(4)}</td>
+                <td>
+                  <span className="mtrack" style={{ display: 'block', height: 6, borderRadius: 99, background: 'rgba(255,255,255,0.06)', overflow: 'hidden' }}>
+                    <span style={{ display: 'block', height: '100%', width: `${(Math.min(Math.abs(row.abs_r), 1) * 100).toFixed(1)}%`, background: 'linear-gradient(90deg, var(--cyan), var(--violet))', borderRadius: 99 }} />
+                  </span>
+                </td>
                 <td className="num">{row.n.toLocaleString()}</td>
               </tr>
             ))}
@@ -310,29 +363,37 @@ function DatasetValidation({ result: r }: { result: Result }) {
   const cols = (r.columns ?? []) as { name: string; dtype: string; n_missing: number; n_unique: number }[]
   const checks = (r.checks ?? {}) as Record<string, Record<string, unknown>>
   const allPresent = Object.values(checks).every((c) => c.present !== false)
+  const shown = cols.slice(0, 8)
+  const hidden = cols.slice(8)
+  const colTable = (list: typeof cols) => (
+    <div className="tablewrap">
+      <table>
+        <thead><tr><th>Column</th><th>Dtype</th><th className="num">Missing</th><th className="num">Unique</th></tr></thead>
+        <tbody>
+          {list.map((c) => (
+            <tr key={c.name}>
+              <td><code className="inline">{c.name}</code></td><td>{c.dtype}</td>
+              <td className="num">{c.n_missing.toLocaleString()}</td>
+              <td className="num">{c.n_unique.toLocaleString()}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
   return (
     <>
-      <KV items={[
-        ['File', str(r, 'filename')],
-        ['Rows', num(r, 'n_rows').toLocaleString()],
-        ['Columns', num(r, 'n_columns').toLocaleString()],
-        ['Duplicate rows', num(r, 'n_duplicate_rows').toLocaleString()],
-      ]} />
-      {!allPresent && <Note kind="warn">Some expected columns are absent — the notes below state exactly what is missing.</Note>}
-      <div className="tablewrap">
-        <table>
-          <thead><tr><th>Column</th><th>Dtype</th><th className="num">Missing</th><th className="num">Unique</th></tr></thead>
-          <tbody>
-            {cols.map((c) => (
-              <tr key={c.name}>
-                <td><code className="inline">{c.name}</code></td><td>{c.dtype}</td>
-                <td className="num">{c.n_missing.toLocaleString()}</td>
-                <td className="num">{c.n_unique.toLocaleString()}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="faint" style={{ fontSize: 11.5, marginBottom: 6 }}>
+        <PathVal path={str(r, 'filename')} /> · {fmtInt(num(r, 'n_rows'))} rows · {fmtInt(num(r, 'n_columns'))} columns · {fmtInt(num(r, 'n_duplicate_rows'))} duplicate rows
       </div>
+      {!allPresent && <Note kind="warn">Some expected columns are absent — the notes below state exactly what is missing.</Note>}
+      {colTable(shown)}
+      {hidden.length > 0 && (
+        <details>
+          <summary className="faint" style={{ cursor: 'pointer', fontSize: 12 }}>Show {hidden.length} more columns</summary>
+          {colTable(hidden)}
+        </details>
+      )}
       <div style={{ marginTop: 10 }}>
         {Object.entries(checks).map(([k, v]) => (
           <div key={k} className="finding">
@@ -395,15 +456,19 @@ function FileHead({ result: r }: { result: Result }) {
 }
 
 function RunTests({ result: r }: { result: Result }) {
+  const tail = str(r, 'tail') || str(r, 'summary_line')
   return (
     <>
       <KV items={[
-        ['Exit code', String(num(r, 'exit_code'))],
+        ['Exit code', String(Math.round(num(r, 'exit_code')))],
         ['Passed', r.passed === true ? 'yes' : r.passed === false ? 'no' : '—'],
         ['Duration', `${num(r, 'seconds')}s`],
         ['Command', <code className="inline">{JSON.stringify(r.command)}</code>],
       ]} />
-      <pre className="log">{str(r, 'tail') || str(r, 'summary_line')}</pre>
+      <details>
+        <summary className="faint" style={{ cursor: 'pointer', fontSize: 12 }}>Test output tail</summary>
+        <pre className="log">{tail}</pre>
+      </details>
     </>
   )
 }
@@ -425,12 +490,26 @@ function ApplyApproval({ result: r }: { result: Result }) {
 }
 
 function ProposeHypothesis({ result: r }: { result: Result }) {
+  const text = str(r, 'text')
+  const hid = str(r, 'hypothesis_id')
   return (
-    <Note kind="accent">
-      Structured hypothesis registered by the runtime investigator (origin: meta; any
-      confidence in it is an uncalibrated model self-report, not a statistical result).
-      {r.note ? <div className="faint" style={{ marginTop: 6 }}>{str(r, 'note')}</div> : null}
-    </Note>
+    <>
+      {text ? (
+        <p style={{ margin: '0 0 6px', fontWeight: 600 }}>{text}</p>
+      ) : (
+        <Note kind="warn">No hypothesis text recorded in this result — see the Hypotheses panel and the raw JSON below.</Note>
+      )}
+      {hid && (
+        <p className="faint" style={{ margin: '0 0 6px', fontSize: 12 }}>
+          hypothesis {hid.slice(0, 8)} — status, evidence and verdict live in the Hypotheses panel
+        </p>
+      )}
+      <Note kind="accent">
+        Registered by the runtime investigator (origin: meta); any confidence in it is an
+        uncalibrated model self-report, not a statistical result.
+        {r.note ? <div className="faint" style={{ marginTop: 6 }}>{str(r, 'note')}</div> : null}
+      </Note>
+    </>
   )
 }
 
@@ -448,7 +527,7 @@ function ArtifactSummary({ result: r }: { result: Result }) {
   return (
     <>
       <KV items={[
-        ['Rows', num(r, 'n_rows').toLocaleString()],
+        ['Rows', fmtInt(num(r, 'n_rows'))],
         ['Positive share', isFinite(num(r, 'positive_rate')) ? (num(r, 'positive_rate') * 100).toFixed(2) + '%' : '—'],
         ['Folds', folds ? Object.keys(folds).join(', ') : '—'],
         ['Source', <code className="inline">{str(r, 'source') || str(r, 'oof_csv') || str(r, 'artifact')}</code>],
@@ -458,17 +537,101 @@ function ArtifactSummary({ result: r }: { result: Result }) {
   )
 }
 
-function GenericResult({ result: r }: { result: Result }) {
-  const entries = Object.entries(r)
-    .filter(([k]) => !['ok'].includes(k))
-    .slice(0, 12)
+const HIDDEN_KEYS = new Set(['ok', '_dedup', '_truncated_note', '_note'])
+
+function fmtSmart(v: unknown): ReactNode {
+  if (typeof v === 'number' && isFinite(v)) return Number.isInteger(v) ? fmtInt(v) : fmtNum(v)
+  if (typeof v === 'string') return looksLikePath(v) ? <PathVal path={v} /> : v
+  if (typeof v === 'boolean') return v ? 'yes' : 'no'
+  if (Array.isArray(v) && v.every((x) => typeof x === 'string' || typeof x === 'number')) {
+    const items = v.map(String)
+    return <span>{items.slice(0, 8).join(', ')}{items.length > 8 ? ` (+${items.length - 8} more)` : ''}</span>
+  }
+  if (typeof v === 'object' && v !== null) {
+    const s = JSON.stringify(v)
+    return s.length > 160 ? (
+      <details>
+        <summary className="faint" style={{ cursor: 'pointer', fontSize: 11.5 }}>structured value ({Array.isArray(v) ? `${v.length} items` : `${Object.keys(v).length} keys`})</summary>
+        <code className="inline" style={{ whiteSpace: 'pre-wrap' }}>{s.slice(0, 1200)}{s.length > 1200 ? '…' : ''}</code>
+      </details>
+    ) : <code className="inline">{s}</code>
+  }
+  return String(v)
+}
+
+function ScriptInspection({ result: r }: { result: Result }) {
+  const findings = (r.findings ?? r.warnings ?? r.issues ?? []) as {
+    severity?: string; category?: string; line?: number; message?: string; detail?: string
+  }[]
+  const order = (r.fit_split_order ?? r.execution_order ?? []) as string[]
+  const script = str(r, 'script_path') || str(r, 'script') || str(r, 'file')
+  const high = findings.filter((f) => (f.severity ?? '').toLowerCase() === 'high').length
   return (
-    <KV items={entries.map(([k, v]) => [
-      k,
-      typeof v === 'number' && isFinite(v) ? fmtNum(v)
-        : typeof v === 'object' && v !== null ? <code className="inline">{JSON.stringify(v).slice(0, 120)}</code>
-          : String(v),
-    ])} />
+    <>
+      {script && <div className="faint" style={{ fontSize: 11.5, marginBottom: 6 }}><PathVal path={script} /></div>}
+      {order.length > 0 && (
+        <div className="codeflow" role="img" aria-label={`Execution order: ${order.join(', then ')}`}>
+          {order.map((s, i) => (
+            <Fragment key={i}>
+              {i > 0 && <span className="cfarrow">→</span>}
+              <span className={'cfstep' + (/fit/i.test(s) ? ' bad' : '')}><b>{s}</b></span>
+            </Fragment>
+          ))}
+        </div>
+      )}
+      {findings.length === 0 && <Note kind="ok">No structural findings — nothing suspicious in the static parse.</Note>}
+      {findings.length > 0 && (
+        <>
+          <div className="faint" style={{ fontSize: 11.5, margin: '4px 0' }}>
+            {findings.length} finding{findings.length === 1 ? '' : 's'}{high > 0 ? ` · ${high} high-severity` : ''}
+          </div>
+          <ul className="warnlist">
+            {findings.slice(0, 6).map((f, i) => (
+              <li key={i}>
+                <span className={`wl-tag ${((f.severity ?? 'info').toLowerCase() === 'high') ? 'high' : ((f.severity ?? '').toLowerCase() === 'medium' ? 'medium' : 'info')}`}>
+                  {f.severity ?? 'info'}
+                </span>
+                <span>{f.line != null ? <span className="faint">L{f.line} · </span> : null}{f.message ?? f.detail ?? JSON.stringify(f)}</span>
+              </li>
+            ))}
+          </ul>
+          {findings.length > 6 && (
+            <details>
+              <summary className="faint" style={{ cursor: 'pointer', fontSize: 12 }}>Show {findings.length - 6} more findings</summary>
+              <ul className="warnlist">
+                {findings.slice(6).map((f, i) => (
+                  <li key={i}>
+                    <span className={`wl-tag ${((f.severity ?? 'info').toLowerCase() === 'high') ? 'high' : ((f.severity ?? '').toLowerCase() === 'medium' ? 'medium' : 'info')}`}>
+                      {f.severity ?? 'info'}
+                    </span>
+                    <span>{f.line != null ? <span className="faint">L{f.line} · </span> : null}{f.message ?? f.detail ?? JSON.stringify(f)}</span>
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )}
+        </>
+      )}
+    </>
+  )
+}
+
+function GenericResult({ result: r }: { result: Result }) {
+  const entries = Object.entries(r).filter(([k]) => !HIDDEN_KEYS.has(k))
+  const shown = entries.slice(0, 10)
+  const rest = entries.slice(10)
+  const note = typeof r._truncated_note === 'string' ? r._truncated_note : null
+  return (
+    <>
+      <KV items={shown.map(([k, v]) => [k, fmtSmart(v)])} />
+      {rest.length > 0 && (
+        <details>
+          <summary className="faint" style={{ cursor: 'pointer', fontSize: 12 }}>Show {rest.length} more fields</summary>
+          <KV items={rest.map(([k, v]) => [k, fmtSmart(v)])} />
+        </details>
+      )}
+      {note && <div className="faint" style={{ fontSize: 11.5, marginTop: 4 }}>{note}</div>}
+    </>
   )
 }
 

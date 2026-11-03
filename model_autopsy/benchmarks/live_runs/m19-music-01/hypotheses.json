@@ -1,0 +1,174 @@
+[
+  {
+    "id": "faadf18d1c7941ca86bae3b1e2e4d2d0",
+    "text": "Top-K relevance is uniform across catalog slices; any observed slice differences are sampling noise, not systematic failure.",
+    "status": "rejected",
+    "source": "meta",
+    "rationale": "auto-link [contradicts]: bias -0.18 large vs std 0.29 (hypothesis claims uniformity/noise for the measured effect and the measurement bias -0.18 large vs std 0.29; euphemized denial decides) [two independent contradicting measurements recorded; action f6888bf341634850a4c177cb58947fc3]",
+    "evidence_refs": [
+      {
+        "action_id": "0b72e77fc76b448b989e19a9dee61979",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "contradicts",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "03b7952bbccc4f6aaaf829b234d668d6",
+        "tool": "classification_metrics",
+        "relation": "relevant_to",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "cf0436799e724dd9bc31cde362d26563",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "contradicts",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "f6888bf341634850a4c177cb58947fc3",
+        "tool": "regression_metrics",
+        "relation": "contradicts",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-02 03:42:10",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-02 03:42:10",
+        "from": "investigating",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-02 03:42:11",
+        "from": "investigating",
+        "to": "rejected"
+      }
+    ]
+  },
+  {
+    "id": "cb48c582b1af44abba72a16bfe9a75da",
+    "text": "Ranker systematically underperforms on new-item slice due to cold-start / feature sparsity, yielding lower precision@K than established slices.",
+    "status": "supported",
+    "source": "meta",
+    "rationale": "auto-link [supports]: permutation p=0.0005: slice P@K gap 0.17 not noise (measurement directly bears on the hypothesis mechanism: permutation p=0.0005: slice P@K gap 0.17 not noise) [two independent supporting measurements, no contradiction; action b289c61c68d74410ad4dfd0f6a4f6f6b]",
+    "evidence_refs": [
+      {
+        "action_id": "0b72e77fc76b448b989e19a9dee61979",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "03b7952bbccc4f6aaaf829b234d668d6",
+        "tool": "classification_metrics",
+        "relation": "relevant_to",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "cf0436799e724dd9bc31cde362d26563",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "f6888bf341634850a4c177cb58947fc3",
+        "tool": "regression_metrics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "b289c61c68d74410ad4dfd0f6a4f6f6b",
+        "tool": "slice_gap_significance",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-02 03:42:10",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-02 03:42:10",
+        "from": "investigating",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-02 03:42:11",
+        "from": "investigating",
+        "to": "supported"
+      },
+      {
+        "at": "2026-11-02 03:42:17",
+        "from": "supported",
+        "to": "supported"
+      }
+    ]
+  },
+  {
+    "id": "8a1be6f82da1418093559c5ae4d3ee74",
+    "text": "Observed slice P@K gaps are artifacts of evaluation hygiene \u2014 differing base relevance rates, small-N slices, or missing/duplicate records \u2014 not true ranking quality differences.",
+    "status": "supported",
+    "source": "meta",
+    "rationale": "auto-link [supports]: permutation p=0.0005: slice P@K gap 0.17 not noise (measurement directly bears on the hypothesis mechanism: permutation p=0.0005: slice P@K gap 0.17 not noise) [two independent supporting measurements, no contradiction; action b289c61c68d74410ad4dfd0f6a4f6f6b]",
+    "evidence_refs": [
+      {
+        "action_id": "0b72e77fc76b448b989e19a9dee61979",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "03b7952bbccc4f6aaaf829b234d668d6",
+        "tool": "classification_metrics",
+        "relation": "relevant_to",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "cf0436799e724dd9bc31cde362d26563",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "f6888bf341634850a4c177cb58947fc3",
+        "tool": "regression_metrics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "b289c61c68d74410ad4dfd0f6a4f6f6b",
+        "tool": "slice_gap_significance",
+        "relation": "supports",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-02 03:42:10",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-02 03:42:10",
+        "from": "investigating",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-02 03:42:11",
+        "from": "investigating",
+        "to": "supported"
+      },
+      {
+        "at": "2026-11-02 03:42:17",
+        "from": "supported",
+        "to": "supported"
+      }
+    ]
+  }
+]

@@ -1,0 +1,112 @@
+{
+  "R01": {
+    "components": {"1": 1, "2": 0, "3": 1, "4": 1, "5": 1, "6": 1},
+    "notes": {
+      "1": "Names temporal drift and label imbalance across folds.",
+      "2": "No measured number in conclusion or recommended_next (says 'similar AUC' without values).",
+      "3": "Both statuses inconclusive and text explicitly says no strong evidence.",
+      "4": "Per-fold label balance plus feature-drift diagnostics.",
+      "5": "Both hypothesis IDs resolve; basis action ac7a... resolves.",
+      "6": "No claim about diagnostics or remaining budget."
+    }
+  },
+  "R02": {
+    "components": {"1": 1, "2": 0, "3": 0, "4": 1, "5": 0, "6": 1},
+    "notes": {
+      "1": "Names default-threshold/class-imbalance and temporal variation.",
+      "2": "No measured number in conclusion or recommended_next.",
+      "3": "Text says neither cause is definitively proven but assigns status 'supported' to the bundled imbalance/threshold hypothesis without testing the imbalance component.",
+      "4": "Per-fold threshold optimization plus feature importance over time.",
+      "5": "Basis includes fabricated IDs c3f1... and a1b2c3d4... that do not resolve.",
+      "6": "No false claim about executed diagnostics or budget."
+    }
+  },
+  "R03": {
+    "components": {"1": 1, "2": 0, "3": 0, "4": 1, "5": 1, "6": 1},
+    "notes": {
+      "1": "Names temporal drift and overfitting.",
+      "2": "No measured number in conclusion or recommended_next.",
+      "3": "Claims 'no large training-OOF gap' although no training metrics were available or run.",
+      "4": "Training metrics plus per-fold feature/label statistics would discriminate drift from overfitting.",
+      "5": "Both hypothesis IDs and basis action 2e26... resolve.",
+      "6": "No false statement about which diagnostics ran or budget."
+    }
+  },
+  "R04": {
+    "components": {"1": 1, "2": 0, "3": 1, "4": 1, "5": 0, "6": 1},
+    "notes": {
+      "1": "Names temporal drift and underfitting.",
+      "2": "No measured number in conclusion or recommended_next.",
+      "3": "Rejects temporal drift from similar per-fold AUC, consistent with the recorded per-split values; underfitting left investigating.",
+      "4": "Learning curve/hyperparameter sweep plus calibration curves.",
+      "5": "Basis includes fabricated ID c0c5e5d9... that does not resolve.",
+      "6": "No false claim; the failed calibration call is not misreported."
+    }
+  },
+  "R05": {
+    "components": {"1": 1, "2": 0, "3": 1, "4": 1, "5": 1, "6": 1},
+    "notes": {
+      "1": "Names temporal leakage and high-cardinality overfitting.",
+      "2": "No measured number in conclusion or recommended_next.",
+      "3": "Both statuses inconclusive; says no decisive diagnostic was performed.",
+      "4": "Feature-target scan plus per-fold calibration/error analysis.",
+      "5": "Hypothesis IDs and basis action 9025... resolve.",
+      "6": "Accurately says the feature scan failed and no calibration was run; no budget claim."
+    }
+  },
+  "R06": {
+    "components": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0},
+    "notes": {
+      "1": "No parseable summary; quality cannot be assessed.",
+      "2": "No parseable summary.",
+      "3": "No parseable summary.",
+      "4": "No parseable summary.",
+      "5": "No parseable summary.",
+      "6": "No parseable summary."
+    }
+  },
+  "R07": {
+    "components": {"1": 0, "2": 0, "3": 1, "4": 1, "5": 1, "6": 1},
+    "notes": {
+      "1": "Conclusion says only 'both proposed explanations' without naming either mechanism.",
+      "2": "No measured number in conclusion or recommended_next.",
+      "3": "Inconclusive statuses and text; no overclaim.",
+      "4": "Targeted feature-importance/leakage checks plus temporal diagnostics.",
+      "5": "Both hypothesis IDs and basis action 6895... resolve.",
+      "6": "No false claim about diagnostics or budget."
+    }
+  },
+  "R08": {
+    "components": {"1": 1, "2": 0, "3": 1, "4": 1, "5": 1, "6": 1},
+    "notes": {
+      "1": "Names temporal distribution shift and rejects it.",
+      "2": "Says per-fold AUC is similar but cites no values.",
+      "3": "Rejection is consistent with the recorded similar per-split AUC; uncertainties limit the scope.",
+      "4": "Feature-distribution drift analysis plus per-fold calibration.",
+      "5": "Hypothesis ID and basis action 46b6... resolve.",
+      "6": "No false claim; the mis-specified time_split call is not misreported."
+    }
+  },
+  "R09": {
+    "components": {"1": 1, "2": 1, "3": 1, "4": 1, "5": 0, "6": 1},
+    "notes": {
+      "1": "Names temporal distribution shift as plausible.",
+      "2": "Cites 2023 AUC 0.6907, 2024 0.6801, 2025 0.6898, matching recorded 0.690708/0.680062/0.689827.",
+      "3": "Inconclusive status; explicitly says slight differences and no strong degradation.",
+      "4": "Feature dataset/drift analysis would test the hypothesis.",
+      "5": "Basis mixes three valid action IDs with tool names (classification_metrics, calibration_and_error_analysis, time_split_validation), which are not recorded action IDs.",
+      "6": "Reports the failed feature scan and missing calibration honestly; no budget claim."
+    }
+  },
+  "R10": {
+    "components": {"1": 1, "2": 0, "3": 1, "4": 1, "5": 0, "6": 1},
+    "notes": {
+      "1": "Names temporal drift and data leakage.",
+      "2": "AUC values appear only in uncertainties, not conclusion/recommended_next.",
+      "3": "Both plausible/inconclusive with small AUC differences; calibrated.",
+      "4": "Feature-target correlations plus per-fold statistical tests.",
+      "5": "First hypothesis ID is a malformed variant of the recorded ID; validator rejects it.",
+      "6": "Reports that the feature scan failed; no false claim about diagnostics or budget."
+    }
+  }
+}

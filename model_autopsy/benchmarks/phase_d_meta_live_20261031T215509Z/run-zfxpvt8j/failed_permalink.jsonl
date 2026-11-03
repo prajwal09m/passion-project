@@ -1,0 +1,2 @@
+{"chained": true, "error": "provider error (HTTP 400); body omitted", "recorded_utc": "2026-10-31T21:56:04Z", "run": "p1-full", "seq": 4, "turn": 1}
+{"chained": true, "error": "provider error (HTTP 400); body omitted", "recorded_utc": "2026-10-31T21:56:07Z", "run": "p1-full", "seq": 5, "turn": 2}

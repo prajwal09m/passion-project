@@ -1,0 +1,38 @@
+{
+  "m4": {
+    "project": "eval_claim",
+    "verdict": "inconclusive",
+    "note": "failure missed entirely",
+    "false_positive": false,
+    "dimensions": {
+      "discovery": 0.0,
+      "evidence": 1.0,
+      "reasoning": 0.6,
+      "calibration": 1.0,
+      "efficiency": 0.6,
+      "reproducibility": 1.0
+    },
+    "weights": {
+      "discovery": 0.3,
+      "evidence": 0.25,
+      "reasoning": 0.15,
+      "calibration": 0.15,
+      "efficiency": 0.05,
+      "reproducibility": 0.1
+    },
+    "overall": 0.62,
+    "assessment": "deterministic + heuristic; LLM/human reserved"
+  },
+  "m6_dimensions": {
+    "experiment_selection": 0.4,
+    "causal_diagnosis": 0.5,
+    "report_validity": 1.0
+  },
+  "m6_notes": {
+    "experiment_selection": "one discriminating test; competitors untested",
+    "causal_diagnosis": "honestly inconclusive; mechanism unresolved",
+    "report_validity": "structured summary validated with traceable refs"
+  },
+  "m6_overall_9dim": 0.678,
+  "note": "M4 frozen and comparable to M5; M6 9-dim is separate, never averaged with M4"
+}

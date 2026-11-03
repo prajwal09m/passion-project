@@ -1,0 +1,31 @@
+{
+  "run": "p1-full",
+  "campaign": "phase_d_meta_live_20261031T215509Z",
+  "started_utc": "2026-10-31T21:55:10Z",
+  "finalized_utc": "2026-10-31T21:56:42Z",
+  "status": "finalized",
+  "reason": null,
+  "outcome": {
+    "run_outcome": "incomplete_provider_response",
+    "summary_valid": false,
+    "final_message_head": "",
+    "repair_attempted": true
+  },
+  "artifacts": {
+    "run_start.json": "83435996b74e153d373282fbda1bc295fdb4a19f02228bb402711805fa8058ce",
+    "responses.jsonl": "ff777758bc13bc3d7eb7885fe25667435def8e784f470c73c8bc4706dc634517",
+    "assistant_messages.jsonl": "2597144c2da65e68f4f4464c2b5c4050137ef5d685add6954b0d196acedf3526",
+    "usage.jsonl": "51787afe7d8f00a9cb85d0aaf5dfeb7b6aec2e2bda5e0ad99e6c2d03bfb9d23b",
+    "repairs.jsonl": "c16cdf423af8a8ffad11b2d681ccc74e6266bd895e95396662a8ef4175b756e0",
+    "events_dump.json": "e3bdf982deb42e64bbe2354749bca8f6a688596e6034480ca218d48e86978f43",
+    "sandbox_final.db": "0a0d7d9208fce15f336da83184979cac472407e3356833b0d0585a92ed115da8"
+  },
+  "required_evidence_present": {
+    "responses": true,
+    "assistant_messages": true,
+    "usage": true,
+    "events_dump": true,
+    "sandbox_final.db": true,
+    "repairs": true
+  }
+}

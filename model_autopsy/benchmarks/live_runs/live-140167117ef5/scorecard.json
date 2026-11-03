@@ -1,0 +1,24 @@
+{
+  "project": "eval_turbine",
+  "verdict": "partial",
+  "note": "supporting numbers exist but mechanism not identified",
+  "false_positive": false,
+  "dimensions": {
+    "discovery": 0.4,
+    "evidence": 0.5,
+    "reasoning": 0.6,
+    "calibration": 0.5,
+    "efficiency": 0.8,
+    "reproducibility": 1.0
+  },
+  "weights": {
+    "discovery": 0.3,
+    "evidence": 0.25,
+    "reasoning": 0.15,
+    "calibration": 0.15,
+    "efficiency": 0.05,
+    "reproducibility": 0.1
+  },
+  "overall": 0.55,
+  "assessment": "deterministic + heuristic; LLM/human reserved"
+}

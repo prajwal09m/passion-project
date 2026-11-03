@@ -1,0 +1,1019 @@
+{
+  "campaign": "phase_d_groq_controlled_2026-10-29",
+  "model": "openai/gpt-oss-120b",
+  "design_check_all_pairs": true,
+  "ledger_status": "completed",
+  "ledger_stop_reason": null,
+  "ledger_totals": {
+    "pairs_completed": 5,
+    "provider_http_attempts": 76,
+    "input_plus_output_tokens": 228377,
+    "estimated_cost_usd": 0.047249,
+    "aborted_pairs": 0
+  },
+  "aggregate": {
+    "full": {
+      "runs": 5,
+      "quality_total_mean": 3.4,
+      "quality_total_sum": 17,
+      "requests": 36,
+      "http_attempts": 35,
+      "input_tokens": 99346,
+      "output_tokens": 13240,
+      "estimated_cost_usd": 0.022846,
+      "tool_calls_used": 25,
+      "summary_valid": 3,
+      "summary_valid_after_repair": 3,
+      "turn2_gathered_evidence": 5,
+      "turn2_diagnostic_calls_total": 13,
+      "turn2_diagnostic_ran_total": 10
+    },
+    "delta": {
+      "runs": 5,
+      "quality_total_mean": 4.4,
+      "quality_total_sum": 22,
+      "requests": 35,
+      "http_attempts": 35,
+      "input_tokens": 100159,
+      "output_tokens": 15632,
+      "estimated_cost_usd": 0.024404,
+      "tool_calls_used": 26,
+      "summary_valid": 5,
+      "summary_valid_after_repair": 5,
+      "turn2_gathered_evidence": 5,
+      "turn2_diagnostic_calls_total": 15,
+      "turn2_diagnostic_ran_total": 13
+    }
+  },
+  "paired": [
+    {
+      "pair": 1,
+      "order": [
+        "full",
+        "delta"
+      ],
+      "quality_full": 0,
+      "quality_delta": 5,
+      "quality_delta_minus_full": 5,
+      "input_tokens_full": 16772,
+      "input_tokens_delta": 20393,
+      "input_delta_pct": 21.6,
+      "cost_full": 0.004361,
+      "cost_delta": 0.004705,
+      "calls_full": 4,
+      "calls_delta": 5,
+      "summary_valid_full": false,
+      "summary_valid_delta": true
+    },
+    {
+      "pair": 2,
+      "order": [
+        "delta",
+        "full"
+      ],
+      "quality_full": 4,
+      "quality_delta": 5,
+      "quality_delta_minus_full": 1,
+      "input_tokens_full": 20798,
+      "input_tokens_delta": 19591,
+      "input_delta_pct": -5.8,
+      "cost_full": 0.004644,
+      "cost_delta": 0.004757,
+      "calls_full": 6,
+      "calls_delta": 5,
+      "summary_valid_full": true,
+      "summary_valid_delta": true
+    },
+    {
+      "pair": 3,
+      "order": [
+        "full",
+        "delta"
+      ],
+      "quality_full": 5,
+      "quality_delta": 3,
+      "quality_delta_minus_full": -2,
+      "input_tokens_full": 20203,
+      "input_tokens_delta": 20618,
+      "input_delta_pct": 2.1,
+      "cost_full": 0.004331,
+      "cost_delta": 0.004875,
+      "calls_full": 5,
+      "calls_delta": 6,
+      "summary_valid_full": true,
+      "summary_valid_delta": true
+    },
+    {
+      "pair": 4,
+      "order": [
+        "delta",
+        "full"
+      ],
+      "quality_full": 4,
+      "quality_delta": 5,
+      "quality_delta_minus_full": 1,
+      "input_tokens_full": 20928,
+      "input_tokens_delta": 19316,
+      "input_delta_pct": -7.7,
+      "cost_full": 0.004617,
+      "cost_delta": 0.00557,
+      "calls_full": 5,
+      "calls_delta": 5,
+      "summary_valid_full": false,
+      "summary_valid_delta": true
+    },
+    {
+      "pair": 5,
+      "order": [
+        "full",
+        "delta"
+      ],
+      "quality_full": 4,
+      "quality_delta": 4,
+      "quality_delta_minus_full": 0,
+      "input_tokens_full": 20645,
+      "input_tokens_delta": 20241,
+      "input_delta_pct": -2.0,
+      "cost_full": 0.004893,
+      "cost_delta": 0.004497,
+      "calls_full": 5,
+      "calls_delta": 5,
+      "summary_valid_full": true,
+      "summary_valid_delta": true
+    }
+  ],
+  "runs": [
+    {
+      "pair": 1,
+      "condition": "full",
+      "label": "R06",
+      "order": [
+        "full",
+        "delta"
+      ],
+      "quality_total": 0,
+      "components": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0
+      },
+      "mechanical": {
+        "summary_valid_after_repair": false,
+        "first_attempt_valid": false,
+        "repair_attempts": 1,
+        "status_recs": 0,
+        "hypothesis_ids_resolve": null,
+        "basis_values_total": 0,
+        "basis_is_list": true,
+        "tool_calls_used": 4,
+        "max_tool_calls": 6,
+        "within_tool_budget": true,
+        "aborted": null,
+        "status": null,
+        "basis_unresolved": 0,
+        "basis_values_resolve": true
+      },
+      "requests": 6,
+      "http_attempts": 6,
+      "input_tokens": 16772,
+      "output_tokens": 3075,
+      "estimated_cost_usd": 0.004361,
+      "tool_calls_used": 4,
+      "max_tool_calls": 6,
+      "actions_ran": [
+        "calibration_and_error_analysis",
+        "classification_metrics",
+        "propose_hypothesis"
+      ],
+      "actions_ran_count": 4,
+      "reused_results": 0,
+      "turn1_rounds": 3,
+      "turn2_rounds": 2,
+      "turn1_calls": 3,
+      "turn2_calls": 1,
+      "turn2_tools": [
+        "calibration_and_error_analysis"
+      ],
+      "turn2_diagnostic_calls": 1,
+      "turn2_diagnostic_ran": 1,
+      "summary": null,
+      "summary_valid": false,
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": false,
+      "aborted": null,
+      "conclusion": null,
+      "final_message_head": "{\n  \"investigation_summary\": {\n    \"conclusion\": \"The evidence indicates that the model\u2019s underperformance on out\u2011of\u2011fold data is primarily due to probability miscalibration rather than distributional differences across folds.\",\n    \"status_recommendations\": [\n      {\n        \"hypothesis_id\": \"2d36d6f17cfc4bef92e03dc65838cfda\",\n        \"status\": \"rejected\",\n        \"basis\": \"Per\u2011fold AUCs are unif"
+    },
+    {
+      "pair": 1,
+      "condition": "delta",
+      "label": "R01",
+      "order": [
+        "full",
+        "delta"
+      ],
+      "quality_total": 5,
+      "components": {
+        "1": 1,
+        "2": 0,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1
+      },
+      "mechanical": {
+        "summary_valid_after_repair": true,
+        "first_attempt_valid": false,
+        "repair_attempts": 1,
+        "status_recs": 2,
+        "hypothesis_ids_resolve": true,
+        "basis_values_total": 3,
+        "basis_is_list": true,
+        "tool_calls_used": 5,
+        "max_tool_calls": 6,
+        "within_tool_budget": true,
+        "aborted": null,
+        "status": null,
+        "basis_unresolved": 0,
+        "basis_values_resolve": true
+      },
+      "requests": 7,
+      "http_attempts": 7,
+      "input_tokens": 20393,
+      "output_tokens": 2743,
+      "estimated_cost_usd": 0.004705,
+      "tool_calls_used": 5,
+      "max_tool_calls": 6,
+      "actions_ran": [
+        "classification_metrics",
+        "dataset_validation",
+        "propose_hypothesis",
+        "time_split_validation"
+      ],
+      "actions_ran_count": 5,
+      "reused_results": 0,
+      "turn1_rounds": 3,
+      "turn2_rounds": 3,
+      "turn1_calls": 3,
+      "turn2_calls": 3,
+      "turn2_tools": [
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness"
+      ],
+      "turn2_diagnostic_calls": 3,
+      "turn2_diagnostic_ran": 2,
+      "summary": {
+        "conclusion": "Both temporal drift and label imbalance across folds remain plausible explanations; current metrics show similar AUC across yearly folds and no strong evidence to favor one hypothesis over the other.",
+        "status_recommendations": [
+          {
+            "hypothesis_id": "0031be2da4c54616ba4953d8843c91b2",
+            "status": "inconclusive",
+            "basis": [
+              "ac7a445f092d491383d2784c3db56842",
+              "ac7a445f092d491383d2784c3db56842"
+            ]
+          },
+          {
+            "hypothesis_id": "5206ba8aaca54cd9b6333eaf28926960",
+            "status": "inconclusive",
+            "basis": [
+              "ac7a445f092d491383d2784c3db56842"
+            ]
+          }
+        ],
+        "uncertainties": [
+          "Exact distribution of positive class per fold (stratification) beyond overall counts",
+          "Potential feature distribution shifts over time not captured by AUC alone"
+        ],
+        "recommended_next": "Perform per\u2011fold label balance analysis and feature drift diagnostics to differentiate the hypotheses."
+      },
+      "summary_valid": true,
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "aborted": null,
+      "conclusion": null,
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"Both temporal drift and label imbalance across folds remain plausible explanations; current metrics show similar AUC across yearly folds and no strong evidence to favor one hypothesis over the other.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"0031be2da4c54616ba4953d8843c91b2\",\n      \"status\": \"inconclusive\",\n      \"basis\": [\"ac7a445f09"
+    },
+    {
+      "pair": 2,
+      "condition": "delta",
+      "label": "R09",
+      "order": [
+        "delta",
+        "full"
+      ],
+      "quality_total": 5,
+      "components": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 0,
+        "6": 1
+      },
+      "mechanical": {
+        "summary_valid_after_repair": true,
+        "first_attempt_valid": false,
+        "repair_attempts": 1,
+        "status_recs": 1,
+        "hypothesis_ids_resolve": true,
+        "basis_values_total": 6,
+        "basis_is_list": true,
+        "tool_calls_used": 5,
+        "max_tool_calls": 6,
+        "within_tool_budget": true,
+        "aborted": null,
+        "status": null,
+        "basis_unresolved": 3,
+        "basis_values_resolve": false
+      },
+      "requests": 7,
+      "http_attempts": 7,
+      "input_tokens": 19591,
+      "output_tokens": 3030,
+      "estimated_cost_usd": 0.004757,
+      "tool_calls_used": 5,
+      "max_tool_calls": 6,
+      "actions_ran": [
+        "calibration_and_error_analysis",
+        "classification_metrics",
+        "dataset_validation",
+        "propose_hypothesis",
+        "time_split_validation"
+      ],
+      "actions_ran_count": 5,
+      "reused_results": 0,
+      "turn1_rounds": 3,
+      "turn2_rounds": 3,
+      "turn1_calls": 3,
+      "turn2_calls": 3,
+      "turn2_tools": [
+        "classification_metrics",
+        "calibration_and_error_analysis",
+        "time_split_validation"
+      ],
+      "turn2_diagnostic_calls": 3,
+      "turn2_diagnostic_ran": 3,
+      "summary": {
+        "conclusion": "Temporal distribution shift across folds is a plausible explanation for the observed modest variation in AUC across folds, but the recorded metrics show only slight differences (2023 AUC 0.6907, 2024 AUC 0.6801, 2025 AUC 0.6898) and no strong degradation over time, leaving the hypothesis neither confirmed nor refuted.",
+        "status_recommendations": [
+          {
+            "hypothesis_id": "226a92b2e0f04997a95d506ec13428c6",
+            "status": "inconclusive",
+            "basis": [
+              "01c7a24503144eee916766855cb97272",
+              "695a1dde270e43daa34e83adca50cd07",
+              "e3c9318772744783bd4c7166060dd874",
+              "classification_metrics",
+              "calibration_and_error_analysis",
+              "time_split_validation"
+            ]
+          }
+        ],
+        "uncertainties": [
+          "Whether subtle temporal drift exists that is not captured by overall AUC differences.",
+          "Potential impact of feature distribution changes not examined due to missing features.csv."
+        ],
+        "recommended_next": "Obtain the feature dataset and perform feature-target drift analysis across folds to assess non\u2011temporal sources of OOF underperformance."
+      },
+      "summary_valid": true,
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "aborted": null,
+      "conclusion": null,
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"Temporal distribution shift across folds is a plausible explanation for the observed modest variation in AUC across folds, but the recorded metrics show only slight differences (2023 AUC 0.6907, 2024 AUC 0.6801, 2025 AUC 0.6898) and no strong degradation over time, leaving the hypothesis neither confirmed nor refuted.\",\n  \"status_recommendations\": [\n    "
+    },
+    {
+      "pair": 2,
+      "condition": "full",
+      "label": "R03",
+      "order": [
+        "delta",
+        "full"
+      ],
+      "quality_total": 4,
+      "components": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 1,
+        "5": 1,
+        "6": 1
+      },
+      "mechanical": {
+        "summary_valid_after_repair": true,
+        "first_attempt_valid": false,
+        "repair_attempts": 1,
+        "status_recs": 2,
+        "hypothesis_ids_resolve": true,
+        "basis_values_total": 2,
+        "basis_is_list": true,
+        "tool_calls_used": 6,
+        "max_tool_calls": 6,
+        "within_tool_budget": true,
+        "aborted": null,
+        "status": null,
+        "basis_unresolved": 0,
+        "basis_values_resolve": true
+      },
+      "requests": 9,
+      "http_attempts": 8,
+      "input_tokens": 20798,
+      "output_tokens": 2540,
+      "estimated_cost_usd": 0.004644,
+      "tool_calls_used": 6,
+      "max_tool_calls": 6,
+      "actions_ran": [
+        "artifact_summary",
+        "classification_metrics",
+        "dataset_validation",
+        "propose_hypothesis"
+      ],
+      "actions_ran_count": 6,
+      "reused_results": 0,
+      "turn1_rounds": 3,
+      "turn2_rounds": 3,
+      "turn1_calls": 3,
+      "turn2_calls": 3,
+      "turn2_tools": [
+        "classification_metrics",
+        "artifact_summary",
+        "classification_metrics"
+      ],
+      "turn2_diagnostic_calls": 3,
+      "turn2_diagnostic_ran": 3,
+      "summary": {
+        "conclusion": "Both temporal drift and overfitting remain plausible explanations; current metrics show modest, consistent AUC across folds and no large training\u2011OOF gap, so neither hypothesis is definitively supported or rejected.",
+        "status_recommendations": [
+          {
+            "hypothesis_id": "2817f51b5a0c41c3aad59c1a048f662a",
+            "status": "inconclusive",
+            "basis": [
+              "2e26a8d807e04f508ff2c9249c88ec2d"
+            ]
+          },
+          {
+            "hypothesis_id": "6ee28bbe83c94d5a9fcca67eeffaadb8",
+            "status": "inconclusive",
+            "basis": [
+              "2e26a8d807e04f508ff2c9249c88ec2d"
+            ]
+          }
+        ],
+        "uncertainties": [
+          "Absence of training\u2011set performance metrics prevents assessing overfitting.",
+          "Potential subtle temporal shifts not captured by aggregate AUC per fold."
+        ],
+        "recommended_next": "Compute training\u2011set metrics and per\u2011fold feature/label distribution statistics to differentiate drift from overfitting."
+      },
+      "summary_valid": true,
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "aborted": null,
+      "conclusion": null,
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"Both temporal drift and overfitting remain plausible explanations; current metrics show modest, consistent AUC across folds and no large training\u2011OOF gap, so neither hypothesis is definitively supported or rejected.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"2817f51b5a0c41c3aad59c1a048f662a\",\n      \"status\": \"inconclusive\",\n      \"basi"
+    },
+    {
+      "pair": 3,
+      "condition": "full",
+      "label": "R05",
+      "order": [
+        "full",
+        "delta"
+      ],
+      "quality_total": 5,
+      "components": {
+        "1": 1,
+        "2": 0,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1
+      },
+      "mechanical": {
+        "summary_valid_after_repair": true,
+        "first_attempt_valid": false,
+        "repair_attempts": 1,
+        "status_recs": 2,
+        "hypothesis_ids_resolve": true,
+        "basis_values_total": 2,
+        "basis_is_list": true,
+        "tool_calls_used": 5,
+        "max_tool_calls": 6,
+        "within_tool_budget": true,
+        "aborted": null,
+        "status": null,
+        "basis_unresolved": 0,
+        "basis_values_resolve": true
+      },
+      "requests": 7,
+      "http_attempts": 7,
+      "input_tokens": 20203,
+      "output_tokens": 2168,
+      "estimated_cost_usd": 0.004331,
+      "tool_calls_used": 5,
+      "max_tool_calls": 6,
+      "actions_ran": [
+        "artifact_summary",
+        "classification_metrics",
+        "propose_hypothesis",
+        "time_split_validation"
+      ],
+      "actions_ran_count": 5,
+      "reused_results": 0,
+      "turn1_rounds": 3,
+      "turn2_rounds": 3,
+      "turn1_calls": 3,
+      "turn2_calls": 3,
+      "turn2_tools": [
+        "feature_target_suspiciousness",
+        "artifact_summary",
+        "classification_metrics"
+      ],
+      "turn2_diagnostic_calls": 3,
+      "turn2_diagnostic_ran": 2,
+      "summary": {
+        "conclusion": "Both hypothesized causes remain plausible given the available evidence; no decisive diagnostic was performed to confirm or refute temporal leakage or high\u2011cardinality overfitting.",
+        "status_recommendations": [
+          {
+            "hypothesis_id": "ce6cf3e8668741679b7c51959199580a",
+            "status": "inconclusive",
+            "basis": [
+              "9025a0a0d22547f98003419b4df9c497"
+            ]
+          },
+          {
+            "hypothesis_id": "376643f5831f4cb7bbf5afe84c8502cf",
+            "status": "inconclusive",
+            "basis": [
+              "9025a0a0d22547f98003419b4df9c497"
+            ]
+          }
+        ],
+        "uncertainties": [
+          "Feature\u2011target suspiciousness scan could not be executed due to missing required columns or format issues.",
+          "No direct analysis of feature distributions across folds or model calibration was performed."
+        ],
+        "recommended_next": "Run a feature_target_suspiciousness analysis (or equivalent correlation scan) and per\u2011fold calibration/error analysis to discriminate between temporal leakage and overfitting."
+      },
+      "summary_valid": true,
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "aborted": null,
+      "conclusion": null,
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"Both hypothesized causes remain plausible given the available evidence; no decisive diagnostic was performed to confirm or refute temporal leakage or high\u2011cardinality overfitting.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"ce6cf3e8668741679b7c51959199580a\",\n      \"status\": \"inconclusive\",\n      \"basis\": [\"9025a0a0d22547f98003419b4df9c4"
+    },
+    {
+      "pair": 3,
+      "condition": "delta",
+      "label": "R02",
+      "order": [
+        "full",
+        "delta"
+      ],
+      "quality_total": 3,
+      "components": {
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 1,
+        "5": 0,
+        "6": 1
+      },
+      "mechanical": {
+        "summary_valid_after_repair": true,
+        "first_attempt_valid": false,
+        "repair_attempts": 1,
+        "status_recs": 2,
+        "hypothesis_ids_resolve": true,
+        "basis_values_total": 5,
+        "basis_is_list": true,
+        "tool_calls_used": 6,
+        "max_tool_calls": 6,
+        "within_tool_budget": true,
+        "aborted": null,
+        "status": null,
+        "basis_unresolved": 2,
+        "basis_values_resolve": false
+      },
+      "requests": 7,
+      "http_attempts": 7,
+      "input_tokens": 20618,
+      "output_tokens": 2970,
+      "estimated_cost_usd": 0.004875,
+      "tool_calls_used": 6,
+      "max_tool_calls": 6,
+      "actions_ran": [
+        "calibration_and_error_analysis",
+        "classification_metrics",
+        "propose_hypothesis",
+        "time_split_validation"
+      ],
+      "actions_ran_count": 6,
+      "reused_results": 0,
+      "turn1_rounds": 3,
+      "turn2_rounds": 3,
+      "turn1_calls": 3,
+      "turn2_calls": 3,
+      "turn2_tools": [
+        "time_split_validation",
+        "calibration_and_error_analysis",
+        "classification_metrics"
+      ],
+      "turn2_diagnostic_calls": 3,
+      "turn2_diagnostic_ran": 3,
+      "summary": {
+        "conclusion": "Both hypothesized causes show evidence but neither is definitively proven; the model's low recall stems from a combination of a high default threshold and modest temporal variation, while the overall moderate AUC suggests the model captures signal but is miscalibrated for the positive class.",
+        "status_recommendations": [
+          {
+            "hypothesis_id": "4c2c55eff9a54d039d6dd373a8383a40",
+            "status": "supported",
+            "basis": [
+              "b2fbbeedd6ca48c292f54a8cc07610dd",
+              "7fed75243173445aa229b4879f455469",
+              "c3f1e9a2d4b84e9b9f2d5c6a7e3f1b2c"
+            ]
+          },
+          {
+            "hypothesis_id": "33ca330753de456bbbcbe7ade7108ad7",
+            "status": "inconclusive",
+            "basis": [
+              "540ec04ce8914910b9f81bfc15545603",
+              "a1b2c3d4e5f67890abcdef1234567890"
+            ]
+          }
+        ],
+        "uncertainties": [
+          "Exact impact of temporal drift on recall per fold cannot be isolated without per\u2011fold threshold analysis.",
+          "Potential interactions with feature engineering or data leakage are not examined."
+        ],
+        "recommended_next": "Perform per\u2011fold threshold optimization and examine feature importance over time to quantify temporal drift effects."
+      },
+      "summary_valid": true,
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "aborted": null,
+      "conclusion": null,
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"Both hypothesized causes show evidence but neither is definitively proven; the model's low recall stems from a combination of a high default threshold and modest temporal variation, while the overall moderate AUC suggests the model captures signal but is miscalibrated for the positive class.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"4"
+    },
+    {
+      "pair": 4,
+      "condition": "delta",
+      "label": "R08",
+      "order": [
+        "delta",
+        "full"
+      ],
+      "quality_total": 5,
+      "components": {
+        "1": 1,
+        "2": 0,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1
+      },
+      "mechanical": {
+        "summary_valid_after_repair": true,
+        "first_attempt_valid": false,
+        "repair_attempts": 1,
+        "status_recs": 1,
+        "hypothesis_ids_resolve": true,
+        "basis_values_total": 1,
+        "basis_is_list": true,
+        "tool_calls_used": 5,
+        "max_tool_calls": 6,
+        "within_tool_budget": true,
+        "aborted": null,
+        "status": null,
+        "basis_unresolved": 0,
+        "basis_values_resolve": true
+      },
+      "requests": 7,
+      "http_attempts": 7,
+      "input_tokens": 19316,
+      "output_tokens": 4455,
+      "estimated_cost_usd": 0.00557,
+      "tool_calls_used": 5,
+      "max_tool_calls": 6,
+      "actions_ran": [
+        "calibration_and_error_analysis",
+        "classification_metrics",
+        "propose_hypothesis",
+        "time_split_validation"
+      ],
+      "actions_ran_count": 5,
+      "reused_results": 0,
+      "turn1_rounds": 3,
+      "turn2_rounds": 3,
+      "turn1_calls": 3,
+      "turn2_calls": 3,
+      "turn2_tools": [
+        "calibration_and_error_analysis",
+        "time_split_validation",
+        "classification_metrics"
+      ],
+      "turn2_diagnostic_calls": 3,
+      "turn2_diagnostic_ran": 3,
+      "summary": {
+        "conclusion": "The observed per\u2011fold AUC values are similar across years, providing no evidence for a temporal distribution shift; thus the hypothesis is rejected.",
+        "status_recommendations": [
+          {
+            "hypothesis_id": "f6724edb76c946e8ad3684490e9ee6fe",
+            "status": "rejected",
+            "basis": [
+              "46b6e9afdf1347d68191e5f89457aa02"
+            ]
+          }
+        ],
+        "uncertainties": [
+          "Potential non\u2011temporal causes (e.g., feature leakage, class imbalance, calibration issues) were not examined.",
+          "Limited metrics (only AUC and overall calibration) may miss subtle drift."
+        ],
+        "recommended_next": "Perform detailed feature\u2011distribution drift analysis and per\u2011fold calibration assessment to identify other sources of OOF underperformance."
+      },
+      "summary_valid": true,
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "aborted": null,
+      "conclusion": null,
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"The observed per\u2011fold AUC values are similar across years, providing no evidence for a temporal distribution shift; thus the hypothesis is rejected.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"f6724edb76c946e8ad3684490e9ee6fe\",\n      \"status\": \"rejected\",\n      \"basis\": [\"46b6e9afdf1347d68191e5f89457aa02\"]\n    }\n  ],\n  \"uncertainties\": "
+    },
+    {
+      "pair": 4,
+      "condition": "full",
+      "label": "R10",
+      "order": [
+        "delta",
+        "full"
+      ],
+      "quality_total": 4,
+      "components": {
+        "1": 1,
+        "2": 0,
+        "3": 1,
+        "4": 1,
+        "5": 0,
+        "6": 1
+      },
+      "mechanical": {
+        "summary_valid_after_repair": false,
+        "first_attempt_valid": false,
+        "repair_attempts": 1,
+        "status_recs": 2,
+        "hypothesis_ids_resolve": false,
+        "basis_values_total": 2,
+        "basis_is_list": true,
+        "tool_calls_used": 5,
+        "max_tool_calls": 6,
+        "within_tool_budget": true,
+        "aborted": null,
+        "status": null,
+        "basis_unresolved": 0,
+        "basis_values_resolve": true
+      },
+      "requests": 7,
+      "http_attempts": 7,
+      "input_tokens": 20928,
+      "output_tokens": 2463,
+      "estimated_cost_usd": 0.004617,
+      "tool_calls_used": 5,
+      "max_tool_calls": 6,
+      "actions_ran": [
+        "classification_metrics",
+        "dataset_validation",
+        "propose_hypothesis",
+        "time_split_validation"
+      ],
+      "actions_ran_count": 5,
+      "reused_results": 0,
+      "turn1_rounds": 3,
+      "turn2_rounds": 3,
+      "turn1_calls": 3,
+      "turn2_calls": 3,
+      "turn2_tools": [
+        "dataset_validation",
+        "classification_metrics",
+        "feature_target_suspiciousness"
+      ],
+      "turn2_diagnostic_calls": 3,
+      "turn2_diagnostic_ran": 2,
+      "summary": {
+        "conclusion": "Both temporal drift and data leakage remain plausible explanations; current evidence does not decisively favor one over the other.",
+        "status_recommendations": [
+          {
+            "hypothesis_id": "78966873411d4f52eade27e13da35b91",
+            "status": "inconclusive",
+            "basis": [
+              "7ea250033c054a9986217cdeb7b95129"
+            ]
+          },
+          {
+            "hypothesis_id": "a1bca3d81d29471c89cc5c266ea89ddc",
+            "status": "inconclusive",
+            "basis": [
+              "7ea250033c054a9986217cdeb7b95129"
+            ]
+          }
+        ],
+        "uncertainties": [
+          "Per\u2011fold AUC differences are small (0.6907 vs 0.6801 vs 0.6898) and do not clearly indicate drift.",
+          "Feature\u2011target suspiciousness could not be computed due to missing required columns; leakage cannot be ruled out."
+        ],
+        "recommended_next": "Compute feature\u2011target correlations for the identified non\u2011model columns and evaluate per\u2011fold performance trends with statistical tests to distinguish drift from leakage."
+      },
+      "summary_valid": false,
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": false,
+      "aborted": null,
+      "conclusion": null,
+      "final_message_head": ""
+    },
+    {
+      "pair": 5,
+      "condition": "full",
+      "label": "R07",
+      "order": [
+        "full",
+        "delta"
+      ],
+      "quality_total": 4,
+      "components": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1
+      },
+      "mechanical": {
+        "summary_valid_after_repair": true,
+        "first_attempt_valid": false,
+        "repair_attempts": 1,
+        "status_recs": 2,
+        "hypothesis_ids_resolve": true,
+        "basis_values_total": 2,
+        "basis_is_list": true,
+        "tool_calls_used": 5,
+        "max_tool_calls": 6,
+        "within_tool_budget": true,
+        "aborted": null,
+        "status": null,
+        "basis_unresolved": 0,
+        "basis_values_resolve": true
+      },
+      "requests": 7,
+      "http_attempts": 7,
+      "input_tokens": 20645,
+      "output_tokens": 2994,
+      "estimated_cost_usd": 0.004893,
+      "tool_calls_used": 5,
+      "max_tool_calls": 6,
+      "actions_ran": [
+        "artifact_summary",
+        "calibration_and_error_analysis",
+        "classification_metrics",
+        "propose_hypothesis"
+      ],
+      "actions_ran_count": 5,
+      "reused_results": 0,
+      "turn1_rounds": 3,
+      "turn2_rounds": 3,
+      "turn1_calls": 3,
+      "turn2_calls": 3,
+      "turn2_tools": [
+        "classification_metrics",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis"
+      ],
+      "turn2_diagnostic_calls": 3,
+      "turn2_diagnostic_ran": 2,
+      "summary": {
+        "conclusion": "Both proposed explanations remain plausible; current evidence does not decisively favor one over the other.",
+        "status_recommendations": [
+          {
+            "hypothesis_id": "3dfd687858884d07b44967ce8b7ac460",
+            "status": "inconclusive",
+            "basis": [
+              "6895eca4ee4a435c978c15c1817ecf24"
+            ]
+          },
+          {
+            "hypothesis_id": "50bd6c0d7e5340279397c8a4adcb64e2",
+            "status": "inconclusive",
+            "basis": [
+              "6895eca4ee4a435c978c15c1817ecf24"
+            ]
+          }
+        ],
+        "uncertainties": [
+          "Whether any of the non-model columns leak target information (e.g., hold1_ret, entry_date, exit_date).",
+          "The extent of temporal distribution shift across folds and its impact on model performance."
+        ],
+        "recommended_next": "Perform targeted feature importance and leakage checks on the non-model columns, and evaluate per\u2011fold performance trends with additional temporal diagnostics."
+      },
+      "summary_valid": true,
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "aborted": null,
+      "conclusion": null,
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"Both proposed explanations remain plausible; current evidence does not decisively favor one over the other.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\": \"3dfd687858884d07b44967ce8b7ac460\",\n      \"status\": \"inconclusive\",\n      \"basis\": [\"6895eca4ee4a435c978c15c1817ecf24\"]\n    },\n    {\n      \"hypothesis_id\": \"50bd6c0d7e5340279397c8a4adcb64"
+    },
+    {
+      "pair": 5,
+      "condition": "delta",
+      "label": "R04",
+      "order": [
+        "full",
+        "delta"
+      ],
+      "quality_total": 4,
+      "components": {
+        "1": 1,
+        "2": 0,
+        "3": 1,
+        "4": 1,
+        "5": 0,
+        "6": 1
+      },
+      "mechanical": {
+        "summary_valid_after_repair": true,
+        "first_attempt_valid": false,
+        "repair_attempts": 1,
+        "status_recs": 2,
+        "hypothesis_ids_resolve": true,
+        "basis_values_total": 4,
+        "basis_is_list": true,
+        "tool_calls_used": 5,
+        "max_tool_calls": 6,
+        "within_tool_budget": true,
+        "aborted": null,
+        "status": null,
+        "basis_unresolved": 1,
+        "basis_values_resolve": false
+      },
+      "requests": 7,
+      "http_attempts": 7,
+      "input_tokens": 20241,
+      "output_tokens": 2434,
+      "estimated_cost_usd": 0.004497,
+      "tool_calls_used": 5,
+      "max_tool_calls": 6,
+      "actions_ran": [
+        "classification_metrics",
+        "dataset_validation",
+        "propose_hypothesis",
+        "time_split_validation"
+      ],
+      "actions_ran_count": 5,
+      "reused_results": 0,
+      "turn1_rounds": 3,
+      "turn2_rounds": 3,
+      "turn1_calls": 3,
+      "turn2_calls": 3,
+      "turn2_tools": [
+        "dataset_validation",
+        "classification_metrics",
+        "calibration_and_error_analysis"
+      ],
+      "turn2_diagnostic_calls": 3,
+      "turn2_diagnostic_ran": 2,
+      "summary": {
+        "conclusion": "The model\u2019s out\u2011of\u2011fold performance does not show a clear degradation over time; AUC scores are similar across the 2023, 2024, and 2025 folds, which contradicts the temporal drift hypothesis and is consistent with a uniformly modest performance that could stem from underfitting or other factors.",
+        "status_recommendations": [
+          {
+            "hypothesis_id": "b3c207b1d66c46c398dd45de884d3265",
+            "status": "rejected",
+            "basis": [
+              "0c6efb0326ae4adf88668805757e9084",
+              "85cbf5b108d44c5d8b4a16b24cc759db"
+            ]
+          },
+          {
+            "hypothesis_id": "ef85272cc73445bd9ccf6f52fc91a024",
+            "status": "investigating",
+            "basis": [
+              "ef929fc76cc242e5a2f076f2713fe2f2",
+              "c0c5e5d9a1f34b2e9d6f7a3b8c9d0e1f"
+            ]
+          }
+        ],
+        "uncertainties": [
+          "Whether the uniformly modest performance is due to underfitting, suboptimal hyperparameters, data quality issues, or other causes cannot be distinguished without further diagnostics (e.g., learning curves, feature importance, calibration)."
+        ],
+        "recommended_next": "Run a learning\u2011curve analysis or hyperparameter sweep to test for underfitting, and compute calibration curves to assess systematic probability bias."
+      },
+      "summary_valid": true,
+      "summary_repair_attempts": 1,
+      "summary_valid_after_repair": true,
+      "aborted": null,
+      "conclusion": null,
+      "final_message_head": "```investigation_summary\n{\n  \"conclusion\": \"The model\u2019s out\u2011of\u2011fold performance does not show a clear degradation over time; AUC scores are similar across the 2023, 2024, and 2025 folds, which contradicts the temporal drift hypothesis and is consistent with a uniformly modest performance that could stem from underfitting or other factors.\",\n  \"status_recommendations\": [\n    {\n      \"hypothesis_id\""
+    }
+  ],
+  "scoring_note": "Quality total is the sum of six blind 0/1 rubric components; mechanical validity is reported separately and is not included. n=5 pairs, one model, one artifact: descriptive only."
+}

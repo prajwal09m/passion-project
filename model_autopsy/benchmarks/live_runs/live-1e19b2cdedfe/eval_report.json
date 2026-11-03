@@ -1,0 +1,94 @@
+{
+  "executive_summary": "Overall calibration looks off, but the regional AUC gap is stark \u2014 I'll check data quality to rule out base-rate or data issues.",
+  "confirmed_findings": [],
+  "rejected_hypotheses": [],
+  "inconclusive": [
+    {
+      "hypothesis_id": "04655406927c47d8b34412c4ab4d431c",
+      "text": "Model discrimination differs by region: ranking ability (AUC) is materially lower in one or more regions due to missing region interaction.",
+      "status": "investigating",
+      "origin": "meta",
+      "confidence_is_model_note": true
+    },
+    {
+      "hypothesis_id": "663b418761d94977890a068ffc074054",
+      "text": "Model is miscalibrated by region: predicted default probabilities are systematically biased in some regions despite similar discrimination.",
+      "status": "proposed",
+      "origin": "meta",
+      "confidence_is_model_note": true
+    },
+    {
+      "hypothesis_id": "802813e0406c4d2d8a12cecd356bd27c",
+      "text": "Apparent regional unevenness reflects differing base rates or data quality across regions, not a region-specific model defect.",
+      "status": "investigating",
+      "origin": "meta",
+      "confidence_is_model_note": true
+    }
+  ],
+  "experiments": [
+    {
+      "experiment_id": "5604a031ab4d44ffb21511edc9fb76f6",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "de330c1cae1042d7b11ab37350fd6c14",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "221aa2ae916e43ef84181c62a1658197",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "26ca75bcb8d9417fa8229eebbafc704e",
+      "tool": "classification_metrics",
+      "summary": "classification_metrics: n=1500",
+      "numbers": {
+        "n": 1500,
+        "roc_auc": 0.970365,
+        "brier": 0.082796,
+        "precision_at_threshold": 0.8,
+        "recall_at_threshold": 0.879852,
+        "threshold": 0.5
+      }
+    },
+    {
+      "experiment_id": "5ddede3e68e34be48ac61a83650f6000",
+      "tool": "distribution_shift_profile",
+      "summary": "distribution_shift_profile: recorded",
+      "numbers": {
+        "mean_shift": -0.020514
+      }
+    },
+    {
+      "experiment_id": "d9300c39871a4280b3d9ed112ca1edcc",
+      "tool": "calibration_and_error_analysis",
+      "summary": "calibration_and_error_analysis: recorded",
+      "numbers": {
+        "brier": 0.082796
+      }
+    },
+    {
+      "experiment_id": "e8eb661aee9241d9a1c8df5d7e672b03",
+      "tool": "data_quality_profile",
+      "summary": "data_quality_profile: n=1500",
+      "numbers": {
+        "n": 1500,
+        "n_columns": 7,
+        "duplicate_rows": 0
+      }
+    }
+  ],
+  "verification": [],
+  "limitations": [
+    "diagnostics that failed and were never rerun: classification_metrics",
+    "available diagnostics never run in this investigation: artifact_summary, dataset_validation, time_split_validation, feature_target_suspiciousness, grouped_auc_comparison, regression_metrics, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, calibration_snapshot, residual_feature_dependence"
+  ],
+  "investigation_id": "a7562f9536964972aed84d0e9ce35682",
+  "structured_summary_valid": false
+}

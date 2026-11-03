@@ -1,0 +1,152 @@
+[
+  {
+    "id": "df5e7ce978fa415495feb88b58470801",
+    "seq": 4,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, not evidence; drift is common for turbine output but needs diagnostic confirmation.",
+      "predicted_observation": "forecast_diagnostics will show large target drift between train vs test splits and larger MAE on recent/test period vs train.",
+      "rationale": "Objective states forecasts miss a recent level change; sample shows targets ~200; a persistent mean shift in recent data would cause a fixed AR model trained on older level to systematically under/over-predict.",
+      "text": "Recent forecasts miss because the target process underwent a level shift/drift in the recent/test period that the black-box turbine-ar model trained on earlier history does not track."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "hypothesis_id": "21144d87d9d34de8b41ed7d92940862e",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Recent forecasts miss because the target process underwent a level shift/drift in the recent/test period that the black-box turbine-ar model trained on earlier history does not track."
+    },
+    "error": null
+  },
+  {
+    "id": "d059612d442b4e9193dd75aa6896c78e",
+    "seq": 7,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior; split leakage often explains good train vs bad test but must be checked.",
+      "predicted_observation": "forecast_diagnostics split-overlap check will show train/test date overlap or leakage, or regression_metrics by split shows train MAE << test MAE without target drift.",
+      "rationale": "Evaluation uses train/test split column; if splits overlap in time or were randomly assigned, horizon evaluation is invalid and apparent recent miss could be artifact of improper validation rather than true drift.",
+      "text": "Apparent recent miss is an artifact of invalid split hygiene (train/test date overlap or non-chronological assignment) rather than true process change."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "hypothesis_id": "47ef94fd1aa941e4bc513eb2b453b44b",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Apparent recent miss is an artifact of invalid split hygiene (train/test date overlap or non-chronological assignment) rather than true process change."
+    },
+    "error": null
+  },
+  {
+    "id": "5cbdc05283434033b8c55fcb812da664",
+    "seq": 12,
+    "kind": "tool_call",
+    "tool": "forecast_diagnostics",
+    "status": "ran",
+    "arguments": {
+      "date_column": "date",
+      "prediction_column": "prediction",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/turbine_output.csv",
+      "split_column": "split",
+      "target_column": "target"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\turbine_output.csv",
+      "n": 730,
+      "mae": 15.658329,
+      "mae_by_horizon": {},
+      "drift_early_vs_late_mae": [
+        7.000986,
+        24.315671
+      ],
+      "residual_lag1_autocorr": 0.775832,
+      "split_date_spans": {
+        "test": [
+          "2024-05-15 00:00:00",
+          "2024-12-30 00:00:00"
+        ],
+        "train": [
+          "2023-01-01 00:00:00",
+          "2024-05-14 00:00:00"
+        ]
+      },
+      "split_overlap_hint": false
+    },
+    "error": null
+  },
+  {
+    "id": "376cb6656e3f44398cf796c34375a82d",
+    "seq": 15,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior, not evidence; high autocorrelation often signals misspecification but needs metric confirmation.",
+      "predicted_observation": "If true, residual lag-1 autocorrelation would be high and errors systematic even in train, not only a recent level jump; if train errors are small and only late errors blow up, this is contradicted.",
+      "rationale": "Forecast diagnostics already show residual lag-1 autocorr 0.776, suggesting systematic structure left in residuals beyond a simple level shift. Plausible the AR model is misspecified throughout.",
+      "text": "Recent miss reflects persistent model misspecification (autocorrelated/biased residuals) present in all periods, not a new recent level shift in the target process."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "hypothesis_id": "d74dc6a872634183919568c2bc217643",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Recent miss reflects persistent model misspecification (autocorrelated/biased residuals) present in all periods, not a new recent level shift in the target process."
+    },
+    "error": null
+  },
+  {
+    "id": "232f79d8fa1a429b9c40332a3e85210b",
+    "seq": 20,
+    "kind": "tool_call",
+    "tool": "regression_metrics",
+    "status": "ran",
+    "arguments": {
+      "group_column": "split",
+      "prediction_column": "prediction",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/turbine_output.csv",
+      "target_column": "target"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/turbine_output.csv\", 1793500694872054500, 23017]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\turbine_output.csv",
+      "n": 730,
+      "mae": 15.658329,
+      "mse": 451.84905,
+      "rmse": 21.256741,
+      "r2": 0.360091,
+      "bias_mean_residual": 10.660192,
+      "residual_std": 18.390469,
+      "heteroscedasticity_hint": -0.046293,
+      "outliers_abs_z_gt_3": 0,
+      "mae_by_group": {
+        "test": 34.70213,
+        "train": 6.89818
+      }
+    },
+    "error": null
+  },
+  {
+    "id": "9bc0c81463ca48be8795eaa6cc041a31",
+    "seq": 22,
+    "kind": "tool_call",
+    "tool": "time_split_validation",
+    "status": "failed",
+    "arguments": {
+      "date_column": "date",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/turbine_output.csv"
+    },
+    "result": null,
+    "error": "turbine_output.csv: required column 'label' missing"
+  }
+]

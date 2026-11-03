@@ -1,0 +1,106 @@
+{
+  "executive_summary": "Slice data volume looks adequate with no missing labels \u2014 running a final quality screen to rule out hidden defects.",
+  "confirmed_findings": [],
+  "rejected_hypotheses": [
+    {
+      "hypothesis_id": "c31e0237f540464d9fd753bed8f64ef0",
+      "title": "Ranker has globally poor top-K relevance across all catalog slices (no slice gap; uniform ranking failure)."
+    },
+    {
+      "hypothesis_id": "6c4912fadfb5424c8edf7f4c9d9c8f94",
+      "title": "Apparent slice differences are measurement artifacts due to slice label quality, missingness, or tiny per-slice sample sizes."
+    }
+  ],
+  "inconclusive": [
+    {
+      "hypothesis_id": "54e1d44646a5419898d66d33ccc518a6",
+      "text": "Top-K relevance fails selectively in specific catalog slices (e.g., new items) while other slices retain high precision@K.",
+      "status": "investigating",
+      "origin": "meta",
+      "confidence_is_model_note": true
+    }
+  ],
+  "experiments": [
+    {
+      "experiment_id": "0306b48c40c94c0bb4bf1011d6a52e06",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "9366d16e34404ae4bce63913b6c25ec3",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "3b9f08e576ff45d3ac732e5a0639835a",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "a819a7849d1e4c4d9561e1c030a48f05",
+      "tool": "ranking_slice_diagnostics",
+      "summary": "ranking_slice_diagnostics: recorded",
+      "numbers": {
+        "k_frac": 0.1,
+        "pooled_precision_at_k": 0.9432,
+        "max_slice_gap": 0.1695
+      }
+    },
+    {
+      "experiment_id": "01f3386827894b8dadf424078ec18e35",
+      "tool": "segment_quality_screen",
+      "summary": "segment_quality_screen: n=1760",
+      "numbers": {
+        "n": 1760,
+        "worst_null_rate": 0.0,
+        "worst_dup_rate": 0.07363
+      }
+    },
+    {
+      "experiment_id": "3053b8a72c1f4303a7ee6058ff743835",
+      "tool": "classification_metrics",
+      "summary": "classification_metrics: n=1760",
+      "numbers": {
+        "n": 1760,
+        "roc_auc": 0.977169,
+        "brier": 0.117965,
+        "precision_at_threshold": 0.715884,
+        "recall_at_threshold": 0.986133,
+        "threshold": 0.5
+      }
+    }
+  ],
+  "verification": [],
+  "limitations": [
+    "available diagnostics never run in this investigation: artifact_summary, dataset_validation, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, regression_metrics, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile, data_quality_profile, calibration_snapshot, residual_feature_dependence"
+  ],
+  "investigation_id": "8d24302981674f1995a1da96c04bd01f",
+  "structured_summary_valid": false,
+  "deterministic_fallback": {
+    "schema_version": "m8-v1",
+    "kind": "deterministic-fallback",
+    "fallback_version": "m8-fallback-v1",
+    "conclusion": "Inconclusive: no hypothesis met the supported bar. Leading open explanation: Top-K relevance fails selectively in specific catalog slices (e.g., new items) while other slices retain high precision@K.",
+    "status_recommendations": [],
+    "uncertainties": [
+      "Open: Top-K relevance fails selectively in specific catalog slices (e.g., new items) while other slices retain high precision@K."
+    ],
+    "recommended_next": "Design a test that would falsify: Top-K relevance fails selectively in specific catalog slices (e.g., new items) while other slices retain high precision@",
+    "evidence_action_ids": [
+      "0306b48c40c94c0bb4bf1011d6a52e06",
+      "9366d16e34404ae4bce63913b6c25ec3",
+      "3b9f08e576ff45d3ac732e5a0639835a",
+      "a819a7849d1e4c4d9561e1c030a48f05",
+      "01f3386827894b8dadf424078ec18e35",
+      "3053b8a72c1f4303a7ee6058ff743835"
+    ],
+    "model_summary_errors": [
+      "no structured summary found in the final message"
+    ],
+    "provenance": "composed deterministically from recorded hypotheses/actions/report; the investigator's invalid response was preserved, not repaired away"
+  },
+  "fallback_used": true
+}

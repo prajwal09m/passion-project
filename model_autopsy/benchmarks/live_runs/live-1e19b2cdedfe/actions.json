@@ -1,0 +1,285 @@
+[
+  {
+    "id": "5604a031ab4d44ffb21511edc9fb76f6",
+    "seq": 6,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior ~0.5; discrimination gaps common when region interacts with features.",
+      "predicted_observation": "Per-region AUC varies substantially; low-AUC region(s) persist after accounting for prevalence.",
+      "rationale": "Objective states scores look uneven across regions; black-box GBM may not capture region-specific risk patterns if region was weakly represented in training.",
+      "text": "Model discrimination differs by region: ranking ability (AUC) is materially lower in one or more regions due to missing region interaction."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+      "ok": true,
+      "hypothesis_id": "04655406927c47d8b34412c4ab4d431c",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Model discrimination differs by region: ranking ability (AUC) is materially lower in one or more regions due to missing region interaction."
+    },
+    "error": null
+  },
+  {
+    "id": "de330c1cae1042d7b11ab37350fd6c14",
+    "seq": 9,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior ~0.4; calibration gaps often coexist with decent AUC.",
+      "predicted_observation": "Per-region calibration shows systematic bias (over/under-prediction) while per-region AUCs are similar.",
+      "rationale": "Uneven scores can arise from miscalibration rather than ranking failure; evaluation methodology explicitly includes calibration.",
+      "text": "Model is miscalibrated by region: predicted default probabilities are systematically biased in some regions despite similar discrimination."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+      "ok": true,
+      "hypothesis_id": "663b418761d94977890a068ffc074054",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Model is miscalibrated by region: predicted default probabilities are systematically biased in some regions despite similar discrimination."
+    },
+    "error": null
+  },
+  {
+    "id": "221aa2ae916e43ef84181c62a1658197",
+    "seq": 12,
+    "kind": "tool_call",
+    "tool": "propose_hypothesis",
+    "status": "ran",
+    "arguments": {
+      "confidence_note": "Uncalibrated prior ~0.3; base-rate differences frequently masquerade as model failure.",
+      "predicted_observation": "Regional label prevalence / feature distributions differ sharply; per-region precision/recall gaps track prevalence, AUC similar.",
+      "rationale": "Sample rows show regions N/S/W with varying features; apparent unevenness may reflect population shift or data quality, not model defect.",
+      "text": "Apparent regional unevenness reflects differing base rates or data quality across regions, not a region-specific model defect."
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+      "ok": true,
+      "hypothesis_id": "802813e0406c4d2d8a12cecd356bd27c",
+      "origin": "meta",
+      "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+      "text": "Apparent regional unevenness reflects differing base rates or data quality across regions, not a region-specific model defect."
+    },
+    "error": null
+  },
+  {
+    "id": "4b3cd6b22ea240c1b353b3182556ab26",
+    "seq": 14,
+    "kind": "tool_call",
+    "tool": "classification_metrics",
+    "status": "failed",
+    "arguments": {
+      "label_column": "label",
+      "labels": "label",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/credit_default.csv",
+      "score_column": "score",
+      "split_by": "region"
+    },
+    "result": null,
+    "error": "classification_metrics: unknown parameter(s) ['label_column']; accepted parameters are ['labels', 'predictions_path', 'score_column', 'split_by', 'threshold']"
+  },
+  {
+    "id": "26ca75bcb8d9417fa8229eebbafc704e",
+    "seq": 20,
+    "kind": "tool_call",
+    "tool": "classification_metrics",
+    "status": "ran",
+    "arguments": {
+      "labels": "label",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/credit_default.csv",
+      "score_column": "score",
+      "split_by": "region"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\credit_default.csv",
+      "score_column": "score",
+      "n": 1500,
+      "roc_auc": 0.970365,
+      "brier": 0.082796,
+      "brier_convention": "lower is better; probability of positive class",
+      "precision_at_threshold": 0.8,
+      "recall_at_threshold": 0.879852,
+      "threshold": 0.5,
+      "per_split_auc": {
+        "E": 0.999969,
+        "N": 1.0,
+        "S": 1.0,
+        "W": 0.538549
+      }
+    },
+    "error": null
+  },
+  {
+    "id": "5ddede3e68e34be48ac61a83650f6000",
+    "seq": 22,
+    "kind": "tool_call",
+    "tool": "distribution_shift_profile",
+    "status": "ran",
+    "arguments": {
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/credit_default.csv",
+      "split_column": "region",
+      "target_column": "label"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+      "ok": true,
+      "by_split": {
+        "E": {
+          "mean": 0.372973,
+          "std": 0.48425,
+          "median": 0.0,
+          "n": 370
+        },
+        "N": {
+          "mean": 0.352459,
+          "std": 0.47839,
+          "median": 0.0,
+          "n": 366
+        },
+        "S": {
+          "mean": 0.354756,
+          "std": 0.479055,
+          "median": 0.0,
+          "n": 389
+        },
+        "W": {
+          "mean": 0.362667,
+          "std": 0.481412,
+          "median": 0.0,
+          "n": 375
+        }
+      },
+      "mean_shift": -0.020514,
+      "establishes": "target level moved between splits",
+      "does_not_establish": "why it moved"
+    },
+    "error": null
+  },
+  {
+    "id": "d9300c39871a4280b3d9ed112ca1edcc",
+    "seq": 28,
+    "kind": "tool_call",
+    "tool": "calibration_and_error_analysis",
+    "status": "ran",
+    "arguments": {
+      "labels": "label",
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/credit_default.csv",
+      "score_column": "score"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+      "ok": true,
+      "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\credit_default.csv",
+      "score_column": "score",
+      "brier": 0.082796,
+      "reliability_bins": [
+        {
+          "bin_low": 0.0,
+          "bin_high": 0.1,
+          "n": 313,
+          "mean_score": 0.041648,
+          "fraction_positive": 0.0
+        },
+        {
+          "bin_low": 0.1,
+          "bin_high": 0.2,
+          "n": 277,
+          "mean_score": 0.146986,
+          "fraction_positive": 0.0
+        },
+        {
+          "bin_low": 0.2,
+          "bin_high": 0.3,
+          "n": 101,
+          "mean_score": 0.240261,
+          "fraction_positive": 0.0
+        },
+        {
+          "bin_low": 0.3,
+          "bin_high": 0.4,
+          "n": 46,
+          "mean_score": 0.343233,
+          "fraction_positive": 0.065217
+        },
+        {
+          "bin_low": 0.4,
+          "bin_high": 0.5,
+          "n": 168,
+          "mean_score": 0.459983,
+          "fraction_positive": 0.369048
+        },
+        {
+          "bin_low": 0.5,
+          "bin_high": 0.6,
+          "n": 176,
+          "mean_score": 0.542922,
+          "fraction_positive": 0.386364
+        },
+        {
+          "bin_low": 0.6,
+          "bin_high": 0.7,
+          "n": 42,
+          "mean_score": 0.656124,
+          "fraction_positive": 0.738095
+        },
+        {
+          "bin_low": 0.7,
+          "bin_high": 0.8,
+          "n": 107,
+          "mean_score": 0.753483,
+          "fraction_positive": 1.0
+        },
+        {
+          "bin_low": 0.8,
+          "bin_high": 0.9,
+          "n": 161,
+          "mean_score": 0.847388,
+          "fraction_positive": 1.0
+        },
+        {
+          "bin_low": 0.9,
+          "bin_high": 1.0,
+          "n": 109,
+          "mean_score": 0.953853,
+          "fraction_positive": 1.0
+        }
+      ],
+      "per_fold_auc": {}
+    },
+    "error": null
+  },
+  {
+    "id": "e8eb661aee9241d9a1c8df5d7e672b03",
+    "seq": 30,
+    "kind": "tool_call",
+    "tool": "data_quality_profile",
+    "status": "ran",
+    "arguments": {
+      "predictions_path": "model_autopsy/tests/fixture_eval/investigator/credit_default.csv"
+    },
+    "result": {
+      "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/credit_default.csv\", 1793500694868039900, 36344]]]",
+      "ok": true,
+      "n": 1500,
+      "n_columns": 7,
+      "nulls": {
+        "age": 0,
+        "income": 0,
+        "tenure": 0,
+        "region": 0,
+        "delinq": 0,
+        "score": 0,
+        "label": 0
+      },
+      "duplicate_rows": 0,
+      "establishes": "missingness/duplication facts",
+      "does_not_establish": "whether quality issues caused errors"
+    },
+    "error": null
+  }
+]

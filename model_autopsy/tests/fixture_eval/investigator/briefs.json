@@ -1,0 +1,10 @@
+{
+  "eval_credit": "Card-default scores look uneven across regions; find what is wrong and show the evidence.",
+  "eval_rent": "Rent estimates for one district look off after a schema update; find what is wrong and show evidence.",
+  "eval_turbine": "Output forecasts miss a recent level change; find what is wrong and show the evidence.",
+  "eval_docs": "Are these document groups stable and separated?",
+  "eval_music": "Are top results relevant for every catalog slice?",
+  "eval_claim": "Severity estimates look systematically off since a pipeline change; find what is wrong and show evidence.",
+  "eval_wellness": "Routine check: is the wellness index model healthy?",
+  "eval_pilot": "Small pilot readout: is there a material issue, or is more evidence required?"
+}

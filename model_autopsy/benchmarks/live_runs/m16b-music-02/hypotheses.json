@@ -1,0 +1,107 @@
+[
+  {
+    "id": "54e1d44646a5419898d66d33ccc518a6",
+    "text": "Top-K relevance fails selectively in specific catalog slices (e.g., new items) while other slices retain high precision@K.",
+    "status": "investigating",
+    "source": "meta",
+    "rationale": "auto-link [supports]: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices (measurement directly bears on the hypothesis mechanism: slice P@K gap 0.17 (worst 0.83); ranking not uniform across slices) [supporting evidence recorded; needs independent corroboration; action a819a7849d1e4c4d9561e1c030a48f05]",
+    "evidence_refs": [
+      {
+        "action_id": "a819a7849d1e4c4d9561e1c030a48f05",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "3053b8a72c1f4303a7ee6058ff743835",
+        "tool": "classification_metrics",
+        "relation": "relevant_to",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 22:19:53",
+        "from": "proposed",
+        "to": "investigating"
+      }
+    ]
+  },
+  {
+    "id": "c31e0237f540464d9fd753bed8f64ef0",
+    "text": "Ranker has globally poor top-K relevance across all catalog slices (no slice gap; uniform ranking failure).",
+    "status": "rejected",
+    "source": "meta",
+    "rationale": "auto-link [contradicts]: worst segment defect rate 0.074: defects concentrate (hypothesis denies the measured segment effect (slice) and the measurement worst segment defect rate 0.074: defects concentrate; denial vs measurement decides) [two independent contradicting measurements recorded; action 01f3386827894b8dadf424078ec18e35]",
+    "evidence_refs": [
+      {
+        "action_id": "a819a7849d1e4c4d9561e1c030a48f05",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "contradicts",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "01f3386827894b8dadf424078ec18e35",
+        "tool": "segment_quality_screen",
+        "relation": "contradicts",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 22:19:53",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 22:20:10",
+        "from": "investigating",
+        "to": "rejected"
+      }
+    ]
+  },
+  {
+    "id": "6c4912fadfb5424c8edf7f4c9d9c8f94",
+    "text": "Apparent slice differences are measurement artifacts due to slice label quality, missingness, or tiny per-slice sample sizes.",
+    "status": "rejected",
+    "source": "meta",
+    "rationale": "auto-link [contradicts]: per-split AUC spread 0.008: uniform (measurement directly bears on the hypothesis mechanism: per-split AUC spread 0.008: uniform) [core prediction contradicted by recorded evidence; action 3053b8a72c1f4303a7ee6058ff743835]",
+    "evidence_refs": [
+      {
+        "action_id": "a819a7849d1e4c4d9561e1c030a48f05",
+        "tool": "ranking_slice_diagnostics",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "01f3386827894b8dadf424078ec18e35",
+        "tool": "segment_quality_screen",
+        "relation": "supports",
+        "action_status": "ran"
+      },
+      {
+        "action_id": "3053b8a72c1f4303a7ee6058ff743835",
+        "tool": "classification_metrics",
+        "relation": "contradicts",
+        "action_status": "ran"
+      }
+    ],
+    "revisions": [
+      {
+        "at": "2026-11-01 22:19:53",
+        "from": "proposed",
+        "to": "investigating"
+      },
+      {
+        "at": "2026-11-01 22:20:10",
+        "from": "investigating",
+        "to": "supported"
+      },
+      {
+        "at": "2026-11-01 22:20:51",
+        "from": "supported",
+        "to": "rejected"
+      }
+    ]
+  }
+]

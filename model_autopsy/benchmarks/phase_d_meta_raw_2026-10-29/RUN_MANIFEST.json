@@ -1,0 +1,50 @@
+{
+  "campaign": "phase_d_meta_paired_2026_10_29",
+  "created_utc": "2026-10-30T00:50:36Z",
+  "report": {
+    "path": "phase_d_meta_raw_2026-10-29\\phase_d_meta_results.json",
+    "sha256": "d7e0c638ff71c506018d5d4f3fe7775b792dd3dc604fa813b279208578c9985b"
+  },
+  "console_log": {
+    "path": "phase_d_meta_raw_2026-10-29\\run_console.log",
+    "sha256": "f2e8327dbe381851ccc76002199df57ccdcac7f581ce636528268f4720dd2e67"
+  },
+  "run_index_sha256": "9d41ca53a8db2e734c2269f3d0c044a3ee5131bb7cdf32ba26d60723c316729d",
+  "runs_reported": 4,
+  "level_totals": {
+    "billed_requests": 24,
+    "failed_requests": 0,
+    "total_attempts": 24,
+    "input_tokens": 91534,
+    "output_tokens": 29921,
+    "cached_input_tokens": 53829,
+    "uncached_input_tokens": 37705,
+    "total_provider_tokens": 121455,
+    "usage_incomplete_requests": 0,
+    "token_totals_complete": true,
+    "cached_exceeds_input": 0,
+    "blocked_before_request": 0,
+    "incomplete_responses": 10,
+    "estimated_cost_usd": 0.18237,
+    "stop_reason": null
+  },
+  "sandbox_snapshots": {
+    "ma-phase-d-run-4uqmerzq": {
+      "path": "phase_d_meta_raw_2026-10-29\\sandbox_snapshots\\ma-phase-d-run-4uqmerzq\\sandbox.db",
+      "sha256": "a048519c06e057fbbe5e91504699fde2f1f7b73a3e0d924976fa412f488cd063"
+    },
+    "ma-phase-d-run-d59tw190": {
+      "path": "phase_d_meta_raw_2026-10-29\\sandbox_snapshots\\ma-phase-d-run-d59tw190\\sandbox.db",
+      "sha256": "cb1d9e5b95c14fa3d5d4b96ff31f4c353f41d241bccf4c9b2068079cb1892d0c"
+    },
+    "ma-phase-d-run-f5quqyhn": {
+      "path": "phase_d_meta_raw_2026-10-29\\sandbox_snapshots\\ma-phase-d-run-f5quqyhn\\sandbox.db",
+      "sha256": "ed5bd6991bcf868c7d6a6ed0f559be0bac7865b51fc3e81e11d2eea4b7937622"
+    },
+    "ma-phase-d-run-h5gj3nn0": {
+      "path": "phase_d_meta_raw_2026-10-29\\sandbox_snapshots\\ma-phase-d-run-h5gj3nn0\\sandbox.db",
+      "sha256": "16e7f99c82f136b57fbbb664df8d1c8670a7e34e37fc436afded5050c2004f11"
+    }
+  },
+  "snapshot_completeness": "Snapshots were captured while each investigation was active and may end before the final turn-2 assistant message, summary repair, or usage rollup: the frozen harness commits those last events and deletes the temporary directory between snapshots. Every recorded action and hypothesis is present, but final prose and summary blocks may be absent or truncated. The benchmark report is authoritative for final run-level outcomes, summary validity, and provider usage."
+}

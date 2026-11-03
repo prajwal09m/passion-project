@@ -1,0 +1,132 @@
+{
+  "executive_summary": "Testing whether top results stay relevant across catalog slices \u2014 measuring precision per slice.",
+  "confirmed_findings": [
+    {
+      "hypothesis_id": "b289c61c68d74410ad4dfd0f6a4f6f6b",
+      "title": "Confirmed: Ranker systematically underperforms on new-item slice due to cold-start / feature sparsity, yielding lower precision@K than established slices."
+    }
+  ],
+  "rejected_hypotheses": [
+    {
+      "hypothesis_id": "faadf18d1c7941ca86bae3b1e2e4d2d0",
+      "title": "Top-K relevance is uniform across catalog slices; any observed slice differences are sampling noise, not systematic failure."
+    }
+  ],
+  "inconclusive": [],
+  "experiments": [
+    {
+      "experiment_id": "366630837c3f426d9f80f4e36035d523",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "0748604b7d4947b698ec421e5ccb186f",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "dc0c9c1c52fe43a3b71c79d3edfa5d9a",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "0b72e77fc76b448b989e19a9dee61979",
+      "tool": "ranking_slice_diagnostics",
+      "summary": "ranking_slice_diagnostics: recorded",
+      "numbers": {
+        "k_frac": 0.1,
+        "pooled_precision_at_k": 0.9432,
+        "max_slice_gap": 0.1695
+      }
+    },
+    {
+      "experiment_id": "03b7952bbccc4f6aaaf829b234d668d6",
+      "tool": "classification_metrics",
+      "summary": "classification_metrics: n=1760",
+      "numbers": {
+        "n": 1760,
+        "roc_auc": 0.977169,
+        "brier": 0.117965,
+        "precision_at_threshold": 0.715884,
+        "recall_at_threshold": 0.986133,
+        "threshold": 0.5
+      }
+    },
+    {
+      "experiment_id": "cf0436799e724dd9bc31cde362d26563",
+      "tool": "ranking_slice_diagnostics",
+      "summary": "ranking_slice_diagnostics: recorded",
+      "numbers": {
+        "k_frac": 0.1,
+        "pooled_precision_at_k": 0.9432,
+        "max_slice_gap": 0.1695
+      }
+    },
+    {
+      "experiment_id": "f6888bf341634850a4c177cb58947fc3",
+      "tool": "regression_metrics",
+      "summary": "regression_metrics: bias_mean_residual=-0.176765; mae=0.276076; n=1760",
+      "numbers": {
+        "n": 1760,
+        "mae": 0.276076,
+        "mse": 0.117965,
+        "rmse": 0.343461,
+        "r2": 0.493219,
+        "bias_mean_residual": -0.176765,
+        "residual_std": 0.294482,
+        "heteroscedasticity_hint": -0.870548,
+        "outliers_abs_z_gt_3": 1,
+        "mae_by_group": {
+          "est": 0.250039,
+          "new": 0.327448
+        }
+      }
+    },
+    {
+      "experiment_id": "b289c61c68d74410ad4dfd0f6a4f6f6b",
+      "tool": "slice_gap_significance",
+      "summary": "slice_gap_significance: gap=0.1695",
+      "numbers": {
+        "k_frac": 0.1,
+        "gap": 0.1695,
+        "n_perm": 2000,
+        "seed": 7,
+        "p_value": 0.0005
+      }
+    }
+  ],
+  "verification": [],
+  "limitations": [
+    "available diagnostics never run in this investigation: artifact_summary, dataset_validation, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile, data_quality_profile, segment_quality_screen, calibration_snapshot, residual_feature_dependence"
+  ],
+  "investigation_id": "bc07dd69d599435ab6c0c7365fe8027c",
+  "structured_summary_valid": false,
+  "deterministic_fallback": {
+    "schema_version": "m8-v1",
+    "kind": "deterministic-fallback",
+    "fallback_version": "m8-fallback-v1",
+    "conclusion": "Best-supported explanation (recorded evidence only): Ranker systematically underperforms on new-item slice due to cold-start / feature sparsity, yielding lower precision@K than established slices.",
+    "status_recommendations": [],
+    "uncertainties": [
+      "none recorded; see evidence trail"
+    ],
+    "recommended_next": "No open hypotheses remain; investigation may be closed",
+    "evidence_action_ids": [
+      "366630837c3f426d9f80f4e36035d523",
+      "0748604b7d4947b698ec421e5ccb186f",
+      "dc0c9c1c52fe43a3b71c79d3edfa5d9a",
+      "0b72e77fc76b448b989e19a9dee61979",
+      "03b7952bbccc4f6aaaf829b234d668d6",
+      "cf0436799e724dd9bc31cde362d26563",
+      "f6888bf341634850a4c177cb58947fc3"
+    ],
+    "model_summary_errors": [
+      "no structured summary found in the final message"
+    ],
+    "provenance": "composed deterministically from recorded hypotheses/actions/report; the investigator's invalid response was preserved, not repaired away"
+  },
+  "fallback_used": true
+}

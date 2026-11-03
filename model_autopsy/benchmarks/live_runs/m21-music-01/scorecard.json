@@ -1,0 +1,24 @@
+{
+  "project": "eval_music",
+  "verdict": "inconclusive",
+  "note": "failure missed entirely",
+  "false_positive": false,
+  "dimensions": {
+    "discovery": 0.0,
+    "evidence": 1.0,
+    "reasoning": 0.6,
+    "calibration": 1.0,
+    "efficiency": 1.0,
+    "reproducibility": 1.0
+  },
+  "weights": {
+    "discovery": 0.3,
+    "evidence": 0.25,
+    "reasoning": 0.15,
+    "calibration": 0.15,
+    "efficiency": 0.05,
+    "reproducibility": 0.1
+  },
+  "overall": 0.64,
+  "assessment": "deterministic + heuristic; LLM/human reserved"
+}

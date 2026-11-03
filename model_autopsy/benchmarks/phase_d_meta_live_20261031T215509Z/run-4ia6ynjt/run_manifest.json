@@ -1,0 +1,31 @@
+{
+  "run": "p2-delta",
+  "campaign": "phase_d_meta_live_20261031T215509Z",
+  "started_utc": "2026-10-31T21:59:48Z",
+  "finalized_utc": "2026-10-31T22:01:33Z",
+  "status": "finalized",
+  "reason": null,
+  "outcome": {
+    "run_outcome": "incomplete_provider_response",
+    "summary_valid": true,
+    "final_message_head": "Fact: recorded `classification_metrics` [action b8624fed472b4737bd6225d795018431] reports pooled ROC-AUC 0.683495 with per-split AUCs 2023 0.690708, 2024 0.680062, 2025 0.689827, precision 0.51497 and recall 0.012662 at 0.5, Brier 0.130634.\nFact: recorded `calibration_and_error_analysis` shows reliability bins tracking mean_score vs fraction_positive (e.g. 0.0-0.1: 0.055 vs 0.076, n=16997; 0.1-0.2",
+    "repair_attempted": true
+  },
+  "artifacts": {
+    "run_start.json": "64c8d2657041cfbf8dba7383b8395382bb5d794f4e1ef336a159ef11d4e26b68",
+    "responses.jsonl": "32193f78d48ac69c8b6ed11c84151006f2ff3850ee4bc3044714b3d5a6b14309",
+    "assistant_messages.jsonl": "b169fb6966c706b5441333fb09d7d37e9e685d9d09eda7accf1a5876840056f3",
+    "usage.jsonl": "8220d706f50a608a7c48aa7d0003e763ee8df6f4295a10f5d210b61ca479cd7d",
+    "repairs.jsonl": "442134328142d0bfce1e77b3b0f6476adc33a158231e0a4b0c81d4919405e1ea",
+    "events_dump.json": "c981ca2392cebb5de92484ad5d9b003d547a8e725f501e53ce0170265c317401",
+    "sandbox_final.db": "751b16b47d3cf3e02f027d4bdb4f317aa0176995d9a38d3d466b7557384bf5a6"
+  },
+  "required_evidence_present": {
+    "responses": true,
+    "assistant_messages": true,
+    "usage": true,
+    "events_dump": true,
+    "sandbox_final.db": true,
+    "repairs": true
+  }
+}

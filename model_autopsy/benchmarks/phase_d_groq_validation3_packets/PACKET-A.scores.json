@@ -1,0 +1,37 @@
+{
+  "packet": "PACKET-A",
+  "campaign": "phase_d_groq_live_20261031T202441Z",
+  "rubric": "benchmarks/phase_d_blind_scoring_rubric_v1.md",
+  "rubric_version": "v1",
+  "scored_utc": "2026-10-31",
+  "scores": {
+    "mechanism_identification": 1,
+    "numeric_grounding": 1,
+    "evidence_linkage": 1,
+    "calibration": 2,
+    "diagnostic_reasoning": 1,
+    "execution_honesty": 1
+  },
+  "total": 7,
+  "justifications": {
+    "mechanism_identification": "Names two plausible mechanisms (target leakage via label-predictive features; distribution shift across folds) with one-line causal sketches, explicitly marked unproven. No causal chain is derived from the record, and the recorded measurements are not tied to either mechanism. Vague-but-plausible: 1.",
+    "numeric_grounding": "The conclusion makes no numeric claim, so there is no false precision; but no recorded measurement (dataset_validation, classification_metrics, artifact_summary all ran) is tied to the conclusion either. 2 requires cited numbers. Honest abstention without grounding: 1. (Anchor tension documented: 1's anchor assumes a cited number; scored 1 rather than 0 because absence of numeric claims is missing grounding, not wrong grounding.)",
+    "evidence_linkage": "Both hypothesis ids resolve to recorded hypotheses. Both status recommendations cite one recorded action id, which resolves to the FAILED feature_target_suspiciousness run; the three successful diagnostics are never linked. Ids resolve but the sole basis is a failed run: some claims supported: 1.",
+    "calibration": "Consistently abstains: both mechanisms 'remain plausible', uncertainties stated explicitly, recommended statuses ('investigating') do not overclaim beyond the 'proposed' record. 'No diagnostic ... directly confirms or refutes' is defensible given the record. Missing evidence is acknowledged, not hidden: 2.",
+    "diagnostic_reasoning": "Names specific discriminating tests tied to the uncertainties (feature-target correlation for leakage; fold-wise comparison for shift). But no predicted observation is stated for either hypothesis, and the recommended feature_target_suspiciousness retry does not acknowledge that the tool just failed in this run: 1.",
+    "execution_honesty": "No false claim about tool execution is made. But the failed feature_target_suspiciousness run and the results of the executed diagnostics go entirely unreported in the summary, and no budget/rounds accounting appears. No fabrication, incomplete reporting: 1."
+  },
+  "structured_summary_validity": {
+    "first_attempt": "invalid",
+    "first_attempt_reason": "final turn text contained no summary block",
+    "repair_attempts": 1,
+    "post_repair": "valid"
+  },
+  "evidence_coverage": {
+    "actions_attempted": 6,
+    "actions_ran": 5,
+    "actions_failed": ["feature_target_suspiciousness"],
+    "hypotheses_recorded": 2,
+    "incomplete_provider_responses": 0
+  }
+}

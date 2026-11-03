@@ -1,0 +1,100 @@
+{
+  "executive_summary": "Train error is far lower than test, pointing to a regime change \u2014 now I'll verify the split hygiene to rule out leakage.",
+  "confirmed_findings": [],
+  "rejected_hypotheses": [],
+  "inconclusive": [
+    {
+      "hypothesis_id": "21144d87d9d34de8b41ed7d92940862e",
+      "text": "Recent forecasts miss because the target process underwent a level shift/drift in the recent/test period that the black-box turbine-ar model trained on earlier history does not track.",
+      "status": "proposed",
+      "origin": "meta",
+      "confidence_is_model_note": true
+    },
+    {
+      "hypothesis_id": "47ef94fd1aa941e4bc513eb2b453b44b",
+      "text": "Apparent recent miss is an artifact of invalid split hygiene (train/test date overlap or non-chronological assignment) rather than true process change.",
+      "status": "proposed",
+      "origin": "meta",
+      "confidence_is_model_note": true
+    },
+    {
+      "hypothesis_id": "d74dc6a872634183919568c2bc217643",
+      "text": "Recent miss reflects persistent model misspecification (autocorrelated/biased residuals) present in all periods, not a new recent level shift in the target process.",
+      "status": "proposed",
+      "origin": "meta",
+      "confidence_is_model_note": true
+    }
+  ],
+  "experiments": [
+    {
+      "experiment_id": "df5e7ce978fa415495feb88b58470801",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "d059612d442b4e9193dd75aa6896c78e",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "5cbdc05283434033b8c55fcb812da664",
+      "tool": "forecast_diagnostics",
+      "summary": "forecast_diagnostics: mae=15.658329; drift_early_vs_late_mae=[7.000986, 24.315671]; split_overlap_hint=False; n=730",
+      "numbers": {
+        "n": 730,
+        "mae": 15.658329,
+        "residual_lag1_autocorr": 0.775832,
+        "split_date_spans": {
+          "test": [
+            "2024-05-15 00:00:00",
+            "2024-12-30 00:00:00"
+          ],
+          "train": [
+            "2023-01-01 00:00:00",
+            "2024-05-14 00:00:00"
+          ]
+        },
+        "drift": [
+          7.000986,
+          24.315671
+        ],
+        "overlap": false
+      }
+    },
+    {
+      "experiment_id": "376cb6656e3f44398cf796c34375a82d",
+      "tool": "propose_hypothesis",
+      "summary": "propose_hypothesis: recorded",
+      "numbers": {}
+    },
+    {
+      "experiment_id": "232f79d8fa1a429b9c40332a3e85210b",
+      "tool": "regression_metrics",
+      "summary": "regression_metrics: bias_mean_residual=10.660192; mae=15.658329; n=730",
+      "numbers": {
+        "n": 730,
+        "mae": 15.658329,
+        "mse": 451.84905,
+        "rmse": 21.256741,
+        "r2": 0.360091,
+        "bias_mean_residual": 10.660192,
+        "residual_std": 18.390469,
+        "heteroscedasticity_hint": -0.046293,
+        "outliers_abs_z_gt_3": 0,
+        "mae_by_group": {
+          "test": 34.70213,
+          "train": 6.89818
+        }
+      }
+    }
+  ],
+  "verification": [],
+  "limitations": [
+    "diagnostics that failed and were never rerun: time_split_validation",
+    "available diagnostics never run in this investigation: artifact_summary, dataset_validation, classification_metrics, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, clustering_stability"
+  ],
+  "investigation_id": "ef406d18c3264af68e9c9d252889f0c8",
+  "structured_summary_valid": false
+}

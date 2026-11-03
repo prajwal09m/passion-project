@@ -1,0 +1,29 @@
+[
+  {
+    "id": "30cb64843ee14c169813fc7d0e20972d",
+    "text": "Recent structural level shift (concept drift) in turbine output: test-period target mean differs substantially from train, causing systematic under/over-prediction.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Objective states forecasts miss a recent level change; sample shows targets ~192-205 in early Jan. Plausible the recent period mean shifted and black-box turbine-ar trained on old level cannot follow.",
+    "evidence_refs": null,
+    "revisions": null
+  },
+  {
+    "id": "84d159c6ff04499b99e81766600f30a2",
+    "text": "Model dynamics failure: autoregressive order insufficient, so errors grow with horizon and residuals stay autocorrelated, independent of any level shift.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Model is statsmodels turbine-ar (autoregressive, black-box). Missing a change could reflect insufficient AR dynamics / horizon extrapolation failure rather than a true regime shift in the target.",
+    "evidence_refs": null,
+    "revisions": null
+  },
+  {
+    "id": "e04155bbaee449859aff76dc2ada88c8",
+    "text": "Split-hygiene artifact: train and test periods overlap or leak, so measured miss of level change is an evaluation artifact not a true forecast failure.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Evaluation uses train/test split column; if splits overlap in time or leak, apparent miss could be evaluation artifact rather than true regime change.",
+    "evidence_refs": null,
+    "revisions": null
+  }
+]

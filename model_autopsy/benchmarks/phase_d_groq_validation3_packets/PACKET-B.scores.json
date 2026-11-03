@@ -1,0 +1,37 @@
+{
+  "packet": "PACKET-B",
+  "campaign": "phase_d_groq_live_20261031T202441Z",
+  "rubric": "benchmarks/phase_d_blind_scoring_rubric_v1.md",
+  "rubric_version": "v1",
+  "scored_utc": "2026-10-31",
+  "scores": {
+    "mechanism_identification": 1,
+    "numeric_grounding": 1,
+    "evidence_linkage": 1,
+    "calibration": 2,
+    "diagnostic_reasoning": 1,
+    "execution_honesty": 1
+  },
+  "total": 7,
+  "justifications": {
+    "mechanism_identification": "Names two plausible mechanisms (in-fold feature leakage; chronological temporal shift across folds) with one-line causal sketches, explicitly unproven ('does not definitively favor'). No causal chain is derived from the record. Vague-but-plausible: 1.",
+    "numeric_grounding": "The conclusion makes no numeric claim, so there is no false precision; but no recorded measurement is tied to the conclusion either (a real column, hold1_ret, is named only as a future target, not as a measured value). 2 requires cited numbers. Honest abstention without grounding: 1. (Same anchor tension as PACKET-A, same resolution.)",
+    "evidence_linkage": "Both hypothesis ids resolve to recorded hypotheses. Three of four basis ids resolve to recorded actions; the fourth ('c5e5f3a1-...') is truncated and unresolvable. Resolved citations point at proposal actions and the failed diagnostic retry, not at the successful measurements. Some linked, one broken, measurements unlinked: 1.",
+    "calibration": "Consistently abstains: mechanisms 'remain plausible', uncertainties stated explicitly, recommended statuses ('inconclusive') do not overclaim beyond the 'proposed' record. No causal claim from correlational evidence: 2.",
+    "diagnostic_reasoning": "Names specific discriminating tests tied to the uncertainties (targeted leakage test on hold1_ret and high-correlation non-model features; time-aware holdout for drift), showing record-awareness. But no predicted observation is stated for either hypothesis (what correlation magnitude would support leakage; what holdout gap would confirm drift): 1.",
+    "execution_honesty": "No false claim about tool execution is made and the retry-then-success of feature_target_suspiciousness is consistent with the record. But executed-tool results, the initial failure, and budget/rounds accounting go unreported in the summary. No fabrication, incomplete reporting: 1."
+  },
+  "structured_summary_validity": {
+    "first_attempt": "invalid",
+    "first_attempt_reason": "final turn text contained no summary block",
+    "repair_attempts": 1,
+    "post_repair": "valid"
+  },
+  "evidence_coverage": {
+    "actions_attempted": 6,
+    "actions_ran": 6,
+    "actions_failed_then_retried": ["feature_target_suspiciousness"],
+    "hypotheses_recorded": 2,
+    "incomplete_provider_responses": 0
+  }
+}

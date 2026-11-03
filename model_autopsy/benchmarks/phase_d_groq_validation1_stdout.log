@@ -1,0 +1,42 @@
+{
+  "written": "phase_d_groq_validation1_results.json",
+  "summary": {
+    "provider_http_attempts": 14,
+    "billed_ok_requests": 10,
+    "failed_requests": 4,
+    "input_tokens": 23854,
+    "output_tokens": 2680,
+    "estimated_cost_usd": 0.005186,
+    "stop_reason": "repeated provider rate limits (4 consecutive 429s)"
+  },
+  "runs": [
+    {
+      "condition": "full",
+      "status": null,
+      "condition_totals": {
+        "provider_latency_s": 10.347,
+        "requests": 7,
+        "rate_limit_wait_s": 0.0,
+        "last_rate_hints": {
+          "reset_tokens_s": 27.577,
+          "remaining_tokens": 4323
+        }
+      },
+      "chained_context_chars": 2517
+    },
+    {
+      "condition": "delta",
+      "status": null,
+      "condition_totals": {
+        "provider_latency_s": 6.199,
+        "requests": 6,
+        "rate_limit_wait_s": 180.0,
+        "last_rate_hints": {
+          "retry_after": 361.0,
+          "remaining_tokens": 8000
+        }
+      },
+      "chained_context_chars": null
+    }
+  ]
+}

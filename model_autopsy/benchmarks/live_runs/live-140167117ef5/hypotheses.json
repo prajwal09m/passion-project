@@ -1,0 +1,29 @@
+[
+  {
+    "id": "21144d87d9d34de8b41ed7d92940862e",
+    "text": "Recent forecasts miss because the target process underwent a level shift/drift in the recent/test period that the black-box turbine-ar model trained on earlier history does not track.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Objective states forecasts miss a recent level change; sample shows targets ~200; a persistent mean shift in recent data would cause a fixed AR model trained on older level to systematically under/over-predict.",
+    "evidence_refs": null,
+    "revisions": null
+  },
+  {
+    "id": "47ef94fd1aa941e4bc513eb2b453b44b",
+    "text": "Apparent recent miss is an artifact of invalid split hygiene (train/test date overlap or non-chronological assignment) rather than true process change.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Evaluation uses train/test split column; if splits overlap in time or were randomly assigned, horizon evaluation is invalid and apparent recent miss could be artifact of improper validation rather than true drift.",
+    "evidence_refs": null,
+    "revisions": null
+  },
+  {
+    "id": "d74dc6a872634183919568c2bc217643",
+    "text": "Recent miss reflects persistent model misspecification (autocorrelated/biased residuals) present in all periods, not a new recent level shift in the target process.",
+    "status": "proposed",
+    "source": "meta",
+    "rationale": "Forecast diagnostics already show residual lag-1 autocorr 0.776, suggesting systematic structure left in residuals beyond a simple level shift. Plausible the AR model is misspecified throughout.",
+    "evidence_refs": null,
+    "revisions": null
+  }
+]

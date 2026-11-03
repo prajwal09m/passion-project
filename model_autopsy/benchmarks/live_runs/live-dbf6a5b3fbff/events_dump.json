@@ -1,0 +1,1184 @@
+[
+  {
+    "seq": 1,
+    "kind": "status_change",
+    "title": "Investigation created",
+    "detail": "mode=ml; max_iterations=3; max_tool_calls=12",
+    "payload": {},
+    "created_at": "2026-11-01 16:58:31"
+  },
+  {
+    "seq": 2,
+    "kind": "tool_result",
+    "title": "Live recon context prepared (neutral brief + schema)",
+    "detail": null,
+    "payload": {
+      "columns": [
+        "area",
+        "rooms",
+        "district",
+        "target",
+        "prediction"
+      ],
+      "tools": [
+        "artifact_summary",
+        "calibration_and_error_analysis",
+        "calibration_snapshot",
+        "classification_metrics",
+        "clustering_stability",
+        "data_quality_profile",
+        "dataset_validation",
+        "distribution_shift_profile",
+        "feature_target_suspiciousness",
+        "forecast_diagnostics",
+        "grouped_auc_comparison",
+        "propose_hypothesis",
+        "regression_metrics",
+        "residual_feature_dependence",
+        "residual_time_analysis",
+        "temporal_changepoint_scan",
+        "time_split_validation"
+      ]
+    },
+    "created_at": "2026-11-01 16:58:31"
+  },
+  {
+    "seq": 3,
+    "kind": "selection",
+    "title": "Selection brief: top=artifact_summary",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "artifact_summary",
+        "data_quality_profile",
+        "dataset_validation"
+      ],
+      "open": []
+    },
+    "created_at": "2026-11-01 16:58:31"
+  },
+  {
+    "seq": 4,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "full"
+    },
+    "created_at": "2026-11-01 16:58:37"
+  },
+  {
+    "seq": 4,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "Rent audit underway \u2014 testing competing explanations for the district miss.",
+    "payload": {
+      "response_id": "resp_6ae76fbcc7bd0f2a7aeb451d",
+      "n_tool_calls": 3,
+      "usage": {
+        "input_tokens": 4613,
+        "input_tokens_details.cached_tokens": 3825,
+        "output_tokens": 955,
+        "output_tokens_details.reasoning_tokens": 356,
+        "total_tokens": 5568
+      },
+      "text": "Rent audit underway \u2014 testing competing explanations for the district miss."
+    },
+    "created_at": "2026-11-01 16:58:37"
+  },
+  {
+    "seq": 5,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Predictions have systematic district-specific bias (e.g., district B over/under-predicted) caused by schema update mishandling of district f",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "685cb37267584ef3abc9034d49f1a1c5",
+      "source": "meta",
+      "predicted_observation": "If true, regression_metrics grouped by district will show markedly higher MAE/bias for one district vs other; residual_feature_dependence will show district association.",
+      "confidence_note": "Uncalibrated prior, low-moderate; district clue makes this salient but not confirmed."
+    },
+    "created_at": "2026-11-01 16:58:37"
+  },
+  {
+    "seq": 6,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior, low-moderate; district clue makes this salient but not confirmed.",
+        "predicted_observation": "If true, regression_metrics grouped by district will show markedly higher MAE/bias for one district vs other; residual_feature_dependence will show district association.",
+        "rationale": "Objective says one district looks off after schema update; sample shows district A/B column. Schema update could have broken district encoding/one-hot, causing systematic bias for that district.",
+        "text": "Predictions have systematic district-specific bias (e.g., district B over/under-predicted) caused by schema update mishandling of district feature."
+      },
+      "action_seq": 6
+    },
+    "created_at": "2026-11-01 16:58:37"
+  },
+  {
+    "seq": 7,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\\\", 1793500694870058600, 27108]]]\", \"ok\": true, \"hypothesis_id\": \"685cb37267584ef3abc9034d49f1a1c5\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Predictions have systematic district-specific bias (e.g., district B o",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+        "ok": true,
+        "hypothesis_id": "685cb37267584ef3abc9034d49f1a1c5",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Predictions have systematic district-specific bias (e.g., district B over/under-predicted) caused by schema update mishandling of district feature."
+      },
+      "action_seq": 6
+    },
+    "created_at": "2026-11-01 16:58:37"
+  },
+  {
+    "seq": 8,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Errors are driven by mis-scaled numeric feature (area and/or rooms) after schema update, not by district membership itself.",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "3b94f1cb3b644a8c96210e528e67dae5",
+      "source": "meta",
+      "predicted_observation": "If true, residual_feature_dependence will show strong correlation of residuals with area and/or rooms, and error persists within each district after accounting for those features.",
+      "confidence_note": "Uncalibrated prior, low; plausible alternative if schema changed numeric units."
+    },
+    "created_at": "2026-11-01 16:58:37"
+  },
+  {
+    "seq": 9,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior, low; plausible alternative if schema changed numeric units.",
+        "predicted_observation": "If true, residual_feature_dependence will show strong correlation of residuals with area and/or rooms, and error persists within each district after accounting for those features.",
+        "rationale": "Schema update could have changed numeric field units/definition (area, rooms). That would produce error dependent on numeric feature rather than district label per se.",
+        "text": "Errors are driven by mis-scaled numeric feature (area and/or rooms) after schema update, not by district membership itself."
+      },
+      "action_seq": 9
+    },
+    "created_at": "2026-11-01 16:58:37"
+  },
+  {
+    "seq": 10,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\\\", 1793500694870058600, 27108]]]\", \"ok\": true, \"hypothesis_id\": \"3b94f1cb3b644a8c96210e528e67dae5\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Errors are driven by mis-scaled numeric feature (area and/or rooms) af",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+        "ok": true,
+        "hypothesis_id": "3b94f1cb3b644a8c96210e528e67dae5",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Errors are driven by mis-scaled numeric feature (area and/or rooms) after schema update, not by district membership itself."
+      },
+      "action_seq": 9
+    },
+    "created_at": "2026-11-01 16:58:37"
+  },
+  {
+    "seq": 11,
+    "kind": "hypothesis",
+    "title": "Meta hypothesis proposed: Model has global miscalibration/target drift affecting all districts similarly, with no true district-specific failure.",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "282f282f29f84bd7a5e6f1f2b7577615",
+      "source": "meta",
+      "predicted_observation": "If true, calibration_snapshot will show overall bias/variance without district separation, and grouped MAE by district will be similar.",
+      "confidence_note": "Uncalibrated prior, low; base-rate alternative to rule out."
+    },
+    "created_at": "2026-11-01 16:58:37"
+  },
+  {
+    "seq": 12,
+    "kind": "tool_request",
+    "title": "Requested propose_hypothesis",
+    "detail": null,
+    "payload": {
+      "tool": "propose_hypothesis",
+      "arguments": {
+        "confidence_note": "Uncalibrated prior, low; base-rate alternative to rule out.",
+        "predicted_observation": "If true, calibration_snapshot will show overall bias/variance without district separation, and grouped MAE by district will be similar.",
+        "rationale": "Apparent district issue could be sampling noise or overall drift misattributed to one district; need to test global miscalibration vs localized failure.",
+        "text": "Model has global miscalibration/target drift affecting all districts similarly, with no true district-specific failure."
+      },
+      "action_seq": 12
+    },
+    "created_at": "2026-11-01 16:58:37"
+  },
+  {
+    "seq": 13,
+    "kind": "tool_result",
+    "title": "tool:propose_hypothesis (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\\\", 1793500694870058600, 27108]]]\", \"ok\": true, \"hypothesis_id\": \"282f282f29f84bd7a5e6f1f2b7577615\", \"origin\": \"meta\", \"note\": \"model-generated confidence is uncalibrated; only tool-computed facts are findings\", \"text\": \"Model has global miscalibration/target drift affecting all districts s",
+    "payload": {
+      "tool": "propose_hypothesis",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+        "ok": true,
+        "hypothesis_id": "282f282f29f84bd7a5e6f1f2b7577615",
+        "origin": "meta",
+        "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+        "text": "Model has global miscalibration/target drift affecting all districts similarly, with no true district-specific failure."
+      },
+      "action_seq": 12
+    },
+    "created_at": "2026-11-01 16:58:37"
+  },
+  {
+    "seq": 14,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "full"
+    },
+    "created_at": "2026-11-01 16:58:55"
+  },
+  {
+    "seq": 14,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "I've mapped three competing failure modes \u2014 now running the test that best separates them.",
+    "payload": {
+      "response_id": "resp_6ae76fc62856c050871846e8",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 5637,
+        "input_tokens_details.cached_tokens": 3825,
+        "output_tokens": 393,
+        "output_tokens_details.reasoning_tokens": 256,
+        "total_tokens": 6030
+      },
+      "text": "I've mapped three competing failure modes \u2014 now running the test that best separates them."
+    },
+    "created_at": "2026-11-01 16:58:55"
+  },
+  {
+    "seq": 14,
+    "kind": "tool_request",
+    "title": "Requested regression_metrics",
+    "detail": null,
+    "payload": {
+      "tool": "regression_metrics",
+      "arguments": {
+        "group_column": "district",
+        "prediction_column": "prediction",
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv",
+        "target_column": "target"
+      },
+      "action_seq": 14
+    },
+    "created_at": "2026-11-01 16:58:55"
+  },
+  {
+    "seq": 15,
+    "kind": "tool_result",
+    "title": "tool:regression_metrics (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\\\", 1793500694870058600, 27108]]]\", \"ok\": true, \"source\": \"C:\\\\Prajwal MIT\\\\Passion\\\\model_autopsy\\\\tests\\\\fixture_eval\\\\investigator\\\\rent_estimates.csv\", \"n\": 1200, \"mae\": 191.221667, \"mse\": 97373.865, \"rmse\": 312.047857, \"r2\": 0.786538, \"bias_mean_residual\": 114.465, \"residual_std\": 290.",
+    "payload": {
+      "tool": "regression_metrics",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+        "ok": true,
+        "source": "C:\\Prajwal MIT\\Passion\\model_autopsy\\tests\\fixture_eval\\investigator\\rent_estimates.csv",
+        "n": 1200,
+        "mae": 191.221667,
+        "mse": 97373.865,
+        "rmse": 312.047857,
+        "r2": 0.786538,
+        "bias_mean_residual": 114.465,
+        "residual_std": 290.295761,
+        "heteroscedasticity_hint": 0.069377,
+        "outliers_abs_z_gt_3": 30,
+        "mae_by_group": {
+          "A": 93.725941,
+          "B": 97.38809,
+          "C": 583.987234
+        }
+      },
+      "action_seq": 14
+    },
+    "created_at": "2026-11-01 16:58:55"
+  },
+  {
+    "seq": 16,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Predictions have systematic district-specific bias (e.g., di... (supports)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "685cb37267584ef3abc9034d49f1a1c5",
+      "action_id": "50704274072a4b70807a3786c566b803",
+      "tool": "regression_metrics",
+      "relation": "supports"
+    },
+    "created_at": "2026-11-01 16:58:55"
+  },
+  {
+    "seq": 17,
+    "kind": "hypothesis",
+    "title": "Hypothesis Predictions have systematic district-specific bias (e.g., di... -> investigating",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "685cb37267584ef3abc9034d49f1a1c5",
+      "status": "investigating",
+      "from": {
+        "status": "proposed",
+        "confidence": null,
+        "rationale": "Objective says one district looks off after schema update; sample shows district A/B column. Schema update could have broken district encoding/one-hot, causing systematic bias for that district."
+      },
+      "rationale": "auto-link: group MAE ratio 6.23 (worst 583.99); errors concentrate [supporting evidence recorded; needs corroboration; action 50704274072a4b70807a3786c566b803]"
+    },
+    "created_at": "2026-11-01 16:58:55"
+  },
+  {
+    "seq": 18,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Errors are driven by mis-scaled numeric feature (area and/or... (supports)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "3b94f1cb3b644a8c96210e528e67dae5",
+      "action_id": "50704274072a4b70807a3786c566b803",
+      "tool": "regression_metrics",
+      "relation": "supports"
+    },
+    "created_at": "2026-11-01 16:58:55"
+  },
+  {
+    "seq": 19,
+    "kind": "hypothesis",
+    "title": "Hypothesis Errors are driven by mis-scaled numeric feature (area and/or... -> investigating",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "3b94f1cb3b644a8c96210e528e67dae5",
+      "status": "investigating",
+      "from": {
+        "status": "proposed",
+        "confidence": null,
+        "rationale": "Schema update could have changed numeric field units/definition (area, rooms). That would produce error dependent on numeric feature rather than district label per se."
+      },
+      "rationale": "auto-link: group MAE ratio 6.23 (worst 583.99); errors concentrate [supporting evidence recorded; needs corroboration; action 50704274072a4b70807a3786c566b803]"
+    },
+    "created_at": "2026-11-01 16:58:55"
+  },
+  {
+    "seq": 20,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Model has global miscalibration/target drift affecting all d... (supports)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "282f282f29f84bd7a5e6f1f2b7577615",
+      "action_id": "50704274072a4b70807a3786c566b803",
+      "tool": "regression_metrics",
+      "relation": "supports"
+    },
+    "created_at": "2026-11-01 16:58:55"
+  },
+  {
+    "seq": 21,
+    "kind": "hypothesis",
+    "title": "Hypothesis Model has global miscalibration/target drift affecting all d... -> investigating",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "282f282f29f84bd7a5e6f1f2b7577615",
+      "status": "investigating",
+      "from": {
+        "status": "proposed",
+        "confidence": null,
+        "rationale": "Apparent district issue could be sampling noise or overall drift misattributed to one district; need to test global miscalibration vs localized failure."
+      },
+      "rationale": "auto-link: group MAE ratio 6.23 (worst 583.99); errors concentrate [supporting evidence recorded; needs corroboration; action 50704274072a4b70807a3786c566b803]"
+    },
+    "created_at": "2026-11-01 16:58:55"
+  },
+  {
+    "seq": 22,
+    "kind": "linker",
+    "title": "auto-linked regression_metrics #14 to 3 hypotheses",
+    "detail": null,
+    "payload": {
+      "action_id": "50704274072a4b70807a3786c566b803",
+      "applied": [
+        {
+          "h": "685cb372",
+          "d": "supports",
+          "s": "investigating"
+        },
+        {
+          "h": "3b94f1cb",
+          "d": "supports",
+          "s": "investigating"
+        },
+        {
+          "h": "282f282f",
+          "d": "supports",
+          "s": "investigating"
+        }
+      ]
+    },
+    "created_at": "2026-11-01 16:58:55"
+  },
+  {
+    "seq": 23,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "I've mapped three competing failure modes \u2014 now running the test that best separates them.",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 16:58:55"
+  },
+  {
+    "seq": 24,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 16:59:01"
+  },
+  {
+    "seq": 24,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 16:59:01"
+  },
+  {
+    "seq": 25,
+    "kind": "summary_repair",
+    "title": "Summary repair still invalid \u2014 original verdict stands",
+    "detail": null,
+    "payload": {
+      "valid": false,
+      "continuation": "original",
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 16:59:01"
+  },
+  {
+    "seq": 25,
+    "kind": "fallback",
+    "title": "Deterministic fallback composed from records",
+    "detail": null,
+    "payload": {
+      "fallback_version": "m8-fallback-v1"
+    },
+    "created_at": "2026-11-01 16:59:01"
+  },
+  {
+    "seq": 25,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 3,
+      "api_attempts": 3,
+      "latency_s": 29.724,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "full",
+      "fallback_used": false,
+      "tool_calls_executed": 4,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 11747,
+        "input_tokens_details.cached_tokens": 7650,
+        "output_tokens": 2548,
+        "output_tokens_details.reasoning_tokens": 1810,
+        "total_tokens": 14295
+      },
+      "fallback_composed": true
+    },
+    "created_at": "2026-11-01 16:59:01"
+  },
+  {
+    "seq": 25,
+    "kind": "selection",
+    "title": "Adherence: deviated (chose=regression_metrics, recommended=artifact_summary)",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "artifact_summary",
+        "data_quality_profile",
+        "dataset_validation"
+      ],
+      "executed_diagnostics": [
+        "regression_metrics"
+      ],
+      "followed": false
+    },
+    "created_at": "2026-11-01 16:59:01"
+  },
+  {
+    "seq": 26,
+    "kind": "selection",
+    "title": "Selection brief: top=distribution_shift_profile",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "distribution_shift_profile",
+        "forecast_diagnostics",
+        "residual_feature_dependence"
+      ],
+      "open": [
+        "685cb37267584ef3abc9034d49f1a1c5",
+        "3b94f1cb3b644a8c96210e528e67dae5",
+        "282f282f29f84bd7a5e6f1f2b7577615"
+      ]
+    },
+    "created_at": "2026-11-01 16:59:01"
+  },
+  {
+    "seq": 27,
+    "kind": "meta_request",
+    "title": "Meta round 1 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 1,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "delta"
+    },
+    "created_at": "2026-11-01 16:59:04"
+  },
+  {
+    "seq": 27,
+    "kind": "meta_request",
+    "title": "Continuation state refused \u2014 one full-context fallback",
+    "detail": "HTTP 400: {\"error\":{\"code\":null,\"message\":\"No tool output found for function call call_e7fb513f-6bc5-4593-ae2a-3b03a15034e9.\",\"param\":null,\"type\":\"invalid_request_error\"}}",
+    "payload": {},
+    "created_at": "2026-11-01 16:59:04"
+  },
+  {
+    "seq": 28,
+    "kind": "meta_response",
+    "title": "Meta round 1 response",
+    "detail": "District C error is spiking \u2014 now testing whether a mis-scaled feature explains it.",
+    "payload": {
+      "response_id": "resp_6ae76fdcd43972d2a0074485",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 5199,
+        "input_tokens_details.cached_tokens": 3825,
+        "output_tokens": 576,
+        "output_tokens_details.reasoning_tokens": 433,
+        "total_tokens": 5775
+      },
+      "text": "District C error is spiking \u2014 now testing whether a mis-scaled feature explains it."
+    },
+    "created_at": "2026-11-01 16:59:08"
+  },
+  {
+    "seq": 28,
+    "kind": "tool_request",
+    "title": "Requested residual_feature_dependence",
+    "detail": null,
+    "payload": {
+      "tool": "residual_feature_dependence",
+      "arguments": {
+        "prediction_column": "prediction",
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv",
+        "target_column": "target",
+        "top_k": 5
+      },
+      "action_seq": 28
+    },
+    "created_at": "2026-11-01 16:59:08"
+  },
+  {
+    "seq": 29,
+    "kind": "tool_result",
+    "title": "tool:residual_feature_dependence (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\\\", 1793500694870058600, 27108]]]\", \"ok\": true, \"n\": 1200, \"ranked\": [{\"column\": \"rooms\", \"abs_corr\": 0.180565, \"corr\": 0.180565, \"n\": 1200}, {\"column\": \"area\", \"abs_corr\": 0.005399, \"corr\": 0.005399, \"n\": 1200}], \"n_numeric_scanned\": 2, \"max_abs_corr\": 0.180565, \"establishes\": \"whether res",
+    "payload": {
+      "tool": "residual_feature_dependence",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+        "ok": true,
+        "n": 1200,
+        "ranked": [
+          {
+            "column": "rooms",
+            "abs_corr": 0.180565,
+            "corr": 0.180565,
+            "n": 1200
+          },
+          {
+            "column": "area",
+            "abs_corr": 0.005399,
+            "corr": 0.005399,
+            "n": 1200
+          }
+        ],
+        "n_numeric_scanned": 2,
+        "max_abs_corr": 0.180565,
+        "establishes": "whether residuals track an input column",
+        "does_not_establish": "the cause of the dependence"
+      },
+      "action_seq": 28
+    },
+    "created_at": "2026-11-01 16:59:08"
+  },
+  {
+    "seq": 30,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Predictions have systematic district-specific bias (e.g., di... (contradicts)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "685cb37267584ef3abc9034d49f1a1c5",
+      "action_id": "d53e376513fa49f1b245629b725c2a00",
+      "tool": "residual_feature_dependence",
+      "relation": "contradicts"
+    },
+    "created_at": "2026-11-01 16:59:08"
+  },
+  {
+    "seq": 31,
+    "kind": "hypothesis",
+    "title": "Hypothesis Predictions have systematic district-specific bias (e.g., di... -> investigating",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "685cb37267584ef3abc9034d49f1a1c5",
+      "status": "investigating",
+      "from": {
+        "status": "investigating",
+        "confidence": 55,
+        "rationale": "auto-link: group MAE ratio 6.23 (worst 583.99); errors concentrate [supporting evidence recorded; needs corroboration; action 50704274072a4b70807a3786c566b803]"
+      },
+      "rationale": "auto-link: max|r|=0.180565: no tracking [contradictory evidence recorded; demoted; action d53e376513fa49f1b245629b725c2a00]"
+    },
+    "created_at": "2026-11-01 16:59:08"
+  },
+  {
+    "seq": 32,
+    "kind": "hypothesis",
+    "title": "Evidence linked to Errors are driven by mis-scaled numeric feature (area and/or... (contradicts)",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "3b94f1cb3b644a8c96210e528e67dae5",
+      "action_id": "d53e376513fa49f1b245629b725c2a00",
+      "tool": "residual_feature_dependence",
+      "relation": "contradicts"
+    },
+    "created_at": "2026-11-01 16:59:08"
+  },
+  {
+    "seq": 33,
+    "kind": "hypothesis",
+    "title": "Hypothesis Errors are driven by mis-scaled numeric feature (area and/or... -> investigating",
+    "detail": null,
+    "payload": {
+      "hypothesis_id": "3b94f1cb3b644a8c96210e528e67dae5",
+      "status": "investigating",
+      "from": {
+        "status": "investigating",
+        "confidence": 55,
+        "rationale": "auto-link: group MAE ratio 6.23 (worst 583.99); errors concentrate [supporting evidence recorded; needs corroboration; action 50704274072a4b70807a3786c566b803]"
+      },
+      "rationale": "auto-link: max|r|=0.180565: no tracking [contradictory evidence recorded; demoted; action d53e376513fa49f1b245629b725c2a00]"
+    },
+    "created_at": "2026-11-01 16:59:08"
+  },
+  {
+    "seq": 34,
+    "kind": "linker",
+    "title": "auto-linked residual_feature_dependence #28 to 2 hypotheses",
+    "detail": null,
+    "payload": {
+      "action_id": "d53e376513fa49f1b245629b725c2a00",
+      "applied": [
+        {
+          "h": "685cb372",
+          "d": "contradicts",
+          "s": "investigating"
+        },
+        {
+          "h": "3b94f1cb",
+          "d": "contradicts",
+          "s": "investigating"
+        }
+      ]
+    },
+    "created_at": "2026-11-01 16:59:08"
+  },
+  {
+    "seq": 35,
+    "kind": "meta_request",
+    "title": "Meta round 2 (mode=ml)",
+    "detail": null,
+    "payload": {
+      "round": 2,
+      "tools_offered": [
+        "propose_hypothesis",
+        "artifact_summary",
+        "dataset_validation",
+        "classification_metrics",
+        "time_split_validation",
+        "feature_target_suspiciousness",
+        "calibration_and_error_analysis",
+        "grouped_auc_comparison",
+        "regression_metrics",
+        "forecast_diagnostics",
+        "clustering_stability",
+        "temporal_changepoint_scan",
+        "residual_time_analysis",
+        "distribution_shift_profile",
+        "data_quality_profile",
+        "calibration_snapshot",
+        "residual_feature_dependence"
+      ],
+      "context_mode": "delta_fallback"
+    },
+    "created_at": "2026-11-01 16:59:25"
+  },
+  {
+    "seq": 35,
+    "kind": "meta_response",
+    "title": "Meta round 2 response",
+    "detail": "Residuals show little link to numeric features, weakening the scaling theory \u2014 now checking for systematic bias.",
+    "payload": {
+      "response_id": "resp_6ae76fe7229b3de006344a78",
+      "n_tool_calls": 1,
+      "usage": {
+        "input_tokens": 5521,
+        "input_tokens_details.cached_tokens": 5105,
+        "output_tokens": 948,
+        "output_tokens_details.reasoning_tokens": 822,
+        "total_tokens": 6469
+      },
+      "text": "Residuals show little link to numeric features, weakening the scaling theory \u2014 now checking for systematic bias."
+    },
+    "created_at": "2026-11-01 16:59:25"
+  },
+  {
+    "seq": 35,
+    "kind": "tool_request",
+    "title": "Requested calibration_snapshot",
+    "detail": null,
+    "payload": {
+      "tool": "calibration_snapshot",
+      "arguments": {
+        "prediction_column": "prediction",
+        "predictions_path": "model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv",
+        "target_column": "target"
+      },
+      "action_seq": 35
+    },
+    "created_at": "2026-11-01 16:59:25"
+  },
+  {
+    "seq": 36,
+    "kind": "tool_result",
+    "title": "tool:calibration_snapshot (ran)",
+    "detail": "{\"_dedup\": \"[[\\\"ml\\\", null, null, null], [[\\\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\\\", 1793500694870058600, 27108]]]\", \"ok\": true, \"n\": 1200, \"bias_mean_residual\": 114.465, \"residual_std\": 290.416793, \"mae\": 191.221667, \"establishes\": \"bias vs variance decomposition\", \"does_not_establish\": \"source of the bias\"}",
+    "payload": {
+      "tool": "calibration_snapshot",
+      "status": "ran",
+      "result": {
+        "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+        "ok": true,
+        "n": 1200,
+        "bias_mean_residual": 114.465,
+        "residual_std": 290.416793,
+        "mae": 191.221667,
+        "establishes": "bias vs variance decomposition",
+        "does_not_establish": "source of the bias"
+      },
+      "action_seq": 35
+    },
+    "created_at": "2026-11-01 16:59:25"
+  },
+  {
+    "seq": 37,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "Residuals show little link to numeric features, weakening the scaling theory \u2014 now checking for systematic bias.",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 16:59:25"
+  },
+  {
+    "seq": 38,
+    "kind": "summary_repair",
+    "title": "Structured summary invalid \u2014 one repair attempt",
+    "detail": null,
+    "payload": {
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 16:59:33"
+  },
+  {
+    "seq": 38,
+    "kind": "summary",
+    "title": "Structured summary parsed: INVALID",
+    "detail": "```investigation_summary\n{\"conclusion\":\"conclusion: district-specific failure in C drives overall error (fact: MAE C 583.9 vs A 93.7 B 97.3), not global miscalibration\",\"status_recommendations\":[{\"hypothesis_id\":\"685cb37267584ef3abc9034d49f1a1c5\",\"status\":\"supported\",\"basis\":\"50704274072a4b70807a3786c566b803 shows MAE C >> A/B\"},{\"hypothesis_id\":\"282f282f29f84bd7a5e6f1f2b7577615\",\"status\":\"rejected\",\"basis\":\"50704274072a4b708",
+    "payload": {
+      "valid": false,
+      "errors": [
+        "no structured summary found in the final message"
+      ],
+      "raw_block": null
+    },
+    "created_at": "2026-11-01 16:59:33"
+  },
+  {
+    "seq": 39,
+    "kind": "summary_repair",
+    "title": "Summary repair still invalid \u2014 original verdict stands",
+    "detail": null,
+    "payload": {
+      "valid": false,
+      "continuation": "original",
+      "errors": [
+        "no structured summary found in the final message"
+      ]
+    },
+    "created_at": "2026-11-01 16:59:33"
+  },
+  {
+    "seq": 39,
+    "kind": "fallback",
+    "title": "Deterministic fallback composed from records",
+    "detail": null,
+    "payload": {
+      "fallback_version": "m8-fallback-v1"
+    },
+    "created_at": "2026-11-01 16:59:33"
+  },
+  {
+    "seq": 39,
+    "kind": "meta_usage",
+    "title": "Turn usage rollup",
+    "detail": null,
+    "payload": {
+      "rounds": 2,
+      "api_calls": 3,
+      "api_attempts": 3,
+      "latency_s": 28.763,
+      "summary_repair_attempts": 1,
+      "summary_repair_continuation": "original",
+      "context_mode": "delta_fallback",
+      "fallback_used": true,
+      "tool_calls_executed": 2,
+      "tool_calls_reused": 0,
+      "tokens": {
+        "input_tokens": 12508,
+        "input_tokens_details.cached_tokens": 9427,
+        "output_tokens": 2724,
+        "output_tokens_details.reasoning_tokens": 2300,
+        "total_tokens": 15232
+      },
+      "fallback_composed": true
+    },
+    "created_at": "2026-11-01 16:59:33"
+  },
+  {
+    "seq": 39,
+    "kind": "selection",
+    "title": "Adherence: deviated (chose=residual_feature_dependence, recommended=distribution_shift_profile)",
+    "detail": null,
+    "payload": {
+      "recommended": [
+        "distribution_shift_profile",
+        "forecast_diagnostics",
+        "residual_feature_dependence"
+      ],
+      "executed_diagnostics": [
+        "residual_feature_dependence",
+        "calibration_snapshot"
+      ],
+      "followed": false
+    },
+    "created_at": "2026-11-01 16:59:33"
+  },
+  {
+    "seq": 40,
+    "kind": "stopping",
+    "title": "Stopping early: budget exhausted: experiment cap 6 reached",
+    "detail": null,
+    "payload": {
+      "rationale": "experiment cap 6 reached"
+    },
+    "created_at": "2026-11-01 16:59:33"
+  },
+  {
+    "seq": 41,
+    "kind": "status_change",
+    "title": "hypotheses_proposed -> investigating",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 16:59:33"
+  },
+  {
+    "seq": 41,
+    "kind": "status_change",
+    "title": "investigating -> finalizing",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 16:59:33"
+  },
+  {
+    "seq": 42,
+    "kind": "report",
+    "title": "Final report recorded",
+    "detail": null,
+    "payload": {
+      "investigation_id": "5ba609b895334846bd3f5220be6a86a1",
+      "mode": "ml",
+      "question": "Rent estimates for one district look off after a schema update; find what is wrong and show evidence.",
+      "generated_at": "2026-11-01 16:59:33Z",
+      "confirmed": [],
+      "likely": [],
+      "rejected": [],
+      "unresolved": [
+        {
+          "hypothesis_id": "685cb37267584ef3abc9034d49f1a1c5",
+          "text": "Predictions have systematic district-specific bias (e.g., district B over/under-predicted) caused by schema update mishandling of district feature.",
+          "status": "investigating",
+          "origin": "meta",
+          "confidence_is_model_note": true
+        },
+        {
+          "hypothesis_id": "3b94f1cb3b644a8c96210e528e67dae5",
+          "text": "Errors are driven by mis-scaled numeric feature (area and/or rooms) after schema update, not by district membership itself.",
+          "status": "investigating",
+          "origin": "meta",
+          "confidence_is_model_note": true
+        },
+        {
+          "hypothesis_id": "282f282f29f84bd7a5e6f1f2b7577615",
+          "text": "Model has global miscalibration/target drift affecting all districts similarly, with no true district-specific failure.",
+          "status": "investigating",
+          "origin": "meta",
+          "confidence_is_model_note": true
+        }
+      ],
+      "supported_hypotheses": [],
+      "evidence_performed": [
+        {
+          "action_id": "63db9531a544444bb1c1c2d7aa524074",
+          "seq": 6,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+            "hypothesis_id": "685cb37267584ef3abc9034d49f1a1c5",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Predictions have systematic district-specific bias (e.g., district B over/under-predicted) caused by schema update mishandling of district feature."
+          }
+        },
+        {
+          "action_id": "dff43b8b24214bc9957bc7dd97355c38",
+          "seq": 9,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+            "hypothesis_id": "3b94f1cb3b644a8c96210e528e67dae5",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Errors are driven by mis-scaled numeric feature (area and/or rooms) after schema update, not by district membership itself."
+          }
+        },
+        {
+          "action_id": "392759294426437b89ae01f1f5718037",
+          "seq": 12,
+          "tool": "propose_hypothesis",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+            "hypothesis_id": "282f282f29f84bd7a5e6f1f2b7577615",
+            "note": "model-generated confidence is uncalibrated; only tool-computed facts are findings",
+            "ok": true,
+            "origin": "meta",
+            "text": "Model has global miscalibration/target drift affecting all districts similarly, with no true district-specific failure."
+          }
+        },
+        {
+          "action_id": "50704274072a4b70807a3786c566b803",
+          "seq": 14,
+          "tool": "regression_metrics",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+            "bias_mean_residual": 114.465,
+            "heteroscedasticity_hint": 0.069377,
+            "mae": 191.221667,
+            "mse": 97373.865,
+            "n": 1200,
+            "ok": true
+          }
+        },
+        {
+          "action_id": "d53e376513fa49f1b245629b725c2a00",
+          "seq": 28,
+          "tool": "residual_feature_dependence",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+            "does_not_establish": "the cause of the dependence",
+            "establishes": "whether residuals track an input column",
+            "max_abs_corr": 0.180565,
+            "n": 1200,
+            "n_numeric_scanned": 2,
+            "ok": true
+          }
+        },
+        {
+          "action_id": "87b44cde97934f138eab7923a193c188",
+          "seq": 35,
+          "tool": "calibration_snapshot",
+          "status": "ran",
+          "result_digest": {
+            "_dedup": "[[\"ml\", null, null, null], [[\"model_autopsy/tests/fixture_eval/investigator/rent_estimates.csv\", 1793500694870058600, 27108]]]",
+            "bias_mean_residual": 114.465,
+            "does_not_establish": "source of the bias",
+            "establishes": "bias vs variance decomposition",
+            "mae": 191.221667,
+            "n": 1200,
+            "ok": true,
+            "residual_std": 290.416793
+          }
+        }
+      ],
+      "limitations": [
+        "available diagnostics never run in this investigation: artifact_summary, dataset_validation, classification_metrics, time_split_validation, feature_target_suspiciousness, calibration_and_error_analysis, grouped_auc_comparison, forecast_diagnostics, clustering_stability, temporal_changepoint_scan, residual_time_analysis, distribution_shift_profile, data_quality_profile"
+      ],
+      "recommended_next": [
+        {
+          "for": "685cb37267584ef3abc9034d49f1a1c5",
+          "action": "Design a test that would falsify: Predictions have systematic district-specific bias (e.g., district B over/under-predicted) caused by schema update misha",
+          "status": "hypothesis remains investigating"
+        },
+        {
+          "for": "3b94f1cb3b644a8c96210e528e67dae5",
+          "action": "Design a test that would falsify: Errors are driven by mis-scaled numeric feature (area and/or rooms) after schema update, not by district membership itse",
+          "status": "hypothesis remains investigating"
+        },
+        {
+          "for": "282f282f29f84bd7a5e6f1f2b7577615",
+          "action": "Design a test that would falsify: Model has global miscalibration/target drift affecting all districts similarly, with no true district-specific failure.",
+          "status": "hypothesis remains investigating"
+        }
+      ],
+      "budget": {
+        "tool_calls": [
+          6,
+          12
+        ],
+        "iterations": [
+          0,
+          3
+        ]
+      },
+      "scope_note": "assembled deterministically from the investigation's recorded findings, hypotheses and executed actions; no section is model-invented and every rejected hypothesis carries its contradicting action ids."
+    },
+    "created_at": "2026-11-01 16:59:33"
+  },
+  {
+    "seq": 42,
+    "kind": "status_change",
+    "title": "finalizing -> complete",
+    "detail": null,
+    "payload": {},
+    "created_at": "2026-11-01 16:59:33"
+  }
+]

@@ -1,0 +1,4 @@
+PLAN: run=live-ae844753edce project=eval_claim status=hypotheses_proposed rounds_done=1 experiments=4 attempts=4 tokens=13443/4081c/1336
+CHAIN: resp_6ae756f51ad… (last completed response)
+STATUS: completed  run=live-ae844753edce
+BUDGET: {'rounds': [3, 3], 'experiments': [6, 6], 'attempts': [8, 12], 'tokens': {'input': 30920, 'cached': 11219, 'output': 6509, 'total': 37429, 'cap': 50000}, 'cost_usd': {'spent': 0.053972, 'cap': 0.4}, 'pricing': 'muse-spark-1.3 Standard: $1.25/$0.15 cached input, $4.25 output per 1M'}
