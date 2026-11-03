@@ -175,6 +175,24 @@ def test_plan_boosts_baseline_leak_screen():
                for r in plan2["recommended"])
 
 
+def test_predictions_header_schema_fallback(tmp_path):
+    from types import SimpleNamespace
+    from model_autopsy.backend.meta_api.loop import (
+        _predictions_header_schema)
+    f = tmp_path / "multi_clinic.csv"
+    f.write_text("score,label,age,ward,leak_flag\n0.1,0,3,north,0\n")
+    got = _predictions_header_schema(
+        SimpleNamespace(config={"predictions_path": str(f)}))
+    assert got is not None
+    assert got["columns"] == ["score", "label", "age", "ward",
+                                "leak_flag"]
+    assert _predictions_header_schema(
+        SimpleNamespace(config={"predictions_path": str(tmp_path /
+                                                           "nope.csv")})) is None
+    assert _predictions_header_schema(
+        SimpleNamespace(config={})) is None
+
+
 def test_selection_explains_rejection_of_redundant():
     from model_autopsy.backend.causal import selection as SEL
     hyps = [{"text": "A sudden level shift after day 500 degrades forecasts"}]

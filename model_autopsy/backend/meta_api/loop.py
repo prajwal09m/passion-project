@@ -168,7 +168,8 @@ def _recorded_dataset_schema(session: Session, inv: Investigation) -> dict | Non
     returns its filename + column names (capped). Without this the model
     guesses Demand-Zone-era names (fold/split/target) against arbitrary
     uploads and burns turns on honest `required column ... missing`
-    failures. Pure read of recorded evidence; None when nothing ran yet.
+    failures. Pure read of recorded evidence; falls back to the header
+    row of the attached predictions file when nothing ran yet, else None.
     """
     acts = (session.query(Action)
             .filter(Action.investigation_id == inv.id,
@@ -190,7 +191,39 @@ def _recorded_dataset_schema(session: Session, inv: Investigation) -> dict | Non
             return {"predictions_file": res.get("filename")
                     or res.get("path") or a.tool_name,
                     "columns": names}
-    return None
+    # Fallback: no validation ran yet (or its result carried no columns).
+    # Read just the header row of the attached predictions file so the
+    # baseline leak screen can fire on turn 1. Header only, no rows;
+    # None when the file is absent (stale path) or unreadable.
+    return _predictions_header_schema(inv)
+
+
+def _predictions_header_schema(inv: Investigation) -> dict | None:
+    """Header-only schema from the attached predictions file.
+
+    Pure read of recorded config + one CSV header row; no model judgment,
+    no row data. Lets selection know feature columns exist before any
+    validation diagnostic runs. None when no file is attached, the path
+    is stale, or the header is unreadable.
+    """
+    import csv as _csv
+    import os as _os
+    try:
+        path = ((inv.config or {}).get("predictions_path") or "")
+        if not path or not _os.path.isfile(path):
+            return None
+        with open(path, "r", newline="", encoding="utf-8-sig") as fh:
+            reader = _csv.reader(fh)
+            header = next(reader, None)
+        if not header:
+            return None
+        names = [str(c).strip() for c in header[:40]
+                 if str(c).strip()]
+        if not names:
+            return None
+        return {"predictions_file": path, "columns": names}
+    except Exception:
+        return None
 
 
 def _initial_context_items(session: Session, inv: Investigation) -> list[dict]:
