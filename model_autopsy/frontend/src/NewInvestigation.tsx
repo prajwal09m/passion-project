@@ -1,11 +1,8 @@
 // New Investigation — the generalized, product-center entrance to Model Autopsy.
 //
-// Five explicit steps, independent of any case study:
-//   1. Bring your model (upload artifacts from disk)
-//   2. Understand the material (what can be established, what is unknown)
-//   3. Configure the investigation (concern + task type)
-//   4. Investigation begins (engine stages, inspectable)
-//   5. Results (report structure: discovery vs verification vs confirmation)
+// Upload artifacts, pick the predictions file, start. The investigation
+// runs broad by default: the workspace exposes hypotheses, evidence and
+// verification for inspection — never an unexplained loading animation.
 //
 // Unknowns are displayed as unknown — never invented. File types are only
 // described, never executed; the backend tools read uploads read-only.
@@ -16,42 +13,6 @@ import { EmptyState, Loading, Note } from './ui'
 type Go = (p: 'history' | 'eval' | 'cases' | 'projects' | 'new') => void
 
 const ACCEPT = '.csv,.json,.jsonl,.parquet,.txt,.log,.md,.py,.yaml,.yml,.toml,.cfg,.ini,.zip'
-
-const CONCERN_PRESETS: { label: string; text: string }[] = [
-  { label: 'Good in training, poor on unseen data', text: 'The model performs well during training but poorly on unseen data. Check for overfitting, leakage, and distribution shift between splits.' },
-  { label: 'Suspected data leakage', text: 'I suspect data leakage: some feature may carry information about the target that will not be available at prediction time.' },
-  { label: 'Biased toward certain classes', text: 'Predictions appear biased toward certain classes. Examine label balance, threshold behavior, calibration, and subgroup performance.' },
-  { label: 'Performance decayed over time', text: 'Model performance has deteriorated over time. Examine chronology, drift, and whether recent data differs from the training window.' },
-  { label: 'Broad investigation — I don’t know what’s wrong', text: 'I don’t know what’s wrong. Investigate the model broadly: data quality, validation design, calibration, and competing failure hypotheses.' },
-]
-
-const TASK_TYPES = ['unknown', 'classification', 'regression', 'forecasting', 'ranking', 'clustering', 'other'] as const
-
-const STAGES = [
-  { n: '01', name: 'Artifact inspection', desc: 'load uploads read-only, record provenance' },
-  { n: '02', name: 'Diagnostic experiments', desc: 'bounded tools run against real artifacts' },
-  { n: '03', name: 'Hypothesis generation', desc: 'competing, falsifiable explanations' },
-  { n: '04', name: 'Evidence collection', desc: 'every claim linked to recorded output' },
-  { n: '05', name: 'Independent verification', desc: 'separate tool path reproduces findings' },
-  { n: '06', name: 'Final conclusions', desc: 'auditable report with limitations' },
-]
-
-function missingEvidence(files: UploadedFile[]): { label: string; present: boolean; hint: string }[] {
-  const names = files.map((f) => f.name.toLowerCase()).join('\n')
-  const hasCsv = files.some((f) => /\.(csv|jsonl?|parquet)$/.test(f.name.toLowerCase()))
-  const hasScores = /score|pred|prob|logit|oof|predict/.test(names)
-  const hasLabels = /label|target|truth|actual|y_|ground/.test(names)
-  const hasScript = files.some((f) => /\.py$/.test(f.name.toLowerCase()))
-  const hasConfig = files.some((f) => /\.(yaml|yml|toml|cfg|ini|json)$/.test(f.name.toLowerCase()))
-  const hasLogs = files.some((f) => /\.(log|txt|md)$/.test(f.name.toLowerCase()))
-  return [
-    { label: 'Predictions + ground truth', present: hasCsv && (hasScores || hasLabels), hint: hasCsv ? 'dataset-like file present — confirm it carries both score and label columns' : 'upload a predictions file (CSV/JSONL/Parquet with score + label columns)' },
-    { label: 'Model / project bundle', present: files.some((f) => /\.zip$/.test(f.name.toLowerCase())), hint: 'a .zip bundle with model files or source helps, but is never executed' },
-    { label: 'Training / evaluation scripts', present: hasScript, hint: 'scripts are read for provenance only — what was trained, how it was split' },
-    { label: 'Configuration', present: hasConfig, hint: 'hyperparameters, thresholds, and environment notes disambiguate results' },
-    { label: 'Logs & experiment records', present: hasLogs, hint: 'logs establish chronology: what ran, when, on which data' },
-  ]
-}
 
 export function NewInvestigationPage({ onOpen, onGo }: { onOpen: (id: string) => void; onGo: Go }) {
   const [files, setFiles] = useState<UploadedFile[]>([])
@@ -75,14 +36,9 @@ export function NewInvestigationPage({ onOpen, onGo }: { onOpen: (id: string) =>
     })
     if (!on && predPath === path) setPredPath('')
   }
-  const [title, setTitle] = useState('Model investigation — uploaded artifacts')
-  const [taskType, setTaskType] = useState<(typeof TASK_TYPES)[number]>('unknown')
-  const [modelType, setModelType] = useState('')
-  const [concern, setConcern] = useState('')
   const [creating, setCreating] = useState(false)
   const [createErr, setCreateErr] = useState('')
   const [createdId, setCreatedId] = useState<string | null>(null)
-  const [scoreCol, setScoreCol] = useState('score')
   const fileRef = useRef<HTMLInputElement | null>(null)
 
   async function refreshUploads() {
@@ -123,8 +79,6 @@ export function NewInvestigationPage({ onOpen, onGo }: { onOpen: (id: string) =>
     }
   }
 
-  const evidence = missingEvidence(included)
-
   function downloadPredictionsTemplate() {
     const rows = [
       'score,label',
@@ -151,16 +105,16 @@ export function NewInvestigationPage({ onOpen, onGo }: { onOpen: (id: string) =>
   async function start() {
     setCreating(true); setCreateErr(''); setCreatedId(null)
     try {
-      if (included.length === 0) throw new Error('No files selected — tick at least one file in Step 1 to include in the diagnostic.')
+      if (included.length === 0) throw new Error('No files selected — tick at least one file above to include in the diagnostic.')
       const questionParts = [
-        concern.trim() || 'Broad investigation: examine the uploaded material and surface competing, falsifiable failure hypotheses.',
-        `Declared task type: ${taskType}.`,
-        modelType.trim() ? `Declared model: ${modelType.trim()}.` : 'Model type: unknown (do not assume).',
+        'Broad investigation: examine the uploaded material and surface competing, falsifiable failure hypotheses.',
+        'Declared task type: unknown.',
+        'Model type: unknown (do not assume).',
         `Included artifacts (${included.length}): ${included.slice(0, 8).map((f) => f.path).join('; ')}${included.length > 8 ? '…' : ''}`,
       ]
       const inv = await api.createInvestigation({
         mode: 'ml',
-        title: title.trim() || 'Model investigation — uploaded artifacts',
+        title: 'Model investigation — uploaded artifacts',
         question: questionParts.join('\n'),
         predictions_path: predPath.trim() || undefined,
       })
@@ -179,8 +133,8 @@ export function NewInvestigationPage({ onOpen, onGo }: { onOpen: (id: string) =>
         <div className="kicker">General-purpose ML investigation platform</div>
         <h1>New Investigation</h1>
         <p className="verdict">
-          Bring model artifacts, describe what concerns you — or ask for a broad investigation —
-          and receive a rigorous, evidence-linked report. What cannot be established is shown
+          Bring model artifacts, pick the predictions file, and start —
+          you receive a rigorous, evidence-linked report. What cannot be established is shown
           as <b>unknown</b>, never invented.
         </p>
         <div className="actionsrow">
@@ -189,9 +143,7 @@ export function NewInvestigationPage({ onOpen, onGo }: { onOpen: (id: string) =>
         </div>
       </div>
 
-      {/* Step 1 */}
-      <section className="section" aria-label="Step 1 — Bring your model">
-        <h3>Step 1 · Bring your model</h3>
+      <section className="section" aria-label="Bring your model">
         <h2>Upload files from your computer</h2>
         <p className="sub">
           Diagnostics <b>read</b> files — never execute them. Actively analyzed: CSV / JSON / Parquet predictions &amp; datasets.
@@ -272,115 +224,11 @@ export function NewInvestigationPage({ onOpen, onGo }: { onOpen: (id: string) =>
         )}
       </section>
 
-      {/* Step 2 */}
-      <section className="section" aria-label="Step 2 — Understand the model">
-        <h3>Step 2 · Understand the model</h3>
-        <h2>What can be established from this material</h2>
-        <p className="sub">
-          A model file alone is rarely enough to diagnose behavior. The checklist below inspects your
-          uploads and names the missing evidence that would sharpen the investigation.
-        </p>
-        <div className="tablewrap">
-          <table>
-            <thead><tr><th>Property</th><th>Value</th></tr></thead>
-            <tbody>
-              <tr><td>Model type</td><td>{modelType.trim() || <span className="faint">unknown — declare below, or leave unknown</span>}</td></tr>
-              <tr><td>Task</td><td>{taskType === 'unknown' ? <span className="faint">unknown</span> : taskType}</td></tr>
-              <tr><td>Framework</td><td><span className="faint">unknown — inferred from bundle / config when present</span></td></tr>
-              <tr><td>Input features</td><td><span className="faint">unknown — established from dataset / predictions header</span></td></tr>
-              <tr><td>Artifacts on hand</td><td className="num">{included.length} selected ({files.length} uploaded)</td></tr>
-              <tr><td>Predictions source</td><td>{predPath ? <code className="inline">{predPath}</code> : <span className="faint">none selected — diagnostics needing scores will report the gap</span>}</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <h3 style={{ marginTop: 18 }}>Missing-evidence checklist</h3>
-        <div className="tablewrap">
-          <table>
-            <thead><tr><th>Evidence</th><th>Status</th><th>Why it matters</th></tr></thead>
-            <tbody>
-              {evidence.map((e) => (
-                <tr key={e.label}>
-                  <td>{e.label}</td>
-                  <td>{e.present ? <span className="pill ok">present?</span> : <span className="pill warn">missing</span>}</td>
-                  <td className="muted">{e.hint}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      {/* Step 3 */}
-      <section className="section" aria-label="Step 3 — Configure the investigation">
-        <h3>Step 3 · Configure the investigation</h3>
-        <h2>What concerns you?</h2>
-        <p className="sub">Pick a preset or write your own. There is always a general option for when you don’t know what to look for.</p>
-        <div className="actionsrow" style={{ marginBottom: 12 }}>
-          {CONCERN_PRESETS.map((p) => (
-            <button key={p.label} className="ghost" onClick={() => setConcern(p.text)}>{p.label}</button>
-          ))}
-        </div>
-        <div className="row" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'flex-end' }}>
-          <div className="field" style={{ maxWidth: 320 }}>
-            <label htmlFor="ni-title">Investigation title</label>
-            <input id="ni-title" value={title} onChange={(e) => setTitle(e.target.value)} />
-          </div>
-          <div className="field" style={{ maxWidth: 220 }}>
-            <label htmlFor="ni-task">Task type</label>
-            <select id="ni-task" value={taskType} onChange={(e) => setTaskType(e.target.value as typeof taskType)}>
-              {TASK_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
-            </select>
-          </div>
-          <div className="field" style={{ maxWidth: 320 }}>
-            <label htmlFor="ni-model">Model type (optional — unknown is fine)</label>
-            <input id="ni-model" value={modelType} placeholder="e.g. gradient boosting, ResNet, BPE-LM…"
-              onChange={(e) => setModelType(e.target.value)} />
-          </div>
-        </div>
-        <div className="field" style={{ marginTop: 10 }}>
-          <label htmlFor="ni-concern">Concern / question</label>
-          <textarea id="ni-concern" value={concern} onChange={(e) => setConcern(e.target.value)}
-            placeholder="e.g. My model performs well during training but poorly on unseen data — or leave blank for a broad investigation." />
-        </div>
-        <div className="row" style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'flex-end', marginTop: 10 }}>
-          <div className="field" style={{ maxWidth: 560, flex: 2 }}>
-            <label htmlFor="ni-pred">Predictions path override (optional)</label>
-            <input id="ni-pred" value={predPath} placeholder="blank = no score-based diagnostics"
-              onChange={(e) => setPredPath(e.target.value)} />
-          </div>
-          <div className="field" style={{ maxWidth: 200 }}>
-            <label htmlFor="ni-score">Score column</label>
-            <input id="ni-score" value={scoreCol} placeholder="score"
-              onChange={(e) => setScoreCol(e.target.value)} />
-          </div>
-        </div>
-        <p className="faint" style={{ fontSize: 12 }}>
-          The score column is auto-detected from the uploaded file when Step 4 runs — only change this if your scores live under an unusual column name.
-        </p>
-      </section>
-
-      {/* Step 4 */}
-      <section className="section" aria-label="Step 4 — Investigation begins">
-        <h3>Step 4 · Investigation begins</h3>
-        <h2>The engine becomes the centerpiece</h2>
-        <p className="sub">
-          Creating the investigation loads artifact context, then the workspace exposes each stage for
-          inspection — never an unexplained loading animation.
-        </p>
-        <div className="tablewrap">
-          <table>
-            <thead><tr><th>#</th><th>Stage</th><th>What you inspect</th></tr></thead>
-            <tbody>
-              {STAGES.map((s) => (
-                <tr key={s.n}><td className="num">{s.n}</td><td>{s.name}</td><td className="muted">{s.desc}</td></tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+      <section className="section" aria-label="Start investigation">
         <div className="verdict">
           {predPath
             ? <><b>Will diagnose</b> <code className="inline">{predPath}</code>{' '}
-                <span className="faint">change it with “use this file” in Step 1</span></>
+                <span className="faint">change it with “use this file” above</span></>
             : <><span className="pill warn">no predictions file selected</span><span className="faint">auto diagnostics will be skipped</span></>}
         </div>
         <div className="actionsrow" style={{ marginTop: 12 }}>
@@ -396,36 +244,6 @@ export function NewInvestigationPage({ onOpen, onGo }: { onOpen: (id: string) =>
             <button className="link" onClick={() => onOpen(createdId)}>Open the workspace →</button>
           </Note>
         )}
-      </section>
-
-      {/* Step 5 */}
-      <section className="section" aria-label="Step 5 — Results">
-        <h3>Step 5 · Results</h3>
-        <h2>What a finished report contains</h2>
-        <p className="sub">
-          Discovery, evidence, verification, and confirmation are visually distinct throughout the report —
-          supported findings never look like open questions.
-        </p>
-        <div className="tablewrap">
-          <table>
-            <thead><tr><th>Section</th><th>Answers</th></tr></thead>
-            <tbody>
-              <tr><td>Executive summary</td><td className="muted">What was discovered, in plain language</td></tr>
-              <tr><td>Findings</td><td className="muted">What problems were identified</td></tr>
-              <tr><td>Hypotheses</td><td className="muted">Which explanations were supported, rejected, or remain unresolved</td></tr>
-              <tr><td>Evidence</td><td className="muted">What actual experiments support each finding</td></tr>
-              <tr><td>Verification</td><td className="muted">Which explanations were independently tested</td></tr>
-              <tr><td>Recommendations</td><td className="muted">What to investigate or change next</td></tr>
-              <tr><td>Reproducibility</td><td className="muted">Whether the investigation can be repeated</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <Note>
-          Benchmark evaluations of the investigator itself live on the <b>Evaluation</b> page — sealed
-          ground truth, mechanism-level scoring. Your uploads and investigations are never mixed into
-          those corpora; user history stays on the <b>History</b> page.
-        </Note>
-
       </section>
     </>
   )
