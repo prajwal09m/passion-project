@@ -19,9 +19,14 @@ if __name__ == "__main__":
             raise ValueError
     except ValueError:
         _raw, _port = "", 8000
-    # Only bind 0.0.0.0 when a real hosting PORT is provided; local runs
-    # (empty/invalid PORT, e.g. PORT=0 in some shells) stay on loopback.
-    _host = "0.0.0.0" if (_raw and _port != 8000) else "127.0.0.1"
+    # Only bind 0.0.0.0 when hosting asks for it; local runs stay loopback.
+    # EC2/AWS: set MODEL_AUTOPSY_HOST=0.0.0.0 (and PORT=8000 or 80).
+    # Render/HF: set PORT (non-8000) and host follows automatically.
+    _explicit_host = (_os.environ.get("MODEL_AUTOPSY_HOST", "") or "").strip()
+    if _explicit_host:
+        _host = _explicit_host
+    else:
+        _host = "0.0.0.0" if (_raw and _port != 8000) else "127.0.0.1"
     if not _raw:
         _port = 8000
     uvicorn.run("model_autopsy.backend.api:app", host=_host, port=_port,

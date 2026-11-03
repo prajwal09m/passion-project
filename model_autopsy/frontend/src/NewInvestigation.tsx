@@ -11,7 +11,6 @@
 // described, never executed; the backend tools read uploads read-only.
 import { useEffect, useRef, useState } from 'react'
 import { api, uploadArtifacts, type UploadedFile } from './api'
-import { runFullBattery } from './autoBattery'
 import { EmptyState, Loading, Note } from './ui'
 
 type Go = (p: 'history' | 'eval' | 'cases' | 'projects' | 'new') => void
@@ -84,12 +83,6 @@ export function NewInvestigationPage({ onOpen, onGo }: { onOpen: (id: string) =>
   const [createErr, setCreateErr] = useState('')
   const [createdId, setCreatedId] = useState<string | null>(null)
   const [scoreCol, setScoreCol] = useState('score')
-  const [autoRun, setAutoRun] = useState(true)
-  const [autoLog, setAutoLog] = useState<string[]>([])
-  const [reportSummary, setReportSummary] = useState<null | {
-    confirmed: number; likely: number; rejected: number;
-    unresolved: number; evidence: number
-  }>(null)
   const fileRef = useRef<HTMLInputElement | null>(null)
 
   async function refreshUploads() {
@@ -173,30 +166,11 @@ export function NewInvestigationPage({ onOpen, onGo }: { onOpen: (id: string) =>
       })
       await api.buildContext(inv.id)
       setCreatedId(inv.id)
-      if (autoRun) {
-        if (predPath.trim()) {
-          await runBattery(inv.id, predPath.trim(), scoreCol.trim() || 'score')
-        } else {
-          setAutoLog([
-            'No predictions file selected — investigation created without auto diagnostics.',
-            'Scripts (.py) are read for provenance only and never executed, so they cannot produce predictions.',
-            'Pick a predictions CSV in Step 1 ("use this file") and press Start again, or run tools manually in the workspace.',
-          ])
-        }
-      }
     } catch (e) {
       setCreateErr(e instanceof Error ? e.message : String(e))
     } finally {
       setCreating(false)
     }
-  }
-
-  /** One-click full investigation: diagnostics battery + report, no extra clicks. */
-  async function runBattery(invId: string, pred: string, fallbackScore: string) {
-    setAutoLog([]); setReportSummary(null)
-    const summary = await runFullBattery(invId, pred, fallbackScore,
-      (s) => setAutoLog((l) => [...l, s]))
-    setReportSummary(summary)
   }
 
   return (
@@ -403,13 +377,6 @@ export function NewInvestigationPage({ onOpen, onGo }: { onOpen: (id: string) =>
             </tbody>
           </table>
         </div>
-        <div className="field" style={{ marginTop: 12 }}>
-          <label style={{ display: 'flex', gap: 8, alignItems: 'center', cursor: 'pointer' }}>
-            <input type="checkbox" checked={autoRun} style={{ width: 'auto' }}
-              onChange={(e) => setAutoRun(e.target.checked)} />
-            Run the full investigation automatically — diagnostics battery + report, one click
-          </label>
-        </div>
         <div className="verdict">
           {predPath
             ? <><b>Will diagnose</b> <code className="inline">{predPath}</code>{' '}
@@ -418,26 +385,14 @@ export function NewInvestigationPage({ onOpen, onGo }: { onOpen: (id: string) =>
         </div>
         <div className="actionsrow" style={{ marginTop: 12 }}>
           <button className="primary" disabled={creating} onClick={start}>
-            {creating ? 'Running full investigation…' : autoRun ? 'Start — upload, diagnose, report' : 'Start investigation'}
+            {creating ? 'Creating…' : 'Start investigation'}
           </button>
-          <span className="faint">Budget: ≤3 iterations, ≤12 tool calls — tight by design.</span>
+          <span className="faint">Meta AI runs the diagnostics in the workspace — no offline battery. Budget: ≤3 iterations, ≤12 tool calls.</span>
         </div>
         {createErr && <Note kind="bad">{createErr}</Note>}
-        {autoLog.length > 0 && (
-          <details style={{ marginTop: 8 }}>
-            <summary className="faint" style={{ cursor: 'pointer', fontSize: 12 }}>Auto-investigation log ({autoLog.length})</summary>
-            <ul className="tl" style={{ marginTop: 6 }}>
-              {autoLog.map((line, i) => (
-                <li key={i} className="k-info"><span className="tlt">{line}</span></li>
-              ))}
-            </ul>
-          </details>
-        )}
         {createdId && (
           <Note kind="ok">
-            {reportSummary
-              ? <>Diagnostic battery finished — report: {reportSummary.confirmed} confirmed · {reportSummary.likely} likely · {reportSummary.unresolved} unresolved · {reportSummary.evidence} evidence actions. Execution finished; check the workspace scientific assessment for what is actually established.{' '}</>
-              : <>Investigation created and context loaded.{' '}</>}
+            <>Investigation created and context loaded. Open the workspace and press “Run bounded Meta turn” — Meta is the investigator.{' '}</>
             <button className="link" onClick={() => onOpen(createdId)}>Open the workspace →</button>
           </Note>
         )}

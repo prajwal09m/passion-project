@@ -10,7 +10,6 @@ import { EmptyState, ErrorState, Loading, Note, Pill, ResultRenderer, fmtInt, fm
 import { ResearchLabPanel } from './ResearchLab'
 import { TimelineFunnelChart } from './charts'
 import { CausalPanel } from './CausalPanel'
-import { runFullBattery } from './autoBattery'
 
 function short(id: string): string { return id.slice(0, 8) }
 
@@ -77,7 +76,6 @@ export default function Workspace({ id, onBack }: { id: string; onBack: () => vo
   const [busy, setBusy] = useState('') // '' | 'ctx' | 'tool' | 'meta' | 'report' | 'auto' | ...
   const [actErr, setActErr] = useState('')
   const [actOk, setActOk] = useState('')
-  const [autoLog, setAutoLog] = useState<string[]>([])
   const [lastToolOutput, setLastToolOutput] = useState<Action | null>(null)
   // Fresh detail state so budget/hypotheses/evidence update in place after
   // every action instead of showing stale numbers until a manual reload.
