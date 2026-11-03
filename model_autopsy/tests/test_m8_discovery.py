@@ -107,6 +107,74 @@ def test_stopping_rules():
     assert not stop and "remain" in why
 
 
+def test_leak_family_routes_leak_flag_text():
+    from model_autopsy.backend.causal import selection as SEL
+    assert SEL._family_of("leak_flag mirrors the label across clinics") \
+        == "leakage"
+    assert SEL._family_of("Feature carries information unavailable at "
+                          "prediction time") == "leakage"
+    # Bare overlap-leak wording stays split-hygiene (linker cross-treats it).
+    assert SEL._family_of("train/test overlap leaks examples") \
+        == "split-hygiene"
+
+
+def test_score_candidate_credits_leakage_tool():
+    from model_autopsy.backend.causal import selection as SEL
+    hyps = [{"text": "leak_flag mirrors the label"}]
+    assert SEL._family_of(hyps[0]["text"]) == "leakage"
+    r = SEL.score_candidate("feature_target_suspiciousness", hyps, set())
+    assert "leakage" in r["covers"]
+    assert r["expected_value"] in ("medium", "high")
+    assert r["redundant"] is False
+
+
+def test_leak_screen_owed_from_recorded_schema():
+    from model_autopsy.backend.causal import planning as PL
+    schema = {"predictions_file": "multi_clinic.csv",
+              "columns": ["score", "label", "age", "ward",
+                            "leak_flag"]}
+    assert PL.leak_screen_owed(schema, set()) is True
+    assert PL.leak_screen_owed(
+        schema, {"feature_target_suspiciousness"}) is False
+    assert PL.leak_screen_owed(None, set()) is False
+    assert PL.leak_screen_owed(
+        {"columns": ["score", "label", "fold"]}, set()) is False
+
+
+def test_plan_boosts_baseline_leak_screen():
+    # The fresh-run starvation: slice/prevalence/quality hypotheses open,
+    # feature columns on record, suspicion probe never ran. The probe must
+    # be recommended high — before the fix it sat at medium forever and
+    # the leak stayed invisible.
+    from model_autopsy.backend.causal import planning as PL
+    hyps = [
+        _h("h1", "Model failure is driven by clinic-slice disparity: one "
+                   "or more clinics has substantially worse ranking "
+                   "performance due to site-specific feature differences"),
+        _h("h2", "Apparent failure reflects target/prevalence shift "
+                   "across clinics, not worse discrimination"),
+        _h("h3", "Failure is due to data quality artifact: missing "
+                   "values and degenerate columns in one segment"),
+    ]
+    ran = {"artifact_summary", "dataset_validation",
+           "classification_metrics"}
+    plan = PL.plan_next(hyps, ran, {"experiments": 6},
+                        leak_screen_due=True)
+    rec = {r["tool"]: r for r in plan["recommended"]}
+    assert "feature_target_suspiciousness" in rec
+    assert rec["feature_target_suspiciousness"]["expected_value"] == "high"
+    assert "Baseline leak screen" in \
+        rec["feature_target_suspiciousness"]["reason"]
+    # Without the baseline signal nothing changes (no leakage hypothesis).
+    plan2 = PL.plan_next(hyps, ran, {"experiments": 6},
+                         leak_screen_due=False)
+    assert all("Baseline leak screen" not in r["reason"]
+               for r in plan2["recommended"])
+    assert all(r["tool"] != "feature_target_suspiciousness"
+               or r["expected_value"] != "high"
+               for r in plan2["recommended"])
+
+
 def test_selection_explains_rejection_of_redundant():
     from model_autopsy.backend.causal import selection as SEL
     hyps = [{"text": "A sudden level shift after day 500 degrades forecasts"}]

@@ -14,10 +14,43 @@ def open_hypotheses(hypotheses: list[dict]) -> list[dict]:
             if h.get("status") in ("proposed", "investigating")]
 
 
+# Columns that carry no leak-screening signal: scores, labels, and pure
+# grouping keys. Anything else recorded on the predictions file is a
+# candidate feature column worth screening once for label-duplication.
+_NON_FEATURE_COLUMNS = frozenset({
+    "score", "prediction", "pred", "prob", "proba", "probability",
+    "y_score", "y_pred", "logit", "oof", "label", "target", "y",
+    "grade", "relevance", "fold", "date", "ticker", "symbol",
+    "split", "fold_id", "sample_id",
+})
+
+
+def leak_screen_owed(dataset_schema: dict | None,
+                     already_ran: set[str]) -> bool:
+    """Baseline leak screen owed? Pure function of recorded state.
+
+    True when the recorded predictions file carries at least one
+    unscreened feature column and feature_target_suspiciousness never
+    ran. The suspicion probe is the only tool that can surface a
+    label-duplicate column, and coverage-driven selection can never
+    recommend it until a leakage-family hypothesis exists — which no
+    evidence will ever propose without the probe having run. Without
+    this baseline nudge the leak check starves permanently.
+    """
+    if not dataset_schema \
+            or "feature_target_suspiciousness" in (already_ran or ()):
+        return False
+    cols = [str(c) for c in (dataset_schema.get("columns") or [])]
+    feats = [c for c in cols
+             if c.lower() not in _NON_FEATURE_COLUMNS]
+    return len(feats) > 0
+
+
 def plan_next(hypotheses: list[dict], already_ran: set[str],
               budget_left: dict,
               already_failed: set[str] | frozenset = frozenset(),
-              already_inapplicable: set[str] | frozenset = frozenset()
+              already_inapplicable: set[str] | frozenset = frozenset(),
+              leak_screen_due: bool = False
               ) -> dict:
     """Durable plan from recorded state (no model judgment, no truth)."""
     from .selection import rank_candidates, explain_selection
@@ -51,6 +84,16 @@ def plan_next(hypotheses: list[dict], already_ran: set[str],
                 r["expected_value"] = "high"
                 r["reason"] += (" Fills a missing measurement for an "
                                   "open hypothesis.")
+        if leak_screen_due:
+            for r in ranked:
+                if r["tool"] == "feature_target_suspiciousness" \
+                        and not r["redundant"] \
+                        and r["expected_value"] != "high":
+                    r["expected_value"] = "high"
+                    r["reason"] += (" Baseline leak screen: the "
+                                      "predictions file carries feature "
+                                      "columns never screened for "
+                                      "label-duplication.")
         _order = {"high": 0, "medium": 1, "low": 2}
         ranked.sort(key=lambda s: (_order[s["expected_value"]],
                                     s["tool"]))

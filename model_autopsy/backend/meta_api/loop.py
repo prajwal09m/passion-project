@@ -509,20 +509,16 @@ def run_meta_turn(session: Session, inv: Investigation,
     _failed_names = {a.tool_name for a in session.query(Action).filter(
         Action.investigation_id == inv.id, Action.status == "failed").all()
         if a.tool_name}
+    _schema_for_screen = _recorded_dataset_schema(session, inv)
+    _leak_due = _planning.leak_screen_owed(_schema_for_screen, _ran_names)
     _brief = _planning.plan_next(
         _hviews, _ran_names,
         {"tool_calls_used": inv.tool_call_count,
          "tool_calls_max": inv.max_tool_calls},
-        already_failed=_failed_names)
+        already_failed=_failed_names,
+        leak_screen_due=_leak_due)
     _top_names = [r["tool"] for r in _brief["recommended"]]
-    input_items = list(input_items) + [{
-        "role": "user", "content": json.dumps({
-            "selection_brief": {
-                "recommended": _brief["recommended"],
-                "open_hypotheses": _brief["open"],
-                "untested": _brief["untested"],
-                "dataset_schema": _recorded_dataset_schema(session, inv),
-                "instruction": (
+    _instruction = (
                     "Run the top recommended diagnostic first unless "
                     "recorded evidence already answers it; if you deviate, "
                     "state why in one sentence. "
@@ -544,11 +540,27 @@ def run_meta_turn(session: Session, inv: Investigation,
                     "dataset_schema.columns when present — never invent "
                     "fold/split/date/target; if the column you need is "
                     "absent, use the closest present column or record why "
-                    "none fits.")}}, sort_keys=True)}]
+                    "none fits.")
+    if _leak_due:
+        _instruction += (" Baseline leak screen is due: dataset_schema "
+                         "shows feature columns never screened for "
+                         "label-duplication — prioritize "
+                         "feature_target_suspiciousness (feature_csv and "
+                         "label_csv set to the predictions file) among the "
+                         "recommended diagnostics.")
+    input_items = list(input_items) + [{
+        "role": "user", "content": json.dumps({
+            "selection_brief": {
+                "recommended": _brief["recommended"],
+                "open_hypotheses": _brief["open"],
+                "untested": _brief["untested"],
+                "dataset_schema": _schema_for_screen,
+                "instruction": _instruction}}, sort_keys=True)}]
     record_event(session, inv.id, "selection",
                  f"Selection brief: top={(_top_names[:1] or ['none'])[0]}",
                  payload={"recommended": _top_names,
-                          "open": [h["id"] for h in _brief["open"]]})
+                          "open": [h["id"] for h in _brief["open"]],
+                          "leak_screen_due": _leak_due})
     session.commit()
     last_id = previous_response_id
     fallback_used = False

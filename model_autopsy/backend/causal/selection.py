@@ -57,7 +57,10 @@ TOOL_DISCRIMINATES = {
 def _family_of(text: str) -> str:
     t = (text or "").lower()
     if any(w in t for w in ("leakage", "leaked", "data leak",
-                             "label leak")):
+                             "label leak", "leak_flag", "post-outcome",
+                             "unavailable at prediction",
+                             "future information", "lookahead",
+                             "look-ahead")):
         return "leakage"
     if any(w in t for w in ("drift", "shift", "level", "regime", "growth", "demand")):
         return "drift"
@@ -101,6 +104,8 @@ def score_candidate(tool: str, hypotheses: list[dict],
                                   or "calibration" in disc):
             covers.add(f)
         if f == "misspecification" and ("misspecification" in disc or "drift" in disc):
+            covers.add(f)
+        if f == "leakage" and "leakage" in disc:
             covers.add(f)
         if f in ("quality",) and disc:
             covers.add(f)
