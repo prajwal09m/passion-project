@@ -1,5 +1,9 @@
 # Demand Zone AI — Research and Autonomy Study
 
+
+**MAIN LINK FOR THE MODEL AUTOPSY RUNNING (AWS) - http://3.19.56.66:8000/**
+
+
 This repository preserves the existing short-horizon stock-analysis ML research system and its V1–V10 development history. It also contains an evidence-gated autonomous research supervisor; it does not replace the historical project or treat incomparable generations as a single performance ladder.
 
 **Research history:** [EVOLUTION_HISTORY.md](EVOLUTION_HISTORY.md) · [Research memory](RESEARCH_MEMORY.md) · [Version ledger](VERSION_HISTORY.md)
